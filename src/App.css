@@ -534,7 +534,7 @@ img[alt="preview"] {
   z-index: 20;
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, #101c26 0%, #172d3e 100%);
+  background: #101c26; /* <-- Use your main background color! */
 }
 
 .nav-tab {
@@ -638,35 +638,20 @@ img[alt="preview"] {
 }
 
 /* --- Fix for ETH address blur in popup --- */
-.eth-popup,
-.eth-address {
-  font-family: monospace !important;
+/* Ensure eth address and popup are sharp and unblurred */
+.eth-address, .eth-popup {
+  font-family: inherit, monospace !important;
+  font-variant-ligatures: none !important;
   font-weight: 600 !important;
   font-size: 1rem !important;
   color: #36ff95 !important;
-  background: transparent !important;
   filter: none !important;
   opacity: 1 !important;
-  text-shadow: 0 0 6px #36ff9575;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  letter-spacing: 0.02em !important;
-  will-change: transform, opacity;
-}
-
-.eth-popup,
-.eth-address {
-  filter: none !important;
-  backdrop-filter: none !important;
-  opacity: 1 !important;
   background: transparent !important;
-  color: #36ff95 !important;
-  font-family: monospace !important;
-  font-weight: 600 !important;
-  font-size: 1rem !important;
   text-shadow: 0 0 6px #36ff9575 !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
-  z-index: 99999 !important;
-  pointer-events: auto !important;
+  letter-spacing: 0.02em !important;
+  will-change: auto;
 }
+

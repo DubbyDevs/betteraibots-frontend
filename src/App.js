@@ -224,7 +224,7 @@ const rawBots = [
   {
     title: "Academic Assistant Pro",
     desc: "Academic support, research help, citation, essay and study tools.",
-    image: placeholderImg4,
+    image: placeholderImg23,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-UubB08D4y-academic-assistant-pro",
     categories: ["Education"]
@@ -287,7 +287,7 @@ const rawBots = [
   {
     title: "Scholar GPT",
     desc: "AI-powered academic research assistant for scholars and students.",
-    image: placeholderImg23,
+    image: placeholderImg4,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt",
     categories: ["Education"]
