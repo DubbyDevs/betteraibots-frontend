@@ -478,7 +478,7 @@ img[alt="preview"] {
   flex-direction: column;
   align-items: center;
   animation: fadeInMenu 0.17s;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(1px);
 }
 
 .menu-dropdown-centered ul {
@@ -637,4 +637,36 @@ img[alt="preview"] {
  font-weight: 300; /* or 300 for thinner, or normal */
 }
 
+/* --- Fix for ETH address blur in popup --- */
+.eth-popup,
+.eth-address {
+  font-family: monospace !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #36ff95 !important;
+  background: transparent !important;
+  filter: none !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 6px #36ff9575;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  letter-spacing: 0.02em !important;
+  will-change: transform, opacity;
+}
 
+.eth-popup,
+.eth-address {
+  filter: none !important;
+  backdrop-filter: none !important;
+  opacity: 1 !important;
+  background: transparent !important;
+  color: #36ff95 !important;
+  font-family: monospace !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  text-shadow: 0 0 6px #36ff9575 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}

@@ -1,22 +1,8 @@
+import React, { useState, useEffect, useRef } from "react";
+import logo from './assets/betteraibotsglowlogo.png';
+import logoSmall from './assets/betteraibotsglowlogo8small.png';
 import helperLogo from './assets/findbetteraibotshelper.png';
 import helperBotLogo from './assets/findthebestaibotshelper.png';
-import ReCAPTCHA from "react-google-recaptcha";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import React, { useState, useEffect, useRef } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-  useParams,
-  useLocation,
-  Link,
-  Navigate
-} from "react-router-dom";
-import { Helmet, HelmetProvider } from "react-helmet-async";
-import logo from './assets/betteraibotsglowlogo.png';
 import lovedocImg from './assets/lovedocplaceholder.png';
 import placeholderImg from './assets/bot-placeholder.png';
 import placeholderImg1 from './assets/bot-placeholder1.png';
@@ -37,6 +23,32 @@ import placeholderImg15 from './assets/bot-placeholder15.png';
 import placeholderImg16 from './assets/bot-placeholder16.png';
 import placeholderImg17 from './assets/bot-placeholder17.png';
 import placeholderImg18 from './assets/bot-placeholder18.png';
+import placeholderImg19 from './assets/bot-placeholder19.png';
+import placeholderImg20 from './assets/bot-placeholder20.png';
+import placeholderImg21 from './assets/bot-placeholder21.png';
+import placeholderImg22 from './assets/bot-placeholder22.png';
+import placeholderImg23 from './assets/bot-placeholder23.png';
+import placeholderImg24 from './assets/bot-placeholder24.png';
+import placeholderImg25 from './assets/bot-placeholder25.png';
+import placeholderImg26 from './assets/bot-placeholder26.png';
+
+import tipJar from './assets/thebestfreeaibotsgpt.png';
+
+import ReCAPTCHA from "react-google-recaptcha";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import { Modal, Button, Form } from "react-bootstrap";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  useParams,
+  useLocation,
+  Link,
+  Navigate
+} from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 // ---- Category List ----
 const CATEGORIES = [
@@ -67,7 +79,9 @@ const placeholderImgs = [
   placeholderImg1, placeholderImg2, placeholderImg3, placeholderImg4, placeholderImg5,
   placeholderImg6, placeholderImg7, placeholderImg8, placeholderImg9, placeholderImg10,
   placeholderImg11, placeholderImg12, placeholderImg13, placeholderImg14, placeholderImg15,
-  placeholderImg16, placeholderImg17, placeholderImg18,
+  placeholderImg16, placeholderImg17, placeholderImg18, placeholderImg19, placeholderImg20, 
+  placeholderImg21, placeholderImg22, placeholderImg23, placeholderImg24, placeholderImg25, 
+  placeholderImg26
 ];
 
 // ---- Shuffle utility for placeholders ----
@@ -202,7 +216,7 @@ const rawBots = [
   {
     title: "Stocks, Crypto, Options & Forex Market Summary",
     desc: "Summaries for stocks, crypto, options, forex and market analysis.",
-    image: placeholderImg8,
+    image: placeholderImg20,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-5wVuKfpEt-stocks-crypto-options-forex-market-summary",
     categories: ["Productivity"]
@@ -218,7 +232,7 @@ const rawBots = [
   {
     title: "Math AI",
     desc: "Math solver and explainer: equations, word problems, and more.",
-    image: placeholderImg2,
+    image: placeholderImg21,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-WP1diWHRl-math",
     categories: ["Education"]
@@ -226,7 +240,7 @@ const rawBots = [
   {
     title: "YouTube AI",
     desc: "AI for video summaries, channel insights, and content ideas for YouTube.",
-    image: placeholderImg7,
+    image: placeholderImg17,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-Wud3tXQj3-youtube-ai",
     categories: ["Productivity", "Digital Art"]
@@ -238,6 +252,53 @@ const rawBots = [
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-2Eo3NxuS7-designergpt",
     categories: ["Digital Art"]
+  },{
+    title: "Video GPT by VEED – Instant Free AI Video Maker",
+    desc: "Create AI-generated videos instantly for free with Video GPT by VEED.",
+    image: placeholderImg22,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-Hkqnd7mFT-video-gpt-by-veed-instant-free-ai-video-maker",
+    categories: ["Digital Art", "Productivity"]
+  },
+  {
+    title: "AI Music Prompt Generator",
+    desc: "Generate creative prompts for AI music generation and songwriting.",
+    image: placeholderImg19,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-y2J4bAO8A-ai-music-prompt-generator",
+    categories: ["Music", "Productivity"]
+  },
+  {
+    title: "Blood Test Result Analysis for Health Insight",
+    desc: "Understand your blood test results and get actionable health insights. Not real medical advice.",
+    image: placeholderImg24,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-1AahKhimZ-blood-test-result-analysis-for-health-insight",
+    categories: ["Lifestyle", "Education"]
+  },
+  {
+    title: "SciSpace",
+    desc: "Ask questions and search for scientific literature instantly with SciSpace GPT.",
+    image: placeholderImg25,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-NgAcklHd8-scispace",
+    categories: ["Education", "Productivity"]
+  },
+  {
+    title: "Scholar GPT",
+    desc: "AI-powered academic research assistant for scholars and students.",
+    image: placeholderImg23,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt",
+    categories: ["Education"]
+  },
+  {
+    title: "PlaylistAI – Music Playlist Maker",
+    desc: "Instantly create music playlists using AI and your favorite genres or moods.",
+    image: placeholderImg26,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-KkxbQAVuk-playlistai-music-playlist-maker",
+    categories: ["Music", "Lifestyle"]
   },
 ];
 
@@ -707,23 +768,22 @@ function Legal() {
 }
 
 // --- MODERATION PAGE (admin add bot) ---
-function Moderation({ botList, approveBot }) {
+// --- MODERATION PAGE (admin add bot & approve/reject) ---
+function Moderation({ approveBot }) {
   const [pw, setPw] = useState("");
   const [authed, setAuthed] = useState(false);
-  const [pending, setPending] = useState(() => {
+
+  // Main pending bots state (from localStorage)
+  const [pendingBots, setPendingBots] = useState(() => {
     const stored = localStorage.getItem("pendingBots");
     return stored ? JSON.parse(stored) : [];
   });
 
-  // --- Contact Messages state and effect ---
+  // Contact messages for review
   const [contactMessages, setContactMessages] = useState(() => {
     const stored = localStorage.getItem("contactMessages");
     return stored ? JSON.parse(stored) : [];
   });
-  useEffect(() => {
-    const stored = localStorage.getItem("contactMessages");
-    setContactMessages(stored ? JSON.parse(stored) : []);
-  }, []);
 
   // Admin Add Bot states
   const [adminAddMode, setAdminAddMode] = useState(false);
@@ -737,10 +797,17 @@ function Moderation({ botList, approveBot }) {
   const [adminErr, setAdminErr] = useState("");
   const [adminSuccess, setAdminSuccess] = useState("");
 
+  // Store any changes to pending bots in localStorage
   useEffect(() => {
-    localStorage.setItem("pendingBots", JSON.stringify(pending));
-  }, [pending]);
+    localStorage.setItem("pendingBots", JSON.stringify(pendingBots));
+  }, [pendingBots]);
 
+  useEffect(() => {
+    const stored = localStorage.getItem("contactMessages");
+    setContactMessages(stored ? JSON.parse(stored) : []);
+  }, []);
+
+  // Auth
   const MOD_PASS = "letmein"; // Change for production
 
   function handleAuth(e) {
@@ -748,15 +815,18 @@ function Moderation({ botList, approveBot }) {
     if (pw === MOD_PASS) setAuthed(true);
   }
 
+  // Approve: Move bot from pending to main bots list
   function handleApprove(idx) {
-    approveBot(pending[idx]);
-    setPending(prev => prev.filter((_, i) => i !== idx));
+    approveBot({ ...pendingBots[idx], verified: true });
+    setPendingBots(prev => prev.filter((_, i) => i !== idx));
   }
 
+  // Reject: Just remove from pending
   function handleReject(idx) {
-    setPending(prev => prev.filter((_, i) => i !== idx));
+    setPendingBots(prev => prev.filter((_, i) => i !== idx));
   }
 
+  // Handle Admin Add Bot
   function handleAdminBotChange(e) {
     const { name, value } = e.target;
     setAdminBot(prev => ({ ...prev, [name]: value }));
@@ -774,18 +844,12 @@ function Moderation({ botList, approveBot }) {
       desc: adminBot.desc,
       openaiLink: adminBot.openaiLink,
       image: adminBot.image || undefined, // auto placeholder if blank
-      verified: true,
+      verified: false,
       categories: adminBot.categories
         ? adminBot.categories.split(",").map(s => s.trim()).filter(Boolean)
         : [],
     };
-    // Save in localStorage so it appears right away (for dev only)
-    let approvedBots = [];
-    try {
-      approvedBots = JSON.parse(localStorage.getItem("approvedBots") || "[]");
-    } catch { }
-    approvedBots.unshift(newBot);
-    localStorage.setItem("approvedBots", JSON.stringify(approvedBots));
+    setPendingBots(prev => [newBot, ...prev]);
     setAdminBot({
       title: "",
       desc: "",
@@ -794,11 +858,11 @@ function Moderation({ botList, approveBot }) {
       categories: "",
     });
     setAdminErr("");
-    setAdminSuccess("Bot added and live!");
+    setAdminSuccess("Bot added to pending!");
     setTimeout(() => setAdminSuccess(""), 1500);
   }
 
-  // On mount, if approvedBots in localStorage, add to botList via approveBot
+  // On mount, approve any "approvedBots" from localStorage (legacy support)
   useEffect(() => {
     let approvedBots = [];
     try {
@@ -811,6 +875,7 @@ function Moderation({ botList, approveBot }) {
     // eslint-disable-next-line
   }, []);
 
+  // ---- RENDER ----
   if (!authed) {
     return (
       <div className="hero-section">
@@ -851,7 +916,7 @@ function Moderation({ botList, approveBot }) {
               <input className="form-control" name="openaiLink" value={adminBot.openaiLink} onChange={handleAdminBotChange} required />
             </div>
             <div style={{ marginBottom: 7 }}>
-              <label className="form-label neon-green">Image Import (e.g. placeholderImg2, or leave blank)</label>
+              <label className="form-label neon-green">Image Import (optional)</label>
               <input className="form-control" name="image" value={adminBot.image} onChange={handleAdminBotChange} />
             </div>
             <div style={{ marginBottom: 7 }}>
@@ -866,23 +931,22 @@ function Moderation({ botList, approveBot }) {
       </div>
 
       {/* Pending Submissions */}
-      {pending.length === 0 ? (
+      <h2 style={{ color: "#36ff95", fontWeight: 700, fontSize: "1.28rem" }}>Pending Bot Submissions</h2>
+      {/* pendingBots is referenced here for linting and for admin moderation */}
+      {pendingBots.length === 0 ? (
         <div className="neon-green" style={{ marginTop: 35 }}>No pending submissions 🎉</div>
       ) : (
-        <>
-          <h2 style={{ color: "#36ff95", fontWeight: 700, fontSize: "1.28rem" }}>Pending Bot Submissions</h2>
-          {pending.map((bot, idx) => (
-            <div key={idx} style={{ background: "#172d3e", borderRadius: 18, padding: "20px 24px", margin: "22px auto", maxWidth: 560, boxShadow: "0 2px 14px #36ff9544" }}>
-              <div style={{ fontWeight: 700, fontSize: "1.13rem" }}>{bot.title}</div>
-              <div style={{ color: "#36ff95", margin: "8px 0" }}>{bot.desc}</div>
-              <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ color: "#0bbfdb" }}>{bot.openaiLink}</a>
-              <div style={{ marginTop: 12 }}>
-                <Button style={{ background: "#36ff95", color: "#101c26", border: "none", marginRight: 10 }} onClick={() => handleApprove(idx)}>Approve</Button>
-                <Button style={{ background: "#f66", color: "#fff", border: "none" }} onClick={() => handleReject(idx)}>Reject</Button>
-              </div>
+        pendingBots.map((bot, idx) => (
+          <div key={idx} style={{ background: "#172d3e", borderRadius: 18, padding: "20px 24px", margin: "22px auto", maxWidth: 560, boxShadow: "0 2px 14px #36ff9544" }}>
+            <div style={{ fontWeight: 700, fontSize: "1.13rem" }}>{bot.title}</div>
+            <div style={{ color: "#36ff95", margin: "8px 0" }}>{bot.desc}</div>
+            <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ color: "#0bbfdb" }}>{bot.openaiLink}</a>
+            <div style={{ marginTop: 12 }}>
+              <Button style={{ background: "#36ff95", color: "#101c26", border: "none", marginRight: 10 }} onClick={() => handleApprove(idx)}>Approve</Button>
+              <Button style={{ background: "#f66", color: "#fff", border: "none" }} onClick={() => handleReject(idx)}>Reject</Button>
             </div>
-          ))}
-        </>
+          </div>
+        ))
       )}
 
       {/* Contact Messages */}
@@ -910,8 +974,6 @@ function Moderation({ botList, approveBot }) {
     </div>
   );
 }
-
-
 // --- Disclaimer Bar (responsive, no background, less bold, softer red text) ---
 function DisclaimerBar() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -929,7 +991,8 @@ function DisclaimerBar() {
       background: "none",
       textAlign: "center",
       fontWeight: 400,
-      color: "#ff5252",
+      color: "#fff",
+      fontFamily: "Inter, Arial, sans-serif",
       fontSize: "1.07rem",
       letterSpacing: 0.02,
       opacity: 0.92,
@@ -943,7 +1006,21 @@ function DisclaimerBar() {
       marginLeft: "auto",
       marginRight: "auto"
     }}>
-      *This site does not provide financial, legal, or medical advice. Bots are provided “as is” for entertainment and education only. Always verify information and consult qualified professionals as needed.
+      <span style={{
+        color: "#ff5252",
+        fontWeight: 700,
+        letterSpacing: 0.01,
+        fontFamily: "inherit"
+      }}>
+        **&nbsp;
+      </span>
+     <span style={{
+  color: "#36ff95",           // neon green
+  fontWeight: 700,            // bold
+  fontFamily: "Inter, Arial, sans-serif"
+}}>
+  This site does not provide financial, legal, or medical advice. Bots are provided “as is” for entertainment and education only. Always verify information and consult qualified professionals as needed.
+</span>
       <br />
       <span style={{
         color: "#36ff95",
@@ -958,6 +1035,7 @@ function DisclaimerBar() {
     </div>
   );
 }
+
 
 // --- Footer Component ---
 function Footer() {
@@ -1035,14 +1113,14 @@ function Footer() {
 
 
 // --- MAIN APP ROUTER ---
-function App() {
+function App() { 
   const [botList, setBotList] = useState(bots);
   const [showModal, setShowModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  // ADD THESE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  // --- Add your form and moderation states
   const [form, setForm] = useState({
     gptName: "",
     gptDesc: "",
@@ -1057,13 +1135,28 @@ function App() {
     return stored ? JSON.parse(stored) : [];
   });
   const [botRecaptchaValue, setBotRecaptchaValue] = useState("");
-  // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+  // --- Sticky Logo On Scroll
+  const [showStickyLogo, setShowStickyLogo] = useState(false);
 
   // Responsive width effect
   useEffect(() => {
     function handleResize() { setWindowWidth(window.innerWidth); }
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    // Sticky logo scroll handler
+    function onScroll() {
+      const logo = document.querySelector('.header-logo');
+      if (!logo) return;
+      const rect = logo.getBoundingClientRect();
+      setShowStickyLogo(rect.bottom <= 0);
+    }
+    window.addEventListener('scroll', onScroll);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   const isMobile = windowWidth < 900;
@@ -1096,43 +1189,43 @@ function App() {
   };
 
   const handleFormSubmit = async (e) => {
-  e.preventDefault();
-  const formIsValid = form.gptName && form.gptDesc && form.openaiUrl;
-  setFormValidated(true);
+    e.preventDefault();
+    const formIsValid = form.gptName && form.gptDesc && form.openaiUrl;
+    setFormValidated(true);
 
-  if (!botRecaptchaValue) {
-    alert("Please verify you are not a robot.");
-    return;
-  }
-
-  if (formIsValid) {
-    let img = placeholderImg;
-    if (form.gptName.toLowerCase().includes("lovedoc") || form.gptName.toLowerCase().includes("love doc")) {
-      img = lovedocImg;
-    } else if (form.customImageUrl) {
-      img = form.customImageUrl;
-    } else {
-      img = getRandomPlaceholder();
+    if (!botRecaptchaValue) {
+      alert("Please verify you are not a robot.");
+      return;
     }
-    const newBot = {
-      title: form.gptName,
-      desc: form.gptDesc,
-      image: img,
-      verified: false,
-      openaiLink: form.openaiUrl,
-      categories: []
-    };
-    setPendingBots(prev => {
-      const updated = [newBot, ...prev];
-      localStorage.setItem("pendingBots", JSON.stringify(updated));
-      return updated;
-    });
-    setFormSubmitted(true);
-    setTimeout(() => {
-      handleCloseModal();
-    }, 1200);
-  }
-};
+
+    if (formIsValid) {
+      let img = placeholderImg;
+      if (form.gptName.toLowerCase().includes("lovedoc") || form.gptName.toLowerCase().includes("love doc")) {
+        img = lovedocImg;
+      } else if (form.customImageUrl) {
+        img = form.customImageUrl;
+      } else {
+        img = getRandomPlaceholder();
+      }
+      const newBot = {
+        title: form.gptName,
+        desc: form.gptDesc,
+        image: img,
+        verified: false,
+        openaiLink: form.openaiUrl,
+        categories: []
+      };
+      setPendingBots(prev => {
+        const updated = [newBot, ...prev];
+        localStorage.setItem("pendingBots", JSON.stringify(updated));
+        return updated;
+      });
+      setFormSubmitted(true);
+      setTimeout(() => {
+        handleCloseModal();
+      }, 1200);
+    }
+  };
 
   // Approve bot from moderation
   function approveBot(bot) {
@@ -1155,6 +1248,59 @@ function App() {
         onMenuClick={() => setMenuOpen(v => !v)}
         isMobile={isMobile}
       />
+
+           {/* ---- STICKY SMALL LOGO ON SCROLL ---- */}
+{showStickyLogo && (
+  <div
+    style={{
+      position: 'fixed',
+      top: 0,
+      left: '50%',
+      transform: 'translateX(-50%)',
+      width: isMobile ? '100vw' : '1160px',
+      zIndex: 1002,
+      display: 'flex',
+      alignItems: 'center',
+      pointerEvents: 'none',
+      transition: 'opacity 0.18s',
+    }}
+  >
+    <div
+      style={{
+        marginLeft: isMobile ? 12 : '0px',
+        marginTop: 0,
+        display: 'flex',
+        alignItems: 'center',
+        pointerEvents: 'auto',
+        background: 'rgba(16,28,38,0.89)',
+        borderRadius: 16,
+        boxShadow: 'none',
+        padding: isMobile ? '0 7px' : '0 14px',
+        height: 41, // 36 * 1.15 ≈ 41, optional if you want container taller
+      }}
+    >
+      <img
+        src={logoSmall}
+        alt="BetterAiBots Small Logo"
+        style={{
+          height: isMobile ? 21 : 33, // Increased by 15%
+          width: 'auto',
+          display: 'block',
+          background: 'none',
+          borderRadius: 8,
+          boxShadow: 'none',
+          pointerEvents: 'none',
+          userSelect: 'none',
+        }}
+        draggable={false}
+      />
+    </div>
+  </div>
+)}
+
+
+
+
       <div style={{
         position: "sticky",
         top: 0,
@@ -1179,7 +1325,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/legal" element={<Legal />} />
-        <Route path="/moderation" element={<Moderation botList={botList} approveBot={approveBot} />} />
+        <Route path="/moderation" element={<Moderation botList={botList} approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Modal show={showModal} onHide={handleCloseModal} centered>
@@ -1187,98 +1333,475 @@ function App() {
           <Modal.Title>Suggest a GPT</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-  {!formSubmitted ? (
-    <Form noValidate validated={formValidated} onSubmit={handleFormSubmit}>
-      <Form.Group className="mb-3" controlId="formGptName">
-        <Form.Label className="form-label neon-green">GPT Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="E.g. 'CryptoSignals GPT'"
-          name="gptName"
-          value={form.gptName}
-          onChange={handleFormChange}
-          required
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formGptDesc">
-        <Form.Label className="form-label neon-green">Description</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={2}
-          placeholder="What does this bot do? Who is it for?"
-          name="gptDesc"
-          value={form.gptDesc}
-          onChange={handleFormChange}
-          required
-        />
-      </Form.Group>
-      <Form.Group className="mb-2" controlId="formOpenaiUrl">
-        <Form.Label className="form-label neon-green">OpenAI GPT Link</Form.Label>
-        <Form.Control
-          type="url"
-          placeholder="https://chat.openai.com/g/g-..."
-          name="openaiUrl"
-          value={form.openaiUrl}
-          onChange={handleFormChange}
-          required
-        />
-      </Form.Group>
-      <Form.Group className="mb-2" controlId="formCustomImage">
-        <Form.Label className="form-label neon-green">Custom Image URL (optional, non-OpenAI)</Form.Label>
-        <Form.Control
-          type="url"
-          placeholder="https://yourdomain.com/image.png"
-          name="customImageUrl"
-          value={form.customImageUrl}
-          onChange={handleFormChange}
-        />
-      </Form.Group>
-      {(previewImg || form.openaiUrl) && (
-        <div style={{ textAlign: 'center', margin: '14px 0' }}>
-          <img src={previewImg || getRandomPlaceholder()} alt="preview" style={{ width: 64, height: 64, borderRadius: '50%', boxShadow: '0 0 10px #36ff95' }} />
-          <div style={{ color: '#36ff95', marginTop: 7, fontSize: '0.92rem' }}>Live Preview</div>
-        </div>
-      )}
-      {/* ---- reCAPTCHA ---- */}
-      <Form.Group className="mb-2" controlId="formRecaptcha">
-        <div style={{ margin: "18px 0" }}>
-          <ReCAPTCHA
-            sitekey="6Lf2wlArAAAAAH0GDpzc02uW1KAD8TJXgD_kSz1j"
-            onChange={val => setBotRecaptchaValue(val)}
-            theme="dark"
-          />
-        </div>
-      </Form.Group>
-      <Button
-        variant="success"
-        type="submit"
-        style={{
-          background: "linear-gradient(90deg, #09e269 0%, #0bbfdb 100%)",
-          border: "none",
-          borderRadius: "22px",
-          fontWeight: 600,
-          fontSize: "1.12rem",
-          color: "#101c26",
-          width: "100%",
-          boxShadow: "0 2px 18px #16ff6c40",
-          marginTop: "10px"
-        }}
-      >
-        Submit
-      </Button>
-    </Form>
-  ) : (
-    <div className="neon-green" style={{ fontSize: "1.15rem", textAlign: "center", margin: "28px 0" }}>
-      Thank you for your suggestion! <br />Our team will review your bot soon. 🚀
-    </div>
-  )}
-</Modal.Body>
-            </Modal>
-      {location.pathname !== "/moderation" && <DisclaimerBar />}
-      <Footer />
+          {!formSubmitted ? (
+            <Form noValidate validated={formValidated} onSubmit={handleFormSubmit}>
+              <Form.Group className="mb-3" controlId="formGptName">
+                <Form.Label className="form-label neon-green">GPT Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="E.g. 'CryptoSignals GPT'"
+                  name="gptName"
+                  value={form.gptName}
+                  onChange={handleFormChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGptDesc">
+                <Form.Label className="form-label neon-green">Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={2}
+                  placeholder="What does this bot do? Who is it for?"
+                  name="gptDesc"
+                  value={form.gptDesc}
+                  onChange={handleFormChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-2" controlId="formOpenaiUrl">
+                <Form.Label className="form-label neon-green">OpenAI GPT Link</Form.Label>
+                <Form.Control
+                  type="url"
+                  placeholder="https://chat.openai.com/g/g-..."
+                  name="openaiUrl"
+                  value={form.openaiUrl}
+                  onChange={handleFormChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-2" controlId="formCustomImage">
+                <Form.Label className="form-label neon-green">Custom Image URL (optional, non-OpenAI)</Form.Label>
+                <Form.Control
+                  type="url"
+                  placeholder="https://yourdomain.com/image.png"
+                  name="customImageUrl"
+                  value={form.customImageUrl}
+                  onChange={handleFormChange}
+                />
+              </Form.Group>
+              {(previewImg || form.openaiUrl) && (
+                <div style={{ textAlign: 'center', margin: '14px 0' }}>
+                  <img src={previewImg || getRandomPlaceholder()} alt="preview" style={{ width: 64, height: 64, borderRadius: '50%', boxShadow: '0 0 10px #36ff95' }} />
+                  <div style={{ color: '#36ff95', marginTop: 7, fontSize: '0.92rem' }}>Live Preview</div>
+                </div>
+              )}
+              {/* ---- reCAPTCHA ---- */}
+              <Form.Group className="mb-2" controlId="formRecaptcha">
+                <div style={{ margin: "18px 0" }}>
+                  <ReCAPTCHA
+                    sitekey="6Lf2wlArAAAAAH0GDpzc02uW1KAD8TJXgD_kSz1j"
+                    onChange={val => setBotRecaptchaValue(val)}
+                    theme="dark"
+                  />
+                </div>
+              </Form.Group>
+              <Button
+                variant="success"
+                type="submit"
+                style={{
+                  background: "linear-gradient(90deg, #09e269 0%, #0bbfdb 100%)",
+                  border: "none",
+                  borderRadius: "22px",
+                  fontWeight: 600,
+                  fontSize: "1.12rem",
+                  color: "#101c26",
+                  width: "100%",
+                  boxShadow: "0 2px 18px #16ff6c40",
+                  marginTop: "10px"
+                }}
+              >
+                Submit
+              </Button>
+            </Form>
+          ) : (
+            <div className="neon-green" style={{ fontSize: "1.15rem", textAlign: "center", margin: "28px 0" }}>
+              Thank you for your suggestion! <br />Our team will review your bot soon. 🚀
+            </div>
+          )}
+        </Modal.Body>
+      </Modal>
+                 {location.pathname !== "/moderation" && <DisclaimerBar />}
+      <FooterWithWallets />
     </>
   );
 }
+
+// ==================== FOOTER WITH WALLETS & ADDRESS FUNCTIONS ====================
+// ==================== FOOTER WITH WALLETS & ADDRESS FUNCTIONS ====================
+function FooterWithWallets() {
+  const [showTip, setShowTip] = React.useState(false);
+  const [btcCopied, setBtcCopied] = React.useState(false);
+  const [solCopied, setSolCopied] = React.useState(false);
+
+  const BTC = "bc1qnswf7fyzkrwczkmlm9ann6rkmzcp0jd4jvzwxw";
+  const SOL = "GCowBrjFfoXctJTQxwNgUuhCvuzD9hE4tHgBLWL39UR8";
+
+  // BTC Copy Handler
+  const handleCopyBTC = (e) => {
+    e?.preventDefault && e.preventDefault();
+    navigator.clipboard.writeText(BTC);
+    setBtcCopied(true);
+    setTimeout(() => setBtcCopied(false), 1200);
+  };
+  // SOL Copy Handler
+  const handleCopySOL = (e) => {
+    e?.preventDefault && e.preventDefault();
+    navigator.clipboard.writeText(SOL);
+    setSolCopied(true);
+    setTimeout(() => setSolCopied(false), 1200);
+  };
+
+  return (
+    <footer
+      style={{
+        marginTop: 0,
+        background: "linear-gradient(90deg, #172d3e 0%, #18232f 100%)",
+        color: "#b5ffdb",
+        borderRadius: "18px 18px 0 0",
+        boxShadow: "0 -2px 24px #16ff6c16",
+        padding: "10px 10px 0px 10px",
+        fontSize: "1.01rem",
+        position: "relative",
+        fontFamily: "inherit",
+        userSelect: "none",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "18px",
+          width: "100%",
+          fontWeight: 600,
+          fontSize: "1.07rem",
+          padding: "10px 0 18px 0",
+          flexWrap: "wrap",
+          position: "relative"
+        }}
+      >
+        {/* --- Tip Jar Icon with popout addresses --- */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            position: "relative",
+            zIndex: 22,
+            marginRight: 5,
+            cursor: "default",
+            padding: "10px 2px",
+            borderRadius: 16,
+            transition: "box-shadow 0.24s"
+          }}
+          onMouseEnter={() => setShowTip(true)}
+          onMouseLeave={() => setShowTip(false)}
+        >
+          {/* Show "Tip Jar" in skinny gold font above the jar when hovering */}
+          {showTip && (
+            <div
+              style={{
+                position: "absolute",
+                bottom: "100%",
+                left: "50%",
+                transform: "translateX(-50%)",
+                marginBottom: 0,
+                color: "#36ff95",
+                fontWeight: 200,
+                fontSize: "1.00rem",
+                whiteSpace: "nowrap",
+                pointerEvents: "none",
+                fontFamily: "Inter, Arial, sans-serif",
+                textShadow: "0 0 2px #16161680"
+              }}
+            >
+              Tip Jar
+            </div>
+          )}
+          {/* Addresses Pop-up, only on hover */}
+          {showTip && (
+            <div
+              style={{
+                position: "absolute",
+                right: "100%",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "transparent",
+                padding: "32px 36px 32px 20px",
+                borderRadius: 0,
+                opacity: 1,
+                pointerEvents: "auto",
+                boxShadow: "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: 18,
+                minWidth: 0,
+                zIndex: 99,
+                alignItems: "flex-end",
+                fontFamily: "monospace",
+                willChange: "transform, opacity"
+              }}
+            >
+              {/* BTC address row */}
+              <WalletAddressHorizontal
+                address={BTC}
+                label="BTC"
+                copied={btcCopied}
+                handleCopy={handleCopyBTC}
+                copyText={btcCopied ? "Copied!" : ""}
+                copyColor="#FFD700"
+                showClipboard={true}
+                showLabel={true}
+              />
+              {/* SOL address row */}
+              <WalletAddressHorizontal
+                address={SOL}
+                label="SOL"
+                copied={solCopied}
+                handleCopy={handleCopySOL}
+                copyText={solCopied ? "Arigato!" : ""}
+                copyColor="#FFD700"
+                showClipboard={true}
+                showLabel={true}
+              />
+            </div>
+          )}
+          {/* Tip Jar cup image (no click, just icon) */}
+          <span style={{ display: "flex", alignItems: "center" }}>
+            <img
+              src={tipJar}
+              alt="Tip Jar"
+              style={{
+                height: 30,
+                width: "auto",
+                borderRadius: 8,
+                background: "#18232f",
+                boxShadow: showTip
+                  ? "0 0 20px #36ff95cc, 0 2px 18px #16ff6c50"
+                  : "none",
+                transition: "box-shadow 0.24s"
+              }}
+              draggable={false}
+            />
+          </span>
+        </div>
+
+        {/* --- Logo Icon (center, glowing only on hover) --- */}
+        <div
+          className="footer-logo-wrapper"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            cursor: "pointer",
+            marginLeft: "0",
+            marginRight: "7px"
+          }}
+        >
+          <img
+            src={logo}
+            alt="BetterAiBots Logo"
+            className="footer-main-logo"
+            style={{
+              height: 44,
+              width: "auto",
+              borderRadius: 12,
+              marginRight: 13,
+              background: "#18232f",
+              boxShadow: "none",
+              transition: "box-shadow 0.25s"
+            }}
+            onMouseOver={e =>
+              (e.currentTarget.style.boxShadow =
+                "0 0 28px #36ff95cc, 0 2px 18px #16ff6c40")
+            }
+            onMouseOut={e =>
+              (e.currentTarget.style.boxShadow = "none")
+            }
+            draggable={false}
+          />
+        </div>
+        {/* --- Powered by DubbyDevs (ETH static only, no popup/copy) --- */}
+        <div
+          style={{
+            color: "#fff",
+            display: "flex",
+            alignItems: "center",
+            position: "relative"
+          }}
+        >
+          <span>Powered by&nbsp;</span>
+          <span
+            style={{
+              background: "linear-gradient(90deg, #36ff95, #ffd700)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              fontWeight: 700,
+              cursor: "default",
+              position: "relative",
+              zIndex: 20,
+              display: "inline-block",
+              fontFamily: "Inter, Arial, sans-serif"
+            }}
+          >
+            DubbyDevs
+          </span>
+        </div>
+      </div>
+      <div
+        style={{
+          fontSize: "0.94rem",
+          color: "#b5ffdb",
+          textAlign: "center",
+          fontWeight: 500,
+          letterSpacing: 0.05,
+          marginBottom: 6
+        }}
+      >
+        <span style={{ color: "#fff" }}>
+          &copy; {new Date().getFullYear()} BetterAiBots.com
+        </span>
+        &nbsp;|&nbsp;
+        <Link
+          to="/legal"
+          style={{
+            background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            textDecoration: "underline",
+            fontWeight: 700
+          }}
+        >
+          Legal, Terms & Privacy
+        </Link>
+      </div>
+    </footer>
+  );
+}
+
+// --- BTC/SOL Horizontal: [address] [clipboard] [label] + copied message ---
+// Show copy message only when copied for that row
+function WalletAddressHorizontal({
+  label,
+  address,
+  copied,
+  handleCopy,
+  copyText,
+  copyColor = "#FFD700",
+  showClipboard = true,
+  showLabel = true
+}) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        background: "transparent",
+        borderRadius: 6,
+        padding: "0 0",
+        margin: 0,
+        fontFamily: "monospace"
+      }}
+    >
+      <span
+        style={{
+          color: "#36ff95",
+          background: "transparent",
+          fontSize: "0.98rem",
+          letterSpacing: 0.01,
+          textShadow: "0 0 6px #36ff9580",
+          padding: "1px 0",
+          whiteSpace: "nowrap",
+          userSelect: "all"
+        }}
+      >
+        {address}
+      </span>
+      {showClipboard && (
+        <ClipboardBtn
+          address={address}
+          copied={copied}
+          handleCopy={handleCopy}
+        />
+      )}
+      {showLabel && (
+        <span
+          style={{
+            color: "#36ff95",
+            fontWeight: 800,
+            fontSize: "1.07rem",
+            letterSpacing: 0.02,
+            margin: "0 5px 0 1px",
+            minWidth: 30,
+            textShadow: "0 0 7px #36ff957a",
+            textAlign: "right",
+            cursor: "pointer",
+            userSelect: "none"
+          }}
+          onClick={handleCopy}
+          title={`Copy ${label} address`}
+        >
+          {label}
+        </span>
+      )}
+      {copied && copyText && (
+        <span
+          style={{
+            marginLeft: 10,
+            fontSize: "1.01rem",
+            color: copyColor,
+            fontWeight: 700,
+            letterSpacing: 0.01,
+            verticalAlign: "middle"
+          }}
+        >
+          {copyText}
+        </span>
+      )}
+    </div>
+  );
+}
+
+// --- Clipboard Button: Just icon, "Copied!"/Arigato! shown by parent --- 
+function ClipboardBtn({ address, copied, handleCopy }) {
+  return (
+    <button
+      title="Copy address"
+      onClick={e => {
+        e.preventDefault();
+        if (handleCopy) handleCopy(e);
+      }}
+      style={{
+        background: "none",
+        border: "none",
+        outline: "none",
+        cursor: "pointer",
+        padding: "0 2px",
+        marginLeft: 0,
+        display: "flex",
+        alignItems: "center"
+      }}
+      tabIndex={0}
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        style={{
+          filter: "drop-shadow(0 0 6px #36ff95cc)",
+          fill: copied ? "#36ff95" : "none",
+          stroke: "#36ff95",
+          strokeWidth: "2.1"
+        }}
+      >
+        <rect x="8" y="8" width="10" height="10" rx="2" />
+        <rect x="4" y="4" width="10" height="10" rx="2" />
+      </svg>
+    </button>
+  );
+}
+
 
 // --- HelmetProvider Wrapper for SEO ---
 export default function AppWithRouter() {
