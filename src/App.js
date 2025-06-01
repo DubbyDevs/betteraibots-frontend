@@ -31,6 +31,12 @@ import placeholderImg23 from './assets/bot-placeholder23.png';
 import placeholderImg24 from './assets/bot-placeholder24.png';
 import placeholderImg25 from './assets/bot-placeholder25.png';
 import placeholderImg26 from './assets/bot-placeholder26.png';
+import placeholderImg27 from './assets/bot-placeholder27.png';
+import placeholderImg28 from './assets/bot-placeholder28.png';
+import placeholderImg29 from './assets/bot-placeholder29.png';
+import placeholderImg30 from './assets/bot-placeholder30.png';
+import placeholderImg31 from './assets/bot-placeholder31.png';
+import placeholderImg32 from './assets/bot-placeholder32.png';
 
 import tipJar from './assets/thebestfreeaibotsgpt.png';
 
@@ -56,7 +62,10 @@ const CATEGORIES = [
   { name: "Education" },
   { name: "Lifestyle" },
   { name: "Music" },
-  { name: "Digital Art" }
+  { name: "Digital Art" },
+  { name: "Health & Wellness" },
+  { name: "Creative Tools" },
+  { name: "Specialized Knowledge" }
 ];
 
 // --- Plausible Analytics snippet ---
@@ -81,7 +90,8 @@ const placeholderImgs = [
   placeholderImg11, placeholderImg12, placeholderImg13, placeholderImg14, placeholderImg15,
   placeholderImg16, placeholderImg17, placeholderImg18, placeholderImg19, placeholderImg20, 
   placeholderImg21, placeholderImg22, placeholderImg23, placeholderImg24, placeholderImg25, 
-  placeholderImg26
+  placeholderImg26, placeholderImg27, placeholderImg28, placeholderImg29, placeholderImg30,
+  placeholderImg31, placeholderImg32
 ];
 
 // ---- Shuffle utility for placeholders ----
@@ -91,7 +101,6 @@ function shuffle(arr) {
     .map(({ value }) => value);
 }
 
-// ---- BOTS with categories ----
 const rawBots = [
   {
     title: "TheLoveDoc",
@@ -99,7 +108,7 @@ const rawBots = [
     image: placeholderImg7,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
-    categories: ["Lifestyle"]
+    categories: ["Health & Wellness", "Lifestyle"]
   },
   {
     title: "Crypto Sentiment Tracker",
@@ -112,10 +121,10 @@ const rawBots = [
   {
     title: "Video AI",
     desc: "Smart video editing, summaries, and insights powered by AI.",
-    image: placeholderImg1,
+    image: placeholderImg22,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-h8l4uLHFQ-video-ai",
-    categories: ["Productivity", "Digital Art"]
+    categories: ["Productivity", "Creative Tools"]
   },
   {
     title: "Finance, Economics, Stock, Crypto & Trade Invest",
@@ -139,7 +148,7 @@ const rawBots = [
     image: placeholderImg18,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-FGhasb1tZ-therapist-psychologist-fictional-not-real-therapy",
-    categories: ["Lifestyle"]
+    categories: ["Health & Wellness", "Lifestyle"]
   },
   {
     title: "GIF Generator",
@@ -147,7 +156,7 @@ const rawBots = [
     image: placeholderImg6,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-45WfVCFcy-gif-generator",
-    categories: ["Digital Art"]
+    categories: ["Creative Tools"]
   },
   {
     title: "Cooking, Diet, Recipes, Nutrition & Food",
@@ -155,7 +164,7 @@ const rawBots = [
     image: placeholderImg5,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-KU2U5o7Wj-cookingdietrecipesnutritionfood",
-    categories: ["Lifestyle"]
+    categories: ["Health & Wellness", "Lifestyle"]
   },
   {
     title: "Fitness Workout Diet PhD Coach",
@@ -163,7 +172,7 @@ const rawBots = [
     image: placeholderImg15,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-ipOIcM229-fitness-workout-diet-phd-coach",
-    categories: ["Lifestyle"]
+    categories: ["Health & Wellness", "Lifestyle"]
   },
   {
     title: "Glibatree Art Designer",
@@ -171,7 +180,7 @@ const rawBots = [
     image: placeholderImg3,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-7CKojumSX-glibatree-art-designer",
-    categories: ["Digital Art"]
+    categories: ["Creative Tools"]
   },
   {
     title: "Grammar Checker",
@@ -187,23 +196,23 @@ const rawBots = [
     image: placeholderImg12,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-rLVq3NTrN-ai-music-maker-song-words-to-music-free",
-    categories: ["Music"]
+    categories: ["Music", "Creative Tools"]
   },
   {
     title: "Health & Medicine",
-    desc: "Get general health and wellness info powered by AI. Not a substitute for professional medical advice.  (Not a real Doctor)",
+    desc: "Get general health and wellness info powered by AI. Not a substitute for professional medical advice. (Not a real Doctor)",
     image: placeholderImg8,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-t3BUYjh4C-health-medicinenot-doctor-not-medical-advice",
-    categories: ["Lifestyle", "Education"]
+    categories: ["Health & Wellness", "Education"]
   },
   {
     title: "Law, Contract, Disclaimer",
     desc: "Get AI-powered info on contracts, disclaimers, and general law concepts. Not actual legal advice.",
-    image: placeholderImg11,
+    image: placeholderImg27,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-My8UBHpJn-law-contractdisclaimer-not-lawyer-legal-advice",
-    categories: ["Productivity", "Education"]
+    categories: ["Productivity", "Specialized Knowledge"]
   },
   {
     title: "Accounting GPT",
@@ -240,10 +249,10 @@ const rawBots = [
   {
     title: "YouTube AI",
     desc: "AI for video summaries, channel insights, and content ideas for YouTube.",
-    image: placeholderImg17,
+    image: placeholderImg1,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-Wud3tXQj3-youtube-ai",
-    categories: ["Productivity", "Digital Art"]
+    categories: ["Productivity", "Creative Tools"]
   },
   {
     title: "DesignerGPT",
@@ -251,14 +260,15 @@ const rawBots = [
     image: placeholderImg16,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-2Eo3NxuS7-designergpt",
-    categories: ["Digital Art"]
-  },{
+    categories: ["Creative Tools"]
+  },
+  {
     title: "Video GPT by VEED – Instant Free AI Video Maker",
     desc: "Create AI-generated videos instantly for free with Video GPT by VEED.",
-    image: placeholderImg22,
+    image: placeholderImg1, // Note: Shared with Video AI, may need adjustment
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-Hkqnd7mFT-video-gpt-by-veed-instant-free-ai-video-maker",
-    categories: ["Digital Art", "Productivity"]
+    categories: ["Creative Tools", "Productivity"]
   },
   {
     title: "AI Music Prompt Generator",
@@ -266,7 +276,7 @@ const rawBots = [
     image: placeholderImg19,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-y2J4bAO8A-ai-music-prompt-generator",
-    categories: ["Music", "Productivity"]
+    categories: ["Music", "Creative Tools"]
   },
   {
     title: "Blood Test Result Analysis for Health Insight",
@@ -274,7 +284,7 @@ const rawBots = [
     image: placeholderImg24,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-1AahKhimZ-blood-test-result-analysis-for-health-insight",
-    categories: ["Lifestyle", "Education"]
+    categories: ["Health & Wellness", "Education"]
   },
   {
     title: "SciSpace",
@@ -282,7 +292,7 @@ const rawBots = [
     image: placeholderImg25,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-NgAcklHd8-scispace",
-    categories: ["Education", "Productivity"]
+    categories: ["Education", "Specialized Knowledge"]
   },
   {
     title: "Scholar GPT",
@@ -290,7 +300,7 @@ const rawBots = [
     image: placeholderImg4,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt",
-    categories: ["Education"]
+    categories: ["Education", "Specialized Knowledge"]
   },
   {
     title: "PlaylistAI – Music Playlist Maker",
@@ -300,6 +310,54 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-KkxbQAVuk-playlistai-music-playlist-maker",
     categories: ["Music", "Lifestyle"]
   },
+  {
+    title: "Love Language",
+    desc: "Discover and explore your love languages for better relationships and connection.",
+    image: placeholderImg29,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-IEqZMsTpJ-love-language",
+    categories: ["Health & Wellness", "Lifestyle"]
+  },
+  {
+    title: "VetGPT",
+    desc: "Get general veterinary advice on animal health, nutrition, and behavior. Not a substitute for professional veterinary care.",
+    image: placeholderImg28,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt",
+    categories: ["Health & Wellness", "Specialized Knowledge"]
+  },
+  {
+    title: "Personal Assistant",
+    desc: "Organize and optimize your daily life with this AI-powered personal assistant.",
+    image: placeholderImg11,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-hWAjkwSzj-personal-assistant",
+    categories: ["Productivity"]
+  },
+  {
+    title: "Astrology Birth Chart GPT",
+    desc: "Personalized astrological insights based on your birth date, time, and location.",
+    image: placeholderImg30,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-WxckXARTP-astrology-birth-chart-gpt",
+    categories: ["Specialized Knowledge", "Lifestyle"]
+  },
+  {
+    title: "Paintr",
+    desc: "Create stunning digital art and paintings with this AI-powered art assistant.",
+    image: placeholderImg31,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
+    categories: ["Creative Tools"]
+  },
+  {
+    title: "Logo",
+    desc: "Design professional brand logos with this AI-powered logo creation expert.",
+    image: placeholderImg32,
+    verified: true,
+    openaiLink: "https://chatgpt.com/g/g-pCq5xaCri-logo",
+    categories: ["Creative Tools"]
+  }
 ];
 
 // Assign unique placeholder images for all bots that need them (no repeats until pool exhausted)
@@ -591,14 +649,20 @@ function CategoryPage({ botList, onOpenModal }) {
   return (
     <>
       <Helmet>
-        <title>{catDecoded} Bots – BetterAiBots.com</title>
-        <meta name="description" content={`Best ${catDecoded} AI Bots curated for you. Find, install, and share the best OpenAI GPTs.`} />
-        <meta property="og:title" content={`${catDecoded} Bots – BetterAiBots.com`} />
-        <meta property="og:description" content={`Best ${catDecoded} AI Bots curated for you. Find, install, and share the best OpenAI GPTs.`} />
-        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-        <meta property="og:url" content={`https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`} />
-        <meta property="og:type" content="website" />
-      </Helmet>
+  <title>BetterAiBots.com – Curated AI Bots Directory</title>
+  <meta
+    name="description"
+    content="Discover the best AI bots for productivity, education, lifestyle, music, digital art, health & wellness, creative tools, and specialized knowledge. Curated, categorized, and easy to install."
+  />
+  <meta property="og:title" content="BetterAiBots.com" />
+  <meta
+    property="og:description"
+    content="Curated AI bots directory: Find, install, and share the best bots for productivity, health, creativity, and more."
+  />
+  <meta property="og:image" content="/betteraibotsglowlogo8.png" />
+  <meta property="og:url" content="https://betteraibots.com/" />
+  <meta property="og:type" content="website" />
+</Helmet>
       <div className="hero-section">
         <h1 className="hero-headline">{catDecoded} Bots</h1>
         <p className="hero-subheadline custom-hero-desc">
