@@ -62,7 +62,6 @@ const CATEGORIES = [
   { name: "Education" },
   { name: "Lifestyle" },
   { name: "Music" },
-  { name: "Digital Art" },
   { name: "Health & Wellness" },
   { name: "Creative Tools" },
   { name: "Specialized Knowledge" }
@@ -260,12 +259,12 @@ const rawBots = [
     image: placeholderImg16,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-2Eo3NxuS7-designergpt",
-    categories: ["Creative Tools"]
+    categories: ["Creative Tools"] // Changed from ["Digital Art"]
   },
   {
     title: "Video GPT by VEED – Instant Free AI Video Maker",
     desc: "Create AI-generated videos instantly for free with Video GPT by VEED.",
-    image: placeholderImg1, // Note: Shared with Video AI, may need adjustment
+    image: placeholderImg17, // Changed from placeholderImg1
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-Hkqnd7mFT-video-gpt-by-veed-instant-free-ai-video-maker",
     categories: ["Creative Tools", "Productivity"]
@@ -344,11 +343,11 @@ const rawBots = [
   },
   {
     title: "Paintr",
-    desc: "Create stunning digital art and paintings with this AI-powered art assistant.",
+    desc: "Identify any exact color of paint in seconds!", 
     image: placeholderImg31,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
-    categories: ["Creative Tools"]
+    categories: ["Specialized Knowledge"] 
   },
   {
     title: "Logo",
@@ -583,14 +582,50 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
   return (
     <>
       <Helmet>
-        <title>BetterAiBots.com – Curated OpenAI GPT Bots Directory</title>
-        <meta name="description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
-        <meta property="og:title" content="BetterAiBots.com" />
-        <meta property="og:description" content="Curated OpenAI GPT directory: Find, install, and share the best AI bots." />
-        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-        <meta property="og:url" content="https://betteraibots.com/" />
-        <meta property="og:type" content="website" />
-      </Helmet>
+  <title>BetterAiBots.com – Curated Free AI Bots Directory</title>
+  <meta
+    name="description"
+    content="Discover free AI bots for productivity, education, lifestyle, music, health, creative tools, & more. Curated & easy to install. Explore now!"
+  />
+  <meta
+    name="keywords"
+    content="free AI bots, AI tools, productivity bots, creative tools, health bots, education bots, lifestyle bots, music bots, specialized knowledge, OpenAI GPTs, BetterAiBots"
+  />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="content-language" content="en-us" />
+  <meta property="og:title" content="BetterAiBots.com – Free AI Bots Directory" />
+  <meta
+    property="og:description"
+    content="Curated directory of free AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
+  />
+  <meta property="og:image" content="/betteraibotsglowlogo8.png" />
+  <meta property="og:url" content="https://betteraibots.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BetterAiBots.com – Free AI Bots Directory" />
+  <meta
+    name="twitter:description"
+    content="Curated directory of free AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
+  />
+  <meta name="twitter:image" content="/betteraibotsglowlogo8.png" />
+  <link rel="canonical" href="https://betteraibots.com/" />
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BetterAiBots.com",
+      "url": "https://betteraibots.com/",
+      "description": "Curated directory of free AI bots for productivity, health, creativity, and more.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://betteraibots.com/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    })}
+  </script>
+</Helmet>
       <div className="hero-section">
         <h1 className="hero-headline">Discover, Share & Install the Best AI Bots</h1>
         <p className="hero-subheadline custom-hero-desc">
@@ -648,20 +683,50 @@ function CategoryPage({ botList, onOpenModal }) {
   );
   return (
     <>
-      <Helmet>
-  <title>BetterAiBots.com – Curated AI Bots Directory</title>
+     <Helmet>
+  <title>{catDecoded} Bots – BetterAiBots.com</title>
   <meta
     name="description"
-    content="Discover the best AI bots for productivity, education, lifestyle, music, digital art, health & wellness, creative tools, and specialized knowledge. Curated, categorized, and easy to install."
+    content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
   />
-  <meta property="og:title" content="BetterAiBots.com" />
+  <meta
+    name="keywords"
+    content={`free ${catDecoded} AI bots, ${catDecoded} bots, AI tools, productivity bots, creative tools, health bots, education bots, lifestyle bots, music bots, specialized knowledge, OpenAI GPTs, BetterAiBots`}
+  />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="content-language" content="en-us" />
+  <meta property="og:title" content={`${catDecoded} Bots – BetterAiBots.com`} />
   <meta
     property="og:description"
-    content="Curated AI bots directory: Find, install, and share the best bots for productivity, health, creativity, and more."
+    content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
   />
   <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-  <meta property="og:url" content="https://betteraibots.com/" />
+  <meta property="og:url" content={`https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`} />
   <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${catDecoded} Bots – BetterAiBots.com`} />
+  <meta
+    name="twitter:description"
+    content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
+  />
+  <meta name="twitter:image" content="/betteraibotsglowlogo8.png" />
+  <link rel="canonical" href={`https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`} />
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": `${catDecoded} Bots`,
+      "url": `https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`,
+      "description": `Best free ${catDecoded} AI bots for productivity, health, creativity, and more.`,
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "BetterAiBots.com",
+        "url": "https://betteraibots.com/"
+      }
+    })}
+  </script>
 </Helmet>
       <div className="hero-section">
         <h1 className="hero-headline">{catDecoded} Bots</h1>
@@ -718,14 +783,20 @@ function Contact() {
   return (
     <div className="hero-section">
       <Helmet>
-        <title>Contact Us – BetterAiBots.com</title>
-        <meta name="description" content="Contact BetterAiBots.com. Questions, suggestions, or feedback? Reach out to our team!" />
-        <meta property="og:title" content="Contact Us – BetterAiBots.com" />
-        <meta property="og:description" content="Contact BetterAiBots.com. Questions, suggestions, or feedback? Reach out to our team!" />
-        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-        <meta property="og:url" content="https://betteraibots.com/contact" />
-        <meta property="og:type" content="website" />
-      </Helmet>
+  <title>Contact Us – BetterAiBots.com</title>
+  <meta
+    name="description"
+    content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
+  />
+  <meta property="og:title" content="Contact Us – BetterAiBots.com" />
+  <meta
+    property="og:description"
+    content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
+  />
+  <meta property="og:image" content="/betteraibotsglowlogo8.png" />
+  <meta property="og:url" content="https://betteraibots.com/contact" />
+  <meta property="og:type" content="website" />
+</Helmet>
       <h1 className="hero-headline">Contact Us</h1>
       <p className="hero-subheadline custom-hero-desc">
         Questions, suggestions or feedback? Reach out!
