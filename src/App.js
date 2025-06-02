@@ -37,6 +37,7 @@ import placeholderImg29 from './assets/bot-placeholder29.png';
 import placeholderImg30 from './assets/bot-placeholder30.png';
 import placeholderImg31 from './assets/bot-placeholder31.png';
 import placeholderImg32 from './assets/bot-placeholder32.png';
+import placeholderImg33 from './assets/bot-placeholder33.png';
 import tipJar from './assets/thebestfreeaibotsgpt.png';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -89,7 +90,7 @@ const placeholderImgs = [
   placeholderImg16, placeholderImg17, placeholderImg18, placeholderImg19, placeholderImg20, 
   placeholderImg21, placeholderImg22, placeholderImg23, placeholderImg24, placeholderImg25, 
   placeholderImg26, placeholderImg27, placeholderImg28, placeholderImg29, placeholderImg30,
-  placeholderImg31, placeholderImg32
+  placeholderImg31, placeholderImg32, placeholderImg33
 ];
 
 // ---- Shuffle utility for placeholders ----
@@ -242,7 +243,7 @@ const rawBots = [
   {
     title: "Math AI",
     desc: "Math solver and explainer: equations, word problems, and more.",
-    image: placeholderImg9,
+    image: placeholderImg33,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-WP1diWHRl-math",
     categories: ["Education"]
@@ -689,11 +690,14 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
         </script>
       </Helmet>
       <div className="hero-section">
-        <h1 className="hero-headline">Discover, Share & Install the Best AI Bots</h1>
+        <h1 className="hero-headline">Discover & Share The Best Free AI Bots</h1>
         <p className="hero-subheadline custom-hero-desc">
           Find better AI Bots to help improve workflow, improve your skills or make some money working from home!
         </p>
       </div>
+      <div className="site-disclaimer">
+  🔴 <strong>This site does not provide financial, legal, or medical advice. Bots are provided “as is” for entertainment and education only.</strong>
+</div>
       <BotGrid bots={filteredBots} onOpenModal={onOpenModal} />
       {!showSearchBubble && (
         <button
