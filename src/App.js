@@ -590,7 +590,7 @@ function BotGrid({ bots, onOpenModal }) {
       </div>
       {bots.map((bot, i) => (
         <div className="bot-card" key={i}>
-          {bot.verified && <div className="verified-badge">Free</div>}
+          {bot.free && <div className="verified-badge">Free</div>}
           <img
             src={bot.image}
             alt={bot.title}
