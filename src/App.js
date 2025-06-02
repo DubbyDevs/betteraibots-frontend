@@ -138,7 +138,7 @@ const rawBots = [
   {
     title: "Code Copilot",
     desc: "AI pair programmer for instant coding help, reviews, and bug fixes.",
-    image: placeholderImg9,
+    image: placeholderImg21,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-2DQzU5UZl-code-copilot",
     categories: ["Productivity"]
@@ -242,7 +242,7 @@ const rawBots = [
   {
     title: "Math AI",
     desc: "Math solver and explainer: equations, word problems, and more.",
-    image: placeholderImg21,
+    image: placeholderImg9,
     verified: true,
     openaiLink: "https://chatgpt.com/g/g-WP1diWHRl-math",
     categories: ["Education"]
