@@ -37,9 +37,7 @@ import placeholderImg29 from './assets/bot-placeholder29.png';
 import placeholderImg30 from './assets/bot-placeholder30.png';
 import placeholderImg31 from './assets/bot-placeholder31.png';
 import placeholderImg32 from './assets/bot-placeholder32.png';
-
 import tipJar from './assets/thebestfreeaibotsgpt.png';
-
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -55,6 +53,7 @@ import {
   Navigate
 } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 
 // ---- Category List ----
 const CATEGORIES = [
@@ -101,6 +100,7 @@ function shuffle(arr) {
 }
 
 const rawBots = [
+  // ... (your existing bot list, unchanged) ...
   {
     title: "TheLoveDoc",
     desc: "Relationship, dating, and vulnerability advice from a friendly doc. (Not a real doctor)",
@@ -109,6 +109,8 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
     categories: ["Health & Wellness", "Lifestyle"]
   },
+  // ... const rawBots = [
+  
   {
     title: "Crypto Sentiment Tracker",
     desc: "Analyze real-time crypto sentiment and trends with one click. (Not financial advice)",
@@ -359,7 +361,10 @@ const rawBots = [
   }
 ];
 
-// Assign unique placeholder images for all bots that need them (no repeats until pool exhausted)
+ 
+
+
+// Assign unique placeholder images for all bots that need them
 function assignBotImages(rawBots) {
   const botsNeedingImages = rawBots.filter(bot => !bot.image);
   let placeholders = shuffle([...placeholderImgs]);
@@ -373,6 +378,64 @@ function assignBotImages(rawBots) {
   });
 }
 const bots = assignBotImages(rawBots);
+
+// --- AUTH BUTTONS ---
+function AuthButtons() {
+  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
+
+  if (isLoading) return <div style={{ color: "#36ff95" }}>Loading...</div>;
+
+  if (!isAuthenticated) {
+    return (
+      <button className="header-btn" onClick={() => loginWithRedirect()}>
+        Admin Login
+      </button>
+    );
+  }
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <span style={{ color: "#36ff95", fontWeight: 600 }}>
+        {user?.email}
+      </span>
+      <button
+        className="header-btn"
+        onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+        style={{ marginLeft: 10 }}
+      >
+        Logout
+      </button>
+    </div>
+  );
+}
+
+// --- SECURE MODERATION ROUTE ---
+function ProtectedRoute({ children }) {
+  const { isAuthenticated, isLoading, loginWithRedirect, user } = useAuth0();
+  const adminEmail = "Shayne@ShayneSkower.com";
+
+  useEffect(() => {
+    if (!isLoading && (!isAuthenticated || user?.email !== adminEmail)) {
+      loginWithRedirect();
+    }
+  }, [isLoading, isAuthenticated, loginWithRedirect, user]);
+
+  if (isLoading) {
+    return (
+      <div className="hero-section">
+        <h2>Checking authentication…</h2>
+      </div>
+    );
+  }
+  if (!isAuthenticated || user?.email !== adminEmail) {
+    return (
+      <div className="hero-section">
+        <h2>Admin only: Access denied</h2>
+      </div>
+    );
+  }
+  return children;
+}
+
 // --- Nav Tabs Bar ---
 function NavTabsBar({ currentCategory }) {
   const navRef = useRef(null);
@@ -456,7 +519,7 @@ function HamburgerMenu({ open, onClose }) {
   );
 }
 
-// --- HEADER ---
+// --- HEADER with AUTH BUTTONS ---
 function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile }) {
   return (
     <div className="header">
@@ -472,6 +535,7 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
             onChange={e => setSearchValue(e.target.value)}
           />
           <button className="header-btn" onClick={onOpenModal}>Submit Bot</button>
+          
         </div>
       ) : null}
       {isMobile && (
@@ -493,7 +557,6 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
 function BotGrid({ bots, onOpenModal }) {
   return (
     <div className="bot-grid">
-      {/* Suggest new GPT bot card */}
       <div
         className="suggest-card"
         onClick={onOpenModal}
@@ -525,7 +588,6 @@ function BotGrid({ bots, onOpenModal }) {
           }}
         />
       </div>
-      {/* Render all bots */}
       {bots.map((bot, i) => (
         <div className="bot-card" key={i}>
           {bot.verified && <div className="verified-badge">Verified</div>}
@@ -582,50 +644,50 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
   return (
     <>
       <Helmet>
-  <title>BetterAiBots.com – Curated Free AI Bots Directory</title>
-  <meta
-    name="description"
-    content="Discover free AI bots for productivity, education, lifestyle, music, health, creative tools, & more. Curated & easy to install. Explore now!"
-  />
-  <meta
-    name="keywords"
-    content="free AI bots, AI tools, productivity bots, creative tools, health bots, education bots, lifestyle bots, music bots, specialized knowledge, OpenAI GPTs, BetterAiBots"
-  />
-  <meta name="robots" content="index, follow" />
-  <meta http-equiv="content-language" content="en-us" />
-  <meta property="og:title" content="BetterAiBots.com – Free AI Bots Directory" />
-  <meta
-    property="og:description"
-    content="Curated directory of free AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
-  />
-  <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-  <meta property="og:url" content="https://betteraibots.com/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BetterAiBots.com – Free AI Bots Directory" />
-  <meta
-    name="twitter:description"
-    content="Curated directory of free AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
-  />
-  <meta name="twitter:image" content="/betteraibotsglowlogo8.png" />
-  <link rel="canonical" href="https://betteraibots.com/" />
-  <link rel="icon" type="image/png" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "BetterAiBots.com",
-      "url": "https://betteraibots.com/",
-      "description": "Curated directory of free AI bots for productivity, health, creativity, and more.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://betteraibots.com/?search={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    })}
-  </script>
-</Helmet>
+        <title>BetterAiBots.com – Curated Free AI Bots Directory</title>
+        <meta
+          name="description"
+          content="Discover free AI bots for productivity, education, lifestyle, music, health, creative tools, & more. Curated & easy to install. Explore now!"
+        />
+        <meta
+          name="keywords"
+          content="free AI bots, AI tools, productivity bots, creative tools, health bots, education bots, lifestyle bots, music bots, specialized knowledge, OpenAI GPTs, BetterAiBots"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="content-language" content="en-us" />
+        <meta property="og:title" content="BetterAiBots.com – Free AI Bots Directory" />
+        <meta
+          property="og:description"
+          content="Curated directory of free AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
+        />
+        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
+        <meta property="og:url" content="https://betteraibots.com/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="BetterAiBots.com – Free AI Bots Directory" />
+        <meta
+          name="twitter:description"
+          content="Curated directory of free AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
+        />
+        <meta name="twitter:image" content="/betteraibotsglowlogo8.png" />
+        <link rel="canonical" href="https://betteraibots.com/" />
+        <link rel="icon" type="image/png" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "BetterAiBots.com",
+            "url": "https://betteraibots.com/",
+            "description": "Curated directory of free AI bots for productivity, health, creativity, and more.",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://betteraibots.com/?search={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
+      </Helmet>
       <div className="hero-section">
         <h1 className="hero-headline">Discover, Share & Install the Best AI Bots</h1>
         <p className="hero-subheadline custom-hero-desc">
@@ -633,7 +695,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
         </p>
       </div>
       <BotGrid bots={filteredBots} onOpenModal={onOpenModal} />
-      {/* ---- BRAND LOGO BUTTON ---- */}
       {!showSearchBubble && (
         <button
           className="chat-btn"
@@ -654,7 +715,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
           />
         </button>
       )}
-      {/* ---- /BRAND LOGO BUTTON ---- */}
       {showSearchBubble && (
         <div className="floating-search-box" style={{
           position: 'fixed', bottom: 110, right: 36, width: 300, background: '#192738',
@@ -673,7 +733,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
   );
 }
 
-
 // --- CATEGORY PAGE ---
 function CategoryPage({ botList, onOpenModal }) {
   const { cat } = useParams();
@@ -683,51 +742,51 @@ function CategoryPage({ botList, onOpenModal }) {
   );
   return (
     <>
-     <Helmet>
-  <title>{catDecoded} Bots – BetterAiBots.com</title>
-  <meta
-    name="description"
-    content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
-  />
-  <meta
-    name="keywords"
-    content={`free ${catDecoded} AI bots, ${catDecoded} bots, AI tools, productivity bots, creative tools, health bots, education bots, lifestyle bots, music bots, specialized knowledge, OpenAI GPTs, BetterAiBots`}
-  />
-  <meta name="robots" content="index, follow" />
-  <meta http-equiv="content-language" content="en-us" />
-  <meta property="og:title" content={`${catDecoded} Bots – BetterAiBots.com`} />
-  <meta
-    property="og:description"
-    content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
-  />
-  <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-  <meta property="og:url" content={`https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`} />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${catDecoded} Bots – BetterAiBots.com`} />
-  <meta
-    name="twitter:description"
-    content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
-  />
-  <meta name="twitter:image" content="/betteraibotsglowlogo8.png" />
-  <link rel="canonical" href={`https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`} />
-  <link rel="icon" type="image/png" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": `${catDecoded} Bots`,
-      "url": `https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`,
-      "description": `Best free ${catDecoded} AI bots for productivity, health, creativity, and more.`,
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "BetterAiBots.com",
-        "url": "https://betteraibots.com/"
-      }
-    })}
-  </script>
-</Helmet>
+      <Helmet>
+        <title>{catDecoded} Bots – BetterAiBots.com</title>
+        <meta
+          name="description"
+          content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
+        />
+        <meta
+          name="keywords"
+          content={`free ${catDecoded} AI bots, ${catDecoded} bots, AI tools, productivity bots, creative tools, health bots, education bots, lifestyle bots, music bots, specialized knowledge, OpenAI GPTs, BetterAiBots`}
+        />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="content-language" content="en-us" />
+        <meta property="og:title" content={`${catDecoded} Bots – BetterAiBots.com`} />
+        <meta
+          property="og:description"
+          content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
+        />
+        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
+        <meta property="og:url" content={`https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${catDecoded} Bots – BetterAiBots.com`} />
+        <meta
+          name="twitter:description"
+          content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
+        />
+        <meta name="twitter:image" content="/betteraibotsglowlogo8.png" />
+        <link rel="canonical" href={`https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`} />
+        <link rel="icon" type="image/png" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": `${catDecoded} Bots`,
+            "url": `https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`,
+            "description": `Best free ${catDecoded} AI bots for productivity, health, creativity, and more.`,
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "BetterAiBots.com",
+              "url": "https://betteraibots.com/"
+            }
+          })}
+        </script>
+      </Helmet>
       <div className="hero-section">
         <h1 className="hero-headline">{catDecoded} Bots</h1>
         <p className="hero-subheadline custom-hero-desc">
@@ -740,7 +799,6 @@ function CategoryPage({ botList, onOpenModal }) {
 }
 
 // --- CONTACT PAGE ---
-
 function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
@@ -763,7 +821,6 @@ function Contact() {
       return;
     }
 
-    // --- Save contact message to localStorage ---
     const newContact = {
       name: form.name,
       email: form.email,
@@ -783,20 +840,20 @@ function Contact() {
   return (
     <div className="hero-section">
       <Helmet>
-  <title>Contact Us – BetterAiBots.com</title>
-  <meta
-    name="description"
-    content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
-  />
-  <meta property="og:title" content="Contact Us – BetterAiBots.com" />
-  <meta
-    property="og:description"
-    content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
-  />
-  <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-  <meta property="og:url" content="https://betteraibots.com/contact" />
-  <meta property="og:type" content="website" />
-</Helmet>
+        <title>Contact Us – BetterAiBots.com</title>
+        <meta
+          name="description"
+          content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
+        />
+        <meta property="og:title" content="Contact Us – BetterAiBots.com" />
+        <meta
+          property="og:description"
+          content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
+        />
+        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
+        <meta property="og:url" content="https://betteraibots.com/contact" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <h1 className="hero-headline">Contact Us</h1>
       <p className="hero-subheadline custom-hero-desc">
         Questions, suggestions or feedback? Reach out!
@@ -825,7 +882,6 @@ function Contact() {
     </div>
   );
 }
-
 
 // --- ARTICLES PAGE ---
 function Articles() {
@@ -902,25 +958,12 @@ function Legal() {
   );
 }
 
-// --- MODERATION PAGE (admin add bot) ---
-// --- MODERATION PAGE (admin add bot & approve/reject) ---
-function Moderation({ approveBot }) {
-  const [pw, setPw] = useState("");
-  const [authed, setAuthed] = useState(false);
-
-  // Main pending bots state (from localStorage)
-  const [pendingBots, setPendingBots] = useState(() => {
-    const stored = localStorage.getItem("pendingBots");
-    return stored ? JSON.parse(stored) : [];
-  });
-
-  // Contact messages for review
+// --- MODERATION PAGE ---
+function Moderation({ approveBot, pendingBots, setPendingBots }) {
   const [contactMessages, setContactMessages] = useState(() => {
     const stored = localStorage.getItem("contactMessages");
     return stored ? JSON.parse(stored) : [];
   });
-
-  // Admin Add Bot states
   const [adminAddMode, setAdminAddMode] = useState(false);
   const [adminBot, setAdminBot] = useState({
     title: "",
@@ -932,7 +975,6 @@ function Moderation({ approveBot }) {
   const [adminErr, setAdminErr] = useState("");
   const [adminSuccess, setAdminSuccess] = useState("");
 
-  // Store any changes to pending bots in localStorage
   useEffect(() => {
     localStorage.setItem("pendingBots", JSON.stringify(pendingBots));
   }, [pendingBots]);
@@ -942,26 +984,6 @@ function Moderation({ approveBot }) {
     setContactMessages(stored ? JSON.parse(stored) : []);
   }, []);
 
-  // Auth
-  const MOD_PASS = "letmein"; // Change for production
-
-  function handleAuth(e) {
-    e.preventDefault();
-    if (pw === MOD_PASS) setAuthed(true);
-  }
-
-  // Approve: Move bot from pending to main bots list
-  function handleApprove(idx) {
-    approveBot({ ...pendingBots[idx], verified: true });
-    setPendingBots(prev => prev.filter((_, i) => i !== idx));
-  }
-
-  // Reject: Just remove from pending
-  function handleReject(idx) {
-    setPendingBots(prev => prev.filter((_, i) => i !== idx));
-  }
-
-  // Handle Admin Add Bot
   function handleAdminBotChange(e) {
     const { name, value } = e.target;
     setAdminBot(prev => ({ ...prev, [name]: value }));
@@ -978,7 +1000,7 @@ function Moderation({ approveBot }) {
       title: adminBot.title,
       desc: adminBot.desc,
       openaiLink: adminBot.openaiLink,
-      image: adminBot.image || undefined, // auto placeholder if blank
+      image: adminBot.image || undefined,
       verified: false,
       categories: adminBot.categories
         ? adminBot.categories.split(",").map(s => s.trim()).filter(Boolean)
@@ -997,7 +1019,15 @@ function Moderation({ approveBot }) {
     setTimeout(() => setAdminSuccess(""), 1500);
   }
 
-  // On mount, approve any "approvedBots" from localStorage (legacy support)
+  function handleApprove(idx) {
+    approveBot({ ...pendingBots[idx], verified: true });
+    setPendingBots(prev => prev.filter((_, i) => i !== idx));
+  }
+
+  function handleReject(idx) {
+    setPendingBots(prev => prev.filter((_, i) => i !== idx));
+  }
+
   useEffect(() => {
     let approvedBots = [];
     try {
@@ -1007,28 +1037,15 @@ function Moderation({ approveBot }) {
       approvedBots.forEach(bot => approveBot(bot));
       localStorage.removeItem("approvedBots");
     }
-    // eslint-disable-next-line
-  }, []);
-
-  // ---- RENDER ----
-  if (!authed) {
-    return (
-      <div className="hero-section">
-        <h1 className="hero-headline">Moderator Login</h1>
-        <form style={{ maxWidth: 330, margin: "40px auto", background: "#172d3e", borderRadius: 20, padding: 28, boxShadow: "0 3px 26px #09e26924" }} onSubmit={handleAuth}>
-          <label className="form-label neon-green">Moderator Password</label>
-          <input className="form-control" type="password" value={pw} onChange={e => setPw(e.target.value)} />
-          <Button type="submit" className="header-btn" style={{ width: "100%", marginTop: 15 }}>Login</Button>
-        </form>
-      </div>
-    );
-  }
+  }, [approveBot]);
 
   return (
     <div className="hero-section">
+      {/* ADMIN LOGIN/LOGOUT BUTTONS */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
+        <AuthButtons />
+      </div>
       <h1 className="hero-headline">Moderation</h1>
-
-      {/* Admin Add Bot */}
       <div style={{ margin: "25px 0 40px 0", background: "#101c26", padding: 22, borderRadius: 18, boxShadow: "0 1px 10px #36ff9522" }}>
         <Button
           style={{ background: "#36ff95", color: "#101c26", border: "none", fontWeight: 700, marginBottom: 10 }}
@@ -1064,10 +1081,7 @@ function Moderation({ approveBot }) {
           </form>
         )}
       </div>
-
-      {/* Pending Submissions */}
       <h2 style={{ color: "#36ff95", fontWeight: 700, fontSize: "1.28rem" }}>Pending Bot Submissions</h2>
-      {/* pendingBots is referenced here for linting and for admin moderation */}
       {pendingBots.length === 0 ? (
         <div className="neon-green" style={{ marginTop: 35 }}>No pending submissions 🎉</div>
       ) : (
@@ -1083,8 +1097,6 @@ function Moderation({ approveBot }) {
           </div>
         ))
       )}
-
-      {/* Contact Messages */}
       <h2 style={{ color: "#36ff95", fontWeight: 700, fontSize: "1.15rem", marginTop: 30 }}>
         Contact Form Submissions
       </h2>
@@ -1100,7 +1112,9 @@ function Moderation({ approveBot }) {
             color: "#fff",
             boxShadow: "0 1px 7px #36ff9544"
           }}>
-            <div style={{ fontWeight: 600, color: "#36ff95" }}>{msg.name} &lt;{msg.email}&gt;</div>
+            <div style={{ fontWeight: 600, color: "#36ff95" }}>
+              {msg.name} {"<" + msg.email + ">"}
+            </div>
             <div style={{ fontSize: "0.97rem", margin: "7px 0 0 0" }}>{msg.message}</div>
             <div style={{ fontSize: "0.85rem", color: "#ccc", marginTop: 4 }}>{msg.date}</div>
           </div>
@@ -1109,7 +1123,9 @@ function Moderation({ approveBot }) {
     </div>
   );
 }
-// --- Disclaimer Bar (responsive, no background, less bold, softer red text) ---
+
+
+// --- Disclaimer Bar ---
 function DisclaimerBar() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -1147,15 +1163,15 @@ function DisclaimerBar() {
         letterSpacing: 0.01,
         fontFamily: "inherit"
       }}>
-        **&nbsp;
+        ** 
       </span>
-     <span style={{
-  color: "#36ff95",           // neon green
-  fontWeight: 700,            // bold
-  fontFamily: "Inter, Arial, sans-serif"
-}}>
-  This site does not provide financial, legal, or medical advice. Bots are provided “as is” for entertainment and education only. Always verify information and consult qualified professionals as needed.
-</span>
+      <span style={{
+        color: "#36ff95",
+        fontWeight: 700,
+        fontFamily: "Inter, Arial, sans-serif"
+      }}>
+        This site does not provide financial, legal, or medical advice. Bots are provided “as is” for entertainment and education only. Always verify information and consult qualified professionals as needed.
+      </span>
       <br />
       <span style={{
         color: "#36ff95",
@@ -1171,9 +1187,6 @@ function DisclaimerBar() {
   );
 }
 
-
- 
-
 // --- MAIN APP ROUTER ---
 function App() { 
   const [botList, setBotList] = useState(bots);
@@ -1181,8 +1194,6 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  // --- Add your form and moderation states
   const [form, setForm] = useState({
     gptName: "",
     gptDesc: "",
@@ -1197,16 +1208,12 @@ function App() {
     return stored ? JSON.parse(stored) : [];
   });
   const [botRecaptchaValue, setBotRecaptchaValue] = useState("");
-
-  // --- Sticky Logo On Scroll
   const [showStickyLogo, setShowStickyLogo] = useState(false);
 
-  // Responsive width effect
   useEffect(() => {
     function handleResize() { setWindowWidth(window.innerWidth); }
     window.addEventListener("resize", handleResize);
 
-    // Sticky logo scroll handler
     function onScroll() {
       const logo = document.querySelector('.header-logo');
       if (!logo) return;
@@ -1289,12 +1296,10 @@ function App() {
     }
   };
 
-  // Approve bot from moderation
   function approveBot(bot) {
     setBotList(prev => [{ ...bot, verified: true }, ...prev]);
   }
 
-  // Sticky nav: scroll to top on nav change
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -1310,59 +1315,53 @@ function App() {
         onMenuClick={() => setMenuOpen(v => !v)}
         isMobile={isMobile}
       />
-
-           {/* ---- STICKY SMALL LOGO ON SCROLL ---- */}
-{showStickyLogo && (
-  <div
-    style={{
-      position: 'fixed',
-      top: 0,
-      left: '50%',
-      transform: 'translateX(-50%)',
-      width: isMobile ? '100vw' : '1160px',
-      zIndex: 1002,
-      display: 'flex',
-      alignItems: 'center',
-      pointerEvents: 'none',
-      transition: 'opacity 0.18s',
-    }}
-  >
-    <div
-      style={{
-        marginLeft: isMobile ? 12 : '0px',
-        marginTop: 0,
-        display: 'flex',
-        alignItems: 'center',
-        pointerEvents: 'auto',
-        background: 'rgba(16,28,38,0.89)',
-        borderRadius: 16,
-        boxShadow: 'none',
-        padding: isMobile ? '0 7px' : '0 14px',
-        height: 41, // 36 * 1.15 ≈ 41, optional if you want container taller
-      }}
-    >
-      <img
-        src={logoSmall}
-        alt="BetterAiBots Small Logo"
-        style={{
-          height: isMobile ? 21 : 33, // Increased by 15%
-          width: 'auto',
-          display: 'block',
-          background: 'none',
-          borderRadius: 8,
-          boxShadow: 'none',
-          pointerEvents: 'none',
-          userSelect: 'none',
-        }}
-        draggable={false}
-      />
-    </div>
-  </div>
-)}
-
-
-
-
+      {showStickyLogo && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: isMobile ? '100vw' : '1160px',
+            zIndex: 1002,
+            display: 'flex',
+            alignItems: 'center',
+            pointerEvents: 'none',
+            transition: 'opacity 0.18s',
+          }}
+        >
+          <div
+            style={{
+              marginLeft: isMobile ? 12 : '0px',
+              marginTop: 0,
+              display: 'flex',
+              alignItems: 'center',
+              pointerEvents: 'auto',
+              background: 'rgba(16,28,38,0.89)',
+              borderRadius: 16,
+              boxShadow: 'none',
+              padding: isMobile ? '0 7px' : '0 14px',
+              height: 41,
+            }}
+          >
+            <img
+              src={logoSmall}
+              alt="BetterAiBots Small Logo"
+              style={{
+                height: isMobile ? 21 : 33,
+                width: 'auto',
+                display: 'block',
+                background: 'none',
+                borderRadius: 8,
+                boxShadow: 'none',
+                pointerEvents: 'none',
+                userSelect: 'none',
+              }}
+              draggable={false}
+            />
+          </div>
+        </div>
+      )}
       <div style={{
         position: "sticky",
         top: 0,
@@ -1387,7 +1386,19 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/legal" element={<Legal />} />
-        <Route path="/moderation" element={<Moderation botList={botList} approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
+        <Route
+          path="/moderation"
+          element={
+            <ProtectedRoute>
+              <Moderation
+                botList={botList}
+                approveBot={approveBot}
+                pendingBots={pendingBots}
+                setPendingBots={setPendingBots}
+              />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Modal show={showModal} onHide={handleCloseModal} centered>
@@ -1447,7 +1458,6 @@ function App() {
                   <div style={{ color: '#36ff95', marginTop: 7, fontSize: '0.92rem' }}>Live Preview</div>
                 </div>
               )}
-              {/* ---- reCAPTCHA ---- */}
               <Form.Group className="mb-2" controlId="formRecaptcha">
                 <div style={{ margin: "18px 0" }}>
                   <ReCAPTCHA
@@ -1482,14 +1492,13 @@ function App() {
           )}
         </Modal.Body>
       </Modal>
-                 {location.pathname !== "/moderation" && <DisclaimerBar />}
+      {location.pathname !== "/moderation" && <DisclaimerBar />}
       <FooterWithWallets />
     </>
   );
 }
 
-// ==================== FOOTER WITH WALLETS & ADDRESS FUNCTIONS ====================
-// ==================== FOOTER WITH WALLETS & ADDRESS FUNCTIONS ====================
+// --- FOOTER WITH WALLETS ---
 function FooterWithWallets() {
   const [showTip, setShowTip] = React.useState(false);
   const [btcCopied, setBtcCopied] = React.useState(false);
@@ -1498,14 +1507,13 @@ function FooterWithWallets() {
   const BTC = "bc1qnswf7fyzkrwczkmlm9ann6rkmzcp0jd4jvzwxw";
   const SOL = "GCowBrjFfoXctJTQxwNgUuhCvuzD9hE4tHgBLWL39UR8";
 
-  // BTC Copy Handler
   const handleCopyBTC = (e) => {
     e?.preventDefault && e.preventDefault();
     navigator.clipboard.writeText(BTC);
     setBtcCopied(true);
     setTimeout(() => setBtcCopied(false), 1200);
   };
-  // SOL Copy Handler
+
   const handleCopySOL = (e) => {
     e?.preventDefault && e.preventDefault();
     navigator.clipboard.writeText(SOL);
@@ -1542,7 +1550,6 @@ function FooterWithWallets() {
           position: "relative"
         }}
       >
-        {/* --- Tip Jar Icon with popout addresses --- */}
         <div
           style={{
             display: "flex",
@@ -1558,7 +1565,6 @@ function FooterWithWallets() {
           onMouseEnter={() => setShowTip(true)}
           onMouseLeave={() => setShowTip(false)}
         >
-          {/* Show "Tip Jar" in skinny gold font above the jar when hovering */}
           {showTip && (
             <div
               style={{
@@ -1579,7 +1585,6 @@ function FooterWithWallets() {
               Tip Jar
             </div>
           )}
-          {/* Addresses Pop-up, only on hover */}
           {showTip && (
             <div
               style={{
@@ -1603,7 +1608,6 @@ function FooterWithWallets() {
                 willChange: "transform, opacity"
               }}
             >
-              {/* BTC address row */}
               <WalletAddressHorizontal
                 address={BTC}
                 label="BTC"
@@ -1614,7 +1618,6 @@ function FooterWithWallets() {
                 showClipboard={true}
                 showLabel={true}
               />
-              {/* SOL address row */}
               <WalletAddressHorizontal
                 address={SOL}
                 label="SOL"
@@ -1627,7 +1630,6 @@ function FooterWithWallets() {
               />
             </div>
           )}
-          {/* Tip Jar cup image (no click, just icon) */}
           <span style={{ display: "flex", alignItems: "center" }}>
             <img
               src={tipJar}
@@ -1646,8 +1648,6 @@ function FooterWithWallets() {
             />
           </span>
         </div>
-
-        {/* --- Logo Icon (center, glowing only on hover) --- */}
         <div
           className="footer-logo-wrapper"
           style={{
@@ -1681,7 +1681,6 @@ function FooterWithWallets() {
             draggable={false}
           />
         </div>
-        {/* --- Powered by DubbyDevs (ETH static only, no popup/copy) --- */}
         <div
           style={{
             color: "#fff",
@@ -1690,7 +1689,7 @@ function FooterWithWallets() {
             position: "relative"
           }}
         >
-          <span>Powered by&nbsp;</span>
+          <span>Powered by </span>
           <span
             style={{
               background: "linear-gradient(90deg, #36ff95, #ffd700)",
@@ -1720,9 +1719,9 @@ function FooterWithWallets() {
         }}
       >
         <span style={{ color: "#fff" }}>
-          &copy; {new Date().getFullYear()} BetterAiBots.com
+          © {new Date().getFullYear()} BetterAiBots.com
         </span>
-        &nbsp;|&nbsp;
+         | 
         <Link
           to="/legal"
           style={{
@@ -1741,8 +1740,7 @@ function FooterWithWallets() {
   );
 }
 
-// --- BTC/SOL Horizontal: [address] [clipboard] [label] + copied message ---
-// Show copy message only when copied for that row
+// --- Wallet Address Horizontal ---
 function WalletAddressHorizontal({
   label,
   address,
@@ -1825,7 +1823,7 @@ function WalletAddressHorizontal({
   );
 }
 
-// --- Clipboard Button: Just icon, "Copied!"/Arigato! shown by parent --- 
+// --- Clipboard Button ---
 function ClipboardBtn({ address, copied, handleCopy }) {
   return (
     <button
@@ -1864,14 +1862,22 @@ function ClipboardBtn({ address, copied, handleCopy }) {
   );
 }
 
-
-// --- HelmetProvider Wrapper for SEO ---
+// --- AUTH0 PROVIDER WRAPPER ---
 export default function AppWithRouter() {
   return (
-    <HelmetProvider>
-      <Router>
-        <App />
-      </Router>
-    </HelmetProvider>
+    <Auth0Provider
+      domain={process.env.REACT_APP_AUTH0_DOMAIN}
+      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+        audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+      }}
+    >
+      <HelmetProvider>
+        <Router>
+          <App />
+        </Router>
+      </HelmetProvider>
+    </Auth0Provider>
   );
 }
