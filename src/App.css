@@ -147,9 +147,9 @@ body {
 .verified-badge {
   display: inline-block;
   margin-bottom: 6px;
-  padding: 2.5px 12px 2px 12px;
-  border-radius: 17px;
-  font-size: 0.93rem;
+  padding: 2px 8px;
+  border-radius: 14px;
+  font-size: 0.82rem;
   background: linear-gradient(90deg, #09e269 0%, #0bbfdb 100%);
   color: #101c26;
   font-weight: 500;
@@ -161,6 +161,7 @@ body {
   box-shadow: 0 0 4px #16ff6c38;
   transition: background 0.2s;
 }
+
 
 .bot-title {
   font-size: 1.23rem;

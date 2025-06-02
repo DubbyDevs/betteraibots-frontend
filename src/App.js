@@ -105,7 +105,7 @@ const rawBots = [
     title: "TheLoveDoc",
     desc: "Relationship, dating, and vulnerability advice from a friendly doc. (Not a real doctor)",
     image: placeholderImg7,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
     categories: ["Health & Wellness", "Lifestyle"]
   },
@@ -115,7 +115,7 @@ const rawBots = [
     title: "Crypto Sentiment Tracker",
     desc: "Analyze real-time crypto sentiment and trends with one click. (Not financial advice)",
     image: placeholderImg13,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-6834013bf6288191ab9eaabe31591539-crypto-sentiment-tracker",
     categories: ["Productivity"]
   },
@@ -123,7 +123,7 @@ const rawBots = [
     title: "Video AI",
     desc: "Smart video editing, summaries, and insights powered by AI.",
     image: placeholderImg22,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-h8l4uLHFQ-video-ai",
     categories: ["Productivity", "Creative Tools"]
   },
@@ -131,23 +131,23 @@ const rawBots = [
     title: "Finance, Economics, Stock, Crypto & Trade Invest",
     desc: "Get in-depth financial analysis, crypto research, and investment insights. (Not financial advice)",
     image: placeholderImg14,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-iR15hX15H-finance-economics-stock-crypto-trade-invest",
     categories: ["Productivity"]
   },
   {
-    title: "Code Copilot",
-    desc: "AI pair programmer for instant coding help, reviews, and bug fixes.",
-    image: placeholderImg21,
-    verified: true,
-    openaiLink: "https://chatgpt.com/g/g-2DQzU5UZl-code-copilot",
-    categories: ["Productivity"]
+    title: "Blood Test Result Analysis for Health Insight",
+    desc: "Understand your blood test results and get actionable health insights. Not real medical advice.",
+    image: placeholderImg24,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-1AahKhimZ-blood-test-result-analysis-for-health-insight",
+    categories: ["Health & Wellness", "Education"]
   },
   {
     title: "Fictional Therapist",
     desc: "A fictional AI therapist/psychologist for entertainment and writing. Not a real mental health service. (Not Real Therapy)",
     image: placeholderImg18,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-FGhasb1tZ-therapist-psychologist-fictional-not-real-therapy",
     categories: ["Health & Wellness", "Lifestyle"]
   },
@@ -155,7 +155,7 @@ const rawBots = [
     title: "GIF Generator",
     desc: "Quickly create custom GIFs on any topic or mood. Fun and easy to use.",
     image: placeholderImg6,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-45WfVCFcy-gif-generator",
     categories: ["Creative Tools"]
   },
@@ -163,7 +163,7 @@ const rawBots = [
     title: "Cooking, Diet, Recipes, Nutrition & Food",
     desc: "Personalized recipes, diet plans, nutrition tips, and cooking advice in one spot.",
     image: placeholderImg5,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-KU2U5o7Wj-cookingdietrecipesnutritionfood",
     categories: ["Health & Wellness", "Lifestyle"]
   },
@@ -171,7 +171,7 @@ const rawBots = [
     title: "Fitness Workout Diet PhD Coach",
     desc: "AI-powered fitness, workout, and diet advice from a PhD-level virtual coach.",
     image: placeholderImg15,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-ipOIcM229-fitness-workout-diet-phd-coach",
     categories: ["Health & Wellness", "Lifestyle"]
   },
@@ -179,7 +179,7 @@ const rawBots = [
     title: "Glibatree Art Designer",
     desc: "AI art design, concept visuals, and creative ideas from the Glibatree bot.",
     image: placeholderImg3,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-7CKojumSX-glibatree-art-designer",
     categories: ["Creative Tools"]
   },
@@ -187,7 +187,7 @@ const rawBots = [
     title: "Grammar Checker",
     desc: "Checks your grammar, spelling, and clarity with suggestions for better writing.",
     image: placeholderImg2,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-kfkNLRrwD-grammar-checker",
     categories: ["Productivity", "Education"]
   },
@@ -195,7 +195,7 @@ const rawBots = [
     title: "AI Music Maker (Song Words to Music)",
     desc: "Turn your words or lyrics into music with this AI-powered music generator. Free to use!",
     image: placeholderImg12,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-rLVq3NTrN-ai-music-maker-song-words-to-music-free",
     categories: ["Music", "Creative Tools"]
   },
@@ -203,7 +203,7 @@ const rawBots = [
     title: "Health & Medicine",
     desc: "Get general health and wellness info powered by AI. Not a substitute for professional medical advice. (Not a real Doctor)",
     image: placeholderImg8,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-t3BUYjh4C-health-medicinenot-doctor-not-medical-advice",
     categories: ["Health & Wellness", "Education"]
   },
@@ -211,7 +211,7 @@ const rawBots = [
     title: "Law, Contract, Disclaimer",
     desc: "Get AI-powered info on contracts, disclaimers, and general law concepts. Not actual legal advice.",
     image: placeholderImg27,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-My8UBHpJn-law-contractdisclaimer-not-lawyer-legal-advice",
     categories: ["Productivity", "Specialized Knowledge"]
   },
@@ -219,7 +219,7 @@ const rawBots = [
     title: "Accounting GPT",
     desc: "AI-powered accounting help, bookkeeping, and finance questions answered.",
     image: placeholderImg10,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-7RJghLmOO-accounting-gpt",
     categories: ["Productivity"]
   },
@@ -227,7 +227,7 @@ const rawBots = [
     title: "Stocks, Crypto, Options & Forex Market Summary",
     desc: "Summaries for stocks, crypto, options, forex and market analysis.",
     image: placeholderImg20,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-5wVuKfpEt-stocks-crypto-options-forex-market-summary",
     categories: ["Productivity"]
   },
@@ -235,7 +235,7 @@ const rawBots = [
     title: "Academic Assistant Pro",
     desc: "Academic support, research help, citation, essay and study tools.",
     image: placeholderImg23,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-UubB08D4y-academic-assistant-pro",
     categories: ["Education"]
   },
@@ -243,7 +243,7 @@ const rawBots = [
     title: "Math AI",
     desc: "Math solver and explainer: equations, word problems, and more.",
     image: placeholderImg9,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-WP1diWHRl-math",
     categories: ["Education"]
   },
@@ -251,7 +251,7 @@ const rawBots = [
     title: "YouTube AI",
     desc: "AI for video summaries, channel insights, and content ideas for YouTube.",
     image: placeholderImg1,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-Wud3tXQj3-youtube-ai",
     categories: ["Productivity", "Creative Tools"]
   },
@@ -259,7 +259,7 @@ const rawBots = [
     title: "DesignerGPT",
     desc: "AI-powered design assistant for digital art, logos, and graphics.",
     image: placeholderImg16,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-2Eo3NxuS7-designergpt",
     categories: ["Creative Tools"] // Changed from ["Digital Art"]
   },
@@ -267,7 +267,7 @@ const rawBots = [
     title: "Video GPT by VEED – Instant Free AI Video Maker",
     desc: "Create AI-generated videos instantly for free with Video GPT by VEED.",
     image: placeholderImg17, // Changed from placeholderImg1
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-Hkqnd7mFT-video-gpt-by-veed-instant-free-ai-video-maker",
     categories: ["Creative Tools", "Productivity"]
   },
@@ -275,23 +275,23 @@ const rawBots = [
     title: "AI Music Prompt Generator",
     desc: "Generate creative prompts for AI music generation and songwriting.",
     image: placeholderImg19,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-y2J4bAO8A-ai-music-prompt-generator",
     categories: ["Music", "Creative Tools"]
   },
   {
-    title: "Blood Test Result Analysis for Health Insight",
-    desc: "Understand your blood test results and get actionable health insights. Not real medical advice.",
-    image: placeholderImg24,
-    verified: true,
-    openaiLink: "https://chatgpt.com/g/g-1AahKhimZ-blood-test-result-analysis-for-health-insight",
-    categories: ["Health & Wellness", "Education"]
+    title: "Code Copilot",
+    desc: "AI pair programmer for instant coding help, reviews, and bug fixes.",
+    image: placeholderImg21,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-2DQzU5UZl-code-copilot",
+    categories: ["Productivity"]
   },
   {
     title: "SciSpace",
     desc: "Ask questions and search for scientific literature instantly with SciSpace GPT.",
     image: placeholderImg25,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-NgAcklHd8-scispace",
     categories: ["Education", "Specialized Knowledge"]
   },
@@ -299,7 +299,7 @@ const rawBots = [
     title: "Scholar GPT",
     desc: "AI-powered academic research assistant for scholars and students.",
     image: placeholderImg4,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt",
     categories: ["Education", "Specialized Knowledge"]
   },
@@ -307,7 +307,7 @@ const rawBots = [
     title: "PlaylistAI – Music Playlist Maker",
     desc: "Instantly create music playlists using AI and your favorite genres or moods.",
     image: placeholderImg26,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-KkxbQAVuk-playlistai-music-playlist-maker",
     categories: ["Music", "Lifestyle"]
   },
@@ -315,7 +315,7 @@ const rawBots = [
     title: "Love Language",
     desc: "Discover and explore your love languages for better relationships and connection.",
     image: placeholderImg29,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-IEqZMsTpJ-love-language",
     categories: ["Health & Wellness", "Lifestyle"]
   },
@@ -323,7 +323,7 @@ const rawBots = [
     title: "VetGPT",
     desc: "Get general veterinary advice on animal health, nutrition, and behavior. Not a substitute for professional veterinary care.",
     image: placeholderImg28,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt",
     categories: ["Health & Wellness", "Specialized Knowledge"]
   },
@@ -331,7 +331,7 @@ const rawBots = [
     title: "Personal Assistant",
     desc: "Organize and optimize your daily life with this AI-powered personal assistant.",
     image: placeholderImg11,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-hWAjkwSzj-personal-assistant",
     categories: ["Productivity"]
   },
@@ -339,7 +339,7 @@ const rawBots = [
     title: "Astrology Birth Chart GPT",
     desc: "Personalized astrological insights based on your birth date, time, and location.",
     image: placeholderImg30,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-WxckXARTP-astrology-birth-chart-gpt",
     categories: ["Specialized Knowledge", "Lifestyle"]
   },
@@ -347,7 +347,7 @@ const rawBots = [
     title: "Paintr",
     desc: "Identify any exact color of paint in seconds!", 
     image: placeholderImg31,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
     categories: ["Specialized Knowledge"] 
   },
@@ -355,7 +355,7 @@ const rawBots = [
     title: "Logo",
     desc: "Design professional brand logos with this AI-powered logo creation expert.",
     image: placeholderImg32,
-    verified: true,
+    free: true,
     openaiLink: "https://chatgpt.com/g/g-pCq5xaCri-logo",
     categories: ["Creative Tools"]
   }
@@ -590,7 +590,7 @@ function BotGrid({ bots, onOpenModal }) {
       </div>
       {bots.map((bot, i) => (
         <div className="bot-card" key={i}>
-          {bot.verified && <div className="verified-badge">Verified</div>}
+          {bot.verified && <div className="verified-badge">Free</div>}
           <img
             src={bot.image}
             alt={bot.title}
