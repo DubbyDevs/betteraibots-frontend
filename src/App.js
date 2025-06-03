@@ -66,6 +66,15 @@ const CATEGORIES = [
   { name: "Creative Tools" },
   { name: "Specialized Knowledge" }
 ];
+const CATEGORY_SLUGS = {
+  "Health & Wellness": "wellness",
+  "Creative Tools": "creative",
+  "Specialized Knowledge": "wizardry",
+  "Productivity": "productivity",
+  "Education": "education",
+  "Lifestyle": "lifestyle",
+  "Music": "music"
+};
 
 // --- Plausible Analytics snippet ---
 function PlausibleAnalytics() {
@@ -174,6 +183,22 @@ const rawBots = [
     categories: ["Health & Wellness", "Education"]
   },
   {
+    title: "Cooking, Diet, Recipes, Nutrition & Food",
+    desc: "Personalized recipes, diet plans, nutrition tips, and cooking advice in one spot.",
+    image: placeholderImg5,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-KU2U5o7Wj-cookingdietrecipesnutritionfood",
+    categories: ["Health & Wellness", "Lifestyle"]
+  },
+  {
+    title: "Paintr",
+    desc: "Identify any exact color of paint in seconds!", 
+    image: placeholderImg31,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
+    categories: ["Specialized Knowledge"] 
+  },
+  {
     title: "Fitness Workout Diet PhD Coach",
     desc: "AI-powered fitness, workout, and diet advice from a PhD-level virtual coach.",
     image: placeholderImg15,
@@ -189,14 +214,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-45WfVCFcy-gif-generator",
     categories: ["Creative Tools"]
   },
-  {
-    title: "Cooking, Diet, Recipes, Nutrition & Food",
-    desc: "Personalized recipes, diet plans, nutrition tips, and cooking advice in one spot.",
-    image: placeholderImg5,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-KU2U5o7Wj-cookingdietrecipesnutritionfood",
-    categories: ["Health & Wellness", "Lifestyle"]
-  },
+  
   {
     title: "AI Music Maker (Song Words to Music)",
     desc: "Turn your words or lyrics into music with this AI-powered music generator. Free to use!",
@@ -229,14 +247,6 @@ const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/g/g-My8UBHpJn-law-contractdisclaimer-not-lawyer-legal-advice",
     categories: ["Productivity", "Specialized Knowledge"]
-  },
-  {
-    title: "Paintr",
-    desc: "Identify any exact color of paint in seconds!", 
-    image: placeholderImg31,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
-    categories: ["Specialized Knowledge"] 
   },
   {
     title: "Accounting GPT",
@@ -473,20 +483,23 @@ function NavTabsBar({ currentCategory }) {
         onBlur={() => setShowDropdown(false)}
         style={{ position: "relative" }}
       >
-        Categories
+               Categories
         <div className="nav-dropdown-list" style={{ display: showDropdown ? "flex" : "none" }}>
-          {CATEGORIES.map((cat) => (
-            <Link
-              to={`/category/${encodeURIComponent(cat.name)}`}
-              className="nav-dropdown-item"
-              key={cat.name}
-              onClick={() => setShowDropdown(false)}
-              tabIndex={0}
-            >
-              {cat.name}
-            </Link>
-          ))}
-        </div>
+          {CATEGORIES.map((cat) => {
+            const slug = CATEGORY_SLUGS[cat.name] || encodeURIComponent(cat.name);
+            return (
+              <Link
+                to={`/category/${slug}`}
+                className="nav-dropdown-item"
+                key={cat.name}
+                onClick={() => setShowDropdown(false)}
+                tabIndex={0}
+              >
+                {cat.name}
+              </Link>
+            );
+          })}
+                </div>
       </div>
       <Link to="/articles" className="nav-tab" tabIndex={0}>Articles</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
@@ -746,71 +759,53 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
     </>
   );
 }
-
 // --- CATEGORY PAGE ---
 function CategoryPage({ botList, onOpenModal }) {
   const { cat } = useParams();
-  const catDecoded = decodeURIComponent(cat || "");
+
+
+
+const CATEGORY_REVERSE = {
+  wellness: "Health & Wellness",
+  creative: "Creative Tools",
+  wizardry: "Specialized Knowledge",
+  productivity: "Productivity",
+  education: "Education",
+  lifestyle: "Lifestyle",
+  music: "Music"
+};
+
+
+  const catName = CATEGORY_REVERSE[cat] || decodeURIComponent(cat || "");
   const botsForCategory = botList.filter(bot =>
-    bot.categories && bot.categories.some(c => c.toLowerCase() === catDecoded.toLowerCase())
+    bot.categories?.some(c => c.toLowerCase() === catName.toLowerCase())
   );
+
   return (
     <>
       <Helmet>
-        <title>{catDecoded} Bots – BetterAiBots.com</title>
+        <title>{catName} Bots – BetterAiBots.com</title>
         <meta
           name="description"
-          content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
+          content={`Best free ${catName} AI bots for productivity, health, creative tools, and more.`}
         />
-        <meta
-          name="keywords"
-          content={`free ${catDecoded} AI bots, ${catDecoded} bots, AI tools, productivity bots, creative tools, health bots, education bots, lifestyle bots, music bots, specialized knowledge, OpenAI GPTs, BetterAiBots`}
-        />
-        <meta name="robots" content="index, follow" />
-        <meta http-equiv="content-language" content="en-us" />
-        <meta property="og:title" content={`${catDecoded} Bots – BetterAiBots.com`} />
-        <meta
-          property="og:description"
-          content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
-        />
-        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-        <meta property="og:url" content={`https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${catDecoded} Bots – BetterAiBots.com`} />
-        <meta
-          name="twitter:description"
-          content={`Best free ${catDecoded} AI bots for productivity, health, creative tools, and more. Find, install, and share curated OpenAI GPTs.`}
-        />
-        <meta name="twitter:image" content="/betteraibotsglowlogo8.png" />
-        <link rel="canonical" href={`https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`} />
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "name": `${catDecoded} Bots`,
-            "url": `https://betteraibots.com/category/${encodeURIComponent(catDecoded)}`,
-            "description": `Best free ${catDecoded} AI bots for productivity, health, creativity, and more.`,
-            "isPartOf": {
-              "@type": "WebSite",
-              "name": "BetterAiBots.com",
-              "url": "https://betteraibots.com/"
-            }
-          })}
-        </script>
+        <meta property="og:title" content={`${catName} Bots – BetterAiBots.com`} />
+        <meta property="og:url" content={`https://betteraibots.com/category/${encodeURIComponent(cat)}`} />
       </Helmet>
       <div className="hero-section">
-        <h1 className="hero-headline">{catDecoded} Bots</h1>
+        <h1 className="hero-headline">{catName} Bots</h1>
         <p className="hero-subheadline custom-hero-desc">
-          Curated bots for the <span className="neon-green">{catDecoded}</span> category.
+          Curated bots for the <span className="neon-green">{catName}</span> category.
         </p>
+      </div>
+      <div className="site-disclaimer" style={{ padding: '0 20px', textAlign: 'center' }}>
+        🔴 <strong>This site does not provide financial, legal, or medical advice. Bots are provided “as is” for entertainment and education only.</strong>
       </div>
       <BotGrid bots={botsForCategory} onOpenModal={onOpenModal} />
     </>
   );
 }
+
 
 // --- CONTACT PAGE ---
 function Contact() {
