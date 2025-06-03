@@ -1224,6 +1224,8 @@ function DisclaimerBar() {
 
 // --- MAIN APP ROUTER ---
 function App() { 
+  const MAX_LOCAL_PENDING_BOTS = 10; // Change this number if you want a higher/lower limit
+
   const [botList, setBotList] = useState(bots);
   const [showModal, setShowModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -1294,6 +1296,12 @@ function App() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    // --- Submission limit check here ---
+    if (pendingBots.length >= MAX_LOCAL_PENDING_BOTS) {
+      alert("Submission box is full. Please wait for an admin to review before submitting more.");
+      return;
+    }
+
     const formIsValid = form.gptName && form.gptDesc && form.openaiUrl;
     setFormValidated(true);
 
@@ -1435,21 +1443,28 @@ function App() {
           }
         />
         {/* Clean URL for categories: now /lifestyle, /music, etc. */}
+                {/* Clean URL for categories: now /lifestyle, /music, etc. */}
         <Route path=":cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Suggest a GPT</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {!formSubmitted ? (
+          {/* Limit reached: show message and no form */}
+          {pendingBots.length >= MAX_LOCAL_PENDING_BOTS ? (
+            <div style={{ color: "#ff6464", textAlign: "center", fontSize: "1.18rem", margin: "28px 0" }}>
+              The submission box is full. Please wait for admin review before submitting more.
+            </div>
+          ) : !formSubmitted ? (
             <Form noValidate validated={formValidated} onSubmit={handleFormSubmit}>
               <Form.Group className="mb-3" controlId="formGptName">
                 <Form.Label className="form-label neon-green">GPT Name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="E.g. 'GPT NAME"
+                  placeholder="E.g. 'GPT NAME'"
                   name="gptName"
                   value={form.gptName}
                   onChange={handleFormChange}
@@ -1504,6 +1519,12 @@ function App() {
                   />
                 </div>
               </Form.Group>
+              {/* Add the warning above the button! */}
+              {pendingBots.length >= MAX_LOCAL_PENDING_BOTS && (
+                <div style={{ color: "#ff6464", marginBottom: 12, fontWeight: 600 }}>
+                  Submission box full. Please wait for admin review.
+                </div>
+              )}
               <Button
                 variant="success"
                 type="submit"
@@ -1518,6 +1539,7 @@ function App() {
                   boxShadow: "0 2px 18px #16ff6c40",
                   marginTop: "10px"
                 }}
+                disabled={pendingBots.length >= MAX_LOCAL_PENDING_BOTS}
               >
                 Submit
               </Button>
@@ -1534,6 +1556,8 @@ function App() {
     </>
   );
 }
+
+
 
 
 // --- FOOTER WITH WALLETS ---
