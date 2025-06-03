@@ -736,3 +736,11 @@ img[alt="preview"] {
   text-shadow: 0 0 6px #36ff9575;
   user-select: none;
 }
+/* Center all .recaptcha-wrap containers and their contents */
+.recaptcha-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 0 0 0;  /* Adjust top/bottom margin as needed */
+  width: 100%;
+}

@@ -1,6 +1,6 @@
 {
   "short_name": "BetterAiBots",
-  "name": "Free Bot Finder by BetterAiBots.com",
+  "name": "BetterAiBots – Discover the Best Free AI Bots",
   "description": "Directory of free AI bots. Find, share, and use the best free OpenAI-powered tools!",
   "icons": [
     {
@@ -22,6 +22,8 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#172d3e",
-  "background_color": "#101c26"
+  "background_color": "#101c26",
+  "orientation": "portrait-primary",
+  "scope": "/"
 }
 

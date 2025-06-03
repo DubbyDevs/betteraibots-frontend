@@ -1270,7 +1270,6 @@ function DisclaimerBar() {
     </div>
   );
 }
-
 // --- MAIN APP ROUTER ---
 function App() { 
   const MAX_LOCAL_PENDING_BOTS = 10; // Change this number if you want a higher/lower limit
@@ -1492,7 +1491,6 @@ function App() {
           }
         />
         {/* Clean URL for categories: now /lifestyle, /music, etc. */}
-                {/* Clean URL for categories: now /lifestyle, /music, etc. */}
         <Route path=":cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
@@ -1560,7 +1558,7 @@ function App() {
                 </div>
               )}
               <Form.Group className="mb-2" controlId="formRecaptcha">
-                <div style={{ margin: "18px 0" }}>
+                <div className="recaptcha-wrap">
                   <ReCAPTCHA
                     sitekey="6Lf2wlArAAAAAH0GDpzc02uW1KAD8TJXgD_kSz1j"
                     onChange={val => setBotRecaptchaValue(val)}
@@ -1605,9 +1603,6 @@ function App() {
     </>
   );
 }
-
-
-
 
 // --- FOOTER WITH WALLETS ---
 function FooterWithWallets() {
