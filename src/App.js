@@ -103,23 +103,27 @@ function shuffle(arr) {
 const rawBots = [
   // ... (your existing bot list, unchanged) ...
   {
+    title: "Scholar GPT",
+    desc: "AI-powered academic research assistant for scholars and students.",
+    image: placeholderImg4,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt",
+    categories: ["Education", "Specialized Knowledge"]
+  },
+  
+  {
     title: "TheLoveDoc",
-    desc: "Relationship, dating, and vulnerability advice from a friendly doc. (Not a real doctor)",
+    desc: "Relationship and dating advice (Not a real doctor)",
     image: placeholderImg7,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
     categories: ["Health & Wellness", "Lifestyle"]
   },
   // ... const rawBots = [
+
+
   
-  {
-    title: "Crypto Sentiment Tracker",
-    desc: "Analyze real-time crypto sentiment and trends with one click. (Not financial advice)",
-    image: placeholderImg13,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-6834013bf6288191ab9eaabe31591539-crypto-sentiment-tracker",
-    categories: ["Productivity"]
-  },
+
   {
     title: "Video AI",
     desc: "Smart video editing, summaries, and insights powered by AI.",
@@ -128,6 +132,31 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-h8l4uLHFQ-video-ai",
     categories: ["Productivity", "Creative Tools"]
   },
+  {
+    title: "VetGPT",
+    desc: "Get general veterinary advice on animal health, nutrition, and behavior. Not a substitute for professional veterinary care.",
+    image: placeholderImg28,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt",
+    categories: ["Health & Wellness", "Specialized Knowledge"]
+  },
+  {
+    title: "Astrology Birth Chart GPT",
+    desc: "Personalized astrological insights based on your birth date, time, and location.",
+    image: placeholderImg30,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-WxckXARTP-astrology-birth-chart-gpt",
+    categories: ["Specialized Knowledge", "Lifestyle"]
+  },
+  {
+    title: "Health & Medicine",
+    desc: "Get general health and wellness info powered by AI. Not a substitute for professional medical advice. (Not a real Doctor)",
+    image: placeholderImg8,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-t3BUYjh4C-health-medicinenot-doctor-not-medical-advice",
+    categories: ["Health & Wellness", "Education"]
+  },
+  
   {
     title: "Finance, Economics, Stock, Crypto & Trade Invest",
     desc: "Get in-depth financial analysis, crypto research, and investment insights. (Not financial advice)",
@@ -145,11 +174,11 @@ const rawBots = [
     categories: ["Health & Wellness", "Education"]
   },
   {
-    title: "Fictional Therapist",
-    desc: "A fictional AI therapist/psychologist for entertainment and writing. Not a real mental health service. (Not Real Therapy)",
-    image: placeholderImg18,
+    title: "Fitness Workout Diet PhD Coach",
+    desc: "AI-powered fitness, workout, and diet advice from a PhD-level virtual coach.",
+    image: placeholderImg15,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-FGhasb1tZ-therapist-psychologist-fictional-not-real-therapy",
+    openaiLink: "https://chatgpt.com/g/g-ipOIcM229-fitness-workout-diet-phd-coach",
     categories: ["Health & Wellness", "Lifestyle"]
   },
   {
@@ -169,12 +198,12 @@ const rawBots = [
     categories: ["Health & Wellness", "Lifestyle"]
   },
   {
-    title: "Fitness Workout Diet PhD Coach",
-    desc: "AI-powered fitness, workout, and diet advice from a PhD-level virtual coach.",
-    image: placeholderImg15,
+    title: "AI Music Maker (Song Words to Music)",
+    desc: "Turn your words or lyrics into music with this AI-powered music generator. Free to use!",
+    image: placeholderImg12,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-ipOIcM229-fitness-workout-diet-phd-coach",
-    categories: ["Health & Wellness", "Lifestyle"]
+    openaiLink: "https://chatgpt.com/g/g-rLVq3NTrN-ai-music-maker-song-words-to-music-free",
+    categories: ["Music", "Creative Tools"]
   },
   {
     title: "Glibatree Art Designer",
@@ -192,22 +221,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-kfkNLRrwD-grammar-checker",
     categories: ["Productivity", "Education"]
   },
-  {
-    title: "AI Music Maker (Song Words to Music)",
-    desc: "Turn your words or lyrics into music with this AI-powered music generator. Free to use!",
-    image: placeholderImg12,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-rLVq3NTrN-ai-music-maker-song-words-to-music-free",
-    categories: ["Music", "Creative Tools"]
-  },
-  {
-    title: "Health & Medicine",
-    desc: "Get general health and wellness info powered by AI. Not a substitute for professional medical advice. (Not a real Doctor)",
-    image: placeholderImg8,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-t3BUYjh4C-health-medicinenot-doctor-not-medical-advice",
-    categories: ["Health & Wellness", "Education"]
-  },
+
   {
     title: "Law, Contract, Disclaimer",
     desc: "Get AI-powered info on contracts, disclaimers, and general law concepts. Not actual legal advice.",
@@ -215,6 +229,14 @@ const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/g/g-My8UBHpJn-law-contractdisclaimer-not-lawyer-legal-advice",
     categories: ["Productivity", "Specialized Knowledge"]
+  },
+  {
+    title: "Paintr",
+    desc: "Identify any exact color of paint in seconds!", 
+    image: placeholderImg31,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
+    categories: ["Specialized Knowledge"] 
   },
   {
     title: "Accounting GPT",
@@ -225,14 +247,6 @@ const rawBots = [
     categories: ["Productivity"]
   },
   {
-    title: "Stocks, Crypto, Options & Forex Market Summary",
-    desc: "Summaries for stocks, crypto, options, forex and market analysis.",
-    image: placeholderImg20,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-5wVuKfpEt-stocks-crypto-options-forex-market-summary",
-    categories: ["Productivity"]
-  },
-  {
     title: "Academic Assistant Pro",
     desc: "Academic support, research help, citation, essay and study tools.",
     image: placeholderImg23,
@@ -240,6 +254,15 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-UubB08D4y-academic-assistant-pro",
     categories: ["Education"]
   },
+  {
+    title: "Stocks, Crypto, Options & Forex Market Summary",
+    desc: "Summaries for stocks, crypto, options, forex and market analysis.",
+    image: placeholderImg20,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-5wVuKfpEt-stocks-crypto-options-forex-market-summary",
+    categories: ["Productivity"]
+  },
+  
   {
     title: "Math AI",
     desc: "Math solver and explainer: equations, word problems, and more.",
@@ -255,6 +278,14 @@ const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/g/g-Wud3tXQj3-youtube-ai",
     categories: ["Productivity", "Creative Tools"]
+  },
+  {
+    title: "Crypto Sentiment Tracker",
+    desc: "Analyze real-time crypto sentiment and trends with one click. (Not financial advice)",
+    image: placeholderImg13,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-6834013bf6288191ab9eaabe31591539-crypto-sentiment-tracker",
+    categories: ["Productivity"]
   },
   {
     title: "DesignerGPT",
@@ -296,14 +327,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-NgAcklHd8-scispace",
     categories: ["Education", "Specialized Knowledge"]
   },
-  {
-    title: "Scholar GPT",
-    desc: "AI-powered academic research assistant for scholars and students.",
-    image: placeholderImg4,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt",
-    categories: ["Education", "Specialized Knowledge"]
-  },
+  
   {
     title: "PlaylistAI – Music Playlist Maker",
     desc: "Instantly create music playlists using AI and your favorite genres or moods.",
@@ -320,14 +344,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-IEqZMsTpJ-love-language",
     categories: ["Health & Wellness", "Lifestyle"]
   },
-  {
-    title: "VetGPT",
-    desc: "Get general veterinary advice on animal health, nutrition, and behavior. Not a substitute for professional veterinary care.",
-    image: placeholderImg28,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt",
-    categories: ["Health & Wellness", "Specialized Knowledge"]
-  },
+  
   {
     title: "Personal Assistant",
     desc: "Organize and optimize your daily life with this AI-powered personal assistant.",
@@ -337,21 +354,14 @@ const rawBots = [
     categories: ["Productivity"]
   },
   {
-    title: "Astrology Birth Chart GPT",
-    desc: "Personalized astrological insights based on your birth date, time, and location.",
-    image: placeholderImg30,
+    title: "Fictional Therapist",
+    desc: "A fictional AI therapist/psychologist for entertainment and writing. Not a real mental health service. (Not Real Therapy)",
+    image: placeholderImg18,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-WxckXARTP-astrology-birth-chart-gpt",
-    categories: ["Specialized Knowledge", "Lifestyle"]
+    openaiLink: "https://chatgpt.com/g/g-FGhasb1tZ-therapist-psychologist-fictional-not-real-therapy",
+    categories: ["Health & Wellness", "Lifestyle"]
   },
-  {
-    title: "Paintr",
-    desc: "Identify any exact color of paint in seconds!", 
-    image: placeholderImg31,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
-    categories: ["Specialized Knowledge"] 
-  },
+  
   {
     title: "Logo",
     desc: "Design professional brand logos with this AI-powered logo creation expert.",
@@ -1416,7 +1426,7 @@ function App() {
                 <Form.Label className="form-label neon-green">GPT Name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="E.g. 'CryptoSignals GPT'"
+                  placeholder="E.g. 'GPT NAME"
                   name="gptName"
                   value={form.gptName}
                   onChange={handleFormChange}
