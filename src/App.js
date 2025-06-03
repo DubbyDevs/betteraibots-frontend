@@ -536,7 +536,7 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
             onChange={e => setSearchValue(e.target.value)}
           />
           <button className="header-btn" onClick={onOpenModal}>Submit Bot</button>
-          
+        <span className="bookmark-star-disabled">⭐</span>
         </div>
       ) : null}
       {isMobile && (

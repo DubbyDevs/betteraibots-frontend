@@ -20,13 +20,13 @@ body {
 
 .header-logo {
   height: 48px;
-  margin-right: 24px;
+  margin-right: 10px;
   margin-left: 0px;
 }
 
 .header-search {
   flex: 1;
-  margin: 0 24px;
+  margin: 15 15px;
   display: flex;
   align-items: center;
 }
@@ -59,6 +59,44 @@ body {
   background: linear-gradient(90deg, #0bbfdb 0%, #09e269 100%);
   color: #fff;
 }
+.bookmark-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.bookmark-star {
+  font-size: 26px;
+ background: linear-gradient(90deg, #36ff95, #ffd700);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+color: transparent;
+  cursor: pointer;
+  padding: 2px;
+  vertical-align: middle;
+  text-shadow: 0 0 6px #36ff9575;
+  transition: transform 0.2s ease;
+}
+
+.bookmark-star:hover {
+  transform: scale(1.2);
+}
+
+.bookmark-tooltip {
+  position: absolute;
+  top: 40px;
+  right: -20px;
+  background: transparent;
+  color: #f8fafd;
+  font-size: 0.9rem;
+  padding: 2px 6px;
+  white-space: nowrap;
+  z-index: 999;
+  text-shadow: 0 0 6px #09e26988;
+  display: none;
+}
+
 
 /* Neon Green Text */
 .neon-green {
@@ -685,4 +723,16 @@ img[alt="preview"] {
   font-weight: 500;
   text-shadow: 0 0 4px #09e26980, 0 0 8px #09e26940;
   letter-spacing: 0.01em;
+}
+.bookmark-star-disabled {
+  font-size: 26px;
+  background: linear-gradient(90deg, #36ff95, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: default;
+  padding: 2px;
+  vertical-align: middle;
+  text-shadow: 0 0 6px #36ff9575;
+  user-select: none;
 }
