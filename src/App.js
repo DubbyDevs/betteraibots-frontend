@@ -935,45 +935,94 @@ function Legal() {
         <meta property="og:type" content="website" />
       </Helmet>
       <h1 className="hero-headline">Legal, Terms & Disclaimers</h1>
-      <div style={{ textAlign: "left", margin: "30px auto", fontSize: "1.15rem", color: "#e9f7ee", background: "#172d3e", borderRadius: 18, padding: "36px 28px", boxShadow: "0 2px 22px #09e26924" }}>
-        <b>Disclaimer:</b> BetterAiBots.com is an independent directory for curated OpenAI GPTs and third-party bots. We do not own or operate any bots listed and are not responsible for their function, accuracy, legality, or outcomes. All bots are provided "as is" and are subject to their respective platforms' terms.
+      <div style={{
+        textAlign: "left", margin: "30px auto", fontSize: "1.15rem", color: "#e9f7ee",
+        background: "#172d3e", borderRadius: 18, padding: "36px 28px", boxShadow: "0 2px 22px #09e26924"
+      }}>
+        <b>Disclaimer & Important Notices:</b><br />
+        BetterAiBots.com (“the Site”) is an <b>independent, free public directory</b> listing and linking to AI bots and OpenAI GPTs. The Site <b>does not own, operate, control, endorse, monitor, review, or vet any listed bots, AI services, or third-party content</b>. Bots, content, and links are provided “as is” and solely for informational, entertainment, and educational purposes.
         <br /><br />
-        <b>No AI, Financial, Legal, or Medical Advice:</b> Bots listed here do not provide financial, legal, or medical advice. Use any bot at your own risk and always consult a qualified professional for important decisions.
+        <b>No Affiliation or Endorsement:</b><br />
+        BetterAiBots.com is not affiliated with OpenAI or any other bot developer or provider. Listing a bot does not constitute endorsement or verification of any kind.
         <br /><br />
-        <b>Submissions:</b> By submitting a bot, you affirm that you have the right to submit it and that it does not violate any third-party rights or applicable law.
+        <b>No Vetting, Verification, or Guarantee:</b><br />
+        <b>Bots and links on this site are user-submitted or publicly available, and have <u>not been vetted, checked, reviewed, or verified for safety, accuracy, reliability, lawfulness, or suitability</u> by BetterAiBots.com.</b> We do not guarantee the quality, legality, completeness, or accuracy of any information, service, or software.
         <br /><br />
-        <b>Data/Privacy:</b> We do not sell user data. Basic analytics (page views, popular bots) are tracked anonymously for site improvement. For more, see our <a href="#privacy" style={{ color: "#36ff95" }}>Privacy Policy</a>.
+        <b>Bots Make Mistakes & May Be Inaccurate or Unsafe:</b><br />
+        <b>AI bots, including those linked here, frequently provide inaccurate, outdated, incomplete, misleading, or inappropriate information.</b> Bots may make mistakes, hallucinate facts, or produce content that is false, offensive, or dangerous. <u>Do not rely on any bot or response for important matters.</u>
         <br /><br />
-        <b>Copyright:</b> All images, logos, and trademarks are property of their respective owners. Please contact us if you believe any content should be removed.
+        <b>No Advice or Professional Service:</b><br />
+        Nothing on this site or accessed via any linked bot should be considered financial, legal, medical, psychological, or other professional advice. <b>ALWAYS double-check any important information with a qualified professional and reputable, up-to-date resources before making decisions or taking action.</b>
         <br /><br />
-        <b>Contact:</b> For DMCA notices or legal issues, contact <a href="mailto:support@betteraibots.com" style={{ color: "#36ff95" }}>support@betteraibots.com</a>.
+        <b>User Submissions & Content Responsibility:</b><br />
+        Users are solely responsible for any bots, links, or materials they submit. By submitting a bot or content, you warrant you have all necessary rights and that your submission does not violate any law, regulation, copyright, trademark, or third-party right. The Site reserves the right to remove any content at any time for any reason and to cooperate with legal authorities as required.
+        <br /><br />
+        <b>No Liability, No Warranty:</b><br />
+        <b>The owners, operators, and contributors of BetterAiBots.com expressly disclaim all responsibility and liability for any damages, losses, claims, harm, or consequences of any kind resulting from:</b>
+        <ul>
+          <li>Use or misuse of any bot, information, or link listed here</li>
+          <li>Actions, content, or omissions of any third-party developer, service, or user</li>
+          <li>Viruses, outages, interruptions, errors, inaccuracies, or unauthorized use</li>
+          <li>Copyright/trademark infringement or intellectual property claims</li>
+          <li>User submissions or public content</li>
+          <li>Anything else related to use of this Site or any linked software/service</li>
+        </ul>
+        <b>Use this Site at your own risk. By using the Site, you agree to fully release and indemnify BetterAiBots.com and its owners from all liability, damages, and claims.</b>
+        <br /><br />
+        <b>Complaints, DMCA, & Copyright/Legal Notices:</b><br />
+        <b>All complaints, copyright/DMCA claims, legal notices, or concerns must be submitted through the <u>contact form</u> on this site.</b> Do <u>not</u> send complaints or legal requests to our email; it is not monitored. We will review and respond as required by law.
+        <br /><br />
+        <b>Copyright & Trademarks:</b><br />
+        All product names, logos, and brands are property of their respective owners and used for identification only. If you believe any content infringes your rights, submit a notice through the contact form for prompt review.
+        <br /><br />
+        <b>External Links & Third-Party Sites:</b><br />
+        This Site contains links to third-party content and external sites. <b>We have no control over, and assume no responsibility for, the content, policies, or practices of any third-party site or service.</b> Visiting any external link is at your own risk.
+        <br /><br />
+        <b>Indemnification:</b><br />
+        By using BetterAiBots.com, you agree to indemnify and hold harmless its owners, operators, affiliates, and contributors from any and all claims, liabilities, damages, or costs (including attorney’s fees) arising from your use of the Site, submissions, or interactions with any third-party bots or links.
+        <br /><br />
+        <b>Jurisdiction:</b> These terms are governed by and construed in accordance with the laws of the State of Texas, United States of America, with venue in Dallas County, Texas.
+
+        <br /><br />
+        <b>Contact:</b> Use the contact form for all communications, complaints, takedowns, or legal notices.
       </div>
       <h2 className="hero-headline" style={{ fontSize: "2.1rem" }}>Privacy Policy</h2>
-      <div style={{ textAlign: "left", margin: "30px auto", fontSize: "1.08rem", color: "#e9f7ee", background: "#18232f", borderRadius: 16, padding: "25px 23px" }}>
-        <b>1. Data Collection:</b> We only collect information you provide directly (such as bot submissions or contact forms). No account or login is required for browsing.
+      <div style={{
+        textAlign: "left", margin: "30px auto", fontSize: "1.08rem", color: "#e9f7ee",
+        background: "#18232f", borderRadius: 16, padding: "25px 23px"
+      }}>
+        <b>1. Data Collection:</b> No login or account is required to use the Site. We only collect information you directly provide (such as bot submissions or contact forms). Some data may be stored locally in your browser.
         <br /><br />
-        <b>2. Analytics:</b> We use Plausible Analytics, which does not use cookies and tracks visits anonymously for aggregate statistics.
+        <b>2. Analytics:</b> We use privacy-friendly Plausible Analytics, which does not use cookies and only collects aggregate, anonymous site usage statistics.
         <br /><br />
-        <b>3. Data Usage:</b> We do not sell or share your data. We may respond to legal requests or abuse reports as required by law.
+        <b>3. Data Usage & Sharing:</b> We do not sell, rent, or share user data with third parties. We may disclose data if required by law or for abuse/investigation purposes.
         <br /><br />
-        <b>4. Third Party Sites:</b> Clicking external links (like OpenAI bot links) is at your own risk and subject to those sites' policies.
+        <b>4. User Responsibility:</b> By submitting any content, you affirm it does not violate the rights or privacy of others or any law.
         <br /><br />
-        <b>5. Contact:</b> Email us at <a href="mailto:support@betteraibots.com" style={{ color: "#36ff95" }}>support@betteraibots.com</a> for privacy concerns.
+        <b>5. Third-Party Sites:</b> Using any bot or external link is subject to the privacy policies of those providers. We are not responsible for their data practices.
+        <br /><br />
+        <b>6. Privacy Concerns:</b> Use the contact form for privacy-related questions or concerns. Do not email us.
       </div>
       <h2 className="hero-headline" style={{ fontSize: "2.1rem" }}>Terms of Use</h2>
-      <div style={{ textAlign: "left", margin: "30px auto", fontSize: "1.08rem", color: "#e9f7ee", background: "#18232f", borderRadius: 16, padding: "25px 23px" }}>
+      <div style={{
+        textAlign: "left", margin: "30px auto", fontSize: "1.08rem", color: "#e9f7ee",
+        background: "#18232f", borderRadius: 16, padding: "25px 23px"
+      }}>
         <b>By using BetterAiBots.com, you agree to:</b>
         <ul>
-          <li>Not submit or use bots for any unlawful purpose.</li>
-          <li>Use bots at your own risk and verify all information independently.</li>
-          <li>Respect all copyright and trademark laws.</li>
-          <li>Report issues to our team promptly.</li>
+          <li>Not submit, use, or access bots, links, or information for any unlawful, harmful, or fraudulent purpose</li>
+          <li>Use any bots, links, or content solely at your own risk</li>
+          <li>Independently verify all information and consult qualified professionals as needed</li>
+          <li>Respect all copyright, trademark, and intellectual property rights</li>
+          <li>Promptly report abuse, infringement, or illegal content through the contact form</li>
+          <li>Indemnify and hold harmless the site and its owners/operators for all consequences of use</li>
         </ul>
-        <b>These terms may be updated at any time.</b>
+        <b>These terms may be updated at any time. Your continued use of the Site means you accept all terms and policies. If you do not agree, discontinue use immediately.</b>
       </div>
     </div>
   );
 }
+
 
 // --- MODERATION PAGE ---
 function Moderation({ approveBot, pendingBots, setPendingBots }) {
