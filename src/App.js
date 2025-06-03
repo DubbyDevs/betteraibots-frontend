@@ -426,7 +426,7 @@ function AuthButtons() {
 // --- SECURE MODERATION ROUTE ---
 function ProtectedRoute({ children }) {
   const { isAuthenticated, isLoading, loginWithRedirect, user } = useAuth0();
-  const adminEmail = "Shayne@ShayneSkower.com";
+  const adminEmail = "shayne@shayneskower.com";
 
   useEffect(() => {
     if (!isLoading && (!isAuthenticated || user?.email !== adminEmail)) {
