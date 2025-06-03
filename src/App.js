@@ -1,4 +1,5 @@
-import { CATEGORY_SLUGS, CATEGORY_REVERSE } from './constants';
+import { CATEGORY_SLUGS } from './constants';
+// import { CATEGORY_REVERSE } from "./constants"; // <- commented until used
 import React, { useState, useEffect, useRef } from "react";
 import logo from './assets/betteraibotsglowlogo.png';
 import logoSmall from './assets/betteraibotsglowlogo8small.png';
