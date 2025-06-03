@@ -85,12 +85,15 @@ body {
 }
 
 .hero-subheadline {
-  color: #e9f7ee;
-  font-size: 1.15rem;
-  font-weight: 500;
-  margin-top: 10px;
-  margin-bottom: 0;
+ background: linear-gradient(90deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  text-shadow: none;
 }
+
 
 .bot-grid {
   max-width: 1200px;
@@ -673,11 +676,12 @@ img[alt="preview"] {
 }
 .site-disclaimer {
   max-width: 1200px;
-  margin: 12px auto -4px auto;
+  margin: 12px auto -3px auto;
   text-align: center;
   padding: 0px 20px 0;
   color: #36ff95;
-  font-size: 1.00rem;
+  opacity: 5;
+  font-size: 0.77rem;
   font-weight: 500;
   text-shadow: 0 0 4px #09e26980, 0 0 8px #09e26940;
   letter-spacing: 0.01em;
