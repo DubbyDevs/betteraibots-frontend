@@ -426,10 +426,17 @@ function AuthButtons() {
 // --- SECURE MODERATION ROUTE ---
 function ProtectedRoute({ children }) {
   const { isAuthenticated, isLoading, loginWithRedirect, user } = useAuth0();
-  const adminEmail = "shayne@shayneskower.com";
+  const adminEmail = "shayne@shayneskower.com"; // always use lowercase for emails
 
   useEffect(() => {
-    if (!isLoading && (!isAuthenticated || user?.email !== adminEmail)) {
+    // Always compare as lowercase to avoid Auth0 mismatch issues
+    if (
+      !isLoading &&
+      (
+        !isAuthenticated ||
+        (user?.email || "").toLowerCase() !== adminEmail
+      )
+    ) {
       loginWithRedirect();
     }
   }, [isLoading, isAuthenticated, loginWithRedirect, user]);
@@ -441,7 +448,10 @@ function ProtectedRoute({ children }) {
       </div>
     );
   }
-  if (!isAuthenticated || user?.email !== adminEmail) {
+  if (
+    !isAuthenticated ||
+    (user?.email || "").toLowerCase() !== adminEmail
+  ) {
     return (
       <div className="hero-section">
         <h2>Admin only: Access denied</h2>
@@ -450,6 +460,7 @@ function ProtectedRoute({ children }) {
   }
   return children;
 }
+
 
 // --- Nav Tabs Bar ---
 function NavTabsBar({ currentCategory }) {
