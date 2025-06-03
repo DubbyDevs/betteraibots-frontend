@@ -1,3 +1,4 @@
+import { CATEGORY_SLUGS, CATEGORY_REVERSE } from './constants';
 import React, { useState, useEffect, useRef } from "react";
 import logo from './assets/betteraibotsglowlogo.png';
 import logoSmall from './assets/betteraibotsglowlogo8small.png';
@@ -66,15 +67,7 @@ const CATEGORIES = [
   { name: "Creative Tools" },
   { name: "Specialized Knowledge" }
 ];
-const CATEGORY_SLUGS = {
-  "Health & Wellness": "wellness",
-  "Creative Tools": "creative",
-  "Specialized Knowledge": "wizardry",
-  "Productivity": "productivity",
-  "Education": "education",
-  "Lifestyle": "lifestyle",
-  "Music": "music"
-};
+
 
 // --- Plausible Analytics snippet ---
 function PlausibleAnalytics() {
@@ -1005,6 +998,7 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
       setAdminSuccess("");
       return;
     }
+
     const newBot = {
       title: adminBot.title,
       desc: adminBot.desc,
@@ -1012,16 +1006,21 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
       image: adminBot.image || undefined,
       verified: false,
       categories: adminBot.categories
-        ? adminBot.categories.split(",").map(s => s.trim()).filter(Boolean)
+        ? adminBot.categories
+            .split(",")
+            .map(s => s.trim())
+            .filter(Boolean)
+            .map(name => CATEGORY_SLUGS[name] || name)
         : [],
     };
+
     setPendingBots(prev => [newBot, ...prev]);
     setAdminBot({
       title: "",
       desc: "",
       openaiLink: "",
       image: "",
-      categories: "",
+      categories: ""
     });
     setAdminErr("");
     setAdminSuccess("Bot added to pending!");
@@ -1041,7 +1040,7 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
     let approvedBots = [];
     try {
       approvedBots = JSON.parse(localStorage.getItem("approvedBots") || "[]");
-    } catch { }
+    } catch {}
     if (approvedBots.length > 0 && typeof approveBot === "function") {
       approvedBots.forEach(bot => approveBot(bot));
       localStorage.removeItem("approvedBots");
@@ -1050,7 +1049,6 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
 
   return (
     <div className="hero-section">
-      {/* ADMIN LOGIN/LOGOUT BUTTONS */}
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
         <AuthButtons />
       </div>
@@ -1081,8 +1079,20 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
               <input className="form-control" name="image" value={adminBot.image} onChange={handleAdminBotChange} />
             </div>
             <div style={{ marginBottom: 7 }}>
-              <label className="form-label neon-green">Categories (comma separated, e.g. Productivity, Music)</label>
-              <input className="form-control" name="categories" value={adminBot.categories} onChange={handleAdminBotChange} />
+              <label className="form-label neon-green">Categories (select one or more)</label>
+              <select
+                className="form-control"
+                multiple
+                value={adminBot.categories ? adminBot.categories.split(",") : []}
+                onChange={(e) => {
+                  const selected = Array.from(e.target.selectedOptions).map(opt => opt.value);
+                  setAdminBot(prev => ({ ...prev, categories: selected.join(",") }));
+                }}
+              >
+                {Object.keys(CATEGORY_SLUGS).map((catName) => (
+                  <option key={catName} value={catName}>{catName}</option>
+                ))}
+              </select>
             </div>
             <Button type="submit" className="header-btn" style={{ marginTop: 6, width: "100%" }}>Add Bot</Button>
             {adminErr && <div style={{ color: "#ff5252", marginTop: 7 }}>{adminErr}</div>}
@@ -1132,6 +1142,7 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
     </div>
   );
 }
+
 
 
 // --- Disclaimer Bar ---
@@ -1198,6 +1209,7 @@ function DisclaimerBar() {
 
 // --- MAIN APP ROUTER ---
 function App() { 
+
   const [botList, setBotList] = useState(bots);
   const [showModal, setShowModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
