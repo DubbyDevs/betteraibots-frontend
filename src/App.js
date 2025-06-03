@@ -494,14 +494,15 @@ function NavTabsBar({ currentCategory }) {
             const slug = CATEGORY_SLUGS[cat.name] || encodeURIComponent(cat.name);
             return (
               <Link
-                to={`/category/${slug}`}
-                className="nav-dropdown-item"
-                key={cat.name}
-                onClick={() => setShowDropdown(false)}
-                tabIndex={0}
-              >
-                {cat.name}
-              </Link>
+  to={`/${slug}`}
+  className="nav-dropdown-item"
+  key={cat.name}
+  onClick={() => setShowDropdown(false)}
+  tabIndex={0}
+>
+  {cat.name}
+</Link>
+
             );
           })}
                 </div>
@@ -531,12 +532,13 @@ function HamburgerMenu({ open, onClose }) {
             <ul className="nav-dropdown-list mobile" style={{ display: showDropdown ? "flex" : "none", position: "static" }}>
               {CATEGORIES.map((cat) => (
                 <li
-                  key={cat.name}
-                  className="nav-dropdown-item"
-                  onClick={() => { navigate(`/category/${encodeURIComponent(cat.name)}`); onClose(); }}
-                >
-                  {cat.name}
-                </li>
+  key={cat.name}
+  className="nav-dropdown-item"
+  onClick={() => { navigate(`/${encodeURIComponent(cat.name)}`); onClose(); }}
+>
+  {cat.name}
+</li>
+
               ))}
             </ul>
           </li>
@@ -795,7 +797,8 @@ const CATEGORY_REVERSE = {
           content={`Best free ${catName} AI bots for productivity, health, creative tools, and more.`}
         />
         <meta property="og:title" content={`${catName} Bots – BetterAiBots.com`} />
-        <meta property="og:url" content={`https://betteraibots.com/category/${encodeURIComponent(cat)}`} />
+        <meta property="og:url" content={`https://betteraibots.com/${encodeURIComponent(cat)}`} />
+
       </Helmet>
       <div className="hero-section">
         <h1 className="hero-headline">{catName} Bots</h1>
@@ -1221,7 +1224,6 @@ function DisclaimerBar() {
 
 // --- MAIN APP ROUTER ---
 function App() { 
-
   const [botList, setBotList] = useState(bots);
   const [showModal, setShowModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -1415,7 +1417,7 @@ function App() {
             setSearchValue={setSearchValue}
           />}
         />
-        <Route path="/category/:cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
+        {/* Specific routes must go BEFORE the catch-all /:cat */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/legal" element={<Legal />} />
@@ -1432,6 +1434,8 @@ function App() {
             </ProtectedRoute>
           }
         />
+        {/* Clean URL for categories: now /lifestyle, /music, etc. */}
+        <Route path=":cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Modal show={showModal} onHide={handleCloseModal} centered>
@@ -1530,6 +1534,7 @@ function App() {
     </>
   );
 }
+
 
 // --- FOOTER WITH WALLETS ---
 function FooterWithWallets() {
