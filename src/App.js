@@ -1,3 +1,5 @@
+import ArticlePage from "./ArticlePage";
+import Articles from "./Articles";
 import { CATEGORY_SLUGS } from './constants';
 // import { CATEGORY_REVERSE } from "./constants"; // <- commented until used
 import React, { useState, useEffect, useRef } from "react";
@@ -900,26 +902,7 @@ function Contact() {
   );
 }
 
-// --- ARTICLES PAGE ---
-function Articles() {
-  return (
-    <div className="hero-section">
-      <Helmet>
-        <title>Articles – BetterAiBots.com</title>
-        <meta name="description" content="AI guides, bot spotlights, OpenAI tips, and more coming soon to BetterAiBots.com." />
-        <meta property="og:title" content="Articles – BetterAiBots.com" />
-        <meta property="og:description" content="AI guides, bot spotlights, OpenAI tips, and more coming soon to BetterAiBots.com." />
-        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-        <meta property="og:url" content="https://betteraibots.com/articles" />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <h1 className="hero-headline">Articles Coming Soon!</h1>
-      <p className="hero-subheadline custom-hero-desc">
-        We’ll post AI guides, tips, bot spotlights, and more. Stay tuned!
-      </p>
-    </div>
-  );
-}
+
 
 // --- LEGAL PAGE ---
 function Legal() {
@@ -1476,6 +1459,7 @@ function App() {
         {/* Specific routes must go BEFORE the catch-all /:cat */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:id" element={<ArticlePage />} />
         <Route path="/legal" element={<Legal />} />
         <Route
           path="/moderation"
