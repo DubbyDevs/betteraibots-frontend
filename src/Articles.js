@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import VetGPT1 from "./assets/vetgpt-1.png";
 import VetGPT2 from "./assets/vetgpt-2.png";
 import VetGPT3 from "./assets/vetgpt-3.png";
-import helperLogo from "./assets/findbetteraibotshelper.png";
 import placeholderImg4 from "./assets/bot-placeholder4.png";
 import placeholderImg7 from "./assets/bot-placeholder7.png";
 
-// --- NAMED EXPORT: Article array for ArticlePage.js ---
+// --- ARTICLES ---
 export const articles = [
   {
     id: "vetgpt",
@@ -35,9 +34,9 @@ VetGPT is not your typical chatbot or AI search engine. It’s a custom-built AI
 
 It doesn’t just respond with generic info. It uses veterinary-informed logic to ask up to three targeted questions that actually matter. Then, it gives a calm, clear answer that educates you on:
 
-- What your pet’s symptoms could indicate
-- What to watch for
-- Whether it’s time to contact a vet
+- What your pet’s symptoms could indicate  
+- What to watch for  
+- Whether it’s time to contact a vet  
 
 And — it’s completely free to use. No subscription. No app download. No account needed.
 
@@ -227,7 +226,7 @@ Anyone engaging in research, including:
 ## Legal Notice
 
 ScholarGPT is not affiliated with any institution. Always verify outputs and cite sources responsibly.
-`
+    `
   },
   {
     id: "love-doc-ai",
@@ -236,7 +235,6 @@ ScholarGPT is not affiliated with any institution. Always verify outputs and cit
     cover: placeholderImg7,
     preview: "Relationship questions? Dating drama? Love Doc is a safe place to get honest, AI-powered advice—no signup, no judgment, just help.",
     images: [],
-    // **NOTE: This is MARKDOWN ONLY!** No HTML tags below. Only markdown (like before).
     content: `
 # 📰 New AI Service Empowers Emotional Healing Through Reflective Conversations
 
@@ -330,7 +328,7 @@ Love Doc isn’t here to fix you—because you’re not broken. But if you're re
 
 > “Let’s go gently, but let’s go bravely.”  
 > — *Love Doc*
-`
+    `
   }
 ];
 
@@ -393,7 +391,7 @@ function BannerAd() {
   );
 }
 
-// --- ARTICLE CARD (same as before for brevity) ---
+// --- ARTICLE CARD ---
 function ArticleCard({ article }) {
   return (
     <Link
@@ -401,122 +399,99 @@ function ArticleCard({ article }) {
       className="article-card"
       style={{
         background: "#18232f",
-        borderRadius: 32,
-        boxShadow: "0 2px 12px #0bbfdb20, 0 1.5px 3px #09e26915",
-        padding: 0,
+        borderRadius: 28,
+        border: "2px solid #36ff95",
+        boxShadow: "0 0 32px #0bbfdb1A",
+        padding: "20px 28px 28px 28px",
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
         alignItems: "center",
-        minHeight: 170,
-        height: 170,
-        maxHeight: 200,
+        minHeight: 370,
+        maxWidth: 520,
         color: "#fff",
         textDecoration: "none",
-        overflow: "hidden",
-        marginBottom: 0,
-        transition: "box-shadow 0.17s, border 0.14s"
+        margin: "0 auto",
+        transition: "box-shadow 0.17s, border 0.14s",
+        position: "relative"
       }}
-      onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 24px #36ff9570, 0 1.5px 3px #0bbfdb60"; }}
-      onMouseOut={e => { e.currentTarget.style.boxShadow = "0 2px 12px #0bbfdb20, 0 1.5px 3px #09e26915"; }}
+      onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 42px #36ff95AA"; }}
+      onMouseOut={e => { e.currentTarget.style.boxShadow = "0 0 32px #0bbfdb1A"; }}
     >
+      {/* BIGGER, CENTERED PHOTO */}
       <div style={{
-        minWidth: 130, width: 130, height: 130, display: "flex", alignItems: "center", justifyContent: "center",
-        background: "#22304a", margin: "18px 0 18px 18px", borderRadius: 22, overflow: "hidden"
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        marginBottom: 14,
+        width: 120,
+        height: 120,
+        borderRadius: 20,
+        background: "#22304a",
+        boxShadow: "0 0 12px #36ff9522"
       }}>
         <img
           src={article.cover}
           alt={article.title}
           style={{
-            width: 105, height: 105, objectFit: "cover", borderRadius: 18, boxShadow: "0 0 14px #16ff6c49"
+            width: 100,
+            height: 100,
+            borderRadius: 16,
+            objectFit: "cover",
+            boxShadow: "0 0 10px #0bbfdb33"
           }}
         />
       </div>
-      <div style={{ flex: 1, padding: "15px 20px 15px 28px", display: "flex", flexDirection: "column", height: "100%" }}>
-        <div style={{ fontWeight: 800, color: "#36ff95", fontSize: "1.11rem", marginBottom: 2, lineHeight: 1.21 }}>
-          {article.title}
-        </div>
-        <div style={{ color: "#b2ffe0", fontSize: "0.84rem", marginBottom: 2 }}>
-          {article.date}
-        </div>
-        <div style={{
-          color: "#e9f7ee",
-          fontSize: "0.88rem",
-          marginBottom: 10,
-          flex: 1,
-          display: "-webkit-box",
-          WebkitLineClamp: 3,
-          WebkitBoxOrient: "vertical",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          lineHeight: 1.45,
-          minHeight: 42,
-          maxHeight: 54,
-        }}>
-          {article.preview}
-        </div>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
-          <span
-            style={{
-              color: "#0bbfdb",
-              textDecoration: "underline",
-              fontWeight: 600,
-              fontSize: "0.97rem",
-              textAlign: "center"
-            }}
-          >Read More</span>
-        </div>
+      {/* READ MORE BUTTON - CENTERED */}
+      <span
+        style={{
+          color: "#0bbfdb",
+          textDecoration: "underline",
+          fontWeight: 700,
+          fontSize: "1.13rem",
+          margin: "0 0 9px 0",
+          display: "block",
+          textAlign: "center"
+        }}
+      >Read More</span>
+
+      {/* TITLE & DATE */}
+      <div style={{
+        fontWeight: 900,
+        color: "#36ff95",
+        fontSize: "1.32rem",
+        marginBottom: 5,
+        marginTop: 2,
+        lineHeight: 1.17,
+        textAlign: "center"
+      }}>
+        {article.title}
+      </div>
+      <div style={{
+        color: "#79f2c1",
+        fontSize: "1.02rem",
+        fontWeight: 500,
+        marginBottom: 7,
+        textAlign: "center"
+      }}>
+        {article.date}
+      </div>
+      <div className="clamp-2-lines" style={{
+        color: "#e9f7ee",
+        fontSize: "1.05rem",
+        marginBottom: 3,
+        minHeight: 45,
+        maxHeight: 54,
+        textAlign: "center"
+      }}>
+        {article.preview}
       </div>
     </Link>
   );
 }
 
-// --- SUBMIT ARTICLE CARD ---
-function SubmitArticleCard({ onClick }) {
-  return (
-    <div
-      onClick={onClick}
-      className="article-card"
-      style={{
-        background: "linear-gradient(120deg, #133626 60%, #18232f 100%)",
-        border: "2.5px dashed #36ff95",
-        color: "#36ff95",
-        borderRadius: 32,
-        boxShadow: "0 0 14px #09e26933",
-        cursor: "pointer",
-        transition: "box-shadow 0.19s, border-color 0.13s",
-        minHeight: 170,
-        height: 170,
-        maxHeight: 200,
-        padding: 0,
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        overflow: "hidden",
-        marginBottom: 0
-      }}
-      onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 24px #36ff9570, 0 1.5px 3px #0bbfdb60"; }}
-      onMouseOut={e => { e.currentTarget.style.boxShadow = "0 2px 12px #0bbfdb20, 0 1.5px 3px #09e26915"; }}
-    >
-      <div style={{
-        minWidth: 130, width: 130, height: 130, display: "flex", alignItems: "center", justifyContent: "center",
-        background: "#22304a", margin: "18px 0 18px 18px", borderRadius: 22, overflow: "hidden"
-      }}>
-        <img src={helperLogo} alt="Submit Article" style={{ width: 66, height: 66, filter: "drop-shadow(0 0 12px #36ff958c)" }} />
-      </div>
-      <div style={{ flex: 1, padding: "15px 20px 15px 28px", display: "flex", flexDirection: "column", height: "100%", justifyContent: "center" }}>
-        <div style={{ fontWeight: 700, fontSize: "1.09rem", marginBottom: 7, color: "#36ff95" }}>
-          Submit Your Article!
-        </div>
-        <div style={{ fontSize: "0.89rem", color: "#b2ffe0", textAlign: "left", lineHeight: 1.38 }}>
-          Share your insights, stories, or guides with the world.<br />
-          Click here to submit an article for review.
-        </div>
-      </div>
-    </div>
-  );
-}
 
-// --- SUBMIT ARTICLE MODAL (character limit ADDED here!) ---
+
+// --- SUBMIT ARTICLE MODAL (character limit added) ---
 function SubmitArticleModal({ show, onClose, onSubmit }) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState(new Date().toLocaleDateString());
@@ -690,58 +665,138 @@ export default function Articles() {
     alert("Submitted! Awaiting moderator approval.");
   }
 
-  // Render the grid
-  const gridItems = [<SubmitArticleCard key="submit" onClick={() => setShowModal(true)} />];
-  articles.forEach(article => {
-    gridItems.push(<ArticleCard article={article} key={article.id} />);
-  });
+  // --- Article Layout Logic ---
+  // Show the most recent article (first) as featured, and remove from grid
+  const featuredArticle = articles[0];
+  const gridArticles = articles.slice(1);
 
   return (
-  <div className="hero-section" style={{ maxWidth: 1100, margin: "0 auto", padding: "0 12px" }}>
-    <h1 className="hero-headline" style={{ marginBottom: 10 }}>BetterAiBots News & Articles</h1>
-    <p className="hero-subheadline custom-hero-desc" style={{ marginBottom: 14 }}>
-      Guides, spotlights, updates & ideas for every skill level.<br />
-      <span style={{ color: "#36ff95", fontWeight: 600 }}>Submit your article in the Moderator page!</span>
-    </p>
-    <NewsTicker />
-    <div className="articles-grid" style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(480px, 1fr))",
-      gap: "32px",
-      margin: "0 auto",
-      maxWidth: 1000
-    }}>
-      {gridItems}
-    </div>
-    <SubmitArticleModal
-      show={showModal}
-      onClose={() => setShowModal(false)}
-      onSubmit={handleArticleSubmit}
-    />
-    <BannerAd />
-    {/* --- NEW & SAFER SUBMIT ARTICLE LINK (triggers the modal, not a page) --- */}
-    <div style={{
-      margin: "30px 0 0 0",
-      color: "#36ff95",
-      fontSize: "1.02rem",
-      textAlign: "center"
-    }}>
-      <span>
-        Want to write for us?{" "}
-        <span
+    <div className="hero-section" style={{ maxWidth: 1100, margin: "0 auto", padding: "0 12px" }}>
+      <h1 className="hero-headline" style={{ marginBottom: 10 }}>BetterAiBots News & Articles</h1>
+      <p className="hero-subheadline custom-hero-desc" style={{ marginBottom: 14 }}>
+        Guides, spotlights, updates & ideas for every skill level.<br />
+        <span style={{ color: "#36ff95", fontWeight: 600 }}>
+          Submit your article below!
+        </span>
+      </p>
+      <NewsTicker />
+
+      {/* FEATURED ARTICLE (FULL WIDTH) */}
+      <div style={{
+  width: "100%",
+  margin: "30px 0 44px 0",
+  padding: 32,
+  background: "linear-gradient(120deg, #23393a 60%, #101c26 100%)",
+  borderRadius: 36,
+  boxShadow: "0 2px 24px #09e26922, 0 1.5px 3px #36ff9525",
+  display: "flex",
+  alignItems: "center",
+  gap: 32
+      }}>
+        <img
+          src={featuredArticle.cover}
+          alt={featuredArticle.title}
+          style={{
+            width: 170,
+            height: 170,
+            objectFit: "cover",
+            borderRadius: 22,
+            boxShadow: "0 0 24px #36ff9580"
+          }}
+        />
+        <div style={{ flex: 1 }}>
+          <div style={{ fontWeight: 900, color: "#36ff95", fontSize: "2rem", marginBottom: 7 }}>
+            {featuredArticle.title}
+          </div>
+          <div style={{ color: "#b2ffe0", fontWeight: 500, fontSize: "1rem", marginBottom: 6 }}>
+            {featuredArticle.date}
+          </div>
+          <div style={{
+            color: "#e9f7ee",
+            fontSize: "1.08rem",
+            marginBottom: 12,
+            lineHeight: 1.5
+          }}>
+            {featuredArticle.preview}
+          </div>
+          <Link
+            to={`/articles/${featuredArticle.id}`}
+            style={{
+              color: "#0bbfdb",
+              fontWeight: 700,
+              fontSize: "1.08rem",
+              textDecoration: "underline"
+            }}
+          >Read Full Article</Link>
+        </div>
+      </div>
+
+      {/* GRID OF OTHER ARTICLES */}
+      <div className="articles-grid" style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))",
+  gap: "40px",
+  margin: "0 auto",
+  maxWidth: 1080,
+  padding: "16px 0"
+}}>
+  {gridArticles.map(article => (
+    <ArticleCard article={article} key={article.id} />
+  ))}
+</div>
+
+      {/* BIG SUBMIT ARTICLE BUTTON pinned to bottom */}
+      <div style={{
+        width: "100%",
+        margin: "48px auto 0 auto",
+        display: "flex",
+        justifyContent: "center"
+      }}>
+        <div
           onClick={() => setShowModal(true)}
           style={{
+            width: "100%",
+            maxWidth: 940,
+            background: "linear-gradient(120deg, #133626 60%, #18232f 100%)",
+            border: "2.5px dashed #36ff95",
             color: "#36ff95",
-            textDecoration: "underline",
-            fontWeight: 700,
+            borderRadius: 36,
+            boxShadow: "0 0 24px #09e26944",
             cursor: "pointer",
-            transition: "color 0.18s"
+            padding: "38px 30px",
+            marginTop: 8,
+            fontWeight: 800,
+            fontSize: "1.4rem",
+            textAlign: "center",
+            transition: "box-shadow 0.21s, border-color 0.14s"
           }}
+          onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 32px #36ff95AA"; }}
+          onMouseOut={e => { e.currentTarget.style.boxShadow = "0 0 24px #09e26944"; }}
         >
-          Submit your article!
-        </span>
-      </span>
+          📢 Submit Your Article! <br />
+          <span style={{ fontSize: "1.09rem", color: "#b2ffe0", fontWeight: 500 }}>
+            Share your insights, stories, or guides with the world. <br />
+            Click here to submit an article for review.
+          </span>
+        </div>
+      </div>
+
+      <SubmitArticleModal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        onSubmit={handleArticleSubmit}
+      />
+      <BannerAd />
+
+      {/* Trust/Moderation Info */}
+      <div style={{
+        margin: "24px 0 0 0",
+        color: "#b2ffe0",
+        fontSize: "1.02rem",
+        textAlign: "center"
+      }}>
+        <span>🛡️ All articles are reviewed by moderators before publishing.</span>
+      </div>
     </div>
-  </div>
-);
+  );
 }
