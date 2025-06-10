@@ -407,7 +407,7 @@ function ArticleCard({ article }) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        minHeight: 370,
+        minHeight: 300,
         maxWidth: 520,
         color: "#fff",
         textDecoration: "none",
@@ -444,17 +444,14 @@ function ArticleCard({ article }) {
         />
       </div>
       {/* READ MORE BUTTON - CENTERED */}
-      <span
-        style={{
-          color: "#0bbfdb",
-          textDecoration: "underline",
-          fontWeight: 700,
-          fontSize: "1.13rem",
-          margin: "0 0 9px 0",
-          display: "block",
-          textAlign: "center"
-        }}
-      >Read More</span>
+      <Link
+  to={`/articles/${article.id}`}
+  className="read-more-btn"
+  aria-label={`Read article: ${article.title}`}
+>
+  Read More
+</Link>
+
 
       {/* TITLE & DATE */}
       <div style={{
