@@ -435,7 +435,7 @@ function ArticleCard({ article }) {
         }}>
         <img
           src={article.cover}
-          alt={`Cover image for ${article.title}`}
+          alt={`Cover for ${article.title}`}
           className="article-card-img"
           style={{
             width: 100,
