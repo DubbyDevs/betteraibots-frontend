@@ -363,6 +363,7 @@ function NewsTicker() {
       <a
         href={promos[index].link}
         style={{ color: "#101c26", textDecoration: "none", transition: "color 0.18s" }}
+        aria-label={`Promotion: ${promos[index].text}`}
       >
         {promos[index].text}
       </a>
@@ -416,6 +417,7 @@ function ArticleCard({ article }) {
       }}
       onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 42px #36ff95AA"; }}
       onMouseOut={e => { e.currentTarget.style.boxShadow = "0 0 32px #0bbfdb1A"; }}
+      aria-label={`Read article: ${article.title}`}
     >
       {/* BIGGER, CENTERED PHOTO */}
       <div style={{
@@ -431,7 +433,7 @@ function ArticleCard({ article }) {
       }}>
         <img
           src={article.cover}
-          alt={article.title}
+          alt={`Cover image for ${article.title}`}
           style={{
             width: 100,
             height: 100,
@@ -489,9 +491,7 @@ function ArticleCard({ article }) {
   );
 }
 
-
-
-// --- SUBMIT ARTICLE MODAL (character limit added) ---
+// --- SUBMIT ARTICLE MODAL ---
 function SubmitArticleModal({ show, onClose, onSubmit }) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState(new Date().toLocaleDateString());
@@ -658,7 +658,6 @@ export default function Articles() {
   const [showModal, setShowModal] = useState(false);
 
   function handleArticleSubmit(newArticle) {
-    // Save to localStorage "pendingArticles"
     const pending = JSON.parse(localStorage.getItem("pendingArticles") || "[]");
     pending.push(newArticle);
     localStorage.setItem("pendingArticles", JSON.stringify(pending));
@@ -666,9 +665,46 @@ export default function Articles() {
   }
 
   // --- Article Layout Logic ---
-  // Show the most recent article (first) as featured, and remove from grid
   const featuredArticle = articles[0];
   const gridArticles = articles.slice(1);
+
+  // Simulated SEO meta tags (to be implemented with react-helmet or in index.html)
+  /*
+  <head>
+    <title>BetterAiBots News & Articles - AI Tools for Pet Care, Academics, and More</title>
+    <meta name="description" content="Explore guides, spotlights, and updates on AI tools like VetGPT, ScholarGPT, and Love Doc at BetterAiBots.com. Submit your own articles!" />
+    <meta name="keywords" content="AI tools, VetGPT, ScholarGPT, Love Doc, pet care AI, academic research AI, relationship coaching AI, free AI bots" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="BetterAiBots News & Articles" />
+    <meta property="og:description" content="Discover the latest AI tools for pet care, academic research, and emotional wellness. Read articles and submit your own at BetterAiBots.com!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={featuredArticle.cover} />
+    <meta property="og:url" content="https://www.betteraibots.com/articles" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  */
+
+  // Structured Data for SEO (JSON-LD, to be added in main app)
+  /*
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "${featuredArticle.title}",
+    "image": "${featuredArticle.cover}",
+    "datePublished": "${featuredArticle.date}",
+    "description": "${featuredArticle.preview}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "BetterAiBots",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.betteraibots.com/logo.png"
+      }
+    }
+  }
+  </script>
+  */
 
   return (
     <div className="hero-section" style={{ maxWidth: 1100, margin: "0 auto", padding: "0 12px" }}>
@@ -681,71 +717,48 @@ export default function Articles() {
       </p>
       <NewsTicker />
 
-      {/* FEATURED ARTICLE (FULL WIDTH) */}
-      <div style={{
-  width: "100%",
-    margin: "30px 0 44px 0",
-    background: "linear-gradient(120deg, #23393a 60%, #101c26 100%)",
-    borderRadius: 36,
-    boxShadow: "0 2px 24px #09e26922, 0 1.5px 3px #36ff9525",
-    display: "flex",
-    alignItems: "center",
-    gap: 32,
-    padding: 32,
-    maxWidth: "100%",
-    boxSizing: "border-box"
-      }}>
-        <img
-          src={featuredArticle.cover}
-          alt={featuredArticle.title}
-          style={{
-            width: 170,
-            height: 170,
-            objectFit: "cover",
-            borderRadius: 22,
-            boxShadow: "0 0 24px #36ff9580"
-          }}
-        />
-        <div style={{ flex: 1 }}>
-          <div style={{ fontWeight: 900, color: "#36ff95", fontSize: "2rem", marginBottom: 7 }}>
-            {featuredArticle.title}
-          </div>
-          <div style={{ color: "#b2ffe0", fontWeight: 500, fontSize: "1rem", marginBottom: 6 }}>
-            {featuredArticle.date}
-          </div>
-          <div style={{
-            color: "#e9f7ee",
-            fontSize: "1.08rem",
-            marginBottom: 12,
-            lineHeight: 1.5
-          }}>
-            {featuredArticle.preview}
-          </div>
-          <Link
-            to={`/articles/${featuredArticle.id}`}
-            style={{
-              color: "#0bbfdb",
-              fontWeight: 700,
-              fontSize: "1.08rem",
-              textDecoration: "underline"
-            }}
-          >Read Full Article</Link>
-        </div>
-      </div>
+     {/* FEATURED ARTICLE (FULL WIDTH, MOBILE-RESPONSIVE) */}
+<article className="feature-article">
+  <div className="feature-article-img-wrap">
+    <img
+      src={featuredArticle.cover}
+      alt={`Featured article cover: ${featuredArticle.title}`}
+      className="feature-article-img"
+    />
+    <Link
+      to={`/articles/${featuredArticle.id}`}
+      className="feature-article-read-btn"
+      aria-label={`Read full article: ${featuredArticle.title}`}
+    >
+      Read Full Article
+    </Link>
+  </div>
+  <div className="feature-article-content">
+    <h1>{featuredArticle.title}</h1>
+    <p className="feature-article-date">{featuredArticle.date}</p>
+    <p className="feature-article-preview">{featuredArticle.preview}</p>
+  </div>
+</article>
+
+
 
       {/* GRID OF OTHER ARTICLES */}
       <div className="articles-grid" style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))",
-  gap: "40px",
-  margin: "0 auto",
-  maxWidth: 1080,
-  padding: "16px 0"
-}}>
-  {gridArticles.map(article => (
-    <ArticleCard article={article} key={article.id} />
-  ))}
-</div>
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))",
+        gap: "40px",
+        margin: "0 auto",
+        maxWidth: 1080,
+        padding: "16px 0",
+        '@media (max-width: 768px)': {
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "24px"
+        }
+      }}>
+        {gridArticles.map(article => (
+          <ArticleCard article={article} key={article.id} />
+        ))}
+      </div>
 
       {/* BIG SUBMIT ARTICLE BUTTON pinned to bottom */}
       <div style={{
@@ -770,13 +783,25 @@ export default function Articles() {
             fontWeight: 800,
             fontSize: "1.4rem",
             textAlign: "center",
-            transition: "box-shadow 0.21s, border-color 0.14s"
+            transition: "box-shadow 0.21s, border-color 0.14s",
+            '@media (max-width: 768px)': {
+              padding: "24px 20px",
+              fontSize: "1.2rem"
+            }
           }}
           onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 32px #36ff95AA"; }}
           onMouseOut={e => { e.currentTarget.style.boxShadow = "0 0 24px #09e26944"; }}
+          aria-label="Submit your article"
         >
           📢 Submit Your Article! <br />
-          <span style={{ fontSize: "1.09rem", color: "#b2ffe0", fontWeight: 500 }}>
+          <span style={{
+            fontSize: "1.09rem",
+            color: "#b2ffe0",
+            fontWeight: 500,
+            '@media (max-width: 768px)': {
+              fontSize: "0.95rem"
+            }
+          }}>
             Share your insights, stories, or guides with the world. <br />
             Click here to submit an article for review.
           </span>
@@ -795,7 +820,10 @@ export default function Articles() {
         margin: "24px 0 0 0",
         color: "#b2ffe0",
         fontSize: "1.02rem",
-        textAlign: "center"
+        textAlign: "center",
+        '@media (max-width: 768px)': {
+          fontSize: "0.95rem"
+        }
       }}>
         <span>🛡️ All articles are reviewed by moderators before publishing.</span>
       </div>
