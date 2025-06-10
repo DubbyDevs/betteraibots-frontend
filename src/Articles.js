@@ -398,6 +398,7 @@ function ArticleCard({ article }) {
     <Link
       to={`/articles/${article.id}`}
       className="article-card"
+      aria-label={`Read article: ${article.title}`}
       style={{
         background: "#18232f",
         borderRadius: 28,
@@ -417,23 +418,25 @@ function ArticleCard({ article }) {
       }}
       onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 42px #36ff95AA"; }}
       onMouseOut={e => { e.currentTarget.style.boxShadow = "0 0 32px #0bbfdb1A"; }}
-      aria-label={`Read article: ${article.title}`}
     >
-      {/* BIGGER, CENTERED PHOTO */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        marginBottom: 14,
-        width: 120,
-        height: 120,
-        borderRadius: 20,
-        background: "#22304a",
-        boxShadow: "0 0 12px #36ff9522"
-      }}>
+      {/* Image */}
+      <div
+        className="article-card-img-wrap"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: 14,
+          width: 120,
+          height: 120,
+          borderRadius: 20,
+          background: "#22304a",
+          boxShadow: "0 0 12px #36ff9522"
+        }}>
         <img
           src={article.cover}
           alt={`Cover image for ${article.title}`}
+          className="article-card-img"
           style={{
             width: 100,
             height: 100,
@@ -443,17 +446,29 @@ function ArticleCard({ article }) {
           }}
         />
       </div>
-      {/* READ MORE BUTTON - CENTERED */}
-      <Link
-  to={`/articles/${article.id}`}
-  className="read-more-btn"
-  aria-label={`Read article: ${article.title}`}
->
-  Read More
-</Link>
 
+      {/* Read More Button (just a span for styling) */}
+      <span className="read-more-btn" tabIndex={0} style={{
+        display: "block",
+        margin: "0 auto 14px auto",
+        padding: "12px 32px",
+        fontWeight: 700,
+        fontSize: "1.08rem",
+        background: "linear-gradient(90deg, #09e269 0%, #0bbfdb 100%)",
+        color: "#101c26",
+        border: "none",
+        borderRadius: 28,
+        boxShadow: "0 0 18px #36ff9580, 0 0 6px #0bbfdb77",
+        textDecoration: "none",
+        textAlign: "center",
+        transition: "box-shadow 0.16s, transform 0.13s",
+        cursor: "pointer",
+        outline: "none"
+      }}>
+        Read More
+      </span>
 
-      {/* TITLE & DATE */}
+      {/* Title */}
       <div style={{
         fontWeight: 900,
         color: "#36ff95",
@@ -465,6 +480,8 @@ function ArticleCard({ article }) {
       }}>
         {article.title}
       </div>
+
+      {/* Date */}
       <div style={{
         color: "#79f2c1",
         fontSize: "1.02rem",
@@ -474,6 +491,8 @@ function ArticleCard({ article }) {
       }}>
         {article.date}
       </div>
+
+      {/* Preview */}
       <div className="clamp-2-lines" style={{
         color: "#e9f7ee",
         fontSize: "1.05rem",
@@ -487,6 +506,7 @@ function ArticleCard({ article }) {
     </Link>
   );
 }
+
 
 // --- SUBMIT ARTICLE MODAL ---
 function SubmitArticleModal({ show, onClose, onSubmit }) {

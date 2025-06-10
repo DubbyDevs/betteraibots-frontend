@@ -771,6 +771,7 @@ img[alt="preview"] {
 }
 
 .feature-article {
+  position: relative;
   width: 100%;
   margin: 30px 0 44px 0;
   background: linear-gradient(120deg, #1a2d2e 60%, #0e171f 100%);
@@ -783,7 +784,30 @@ img[alt="preview"] {
   flex-direction: row;
   align-items: center;
   gap: 32px;
+  z-index: 1;
+  overflow: hidden;
 }
+
+/* ---- Animated Neon Gradient Border ---- */
+.feature-article::before {
+  content: "";
+  position: absolute;
+  inset: -4px; /* expands the border outside */
+  border-radius: 40px;
+  background: linear-gradient(120deg, #09e269, #0bbfdb, #36ff95, #0bbfdb, #09e269);
+  background-size: 300% 300%;
+  filter: blur(10px) brightness(1.7);
+  z-index: -1;
+  animation: borderGlowMove 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes borderGlowMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .feature-article-img-wrap {
   display: flex;
   flex-direction: column;
@@ -824,6 +848,7 @@ img[alt="preview"] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  text-align: left;
 }
 .feature-article-content h1 {
   font-weight: 900;
@@ -835,8 +860,11 @@ img[alt="preview"] {
 .feature-article-date {
   color: #b2ffe0;
   font-weight: 500;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  font-size: 0.99rem;
+  margin: 0 0 10px 0;
+  opacity: 0.87;
+  letter-spacing: 0.03em;
+  text-align: center;
 }
 .feature-article-preview {
   color: #e9f7ee;
@@ -852,6 +880,10 @@ img[alt="preview"] {
     padding: 24px 10px;
     gap: 20px;
     align-items: stretch;
+    border-radius: 24px;
+  }
+  .feature-article::before {
+    border-radius: 28px;
   }
   .feature-article-img {
     width: 90vw;
@@ -859,7 +891,7 @@ img[alt="preview"] {
     height: auto;
     margin: 0 auto 16px auto;
     display: block;
-    border-radius: 24px;
+    border-radius: 22px;
   }
   .feature-article-img-wrap {
     width: 100%;
@@ -876,26 +908,12 @@ img[alt="preview"] {
   .feature-article-content h1 {
     font-size: 1.6rem;
   }
+  .feature-article-date {
+    font-size: 0.89rem;
+  }
 }
 
-
-.feature-article-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.feature-article-date {
-  color: #b2ffe0;
-  font-weight: 500;
-  font-size: 0.99rem;
-  margin: 0 0 10px 0;
-  opacity: 0.87;
-  letter-spacing: 0.03em;
-}
-
-
+/* --- Article Cards --- */
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -913,7 +931,7 @@ img[alt="preview"] {
   }
   .article-card {
     width: 100%;
-  box-sizing: border-box;
+    box-sizing: border-box;
     padding: 18px 10px 24px 10px;
     font-size: 0.97rem;
   }
@@ -933,7 +951,7 @@ img[alt="preview"] {
   }
 }
 
-
+/* --- Neon Read More Button for Article Cards --- */
 .article-card .read-more-btn {
   display: block;
   margin: 0 auto 14px auto;
@@ -951,11 +969,81 @@ img[alt="preview"] {
   cursor: pointer;
   outline: none;
 }
-
 .article-card .read-more-btn:hover,
 .article-card .read-more-btn:focus {
   box-shadow: 0 0 34px #36ff95cc, 0 0 12px #0bbfdb99;
   transform: translateY(-2px) scale(1.035);
   color: #101c26;
   text-decoration: none;
+}
+
+
+.feature-article-content-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 36px;
+  pointer-events: none;
+  background: linear-gradient(135deg, #17293e 0%, #101c26 100%);
+  /* Add a subtle opacity if you want a glassy look, or remove for solid: */
+  /* background: linear-gradient(135deg, #16243aee 0%, #081019ee 100%); */
+}
+
+
+/* Neon animated border using pseudo-element */
+.feature-article {
+  position: relative;
+  z-index: 1;
+  border-radius: 26px;
+  padding: 38px 40px; /* We'll pad the inner content instead */
+  overflow: hidden;
+  margin: 30px 0 44px 0;
+  max-width: 100%;
+  /* Optional shadow for depth */
+  box-shadow: 0 4px 32px #09e26922, 0 2px 8px #0bbfdb33;
+}
+.feature-article::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 36px;
+  padding: 13px; /* border thickness */
+  background: linear-gradient(120deg, #0bbfdb, #09e269, #0bbfdb 70%);
+  background-size: 300% 300%;
+  animation: border-move 4s linear infinite;
+  z-index: 1;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Animate the border */
+@keyframes border-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Actual content wrapper: dark, underwater gradient */
+.feature-article-content-bg {
+  position: relative;
+  z-index: 2;
+  background: radial-gradient(ellipse 80% 100% at 60% 20%, #16243a 60%, #09111a 100%);
+  border-radius: 30px;
+  padding: 38px 40px;
+  margin: 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 22px #0bbfdb22;
+}
+
+/* Responsive for mobile */
+@media (max-width: 900px) {
+  .feature-article-content-bg {
+    padding: 20px 5vw;
+    margin: 12px 0;
+  }
 }
