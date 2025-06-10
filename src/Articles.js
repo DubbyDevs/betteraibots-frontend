@@ -684,14 +684,16 @@ export default function Articles() {
       {/* FEATURED ARTICLE (FULL WIDTH) */}
       <div style={{
   width: "100%",
-  margin: "30px 0 44px 0",
-  padding: 32,
-  background: "linear-gradient(120deg, #23393a 60%, #101c26 100%)",
-  borderRadius: 36,
-  boxShadow: "0 2px 24px #09e26922, 0 1.5px 3px #36ff9525",
-  display: "flex",
-  alignItems: "center",
-  gap: 32
+    margin: "30px 0 44px 0",
+    background: "linear-gradient(120deg, #23393a 60%, #101c26 100%)",
+    borderRadius: 36,
+    boxShadow: "0 2px 24px #09e26922, 0 1.5px 3px #36ff9525",
+    display: "flex",
+    alignItems: "center",
+    gap: 32,
+    padding: 32,
+    maxWidth: "100%",
+    boxSizing: "border-box"
       }}>
         <img
           src={featuredArticle.cover}
