@@ -789,24 +789,6 @@ img[alt="preview"] {
 }
 
 /* ---- Animated Neon Gradient Border ---- */
-.feature-article::before {
-  content: "";
-  position: absolute;
-  inset: -4px; /* expands the border outside */
-  border-radius: 40px;
-  background: linear-gradient(120deg, #09e269, #0bbfdb, #36ff95, #0bbfdb, #09e269);
-  background-size: 300% 300%;
-  filter: blur(10px) brightness(1.7);
-  z-index: -1;
-  animation: borderGlowMove 5s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes borderGlowMove {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
 .feature-article-img-wrap {
   display: flex;
