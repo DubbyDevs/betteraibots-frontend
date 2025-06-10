@@ -802,7 +802,7 @@ img[alt="preview"] {
   object-fit: cover;
   border-radius: 24px;
   box-shadow: 0 0 28px #36ff95AA;
-  margin-bottom: 18px;
+   margin: 0 auto 8px auto;
 }
 .feature-article-read-btn {
   display: inline-block;
@@ -863,12 +863,13 @@ img[alt="preview"] {
     gap: 20px;
     align-items: stretch;
     border-radius: 24px;
+    margin: 0 auto 8px auto;
   }
   .feature-article::before {
     border-radius: 28px;
   }
   .feature-article-img {
-    width: 90vw;
+    width: 80vw;
     max-width: 370px;
     height: auto;
     margin: 0 auto 16px auto;
@@ -898,24 +899,32 @@ img[alt="preview"] {
 /* --- Article Cards --- */
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   gap: 32px;
   margin: 0 auto;
   max-width: 1080px;
   padding: 16px 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .articles-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 10px 0;
+    gap: 12px;
+    padding: 0px 0;
+    justify-items: center;     /* Center the cards horizontally */
   }
   .article-card {
-    width: 100%;
+    width: 96vw;
+    max-width: 410px;
+    margin: 0 auto;            /* Center card itself */
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* Center all content inside card */
     box-sizing: border-box;
-    padding: 18px 10px 24px 10px;
-    font-size: 0.97rem;
+  }
+  .article-card * {
+    text-align: center !important;  /* Ensures all text in card is centered */
   }
 }
 
@@ -1029,3 +1038,5 @@ img[alt="preview"] {
     margin: 12px 0;
   }
 }
+
+
