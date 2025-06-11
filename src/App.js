@@ -59,6 +59,8 @@ import {
 } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
+import GoogleAnalytics from "./GoogleAnalytics";
+
 
 // ---- Category List ----
 const CATEGORIES = [
@@ -1382,6 +1384,7 @@ function App() {
   return (
     <>
       <PlausibleAnalytics />
+      <GoogleAnalytics />
       <AppHeader
         onOpenModal={handleOpenModal}
         searchValue={searchValue}
