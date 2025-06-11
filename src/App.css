@@ -904,6 +904,7 @@ img[alt="preview"] {
   margin: 0 auto;
   max-width: 1080px;
   padding: 16px 0;
+  justify-items: center; 
 }
 
 @media (max-width: 500px) {
@@ -1036,6 +1037,7 @@ img[alt="preview"] {
   .feature-article-content-bg {
     padding: 20px 5vw;
     margin: 12px 0;
+    justify-content: center; /* add this for centering */
   }
 }
 
