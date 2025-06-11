@@ -760,23 +760,12 @@ export default function Articles() {
 
 
 
-      {/* GRID OF OTHER ARTICLES */}
-      <div className="articles-grid" style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))",
-        gap: "40px",
-        margin: "0 auto",
-        maxWidth: 1080,
-        padding: "16px 0",
-        '@media (max-width: 768px)': {
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "24px"
-        }
-      }}>
-        {gridArticles.map(article => (
-          <ArticleCard article={article} key={article.id} />
-        ))}
-      </div>
+      <div className="articles-grid">
+  {gridArticles.map(article => (
+    <ArticleCard article={article} key={article.id} />
+  ))}
+</div>
+
 
       {/* BIG SUBMIT ARTICLE BUTTON pinned to bottom */}
       <div style={{

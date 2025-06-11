@@ -899,15 +899,15 @@ img[alt="preview"] {
 /* --- Article Cards --- */
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
   margin: 0 auto;
   max-width: 1080px;
-  padding: 16px 0;
+  padding: 0px 0;
   justify-items: center; 
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .articles-grid {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -915,10 +915,10 @@ img[alt="preview"] {
     justify-items: center;     /* Center the cards horizontally */
   }
   .article-card {
-    width: 96vw;
-    max-width: 410px;
+    width: 94vw;
+    max-width: 200px;
     margin: 0 auto;            /* Center card itself */
-    padding: 20px 20px 20px 20px;
+    padding: 14px 8px 18px 8px;
     display: flex;
     flex-direction: column;
     align-items: center;       /* Center all content inside card */
@@ -933,6 +933,7 @@ img[alt="preview"] {
   width: 84px;
   height: 84px;
   border-radius: 14px;
+  justify-items: center;
 }
 
 @media (max-width: 600px) {
@@ -1040,5 +1041,4 @@ img[alt="preview"] {
     justify-content: center; /* add this for centering */
   }
 }
-
 
