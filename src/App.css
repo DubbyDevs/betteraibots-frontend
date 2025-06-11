@@ -1042,3 +1042,20 @@ img[alt="preview"] {
   }
 }
 
+@media (max-width: 900px) {
+  .feature-article-img {
+    width: 68vw;      /* Try lowering this for smaller screens */
+    max-width: 210px; /* Lower the hard cap for phones */
+    height: auto;
+    margin: 0 auto 10px auto;
+    display: block;
+    border-radius: 16px;
+  }
+  .feature-article-img-wrap {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
