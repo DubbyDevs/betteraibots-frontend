@@ -430,7 +430,7 @@ function AuthButtons() {
 // --- SECURE MODERATION ROUTE ---
 function ProtectedRoute({ children }) {
   const { isAuthenticated, isLoading, loginWithRedirect, user } = useAuth0();
-  const adminEmail = "shayne@shayneskower.com"; // always use lowercase for emails
+  const adminEmail = (process.env.REACT_APP_ADMIN_EMAIL || "").toLowerCase();
 
   useEffect(() => {
     // Always compare as lowercase to avoid Auth0 mismatch issues
