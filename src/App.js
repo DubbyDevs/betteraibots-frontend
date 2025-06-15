@@ -443,7 +443,7 @@ function ProtectedRoute({ children }) {
     ) {
       loginWithRedirect();
     }
-  }, [isLoading, isAuthenticated, loginWithRedirect, user]);
+  }, [isLoading, isAuthenticated, loginWithRedirect, user, adminEmail]); // <-- Fixed dependency array!
 
   if (isLoading) {
     return (
@@ -464,6 +464,7 @@ function ProtectedRoute({ children }) {
   }
   return children;
 }
+
 
 
 // --- Nav Tabs Bar ---
