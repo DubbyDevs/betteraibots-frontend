@@ -4,7 +4,6 @@ import { CATEGORY_SLUGS } from './constants';
 // import { CATEGORY_REVERSE } from "./constants"; // <- commented until used
 import React, { useState, useEffect, useRef } from "react";
 import logo from './assets/betteraibotsglowlogo.png';
-import logoSmall from './assets/betteraibotsglowlogo8small.png';
 import helperLogo from './assets/findbetteraibotshelper.png';
 import helperBotLogo from './assets/findthebestaibotshelper.png';
 import lovedocImg from './assets/lovedocplaceholder.png';
@@ -527,31 +526,49 @@ function NavTabsBar({ currentCategory }) {
 function HamburgerMenu({ open, onClose }) {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
+
   if (!open) return null;
+
   return (
     <div className="menu-overlay" onClick={onClose}>
-      <div className="menu-dropdown-centered" onClick={e => e.stopPropagation()} style={{ minWidth: 240 }}>
+      <div
+        className="menu-dropdown-centered"
+        onClick={(e) => e.stopPropagation()}
+        style={{ minWidth: 240 }}
+      >
         <ul>
           <li onClick={() => { navigate('/'); onClose(); }}>Home</li>
-          <li
-  onClick={() => setShowDropdown(prev => !prev)}
-  style={{ position: "relative", cursor: "pointer" }}
->
-  <span>Categories {showDropdown ? '▴' : '▾'}</span>
-  <ul className="nav-dropdown-list mobile" style={{ display: showDropdown ? "flex" : "none", position: "static" }}>
 
+          <li
+            onClick={() => setShowDropdown((prev) => !prev)}
+            style={{ position: 'relative', cursor: 'pointer' }}
+          >
+            <span>Categories {showDropdown ? '▴' : '▾'}</span>
+            <ul
+              className="nav-dropdown-list mobile"
+              style={{
+                display: showDropdown ? 'flex' : 'none',
+                position: 'static',
+                flexDirection: 'column',
+                gap: '10px',
+                paddingLeft: '10px'
+              }}
+            >
               {CATEGORIES.map((cat) => (
                 <li
-  key={cat.name}
-  className="nav-dropdown-item"
-  onClick={() => { navigate(`/${encodeURIComponent(cat.name)}`); onClose(); }}
->
-  {cat.name}
-</li>
-
+                  key={cat.name}
+                  className="nav-dropdown-item"
+                  onClick={() => {
+                    navigate(`/${encodeURIComponent(cat.name)}`);
+                    onClose();
+                  }}
+                >
+                  {cat.name}
+                </li>
               ))}
             </ul>
           </li>
+
           <li onClick={() => { navigate('/articles'); onClose(); }}>Articles</li>
           <li onClick={() => { navigate('/contact'); onClose(); }}>Contact Us</li>
         </ul>
@@ -559,6 +576,7 @@ function HamburgerMenu({ open, onClose }) {
     </div>
   );
 }
+
 
 // --- HEADER with AUTH BUTTONS ---
 function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile }) {
