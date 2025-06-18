@@ -1389,9 +1389,9 @@ function App() {
 
   return (
     <>
-    {isMobile && <div className="mobile-header-bg" />}
-    <PlausibleAnalytics />
-    <GoogleAnalytics />
+    {isMobile && <div id="plasma-bg" />}
+      <PlausibleAnalytics />
+      <GoogleAnalytics />
       <AppHeader
         onOpenModal={handleOpenModal}
         searchValue={searchValue}
