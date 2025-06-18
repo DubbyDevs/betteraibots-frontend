@@ -1088,3 +1088,13 @@ img[alt="preview"] {
   }
 }
 
+.header {
+  background: #101c26;
+}
+.mobile-header-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+}
