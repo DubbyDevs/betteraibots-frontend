@@ -534,12 +534,12 @@ function HamburgerMenu({ open, onClose }) {
         <ul>
           <li onClick={() => { navigate('/'); onClose(); }}>Home</li>
           <li
-            onMouseEnter={() => setShowDropdown(true)}
-            onMouseLeave={() => setShowDropdown(false)}
-            style={{ position: "relative" }}
-          >
-            <span>Categories ▾</span>
-            <ul className="nav-dropdown-list mobile" style={{ display: showDropdown ? "flex" : "none", position: "static" }}>
+  onClick={() => setShowDropdown(prev => !prev)}
+  style={{ position: "relative", cursor: "pointer" }}
+>
+  <span>Categories {showDropdown ? '▴' : '▾'}</span>
+  <ul className="nav-dropdown-list mobile" style={{ display: showDropdown ? "flex" : "none", position: "static" }}>
+
               {CATEGORIES.map((cat) => (
                 <li
   key={cat.name}
@@ -1399,52 +1399,29 @@ function App() {
         onMenuClick={() => setMenuOpen(v => !v)}
         isMobile={isMobile}
       />
-      {showStickyLogo && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: isMobile ? '100vw' : '1160px',
-            zIndex: 1002,
-            display: 'flex',
-            alignItems: 'center',
-            pointerEvents: 'none',
-            transition: 'opacity 0.18s',
-          }}
-        >
-          <div
-            style={{
-              marginLeft: isMobile ? 12 : '0px',
-              marginTop: 0,
-              display: 'flex',
-              alignItems: 'center',
-              pointerEvents: 'auto',
-              background: 'rgba(16,28,38,0.89)',
-              borderRadius: 16,
-              boxShadow: 'none',
-              padding: isMobile ? '0 7px' : '0 14px',
-              height: 41,
-            }}
-          >
-            <img
-              src={logoSmall}
-              alt="BetterAiBots Small Logo"
-              style={{
-                height: isMobile ? 21 : 33,
-                width: 'auto',
-                display: 'block',
-                background: 'none',
-                borderRadius: 8,
-                boxShadow: 'none',
-                pointerEvents: 'none',
-                userSelect: 'none',
-              }}
-              draggable={false}
-            />
-          </div>
-        </div>
+      {showStickyLogo && isMobile && (
+  <div
+    style={{
+      position: 'fixed',
+      top: 12,
+      right: 12,
+      zIndex: 1002,
+      background: 'rgba(16,28,38,0.95)',
+      borderRadius: 12,
+      padding: 6,
+      boxShadow: '0 2px 12px #0bbfdb50',
+    }}
+  >
+    <button className="header-mob-menu-icon" onClick={() => setMenuOpen(true)}>
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95" />
+        <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95" />
+        <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95" />
+      </svg>
+    </button>
+  </div>
+
+
       )}
       <div style={{
         position: "sticky",
