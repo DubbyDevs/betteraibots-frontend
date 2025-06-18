@@ -430,10 +430,11 @@ function AuthButtons() {
 // --- SECURE MODERATION ROUTE ---
 function ProtectedRoute({ children }) {
   const { isAuthenticated, isLoading, loginWithRedirect, user } = useAuth0();
+  // Loads the admin email from your .env or Netlify environment vars (not in code)
   const adminEmail = (process.env.REACT_APP_ADMIN_EMAIL || "").toLowerCase();
 
   useEffect(() => {
-    // Always compare as lowercase to avoid Auth0 mismatch issues
+    // Redirect if not logged in or not the admin
     if (
       !isLoading &&
       (
@@ -443,8 +444,9 @@ function ProtectedRoute({ children }) {
     ) {
       loginWithRedirect();
     }
-  }, [isLoading, isAuthenticated, loginWithRedirect, user, adminEmail]); // <-- Fixed dependency array!
+  }, [isLoading, isAuthenticated, loginWithRedirect, user, adminEmail]); // dependency array includes adminEmail
 
+  // Show loading while Auth0 checks
   if (isLoading) {
     return (
       <div className="hero-section">
@@ -452,6 +454,7 @@ function ProtectedRoute({ children }) {
       </div>
     );
   }
+  // Show "Access denied" if not admin
   if (
     !isAuthenticated ||
     (user?.email || "").toLowerCase() !== adminEmail
@@ -462,8 +465,10 @@ function ProtectedRoute({ children }) {
       </div>
     );
   }
+  // Render the protected children (the admin/mod page)
   return children;
 }
+
 
 
 
@@ -1386,6 +1391,7 @@ function App() {
     <>
       <PlausibleAnalytics />
       <GoogleAnalytics />
+      {isMobile && <div className="mobile-header-bg" />}
       <AppHeader
         onOpenModal={handleOpenModal}
         searchValue={searchValue}
