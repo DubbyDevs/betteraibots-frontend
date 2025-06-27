@@ -1777,31 +1777,33 @@ function FooterWithWallets() {
           />
         </div>
         <div
-          style={{
-            color: "#fff",
-            display: "flex",
-            alignItems: "center",
-            position: "relative"
-          }}
-        >
-          <span>Powered by </span>
-          <span
-            style={{
-              background: "linear-gradient(90deg, #36ff95, #ffd700)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              fontWeight: 700,
-              cursor: "default",
-              position: "relative",
-              zIndex: 20,
-              display: "inline-block",
-              fontFamily: "Inter, Arial, sans-serif"
-            }}
-          >
-            DubbyDevs
-          </span>
-        </div>
+  style={{
+    color: "#fff",
+    display: "flex",
+    alignItems: "center",
+    position: "relative"
+  }}
+>
+  <span>Powered by </span>
+  <a
+    href="https://Dubby.fun"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      background: "linear-gradient(90deg, #36ff95, #ffd700)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      backgroundClip: "text",
+      fontWeight: 700,
+      textDecoration: "none",
+      marginLeft: 6,
+      fontFamily: "Inter, Arial, sans-serif"
+    }}
+  >
+    DubbyDevs
+  </a>
+</div>
+
       </div>
       <div
         style={{
