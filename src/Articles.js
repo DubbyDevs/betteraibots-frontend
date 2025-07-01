@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import VetGPT1 from "./assets/vetgpt-1.png";
 import VetGPT2 from "./assets/vetgpt-2.png";
