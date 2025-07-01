@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import VetGPT1 from "./assets/vetgpt-1.png";
 import VetGPT2 from "./assets/vetgpt-2.png";
@@ -503,7 +503,7 @@ const promos = [
 ];
 
 function NewsTicker() {
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
   React.useEffect(() => {
     const timer = setInterval(() => setIndex(i => (i + 1) % promos.length), 4200);
     return () => clearInterval(timer);
