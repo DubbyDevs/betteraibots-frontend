@@ -5,8 +5,6 @@ import VetGPT2 from "./assets/vetgpt-2.png";
 import VetGPT3 from "./assets/vetgpt-3.png";
 import placeholderImg4 from "./assets/bot-placeholder4.png";
 import placeholderImg7 from "./assets/bot-placeholder7.png";
-import placeholderImg2 from "./assets/bot-placeholder2.png";
-import placeholderImg21 from "./assets/bot-placeholder21.png";
 import cheatCoderImg from "./assets/cheatcoder.png";
 import cheatCoderLogo from "./assets/cheatcoderlogo.png";
 
