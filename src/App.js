@@ -41,6 +41,7 @@ import placeholderImg30 from './assets/bot-placeholder30.png';
 import placeholderImg31 from './assets/bot-placeholder31.png';
 import placeholderImg32 from './assets/bot-placeholder32.png';
 import placeholderImg33 from './assets/bot-placeholder33.png';
+import placeholderImg34 from './assets/bot-placeholder34.png';
 import tipJar from './assets/thebestfreeaibotsgpt.png';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -116,15 +117,17 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt",
     categories: ["Education", "Specialized Knowledge"]
   },
-  
+
   {
-    title: "TheLoveDoc",
-    desc: "Relationship and dating advice (Not a real doctor)",
-    image: placeholderImg7,
+    title: "Cheat Coder",
+    desc: "Free AI programmer for instant coding help, reviews, and bug fixes.",
+    image: placeholderImg34,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
-    categories: ["Health & Wellness", "Lifestyle"]
+    openaiLink: "https://chatgpt.com/g/g-684426fa2a588191aabb529e9ca6e26f-cheat-coder",
+    categories: ["Productivity"]
   },
+  
+  
   // ... const rawBots = [
 
 
@@ -262,12 +265,12 @@ const rawBots = [
     categories: ["Education"]
   },
   {
-    title: "Code Copilot",
-    desc: "AI pair programmer for instant coding help, reviews, and bug fixes.",
-    image: placeholderImg21,
+    title: "TheLoveDoc",
+    desc: "Relationship and dating advice (Not a real doctor)",
+    image: placeholderImg7,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-2DQzU5UZl-code-copilot",
-    categories: ["Productivity"]
+    openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
+    categories: ["Health & Wellness", "Lifestyle"]
   },
   
   {

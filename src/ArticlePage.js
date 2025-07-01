@@ -34,16 +34,26 @@ export default function ArticlePage() {
   const shareUrl = `${window.location.origin}/articles/${article.id}`;
   const images = article.images || [];
 
+  const interviewHeading = '## The Interview';
+  let injectedMidImage = false;
+
   // Utility to highlight speakers in any strong/bold text
   const highlightSpeakers = (children) => {
     if (!children) return children;
     return React.Children.map(children, child => {
-      if (typeof child === "string" && (child.startsWith("BAIB:") || child.startsWith("ScholarGPT:"))) {
-        return <span style={{ color: "#36ff95", fontWeight: 700 }}>{child}</span>;
+      if (
+        typeof child === "string" &&
+        (child.startsWith("BAIB:") || child.startsWith("ScholarGPT:") || child.startsWith("Cheat Coder:"))
+      ) {
+        return <span style={{ color: "#5CFFB0", fontWeight: 800, fontFamily: 'Fira Mono, monospace', letterSpacing: 0.5 }}>{child}</span>;
       }
       return child;
     });
   };
+
+  // Track paragraph count for mid-article image injection
+  let paraCountForImage = 0;
+  let midImageInjected = false;
 
   return (
     <div style={{
@@ -64,7 +74,7 @@ export default function ArticlePage() {
         <meta property="og:url" content={shareUrl} />
       </Helmet>
       <div style={{ marginBottom: 15 }}>
-        <Link to="/articles" style={{ color: "#0bbfdb", textDecoration: "underline" }}>&larr; Back to Articles</Link>
+        <Link to="/articles" style={{ color: "#36ff95", textDecoration: "underline" }}>&larr; Back to Articles</Link>
       </div>
       <ShareButtons url={shareUrl} title={article.title} />
       {/* Top Image */}
@@ -79,37 +89,70 @@ export default function ArticlePage() {
       )}
       <h1 style={{
         fontSize: "2.0rem",
-        fontWeight: 800,
-        color: "#36ff95",
+        fontWeight: 900,
+        color: "#00FFB2",
         marginBottom: 4,
-        lineHeight: 1.1
+        lineHeight: 1.1,
+        fontFamily: 'Inter, Arial, sans-serif',
+        letterSpacing: 0.5
       }}>{article.title}</h1>
-      <div style={{ color: "#b2ffe0", fontWeight: 400, marginBottom: 14, fontSize: "1.03rem" }}>
+      <div style={{ color: "#b2ffe0", fontWeight: 400, marginBottom: 6, fontSize: "1.03rem" }}>
         {article.date}
       </div>
-      <div style={{ fontSize: "1.13rem", color: "#e9f7ee", marginBottom: 8, fontWeight: 500 }}>
-        {article.preview}
-      </div>
+      <p style={{
+        fontSize: "1.13rem",
+        color: "#e9f7ee",
+        marginBottom: 22,
+        fontWeight: 400,
+        lineHeight: 1.7,
+        maxWidth: 700
+      }}>{article.preview}</p>
       <ReactMarkdown
         components={{
-          p: ({ node, children, ...props }) => {
-            paraCount.current += 1;
-            // Inject mid image after the first paragraph, only once!
-            if (paraCount.current === 2 && images[1]) {
+          h2: ({ node, children, ...props }) => {
+            if (
+              typeof children[0] === 'string' &&
+              children[0].trim() === 'The Interview' &&
+              images[1]
+            ) {
               return (
-                <div style={{ position: "relative", minHeight: 120 }}>
-                  <p {...props}>{children}</p>
-                  <img src={images[1]} alt=""
-                    style={{
-                      float: "right",
-                      margin: "0 0 10px 32px",
-                      width: "250px",
-                      maxWidth: "45%",
+                <>
+                  <div style={{ textAlign: 'center', margin: '32px 0 18px 0' }}>
+                    <img src={images[1]} alt="" style={{
+                      width: '38%',
+                      maxWidth: 180,
                       borderRadius: 14,
-                      boxShadow: "0 0 12px #36ff9577"
-                    }}
-                  />
-                </div>
+                      boxShadow: '0 0 12px #36ff9577',
+                      display: 'inline-block'
+                    }} />
+                  </div>
+                  <h2 {...props} style={{ color: '#36ff95', fontWeight: 800, margin: '32px 0 14px 0', fontSize: '1.35rem', letterSpacing: 0.2 }}>{children}</h2>
+                </>
+              );
+            }
+            return <h2 {...props} style={{ color: '#36ff95', fontWeight: 800, margin: '32px 0 14px 0', fontSize: '1.35rem', letterSpacing: 0.2 }}>{children}</h2>;
+          },
+          h3: ({ node, children, ...props }) => (
+            <h3 {...props} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
+          ),
+          p: ({ node, children, ...props }) => {
+            paraCountForImage++;
+            // Inject mid-article image after the 4th paragraph, only once
+            if (!midImageInjected && paraCountForImage === 4 && images[1]) {
+              midImageInjected = true;
+              return (
+                <>
+                  <p {...props}>{children}</p>
+                  <div style={{ textAlign: 'center', margin: '32px 0 18px 0' }}>
+                    <img src={images[1]} alt="" style={{
+                      width: '38%',
+                      maxWidth: 180,
+                      borderRadius: 14,
+                      boxShadow: '0 0 12px #36ff9577',
+                      display: 'inline-block'
+                    }} />
+                  </div>
+                </>
               );
             }
             return <p {...props}>{children}</p>;

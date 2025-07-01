@@ -899,12 +899,12 @@ img[alt="preview"] {
 /* --- Article Cards --- */
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   margin: 0 auto;
   max-width: 1080px;
   padding: 0px 0;
-  justify-items: center; 
+  justify-items: center;
 }
 
 @media (max-width: 600px) {
