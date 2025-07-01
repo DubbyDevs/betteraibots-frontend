@@ -18,7 +18,6 @@ function ShareButtons({ url, title }) {
 
 export default function ArticlePage() {
   const { id } = useParams();
-  const paraCount = useRef(0);
 
   const article = articles.find(a => a.id === id);
 
@@ -34,8 +33,9 @@ export default function ArticlePage() {
   const shareUrl = `${window.location.origin}/articles/${article.id}`;
   const images = article.images || [];
 
-  const interviewHeading = '## The Interview';
-  let injectedMidImage = false;
+  // Track paragraph count for mid-article image injection
+  let paraCountForImage = 0;
+  let midImageInjected = false;
 
   // Utility to highlight speakers in any strong/bold text
   const highlightSpeakers = (children) => {
@@ -50,10 +50,6 @@ export default function ArticlePage() {
       return child;
     });
   };
-
-  // Track paragraph count for mid-article image injection
-  let paraCountForImage = 0;
-  let midImageInjected = false;
 
   return (
     <div style={{
