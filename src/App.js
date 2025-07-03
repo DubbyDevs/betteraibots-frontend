@@ -42,7 +42,7 @@ import placeholderImg31 from './assets/bot-placeholder31.webp';
 import placeholderImg32 from './assets/bot-placeholder32.webp';
 import placeholderImg33 from './assets/bot-placeholder33.webp';
 import placeholderImg34 from './assets/bot-placeholder34.webp';
-import tipJar from './assets/thebestfreeaibotsgpt.png';
+import tipJar from './assets/thebestfreeaibotsgpt.webp';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';

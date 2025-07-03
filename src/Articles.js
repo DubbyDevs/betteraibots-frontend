@@ -9,6 +9,7 @@ import cheatCoderImg from "./assets/cheatcoder.png";
 import cheatCoderLogo from "./assets/cheatcoderlogo.png";
 import AIFitnessCoachInterview from "./AIFitnessCoachInterview";
 import fitnessCoachImg from "./assets/bot-placeholder15.webp";
+import tipJar from './assets/thebestfreeaibotsgpt.webp';
 
 // --- ARTICLES ---
 export const articles = [
