@@ -1,6 +1,6 @@
 import React from "react";
-import fitnessCoachImg from "./assets/bot-placeholder15.png";
-import botPlaceholder35 from "./assets/bot-placeholder35.png";
+import fitnessCoachImg from "./assets/bot-placeholder15.jpg";
+import botPlaceholder35 from "./assets/bot-placeholder35.jpg";
 import "./App.css";
 
 const nameStyle = {

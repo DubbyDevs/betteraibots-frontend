@@ -7,41 +7,41 @@ import logo from './assets/betteraibotsglowlogo.png';
 import helperLogo from './assets/findbetteraibotshelper.png';
 import helperBotLogo from './assets/findthebestaibotshelper.png';
 import lovedocImg from './assets/lovedocplaceholder.png';
-import placeholderImg from './assets/bot-placeholder.png';
-import placeholderImg1 from './assets/bot-placeholder1.png';
-import placeholderImg21 from './assets/bot-placeholder21.png';
-import placeholderImg2 from './assets/bot-placeholder2.png';
-import placeholderImg3 from './assets/bot-placeholder3.png';
-import placeholderImg4 from './assets/bot-placeholder4.png';
-import placeholderImg5 from './assets/bot-placeholder5.png';
-import placeholderImg6 from './assets/bot-placeholder6.png';
-import placeholderImg7 from './assets/bot-placeholder7.png';
-import placeholderImg8 from './assets/bot-placeholder8.png';
-import placeholderImg9 from './assets/bot-placeholder9.png';
-import placeholderImg10 from './assets/bot-placeholder10.png';
-import placeholderImg11 from './assets/bot-placeholder11.png';
-import placeholderImg12 from './assets/bot-placeholder12.png';
-import placeholderImg13 from './assets/bot-placeholder13.png';
-import placeholderImg14 from './assets/bot-placeholder14.png';
-import placeholderImg15 from './assets/bot-placeholder15.png';
-import placeholderImg16 from './assets/bot-placeholder16.png';
-import placeholderImg17 from './assets/bot-placeholder17.png';
-import placeholderImg18 from './assets/bot-placeholder18.png';
-import placeholderImg19 from './assets/bot-placeholder19.png';
-import placeholderImg20 from './assets/bot-placeholder20.png';
-import placeholderImg22 from './assets/bot-placeholder22.png';
-import placeholderImg23 from './assets/bot-placeholder23.png';
-import placeholderImg24 from './assets/bot-placeholder24.png';
-import placeholderImg25 from './assets/bot-placeholder25.png';
-import placeholderImg26 from './assets/bot-placeholder26.png';
-import placeholderImg27 from './assets/bot-placeholder27.png';
-import placeholderImg28 from './assets/bot-placeholder28.png';
-import placeholderImg29 from './assets/bot-placeholder29.png';
-import placeholderImg30 from './assets/bot-placeholder30.png';
-import placeholderImg31 from './assets/bot-placeholder31.png';
-import placeholderImg32 from './assets/bot-placeholder32.png';
-import placeholderImg33 from './assets/bot-placeholder33.png';
-import placeholderImg34 from './assets/bot-placeholder34.png';
+import placeholderImg from './assets/bot-placeholder.jpg';
+import placeholderImg1 from './assets/bot-placeholder1.jpg';
+import placeholderImg21 from './assets/bot-placeholder21.jpg';
+import placeholderImg2 from './assets/bot-placeholder2.jpg';
+import placeholderImg3 from './assets/bot-placeholder3.jpg';
+import placeholderImg4 from './assets/bot-placeholder4.jpg';
+import placeholderImg5 from './assets/bot-placeholder5.jpg';
+import placeholderImg6 from './assets/bot-placeholder6.jpg';
+import placeholderImg7 from './assets/bot-placeholder7.jpg';
+import placeholderImg8 from './assets/bot-placeholder8.jpg';
+import placeholderImg9 from './assets/bot-placeholder9.jpg';
+import placeholderImg10 from './assets/bot-placeholder10.jpg';
+import placeholderImg11 from './assets/bot-placeholder11.jpg';
+import placeholderImg12 from './assets/bot-placeholder12.jpg';
+import placeholderImg13 from './assets/bot-placeholder13.jpg';
+import placeholderImg14 from './assets/bot-placeholder14.jpg';
+import placeholderImg15 from './assets/bot-placeholder15.jpg';
+import placeholderImg16 from './assets/bot-placeholder16.jpg';
+import placeholderImg17 from './assets/bot-placeholder17.jpg';
+import placeholderImg18 from './assets/bot-placeholder18.jpg';
+import placeholderImg19 from './assets/bot-placeholder19.jpg';
+import placeholderImg20 from './assets/bot-placeholder20.jpg';
+import placeholderImg22 from './assets/bot-placeholder22.jpg';
+import placeholderImg23 from './assets/bot-placeholder23.jpg';
+import placeholderImg24 from './assets/bot-placeholder24.jpg';
+import placeholderImg25 from './assets/bot-placeholder25.jpg';
+import placeholderImg26 from './assets/bot-placeholder26.jpg';
+import placeholderImg27 from './assets/bot-placeholder27.jpg';
+import placeholderImg28 from './assets/bot-placeholder28.jpg';
+import placeholderImg29 from './assets/bot-placeholder29.jpg';
+import placeholderImg30 from './assets/bot-placeholder30.jpg';
+import placeholderImg31 from './assets/bot-placeholder31.jpg';
+import placeholderImg32 from './assets/bot-placeholder32.jpg';
+import placeholderImg33 from './assets/bot-placeholder33.jpg';
+import placeholderImg34 from './assets/bot-placeholder34.jpg';
 import tipJar from './assets/thebestfreeaibotsgpt.png';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -757,7 +757,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
         </p>
       </div>
       <div className="site-disclaimer">
-  🔴 <strong>This site does not provide financial, legal, or medical advice. Bots are provided “as is” for entertainment and education only. Use at your own risk.</strong>
+  🔴 <strong>This site does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.</strong>
 </div>
       <BotGrid bots={filteredBots} onOpenModal={onOpenModal} />
       {!showSearchBubble && (
@@ -838,7 +838,7 @@ const CATEGORY_REVERSE = {
         </p>
       </div>
       <div className="site-disclaimer" style={{ padding: '0 20px', textAlign: 'center' }}>
-        🔴 <strong>This site does not provide financial, legal, or medical advice. Bots are provided “as is” for entertainment and education only. Use at your own risk.</strong>
+        🔴 <strong>This site does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.</strong>
       </div>
       <BotGrid bots={botsForCategory} onOpenModal={onOpenModal} />
     </>
@@ -952,7 +952,7 @@ function Legal() {
         background: "#172d3e", borderRadius: 18, padding: "36px 28px", boxShadow: "0 2px 22px #09e26924"
       }}>
         <b>Disclaimer & Important Notices:</b><br />
-        BetterAiBots.com (“the Site”) is an <b>independent, free public directory</b> listing and linking to AI bots and OpenAI GPTs. The Site <b>does not own, operate, control, endorse, monitor, review, or vet any listed bots, AI services, or third-party content</b>. Bots, content, and links are provided “as is” and solely for informational, entertainment, and educational purposes.
+        BetterAiBots.com ("the Site") is an <b>independent, free public directory</b> listing and linking to AI bots and OpenAI GPTs. The Site <b>does not own, operate, control, endorse, monitor, review, or vet any listed bots, AI services, or third-party content</b>. Bots, content, and links are provided "as is" and solely for informational, entertainment, and educational purposes.
         <br /><br />
         <b>No Affiliation or Endorsement:</b><br />
         BetterAiBots.com is not affiliated with OpenAI or any other bot developer or provider. Listing a bot does not constitute endorsement or verification of any kind.
@@ -991,7 +991,7 @@ function Legal() {
         This Site contains links to third-party content and external sites. <b>We have no control over, and assume no responsibility for, the content, policies, or practices of any third-party site or service.</b> Visiting any external link is at your own risk.
         <br /><br />
         <b>Indemnification:</b><br />
-        By using BetterAiBots.com, you agree to indemnify and hold harmless its owners, operators, affiliates, and contributors from any and all claims, liabilities, damages, or costs (including attorney’s fees) arising from your use of the Site, submissions, or interactions with any third-party bots or links.
+        By using BetterAiBots.com, you agree to indemnify and hold harmless its owners, operators, affiliates, and contributors from any and all claims, liabilities, damages, or costs (including attorney's fees) arising from your use of the Site, submissions, or interactions with any third-party bots or links.
         <br /><br />
         <b>Jurisdiction:</b> These terms are governed by and construed in accordance with the laws of the State of Texas, United States of America, with venue in Dallas County, Texas.
 

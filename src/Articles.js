@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import VetGPT1 from "./assets/vetgpt-1.png";
 import VetGPT2 from "./assets/vetgpt-2.png";
 import VetGPT3 from "./assets/vetgpt-3.png";
-import placeholderImg4 from "./assets/bot-placeholder4.png";
-import placeholderImg7 from "./assets/bot-placeholder7.png";
+import placeholderImg4 from "./assets/bot-placeholder4.jpg";
+import placeholderImg7 from "./assets/bot-placeholder7.jpg";
 import cheatCoderImg from "./assets/cheatcoder.png";
 import cheatCoderLogo from "./assets/cheatcoderlogo.png";
 import AIFitnessCoachInterview from "./AIFitnessCoachInterview";
-import fitnessCoachImg from "./assets/bot-placeholder15.png";
+import fitnessCoachImg from "./assets/bot-placeholder15.jpg";
 
 // --- ARTICLES ---
 export const articles = [
