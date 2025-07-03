@@ -100,7 +100,66 @@ export default function ArticlePage() {
       <div style={{ marginBottom: 15 }}>
         <Link to="/articles" style={{ color: "#36ff95", textDecoration: "underline" }}>&larr; Back to Articles</Link>
       </div>
-      <ShareButtons url={shareUrl} title={article.title} />
+      <div style={{ display: "flex", gap: 16, marginBottom: 18, alignItems: "center" }}>
+        <ShareButtons url={shareUrl} title={article.title} />
+        {/* Open GPT Button for specific articles (top, small) */}
+        {(() => {
+          const gptMap = {
+            "vetgpt": {
+              name: "VetGPT",
+              link: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt"
+            },
+            "ai-fitness-coach": {
+              name: "Fitness Diet Workout PhD Coach",
+              link: "https://chatgpt.com/g/g-ipOIcM229-fitness-workout-diet-phd-coach"
+            },
+            "cheat-coder": {
+              name: "Cheat Coder",
+              link: "https://chatgpt.com/g/g-684426fa2a588191aabb529e9ca6e26f-cheat-coder"
+            },
+            "ScholarGPT": {
+              name: "Scholar GPT",
+              link: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt"
+            },
+            "love-doc-ai": {
+              name: "Love Doc",
+              link: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc"
+            }
+          };
+          const gpt = gptMap[article.id];
+          if (!gpt) return null;
+          return (
+            <a
+              href={gpt.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open GPT"
+              style={{
+                width: 28,
+                height: 28,
+                minWidth: 28,
+                minHeight: 28,
+                borderRadius: 6,
+                background: "linear-gradient(90deg, #36ff95 0%, #00ffb2 100%)",
+                color: "#1a1a1a",
+                textDecoration: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: 800,
+                fontSize: 13,
+                verticalAlign: "middle",
+                boxSizing: "border-box",
+                marginTop: 18,
+                marginBottom: 0
+              }}
+            >
+              GPT
+            </a>
+          );
+        })()}
+      </div>
       {/* Top Image */}
       {images[0] && (
         <img src={images[0]} alt="" style={{
@@ -208,6 +267,68 @@ export default function ArticlePage() {
           }} />
         </div>
       )}
+      {/* Open GPT Button for specific articles (bottom, large) */}
+      {(() => {
+        const gptMap = {
+          "vetgpt": {
+            name: "VetGPT",
+            link: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt"
+          },
+          "ai-fitness-coach": {
+            name: "Fitness Diet Workout PhD Coach",
+            link: "https://chatgpt.com/g/g-ipOIcM229-fitness-workout-diet-phd-coach"
+          },
+          "cheat-coder": {
+            name: "Cheat Coder",
+            link: "https://chatgpt.com/g/g-684426fa2a588191aabb529e9ca6e26f-cheat-coder"
+          },
+          "ScholarGPT": {
+            name: "Scholar GPT",
+            link: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt"
+          },
+          "love-doc-ai": {
+            name: "Love Doc",
+            link: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc"
+          }
+        };
+        const gpt = gptMap[article.id];
+        if (!gpt) return null;
+        return (
+          <div style={{ textAlign: "center", margin: "38px 0 0 0" }}>
+            <a
+              href={gpt.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                padding: "16px 38px",
+                fontSize: "1.18rem",
+                fontWeight: 800,
+                borderRadius: 32,
+                background: "linear-gradient(90deg, #36ff95 0%, #00ffb2 100%)",
+                color: "#1a1a1a",
+                textDecoration: "none",
+                boxShadow: "0 2px 16px #36ff9577",
+                marginTop: 8,
+                marginBottom: 18,
+                letterSpacing: 0.2,
+                transition: "transform 0.13s, box-shadow 0.13s",
+                cursor: "pointer"
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.transform = "scale(1.045)";
+                e.currentTarget.style.boxShadow = "0 4px 24px #36ff95cc";
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 2px 16px #36ff9577";
+              }}
+            >
+              {`Open ${gpt.name} on OpenAI`}
+            </a>
+          </div>
+        );
+      })()}
     </div>
   );
 }
