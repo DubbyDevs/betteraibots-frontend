@@ -7,6 +7,8 @@ import placeholderImg4 from "./assets/bot-placeholder4.png";
 import placeholderImg7 from "./assets/bot-placeholder7.png";
 import cheatCoderImg from "./assets/cheatcoder.png";
 import cheatCoderLogo from "./assets/cheatcoderlogo.png";
+import AIFitnessCoachInterview from "./AIFitnessCoachInterview";
+import fitnessCoachImg from "./assets/bot-placeholder15.png";
 
 // --- ARTICLES ---
 export const articles = [
@@ -131,6 +133,14 @@ Like what you read? Share this with other pet parents on social media using #Vet
 
 VetGPT is an educational and informational AI tool. It is not a veterinarian and is not licensed to diagnose, treat, or prescribe medication. Always consult with a licensed vet for any pet health concern. By using this service, you accept all risks and agree to hold VetGPT and BetterAiBots.com harmless for health outcomes based on AI interactions.
     `
+  },
+  {
+    id: "ai-fitness-coach",
+    title: "Meet: Fitness Diet Workout PhD Coach",
+    date: "June 2025",
+    cover: fitnessCoachImg,
+    preview: "How the PhD Coach GPT is changing the game for safe, science-based fitness and nutrition guidance—plus an exclusive interview.",
+    content: <AIFitnessCoachInterview />
   },
   {
     id: "cheat-coder",

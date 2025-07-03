@@ -103,68 +103,72 @@ export default function ArticlePage() {
         lineHeight: 1.7,
         maxWidth: 700
       }}>{article.preview}</p>
-      <ReactMarkdown
-        components={{
-          h2: ({ node, children, ...props }) => {
-            if (
-              typeof children[0] === 'string' &&
-              children[0].trim() === 'The Interview' &&
-              images[1]
-            ) {
-              return (
-                <>
-                  <div style={{ textAlign: 'center', margin: '32px 0 18px 0' }}>
-                    <img src={images[1]} alt="" style={{
-                      width: '38%',
-                      maxWidth: 180,
-                      borderRadius: 14,
-                      boxShadow: '0 0 12px #36ff9577',
-                      display: 'inline-block'
-                    }} />
-                  </div>
-                  <h2 {...props} style={{ color: '#36ff95', fontWeight: 800, margin: '32px 0 14px 0', fontSize: '1.35rem', letterSpacing: 0.2 }}>{children}</h2>
-                </>
-              );
-            }
-            return <h2 {...props} style={{ color: '#36ff95', fontWeight: 800, margin: '32px 0 14px 0', fontSize: '1.35rem', letterSpacing: 0.2 }}>{children}</h2>;
-          },
-          h3: ({ node, children, ...props }) => (
-            <h3 {...props} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
-          ),
-          p: ({ node, children, ...props }) => {
-            paraCountForImage++;
-            // Inject mid-article image after the 4th paragraph, only once
-            if (!midImageInjected && paraCountForImage === 4 && images[1]) {
-              midImageInjected = true;
-              return (
-                <>
-                  <p {...props}>{children}</p>
-                  <div style={{ textAlign: 'center', margin: '32px 0 18px 0' }}>
-                    <img src={images[1]} alt="" style={{
-                      width: '38%',
-                      maxWidth: 180,
-                      borderRadius: 14,
-                      boxShadow: '0 0 12px #36ff9577',
-                      display: 'inline-block'
-                    }} />
-                  </div>
-                </>
-              );
-            }
-            return <p {...props}>{children}</p>;
-          },
-          strong: ({ children, ...props }) => {
-            // Neon highlight for speaker names
-            return highlightSpeakers(children);
-          },
-          li: ({ children, ...props }) => (
-            <li style={{ marginBottom: 4 }}>{children}</li>
-          ),
-          img: () => null, // Prevent user-submitted inline images
-        }}
-      >
-        {article.content}
-      </ReactMarkdown>
+      {typeof article.content === "string" ? (
+        <ReactMarkdown
+          components={{
+            h2: ({ node, children, ...props }) => {
+              if (
+                typeof children[0] === 'string' &&
+                children[0].trim() === 'The Interview' &&
+                images[1]
+              ) {
+                return (
+                  <>
+                    <div style={{ textAlign: 'center', margin: '32px 0 18px 0' }}>
+                      <img src={images[1]} alt="" style={{
+                        width: '38%',
+                        maxWidth: 180,
+                        borderRadius: 14,
+                        boxShadow: '0 0 12px #36ff9577',
+                        display: 'inline-block'
+                      }} />
+                    </div>
+                    <h2 {...props} style={{ color: '#36ff95', fontWeight: 800, margin: '32px 0 14px 0', fontSize: '1.35rem', letterSpacing: 0.2 }}>{children}</h2>
+                  </>
+                );
+              }
+              return <h2 {...props} style={{ color: '#36ff95', fontWeight: 800, margin: '32px 0 14px 0', fontSize: '1.35rem', letterSpacing: 0.2 }}>{children}</h2>;
+            },
+            h3: ({ node, children, ...props }) => (
+              <h3 {...props} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
+            ),
+            p: ({ node, children, ...props }) => {
+              paraCountForImage++;
+              // Inject mid-article image after the 4th paragraph, only once
+              if (!midImageInjected && paraCountForImage === 4 && images[1]) {
+                midImageInjected = true;
+                return (
+                  <>
+                    <p {...props}>{children}</p>
+                    <div style={{ textAlign: 'center', margin: '32px 0 18px 0' }}>
+                      <img src={images[1]} alt="" style={{
+                        width: '38%',
+                        maxWidth: 180,
+                        borderRadius: 14,
+                        boxShadow: '0 0 12px #36ff9577',
+                        display: 'inline-block'
+                      }} />
+                    </div>
+                  </>
+                );
+              }
+              return <p {...props}>{children}</p>;
+            },
+            strong: ({ children, ...props }) => {
+              // Neon highlight for speaker names
+              return highlightSpeakers(children);
+            },
+            li: ({ children, ...props }) => (
+              <li style={{ marginBottom: 4 }}>{children}</li>
+            ),
+            img: () => null, // Prevent user-submitted inline images
+          }}
+        >
+          {article.content}
+        </ReactMarkdown>
+      ) : (
+        article.content
+      )}
       {/* Lower image at very bottom */}
       {images[2] && (
         <div style={{ textAlign: "center", margin: "38px 0 14px 0" }}>
