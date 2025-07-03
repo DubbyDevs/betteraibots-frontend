@@ -3,7 +3,7 @@ import Articles from "./Articles";
 import { CATEGORY_SLUGS } from './constants';
 // import { CATEGORY_REVERSE } from "./constants"; // <- commented until used
 import React, { useState, useEffect, useRef } from "react";
-import logo from './assets/betteraibotsglowlogo.png';
+import logo from './assets/betteraibotsglowlogo.webp';
 import helperLogo from './assets/findbetteraibotshelper.png';
 import helperBotLogo from './assets/findthebestaibotshelper.png';
 import lovedocImg from './assets/lovedocplaceholder.png';

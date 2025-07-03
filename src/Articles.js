@@ -11,6 +11,8 @@ import AIFitnessCoachInterview from "./AIFitnessCoachInterview";
 import fitnessCoachImg from "./assets/bot-placeholder15.webp";
 
 
+
+
 // --- ARTICLES ---
 export const articles = [
   {
