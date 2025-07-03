@@ -17,7 +17,7 @@ import fitnessCoachImg from "./assets/bot-placeholder15.webp";
 export const articles = [
   {
     id: "vetgpt",
-    title: "Meet VetGPT: The Totally Free AI Assistant for Pet Parents",
+    title: "Meet VetGPT: The Free AI Assistant for Pet Parents",
     date: "June 2025",
     cover: VetGPT1,
     preview: 'When It\'s 10 PM and Your Pet\'s Acting "Off" — You\'re Not Alone Anymore. Here\'s why VetGPT is the best, safest, and most accessible way to get honest pet help—day or night.',
@@ -139,7 +139,7 @@ VetGPT is an educational and informational AI tool. It is not a veterinarian and
   },
   {
     id: "ai-fitness-coach",
-    title: "Meet: Fitness Diet Workout PhD Coach",
+    title: "AI Fitness Workout & Diet Coach",
     date: "June 2025",
     cover: fitnessCoachImg,
     preview: "How the PhD Coach GPT is changing the game for safe, science-based fitness and nutrition guidance—plus an exclusive interview.",
@@ -147,7 +147,7 @@ VetGPT is an educational and informational AI tool. It is not a veterinarian and
   },
   {
     id: "cheat-coder",
-    title: "Cheat Coder: An AI Bot That Makes Coding a Breeze",
+    title: "Cheat Coder: The free AI Bot That Makes Coding a Breeze",
     date: "June 2025",
     cover: cheatCoderImg,
     preview: "Cheat Coder, built on GPT-4, is redefining AI-assisted programming with full-solution generation, educational integration, and collaborative workflows for developers of all skill levels.",
@@ -569,11 +569,27 @@ function BannerAd() {
 
 // --- ARTICLE CARD ---
 function ArticleCard({ article }) {
+  const cardRef = React.useRef();
+  const [sheenDir, setSheenDir] = React.useState('right');
+
+  function handleMouseEnter(e) {
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    if (x < rect.width / 2) {
+      setSheenDir('right'); // left side, animate right
+    } else {
+      setSheenDir('left'); // right side, animate left
+    }
+  }
+
   return (
     <Link
       to={`/articles/${article.id}`}
       className="article-card"
       aria-label={`Read article: ${article.title}`}
+      ref={cardRef}
+      data-sheen-direction={sheenDir}
+      onMouseEnter={handleMouseEnter}
       style={{
         background: "#18232f",
         borderRadius: 28,
@@ -621,28 +637,10 @@ function ArticleCard({ article }) {
           }}
         />
       </div>
-
-      {/* Read More Button (just a span for styling) */}
-      <span className="read-more-btn" tabIndex={0} style={{
-        display: "block",
-        margin: "0 auto 14px auto",
-        padding: "12px 32px",
-        fontWeight: 700,
-        fontSize: "1.08rem",
-        background: "linear-gradient(90deg, #09e269 0%, #0bbfdb 100%)",
-        color: "#101c26",
-        border: "none",
-        borderRadius: 28,
-        boxShadow: "0 0 18px #36ff9580, 0 0 6px #0bbfdb77",
-        textDecoration: "none",
-        textAlign: "center",
-        transition: "box-shadow 0.16s, transform 0.13s",
-        cursor: "pointer",
-        outline: "none"
-      }}>
+      {/* Read More Button (restored to original style) */}
+      <span className="read-more-btn" tabIndex={0}>
         Read More
       </span>
-
       {/* Title */}
       <div style={{
         fontWeight: 900,
@@ -655,7 +653,6 @@ function ArticleCard({ article }) {
       }}>
         {article.title}
       </div>
-
       {/* Date */}
       <div style={{
         color: "#79f2c1",
@@ -666,7 +663,6 @@ function ArticleCard({ article }) {
       }}>
         {article.date}
       </div>
-
       {/* Preview */}
       <div className="clamp-2-lines" style={{
         color: "#e9f7ee",

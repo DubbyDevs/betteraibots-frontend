@@ -299,32 +299,9 @@ export default function ArticlePage() {
               href={gpt.link}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: "inline-block",
-                padding: "16px 38px",
-                fontSize: "1.18rem",
-                fontWeight: 800,
-                borderRadius: 32,
-                background: "linear-gradient(90deg, #36ff95 0%, #00ffb2 100%)",
-                color: "#1a1a1a",
-                textDecoration: "none",
-                boxShadow: "0 2px 16px #36ff9577",
-                marginTop: 8,
-                marginBottom: 18,
-                letterSpacing: 0.2,
-                transition: "transform 0.13s, box-shadow 0.13s",
-                cursor: "pointer"
-              }}
-              onMouseOver={e => {
-                e.currentTarget.style.transform = "scale(1.045)";
-                e.currentTarget.style.boxShadow = "0 4px 24px #36ff95cc";
-              }}
-              onMouseOut={e => {
-                e.currentTarget.style.transform = "scale(1)";
-                e.currentTarget.style.boxShadow = "0 2px 16px #36ff9577";
-              }}
+              style={{ textDecoration: "none" }}
             >
-              {`Open ${gpt.name} on OpenAI`}
+              <button className="openai-btn">{`Open ${gpt.name} on OpenAI`}</button>
             </a>
           </div>
         );
