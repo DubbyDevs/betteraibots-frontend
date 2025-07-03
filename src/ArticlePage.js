@@ -5,13 +5,41 @@ import { articles } from "./Articles";
 import ReactMarkdown from "react-markdown";
 
 function ShareButtons({ url, title }) {
+  // Copy link handler
+  const handleCopy = () => {
+    navigator.clipboard.writeText(url);
+    alert("Link copied to clipboard!");
+  };
+  const iconSize = 28;
+  const iconStyle = { display: 'inline-block', verticalAlign: 'middle', fontSize: iconSize, width: iconSize, height: iconSize, padding: 2, cursor: 'pointer' };
   return (
-    <div style={{ display: "flex", gap: 10, marginBottom: 10 }}>
+    <div style={{ display: "flex", gap: 16, marginBottom: 18 }}>
+      {/* Twitter */}
       <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title + ' ' + url)}`}
         target="_blank" rel="noopener noreferrer" title="Share on Twitter"
-        style={{ color: "#1da1f2", fontSize: 20, padding: 2 }}>
-        <svg height="16" viewBox="0 0 24 24" width="16"><path fill="currentColor" d="M22.46 5.93c-.8.36-1.66.62-2.56.73a4.5 4.5 0 0 0 1.97-2.49 9.1 9.1 0 0 1-2.86 1.1A4.52 4.52 0 0 0 16.16 4a4.52 4.52 0 0 0-4.5 4.5c0 .35.04.7.1 1.02A12.82 12.82 0 0 1 3.13 4.67a4.51 4.51 0 0 0-.61 2.28c0 1.57.8 2.96 2.03 3.77a4.5 4.5 0 0 1-2.04-.56v.05c0 2.19 1.56 4.03 3.64 4.45a4.53 4.53 0 0 1-2.03.08c.57 1.78 2.23 3.09 4.2 3.12A9.06 9.06 0 0 1 2 19.54a12.79 12.79 0 0 0 6.94 2.03c8.33 0 12.89-6.89 12.89-12.89 0-.2 0-.41-.01-.61.88-.64 1.65-1.44 2.26-2.35z"/></svg>
+        style={{ color: "#1da1f2", ...iconStyle }}>
+        <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M22.46 5.93c-.8.36-1.66.62-2.56.73a4.5 4.5 0 0 0 1.97-2.49 9.1 9.1 0 0 1-2.86 1.1A4.52 4.52 0 0 0 16.16 4a4.52 4.52 0 0 0-4.5 4.5c0 .35.04.7.1 1.02A12.82 12.82 0 0 1 3.13 4.67a4.51 4.51 0 0 0-.61 2.28c0 1.57.8 2.96 2.03 3.77a4.5 4.5 0 0 1-2.04-.56v.05c0 2.19 1.56 4.03 3.64 4.45a4.53 4.53 0 0 1-2.03.08c.57 1.78 2.23 3.09 4.2 3.12A9.06 9.06 0 0 1 2 19.54a12.79 12.79 0 0 0 6.94 2.03c8.33 0 12.89-6.89 12.89-12.89 0-.2 0-.41-.01-.61.88-.64 1.65-1.44 2.26-2.35z"/></svg>
       </a>
+      {/* Facebook */}
+      <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
+        target="_blank" rel="noopener noreferrer" title="Share on Facebook"
+        style={{ color: "#4267B2", ...iconStyle }}>
+        <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+      </a>
+      {/* SMS */}
+      <a href={`sms:?body=${encodeURIComponent(title + ' ' + url)}`}
+        title="Share via SMS" style={{ color: "#25d366", ...iconStyle }}>
+        <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4C2.897 2 2 2.897 2 4v14c0 1.103.897 2 2 2h14l4 4V4c0-1.103-.897-2-2-2zm0 15.172L18.828 16H4V4h16v13.172z"/></svg>
+      </a>
+      {/* Email */}
+      <a href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`}
+        title="Share via Email" style={{ color: "#ea4335", ...iconStyle }}>
+        <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 7 8-7V20H4z"/></svg>
+      </a>
+      {/* Copy Link */}
+      <span onClick={handleCopy} title="Copy link to clipboard" style={{ color: "#36ff95", ...iconStyle }}>
+        <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M3.9 12c0-2.25 1.85-4.1 4.1-4.1h4V6.5h-4C5.01 6.5 3 8.51 3 11s2.01 4.5 4.5 4.5h4v-1.4h-4c-2.25 0-4.1-1.85-4.1-4.1zm5.6 1.4h5V10.6h-5v2.8zm7.5-7.5h-4v1.4h4c2.25 0 4.1 1.85 4.1 4.1s-1.85 4.1-4.1 4.1h-4v1.4h4c2.99 0 5-2.01 5-4.5s-2.01-4.5-5-4.5z"/></svg>
+      </span>
     </div>
   );
 }
