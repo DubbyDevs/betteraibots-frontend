@@ -119,6 +119,15 @@ const rawBots = [
   },
 
   {
+    title: "Brand Builder",
+    desc: "Your always-on marketing strategist for bold, consistent, and scalable brand growth",
+    image: placeholderImg18,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-683c15f6e9fc8191b07b62e4272e1199-brand-builder",
+    categories: ["Productivity", "Marketing"]
+  },
+  
+  {
     title: "Cheat Coder",
     desc: "Free AI programmer for instant coding help, reviews, and bug fixes.",
     image: placeholderImg34,
@@ -363,14 +372,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-hWAjkwSzj-personal-assistant",
     categories: ["Productivity"]
   },
-  {
-    title: "Fictional Therapist",
-    desc: "A fictional AI therapist/psychologist for entertainment and writing. Not a real mental health service. (Not Real Therapy)",
-    image: placeholderImg18,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-FGhasb1tZ-therapist-psychologist-fictional-not-real-therapy",
-    categories: ["Health & Wellness", "Lifestyle"]
-  },
+  
   
   {
     title: "Logo",
