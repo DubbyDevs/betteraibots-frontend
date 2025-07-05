@@ -1084,7 +1084,7 @@ function Contact() {
         <input className="form-control" name="email" type="email" value={form.email} onChange={handleChange} required />
         <label className="form-label neon-green">Message</label>
         <textarea className="form-control" name="message" rows={3} value={form.message} onChange={handleChange} required />
-        <div style={{ margin: "18px 0" }}>
+        <div style={{ margin: "18px 0", display: 'flex', justifyContent: 'center' }}>
           <ReCAPTCHA
             sitekey="6Lf2wlArAAAAAH0GDpzc02uW1KAD8TJXgD_kSz1j"
             onChange={val => setRecaptchaValue(val)}
