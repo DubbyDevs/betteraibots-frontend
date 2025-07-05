@@ -802,7 +802,7 @@ function SubmitArticleModal({ show, onClose, onSubmit }) {
             {previews[idx] && <img src={previews[idx]} alt={label} style={{ width: 80, marginTop: 4, borderRadius: 8, border: "1px solid #36ff95" }} />}
           </div>
         )}
-        <div style={{ display: "flex", gap: 12, marginTop: 8 }}>
+        <div style={{ display: "flex", gap: 12, marginTop: 8, justifyContent: 'center' }}>
           <button type="submit" style={submitBtnStyle}>Submit</button>
           <button type="button" onClick={onClose} style={closeBtnStyle}>Cancel</button>
         </div>
