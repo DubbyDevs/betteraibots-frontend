@@ -1202,3 +1202,23 @@ img[alt="preview"] {
   0% { background-position-y: 0; }
   100% { background-position-y: 24px; }
 }
+
+.openai-btn-standalone {
+  background: linear-gradient(90deg, #09e269 0%, #0bbfdb 100%);
+  color: #101c26;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 32px;
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-top: 8px;
+  margin-bottom: 3px;
+  box-shadow: 0 3px 24px 0 #16ff6c38;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.openai-btn-standalone:hover {
+  background: linear-gradient(90deg, #0bbfdb 0%, #09e269 100%);
+  color: #fff;
+  box-shadow: 0 6px 32px 0 #0bbfdb88;
+}

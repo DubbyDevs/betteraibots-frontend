@@ -301,7 +301,7 @@ export default function ArticlePage() {
               rel="noopener noreferrer"
               style={{ textDecoration: "none" }}
             >
-              <button className="openai-btn">{`Open ${gpt.name} on OpenAI`}</button>
+              <button className="openai-btn-standalone">{`Open ${gpt.name} on OpenAI`}</button>
             </a>
           </div>
         );
