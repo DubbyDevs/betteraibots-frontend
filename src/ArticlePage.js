@@ -46,8 +46,35 @@ function ShareButtons({ url, title }) {
 
 export default function ArticlePage() {
   const { id } = useParams();
-
   const article = articles.find(a => a.id === id);
+
+  const ScholarGPTHeading = ({ level, children, ...props }) => {
+    if (
+      article.id === 'scholar-gpt' &&
+      level === 2 &&
+      typeof children[0] === 'string' &&
+      children[0].trim().toLowerCase() === 'how it works'
+    ) {
+      return (
+        <>
+          <h2 {...props} style={{ color: '#36ff95', fontWeight: 700, margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</h2>
+          <img
+            src="/scholargpt.jpg"
+            alt="Scholar GPT"
+            style={{
+              width: '100%',
+              maxWidth: '420px',
+              display: 'block',
+              margin: '24px auto',
+              borderRadius: 16
+            }}
+          />
+        </>
+      );
+    }
+    const Tag = `h${level}`;
+    return <Tag {...props} style={{ color: '#36ff95', fontWeight: 700, margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</Tag>;
+  };
 
   if (!article) {
     return (
@@ -117,7 +144,7 @@ export default function ArticlePage() {
               name: "Cheat Coder",
               link: "https://chatgpt.com/g/g-684426fa2a588191aabb529e9ca6e26f-cheat-coder"
             },
-            "ScholarGPT": {
+            "scholar-gpt": {
               name: "Scholar GPT",
               link: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt"
             },
@@ -164,7 +191,7 @@ export default function ArticlePage() {
       {images[0] && (
         <img src={images[0]} alt="" style={{
           width: "100%",
-          maxWidth: 480,
+          maxWidth: article.id === 'scholar-gpt' ? 200 : 480,
           borderRadius: 16,
           margin: "0 0 24px 0",
           display: "block"
@@ -193,54 +220,11 @@ export default function ArticlePage() {
       {typeof article.content === "string" ? (
         <ReactMarkdown
           components={{
-            h2: ({ node, children, ...props }) => {
-              if (
-                typeof children[0] === 'string' &&
-                children[0].trim() === 'The Interview' &&
-                images[1]
-              ) {
-                return (
-                  <>
-                    <div style={{ textAlign: 'center', margin: '32px 0 18px 0' }}>
-                      <img src={images[1]} alt="" style={{
-                        width: '38%',
-                        maxWidth: 180,
-                        borderRadius: 14,
-                        boxShadow: '0 0 12px #36ff9577',
-                        display: 'inline-block'
-                      }} />
-                    </div>
-                    <h2 {...props} style={{ color: '#36ff95', fontWeight: 800, margin: '32px 0 14px 0', fontSize: '1.35rem', letterSpacing: 0.2 }}>{children}</h2>
-                  </>
-                );
-              }
-              return <h2 {...props} style={{ color: '#36ff95', fontWeight: 800, margin: '32px 0 14px 0', fontSize: '1.35rem', letterSpacing: 0.2 }}>{children}</h2>;
-            },
+            h2: ScholarGPTHeading,
             h3: ({ node, children, ...props }) => (
               <h3 {...props} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
             ),
-            p: ({ node, children, ...props }) => {
-              paraCountForImage++;
-              // Inject mid-article image after the 4th paragraph, only once
-              if (!midImageInjected && paraCountForImage === 4 && images[1]) {
-                midImageInjected = true;
-                return (
-                  <>
-                    <p {...props}>{children}</p>
-                    <div style={{ textAlign: 'center', margin: '32px 0 18px 0' }}>
-                      <img src={images[1]} alt="" style={{
-                        width: '38%',
-                        maxWidth: 180,
-                        borderRadius: 14,
-                        boxShadow: '0 0 12px #36ff9577',
-                        display: 'inline-block'
-                      }} />
-                    </div>
-                  </>
-                );
-              }
-              return <p {...props}>{children}</p>;
-            },
+            p: ({ children }) => <p>{children}</p>,
             strong: ({ children, ...props }) => {
               // Neon highlight for speaker names
               return highlightSpeakers(children);
@@ -267,8 +251,36 @@ export default function ArticlePage() {
           }} />
         </div>
       )}
-      {/* Open GPT Button for specific articles (bottom, large) */}
-      {(() => {
+      {/* Scholar GPT image and button at bottom */}
+      {article.id === 'scholar-gpt' && (
+        <>
+          <div style={{ textAlign: "center", margin: "38px 0 16px 0" }}>
+            <img
+              src="/scholargpt.jpg"
+              alt="Scholar GPT"
+              style={{
+                width: '100%',
+                maxWidth: '420px',
+                display: 'block',
+                margin: '0 auto',
+                borderRadius: 16
+              }}
+            />
+          </div>
+          <div style={{ textAlign: "center", margin: "16px 0 0 0" }}>
+            <a
+              href="https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <button className="openai-btn-standalone">Open Scholar GPT on OpenAI</button>
+            </a>
+          </div>
+        </>
+      )}
+      {/* Open GPT Button for other articles (bottom, large) */}
+      {article.id !== 'scholar-gpt' && (() => {
         const gptMap = {
           "vetgpt": {
             name: "VetGPT",
@@ -281,10 +293,6 @@ export default function ArticlePage() {
           "cheat-coder": {
             name: "Cheat Coder",
             link: "https://chatgpt.com/g/g-684426fa2a588191aabb529e9ca6e26f-cheat-coder"
-          },
-          "ScholarGPT": {
-            name: "Scholar GPT",
-            link: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt"
           },
           "love-doc-ai": {
             name: "Love Doc",
