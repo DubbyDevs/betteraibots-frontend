@@ -126,9 +126,9 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-683c15f6e9fc8191b07b62e4272e1199-brand-builder",
     categories: ["Productivity", "Marketing"]
   },
-  
+
   {
-    title: "Cheat Coder",
+    title: "AI Cheat Coder",
     desc: "Free AI programmer for instant coding help, reviews, and bug fixes.",
     image: placeholderImg34,
     free: true,
