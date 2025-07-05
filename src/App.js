@@ -786,6 +786,15 @@ function BotGrid({ bots, onOpenModal }) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
+          borderRadius: 22,
+          boxShadow: '0 4px 32px #16ff6c22',
+          border: '1.5px dashed #36ff95',
+          color: '#e9f7ee',
+          minHeight: 320,
+          cursor: 'pointer',
+          marginBottom: 18,
+          transition: 'box-shadow 0.2s, border 0.2s',
         }}
       >
         <div style={{ fontSize: "2.2rem", marginBottom: 10, marginTop: 6 }}>✨</div>
@@ -1648,10 +1657,18 @@ function App() {
       </Routes>
 
       <Modal show={showModal} onHide={handleCloseModal} centered>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={{
+          background: '#101825',
+          color: '#36ff95',
+          borderRadius: '20px 20px 0 0',
+        }}>
           <Modal.Title>Suggest a GPT</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{
+          background: '#101825',
+          color: '#e9f7ee',
+          borderRadius: '0 0 20px 20px',
+        }}>
           {/* Limit reached: show message and no form */}
           {pendingBots.length >= MAX_LOCAL_PENDING_BOTS ? (
             <div style={{ color: "#ff6464", textAlign: "center", fontSize: "1.18rem", margin: "28px 0" }}>
@@ -1668,6 +1685,11 @@ function App() {
                   value={form.gptName}
                   onChange={handleFormChange}
                   required
+                  style={{
+                    background: '#101c26',
+                    color: '#e9f7ee',
+                    border: '1px solid #36ff9533',
+                  }}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGptDesc">
@@ -1680,6 +1702,11 @@ function App() {
                   value={form.gptDesc}
                   onChange={handleFormChange}
                   required
+                  style={{
+                    background: '#101c26',
+                    color: '#e9f7ee',
+                    border: '1px solid #36ff9533',
+                  }}
                 />
               </Form.Group>
               <Form.Group className="mb-2" controlId="formOpenaiUrl">
@@ -1691,6 +1718,11 @@ function App() {
                   value={form.openaiUrl}
                   onChange={handleFormChange}
                   required
+                  style={{
+                    background: '#101c26',
+                    color: '#e9f7ee',
+                    border: '1px solid #36ff9533',
+                  }}
                 />
               </Form.Group>
               <Form.Group className="mb-2" controlId="formCustomImage">
@@ -1701,6 +1733,11 @@ function App() {
                   name="customImageUrl"
                   value={form.customImageUrl}
                   onChange={handleFormChange}
+                  style={{
+                    background: '#101c26',
+                    color: '#e9f7ee',
+                    border: '1px solid #36ff9533',
+                  }}
                 />
               </Form.Group>
               {(previewImg || form.openaiUrl) && (
