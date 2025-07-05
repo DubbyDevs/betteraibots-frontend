@@ -88,19 +88,26 @@ export default function ArticlePage() {
   const shareUrl = `${window.location.origin}/articles/${article.id}`;
   const images = article.images || [];
 
-  // Track paragraph count for mid-article image injection
-  let paraCountForImage = 0;
-  let midImageInjected = false;
-
   // Utility to highlight speakers in any strong/bold text
   const highlightSpeakers = (children) => {
     if (!children) return children;
     return React.Children.map(children, child => {
       if (
         typeof child === "string" &&
-        (child.startsWith("BAIB:") || child.startsWith("ScholarGPT:") || child.startsWith("Cheat Coder:"))
+        (child.startsWith("BAIB:") || child.startsWith("ScholarGPT:") || child.startsWith("VetGPT:"))
       ) {
-        return <span style={{ color: "#5CFFB0", fontWeight: 800, fontFamily: 'Fira Mono, monospace', letterSpacing: 0.5 }}>{child}</span>;
+        return (
+          <span
+            style={{
+              color: "#5CFFB0", // always green
+              fontWeight: 800,
+              fontFamily: 'Fira Mono, monospace',
+              letterSpacing: 0.5
+            }}
+          >
+            {child}
+          </span>
+        );
       }
       return child;
     });
