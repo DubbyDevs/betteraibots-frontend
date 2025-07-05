@@ -475,7 +475,7 @@ function ProtectedRoute({ children }) {
 
 
 // --- Nav Tabs Bar ---
-function NavTabsBar({ currentCategory }) {
+function NavTabsBar({ currentCategory, onNewsClick }) {
   const navRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -520,13 +520,171 @@ function NavTabsBar({ currentCategory }) {
                 </div>
       </div>
       <Link to="/articles" className="nav-tab" tabIndex={0}>Articles</Link>
+      <span className="nav-tab" tabIndex={0} role="button" onClick={onNewsClick}>News</span>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
     </nav>
   );
 }
 
+// --- NEWS MODAL ---
+function NewsModal({ show, onClose }) {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    try {
+      const res = await fetch("https://formspree.io/f/xwpbjvdn", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        setError("");
+        setTimeout(() => {
+          onClose();
+          setSubmitted(false);
+          setEmail("");
+        }, 2000);
+      } else {
+        setError("There was an error subscribing. Please try again.");
+      }
+    } catch {
+      setError("There was an error subscribing. Please try again.");
+    }
+  };
+
+  if (!show) return null;
+
+  return (
+    <div className="modal-overlay" onClick={onClose} style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      width: '100vw',
+      height: '100vh',
+      background: 'rgba(16, 28, 38, 0.85)',
+      zIndex: 9999,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{
+        background: '#172d3e',
+        borderRadius: '20px',
+        padding: '32px',
+        maxWidth: '480px',
+        width: '90%',
+        textAlign: 'center',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+        border: '1px solid #36ff9533',
+        zIndex: 10000,
+        position: 'relative',
+      }}>
+        <button 
+          onClick={onClose}
+          style={{
+            position: 'absolute',
+            top: '16px',
+            right: '16px',
+            background: 'none',
+            border: 'none',
+            color: '#36ff95',
+            fontSize: '24px',
+            cursor: 'pointer',
+            padding: '4px'
+          }}
+        >
+          ×
+        </button>
+        
+        {!submitted ? (
+          <>
+            <h2 style={{ color: '#36ff95', marginBottom: '16px', fontSize: '1.8rem' }}>
+              📰 Weekly AI Software News
+            </h2>
+            <p style={{ color: '#e9f7ee', marginBottom: '24px', fontSize: '1.1rem', lineHeight: '1.5' }}>
+              Stay updated with the latest AI software releases, both free and paid. 
+              Get weekly insights delivered to your inbox!
+            </p>
+            
+            <form onSubmit={handleSubmit}>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '12px 16px',
+                  borderRadius: '8px',
+                  border: '1px solid #36ff9533',
+                  background: '#101c26',
+                  color: '#e9f7ee',
+                  fontSize: '1rem',
+                  marginBottom: '16px'
+                }}
+                required
+              />
+              {error && (
+                <div style={{ color: '#ff6464', marginBottom: '16px', fontSize: '0.9rem' }}>
+                  {error}
+                </div>
+              )}
+              <button
+                type="submit"
+                style={{
+                  width: '100%',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  background: 'linear-gradient(135deg, #36ff95 0%, #1affad 100%)',
+                  color: '#101c26',
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'transform 0.2s'
+                }}
+                onMouseEnter={(e) => e.target.style.transform = 'scale(1.02)'}
+                onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+              >
+                Subscribe to Newsletter
+              </button>
+            </form>
+            
+            <p style={{ 
+              color: '#a0b4c0', 
+              marginTop: '16px', 
+              fontSize: '0.85rem',
+              lineHeight: '1.4'
+            }}>
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+          </>
+        ) : (
+          <div style={{ color: '#36ff95', fontSize: '1.2rem' }}>
+            <div style={{ fontSize: '3rem', marginBottom: '16px' }}>✅</div>
+            <p>Thank you for subscribing!</p>
+            <p style={{ fontSize: '0.9rem', color: '#a0b4c0', marginTop: '8px' }}>
+              You'll receive our first newsletter soon.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // --- Hamburger Menu (mobile) ---
-function HamburgerMenu({ open, onClose }) {
+function HamburgerMenu({ open, onClose, onNewsClick }) {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -573,6 +731,7 @@ function HamburgerMenu({ open, onClose }) {
           </li>
 
           <li onClick={() => { navigate('/articles'); onClose(); }}>Articles</li>
+          <li onClick={() => { onNewsClick(); onClose(); }}>News</li>
           <li onClick={() => { navigate('/contact'); onClose(); }}>Contact Us</li>
         </ul>
       </div>
@@ -1306,6 +1465,7 @@ function App() {
   });
   const [botRecaptchaValue, setBotRecaptchaValue] = useState("");
   const [showStickyLogo, setShowStickyLogo] = useState(false);
+  const [showNewsModal, setShowNewsModal] = useState(false);
 
   useEffect(() => {
     function handleResize() { setWindowWidth(window.innerWidth); }
@@ -1451,10 +1611,10 @@ function App() {
         zIndex: 20,
       }}>
         {!isMobile && (
-          <NavTabsBar />
+          <NavTabsBar onNewsClick={() => setShowNewsModal(true)} />
         )}
       </div>
-      <HamburgerMenu open={menuOpen && isMobile} onClose={() => setMenuOpen(false)} />
+      <HamburgerMenu open={menuOpen && isMobile} onClose={() => setMenuOpen(false)} onNewsClick={() => setShowNewsModal(true)} />
       <Routes>
         <Route path="/" element={
           <Home
@@ -1592,6 +1752,7 @@ function App() {
       </Modal>
       {location.pathname !== "/moderation" && <DisclaimerBar />}
       <FooterWithWallets />
+      <NewsModal show={showNewsModal} onClose={() => setShowNewsModal(false)} />
     </>
   );
 }
