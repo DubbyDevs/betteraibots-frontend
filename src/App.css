@@ -1222,3 +1222,25 @@ img[alt="preview"] {
   color: #fff;
   box-shadow: 0 6px 32px 0 #0bbfdb88;
 }
+
+/* --- Responsive Footer: Tip Jar and Logo stacking for mobile --- */
+@media (max-width: 700px) {
+  footer > div {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .footer-logo-wrapper {
+    margin: 0 !important;
+    justify-content: center !important;
+  }
+  .footer-main-logo {
+    margin: 0 0 8px 0 !important;
+    height: 38px !important;
+  }
+  /* Tip Jar container (first child of footer > div) */
+  footer > div > div:first-child {
+    margin: 0 0 8px 0 !important;
+    justify-content: center !important;
+  }
+}
