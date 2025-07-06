@@ -1581,7 +1581,7 @@ function App() {
 
   return (
     <>
-    {isMobile && <div id="plasma-bg" />}
+    <div id="plasma-bg" />
       <PlausibleAnalytics />
       <GoogleAnalytics />
       <AppHeader
