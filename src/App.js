@@ -759,9 +759,9 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
           />
           <button className="header-btn" onClick={onOpenModal}>Submit Bot</button>
           <span
-            className="bookmark-star-disabled"
+            className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
             onClick={onToggleAnimation}
-            style={{ cursor: 'pointer', opacity: animationPaused ? 0.5 : 1 }}
+            style={{ cursor: 'pointer' }}
             title={animationPaused ? 'Resume background animation' : 'Pause background animation'}
           >
             ⭐

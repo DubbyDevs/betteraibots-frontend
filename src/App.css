@@ -1206,3 +1206,26 @@ img[alt="preview"] {
     justify-content: center !important;
   }
 }
+
+/* --- Improved animated star: animation only inside, no dimming, max 2px outer glow --- */
+.bookmark-star-disabled.star-animated {
+  position: relative;
+  color: transparent;
+  background: linear-gradient(120deg, #36ff95, #0bbfdb 40%, #fffbe6 80%, #1a2a4d 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  animation: star-inner-gradient 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px #36ff95cc);
+}
+.bookmark-star-disabled.star-animated::after {
+  content: '';
+  /* No overlay, all animation is in the text itself */
+}
+@keyframes star-inner-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
