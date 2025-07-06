@@ -140,7 +140,14 @@ const rawBots = [
   // ... const rawBots = [
 
 
-  
+  {
+    title: "VetGPT",
+    desc: "Get general veterinary advice on animal health, nutrition, and behavior. Not a substitute for professional veterinary care.",
+    image: placeholderImg28,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt",
+    categories: ["Health & Wellness", "Specialized Knowledge"]
+  },
 
   {
     title: "Video AI",
@@ -150,14 +157,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-h8l4uLHFQ-video-ai",
     categories: ["Productivity", "Creative Tools"]
   },
-  {
-    title: "VetGPT",
-    desc: "Get general veterinary advice on animal health, nutrition, and behavior. Not a substitute for professional veterinary care.",
-    image: placeholderImg28,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt",
-    categories: ["Health & Wellness", "Specialized Knowledge"]
-  },
+ 
   {
     title: "Astrology Birth Chart GPT",
     desc: "Personalized astrological insights based on your birth date, time, and location.",
