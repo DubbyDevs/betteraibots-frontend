@@ -743,7 +743,7 @@ function HamburgerMenu({ open, onClose, onNewsClick }) {
 
 
 // --- HEADER with AUTH BUTTONS ---
-function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile }) {
+function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile, onToggleAnimation, animationPaused }) {
   return (
     <div className="header">
       <Link to="/">
@@ -758,7 +758,14 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
             onChange={e => setSearchValue(e.target.value)}
           />
           <button className="header-btn" onClick={onOpenModal}>Submit Bot</button>
-        <span className="bookmark-star-disabled">⭐</span>
+          <span
+            className="bookmark-star-disabled"
+            onClick={onToggleAnimation}
+            style={{ cursor: 'pointer', opacity: animationPaused ? 0.5 : 1 }}
+            title={animationPaused ? 'Resume background animation' : 'Pause background animation'}
+          >
+            ⭐
+          </span>
         </div>
       ) : null}
       {isMobile && (
@@ -1477,6 +1484,7 @@ function App() {
   const [botRecaptchaValue, setBotRecaptchaValue] = useState("");
   const [showStickyLogo, setShowStickyLogo] = useState(false);
   const [showNewsModal, setShowNewsModal] = useState(false);
+  const [animationPaused, setAnimationPaused] = React.useState(false);
 
   useEffect(() => {
     function handleResize() { setWindowWidth(window.innerWidth); }
@@ -1581,7 +1589,7 @@ function App() {
 
   return (
     <>
-    <div id="plasma-bg" />
+    <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
       <PlausibleAnalytics />
       <GoogleAnalytics />
       <AppHeader
@@ -1590,6 +1598,8 @@ function App() {
         setSearchValue={setSearchValue}
         onMenuClick={() => setMenuOpen(v => !v)}
         isMobile={isMobile}
+        onToggleAnimation={() => setAnimationPaused(v => !v)}
+        animationPaused={animationPaused}
       />
       {showStickyLogo && isMobile && (
   <div
