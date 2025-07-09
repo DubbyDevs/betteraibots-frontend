@@ -150,8 +150,13 @@ color: transparent;
 
 
 
-.bot-card,
-.suggest-card {
+.bot-card, .bot-card.affiliate-ad {
+  width: 358px;
+  height: 370px;
+  min-width: 358px;
+  min-height: 370px;
+  max-width: 100vw;
+  max-height: 100vw;
   background: #18232f;
   border-radius: 32px;
   box-shadow: 0 3px 38px #0bbfdb19, 0 1.5px 3px #09e26918;
@@ -161,27 +166,68 @@ color: transparent;
   flex-direction: column;
   align-items: center;
   transition: box-shadow 0.18s;
-  min-height: 370px;
   position: relative;
   overflow: hidden;
 }
 
-.bot-card:hover {
-  box-shadow: 0 4px 44px #16ff6c48, 0 3px 12px #0bbfdb22;
+@media (max-width: 900px) {
+  .bot-card, .bot-card.affiliate-ad {
+    width: 44vw;
+    height: 50vw;
+    min-width: 0;
+    min-height: 0;
+    max-width: 100vw;
+    max-height: 100vw;
+    padding: 18px 10px 16px 10px;
+  }
 }
 
-.suggest-card {
-  border: 2.5px dashed #36ff95;
-  background: linear-gradient(120deg, #133626 60%, #18232f 100%);
-  color: #36ff95;
-  box-shadow: 0 0 14px #09e26933;
-  cursor: pointer;
-  transition: box-shadow 0.19s, border-color 0.13s;
+@media (max-width: 600px) {
+  .bot-card, .bot-card.affiliate-ad {
+    width: 92vw;
+    height: 108vw;
+    min-width: 0;
+    min-height: 0;
+    max-width: 100vw;
+    max-height: 100vw;
+    padding: 10px 4px 10px 4px;
+  }
 }
 
-.suggest-card:hover {
-  border-color: #0bbfdb;
-  box-shadow: 0 0 36px #36ff95a8;
+.bot-card.affiliate-ad {
+  padding: 0 !important;
+  background: none !important;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.bot-card.affiliate-ad .bot-image,
+.bot-card.affiliate-ad .bot-title,
+.bot-card.affiliate-ad .bot-desc,
+.bot-card.affiliate-ad .bot-card-btn-wrapper {
+  display: none !important;
+}
+
+.bot-card.affiliate-ad img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+  display: block;
+}
+
+.bot-title, .bot-desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.bot-desc {
+  -webkit-line-clamp: 3;
 }
 
 .bot-image {
@@ -189,7 +235,7 @@ color: transparent;
   height: 86px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   box-shadow: 0 0 18px #16ff6c45;
   background: #222c38;
 }
@@ -216,16 +262,26 @@ color: transparent;
 .bot-title {
   font-size: 1.23rem;
   font-weight: 600;
-  margin: 12px 0 6px 0;
+  margin: 6px 0 6px 0;
   color: #36ff95 !important;
   letter-spacing: 0.01em;
   text-shadow: 0 0 4px #09e26980, 0 0 8px #09e26940;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .bot-desc {
   font-size: 1.05rem;
   color: #d1efe7;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
 .bot-card-btn-wrapper {
@@ -243,7 +299,7 @@ color: transparent;
   padding: 8px 26px;
   font-size: 1.08rem;
   font-weight: 600;
-  margin-top: 8px;
+  margin-top: 3px;
   margin-bottom: 3px;
   box-shadow: 0 3px 24px 0 #16ff6c38;
   transition: background 0.2s, color 0.2s;
@@ -1228,4 +1284,25 @@ img[alt="preview"] {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+.bot-card.affiliate-ad {
+  /* Remove aspect-ratio and height overrides so it matches all other cards */
+  padding: 0 !important;
+  background: none !important;
+  box-shadow: 0 3px 38px #0bbfdb19, 0 1.5px 3px #09e26918;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.bot-card.affiliate-ad img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+  display: block;
 }

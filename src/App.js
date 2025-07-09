@@ -291,12 +291,13 @@ const rawBots = [
     categories: ["Education"]
   },
   {
-    title: "YouTube AI",
-    desc: "AI for video summaries, channel insights, and content ideas for YouTube.",
-    image: placeholderImg1,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-Wud3tXQj3-youtube-ai",
-    categories: ["Productivity", "Creative Tools"]
+    title: "InVideo AI Video Generator",
+    desc: "Create stunning AI videos from text with professional editing tools and 16M+ stock media.",
+    image: "/Generative AI Banners V8 - 250x250.png",
+    free: false,
+    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
+    categories: ["Creative Tools", "Productivity"],
+    isAffiliate: true
   },
   {
     title: "Crypto Sentiment Tracker",
@@ -383,6 +384,15 @@ const rawBots = [
     categories: ["Creative Tools"]
   }
 ];
+
+// Find the GIF Generator and InVideo AI Video Generator entries
+const gifIndex = rawBots.findIndex(bot => bot.title === "GIF Generator");
+const invideoIndex = rawBots.findIndex(bot => bot.title === "InVideo AI Video Generator");
+if (gifIndex !== -1 && invideoIndex !== -1) {
+  const temp = rawBots[gifIndex];
+  rawBots[gifIndex] = rawBots[invideoIndex];
+  rawBots[invideoIndex] = temp;
+}
 
  
 
@@ -828,21 +838,34 @@ function BotGrid({ bots, onOpenModal }) {
         />
       </div>
       {bots.map((bot, i) => (
-        <div className="bot-card" key={i}>
-          {bot.free && <div className="verified-badge">Free</div>}
-          <img
-            src={bot.image}
-            alt={bot.title}
-            className="bot-image"
-            onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
-          />
-          <div className="bot-title">{bot.title}</div>
-          <div className="bot-desc">{bot.desc}</div>
-          <div className="bot-card-btn-wrapper">
-            <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer">
-              <button className="openai-btn">View on OpenAI</button>
+        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}`} key={i}>
+          {bot.isAffiliate ? (
+            <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%' }}>
+              <img
+                src={bot.image}
+                alt={bot.title}
+                onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
+              />
             </a>
-          </div>
+          ) : (
+            <>
+              {bot.free && <div className="verified-badge">Free</div>}
+              {!bot.free && <div className="verified-badge">Paid</div>}
+              <img
+                src={bot.image}
+                alt={bot.title}
+                className="bot-image"
+                onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
+              />
+              <div className="bot-title">{bot.title}</div>
+              <div className="bot-desc">{bot.desc}</div>
+              <div className="bot-card-btn-wrapper">
+                <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer">
+                  <button className="openai-btn">View on OpenAI</button>
+                </a>
+              </div>
+            </>
+          )}
         </div>
       ))}
     </div>
