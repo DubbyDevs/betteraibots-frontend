@@ -985,10 +985,10 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
           position: 'fixed', bottom: 110, right: 36, width: 300, background: '#192738',
           borderRadius: 22, boxShadow: '0 7px 48px #16ff6c58, 0 2px 8px #0bbfdb18', zIndex: 100, padding: 22, display: 'flex', flexDirection: 'column',
         }}>
-          <form onSubmit={handleBubbleSearch} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <form onSubmit={handleBubbleSearch} style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: 8 }}>
             <input className="floating-chat-input" style={{ flex: 1, fontSize: "1.18rem" }} value={bubbleSearch}
               onChange={e => setBubbleSearch(e.target.value)} placeholder="search" autoFocus />
-            <button type="submit" className="floating-chat-send" style={{ fontSize: "1.09rem", padding: "7px 20px" }}>
+            <button type="submit" className="floating-chat-send" style={{ fontSize: "1.09rem", padding: "7px 20px", width: '100%' }}>
               search
             </button>
           </form>
