@@ -979,11 +979,7 @@ export default function Articles() {
             fontWeight: 800,
             fontSize: "1.4rem",
             textAlign: "center",
-            transition: "box-shadow 0.21s, border-color 0.14s",
-            '@media (max-width: 768px)': {
-              padding: "24px 20px",
-              fontSize: "1.2rem"
-            }
+            transition: "box-shadow 0.21s, border-color 0.14s"
           }}
           onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 32px #36ff95AA"; }}
           onMouseOut={e => { e.currentTarget.style.boxShadow = "0 0 24px #09e26944"; }}
@@ -993,10 +989,7 @@ export default function Articles() {
           <span style={{
             fontSize: "1.09rem",
             color: "#b2ffe0",
-            fontWeight: 500,
-            '@media (max-width: 768px)': {
-              fontSize: "0.95rem"
-            }
+            fontWeight: 500
           }}>
             Share your insights, stories, or guides with the world. <br />
             Click here to submit an article for review.
@@ -1016,10 +1009,7 @@ export default function Articles() {
         margin: "24px 0 0 0",
         color: "#b2ffe0",
         fontSize: "1.02rem",
-        textAlign: "center",
-        '@media (max-width: 768px)': {
-          fontSize: "0.95rem"
-        }
+        textAlign: "center"
       }}>
         <span>🛡️ All articles are reviewed by moderators before publishing.</span>
       </div>

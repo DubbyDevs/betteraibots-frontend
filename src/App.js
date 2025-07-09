@@ -982,7 +982,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
       )}
       {showSearchBubble && (
         <div className="floating-search-box" style={{
-          position: 'fixed', bottom: 110, right: 36, width: 300, background: '#192738',
+          position: 'fixed', bottom: 22, right: 22, width: 300, background: '#192738',
           borderRadius: 22, boxShadow: '0 7px 48px #16ff6c58, 0 2px 8px #0bbfdb18', zIndex: 100, padding: 22, display: 'flex', flexDirection: 'column',
         }}>
           <form onSubmit={handleBubbleSearch} style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: 8 }}>
