@@ -385,13 +385,13 @@ const rawBots = [
   }
 ];
 
-// Find the GIF Generator and InVideo AI Video Generator entries
-const gifIndex = rawBots.findIndex(bot => bot.title === "GIF Generator");
-const invideoIndex = rawBots.findIndex(bot => bot.title === "InVideo AI Video Generator");
-if (gifIndex !== -1 && invideoIndex !== -1) {
-  const temp = rawBots[gifIndex];
-  rawBots[gifIndex] = rawBots[invideoIndex];
-  rawBots[invideoIndex] = temp;
+// Find the indexes of the affiliate ad and Cooking, Diet, Recipes, Nutrition & Food bot
+const cookingIndex = rawBots.findIndex(bot => bot.title === "Cooking, Diet, Recipes, Nutrition & Food");
+const affiliateIndex = rawBots.findIndex(bot => bot.title === "InVideo AI Video Generator");
+if (cookingIndex !== -1 && affiliateIndex !== -1) {
+  const temp = rawBots[cookingIndex];
+  rawBots[cookingIndex] = rawBots[affiliateIndex];
+  rawBots[affiliateIndex] = temp;
 }
 
  
