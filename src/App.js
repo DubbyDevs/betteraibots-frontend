@@ -992,6 +992,12 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
               search
             </button>
           </form>
+          <div style={{ textAlign: 'center', marginTop: 12, color: '#36ff95', fontSize: '1.01rem' }}>
+            <a href="https://chatgpt.com/g/g-683e57f7b0b88191b0b8313aee04ea59-betteraibots-concierge" target="_blank" rel="noopener noreferrer" style={{ color: '#36ff95', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
+              Click Here to talk with BAIB
+              <img src={require('./assets/findthebestaibotshelper.png')} alt="BAIB icon" style={{ height: '1em', width: 'auto', marginLeft: 6, verticalAlign: 'middle', display: 'inline-block' }} />
+            </a>
+          </div>
         </div>
       )}
     </>
