@@ -97,7 +97,7 @@ const placeholderImgs = [
   placeholderImg16, placeholderImg17, placeholderImg18, placeholderImg19, placeholderImg20, 
   placeholderImg21, placeholderImg22, placeholderImg23, placeholderImg24, placeholderImg25, 
   placeholderImg26, placeholderImg27, placeholderImg28, placeholderImg29, placeholderImg30,
-  placeholderImg31, placeholderImg32, placeholderImg33
+  placeholderImg31, placeholderImg32, placeholderImg33,
 ];
 
 // ---- Shuffle utility for placeholders ----
@@ -225,7 +225,7 @@ const rawBots = [
   },
   
   {
-    title: "AI Music Maker (Song Words to Music)",
+    title: "AI Music Maker",
     desc: "Turn your words or lyrics into music with this AI-powered music generator. Free to use!",
     image: placeholderImg12,
     free: true,
@@ -291,13 +291,12 @@ const rawBots = [
     categories: ["Education"]
   },
   {
-    title: "InVideo AI Video Generator",
+    title: "InVideo",
     desc: "Create stunning AI videos from text with professional editing tools and 16M+ stock media.",
-    image: "/Generative AI Banners V8 - 250x250.png",
-    free: false,
-    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
-    categories: ["Creative Tools", "Productivity"],
-    isAffiliate: true
+    image: placeholderImg25,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-NgAcklHd8-scispace",
+    categories: ["Education", "Specialized Knowledge"]
   },
   {
     title: "Crypto Sentiment Tracker",
@@ -339,15 +338,6 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-5wVuKfpEt-stocks-crypto-options-forex-market-summary",
     categories: ["Productivity"]
   },
-  {
-    title: "SciSpace",
-    desc: "Ask questions and search for scientific literature instantly with SciSpace GPT.",
-    image: placeholderImg25,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-NgAcklHd8-scispace",
-    categories: ["Education", "Specialized Knowledge"]
-  },
-  
   {
     title: "PlaylistAI – Music Playlist Maker",
     desc: "Instantly create music playlists using AI and your favorite genres or moods.",
@@ -849,17 +839,19 @@ function BotGrid({ bots, onOpenModal }) {
             </a>
           ) : (
             <>
-              {bot.free && <div className="verified-badge">Free</div>}
-              {!bot.free && <div className="verified-badge">Paid</div>}
-              <img
-                src={bot.image}
-                alt={bot.title}
-                className="bot-image"
-                onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
-              />
-              <div className="bot-title">{bot.title}</div>
-              <div className="bot-desc">{bot.desc}</div>
-              <div className="bot-card-btn-wrapper">
+              <div className="bot-card-content">
+                {bot.free && <div className="verified-badge">Free</div>}
+                {!bot.free && <div className="verified-badge">Paid</div>}
+                <img
+                  src={bot.image}
+                  alt={bot.title}
+                  className="bot-image"
+                  onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
+                />
+                <div className="bot-title">{bot.title}</div>
+                <div className="bot-desc">{bot.desc}</div>
+              </div>
+              <div className="bot-card-footer">
                 <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer">
                   <button className="openai-btn">View on OpenAI</button>
                 </a>
