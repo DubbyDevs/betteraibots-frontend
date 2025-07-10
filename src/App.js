@@ -60,6 +60,7 @@ import {
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import GoogleAnalytics from "./GoogleAnalytics";
+import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
 
 
 // ---- Category List ----
@@ -165,6 +166,17 @@ const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/g/g-WxckXARTP-astrology-birth-chart-gpt",
     categories: ["Specialized Knowledge", "Lifestyle"]
+  },
+  {
+    title: "InVideo AI",
+    desc: "The Future of Video Creation Is Here!",
+    image: InVideoFreeTrialImg,
+    free: false, // We'll use a custom badge below
+    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
+    isAffiliate: true,
+    affiliateHtml: `<a rel=\"sponsored\" href=\"https://invideo.sjv.io/c/6368097/2210623/12258\" target=\"_top\" id=\"2210623\"><img src=\"//a.impactradius-go.com/display-ad/12258-2210623\" border=\"0\" alt=\"\" width=\"500\" height=\"500\"/></a><img height=\"0\" width=\"0\" src=\"https://imp.pxf.io/i/6368097/2210623/12258\" style=\"position:absolute;visibility:hidden;\" border=\"0\" />`,
+    categories: ["Creative Tools"],
+    freeLabel: "Free Trial"
   },
   {
     title: "Health & Medicine",
@@ -372,7 +384,7 @@ const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/g/g-pCq5xaCri-logo",
     categories: ["Creative Tools"]
-  }
+  },
 ];
 
 // Find the indexes of the affiliate ad and Cooking, Diet, Recipes, Nutrition & Food bot
@@ -830,10 +842,11 @@ function BotGrid({ bots, onOpenModal }) {
       {bots.map((bot, i) => (
         <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}`} key={i}>
           {bot.isAffiliate ? (
-            <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%' }}>
+            <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
               <img
                 src={bot.image}
                 alt={bot.title}
+                style={{ width: '100%', borderRadius: 18 }}
                 onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
               />
             </a>
