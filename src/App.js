@@ -178,13 +178,13 @@ const rawBots = [
     free: false, // We'll use a custom badge below
     openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
     isAffiliate: true,
-    affiliateHtml: `<a rel=\"sponsored\" href=\"https://invideo.sjv.io/c/6368097/2210623/12258\" target=\"_top\" id=\"2210623\"><img src=\"//a.impactradius-go.com/display-ad/12258-2210623\" border=\"0\" alt=\"\" width=\"500\" height=\"500\"/></a><img height=\"0\" width=\"0\" src=\"https://imp.pxf.io/i/6368097/2210623/12258\" style=\"position:absolute;visibility:hidden;\" border=\"0\" />`,
+    affiliateHtml: `<a rel="sponsored" href="https://invideo.sjv.io/c/6368097/2210623/12258" target="_top" id="2210623"><img src="//a.impactradius-go.com/display-ad/12258-2210623" border="0" alt="" width="500" height="500"/></a><img height="0" width="0" src="https://imp.pxf.io/i/6368097/2210623/12258" style="position:absolute;visibility:hidden;" border="0" />`,
     categories: ["Creative Tools"],
     freeLabel: "Free Trial"
   },
   {
     title: "Health & Medicine",
-    desc: "Get general health and wellness info powered by AI. Not a substitute for professional medical advice. (Not a real Doctor)",
+    desc: "General health and wellness info powered by AI. Not a substitute for professional medical advice.",
     image: placeholderImg8,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-t3BUYjh4C-health-medicinenot-doctor-not-medical-advice",
@@ -192,7 +192,7 @@ const rawBots = [
   },
   
   {
-    title: "Finance, Economics, Stock, Crypto & Trade Invest",
+    title: "Finance, Economics, Stock, Crypto",
     desc: "Get in-depth financial analysis, crypto research, and investment insights. (Not financial advice)",
     image: placeholderImg14,
     free: true,
@@ -200,7 +200,7 @@ const rawBots = [
     categories: ["Productivity"]
   },
   {
-    title: "Blood Test Result Analysis for Health Insight",
+    title: "Blood Test Result Analysis",
     desc: "Understand your blood test results and get actionable health insights. Not real medical advice.",
     image: placeholderImg24,
     free: true,
@@ -208,8 +208,8 @@ const rawBots = [
     categories: ["Health & Wellness", "Education"]
   },
   {
-    title: "Cooking, Diet, Recipes, Nutrition & Food",
-    desc: "Personalized recipes, diet plans, nutrition tips, and cooking advice in one spot.",
+    title: "Cooking, Diet, Recipes, Nutrition",
+    desc: "Personalized recipes, diet plans, nutrition tips, and food cooking advice in one spot.",
     image: placeholderImg5,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-KU2U5o7Wj-cookingdietrecipesnutritionfood",
@@ -242,7 +242,7 @@ const rawBots = [
   
   {
     title: "AI Music Maker",
-    desc: "Turn your words or lyrics into music with this AI-powered music generator. Free to use!",
+    desc: "Turn your words or lyrics into music with this AI-powered music generator.",
     image: placeholderImg12,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-rLVq3NTrN-ai-music-maker-song-words-to-music-free",
