@@ -193,65 +193,57 @@ color: transparent;
 }
 
 .bot-card-content {
-  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 306px;
+  box-sizing: border-box;
+  flex: 1 1 auto;
 }
 
 .bot-card-footer {
-  margin-top: auto; /* Pushes the button to the bottom */
   width: 100%;
+  max-width: 306px;
   display: flex;
   justify-content: center;
-}
-
-.bot-card .bot-desc {
-  margin-top: 146px;
-  min-height: 4.2em; /* Reserve space for 4 lines */
-  max-height: 4.2em;
-  margin-bottom: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-}
-
-.bot-card-btn-wrapper {
-  display: none;
+  align-items: flex-end;
+  margin-top: auto;
 }
 
 .bot-card .verified-badge {
   display: inline-block;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-  padding: 2px 8px;
-  border-radius: 14px;
-  font-size: 0.82rem;
+  margin-bottom: 10px;
+  margin-top: 0;
+  padding: 4px 16px;
+  border-radius: 16px;
+  font-size: 1.01rem;
+  font-weight: 700;
   background: linear-gradient(90deg, #09e269 0%, #0bbfdb 100%);
   color: #101c26;
-  font-weight: 500;
   text-shadow: 0 0 3px #16ff6c40;
-  margin-top: 2px;
-  margin-left: auto;
-  margin-right: auto;
   letter-spacing: 0.01em;
-  box-shadow: 0 0 4px #16ff6c38;
+  box-shadow: 0 0 8px #16ff6c38;
+  border: none;
   transition: background 0.2s;
+  text-align: center;
+  font-family: inherit;
+  text-transform: uppercase;
 }
 
 .bot-card .bot-image {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
-  position: absolute;
-  top: 65px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  box-shadow: 0 0 18px #16ff6c45;
+  object-fit: cover;
+  object-position: center;
   background: #222c38;
+  box-shadow: 0 0 18px #16ff6c45;
   display: block;
+  margin-bottom: 12px;
+  margin-top: 0;
+  position: static;
 }
 
 .bot-card .bot-title {
@@ -267,25 +259,27 @@ color: transparent;
   -webkit-box-orient: vertical;
   align-self: center;
   margin-bottom: 0;
-  position: absolute;
-  top: 150px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-top: 0;
+  position: static;
+}
+
+.bot-card .bot-desc {
+  font-size: 1.01rem;
+  color: #d1efe7;
+  margin-top: 12px;
+  margin-bottom: 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  align-self: center;
   width: 100%;
   max-width: 306px;
 }
 
-.bot-card .bot-image + .bot-title {
-  margin-top: 0;
-}
-
-.bot-card .bot-image + .bot-desc {
-  margin-top: 0;
-}
-
-.bot-card .bot-image + .bot-desc + .bot-card-btn-wrapper {
-  margin-top: 0;
+.bot-card-btn-wrapper {
+  display: none;
 }
 
 .bot-card .openai-btn {
@@ -1362,5 +1356,9 @@ img[alt="preview"] {
 
 .floating-search-box {
   z-index: 9999 !important;
+}
+
+.bot-card.invideo-bot .bot-image {
+  margin-top: 32px;
 }
 

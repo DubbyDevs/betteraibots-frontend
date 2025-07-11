@@ -61,6 +61,8 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import GoogleAnalytics from "./GoogleAnalytics";
 import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
+import InVideoFreeTrialPng from './assets/InVideoFreeTrial.png';
+
 
 
 // ---- Category List ----
@@ -98,7 +100,7 @@ const placeholderImgs = [
   placeholderImg16, placeholderImg17, placeholderImg18, placeholderImg19, placeholderImg20, 
   placeholderImg21, placeholderImg22, placeholderImg23, placeholderImg24, placeholderImg25, 
   placeholderImg26, placeholderImg27, placeholderImg28, placeholderImg29, placeholderImg30,
-  placeholderImg31, placeholderImg32, placeholderImg33,
+  placeholderImg31, placeholderImg32, placeholderImg33, 
 ];
 
 // ---- Shuffle utility for placeholders ----
@@ -151,13 +153,15 @@ const rawBots = [
   },
 
   {
-    title: "Video AI",
-    desc: "Smart video editing, summaries, and insights powered by AI.",
-    image: placeholderImg22,
+    title: "Personal Assistant",
+    desc: "Organize and optimize your daily life with this AI-powered personal assistant.",
+    image: placeholderImg11,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-h8l4uLHFQ-video-ai",
-    categories: ["Productivity", "Creative Tools"]
+    openaiLink: "https://chatgpt.com/g/g-hWAjkwSzj-personal-assistant",
+    categories: ["Productivity"]
   },
+
+  
  
   {
     title: "Astrology Birth Chart GPT",
@@ -286,14 +290,21 @@ const rawBots = [
     categories: ["Education"]
   },
   {
-    title: "TheLoveDoc",
+    title: "The Love Doc",
     desc: "Relationship and dating advice (Not a real doctor)",
     image: placeholderImg7,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
     categories: ["Health & Wellness", "Lifestyle"]
   },
-  
+   {
+    title: "InVideo",
+    desc: "Create stunning AI videos from text with professional editing tools and 16M+ stock media.",
+    image: InVideoFreeTrialPng,
+    free: true,
+    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
+    categories: ["Creative Tools", "Productivity"]
+  },
   {
     title: "Math AI",
     desc: "Math solver and explainer: equations, word problems, and more.",
@@ -302,14 +313,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-WP1diWHRl-math",
     categories: ["Education"]
   },
-  {
-    title: "InVideo",
-    desc: "Create stunning AI videos from text with professional editing tools and 16M+ stock media.",
-    image: placeholderImg25,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-NgAcklHd8-scispace",
-    categories: ["Education", "Specialized Knowledge"]
-  },
+ 
   {
     title: "Crypto Sentiment Tracker",
     desc: "Analyze real-time crypto sentiment and trends with one click. (Not financial advice)",
@@ -367,16 +371,14 @@ const rawBots = [
     categories: ["Health & Wellness", "Lifestyle"]
   },
   
-  {
-    title: "Personal Assistant",
-    desc: "Organize and optimize your daily life with this AI-powered personal assistant.",
-    image: placeholderImg11,
+ {
+    title: "Video AI",
+    desc: "Smart video editing, summaries, and insights powered by AI.",
+    image: placeholderImg22,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-hWAjkwSzj-personal-assistant",
-    categories: ["Productivity"]
+    openaiLink: "https://chatgpt.com/g/g-h8l4uLHFQ-video-ai",
+    categories: ["Productivity", "Creative Tools"]
   },
-  
-  
   {
     title: "Logo",
     desc: "Design professional brand logos with this AI-powered logo creation expert.",
@@ -840,7 +842,7 @@ function BotGrid({ bots, onOpenModal }) {
         />
       </div>
       {bots.map((bot, i) => (
-        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}`} key={i}>
+        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo" ? ' invideo-bot' : ''}`} key={i}>
           {bot.isAffiliate ? (
             <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
               <img
@@ -853,7 +855,7 @@ function BotGrid({ bots, onOpenModal }) {
           ) : (
             <>
               <div className="bot-card-content">
-                {bot.free && <div className="verified-badge">Free</div>}
+                {bot.free && bot.title !== "InVideo" && <div className="verified-badge">Free</div>}
                 {!bot.free && <div className="verified-badge">Paid</div>}
                 <img
                   src={bot.image}
@@ -866,7 +868,7 @@ function BotGrid({ bots, onOpenModal }) {
               </div>
               <div className="bot-card-footer">
                 <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer">
-                  <button className="openai-btn">View on OpenAI</button>
+                  <button className="openai-btn">{bot.title === "InVideo" ? "Try for free!" : "View on OpenAI"}</button>
                 </a>
               </div>
             </>
