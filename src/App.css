@@ -216,9 +216,9 @@ color: transparent;
   display: inline-block;
   margin-bottom: 10px;
   margin-top: 0;
-  padding: 4px 16px;
-  border-radius: 16px;
-  font-size: 1.01rem;
+  padding: 3.4px 13.6px; /* 15% smaller than 4px 16px */
+  border-radius: 13.6px; /* 15% smaller than 16px */
+  font-size: 0.86rem; /* 15% smaller than 1.01rem */
   font-weight: 700;
   background: linear-gradient(90deg, #09e269 0%, #0bbfdb 100%);
   color: #101c26;
@@ -244,6 +244,11 @@ color: transparent;
   margin-bottom: 12px;
   margin-top: 0;
   position: static;
+  transition: box-shadow 0.2s;
+}
+
+.bot-card:hover .bot-image {
+  box-shadow: 0 0 24px #16ff6c80;
 }
 
 .bot-card .bot-title {
