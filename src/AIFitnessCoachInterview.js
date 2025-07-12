@@ -12,7 +12,7 @@ const nameStyle = {
 export default function AIFitnessCoachInterview() {
   return (
     <div className="article-container">
-      <img src={fitnessCoachImg} alt="AI Fitness Coach" className="article-image" style={{ maxWidth: 320, borderRadius: 12, marginBottom: 24 }} />
+      <img src={fitnessCoachImg} alt="AI Fitness Coach" className="article-image" style={{ maxWidth: 320, borderRadius: 12, marginBottom: 24 }} onError={e => { e.target.onerror = null; e.target.src = '/og-square.png'; }} />
       <h1>🏋️‍♀️ The AI Fitness Coach Revolutionizing Workouts and Nutrition</h1>
       <p>In the ever-evolving world of artificial intelligence, one standout GPT is transforming how individuals approach fitness, nutrition, and wellness: <b>Fitness, Workout & Diet - PhD Coach</b>. This advanced AI app isn't just another chatbot or generic assistant — it's a highly specialized digital coach designed to provide safe, evidence-based, and fully personalized fitness and diet guidance.</p>
       <h2>🚀 What Is the PhD Coach GPT?</h2>
@@ -37,7 +37,7 @@ export default function AIFitnessCoachInterview() {
       <h2>🌟 Final Thoughts</h2>
       <p>In a landscape crowded with fitness apps and AI tools, the Fitness, Workout & Diet - PhD Coach GPT offers something refreshingly different: a scientifically sound, personalized, and safety-focused digital coaching system. It combines the wisdom of sport science with the efficiency of AI, helping users make smarter choices, stay consistent, and achieve meaningful results.</p>
       <div style={{ width: "100%", maxWidth: 800, margin: "32px auto", textAlign: "center" }}>
-        <img src={botPlaceholder35} alt="AI Fitness Coach Meditation" style={{ width: "100%", maxWidth: 800, borderRadius: 16 }} />
+        <img src={botPlaceholder35} alt="AI Fitness Coach Meditation" style={{ width: "100%", maxWidth: 800, borderRadius: 16 }} onError={e => { e.target.onerror = null; e.target.src = '/og-square.png'; }} />
       </div>
       <hr style={{ margin: "32px 0" }} />
       <h2>📝 BetterAIBots.com Exclusive Interview: Smarter Fitness with the PhD Coach</h2>
