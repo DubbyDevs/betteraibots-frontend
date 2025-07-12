@@ -171,11 +171,11 @@ color: transparent;
 }
 
 .bot-card, .bot-card.affiliate-ad {
-  width: 358px;
+  width: 100%;
+  min-width: 0;
+  max-width: 358px;
   height: 370px;
-  min-width: 358px;
   min-height: 370px;
-  max-width: 100vw;
   max-height: 100vw;
   background: linear-gradient(135deg, #172d3e 0%, #101c26 100%);
   border-radius: 32px;
