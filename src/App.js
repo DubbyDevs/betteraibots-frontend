@@ -331,11 +331,11 @@ const rawBots = [
     categories: ["Creative Tools"] // Changed from ["Digital Art"]
   },
   {
-    title: "Video GPT by VEED – Instant Free AI Video Maker",
-    desc: "Create AI-generated videos instantly for free with Video GPT by VEED.",
-    image: placeholderImg17, // Changed from placeholderImg1
+    title: "AI Video Maker",
+    desc: "Create AI-generated videos instantly.",
+    image: placeholderImg22, // Changed from placeholderImg1
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-Hkqnd7mFT-video-gpt-by-veed-instant-free-ai-video-maker",
+    openaiLink: "https://chatgpt.com/g/g-68736569e14c81919097d15d1302fb50-video-creator",
     categories: ["Creative Tools", "Productivity"]
   },
   {
