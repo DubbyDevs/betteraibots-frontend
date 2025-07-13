@@ -231,15 +231,15 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-ipOIcM229-fitness-workout-diet-phd-coach",
     categories: ["Health & Wellness", "Lifestyle"]
   },
+ 
   {
-    title: "GIF Generator",
-    desc: "Quickly create custom GIFs on any topic or mood. Fun and easy to use.",
-    image: placeholderImg6,
+    title: "AI Video Maker",
+    desc: "Create AI-generated videos instantly.",
+    image: placeholderImg22, // Changed from placeholderImg1
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-45WfVCFcy-gif-generator",
-    categories: ["Creative Tools"]
+    openaiLink: "https://chatgpt.com/g/g-68736569e14c81919097d15d1302fb50-video-creator",
+    categories: ["Creative Tools", "Productivity"]
   },
-  
   {
     title: "AI Music Maker",
     desc: "Turn your words or lyrics into music with this AI-powered music generator.",
@@ -330,13 +330,13 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-2Eo3NxuS7-designergpt",
     categories: ["Creative Tools"] // Changed from ["Digital Art"]
   },
-  {
-    title: "AI Video Maker",
-    desc: "Create AI-generated videos instantly.",
-    image: placeholderImg22, // Changed from placeholderImg1
+   {
+    title: "GIF Generator",
+    desc: "Quickly create custom GIFs on any topic or mood. Fun and easy to use.",
+    image: placeholderImg6,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-68736569e14c81919097d15d1302fb50-video-creator",
-    categories: ["Creative Tools", "Productivity"]
+    openaiLink: "https://chatgpt.com/g/g-45WfVCFcy-gif-generator",
+    categories: ["Creative Tools"]
   },
   {
     title: "AI Music Prompt Generator",
