@@ -354,31 +354,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-5wVuKfpEt-stocks-crypto-options-forex-market-summary",
     categories: ["Productivity"]
   },
-  {
-    title: "PlaylistAI – Music Playlist Maker",
-    desc: "Instantly create music playlists using AI and your favorite genres or moods.",
-    image: placeholderImg26,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-KkxbQAVuk-playlistai-music-playlist-maker",
-    categories: ["Music", "Lifestyle"]
-  },
-  {
-    title: "Love Language",
-    desc: "Discover and explore your love languages for better relationships and connection.",
-    image: placeholderImg29,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-IEqZMsTpJ-love-language",
-    categories: ["Health & Wellness", "Lifestyle"]
-  },
-  
- {
-    title: "Video AI",
-    desc: "Smart video editing, summaries, and insights powered by AI.",
-    image: placeholderImg22,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-h8l4uLHFQ-video-ai",
-    categories: ["Productivity", "Creative Tools"]
-  },
+ 
   {
     title: "Logo",
     desc: "Design professional brand logos with this AI-powered logo creation expert.",
