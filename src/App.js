@@ -123,7 +123,7 @@ const rawBots = [
 
   {
     title: "VEED AI",
-    desc: "VEED AI is the easiest way to create videos online. Edit videos, add subtitles, and more.",
+    desc: "VEED is the easiest way to create videos. Edit videos, add subtitles, and more.",
     image: placeholderImg18,
     free: true,
     openaiLink: "https://veed.cello.so/rwFO6zwGZh9",
