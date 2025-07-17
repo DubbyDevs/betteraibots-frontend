@@ -122,11 +122,11 @@ const rawBots = [
   },
 
   {
-    title: "Brand Builder",
-    desc: "Your always-on marketing strategist for bold, consistent, and scalable brand growth",
+    title: "VEED AI",
+    desc: "VEED AI is the easiest way to create videos online. Edit videos, add subtitles, and more.",
     image: placeholderImg18,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-683c15f6e9fc8191b07b62e4272e1199-brand-builder",
+    openaiLink: "https://veed.cello.so/rwFO6zwGZh9",
     categories: ["Productivity", "Marketing"]
   },
 
@@ -818,7 +818,7 @@ function BotGrid({ bots, onOpenModal }) {
         />
       </div>
       {bots.map((bot, i) => (
-        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo" ? ' invideo-bot' : ''}`} key={i}>
+        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}`} key={i}>
           {bot.isAffiliate ? (
             <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
               <img
@@ -831,7 +831,7 @@ function BotGrid({ bots, onOpenModal }) {
           ) : (
             <>
               <div className="bot-card-content">
-                {bot.free && bot.title !== "InVideo" && <div className="verified-badge">Free</div>}
+                {bot.free && bot.title !== "InVideo" && bot.title !== "VEED AI" && <div className="verified-badge">Free</div>}
                 {!bot.free && <div className="verified-badge">Paid</div>}
                 <img
                   src={bot.image}
@@ -844,7 +844,7 @@ function BotGrid({ bots, onOpenModal }) {
               </div>
               <div className="bot-card-footer">
                 <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer">
-                  <button className="openai-btn">{bot.title === "InVideo" ? "Try for free!" : "View on OpenAI"}</button>
+                  <button className="openai-btn">{bot.title === "InVideo" ? "Try for free!" : bot.title === "VEED AI" ? "View VEED" : "View on OpenAI"}</button>
                 </a>
               </div>
             </>
