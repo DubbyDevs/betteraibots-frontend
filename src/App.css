@@ -155,8 +155,8 @@ color: transparent;
     padding: 18px 10px 16px 10px;
   }
   .bot-card .bot-image {
-    width: 70px;
-    height: 70px;
+    width: 84px;
+    height: 84px;
     border-radius: 12px;
   }
 }
@@ -171,11 +171,11 @@ color: transparent;
 }
 
 .bot-card, .bot-card.affiliate-ad {
-  width: 100%;
-  min-width: 0;
-  max-width: 358px;
+  width: 358px;
   height: 370px;
+  min-width: 358px;
   min-height: 370px;
+  max-width: 100vw;
   max-height: 100vw;
   background: linear-gradient(135deg, #172d3e 0%, #101c26 100%);
   border-radius: 32px;
@@ -216,9 +216,9 @@ color: transparent;
   display: inline-block;
   margin-bottom: 10px;
   margin-top: 0;
-  padding: 2.88px 11.52px; /* 10% smaller than 3.2px 12.8px */
-  border-radius: 11.52px;   /* 10% smaller than 12.8px */
-  font-size: 0.727rem;      /* 10% smaller than 0.808rem */
+  padding: 4px 16px;
+  border-radius: 16px;
+  font-size: 1.01rem;
   font-weight: 700;
   background: linear-gradient(90deg, #09e269 0%, #0bbfdb 100%);
   color: #101c26;
@@ -232,8 +232,8 @@ color: transparent;
 }
 
 .bot-card .bot-image {
-  width: 105.336px;   /* 5% smaller than 110.88px */
-  height: 105.336px;  /* 5% smaller than 110.88px */
+  width: 105.6px;
+  height: 105.6px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
@@ -243,18 +243,13 @@ color: transparent;
   margin-bottom: 6px;
   margin-top: 0;
   position: static;
-  transition: box-shadow 0.2s ease;
-}
-
-.bot-card:hover .bot-image {
-  box-shadow: 0 0 24px #16ff6c80;
 }
 
 .bot-card .bot-title {
   font-size: 1.18rem;
   font-weight: 700;
   color: #36ff95;
-  margin: 0 0 6px 0;
+  margin: 0 0 3px 0;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -269,7 +264,7 @@ color: transparent;
 .bot-card .bot-desc {
   font-size: 1.01rem;
   color: #d1efe7;
-  margin-top: 2px;
+  margin-top: 6px;
   margin-bottom: 0;
   text-align: center;
   overflow: hidden;
@@ -1363,10 +1358,6 @@ img[alt="preview"] {
 }
 
 .bot-card.invideo-bot .bot-image {
-  margin-top: 32px;
-}
-
-.bot-card.veed-bot .bot-image {
   margin-top: 32px;
 }
 

@@ -889,7 +889,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
   return (
     <>
       <Helmet>
-        <title>BetterAiBots.com – Curated Free AI Bots Directory</title>
+        <title>BetterAiBots.com – Curated AI Bots Directory</title>
         <meta
           name="description"
           content="Discover free AI bots for productivity, education, lifestyle, music, health, creative tools, & more. Curated & easy to install. Explore now!"
@@ -903,7 +903,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
         <meta property="og:title" content="BetterAiBots.com – Free AI Bots Directory" />
         <meta
           property="og:description"
-          content="Curated directory of free AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
+          content="Curated directory of AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
         />
         <meta property="og:image" content="/betteraibotsglowlogo8.png" />
         <meta property="og:url" content="https://betteraibots.com/" />
@@ -912,7 +912,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
         <meta name="twitter:title" content="BetterAiBots.com – Free AI Bots Directory" />
         <meta
           name="twitter:description"
-          content="Curated directory of free AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
+          content="Curated directory of AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
         />
         <meta name="twitter:image" content="/betteraibotsglowlogo8.png" />
         <link rel="canonical" href="https://betteraibots.com/" />
@@ -924,7 +924,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
             "@type": "WebSite",
             "name": "BetterAiBots.com",
             "url": "https://betteraibots.com/",
-            "description": "Curated directory of free AI bots for productivity, health, creativity, and more.",
+            "description": "Curated directory of AI bots for productivity, health, creativity, and more.",
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://betteraibots.com/?search={search_term_string}",
@@ -934,9 +934,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
         </script>
       </Helmet>
       <div className="hero-section">
-        <h1 className="hero-headline">Discover & Share The Best Free AI Bots</h1>
+        <h1 className="hero-headline">Discover & Share The Best AI Bots</h1>
         <p className="hero-subheadline custom-hero-desc">
-          Find better AI Bots to help improve workflow, improve your skills or make some money working from home!
+          Find better AI Bots to help improve workflow, improve your skills!
         </p>
       </div>
       <div className="site-disclaimer">
