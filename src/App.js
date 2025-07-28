@@ -467,7 +467,7 @@ function ProtectedRoute({ children }) {
 
 
 // --- Nav Tabs Bar ---
-function NavTabsBar({ currentCategory, onNewsClick }) {
+function NavTabsBar({ currentCategory }) {
   const navRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -512,171 +512,315 @@ function NavTabsBar({ currentCategory, onNewsClick }) {
                 </div>
       </div>
       <Link to="/articles" className="nav-tab" tabIndex={0}>Articles</Link>
-      <span className="nav-tab" tabIndex={0} role="button" onClick={onNewsClick}>News</span>
+      <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
     </nav>
   );
 }
 
-// --- NEWS MODAL ---
-function NewsModal({ show, onClose }) {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!email || !email.includes('@')) {
-      setError("Please enter a valid email address.");
-      return;
+// --- NEWS PAGE ---
+function News() {
+  const newsArticles = [
+    {
+      id: 1,
+      title: "OpenAI Announces GPT-5: Revolutionary Multimodal AI Model",
+      excerpt: "OpenAI has officially unveiled GPT-5, their most advanced AI model yet, featuring unprecedented multimodal capabilities and improved reasoning abilities.",
+      content: `
+        <p>OpenAI has made a groundbreaking announcement today with the release of GPT-5, their most sophisticated AI model to date. This revolutionary update brings unprecedented multimodal capabilities, allowing the AI to process and understand text, images, audio, and video simultaneously.</p>
+        
+        <p>The new model demonstrates significant improvements in reasoning abilities, with enhanced logical thinking and problem-solving skills. Early tests show GPT-5 outperforming its predecessor by 40% in complex reasoning tasks and 60% in multimodal understanding.</p>
+        
+        <p>"This represents a major leap forward in AI capabilities," said OpenAI CEO Sam Altman. "GPT-5's ability to understand context across multiple modalities opens up entirely new possibilities for AI applications."</p>
+        
+        <p>Key features of GPT-5 include:</p>
+        <ul>
+          <li>Advanced multimodal processing (text, image, audio, video)</li>
+          <li>Enhanced reasoning and logical thinking</li>
+          <li>Improved code generation and debugging</li>
+          <li>Better understanding of complex instructions</li>
+          <li>Reduced hallucination rates by 70%</li>
+        </ul>
+        
+        <p>The model is expected to be available to ChatGPT Plus subscribers within the next month, with enterprise access following shortly after.</p>
+      `,
+      author: "BetterAiBots",
+      date: "July 28, 2025",
+      readTime: "4 min read",
+      category: "AI Development",
+      image: require('./assets/openaigpt5announced.jpg'),
+      featured: true,
+      slug: "openai-gpt5-revolutionary-multimodal-ai"
+    },
+    {
+      id: 2,
+      title: "Google's Gemini Pro Surpasses 100 Million Users in Record Time",
+      excerpt: "AI assistant achieves unprecedented adoption rate, outpacing all previous artificial intelligence products",
+      content: `
+        <p>Google's Gemini Pro has shattered user adoption records by reaching 100 million users faster than any AI product in history, marking a pivotal moment in the artificial intelligence revolution. The achievement underscores the rapidly accelerating public embrace of AI technology and positions Google as a formidable competitor in the AI assistant market.</p>
+        
+        <h3>Breaking New Ground</h3>
+        <p>The milestone represents more than just impressive numbers—it signals a fundamental shift in how consumers interact with artificial intelligence. While previous AI products took months or even years to build substantial user bases, Gemini Pro's meteoric rise demonstrates the growing mainstream appetite for sophisticated AI capabilities.</p>
+        
+        <p>"This unprecedented adoption rate shows that AI has moved from being a novelty to an essential tool for millions of people," said technology analyst Sarah Chen from Digital Trends Research. "Google has clearly struck the right balance between capability and accessibility."</p>
+        
+        <h3>What Sets Gemini Pro Apart</h3>
+        <p>Gemini Pro's rapid success can be attributed to several key factors that distinguish it from competitors. The AI assistant offers multimodal capabilities, allowing users to interact through text, voice, and images seamlessly. Its integration with Google's ecosystem of services—from Gmail to Google Docs—provides users with a cohesive experience across platforms they already use daily.</p>
+        
+        <p>The system's advanced reasoning capabilities enable it to handle complex queries, creative tasks, and professional workflows with remarkable sophistication. Users report particular satisfaction with its ability to understand context and maintain coherent conversations across extended interactions.</p>
+        
+        <h3>Market Impact and Competition</h3>
+        <p>This achievement intensifies the competition in the AI assistant space, where companies like OpenAI, Microsoft, and Anthropic are vying for dominance. Google's success with Gemini Pro demonstrates that established tech giants can leverage their existing user bases and infrastructure to rapidly scale AI products.</p>
+        
+        <p>The milestone also highlights the broader trend of AI democratization, where advanced artificial intelligence capabilities are becoming accessible to everyday consumers rather than remaining confined to technical specialists or enterprise users.</p>
+        
+        <h3>User Adoption Patterns</h3>
+        <p>Early data suggests that Gemini Pro users are engaging with the platform for diverse purposes, from creative writing and problem-solving to professional tasks and educational support. The broad appeal across different use cases has contributed to its rapid growth trajectory.</p>
+        
+        <p>Small business owners report using Gemini Pro for content creation and customer service support, while students and educators have embraced it as a learning and research companion. This versatility has helped drive sustained engagement beyond initial trial periods.</p>
+        
+        <h3>Looking Ahead</h3>
+        <p>The 100 million user milestone positions Google strongly as the AI market continues to evolve. Industry experts anticipate that this success will accelerate further innovation and investment in AI assistant technology, potentially leading to more sophisticated capabilities and new use cases.</p>
+        
+        <p>However, questions remain about how Google will maintain user engagement and continue growing its user base as the novelty of AI assistants becomes more commonplace. The company's ability to continuously improve and expand Gemini Pro's capabilities will likely determine its long-term success in this competitive landscape.</p>
+        
+        <p>As artificial intelligence becomes increasingly integrated into daily digital experiences, Gemini Pro's record-breaking adoption suggests that the future of human-AI interaction is arriving faster than many predicted. The milestone serves as a clear indicator that we are witnessing the early stages of a transformation in how people work, learn, and communicate with technology.</p>
+      `,
+      author: "BetterAiBots",
+      date: "July 25, 2025",
+      readTime: "5 min read",
+      category: "AI Adoption",
+      image: require('./assets/googlegemininews.jpg'),
+      featured: false,
+      slug: "google-gemini-pro-100-million-users"
+    },
+    {
+      id: 3,
+      title: "Meta's Llama 3 is Changing the Game for Open-Source AI",
+      excerpt: "The tech giant's latest model is winning over developers with its impressive capabilities and free accessibility",
+      content: `
+        <p>Meta has just dropped something that's got the AI community buzzing: Llama 3, their newest open-source artificial intelligence model that's already proving to be a game-changer. What makes this release particularly exciting isn't just that it's free for developers to use—it's that the model is genuinely outperforming expectations across the board.</p>
+        
+        <h3>Why Developers Are Flocking to Llama 3</h3>
+        <p>The numbers tell the story: thousands of developers have already started building with Llama 3 since its release, and it's easy to see why. The model represents a significant leap forward from its predecessor, bringing substantial improvements in areas that matter most to real-world applications.</p>
+        
+        <p>Perhaps most notably, Llama 3 has dramatically improved its reasoning abilities. Where earlier models might struggle with complex problem-solving tasks, this latest version demonstrates a more sophisticated understanding of nuanced questions and multi-step reasoning challenges. For developers building everything from customer service bots to research tools, this enhanced cognitive capability opens up entirely new possibilities.</p>
+        
+        <h3>A Truly Global AI Model</h3>
+        <p>One of Llama 3's standout features is its expanded multilingual support, now covering more than 50 languages with impressive fluency. This isn't just about translation—the model demonstrates genuine understanding of cultural context and linguistic nuances across different languages, making it invaluable for companies looking to build AI applications for global markets.</p>
+        
+        <p>The model also shines in code generation and debugging, areas where many AI models still struggle. Developers report that Llama 3 can not only write cleaner, more efficient code but also identify and suggest fixes for bugs with remarkable accuracy. This capability alone could save development teams countless hours of troubleshooting.</p>
+        
+        <h3>Safety First, Innovation Always</h3>
+        <p>Meta hasn't just focused on performance improvements—they've also made significant strides in AI safety. Llama 3 incorporates advanced bias mitigation features and safety protocols, addressing one of the most pressing concerns in AI development today. This focus on responsible AI development makes the model more suitable for enterprise applications where trust and reliability are paramount.</p>
+        
+        <p>"We believe in the power of open AI to drive innovation," explains Meta CEO Mark Zuckerberg. "Llama 3 represents our commitment to making advanced AI accessible to developers and researchers worldwide, fostering a more collaborative and innovative AI ecosystem."</p>
+        
+        <h3>Built for Real-World Performance</h3>
+        <p>Beyond its cognitive improvements, Llama 3 has been optimized to run efficiently across various hardware configurations. This means developers don't need cutting-edge, expensive hardware to harness the model's capabilities—a crucial consideration for startups and smaller organizations looking to integrate AI into their products.</p>
+        
+        <p>The model's architecture strikes an impressive balance between performance and accessibility, ensuring that high-quality AI capabilities aren't limited to tech giants with massive computational resources.</p>
+        
+        <h3>The Ripple Effect of Open Source</h3>
+        <p>The open-source nature of Llama 3 is creating a ripple effect across the AI industry. When powerful AI models are freely available, it democratizes innovation in ways that proprietary models simply can't match. Small teams can now build sophisticated AI applications that previously would have required partnerships with major tech companies or prohibitively expensive licensing deals.</p>
+        
+        <p>This accessibility is already spurring innovation across industries. Healthcare startups are using it to build diagnostic tools, educational companies are creating personalized learning assistants, and creative agencies are developing new forms of interactive content.</p>
+        
+        <h3>Looking Ahead</h3>
+        <p>As more developers experiment with Llama 3's capabilities, we're likely to see a new wave of AI-powered applications that push the boundaries of what's possible. The model's combination of high performance, broad language support, and open accessibility creates a foundation for innovation that could reshape how we think about AI integration across industries.</p>
+        
+        <p>For Meta, Llama 3 represents more than just a technical achievement—it's a statement about the future of AI development. By choosing to make their most advanced model freely available, they're betting that collaborative, open development will ultimately drive faster innovation than closed, proprietary approaches.</p>
+        
+        <p>Whether this strategy pays off remains to be seen, but early adoption numbers suggest that developers are enthusiastically embracing this more open approach to AI development. In a field often dominated by secrecy and competitive advantage, Llama 3's success could signal a shift toward more collaborative and accessible AI development practices.</p>
+      `,
+      author: "BetterAiBots",
+      date: "June 2, 2025",
+      readTime: "6 min read",
+      category: "AI Development",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+      featured: false,
+      slug: "meta-llama-3-open-source-ai"
+    },
+    {
+      id: 4,
+      title: "Microsoft Copilot Pro is Transforming the Daily Grind",
+      excerpt: "How AI integration in Office apps is saving workers hours every day—and changing the way we think about productivity",
+      content: `
+        <p>Remember when spell-check felt revolutionary? Microsoft is betting that Copilot Pro will be the next workplace transformation that makes us wonder how we ever got by without it. This isn't just another AI tool—it's a complete reimagining of how artificial intelligence can seamlessly blend into the software millions of people use every single day.</p>
+        
+        <h3>Your Office Suite Just Got a Brain Upgrade</h3>
+        <p>Copilot Pro doesn't replace your familiar Office applications; instead, it makes them dramatically smarter. Imagine having a tireless, highly skilled assistant sitting right inside Word, Excel, PowerPoint, and Outlook—one that never gets coffee breaks and actually enjoys analyzing spreadsheets at 2 AM.</p>
+        
+        <p>The integration feels natural rather than bolted-on, which is crucial for adoption. Users aren't learning an entirely new system; they're discovering that their existing tools have suddenly become far more capable. It's the difference between getting a completely new car and discovering your current car has been secretly upgraded with autopilot features overnight.</p>
+        
+        <h3>Where the Magic Really Happens</h3>
+        <h4>Word: Your Writing Partner That Actually Gets It</h4>
+        <p>Writing in Word with Copilot Pro feels like having a conversation with someone who understands both your intent and your audience. Need to draft a project proposal? Copilot can generate a structured outline, suggest compelling arguments, and even adjust the tone for different stakeholders. It's not just autocomplete on steroids—it's genuine writing assistance that understands context, maintains consistency, and can transform rough ideas into polished communication.</p>
+        
+        <h4>Excel: Making Data Analysis Accessible to Everyone</h4>
+        <p>Perhaps nowhere is Copilot Pro more transformative than in Excel. For many users, spreadsheets represent a necessary evil—powerful but intimidating. Copilot changes this dynamic entirely. You can now ask questions in plain English like "What were our best-performing products last quarter?" and watch as complex formulas, pivot tables, and visualizations appear automatically. It's democratizing data analysis in ways that could fundamentally change how businesses make decisions.</p>
+        
+        <h4>PowerPoint: From Blank Slide Anxiety to Compelling Presentations</h4>
+        <p>Anyone who's stared at a blank PowerPoint slide knows the particular form of creative paralysis it can induce. Copilot Pro transforms this experience by helping users structure their ideas, suggest compelling visuals, and maintain consistent design throughout their presentation. More importantly, it can adapt content for different audiences—taking the same core information and reshaping it for executives, technical teams, or client presentations.</p>
+        
+        <h4>Outlook: Email Management That Actually Works</h4>
+        <p>Email overwhelm is a modern workplace epidemic, and Copilot Pro tackles it head-on. Beyond just drafting responses, it can analyze email threads, summarize key decisions, identify action items, and even suggest optimal meeting times based on everyone's availability. It's like having a personal assistant who specializes in making sure nothing falls through the cracks.</p>
+        
+        <h3>The Numbers Don't Lie</h3>
+        <p>Early users are reporting productivity improvements that sound almost too good to be true—until you experience them firsthand. Some organizations are seeing 40% improvements in daily workflow efficiency, but the real impact goes beyond time savings. Workers report feeling less stressed about routine tasks and more able to focus on creative and strategic thinking.</p>
+        
+        <p>"Copilot Pro is designed to augment human capabilities, not replace them," explains Microsoft CEO Satya Nadella. "We're seeing incredible productivity gains when AI works alongside humans in familiar tools."</p>
+        
+        <p>This philosophy of augmentation rather than replacement is evident in how Copilot Pro functions. It doesn't make decisions for users; instead, it provides intelligent suggestions, automates routine tasks, and helps humans make better decisions faster.</p>
+        
+        <h3>The Bigger Picture: AI That Feels Human</h3>
+        <p>What sets Copilot Pro apart from other AI productivity tools is its understanding of context and workflow. It doesn't just respond to individual requests—it learns patterns, remembers preferences, and anticipates needs across different applications. When you're working on a project in Word, it can suggest relevant data from Excel or remind you about related email conversations in Outlook.</p>
+        
+        <p>This interconnected intelligence creates a productivity multiplier effect. Tasks that previously required switching between applications, copying and pasting data, and manually maintaining consistency across documents now happen automatically in the background.</p>
+        
+        <h3>Challenges and Considerations</h3>
+        <p>Like any transformative technology, Copilot Pro isn't without its considerations. Organizations need to think carefully about data privacy, training requirements, and the potential for over-reliance on AI assistance. There's also the question of how these tools might change workplace skills and expectations over time.</p>
+        
+        <p>However, early evidence suggests that rather than making workers lazy, AI assistance is freeing them to tackle more complex, creative challenges. When routine tasks become effortless, human energy can be redirected toward innovation, relationship-building, and strategic thinking.</p>
+        
+        <h3>The Future of Work, Today</h3>
+        <p>Copilot Pro represents more than just a software upgrade—it's a glimpse into a future where AI seamlessly augments human capability in everyday work environments. As more organizations adopt these tools, we're likely to see a shift in what constitutes baseline productivity expectations.</p>
+        
+        <p>For Microsoft, this represents a bold bet on the future of workplace technology. Rather than creating standalone AI tools that compete with existing workflows, they've chosen to enhance the software people already know and trust. If successful, this approach could set the standard for how AI integration should feel: powerful, intuitive, and genuinely helpful rather than disruptive.</p>
+        
+        <p>The early results suggest they might be onto something transformative. In a world where everyone is looking for ways to work smarter rather than harder, Copilot Pro offers a compelling answer: let AI handle the routine stuff, so humans can focus on what they do best.</p>
+      `,
+      author: "BetterAiBots",
+      date: "April 20, 2025",
+      readTime: "7 min read",
+      category: "AI Adoption",
+      image: require('./assets/mocrosoftcopilotaifreebots.jpg'),
+      featured: false,
+      slug: "microsoft-copilot-pro-productivity"
+    },
+    {
+      id: 5,
+      title: "Anthropic's Claude 3.5 Sonnet: The New Gold Standard for AI Reasoning",
+      excerpt: "Anthropic's latest Claude model demonstrates unprecedented reasoning capabilities, setting new benchmarks for AI performance in complex problem-solving tasks.",
+      content: `
+        <p>Anthropic has released Claude 3.5 Sonnet, their most advanced AI model to date, which has demonstrated unprecedented reasoning capabilities across a wide range of complex tasks. The new model represents a significant leap forward in AI's ability to understand, analyze, and solve intricate problems.</p>
+        
+        <p>Claude 3.5 Sonnet has achieved remarkable results in standardized tests, outperforming previous models by substantial margins. The model excels particularly in mathematical reasoning, scientific analysis, and creative problem-solving scenarios that require multi-step thinking.</p>
+        
+        <p>"We've focused on developing AI that can truly think through problems step-by-step," said Dario Amodei, CEO of Anthropic. "Claude 3.5 Sonnet represents our commitment to creating AI systems that are not just intelligent, but also trustworthy and reliable."</p>
+        
+        <p>Key improvements in Claude 3.5 Sonnet include:</p>
+        <ul>
+          <li>Enhanced mathematical reasoning and problem-solving</li>
+          <li>Improved code generation with better error detection</li>
+          <li>Advanced scientific analysis capabilities</li>
+          <li>Better handling of complex multi-step tasks</li>
+          <li>Reduced bias and improved safety measures</li>
+        </ul>
+        
+        <p>The model is now available to Claude Pro subscribers and is being integrated into various enterprise applications where reliable reasoning is crucial.</p>
+      `,
+      author: "BetterAiBots",
+      date: "June 30, 2024",
+      readTime: "5 min read",
+      category: "AI Development",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",
+      featured: false,
+      slug: "anthropic-claude-35-sonnet-reasoning"
     }
-    try {
-      const res = await fetch("https://formspree.io/f/xwpbjvdn", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-        setError("");
-        setTimeout(() => {
-          onClose();
-          setSubmitted(false);
-          setEmail("");
-        }, 2000);
-      } else {
-        setError("There was an error subscribing. Please try again.");
-      }
-    } catch {
-      setError("There was an error subscribing. Please try again.");
-    }
-  };
-
-  if (!show) return null;
+  ];
 
   return (
-    <div className="modal-overlay" onClick={onClose} style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      width: '100vw',
-      height: '100vh',
-      background: 'rgba(16, 28, 38, 0.85)',
-      zIndex: 9999,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{
-        background: '#172d3e',
-        borderRadius: '20px',
-        padding: '32px',
-        maxWidth: '480px',
-        width: '90%',
-        textAlign: 'center',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
-        border: '1px solid #36ff9533',
-        zIndex: 10000,
-        position: 'relative',
-      }}>
-        <button 
-          onClick={onClose}
-          style={{
-            position: 'absolute',
-            top: '16px',
-            right: '16px',
-            background: 'none',
-            border: 'none',
-            color: '#36ff95',
-            fontSize: '24px',
-            cursor: 'pointer',
-            padding: '4px'
-          }}
-        >
-          ×
-        </button>
-        
-        {!submitted ? (
-          <>
-            <h2 style={{ color: '#36ff95', marginBottom: '16px', fontSize: '1.8rem' }}>
-              📰 Weekly AI Software News
-            </h2>
-            <p style={{ color: '#e9f7ee', marginBottom: '24px', fontSize: '1.1rem', lineHeight: '1.5' }}>
-              Stay updated with the latest AI software releases, both free and paid. 
-              Get weekly insights delivered to your inbox!
-            </p>
-            
-            <form onSubmit={handleSubmit}>
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 16px',
-                  borderRadius: '8px',
-                  border: '1px solid #36ff9533',
-                  background: '#101c26',
-                  color: '#e9f7ee',
-                  fontSize: '1rem',
-                  marginBottom: '16px'
-                }}
-                required
-              />
-              {error && (
-                <div style={{ color: '#ff6464', marginBottom: '16px', fontSize: '0.9rem' }}>
-                  {error}
-                </div>
-              )}
-              <button
-                type="submit"
-                style={{
-                  width: '100%',
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  border: 'none',
-                  background: 'linear-gradient(135deg, #36ff95 0%, #1affad 100%)',
-                  color: '#101c26',
-                  fontSize: '1rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  transition: 'transform 0.2s'
-                }}
-                onMouseEnter={(e) => e.target.style.transform = 'scale(1.02)'}
-                onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-              >
-                Subscribe to Newsletter
-              </button>
-            </form>
-            
-            <p style={{ 
-              color: '#a0b4c0', 
-              marginTop: '16px', 
-              fontSize: '0.85rem',
-              lineHeight: '1.4'
-            }}>
-              We respect your privacy. Unsubscribe at any time.
-            </p>
-          </>
-        ) : (
-          <div style={{ color: '#36ff95', fontSize: '1.2rem' }}>
-            <div style={{ fontSize: '3rem', marginBottom: '16px' }}>✅</div>
-            <p>Thank you for subscribing!</p>
-            <p style={{ fontSize: '0.9rem', color: '#a0b4c0', marginTop: '8px' }}>
-              You'll receive our first newsletter soon.
-            </p>
-          </div>
-        )}
+    <>
+      <Helmet>
+        <title>AI News & Updates – BetterAiBots.com</title>
+        <meta name="description" content="Latest news, updates, and insights from the world of AI bots and artificial intelligence." />
+        <meta property="og:title" content="AI News & Updates – BetterAiBots.com" />
+        <meta property="og:description" content="Stay informed with the latest AI news, bot updates, and industry insights." />
+        <meta property="og:url" content="https://betteraibots.com/news" />
+      </Helmet>
+      
+      <div className="hero-section">
+        <h1 className="hero-headline">AI News & Updates</h1>
+        <p className="hero-subheadline custom-hero-desc">
+          Stay informed with the latest developments in AI bots, artificial intelligence, and emerging technologies.
+        </p>
       </div>
-    </div>
+      
+      <div className="site-disclaimer" style={{ padding: '0 20px', textAlign: 'center' }}>
+        🔴 <strong>This site does not provide financial, legal, or medical advice. News articles are for informational purposes only.</strong>
+      </div>
+
+      <div className="news-container">
+        {/* Featured Article */}
+        {newsArticles.filter(article => article.featured).map(article => (
+          <article key={article.id} className="featured-news-article">
+            <div className="featured-news-image">
+              <img src={article.image} alt={article.title} />
+              <div className="featured-news-overlay">
+                <span className="news-category">{article.category}</span>
+                <span className="news-read-time">{article.readTime}</span>
+              </div>
+            </div>
+            <div className="featured-news-content">
+              <h2 className="featured-news-title">{article.title}</h2>
+              <p className="featured-news-excerpt">{article.excerpt}</p>
+              <div className="featured-news-meta">
+                <span className="news-author">By {article.author}</span>
+                <span className="news-date">{article.date}</span>
+              </div>
+              <Link to={`/news/${article.slug}`} className="read-more-btn">Read Full Article</Link>
+            </div>
+          </article>
+        ))}
+
+        {/* News Grid */}
+        <div className="news-grid">
+          {newsArticles.filter(article => !article.featured).map(article => (
+            <article key={article.id} className="news-card">
+              <div className="news-card-image">
+                <img src={article.image} alt={article.title} />
+                <div className="news-card-overlay">
+                  <span className="news-category">{article.category}</span>
+                </div>
+              </div>
+              <div className="news-card-content">
+                <h3 className="news-card-title">{article.title}</h3>
+                <p className="news-card-excerpt">{article.excerpt}</p>
+                <div className="news-card-meta">
+                  <span className="news-author">By {article.author}</span>
+                  <span className="news-date">{article.date}</span>
+                  <span className="news-read-time">{article.readTime}</span>
+                </div>
+                <Link to={`/news/${article.slug}`} className="read-more-btn-small">Read Full Article</Link>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Newsletter Signup */}
+        <div className="newsletter-signup">
+          <div className="newsletter-content">
+            <h3>Stay Updated with AI News</h3>
+            <p>Get the latest AI bot news and updates delivered to your inbox.</p>
+            <form className="newsletter-form">
+              <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                className="newsletter-input"
+              />
+              <button type="submit" className="newsletter-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
+
+
 // --- Hamburger Menu (mobile) ---
-function HamburgerMenu({ open, onClose, onNewsClick }) {
+function HamburgerMenu({ open, onClose }) {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -723,7 +867,7 @@ function HamburgerMenu({ open, onClose, onNewsClick }) {
           </li>
 
           <li onClick={() => { navigate('/articles'); onClose(); }}>Articles</li>
-          <li onClick={() => { onNewsClick(); onClose(); }}>News</li>
+          <li onClick={() => { navigate('/news'); onClose(); }}>News</li>
           <li onClick={() => { navigate('/contact'); onClose(); }}>Contact Us</li>
         </ul>
       </div>
@@ -1495,7 +1639,7 @@ function App() {
   });
   const [botRecaptchaValue, setBotRecaptchaValue] = useState("");
   const [showStickyLogo, setShowStickyLogo] = useState(false);
-  const [showNewsModal, setShowNewsModal] = useState(false);
+
   const [animationPaused, setAnimationPaused] = React.useState(false);
 
   useEffect(() => {
@@ -1644,10 +1788,10 @@ function App() {
         zIndex: 20,
       }}>
         {!isMobile && (
-          <NavTabsBar onNewsClick={() => setShowNewsModal(true)} />
+          <NavTabsBar />
         )}
       </div>
-      <HamburgerMenu open={menuOpen && isMobile} onClose={() => setMenuOpen(false)} onNewsClick={() => setShowNewsModal(true)} />
+      <HamburgerMenu open={menuOpen && isMobile} onClose={() => setMenuOpen(false)} />
       <Routes>
         <Route path="/" element={
           <Home
@@ -1661,6 +1805,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:id" element={<ArticlePage />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/legal" element={<Legal />} />
         <Route
           path="/moderation"
@@ -1813,7 +1959,6 @@ function App() {
       </Modal>
       {location.pathname !== "/moderation" && <DisclaimerBar />}
       <FooterWithWallets />
-      <NewsModal show={showNewsModal} onClose={() => setShowNewsModal(false)} />
     </>
   );
 }
@@ -2201,6 +2346,272 @@ export default function AppWithRouter() {
         </Router>
       </HelmetProvider>
     </Auth0Provider>
+  );
+}
+
+// --- INDIVIDUAL NEWS ARTICLE PAGE ---
+function NewsArticle() {
+  const { slug } = useParams();
+  
+  const newsArticles = [
+    {
+      id: 1,
+      title: "OpenAI Announces GPT-5: Revolutionary Multimodal AI Model",
+      excerpt: "OpenAI has officially unveiled GPT-5, their most advanced AI model yet, featuring unprecedented multimodal capabilities and improved reasoning abilities.",
+      content: `
+        <p>OpenAI has made a groundbreaking announcement today with the release of GPT-5, their most sophisticated AI model to date. This revolutionary update brings unprecedented multimodal capabilities, allowing the AI to process and understand text, images, audio, and video simultaneously.</p>
+        
+        <p>The new model demonstrates significant improvements in reasoning abilities, with enhanced logical thinking and problem-solving skills. Early tests show GPT-5 outperforming its predecessor by 40% in complex reasoning tasks and 60% in multimodal understanding.</p>
+        
+        <p>"This represents a major leap forward in AI capabilities," said OpenAI CEO Sam Altman. "GPT-5's ability to understand context across multiple modalities opens up entirely new possibilities for AI applications."</p>
+        
+        <p>Key features of GPT-5 include:</p>
+        <ul>
+          <li>Advanced multimodal processing (text, image, audio, video)</li>
+          <li>Enhanced reasoning and logical thinking</li>
+          <li>Improved code generation and debugging</li>
+          <li>Better understanding of complex instructions</li>
+          <li>Reduced hallucination rates by 70%</li>
+        </ul>
+        
+        <p>The model is expected to be available to ChatGPT Plus subscribers within the next month, with enterprise access following shortly after.</p>
+      `,
+      author: "BetterAiBots",
+      date: "July 28, 2025",
+      readTime: "4 min read",
+      category: "AI Development",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+      featured: true,
+      slug: "openai-gpt5-revolutionary-multimodal-ai"
+    },
+    {
+      id: 2,
+      title: "Google's Gemini Pro Surpasses 100 Million Users in Record Time",
+      excerpt: "AI assistant achieves unprecedented adoption rate, outpacing all previous artificial intelligence products",
+      content: `
+        <p>Google's Gemini Pro has shattered user adoption records by reaching 100 million users faster than any AI product in history, marking a pivotal moment in the artificial intelligence revolution. The achievement underscores the rapidly accelerating public embrace of AI technology and positions Google as a formidable competitor in the AI assistant market.</p>
+        
+        <h3>Breaking New Ground</h3>
+        <p>The milestone represents more than just impressive numbers—it signals a fundamental shift in how consumers interact with artificial intelligence. While previous AI products took months or even years to build substantial user bases, Gemini Pro's meteoric rise demonstrates the growing mainstream appetite for sophisticated AI capabilities.</p>
+        
+        <p>"This unprecedented adoption rate shows that AI has moved from being a novelty to an essential tool for millions of people," said technology analyst Sarah Chen from Digital Trends Research. "Google has clearly struck the right balance between capability and accessibility."</p>
+        
+        <h3>What Sets Gemini Pro Apart</h3>
+        <p>Gemini Pro's rapid success can be attributed to several key factors that distinguish it from competitors. The AI assistant offers multimodal capabilities, allowing users to interact through text, voice, and images seamlessly. Its integration with Google's ecosystem of services—from Gmail to Google Docs—provides users with a cohesive experience across platforms they already use daily.</p>
+        
+        <p>The system's advanced reasoning capabilities enable it to handle complex queries, creative tasks, and professional workflows with remarkable sophistication. Users report particular satisfaction with its ability to understand context and maintain coherent conversations across extended interactions.</p>
+        
+        <h3>Market Impact and Competition</h3>
+        <p>This achievement intensifies the competition in the AI assistant space, where companies like OpenAI, Microsoft, and Anthropic are vying for dominance. Google's success with Gemini Pro demonstrates that established tech giants can leverage their existing user bases and infrastructure to rapidly scale AI products.</p>
+        
+        <p>The milestone also highlights the broader trend of AI democratization, where advanced artificial intelligence capabilities are becoming accessible to everyday consumers rather than remaining confined to technical specialists or enterprise users.</p>
+        
+        <h3>User Adoption Patterns</h3>
+        <p>Early data suggests that Gemini Pro users are engaging with the platform for diverse purposes, from creative writing and problem-solving to professional tasks and educational support. The broad appeal across different use cases has contributed to its rapid growth trajectory.</p>
+        
+        <p>Small business owners report using Gemini Pro for content creation and customer service support, while students and educators have embraced it as a learning and research companion. This versatility has helped drive sustained engagement beyond initial trial periods.</p>
+        
+        <h3>Looking Ahead</h3>
+        <p>The 100 million user milestone positions Google strongly as the AI market continues to evolve. Industry experts anticipate that this success will accelerate further innovation and investment in AI assistant technology, potentially leading to more sophisticated capabilities and new use cases.</p>
+        
+        <p>However, questions remain about how Google will maintain user engagement and continue growing its user base as the novelty of AI assistants becomes more commonplace. The company's ability to continuously improve and expand Gemini Pro's capabilities will likely determine its long-term success in this competitive landscape.</p>
+        
+        <p>As artificial intelligence becomes increasingly integrated into daily digital experiences, Gemini Pro's record-breaking adoption suggests that the future of human-AI interaction is arriving faster than many predicted. The milestone serves as a clear indicator that we are witnessing the early stages of a transformation in how people work, learn, and communicate with technology.</p>
+      `,
+      author: "BetterAiBots",
+      date: "July 25, 2025",
+      readTime: "5 min read",
+      category: "AI Adoption",
+      image: require('./assets/googlegemininews.jpg'),
+      featured: false,
+      slug: "google-gemini-pro-100-million-users"
+    },
+    {
+      id: 3,
+      title: "Meta's Llama 3 is Changing the Game for Open-Source AI",
+      excerpt: "The tech giant's latest model is winning over developers with its impressive capabilities and free accessibility",
+      content: `
+        <p>Meta has just dropped something that's got the AI community buzzing: Llama 3, their newest open-source artificial intelligence model that's already proving to be a game-changer. What makes this release particularly exciting isn't just that it's free for developers to use—it's that the model is genuinely outperforming expectations across the board.</p>
+        
+        <h3>Why Developers Are Flocking to Llama 3</h3>
+        <p>The numbers tell the story: thousands of developers have already started building with Llama 3 since its release, and it's easy to see why. The model represents a significant leap forward from its predecessor, bringing substantial improvements in areas that matter most to real-world applications.</p>
+        
+        <p>Perhaps most notably, Llama 3 has dramatically improved its reasoning abilities. Where earlier models might struggle with complex problem-solving tasks, this latest version demonstrates a more sophisticated understanding of nuanced questions and multi-step reasoning challenges. For developers building everything from customer service bots to research tools, this enhanced cognitive capability opens up entirely new possibilities.</p>
+        
+        <h3>A Truly Global AI Model</h3>
+        <p>One of Llama 3's standout features is its expanded multilingual support, now covering more than 50 languages with impressive fluency. This isn't just about translation—the model demonstrates genuine understanding of cultural context and linguistic nuances across different languages, making it invaluable for companies looking to build AI applications for global markets.</p>
+        
+        <p>The model also shines in code generation and debugging, areas where many AI models still struggle. Developers report that Llama 3 can not only write cleaner, more efficient code but also identify and suggest fixes for bugs with remarkable accuracy. This capability alone could save development teams countless hours of troubleshooting.</p>
+        
+        <h3>Safety First, Innovation Always</h3>
+        <p>Meta hasn't just focused on performance improvements—they've also made significant strides in AI safety. Llama 3 incorporates advanced bias mitigation features and safety protocols, addressing one of the most pressing concerns in AI development today. This focus on responsible AI development makes the model more suitable for enterprise applications where trust and reliability are paramount.</p>
+        
+        <p>"We believe in the power of open AI to drive innovation," explains Meta CEO Mark Zuckerberg. "Llama 3 represents our commitment to making advanced AI accessible to developers and researchers worldwide, fostering a more collaborative and innovative AI ecosystem."</p>
+        
+        <h3>Built for Real-World Performance</h3>
+        <p>Beyond its cognitive improvements, Llama 3 has been optimized to run efficiently across various hardware configurations. This means developers don't need cutting-edge, expensive hardware to harness the model's capabilities—a crucial consideration for startups and smaller organizations looking to integrate AI into their products.</p>
+        
+        <p>The model's architecture strikes an impressive balance between performance and accessibility, ensuring that high-quality AI capabilities aren't limited to tech giants with massive computational resources.</p>
+        
+        <h3>The Ripple Effect of Open Source</h3>
+        <p>The open-source nature of Llama 3 is creating a ripple effect across the AI industry. When powerful AI models are freely available, it democratizes innovation in ways that proprietary models simply can't match. Small teams can now build sophisticated AI applications that previously would have required partnerships with major tech companies or prohibitively expensive licensing deals.</p>
+        
+        <p>This accessibility is already spurring innovation across industries. Healthcare startups are using it to build diagnostic tools, educational companies are creating personalized learning assistants, and creative agencies are developing new forms of interactive content.</p>
+        
+        <h3>Looking Ahead</h3>
+        <p>As more developers experiment with Llama 3's capabilities, we're likely to see a new wave of AI-powered applications that push the boundaries of what's possible. The model's combination of high performance, broad language support, and open accessibility creates a foundation for innovation that could reshape how we think about AI integration across industries.</p>
+        
+        <p>For Meta, Llama 3 represents more than just a technical achievement—it's a statement about the future of AI development. By choosing to make their most advanced model freely available, they're betting that collaborative, open development will ultimately drive faster innovation than closed, proprietary approaches.</p>
+        
+        <p>Whether this strategy pays off remains to be seen, but early adoption numbers suggest that developers are enthusiastically embracing this more open approach to AI development. In a field often dominated by secrecy and competitive advantage, Llama 3's success could signal a shift toward more collaborative and accessible AI development practices.</p>
+      `,
+      author: "BetterAiBots",
+      date: "June 2, 2025",
+      readTime: "6 min read",
+      category: "AI Development",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+      featured: false,
+      slug: "meta-llama-3-open-source-ai"
+    },
+    {
+      id: 4,
+      title: "Microsoft Copilot Pro is Transforming the Daily Grind",
+      excerpt: "How AI integration in Office apps is saving workers hours every day—and changing the way we think about productivity",
+      content: `
+        <p>Remember when spell-check felt revolutionary? Microsoft is betting that Copilot Pro will be the next workplace transformation that makes us wonder how we ever got by without it. This isn't just another AI tool—it's a complete reimagining of how artificial intelligence can seamlessly blend into the software millions of people use every single day.</p>
+        
+        <h3>Your Office Suite Just Got a Brain Upgrade</h3>
+        <p>Copilot Pro doesn't replace your familiar Office applications; instead, it makes them dramatically smarter. Imagine having a tireless, highly skilled assistant sitting right inside Word, Excel, PowerPoint, and Outlook—one that never gets coffee breaks and actually enjoys analyzing spreadsheets at 2 AM.</p>
+        
+        <p>The integration feels natural rather than bolted-on, which is crucial for adoption. Users aren't learning an entirely new system; they're discovering that their existing tools have suddenly become far more capable. It's the difference between getting a completely new car and discovering your current car has been secretly upgraded with autopilot features overnight.</p>
+        
+        <h3>Where the Magic Really Happens</h3>
+        <h4>Word: Your Writing Partner That Actually Gets It</h4>
+        <p>Writing in Word with Copilot Pro feels like having a conversation with someone who understands both your intent and your audience. Need to draft a project proposal? Copilot can generate a structured outline, suggest compelling arguments, and even adjust the tone for different stakeholders. It's not just autocomplete on steroids—it's genuine writing assistance that understands context, maintains consistency, and can transform rough ideas into polished communication.</p>
+        
+        <h4>Excel: Making Data Analysis Accessible to Everyone</h4>
+        <p>Perhaps nowhere is Copilot Pro more transformative than in Excel. For many users, spreadsheets represent a necessary evil—powerful but intimidating. Copilot changes this dynamic entirely. You can now ask questions in plain English like "What were our best-performing products last quarter?" and watch as complex formulas, pivot tables, and visualizations appear automatically. It's democratizing data analysis in ways that could fundamentally change how businesses make decisions.</p>
+        
+        <h4>PowerPoint: From Blank Slide Anxiety to Compelling Presentations</h4>
+        <p>Anyone who's stared at a blank PowerPoint slide knows the particular form of creative paralysis it can induce. Copilot Pro transforms this experience by helping users structure their ideas, suggest compelling visuals, and maintain consistent design throughout their presentation. More importantly, it can adapt content for different audiences—taking the same core information and reshaping it for executives, technical teams, or client presentations.</p>
+        
+        <h4>Outlook: Email Management That Actually Works</h4>
+        <p>Email overwhelm is a modern workplace epidemic, and Copilot Pro tackles it head-on. Beyond just drafting responses, it can analyze email threads, summarize key decisions, identify action items, and even suggest optimal meeting times based on everyone's availability. It's like having a personal assistant who specializes in making sure nothing falls through the cracks.</p>
+        
+        <h3>The Numbers Don't Lie</h3>
+        <p>Early users are reporting productivity improvements that sound almost too good to be true—until you experience them firsthand. Some organizations are seeing 40% improvements in daily workflow efficiency, but the real impact goes beyond time savings. Workers report feeling less stressed about routine tasks and more able to focus on creative and strategic thinking.</p>
+        
+        <p>"Copilot Pro is designed to augment human capabilities, not replace them," explains Microsoft CEO Satya Nadella. "We're seeing incredible productivity gains when AI works alongside humans in familiar tools."</p>
+        
+        <p>This philosophy of augmentation rather than replacement is evident in how Copilot Pro functions. It doesn't make decisions for users; instead, it provides intelligent suggestions, automates routine tasks, and helps humans make better decisions faster.</p>
+        
+        <h3>The Bigger Picture: AI That Feels Human</h3>
+        <p>What sets Copilot Pro apart from other AI productivity tools is its understanding of context and workflow. It doesn't just respond to individual requests—it learns patterns, remembers preferences, and anticipates needs across different applications. When you're working on a project in Word, it can suggest relevant data from Excel or remind you about related email conversations in Outlook.</p>
+        
+        <p>This interconnected intelligence creates a productivity multiplier effect. Tasks that previously required switching between applications, copying and pasting data, and manually maintaining consistency across documents now happen automatically in the background.</p>
+        
+        <h3>Challenges and Considerations</h3>
+        <p>Like any transformative technology, Copilot Pro isn't without its considerations. Organizations need to think carefully about data privacy, training requirements, and the potential for over-reliance on AI assistance. There's also the question of how these tools might change workplace skills and expectations over time.</p>
+        
+        <p>However, early evidence suggests that rather than making workers lazy, AI assistance is freeing them to tackle more complex, creative challenges. When routine tasks become effortless, human energy can be redirected toward innovation, relationship-building, and strategic thinking.</p>
+        
+        <h3>The Future of Work, Today</h3>
+        <p>Copilot Pro represents more than just a software upgrade—it's a glimpse into a future where AI seamlessly augments human capability in everyday work environments. As more organizations adopt these tools, we're likely to see a shift in what constitutes baseline productivity expectations.</p>
+        
+        <p>For Microsoft, this represents a bold bet on the future of workplace technology. Rather than creating standalone AI tools that compete with existing workflows, they've chosen to enhance the software people already know and trust. If successful, this approach could set the standard for how AI integration should feel: powerful, intuitive, and genuinely helpful rather than disruptive.</p>
+        
+        <p>The early results suggest they might be onto something transformative. In a world where everyone is looking for ways to work smarter rather than harder, Copilot Pro offers a compelling answer: let AI handle the routine stuff, so humans can focus on what they do best.</p>
+      `,
+      author: "BetterAiBots",
+      date: "April 20, 2025",
+      readTime: "7 min read",
+      category: "AI Adoption",
+      image: require('./assets/mocrosoftcopilotaifreebots.jpg'),
+      featured: false,
+      slug: "microsoft-copilot-pro-productivity"
+    },
+    {
+      id: 5,
+      title: "Anthropic's Claude 3.5 Sonnet: The New Gold Standard for AI Reasoning",
+      excerpt: "Anthropic's latest Claude model demonstrates unprecedented reasoning capabilities, setting new benchmarks for AI performance in complex problem-solving tasks.",
+      content: `
+        <p>Anthropic has released Claude 3.5 Sonnet, their most advanced AI model to date, which has demonstrated unprecedented reasoning capabilities across a wide range of complex tasks. The new model represents a significant leap forward in AI's ability to understand, analyze, and solve intricate problems.</p>
+        
+        <p>Claude 3.5 Sonnet has achieved remarkable results in standardized tests, outperforming previous models by substantial margins. The model excels particularly in mathematical reasoning, scientific analysis, and creative problem-solving scenarios that require multi-step thinking.</p>
+        
+        <p>"We've focused on developing AI that can truly think through problems step-by-step," said Dario Amodei, CEO of Anthropic. "Claude 3.5 Sonnet represents our commitment to creating AI systems that are not just intelligent, but also trustworthy and reliable."</p>
+        
+        <p>Key improvements in Claude 3.5 Sonnet include:</p>
+        <ul>
+          <li>Enhanced mathematical reasoning and problem-solving</li>
+          <li>Improved code generation with better error detection</li>
+          <li>Advanced scientific analysis capabilities</li>
+          <li>Better handling of complex multi-step tasks</li>
+          <li>Reduced bias and improved safety measures</li>
+        </ul>
+        
+        <p>The model is now available to Claude Pro subscribers and is being integrated into various enterprise applications where reliable reasoning is crucial.</p>
+      `,
+      author: "BetterAiBots",
+      date: "June 30, 2024",
+      readTime: "5 min read",
+      category: "AI Development",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",
+      featured: false,
+      slug: "anthropic-claude-35-sonnet-reasoning"
+    }
+  ];
+
+  const article = newsArticles.find(article => article.slug === slug);
+
+  if (!article) {
+    return (
+      <div className="hero-section">
+        <h1 className="hero-headline">Article Not Found</h1>
+        <p className="hero-subheadline custom-hero-desc">
+          The article you're looking for doesn't exist.
+        </p>
+        <Link to="/news" className="read-more-btn">Back to News</Link>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Helmet>
+        <title>{article.title} – BetterAiBots.com</title>
+        <meta name="description" content={article.excerpt} />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.excerpt} />
+        <meta property="og:image" content={article.image} />
+        <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
+      </Helmet>
+      
+      <div className="article-container">
+        <div className="article-header">
+          <div className="article-meta">
+            <span className="article-category">{article.category}</span>
+            <span className="article-date">{article.date}</span>
+            <span className="article-read-time">{article.readTime}</span>
+          </div>
+          <h1 className="article-title">{article.title}</h1>
+          <p className="article-excerpt">{article.excerpt}</p>
+          <div className="article-author">
+            <span>By {article.author}</span>
+          </div>
+        </div>
+        
+        <div className="article-image">
+          <img src={article.image} alt={article.title} />
+        </div>
+        
+        <div className="article-content" dangerouslySetInnerHTML={{ __html: article.content }} />
+        
+        <div className="article-footer">
+          <Link to="/news" className="back-to-news-btn">← Back to News</Link>
+        </div>
+      </div>
+    </>
   );
 }
 
