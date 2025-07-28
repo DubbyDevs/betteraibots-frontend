@@ -467,53 +467,26 @@ function ProtectedRoute({ children }) {
 
 
 // --- Nav Tabs Bar ---
-function NavTabsBar({ currentCategory }) {
-  const navRef = useRef(null);
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  useEffect(() => {
-    if (!showDropdown) return;
-    const onClick = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) setShowDropdown(false);
-    };
-    window.addEventListener("mousedown", onClick);
-    return () => window.removeEventListener("mousedown", onClick);
-  }, [showDropdown]);
+function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   return (
-    <nav className="nav-tabs-bar" ref={navRef}>
+    <nav className="nav-tabs-bar">
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
-      <div
-        className="nav-tab nav-tab-dropdown"
-        tabIndex={0}
-        onMouseEnter={() => setShowDropdown(true)}
-        onMouseLeave={() => setShowDropdown(false)}
-        onFocus={() => setShowDropdown(true)}
-        onBlur={() => setShowDropdown(false)}
-        style={{ position: "relative" }}
-      >
-               Categories
-        <div className="nav-dropdown-list" style={{ display: showDropdown ? "flex" : "none" }}>
-          {CATEGORIES.map((cat) => {
-            const slug = CATEGORY_SLUGS[cat.name] || encodeURIComponent(cat.name);
-            return (
-              <Link
-  to={`/${slug}`}
-  className="nav-dropdown-item"
-  key={cat.name}
-  onClick={() => setShowDropdown(false)}
-  tabIndex={0}
->
-  {cat.name}
-</Link>
-
-            );
-          })}
-                </div>
-      </div>
       <Link to="/articles" className="nav-tab" tabIndex={0}>Articles</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
+      {isHomePage && (
+        <button 
+          className="nav-tab eyeball-toggle-btn"
+          onClick={toggleCategoryBar}
+          tabIndex={0}
+          title={showCategoryBar ? 'Hide Categories' : 'Show Categories'}
+        >
+          👁️
+        </button>
+      )}
     </nav>
   );
 }
@@ -587,7 +560,7 @@ function News() {
       `,
       author: "BetterAiBots",
       date: "July 25, 2025",
-      readTime: "5 min read",
+      readTime: "8 min read",
       category: "AI Adoption",
       image: require('./assets/googlegemininews.jpg'),
       featured: false,
@@ -634,9 +607,9 @@ function News() {
       `,
       author: "BetterAiBots",
       date: "June 2, 2025",
-      readTime: "6 min read",
+      readTime: "7 min read",
       category: "AI Development",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+      image: require('./assets/llama3news.jpg'),
       featured: false,
       slug: "meta-llama-3-open-source-ai"
     },
@@ -723,7 +696,7 @@ function News() {
       date: "June 30, 2024",
       readTime: "5 min read",
       category: "AI Development",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",
+      image: require('./assets/claudecode.png'),
       featured: false,
       slug: "anthropic-claude-35-sonnet-reasoning"
     }
@@ -757,7 +730,6 @@ function News() {
             <div className="featured-news-image">
               <img src={article.image} alt={article.title} />
               <div className="featured-news-overlay">
-                <span className="news-category">{article.category}</span>
                 <span className="news-read-time">{article.readTime}</span>
               </div>
             </div>
@@ -779,9 +751,6 @@ function News() {
             <article key={article.id} className="news-card">
               <div className="news-card-image">
                 <img src={article.image} alt={article.title} />
-                <div className="news-card-overlay">
-                  <span className="news-category">{article.category}</span>
-                </div>
               </div>
               <div className="news-card-content">
                 <h3 className="news-card-title">{article.title}</h3>
@@ -801,16 +770,17 @@ function News() {
         <div className="newsletter-signup">
           <div className="newsletter-content">
             <h3>Stay Updated with AI News</h3>
-            <p>Get the latest AI bot news and updates delivered to your inbox.</p>
-            <form className="newsletter-form">
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="newsletter-input"
-              />
-              <button type="submit" className="newsletter-btn">Subscribe</button>
-            </form>
+            <p>Get the latest AI developments, bot updates, and industry insights delivered to your inbox.</p>
           </div>
+          <form className="newsletter-form">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="newsletter-input"
+              required
+            />
+            <button type="submit" className="newsletter-btn">Subscribe</button>
+          </form>
         </div>
       </div>
     </>
@@ -917,6 +887,27 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
   );
 }
 
+// --- CATEGORY BUTTONS COMPONENT ---
+function CategoryButtons() {
+  return (
+    <div className="category-buttons-container">
+      {CATEGORIES.map((cat) => {
+        const slug = CATEGORY_SLUGS[cat.name] || encodeURIComponent(cat.name);
+        return (
+          <Link
+            to={`/${slug}`}
+            className="category-button"
+            key={cat.name}
+            tabIndex={0}
+          >
+            {cat.name}
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
+
 // --- BOT GRID ---
 function BotGrid({ bots, onOpenModal }) {
   return (
@@ -1000,7 +991,7 @@ function BotGrid({ bots, onOpenModal }) {
 }
 
 // --- HOME PAGE ---
-function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
+function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryBar, toggleCategoryBar }) {
   const [showSearchBubble, setShowSearchBubble] = useState(false);
   const [bubbleSearch, setBubbleSearch] = useState("");
   const effectiveSearch = bubbleSearch.length > 0 ? bubbleSearch : searchValue;
@@ -1019,49 +1010,26 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
     if (!showSearchBubble) return;
     const onKey = (e) => { if (e.key === "Escape") setShowSearchBubble(false); };
     const onClick = (e) => {
-      if (e.target.closest(".floating-search-box") || e.target.closest(".chat-btn")) return;
-      setShowSearchBubble(false);
+      if (!e.target.closest('.floating-search-box')) setShowSearchBubble(false);
     };
-    window.addEventListener("keydown", onKey);
-    window.addEventListener("mousedown", onClick);
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('mousedown', onClick);
     return () => {
-      window.removeEventListener("keydown", onKey);
-      window.removeEventListener("mousedown", onClick);
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('mousedown', onClick);
     };
   }, [showSearchBubble]);
 
   return (
     <>
       <Helmet>
-        <title>BetterAiBots.com – Curated AI Bots Directory</title>
-        <meta
-          name="description"
-          content="Discover free AI bots for productivity, education, lifestyle, music, health, creative tools, & more. Curated & easy to install. Explore now!"
-        />
-        <meta
-          name="keywords"
-          content="free AI bots, AI tools, productivity bots, creative tools, health bots, education bots, lifestyle bots, music bots, specialized knowledge, OpenAI GPTs, BetterAiBots"
-        />
-        <meta name="robots" content="index, follow" />
-        <meta http-equiv="content-language" content="en-us" />
-        <meta property="og:title" content="BetterAiBots.com – Free AI Bots Directory" />
-        <meta
-          property="og:description"
-          content="Curated directory of AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
-        />
+        <title>BetterAiBots.com – Curated OpenAI GPT Bots Directory</title>
+        <meta name="description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
+        <meta property="og:title" content="BetterAiBots.com" />
+        <meta property="og:description" content="Curated OpenAI GPT directory: Find, install, and share the best AI bots." />
         <meta property="og:image" content="/betteraibotsglowlogo8.png" />
         <meta property="og:url" content="https://betteraibots.com/" />
         <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="BetterAiBots.com – Free AI Bots Directory" />
-        <meta
-          name="twitter:description"
-          content="Curated directory of AI bots: Find, install, and share the best bots for productivity, health, creativity, and more."
-        />
-        <meta name="twitter:image" content="/betteraibotsglowlogo8.png" />
-        <link rel="canonical" href="https://betteraibots.com/" />
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -1077,6 +1045,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
           })}
         </script>
       </Helmet>
+      
+      <CategoryBar showCategoryBar={showCategoryBar} toggleCategoryBar={toggleCategoryBar} />
+      
       <div className="hero-section">
         <h1 className="hero-headline">Discover & Share The Best AI Bots</h1>
         <p className="hero-subheadline custom-hero-desc">
@@ -1109,27 +1080,37 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue }) {
       )}
       {showSearchBubble && (
         <div className="floating-search-box" style={{
-          position: 'fixed', bottom: 22, right: 22, width: 300, background: '#192738',
-          borderRadius: 22, boxShadow: '0 7px 48px #16ff6c58, 0 2px 8px #0bbfdb18', zIndex: 100, padding: 22, display: 'flex', flexDirection: 'column',
+          position: 'fixed',
+          bottom: 110,
+          right: 36,
+          width: 300,
+          background: '#192738',
+          borderRadius: 22,
+          boxShadow: '0 7px 48px #16ff6c58, 0 2px 8px #0bbfdb18',
+          zIndex: 100,
+          padding: 22,
+          display: 'flex',
+          flexDirection: 'column',
         }}>
-          <form onSubmit={handleBubbleSearch} style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: 8 }}>
-            <input className="floating-chat-input" style={{ flex: 1, fontSize: "1.18rem" }} value={bubbleSearch}
-              onChange={e => setBubbleSearch(e.target.value)} placeholder="search" autoFocus />
-            <button type="submit" className="floating-chat-send" style={{ fontSize: "1.09rem", padding: "7px 20px", width: '100%' }}>
+          <form onSubmit={handleBubbleSearch} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <input
+              className="floating-chat-input"
+              style={{ flex: 1, fontSize: "1.18rem" }}
+              value={bubbleSearch}
+              onChange={e => setBubbleSearch(e.target.value)}
+              placeholder="search"
+              autoFocus
+            />
+            <button type="submit" className="floating-chat-send" style={{ fontSize: "1.09rem", padding: "7px 20px" }}>
               search
             </button>
           </form>
-          <div style={{ textAlign: 'center', marginTop: 12, color: '#36ff95', fontSize: '1.01rem' }}>
-            <a href="https://chatgpt.com/g/g-683e57f7b0b88191b0b8313aee04ea59-betteraibots-concierge" target="_blank" rel="noopener noreferrer" style={{ color: '#36ff95', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
-              Click Here to talk with BAIB
-              <img src={require('./assets/findthebestaibotshelper.png')} alt="BAIB icon" style={{ height: '1em', width: 'auto', marginLeft: 6, verticalAlign: 'middle', display: 'inline-block' }} />
-            </a>
-          </div>
         </div>
       )}
     </>
   );
 }
+
 // --- CATEGORY PAGE ---
 function CategoryPage({ botList, onOpenModal }) {
   const { cat } = useParams();
@@ -1617,50 +1598,43 @@ function DisclaimerBar() {
 }
 // --- MAIN APP ROUTER ---
 function App() { 
-  const MAX_LOCAL_PENDING_BOTS = 10; // Change this number if you want a higher/lower limit
-
   const [botList, setBotList] = useState(bots);
-  const [showModal, setShowModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showStickyLogo, setShowStickyLogo] = useState(false);
+  const [animationPaused, setAnimationPaused] = useState(false);
+  const [showCategoryBar, setShowCategoryBar] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState({
     gptName: "",
     gptDesc: "",
     openaiUrl: "",
-    customImageUrl: ""
+    customImageUrl: "",
+    categories: []
   });
   const [formValidated, setFormValidated] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const [previewImg, setPreviewImg] = useState("");
-  const [pendingBots, setPendingBots] = useState(() => {
-    const stored = localStorage.getItem("pendingBots");
-    return stored ? JSON.parse(stored) : [];
-  });
   const [botRecaptchaValue, setBotRecaptchaValue] = useState("");
-  const [showStickyLogo, setShowStickyLogo] = useState(false);
-
-  const [animationPaused, setAnimationPaused] = React.useState(false);
 
   useEffect(() => {
-    function handleResize() { setWindowWidth(window.innerWidth); }
-    window.addEventListener("resize", handleResize);
-
-    function onScroll() {
-      const logo = document.querySelector('.header-logo');
-      if (!logo) return;
-      const rect = logo.getBoundingClientRect();
-      setShowStickyLogo(rect.bottom <= 0);
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 900);
     }
-    window.addEventListener('scroll', onScroll);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener('scroll', onScroll);
-    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const isMobile = windowWidth < 900;
+  function onScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    setShowStickyLogo(scrollTop > 100);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   function getRandomPlaceholder() {
     return placeholderImgs[Math.floor(Math.random() * placeholderImgs.length)];
@@ -1678,59 +1652,45 @@ function App() {
 
   const handleOpenModal = () => {
     setShowModal(true);
-    setFormSubmitted(false);
-    setPreviewImg("");
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setForm({ gptName: "", gptDesc: "", openaiUrl: "", customImageUrl: "" });
+    setForm({ gptName: "", gptDesc: "", openaiUrl: "", customImageUrl: "", categories: [] });
     setFormValidated(false);
     setPreviewImg("");
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // --- Submission limit check here ---
-    if (pendingBots.length >= MAX_LOCAL_PENDING_BOTS) {
-      alert("Submission box is full. Please wait for an admin to review before submitting more.");
-      return;
-    }
-
-    const formIsValid = form.gptName && form.gptDesc && form.openaiUrl;
-    setFormValidated(true);
-
+    
     if (!botRecaptchaValue) {
-      alert("Please verify you are not a robot.");
+      alert('Please complete the reCAPTCHA');
       return;
     }
 
-    if (formIsValid) {
-      let img = placeholderImg;
-      if (form.gptName.toLowerCase().includes("lovedoc") || form.gptName.toLowerCase().includes("love doc")) {
-        img = lovedocImg;
-      } else if (form.customImageUrl) {
-        img = form.customImageUrl;
-      } else {
-        img = getRandomPlaceholder();
-      }
-      const newBot = {
-        title: form.gptName,
-        desc: form.gptDesc,
-        image: img,
-        verified: false,
-        openaiLink: form.openaiUrl,
-        categories: []
-      };
-      setPendingBots(prev => {
-        const updated = [newBot, ...prev];
-        localStorage.setItem("pendingBots", JSON.stringify(updated));
-        return updated;
+    try {
+      const response = await fetch('/.netlify/functions/submit-bot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...form,
+          recaptchaToken: botRecaptchaValue
+        }),
       });
-      setFormSubmitted(true);
-      setTimeout(() => {
+
+      if (response.ok) {
+        alert('Bot submitted successfully! We\'ll review it and add it to the directory.');
         handleCloseModal();
-      }, 1200);
+      } else {
+        const error = await response.text();
+        alert(`Error submitting bot: ${error}`);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error submitting bot. Please try again.');
     }
   };
 
@@ -1742,6 +1702,10 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  const toggleCategoryBar = () => {
+    setShowCategoryBar(!showCategoryBar);
+  };
 
   return (
     <>
@@ -1788,7 +1752,10 @@ function App() {
         zIndex: 20,
       }}>
         {!isMobile && (
-          <NavTabsBar />
+          <NavTabsBar 
+            showCategoryBar={showCategoryBar} 
+            toggleCategoryBar={toggleCategoryBar}
+          />
         )}
       </div>
       <HamburgerMenu open={menuOpen && isMobile} onClose={() => setMenuOpen(false)} />
@@ -1799,166 +1766,105 @@ function App() {
             onOpenModal={handleOpenModal}
             searchValue={searchValue}
             setSearchValue={setSearchValue}
+            showCategoryBar={showCategoryBar}
+            toggleCategoryBar={toggleCategoryBar}
           />}
         />
-        {/* Specific routes must go BEFORE the catch-all /:cat */}
+        <Route path="/:cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/articles" element={<Articles />} />
-        <Route path="/articles/:id" element={<ArticlePage />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/legal" element={<Legal />} />
-        <Route
-          path="/moderation"
-          element={
-            <ProtectedRoute>
-              <Moderation
-                botList={botList}
-                approveBot={approveBot}
-                pendingBots={pendingBots}
-                setPendingBots={setPendingBots}
-              />
-            </ProtectedRoute>
-          }
-        />
-        {/* Clean URL for categories: now /lifestyle, /music, etc. */}
-        <Route path=":cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
+        <Route path="/moderation" element={<Moderation botList={botList} approveBot={approveBot} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-
-      <Modal show={showModal} onHide={handleCloseModal} centered>
-        <Modal.Header closeButton style={{
-          background: '#101825',
-          color: '#36ff95',
-          borderRadius: '20px 20px 0 0',
-        }}>
-          <Modal.Title>Suggest a GPT</Modal.Title>
+      <FooterWithWallets />
+      <DisclaimerBar />
+      <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Submit a New AI Bot</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{
-          background: '#101825',
-          color: '#e9f7ee',
-          borderRadius: '0 0 20px 20px',
-        }}>
-          {/* Limit reached: show message and no form */}
-          {pendingBots.length >= MAX_LOCAL_PENDING_BOTS ? (
-            <div style={{ color: "#ff6464", textAlign: "center", fontSize: "1.18rem", margin: "28px 0" }}>
-              The submission box is full. Please wait for admin review before submitting more.
-            </div>
-          ) : !formSubmitted ? (
-            <Form noValidate validated={formValidated} onSubmit={handleFormSubmit}>
-              <Form.Group className="mb-3" controlId="formGptName">
-                <Form.Label className="form-label neon-green">GPT Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="E.g. 'GPT NAME'"
-                  name="gptName"
-                  value={form.gptName}
-                  onChange={handleFormChange}
-                  required
-                  style={{
-                    background: '#101c26',
-                    color: '#e9f7ee',
-                    border: '1px solid #36ff9533',
-                  }}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formGptDesc">
-                <Form.Label className="form-label neon-green">Description</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={2}
-                  placeholder="What does this bot do? Who is it for?"
-                  name="gptDesc"
-                  value={form.gptDesc}
-                  onChange={handleFormChange}
-                  required
-                  style={{
-                    background: '#101c26',
-                    color: '#e9f7ee',
-                    border: '1px solid #36ff9533',
-                  }}
-                />
-              </Form.Group>
-              <Form.Group className="mb-2" controlId="formOpenaiUrl">
-                <Form.Label className="form-label neon-green">OpenAI GPT Link</Form.Label>
-                <Form.Control
-                  type="url"
-                  placeholder="https://chat.openai.com/g/g-..."
-                  name="openaiUrl"
-                  value={form.openaiUrl}
-                  onChange={handleFormChange}
-                  required
-                  style={{
-                    background: '#101c26',
-                    color: '#e9f7ee',
-                    border: '1px solid #36ff9533',
-                  }}
-                />
-              </Form.Group>
-              <Form.Group className="mb-2" controlId="formCustomImage">
-                <Form.Label className="form-label neon-green">Custom Image URL (optional, non-OpenAI)</Form.Label>
-                <Form.Control
-                  type="url"
-                  placeholder="https://yourdomain.com/image.png"
-                  name="customImageUrl"
-                  value={form.customImageUrl}
-                  onChange={handleFormChange}
-                  style={{
-                    background: '#101c26',
-                    color: '#e9f7ee',
-                    border: '1px solid #36ff9533',
-                  }}
-                />
-              </Form.Group>
-              {(previewImg || form.openaiUrl) && (
-                <div style={{ textAlign: 'center', margin: '14px 0' }}>
-                  <img src={previewImg || getRandomPlaceholder()} alt="preview" style={{ width: 64, height: 64, borderRadius: '50%', boxShadow: '0 0 10px #36ff95' }} />
-                  <div style={{ color: '#36ff95', marginTop: 7, fontSize: '0.92rem' }}>Live Preview</div>
-                </div>
-              )}
-              <Form.Group className="mb-2" controlId="formRecaptcha">
-                <div className="recaptcha-wrap">
-                  <ReCAPTCHA
-                    sitekey="6Lf2wlArAAAAAH0GDpzc02uW1KAD8TJXgD_kSz1j"
-                    onChange={val => setBotRecaptchaValue(val)}
-                    theme="dark"
+        <Modal.Body>
+          <Form onSubmit={handleFormSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label>Bot Name *</Form.Label>
+              <Form.Control
+                type="text"
+                name="gptName"
+                value={form.gptName}
+                onChange={handleFormChange}
+                required
+                placeholder="Enter the name of the AI bot"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Description *</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                name="gptDesc"
+                value={form.gptDesc}
+                onChange={handleFormChange}
+                required
+                placeholder="Describe what this bot does and its key features"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>OpenAI GPT Link *</Form.Label>
+              <Form.Control
+                type="url"
+                name="openaiUrl"
+                value={form.openaiUrl}
+                onChange={handleFormChange}
+                required
+                placeholder="https://chatgpt.com/g/..."
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Categories *</Form.Label>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px' }}>
+                {CATEGORIES.map((cat) => (
+                  <Form.Check
+                    key={cat.name}
+                    type="checkbox"
+                    id={`category-${cat.name}`}
+                    label={cat.name}
+                    checked={form.categories.includes(cat.name)}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setForm(prev => ({
+                          ...prev,
+                          categories: [...prev.categories, cat.name]
+                        }));
+                      } else {
+                        setForm(prev => ({
+                          ...prev,
+                          categories: prev.categories.filter(c => c !== cat.name)
+                        }));
+                      }
+                    }}
                   />
-                </div>
-              </Form.Group>
-              {/* Add the warning above the button! */}
-              {pendingBots.length >= MAX_LOCAL_PENDING_BOTS && (
-                <div style={{ color: "#ff6464", marginBottom: 12, fontWeight: 600 }}>
-                  Submission box full. Please wait for admin review.
-                </div>
-              )}
-              <Button
-                variant="success"
-                type="submit"
-                style={{
-                  background: "linear-gradient(90deg, #09e269 0%, #0bbfdb 100%)",
-                  border: "none",
-                  borderRadius: "22px",
-                  fontWeight: 600,
-                  fontSize: "1.12rem",
-                  color: "#101c26",
-                  width: "100%",
-                  boxShadow: "0 2px 18px #16ff6c40",
-                  marginTop: "10px"
-                }}
-                disabled={pendingBots.length >= MAX_LOCAL_PENDING_BOTS}
-              >
-                Submit
-              </Button>
-            </Form>
-          ) : (
-            <div className="neon-green" style={{ fontSize: "1.15rem", textAlign: "center", margin: "28px 0" }}>
-              Thank you for your suggestion! <br />Our team will review your bot soon. 🚀
+                ))}
+              </div>
+            </Form.Group>
+            <div className="recaptcha-wrap">
+              <ReCAPTCHA
+                sitekey="6LfKNiIpAAAAAF_aBzJK6QK6QK6QK6QK6QK6QK6Q"
+                onChange={setBotRecaptchaValue}
+              />
             </div>
-          )}
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end', marginTop: '20px' }}>
+              <Button variant="secondary" onClick={handleCloseModal}>
+                Cancel
+              </Button>
+              <Button variant="primary" type="submit" disabled={!botRecaptchaValue}>
+                Submit Bot
+              </Button>
+            </div>
+          </Form>
         </Modal.Body>
       </Modal>
-      {location.pathname !== "/moderation" && <DisclaimerBar />}
-      <FooterWithWallets />
     </>
   );
 }
@@ -2380,7 +2286,7 @@ function NewsArticle() {
       date: "July 28, 2025",
       readTime: "4 min read",
       category: "AI Development",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+      image: require('./assets/openaigpt5announced.jpg'),
       featured: true,
       slug: "openai-gpt5-revolutionary-multimodal-ai"
     },
@@ -2420,7 +2326,7 @@ function NewsArticle() {
       `,
       author: "BetterAiBots",
       date: "July 25, 2025",
-      readTime: "5 min read",
+      readTime: "8 min read",
       category: "AI Adoption",
       image: require('./assets/googlegemininews.jpg'),
       featured: false,
@@ -2467,9 +2373,9 @@ function NewsArticle() {
       `,
       author: "BetterAiBots",
       date: "June 2, 2025",
-      readTime: "6 min read",
+      readTime: "7 min read",
       category: "AI Development",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+      image: require('./assets/llama3news.jpg'),
       featured: false,
       slug: "meta-llama-3-open-source-ai"
     },
@@ -2556,7 +2462,7 @@ function NewsArticle() {
       date: "June 30, 2024",
       readTime: "5 min read",
       category: "AI Development",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",
+      image: require('./assets/claudecode.png'),
       featured: false,
       slug: "anthropic-claude-35-sonnet-reasoning"
     }
@@ -2614,4 +2520,36 @@ function NewsArticle() {
     </>
   );
 }
+
+// --- CATEGORY BAR COMPONENT ---
+function CategoryBar({ showCategoryBar, toggleCategoryBar }) {
+  if (!showCategoryBar) return null;
+  
+  return (
+    <div className="category-bar">
+      <div className="category-bar-container">
+        {CATEGORIES.map((cat) => {
+          const slug = CATEGORY_SLUGS[cat.name] || encodeURIComponent(cat.name);
+          return (
+            <Link
+              to={`/${slug}`}
+              className="category-bar-button"
+              key={cat.name}
+              tabIndex={0}
+            >
+              {cat.name}
+            </Link>
+          );
+        })}
+      </div>
+      <button 
+        className="category-bar-toggle"
+        onClick={toggleCategoryBar}
+        title="Hide category bar"
+              >
+          ×
+        </button>
+      </div>
+    );
+  }
 
