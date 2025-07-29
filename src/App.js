@@ -474,8 +474,8 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
   return (
     <nav className="nav-tabs-bar">
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
-      <Link to="/articles" className="nav-tab" tabIndex={0}>Articles</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
+      <Link to="/articles" className="nav-tab" tabIndex={0}>Articles</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
       {isHomePage && (
         <button 
@@ -687,7 +687,7 @@ function News() {
         <p>The early results suggest they might be onto something transformative. In a world where everyone is looking for ways to work smarter rather than harder, Copilot Pro offers a compelling answer: let AI handle the routine stuff, so humans can focus on what they do best.</p>
       `,
       author: "BetterAiBots",
-      date: "April 20, 2025",
+      date: "May 5, 2025",
       readTime: "7 min read",
       category: "AI Adoption",
       image: require('./assets/mocrosoftcopilotaifreebots.jpg'),
@@ -696,28 +696,62 @@ function News() {
     },
     {
       id: 5,
-      title: "Anthropic's Claude 3.5 Sonnet: The New Gold Standard for AI Reasoning",
-      excerpt: "Anthropic's latest Claude model demonstrates unprecedented reasoning capabilities, setting new benchmarks for AI performance in complex problem-solving tasks.",
+      title: "Meet Claude: The AI That Actually Admits When Its Wrong",
+      excerpt: "Claude 3.5 Sonnet is quietly solving one of artificial intelligence's biggest problems: overconfidence",
       content: `
-        <p>Anthropic has released Claude 3.5 Sonnet, their most advanced AI model to date, which has demonstrated unprecedented reasoning capabilities across a wide range of complex tasks. The new model represents a significant leap forward in AI's ability to understand, analyze, and solve intricate problems.</p>
+        <p>Most AI systems have a dangerous habit: they sound absolutely certain even when they're completely wrong. Ask a typical AI model about something obscure or controversial, and it will confidently deliver an answer with the same tone it uses for basic math. This overconfidence problem has been a persistent thorn in the side of AI adoption, making these systems unreliable for anything truly important.</p>
         
-        <p>Claude 3.5 Sonnet has achieved remarkable results in standardized tests, outperforming previous models by substantial margins. The model excels particularly in mathematical reasoning, scientific analysis, and creative problem-solving scenarios that require multi-step thinking.</p>
+        <p>Anthropic's Claude 3.5 Sonnet takes a radically different approach. Instead of trying to have an answer for everything, it's designed to think more carefully about what it actually knows—and more importantly, what it doesn't.</p>
         
-        <p>"We've focused on developing AI that can truly think through problems step-by-step," said Dario Amodei, CEO of Anthropic. "Claude 3.5 Sonnet represents our commitment to creating AI systems that are not just intelligent, but also trustworthy and reliable."</p>
+        <h3>The Honesty Experiment</h3>
+        <p>The most striking thing about interacting with Claude 3.5 Sonnet isn't its knowledge base or processing speed—it's its intellectual humility. When faced with ambiguous questions or incomplete information, the model doesn't just guess and present its guess as fact. Instead, it acknowledges uncertainty, outlines what it would need to know to give a better answer, and often identifies multiple valid perspectives on complex issues.</p>
         
-        <p>Key improvements in Claude 3.5 Sonnet include:</p>
-        <ul>
-          <li>Enhanced mathematical reasoning and problem-solving</li>
-          <li>Improved code generation with better error detection</li>
-          <li>Advanced scientific analysis capabilities</li>
-          <li>Better handling of complex multi-step tasks</li>
-          <li>Reduced bias and improved safety measures</li>
-        </ul>
+        <p>This might sound like a limitation, but it's actually a breakthrough. In a world drowning in misinformation and overconfident AI-generated content, having a system that can distinguish between what it knows and what it's guessing represents a fundamental shift in how AI systems should behave.</p>
         
-        <p>The model is now available to Claude Pro subscribers and is being integrated into various enterprise applications where reliable reasoning is crucial.</p>
+        <h3>Why Most AI Gets Reasoning Wrong</h3>
+        <p>Traditional language models are essentially sophisticated pattern-matching systems. They've learned to associate certain inputs with certain outputs based on massive amounts of training data, but they don't really "understand" in the way humans do. When you ask them a question, they generate what seems like the most statistically probable response, regardless of whether that response is actually correct or even coherent.</p>
+        
+        <p>This approach works remarkably well for many tasks, but it breaks down when dealing with novel problems, edge cases, or situations that require genuine reasoning rather than pattern recognition. The result is AI that can sound impressively knowledgeable while being fundamentally unreliable.</p>
+        
+        <p>Claude 3.5 Sonnet represents an attempt to move beyond this limitation by implementing something closer to actual reasoning processes—the kind of step-by-step logical thinking that allows humans to work through unfamiliar problems rather than just recalling similar situations.</p>
+        
+        <h3>The Logic of Uncertainty</h3>
+        <p>What makes Sonnet's approach particularly interesting is how it handles uncertainty. Rather than treating uncertainty as a weakness to be hidden, the model treats it as valuable information. When working through a complex problem, it will often outline its reasoning process, identify potential weaknesses in its logic, and suggest alternative approaches.</p>
+        
+        <p>This transparency makes the model significantly more useful for serious applications. Instead of having to guess whether an AI's confident-sounding answer is actually reliable, users can see the reasoning behind conclusions and make their own judgments about validity.</p>
+        
+        <p>For professionals who need to make important decisions based on AI assistance, this represents a fundamental improvement in trustworthiness. A model that shows its work and acknowledges its limitations is infinitely more valuable than one that presents every guess as gospel truth.</p>
+        
+        <h3>The Chess Master's Approach</h3>
+        <p>There's an old saying in chess that a master-level player thinks differently from a beginner not because they can see more moves ahead, but because they know which moves are worth calculating in the first place. Claude 3.5 Sonnet demonstrates a similar kind of analytical maturity.</p>
+        
+        <p>Rather than trying to process every possible angle of a problem simultaneously, it focuses its computational resources on the most promising approaches. This selective attention allows for deeper analysis of the factors that actually matter, rather than getting lost in irrelevant details.</p>
+        
+        <p>This focused reasoning capability becomes particularly apparent when dealing with problems that require sustained logical thinking over multiple steps. The model can maintain coherence and accuracy even when working through complex chains of reasoning that might trip up less sophisticated systems.</p>
+        
+        <h3>When Perfectionism Becomes the Enemy</h3>
+        <p>The AI industry has become obsessed with benchmark scores and performance metrics, leading to systems optimized for looking impressive in controlled tests rather than being genuinely useful in messy real-world scenarios. Claude 3.5 Sonnet represents a different set of priorities.</p>
+        
+        <p>Instead of trying to maximize performance on every possible task, Anthropic has focused on building a system that performs reliably on the tasks it attempts. This means accepting that the model won't always have an answer, but when it does provide an answer, that answer is much more likely to be accurate and useful.</p>
+        
+        <p>This philosophy of "doing fewer things better" runs counter to the prevailing industry trend of building ever-larger models that claim to be capable of everything. But for users who need reliable AI assistance rather than impressive demonstrations, Sonnet's approach may prove more valuable.</p>
+        
+        <h3>The Trust Problem in AI</h3>
+        <p>As AI systems become more prevalent in important decision-making processes, the question of trust becomes paramount. How do you know when to rely on an AI's recommendations? How do you identify when an AI is operating outside its area of competence?</p>
+        
+        <p>Claude 3.5 Sonnet addresses these questions not through technical complexity, but through transparency and intellectual honesty. By being explicit about its reasoning process and limitations, it gives users the information they need to make informed decisions about when and how to trust its output.</p>
+        
+        <p>This approach may be less flashy than systems that confidently claim to be able to solve any problem, but it's arguably more important for the long-term development of reliable AI systems.</p>
+        
+        <h3>Beyond the Hype Cycle</h3>
+        <p>In an industry driven by dramatic claims and revolutionary promises, Claude 3.5 Sonnet represents something more modest but potentially more significant: steady progress toward AI systems that are genuinely trustworthy and reliable.</p>
+        
+        <p>Rather than promising to replace human thinking, it offers to augment human reasoning with a tool that can think through problems systematically while remaining honest about its limitations. For many applications, this combination of capability and humility may be exactly what's needed to move AI from an impressive technology demonstration to a genuinely useful partner in complex problem-solving.</p>
+        
+        <p>The model's success suggests that the future of AI development may depend less on building systems that can do everything and more on building systems that can be trusted to do what they claim to do. In a world increasingly skeptical of overconfident AI claims, that kind of reliability might be the most revolutionary feature of all.</p>
       `,
       author: "BetterAiBots",
-      date: "June 30, 2024",
+      date: "April 10, 2025",
       readTime: "5 min read",
       category: "AI Development",
       image: require('./assets/claudecode.png'),
@@ -856,8 +890,8 @@ function HamburgerMenu({ open, onClose }) {
             </ul>
           </li>
 
-          <li onClick={() => { navigate('/articles'); onClose(); }}>Articles</li>
           <li onClick={() => { navigate('/news'); onClose(); }}>News</li>
+          <li onClick={() => { navigate('/articles'); onClose(); }}>Articles</li>
           <li onClick={() => { navigate('/contact'); onClose(); }}>Contact Us</li>
         </ul>
       </div>
@@ -1012,33 +1046,10 @@ function BotGrid({ bots, onOpenModal }) {
 
 // --- HOME PAGE ---
 function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryBar, toggleCategoryBar }) {
-  const [showSearchBubble, setShowSearchBubble] = useState(false);
-  const [bubbleSearch, setBubbleSearch] = useState("");
-  const effectiveSearch = bubbleSearch.length > 0 ? bubbleSearch : searchValue;
   const filteredBots = botList.filter(bot =>
-    bot.title.toLowerCase().includes(effectiveSearch.toLowerCase()) ||
-    bot.desc.toLowerCase().includes(effectiveSearch.toLowerCase())
+    bot.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+    bot.desc.toLowerCase().includes(searchValue.toLowerCase())
   );
-
-  function handleBubbleSearch(e) {
-    e.preventDefault();
-    setShowSearchBubble(false);
-    setSearchValue(bubbleSearch);
-  }
-
-  useEffect(() => {
-    if (!showSearchBubble) return;
-    const onKey = (e) => { if (e.key === "Escape") setShowSearchBubble(false); };
-    const onClick = (e) => {
-      if (!e.target.closest('.floating-search-box')) setShowSearchBubble(false);
-    };
-    document.addEventListener('keydown', onKey);
-    document.addEventListener('mousedown', onClick);
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.removeEventListener('mousedown', onClick);
-    };
-  }, [showSearchBubble]);
 
   return (
     <>
@@ -1078,55 +1089,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   🔴 <strong>This site does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.</strong>
 </div>
       <BotGrid bots={filteredBots} onOpenModal={onOpenModal} />
-      {!showSearchBubble && (
-        <button
-          className="chat-btn"
-          onClick={() => { setShowSearchBubble(true); setBubbleSearch(""); }}
-          style={{ padding: 0, background: "none", border: "none", boxShadow: "none" }}
-        >
-          <img
-            src={helperBotLogo}
-            alt="Chat Bot Helper"
-            style={{
-              width: 64,
-              height: 64,
-              borderRadius: "50%",
-              boxShadow: "0 0 18px #36ff9588, 0 0 32px #1affad55",
-              background: "transparent",
-              transition: "box-shadow 0.2s"
-            }}
-          />
-        </button>
-      )}
-      {showSearchBubble && (
-        <div className="floating-search-box" style={{
-          position: 'fixed',
-          bottom: 110,
-          right: 36,
-          width: 300,
-          background: '#192738',
-          borderRadius: 22,
-          boxShadow: '0 7px 48px #16ff6c58, 0 2px 8px #0bbfdb18',
-          zIndex: 100,
-          padding: 22,
-          display: 'flex',
-          flexDirection: 'column',
-        }}>
-          <form onSubmit={handleBubbleSearch} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <input
-              className="floating-chat-input"
-              style={{ flex: 1, fontSize: "1.18rem" }}
-              value={bubbleSearch}
-              onChange={e => setBubbleSearch(e.target.value)}
-              placeholder="search"
-              autoFocus
-            />
-            <button type="submit" className="floating-chat-send" style={{ fontSize: "1.09rem", padding: "7px 20px" }}>
-              search
-            </button>
-          </form>
-        </div>
-      )}
     </>
   );
 }
@@ -1626,6 +1588,8 @@ function App() {
   const [animationPaused, setAnimationPaused] = useState(false);
   const [showCategoryBar, setShowCategoryBar] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showSearchBubble, setShowSearchBubble] = useState(false);
+  const [bubbleSearch, setBubbleSearch] = useState("");
   const [form, setForm] = useState({
     gptName: "",
     gptDesc: "",
@@ -1727,6 +1691,36 @@ function App() {
     setShowCategoryBar(!showCategoryBar);
   };
 
+  // Floating chat search functionality
+  const handleBubbleSearch = (e) => {
+    e.preventDefault();
+    if (bubbleSearch.trim()) {
+      setSearchValue(bubbleSearch);
+      setShowSearchBubble(false);
+      setBubbleSearch("");
+      // Navigate to home page if not already there
+      if (location.pathname !== "/") {
+        window.location.href = "/";
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (!showSearchBubble) return;
+    const onKey = (e) => { if (e.key === "Escape") setShowSearchBubble(false); };
+    const onClick = (e) => {
+      if (!e.target.closest('.floating-search-box') && !e.target.closest('.chat-btn')) {
+        setShowSearchBubble(false);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('click', onClick);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('click', onClick);
+    };
+  }, [showSearchBubble]);
+
   return (
     <>
     <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
@@ -1799,8 +1793,60 @@ function App() {
         <Route path="/moderation" element={<Moderation botList={botList} approveBot={approveBot} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <FooterWithWallets />
       <DisclaimerBar />
+      <FooterWithWallets />
+      
+      {/* Floating Chat Button (opens search) */}
+      {!showSearchBubble && (
+        <button
+          className="chat-btn"
+          onClick={() => { setShowSearchBubble(true); setBubbleSearch(""); }}
+          style={{ padding: 0, background: "none", border: "none", boxShadow: "none" }}
+        >
+          <img
+            src={require('./assets/findthebestaibotshelper.png')}
+            alt="Chat Bot Helper"
+            style={{
+              width: 64,
+              height: 64,
+              borderRadius: "50%",
+              boxShadow: "0 0 18px #36ff9588, 0 0 32px #1affad55",
+              background: "transparent",
+              transition: "box-shadow 0.2s"
+            }}
+          />
+        </button>
+      )}
+      {showSearchBubble && (
+        <div className="floating-search-box" style={{
+          position: 'fixed',
+          bottom: 110,
+          right: 36,
+          width: 300,
+          background: '#192738',
+          borderRadius: 22,
+          boxShadow: '0 7px 48px #16ff6c58, 0 2px 8px #0bbfdb18',
+          zIndex: 100,
+          padding: 22,
+          display: 'flex',
+          flexDirection: 'column',
+        }}>
+          <form onSubmit={handleBubbleSearch} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <input
+              className="floating-chat-input"
+              style={{ flex: 1, fontSize: "1.18rem" }}
+              value={bubbleSearch}
+              onChange={e => setBubbleSearch(e.target.value)}
+              placeholder="search"
+              autoFocus
+            />
+            <button type="submit" className="floating-chat-send" style={{ fontSize: "1.09rem", padding: "7px 20px" }}>
+              search
+            </button>
+          </form>
+        </div>
+      )}
+      
       <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
         <Modal.Header closeButton>
           <Modal.Title>Submit a New AI Bot</Modal.Title>
@@ -2473,7 +2519,7 @@ function NewsArticle() {
         <p>The early results suggest they might be onto something transformative. In a world where everyone is looking for ways to work smarter rather than harder, Copilot Pro offers a compelling answer: let AI handle the routine stuff, so humans can focus on what they do best.</p>
       `,
       author: "BetterAiBots",
-      date: "April 20, 2025",
+      date: "May 5, 2025",
       readTime: "7 min read",
       category: "AI Adoption",
       image: require('./assets/mocrosoftcopilotaifreebots.jpg'),
@@ -2482,28 +2528,62 @@ function NewsArticle() {
     },
     {
       id: 5,
-      title: "Anthropic's Claude 3.5 Sonnet: The New Gold Standard for AI Reasoning",
-      excerpt: "Anthropic's latest Claude model demonstrates unprecedented reasoning capabilities, setting new benchmarks for AI performance in complex problem-solving tasks.",
+      title: "Meet Claude: The AI That Actually Admits When Its Wrong",
+      excerpt: "Claude 3.5 Sonnet is quietly solving one of artificial intelligence's biggest problems: overconfidence",
       content: `
-        <p>Anthropic has released Claude 3.5 Sonnet, their most advanced AI model to date, which has demonstrated unprecedented reasoning capabilities across a wide range of complex tasks. The new model represents a significant leap forward in AI's ability to understand, analyze, and solve intricate problems.</p>
+        <p>Most AI systems have a dangerous habit: they sound absolutely certain even when they're completely wrong. Ask a typical AI model about something obscure or controversial, and it will confidently deliver an answer with the same tone it uses for basic math. This overconfidence problem has been a persistent thorn in the side of AI adoption, making these systems unreliable for anything truly important.</p>
         
-        <p>Claude 3.5 Sonnet has achieved remarkable results in standardized tests, outperforming previous models by substantial margins. The model excels particularly in mathematical reasoning, scientific analysis, and creative problem-solving scenarios that require multi-step thinking.</p>
+        <p>Anthropic's Claude 3.5 Sonnet takes a radically different approach. Instead of trying to have an answer for everything, it's designed to think more carefully about what it actually knows—and more importantly, what it doesn't.</p>
         
-        <p>"We've focused on developing AI that can truly think through problems step-by-step," said Dario Amodei, CEO of Anthropic. "Claude 3.5 Sonnet represents our commitment to creating AI systems that are not just intelligent, but also trustworthy and reliable."</p>
+        <h3>The Honesty Experiment</h3>
+        <p>The most striking thing about interacting with Claude 3.5 Sonnet isn't its knowledge base or processing speed—it's its intellectual humility. When faced with ambiguous questions or incomplete information, the model doesn't just guess and present its guess as fact. Instead, it acknowledges uncertainty, outlines what it would need to know to give a better answer, and often identifies multiple valid perspectives on complex issues.</p>
         
-        <p>Key improvements in Claude 3.5 Sonnet include:</p>
-        <ul>
-          <li>Enhanced mathematical reasoning and problem-solving</li>
-          <li>Improved code generation with better error detection</li>
-          <li>Advanced scientific analysis capabilities</li>
-          <li>Better handling of complex multi-step tasks</li>
-          <li>Reduced bias and improved safety measures</li>
-        </ul>
+        <p>This might sound like a limitation, but it's actually a breakthrough. In a world drowning in misinformation and overconfident AI-generated content, having a system that can distinguish between what it knows and what it's guessing represents a fundamental shift in how AI systems should behave.</p>
         
-        <p>The model is now available to Claude Pro subscribers and is being integrated into various enterprise applications where reliable reasoning is crucial.</p>
+        <h3>Why Most AI Gets Reasoning Wrong</h3>
+        <p>Traditional language models are essentially sophisticated pattern-matching systems. They've learned to associate certain inputs with certain outputs based on massive amounts of training data, but they don't really "understand" in the way humans do. When you ask them a question, they generate what seems like the most statistically probable response, regardless of whether that response is actually correct or even coherent.</p>
+        
+        <p>This approach works remarkably well for many tasks, but it breaks down when dealing with novel problems, edge cases, or situations that require genuine reasoning rather than pattern recognition. The result is AI that can sound impressively knowledgeable while being fundamentally unreliable.</p>
+        
+        <p>Claude 3.5 Sonnet represents an attempt to move beyond this limitation by implementing something closer to actual reasoning processes—the kind of step-by-step logical thinking that allows humans to work through unfamiliar problems rather than just recalling similar situations.</p>
+        
+        <h3>The Logic of Uncertainty</h3>
+        <p>What makes Sonnet's approach particularly interesting is how it handles uncertainty. Rather than treating uncertainty as a weakness to be hidden, the model treats it as valuable information. When working through a complex problem, it will often outline its reasoning process, identify potential weaknesses in its logic, and suggest alternative approaches.</p>
+        
+        <p>This transparency makes the model significantly more useful for serious applications. Instead of having to guess whether an AI's confident-sounding answer is actually reliable, users can see the reasoning behind conclusions and make their own judgments about validity.</p>
+        
+        <p>For professionals who need to make important decisions based on AI assistance, this represents a fundamental improvement in trustworthiness. A model that shows its work and acknowledges its limitations is infinitely more valuable than one that presents every guess as gospel truth.</p>
+        
+        <h3>The Chess Master's Approach</h3>
+        <p>There's an old saying in chess that a master-level player thinks differently from a beginner not because they can see more moves ahead, but because they know which moves are worth calculating in the first place. Claude 3.5 Sonnet demonstrates a similar kind of analytical maturity.</p>
+        
+        <p>Rather than trying to process every possible angle of a problem simultaneously, it focuses its computational resources on the most promising approaches. This selective attention allows for deeper analysis of the factors that actually matter, rather than getting lost in irrelevant details.</p>
+        
+        <p>This focused reasoning capability becomes particularly apparent when dealing with problems that require sustained logical thinking over multiple steps. The model can maintain coherence and accuracy even when working through complex chains of reasoning that might trip up less sophisticated systems.</p>
+        
+        <h3>When Perfectionism Becomes the Enemy</h3>
+        <p>The AI industry has become obsessed with benchmark scores and performance metrics, leading to systems optimized for looking impressive in controlled tests rather than being genuinely useful in messy real-world scenarios. Claude 3.5 Sonnet represents a different set of priorities.</p>
+        
+        <p>Instead of trying to maximize performance on every possible task, Anthropic has focused on building a system that performs reliably on the tasks it attempts. This means accepting that the model won't always have an answer, but when it does provide an answer, that answer is much more likely to be accurate and useful.</p>
+        
+        <p>This philosophy of "doing fewer things better" runs counter to the prevailing industry trend of building ever-larger models that claim to be capable of everything. But for users who need reliable AI assistance rather than impressive demonstrations, Sonnet's approach may prove more valuable.</p>
+        
+        <h3>The Trust Problem in AI</h3>
+        <p>As AI systems become more prevalent in important decision-making processes, the question of trust becomes paramount. How do you know when to rely on an AI's recommendations? How do you identify when an AI is operating outside its area of competence?</p>
+        
+        <p>Claude 3.5 Sonnet addresses these questions not through technical complexity, but through transparency and intellectual honesty. By being explicit about its reasoning process and limitations, it gives users the information they need to make informed decisions about when and how to trust its output.</p>
+        
+        <p>This approach may be less flashy than systems that confidently claim to be able to solve any problem, but it's arguably more important for the long-term development of reliable AI systems.</p>
+        
+        <h3>Beyond the Hype Cycle</h3>
+        <p>In an industry driven by dramatic claims and revolutionary promises, Claude 3.5 Sonnet represents something more modest but potentially more significant: steady progress toward AI systems that are genuinely trustworthy and reliable.</p>
+        
+        <p>Rather than promising to replace human thinking, it offers to augment human reasoning with a tool that can think through problems systematically while remaining honest about its limitations. For many applications, this combination of capability and humility may be exactly what's needed to move AI from an impressive technology demonstration to a genuinely useful partner in complex problem-solving.</p>
+        
+        <p>The model's success suggests that the future of AI development may depend less on building systems that can do everything and more on building systems that can be trusted to do what they claim to do. In a world increasingly skeptical of overconfident AI claims, that kind of reliability might be the most revolutionary feature of all.</p>
       `,
       author: "BetterAiBots",
-      date: "June 30, 2024",
+      date: "April 10, 2025",
       readTime: "5 min read",
       category: "AI Development",
       image: require('./assets/claudecode.png'),
