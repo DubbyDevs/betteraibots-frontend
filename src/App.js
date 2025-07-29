@@ -1536,7 +1536,7 @@ function App() {
     customImageUrl: "",
     categories: []
   });
-  const [previewImg, setPreviewImg] = useState("");
+
   const [botRecaptchaValue, setBotRecaptchaValue] = useState("");
 
   useEffect(() => {
@@ -1565,11 +1565,6 @@ function App() {
   const handleFormChange = (e) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
-    if (name === "customImageUrl" && value) {
-      setPreviewImg(value);
-    } else if (name === "openaiUrl" && value) {
-      setPreviewImg(getRandomPlaceholder());
-    }
   };
 
   const handleOpenModal = () => {
@@ -1579,7 +1574,6 @@ function App() {
   const handleCloseModal = () => {
     setShowModal(false);
     setForm({ gptName: "", gptDesc: "", openaiUrl: "", customImageUrl: "", categories: [] });
-    setPreviewImg("");
   };
 
   const handleFormSubmit = async (e) => {
