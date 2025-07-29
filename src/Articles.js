@@ -5,9 +5,10 @@ import VetGPT2 from "./assets/vetgpt-2.png";
 import VetGPT3 from "./assets/vetgpt-3.png";
 import placeholderImg4 from "./assets/bot-placeholder4.webp";
 import placeholderImg7 from "./assets/bot-placeholder7.webp";
-import placeholderImg31 from "./assets/bot-placeholder31.webp";
+
 import paintindetifierai from "./assets/paintindetifierai.png";
 import invideofreetrialai from "./assets/invideofreetrialai.png";
+import InVideoFreeTrialPng from "./assets/InVideoFreeTrial.png";
 import cheatCoderImg from "./assets/cheatcoder.png";
 import cheatCoderLogo from "./assets/cheatcoderlogo.png";
 import AIFitnessCoachInterview from "./AIFitnessCoachInterview";
@@ -116,7 +117,7 @@ PaintR is an assistive AI tool and does not guarantee perfect color match under 
     id: "invideo-ai",
     title: "InVideo AI Review: The Ultimate AI Video Generator Transforming Content Creation",
     date: "July 2025",
-    cover: invideofreetrialai,
+    cover: InVideoFreeTrialPng,
     preview: "InVideo AI is revolutionizing video content creation with cutting-edge artificial intelligence, enabling creators, marketers, and businesses to produce professional-quality videos in minutes without technical expertise.",
     images: [invideofreetrialai],
     content: `

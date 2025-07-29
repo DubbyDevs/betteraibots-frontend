@@ -1,7 +1,7 @@
 import Articles from "./Articles";
 import { CATEGORY_SLUGS } from './constants';
 // import { CATEGORY_REVERSE } from "./constants"; // <- commented until used
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
