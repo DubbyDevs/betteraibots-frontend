@@ -499,22 +499,46 @@ function News() {
       title: "OpenAI Announces GPT-5: Revolutionary Multimodal AI Model",
       excerpt: "OpenAI has officially unveiled GPT-5, their most advanced AI model yet, featuring unprecedented multimodal capabilities and improved reasoning abilities.",
       content: `
-        <p>OpenAI has made a groundbreaking announcement today with the release of GPT-5, their most sophisticated AI model to date. This revolutionary update brings unprecedented multimodal capabilities, allowing the AI to process and understand text, images, audio, and video simultaneously.</p>
+        <p>OpenAI's groundbreaking ChatGPT Agent, launched July 17, 2025, transforms AI from conversational assistant to autonomous task executor. Achieving 41.6% accuracy on Humanity's Last Exam benchmark—double previous models' performance—this AI automation breakthrough handles complex workflows including web operations, coding, and financial analysis for Pro, Plus, and Team subscribers.</p>
         
-        <p>The new model demonstrates significant improvements in reasoning abilities, with enhanced logical thinking and problem-solving skills. Early tests show GPT-5 outperforming its predecessor by 40% in complex reasoning tasks and 60% in multimodal understanding.</p>
+        <h3>ChatGPT Agent Redefines AI Automation Capabilities</h3>
+        <p>OpenAI CEO Sam Altman describes the new agent as "a new level of capability for AI systems" that can accomplish "remarkable, complex tasks" using its own computer. This represents a fundamental shift from traditional ask-and-answer AI interactions toward truly autonomous artificial intelligence systems.</p>
         
-        <p>"This represents a major leap forward in AI capabilities," said OpenAI CEO Sam Altman. "GPT-5's ability to understand context across multiple modalities opens up entirely new possibilities for AI applications."</p>
+        <h4>Core Features and Technical Capabilities</h4>
+        <p>ChatGPT Agent seamlessly switches between reasoning and action, conducting in-depth research across public websites, uploaded files, and connected third-party sources while performing actions like filling out forms and editing spreadsheets. The system's unified architecture combines multiple advanced AI functionalities:</p>
         
-        <p>Key features of GPT-5 include:</p>
-        <ul>
-          <li>Advanced multimodal processing (text, image, audio, video)</li>
-          <li>Enhanced reasoning and logical thinking</li>
-          <li>Improved code generation and debugging</li>
-          <li>Better understanding of complex instructions</li>
-          <li>Reduced hallucination rates by 70%</li>
-        </ul>
+        <p><strong>Web Automation and Browser Control</strong>: The agent utilizes both visual and text-based browsers, choosing the optimal method to gather and interact with web data whether through GUI websites or text content. This dual-mode approach ensures maximum compatibility across different web platforms and data sources.</p>
         
-        <p>The model is expected to be available to ChatGPT Plus subscribers within the next month, with enterprise access following shortly after.</p>
+        <p><strong>Advanced Code Execution</strong>: Terminal and code execution capabilities enable automated task completion, data analysis, and script writing. This programming functionality allows users to delegate complex coding projects directly to the AI system.</p>
+        
+        <p><strong>Multi-Modal Research Integration</strong>: The agent processes information from diverse sources including documents, emails, and web repositories, synthesizing comprehensive insights for decision-making processes.</p>
+        
+        <h4>Benchmark Performance Sets New Industry Standards</h4>
+        <p>On Humanity's Last Exam (HLE), ChatGPT Agent achieved 41.6% accuracy—roughly double what OpenAI's previous o3 and o4-mini models scored. This challenging assessment covers thousands of questions across 100+ diverse academic and professional subjects, demonstrating the agent's broad reasoning capabilities.</p>
+        
+        <p>For mathematical problem-solving, the agent scored 27.4% on FrontierMath when equipped with tool access, significantly outperforming previous state-of-the-art models. These benchmarks indicate human-level performance on complex analytical tasks.</p>
+        
+        <h4>Business Applications and Use Cases</h4>
+        <p>The ChatGPT Agent excels in professional environments where task automation drives productivity gains:</p>
+        
+        <p><strong>Financial Analysis and Reporting</strong>: Automated data processing, spreadsheet management, and comprehensive financial report generation streamline accounting and business intelligence workflows.</p>
+        
+        <p><strong>Content Creation and Presentation</strong>: The system can create sales presentations and handle multi-step content development projects autonomously, reducing manual effort in marketing and communication tasks.</p>
+        
+        <p><strong>Research and Documentation</strong>: Deep web research capabilities combined with document synthesis enable comprehensive market analysis, competitive intelligence, and academic research automation.</p>
+        
+        <h4>Pricing and Availability</h4>
+        <p>ChatGPT Agent is available for Pro ($200/month), Plus ($20/month), and Team plan subscribers. The rollout to Plus users began recently, with OpenAI noting the gradual deployment will take several days to complete.</p>
+        
+        <p>The service is not yet available in Switzerland or the European Economic Area, reflecting ongoing regulatory considerations for advanced AI agent deployment.</p>
+        
+        <h4>The Path Toward Artificial General Intelligence</h4>
+        <p>Unlike traditional chat-based assistants, these agents go beyond simple prompts to reason, plan, and take multi-step actions autonomously. This capability advancement represents significant progress toward artificial general intelligence (AGI) systems that can match human cognitive flexibility across diverse task domains.</p>
+        
+        <p>The ChatGPT Agent launch fulfills OpenAI's earlier prediction that "2025 is when agents will work," marking a pivotal moment in AI automation adoption for business and professional applications.</p>
+        
+        <h3>Conclusion</h3>
+        <p>OpenAI's ChatGPT Agent represents a transformative leap in AI automation technology, combining autonomous task execution with human-level performance benchmarks. For businesses seeking to leverage AI for complex workflow automation, this tool offers unprecedented capabilities in web operations, coding, research, and analytical tasks. As the technology continues rolling out to subscribers, early adopters gain competitive advantages through enhanced productivity and automated business processes.</p>
       `,
       author: "BetterAiBots",
       date: "July 28, 2025",
@@ -729,9 +753,6 @@ function News() {
           <article key={article.id} className="featured-news-article">
             <div className="featured-news-image">
               <img src={article.image} alt={article.title} />
-              <div className="featured-news-overlay">
-                <span className="news-read-time">{article.readTime}</span>
-              </div>
             </div>
             <div className="featured-news-content">
               <h2 className="featured-news-title">{article.title}</h2>
@@ -758,7 +779,6 @@ function News() {
                 <div className="news-card-meta">
                   <span className="news-author">By {article.author}</span>
                   <span className="news-date">{article.date}</span>
-                  <span className="news-read-time">{article.readTime}</span>
                 </div>
                 <Link to={`/news/${article.slug}`} className="read-more-btn-small">Read Full Article</Link>
               </div>
@@ -2265,22 +2285,46 @@ function NewsArticle() {
       title: "OpenAI Announces GPT-5: Revolutionary Multimodal AI Model",
       excerpt: "OpenAI has officially unveiled GPT-5, their most advanced AI model yet, featuring unprecedented multimodal capabilities and improved reasoning abilities.",
       content: `
-        <p>OpenAI has made a groundbreaking announcement today with the release of GPT-5, their most sophisticated AI model to date. This revolutionary update brings unprecedented multimodal capabilities, allowing the AI to process and understand text, images, audio, and video simultaneously.</p>
+        <p>OpenAI's groundbreaking ChatGPT Agent, launched July 17, 2025, transforms AI from conversational assistant to autonomous task executor. Achieving 41.6% accuracy on Humanity's Last Exam benchmark—double previous models' performance—this AI automation breakthrough handles complex workflows including web operations, coding, and financial analysis for Pro, Plus, and Team subscribers.</p>
         
-        <p>The new model demonstrates significant improvements in reasoning abilities, with enhanced logical thinking and problem-solving skills. Early tests show GPT-5 outperforming its predecessor by 40% in complex reasoning tasks and 60% in multimodal understanding.</p>
+        <h3>ChatGPT Agent Redefines AI Automation Capabilities</h3>
+        <p>OpenAI CEO Sam Altman describes the new agent as "a new level of capability for AI systems" that can accomplish "remarkable, complex tasks" using its own computer. This represents a fundamental shift from traditional ask-and-answer AI interactions toward truly autonomous artificial intelligence systems.</p>
         
-        <p>"This represents a major leap forward in AI capabilities," said OpenAI CEO Sam Altman. "GPT-5's ability to understand context across multiple modalities opens up entirely new possibilities for AI applications."</p>
+        <h4>Core Features and Technical Capabilities</h4>
+        <p>ChatGPT Agent seamlessly switches between reasoning and action, conducting in-depth research across public websites, uploaded files, and connected third-party sources while performing actions like filling out forms and editing spreadsheets. The system's unified architecture combines multiple advanced AI functionalities:</p>
         
-        <p>Key features of GPT-5 include:</p>
-        <ul>
-          <li>Advanced multimodal processing (text, image, audio, video)</li>
-          <li>Enhanced reasoning and logical thinking</li>
-          <li>Improved code generation and debugging</li>
-          <li>Better understanding of complex instructions</li>
-          <li>Reduced hallucination rates by 70%</li>
-        </ul>
+        <p><strong>Web Automation and Browser Control</strong>: The agent utilizes both visual and text-based browsers, choosing the optimal method to gather and interact with web data whether through GUI websites or text content. This dual-mode approach ensures maximum compatibility across different web platforms and data sources.</p>
         
-        <p>The model is expected to be available to ChatGPT Plus subscribers within the next month, with enterprise access following shortly after.</p>
+        <p><strong>Advanced Code Execution</strong>: Terminal and code execution capabilities enable automated task completion, data analysis, and script writing. This programming functionality allows users to delegate complex coding projects directly to the AI system.</p>
+        
+        <p><strong>Multi-Modal Research Integration</strong>: The agent processes information from diverse sources including documents, emails, and web repositories, synthesizing comprehensive insights for decision-making processes.</p>
+        
+        <h4>Benchmark Performance Sets New Industry Standards</h4>
+        <p>On Humanity's Last Exam (HLE), ChatGPT Agent achieved 41.6% accuracy—roughly double what OpenAI's previous o3 and o4-mini models scored. This challenging assessment covers thousands of questions across 100+ diverse academic and professional subjects, demonstrating the agent's broad reasoning capabilities.</p>
+        
+        <p>For mathematical problem-solving, the agent scored 27.4% on FrontierMath when equipped with tool access, significantly outperforming previous state-of-the-art models. These benchmarks indicate human-level performance on complex analytical tasks.</p>
+        
+        <h4>Business Applications and Use Cases</h4>
+        <p>The ChatGPT Agent excels in professional environments where task automation drives productivity gains:</p>
+        
+        <p><strong>Financial Analysis and Reporting</strong>: Automated data processing, spreadsheet management, and comprehensive financial report generation streamline accounting and business intelligence workflows.</p>
+        
+        <p><strong>Content Creation and Presentation</strong>: The system can create sales presentations and handle multi-step content development projects autonomously, reducing manual effort in marketing and communication tasks.</p>
+        
+        <p><strong>Research and Documentation</strong>: Deep web research capabilities combined with document synthesis enable comprehensive market analysis, competitive intelligence, and academic research automation.</p>
+        
+        <h4>Pricing and Availability</h4>
+        <p>ChatGPT Agent is available for Pro ($200/month), Plus ($20/month), and Team plan subscribers. The rollout to Plus users began recently, with OpenAI noting the gradual deployment will take several days to complete.</p>
+        
+        <p>The service is not yet available in Switzerland or the European Economic Area, reflecting ongoing regulatory considerations for advanced AI agent deployment.</p>
+        
+        <h4>The Path Toward Artificial General Intelligence</h4>
+        <p>Unlike traditional chat-based assistants, these agents go beyond simple prompts to reason, plan, and take multi-step actions autonomously. This capability advancement represents significant progress toward artificial general intelligence (AGI) systems that can match human cognitive flexibility across diverse task domains.</p>
+        
+        <p>The ChatGPT Agent launch fulfills OpenAI's earlier prediction that "2025 is when agents will work," marking a pivotal moment in AI automation adoption for business and professional applications.</p>
+        
+        <h3>Conclusion</h3>
+        <p>OpenAI's ChatGPT Agent represents a transformative leap in AI automation technology, combining autonomous task execution with human-level performance benchmarks. For businesses seeking to leverage AI for complex workflow automation, this tool offers unprecedented capabilities in web operations, coding, research, and analytical tasks. As the technology continues rolling out to subscribers, early adopters gain competitive advantages through enhanced productivity and automated business processes.</p>
       `,
       author: "BetterAiBots",
       date: "July 28, 2025",

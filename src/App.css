@@ -1403,6 +1403,11 @@ img[alt="preview"] {
   object-fit: cover;
   border-radius: 32px;
   display: block;
+  transition: transform 0.225s ease;
+}
+
+.bot-card.affiliate-ad:hover img {
+  transform: scale(1.0375);
 }
 
 .affiliate-overlay {
@@ -1699,7 +1704,7 @@ img[alt="preview"] {
   left: 20px;
   right: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -1714,14 +1719,7 @@ img[alt="preview"] {
   box-shadow: 0 0 8px #16ff6c38;
 }
 
-.news-read-time {
-  background: rgba(16, 28, 38, 0.8);
-  color: #e9f7ee;
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
+
 
 .featured-news-content {
   display: flex;
@@ -2010,6 +2008,8 @@ img[alt="preview"] {
   .featured-news-excerpt {
     font-size: 1rem;
   }
+  
+
   
   .news-card-content {
     padding: 20px;
