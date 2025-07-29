@@ -1,12 +1,9 @@
-import ArticlePage from "./ArticlePage";
 import Articles from "./Articles";
 import { CATEGORY_SLUGS } from './constants';
 // import { CATEGORY_REVERSE } from "./constants"; // <- commented until used
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
 import helperLogo from './assets/findthebestaibotshelper.png';
-import helperBotLogo from './assets/findthebestaibotshelper.png';
-import lovedocImg from './assets/lovedocplaceholder.png';
 import placeholderImg from './assets/bot-placeholder.webp';
 import placeholderImg1 from './assets/bot-placeholder1.webp';
 import placeholderImg21 from './assets/bot-placeholder21.webp';
@@ -421,47 +418,7 @@ function AuthButtons() {
   );
 }
 
-// --- SECURE MODERATION ROUTE ---
-function ProtectedRoute({ children }) {
-  const { isAuthenticated, isLoading, loginWithRedirect, user } = useAuth0();
-  // Loads the admin email from your .env or Netlify environment vars (not in code)
-  const adminEmail = (process.env.REACT_APP_ADMIN_EMAIL || "").toLowerCase();
 
-  useEffect(() => {
-    // Redirect if not logged in or not the admin
-    if (
-      !isLoading &&
-      (
-        !isAuthenticated ||
-        (user?.email || "").toLowerCase() !== adminEmail
-      )
-    ) {
-      loginWithRedirect();
-    }
-  }, [isLoading, isAuthenticated, loginWithRedirect, user, adminEmail]); // dependency array includes adminEmail
-
-  // Show loading while Auth0 checks
-  if (isLoading) {
-    return (
-      <div className="hero-section">
-        <h2>Checking authentication…</h2>
-      </div>
-    );
-  }
-  // Show "Access denied" if not admin
-  if (
-    !isAuthenticated ||
-    (user?.email || "").toLowerCase() !== adminEmail
-  ) {
-    return (
-      <div className="hero-section">
-        <h2>Admin only: Access denied</h2>
-      </div>
-    );
-  }
-  // Render the protected children (the admin/mod page)
-  return children;
-}
 
 
 
@@ -942,25 +899,7 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
 }
 
 // --- CATEGORY BUTTONS COMPONENT ---
-function CategoryButtons() {
-  return (
-    <div className="category-buttons-container">
-      {CATEGORIES.map((cat) => {
-        const slug = CATEGORY_SLUGS[cat.name] || encodeURIComponent(cat.name);
-        return (
-          <Link
-            to={`/${slug}`}
-            className="category-button"
-            key={cat.name}
-            tabIndex={0}
-          >
-            {cat.name}
-          </Link>
-        );
-      })}
-    </div>
-  );
-}
+
 
 // --- BOT GRID ---
 function BotGrid({ bots, onOpenModal }) {
@@ -1597,7 +1536,6 @@ function App() {
     customImageUrl: "",
     categories: []
   });
-  const [formValidated, setFormValidated] = useState(false);
   const [previewImg, setPreviewImg] = useState("");
   const [botRecaptchaValue, setBotRecaptchaValue] = useState("");
 
@@ -1641,7 +1579,6 @@ function App() {
   const handleCloseModal = () => {
     setShowModal(false);
     setForm({ gptName: "", gptDesc: "", openaiUrl: "", customImageUrl: "", categories: [] });
-    setFormValidated(false);
     setPreviewImg("");
   };
 
