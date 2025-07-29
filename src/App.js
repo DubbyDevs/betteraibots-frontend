@@ -1820,8 +1820,8 @@ function App() {
       {showSearchBubble && (
         <div className="floating-search-box" style={{
           position: 'fixed',
-          bottom: 110,
-          right: 36,
+          bottom: 20,
+          right: 20,
           width: 300,
           background: '#192738',
           borderRadius: 22,
@@ -1830,20 +1830,82 @@ function App() {
           padding: 22,
           display: 'flex',
           flexDirection: 'column',
+          alignItems: 'center',
+          gap: 12,
         }}>
-          <form onSubmit={handleBubbleSearch} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <input
-              className="floating-chat-input"
-              style={{ flex: 1, fontSize: "1.18rem" }}
-              value={bubbleSearch}
-              onChange={e => setBubbleSearch(e.target.value)}
-              placeholder="search"
-              autoFocus
+          <input
+            className="floating-chat-input"
+            style={{ 
+              width: '100%', 
+              fontSize: "1.18rem",
+              padding: '12px 16px',
+              borderRadius: '12px',
+              border: 'none',
+              background: '#2a3a4a',
+              color: '#ffffff',
+              marginBottom: '8px'
+            }}
+            value={bubbleSearch}
+            onChange={e => setBubbleSearch(e.target.value)}
+            placeholder="search"
+            autoFocus
+          />
+          <button 
+            type="button"
+            className="floating-chat-send" 
+            style={{ 
+              width: '100%',
+              fontSize: "1.09rem", 
+              padding: "8px 16px",
+              background: 'linear-gradient(90deg, #09e269 0%, #0bbfdb 100%)',
+              color: '#101c26',
+              border: 'none',
+              borderRadius: '12px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              marginBottom: '8px'
+            }}
+            onClick={handleBubbleSearch}
+          >
+            search
+          </button>
+          <div 
+            style={{
+              color: '#09e269',
+              fontSize: '1.08rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              textAlign: 'center',
+              marginBottom: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px'
+            }}
+            onClick={() => {
+              window.open('https://chatgpt.com/g/g-683e57f7b0b88191b0b8313aee04ea59-betteraibots-concierge', '_blank');
+            }}
+          >
+            <span>Click Here to talk with BAIB</span>
+            <img
+              src={require('./assets/findthebestaibotshelper.png')}
+              alt="BAIB Logo"
+              style={{
+                width: 20,
+                height: 20,
+                borderRadius: "50%",
+                boxShadow: "0 0 4px #36ff9588",
+                cursor: 'pointer',
+                transition: 'transform 0.2s'
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open('https://chatgpt.com/g/g-683e57f7b0b88191b0b8313aee04ea59-betteraibots-concierge', '_blank');
+              }}
+              onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
+              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
             />
-            <button type="submit" className="floating-chat-send" style={{ fontSize: "1.09rem", padding: "7px 20px" }}>
-              search
-            </button>
-          </form>
+          </div>
         </div>
       )}
       
