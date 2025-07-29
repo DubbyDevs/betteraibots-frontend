@@ -2674,7 +2674,6 @@ function NewsArticle() {
               <button 
                 onClick={() => {
                   const url = `https://betteraibots.com/news/${article.slug}`;
-                  const text = `${article.title} - ${article.excerpt}`;
                   window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
                 }}
                 className="share-btn facebook"
@@ -2691,7 +2690,6 @@ function NewsArticle() {
               <button 
                 onClick={() => {
                   const url = `https://betteraibots.com/news/${article.slug}`;
-                  const text = `${article.title} - ${article.excerpt}`;
                   window.open(`https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(article.title)}`, '_blank');
                 }}
                 className="share-btn reddit"
