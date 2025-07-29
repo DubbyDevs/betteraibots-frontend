@@ -1982,13 +1982,37 @@ function App() {
                 onChange={setBotRecaptchaValue}
               />
             </div>
-            <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end', marginTop: '20px' }}>
-              <Button variant="secondary" onClick={handleCloseModal}>
-                Cancel
-              </Button>
-              <Button variant="primary" type="submit" disabled={!botRecaptchaValue}>
-                Submit Bot
-              </Button>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+              <button 
+                type="submit" 
+                disabled={!botRecaptchaValue}
+                style={{
+                  width: '100%',
+                  background: 'linear-gradient(90deg, #09e269 0%, #0bbfdb 100%)',
+                  color: '#101c26',
+                  border: 'none',
+                  borderRadius: '12px',
+                  padding: '12px 20px',
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  opacity: !botRecaptchaValue ? 0.5 : 1,
+                  pointerEvents: !botRecaptchaValue ? 'none' : 'auto'
+                }}
+                onMouseEnter={(e) => {
+                  if (botRecaptchaValue) {
+                    e.target.style.transform = 'scale(1.02)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (botRecaptchaValue) {
+                    e.target.style.transform = 'scale(1)';
+                  }
+                }}
+              >
+                Submit
+              </button>
             </div>
           </Form>
         </Modal.Body>
