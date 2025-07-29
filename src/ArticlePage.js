@@ -130,6 +130,48 @@ export default function ArticlePage() {
         <meta property="og:description" content={article.preview} />
         <meta property="og:image" content={images[0] || article.cover} />
         <meta property="og:url" content={shareUrl} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.preview} />
+        <meta name="twitter:image" content={images[0] || article.cover} />
+        <meta name="article:published_time" content={article.date} />
+        <meta name="article:author" content="BetterAiBots" />
+        <meta name="article:section" content="AI Tools" />
+        <meta name="article:tag" content="AI, Artificial Intelligence, GPT, ChatGPT, AI Tools" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": article.title,
+            "description": article.preview,
+            "image": images[0] || article.cover,
+            "author": {
+              "@type": "Organization",
+              "name": "BetterAiBots",
+              "url": "https://betteraibots.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "BetterAiBots",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://betteraibots.com/betteraibotsglowlogo8.png"
+              }
+            },
+            "datePublished": article.date,
+            "dateModified": article.date,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": shareUrl
+            },
+            "keywords": "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots",
+            "articleSection": "AI Tools",
+            "inLanguage": "en-US"
+          })}
+        </script>
       </Helmet>
       <div style={{ marginBottom: 15 }}>
         <Link to="/articles" style={{ color: "#36ff95", textDecoration: "underline" }}>&larr; Back to Articles</Link>
@@ -240,6 +282,56 @@ export default function ArticlePage() {
               <li style={{ marginBottom: 4 }}>{children}</li>
             ),
             img: () => null, // Prevent user-submitted inline images
+            a: ({ href, children, ...props }) => {
+              // Check if this is the InVideo link
+              if (href && href.includes('invideo.sjv.io')) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '40px 0' }}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-block',
+                        background: 'linear-gradient(90deg, #36ff95 0%, #00ffb2 100%)',
+                        color: '#1a1a1a',
+                        padding: '16px 32px',
+                        borderRadius: '12px',
+                        textDecoration: 'none',
+                        fontWeight: '700',
+                        fontSize: '1.2rem',
+                        boxShadow: '0 4px 16px rgba(54, 255, 149, 0.3)',
+                        transition: 'all 0.3s ease',
+                        border: 'none',
+                        cursor: 'pointer'
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.transform = 'translateY(-2px)';
+                        e.target.style.boxShadow = '0 6px 20px rgba(54, 255, 149, 0.4)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.transform = 'translateY(0)';
+                        e.target.style.boxShadow = '0 4px 16px rgba(54, 255, 149, 0.3)';
+                      }}
+                    >
+                      {children}
+                    </a>
+                  </div>
+                );
+              }
+              // Default link styling
+              return (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#36ff95', textDecoration: 'underline' }}
+                  {...props}
+                >
+                  {children}
+                </a>
+              );
+            },
           }}
         >
           {article.content}

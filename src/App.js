@@ -1,7 +1,7 @@
 import Articles from "./Articles";
 import { CATEGORY_SLUGS } from './constants';
 // import { CATEGORY_REVERSE } from "./constants"; // <- commented until used
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
@@ -59,6 +59,7 @@ import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import GoogleAnalytics from "./GoogleAnalytics";
 import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
 import InVideoFreeTrialPng from './assets/InVideoFreeTrial.png';
+import ArticlePage from "./ArticlePage";
 
 
 
@@ -1783,6 +1784,7 @@ function App() {
         <Route path="/:cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:id" element={<ArticlePage />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/legal" element={<Legal />} />
@@ -2764,6 +2766,48 @@ function NewsArticle() {
         <meta property="og:description" content={article.excerpt} />
         <meta property="og:image" content={article.image} />
         <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.excerpt} />
+        <meta name="twitter:image" content={article.image} />
+        <meta name="article:published_time" content={article.date} />
+        <meta name="article:author" content={article.author} />
+        <meta name="article:section" content={article.category} />
+        <meta name="article:tag" content="AI, Artificial Intelligence, AI News, BetterAiBots" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "headline": article.title,
+            "description": article.excerpt,
+            "image": article.image,
+            "author": {
+              "@type": "Organization",
+              "name": article.author,
+              "url": "https://betteraibots.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "BetterAiBots",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://betteraibots.com/betteraibotsglowlogo8.png"
+              }
+            },
+            "datePublished": article.date,
+            "dateModified": article.date,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://betteraibots.com/news/${article.slug}`
+            },
+            "keywords": "AI, Artificial Intelligence, AI News, BetterAiBots",
+            "articleSection": article.category,
+            "inLanguage": "en-US"
+          })}
+        </script>
       </Helmet>
       
       <div className="article-container">
