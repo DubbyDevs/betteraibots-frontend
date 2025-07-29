@@ -1558,9 +1558,7 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  function getRandomPlaceholder() {
-    return placeholderImgs[Math.floor(Math.random() * placeholderImgs.length)];
-  }
+
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
