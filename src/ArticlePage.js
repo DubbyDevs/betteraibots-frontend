@@ -131,13 +131,13 @@ export default function ArticlePage() {
         <meta property="og:image" content={(() => {
           // Article-specific Open Graph images for better social sharing
           const ogImageMap = {
-            "paintr": "https://betteraibots.com/paintindetifierai.png",
-            "invideo-ai": "https://betteraibots.com/InVideoFreeTrial.png", 
-            "scholar-gpt": "https://betteraibots.com/bot-placeholder4.webp",
-            "vetgpt": "https://betteraibots.com/vetgpt-1.png",
-            "ai-fitness-coach": "https://betteraibots.com/bot-placeholder15.webp",
-            "cheat-coder": "https://betteraibots.com/cheatcoder.png",
-            "love-doc-ai": "https://betteraibots.com/bot-placeholder7.webp"
+            "paintr": "https://betteraibots.com/assets/paintindetifierai.png",
+            "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
+            "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
+            "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
+            "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
+            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
+            "love-doc-ai": "https://betteraibots.com/assets/bot-placeholder7.webp"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -149,13 +149,13 @@ export default function ArticlePage() {
         <meta name="twitter:image" content={(() => {
           // Article-specific Open Graph images for better social sharing
           const ogImageMap = {
-            "paintr": "https://betteraibots.com/paintindetifierai.png",
-            "invideo-ai": "https://betteraibots.com/InVideoFreeTrial.png", 
-            "scholar-gpt": "https://betteraibots.com/bot-placeholder4.webp",
-            "vetgpt": "https://betteraibots.com/vetgpt-1.png",
-            "ai-fitness-coach": "https://betteraibots.com/bot-placeholder15.webp",
-            "cheat-coder": "https://betteraibots.com/cheatcoder.png",
-            "love-doc-ai": "https://betteraibots.com/bot-placeholder7.webp"
+            "paintr": "https://betteraibots.com/assets/paintindetifierai.png",
+            "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
+            "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
+            "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
+            "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
+            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
+            "love-doc-ai": "https://betteraibots.com/assets/bot-placeholder7.webp"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -174,13 +174,13 @@ export default function ArticlePage() {
             "image": (() => {
               // Article-specific Open Graph images for better social sharing
               const ogImageMap = {
-                "paintr": "https://betteraibots.com/paintindetifierai.png",
-                "invideo-ai": "https://betteraibots.com/InVideoFreeTrial.png", 
-                "scholar-gpt": "https://betteraibots.com/bot-placeholder4.webp",
-                "vetgpt": "https://betteraibots.com/vetgpt-1.png",
-                "ai-fitness-coach": "https://betteraibots.com/bot-placeholder15.webp",
-                "cheat-coder": "https://betteraibots.com/cheatcoder.png",
-                "love-doc-ai": "https://betteraibots.com/bot-placeholder7.webp"
+                "paintr": "https://betteraibots.com/assets/paintindetifierai.png",
+                "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
+                "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
+                "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
+                "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
+                "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
+                "love-doc-ai": "https://betteraibots.com/assets/bot-placeholder7.webp"
               };
               return ogImageMap[article.id] || images[0] || article.cover;
             })(),

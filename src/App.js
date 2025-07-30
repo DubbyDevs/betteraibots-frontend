@@ -2765,13 +2765,17 @@ function NewsArticle() {
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.excerpt} />
         <meta property="og:image" content={(() => {
-          // Convert relative image paths to absolute URLs for proper social sharing
-          const imageUrl = article.image;
-          if (typeof imageUrl === 'string' && imageUrl.startsWith('http')) {
-            return imageUrl;
-          }
-          // For require() imported images, we need to use the full domain
-          return `https://betteraibots.com${imageUrl}`;
+          // Article-specific Open Graph images for news articles
+          const ogImageMap = {
+            "trump-ai-action-plan-global-leadership": "https://betteraibots.com/assets/trumpaiplan.png",
+            "china-global-ai-cooperation-organization": "https://betteraibots.com/assets/chinaaiplans.png",
+            "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/assets/openaigpt5announced.jpg",
+            "google-gemini-pro-100-million-users": "https://betteraibots.com/assets/googlegemininews.jpg",
+            "meta-llama-3-open-source-ai": "https://betteraibots.com/assets/llama3news.jpg",
+            "microsoft-copilot-pro-productivity": "https://betteraibots.com/assets/mocrosoftcopilotaifreebots.jpg",
+            "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/assets/claudecode.png"
+          };
+          return ogImageMap[article.slug] || article.image;
         })()} />
         <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
         <meta property="og:type" content="article" />
@@ -2779,13 +2783,17 @@ function NewsArticle() {
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.excerpt} />
         <meta name="twitter:image" content={(() => {
-          // Convert relative image paths to absolute URLs for proper social sharing
-          const imageUrl = article.image;
-          if (typeof imageUrl === 'string' && imageUrl.startsWith('http')) {
-            return imageUrl;
-          }
-          // For require() imported images, we need to use the full domain
-          return `https://betteraibots.com${imageUrl}`;
+          // Article-specific Open Graph images for news articles
+          const ogImageMap = {
+            "trump-ai-action-plan-global-leadership": "https://betteraibots.com/assets/trumpaiplan.png",
+            "china-global-ai-cooperation-organization": "https://betteraibots.com/assets/chinaaiplans.png",
+            "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/assets/openaigpt5announced.jpg",
+            "google-gemini-pro-100-million-users": "https://betteraibots.com/assets/googlegemininews.jpg",
+            "meta-llama-3-open-source-ai": "https://betteraibots.com/assets/llama3news.jpg",
+            "microsoft-copilot-pro-productivity": "https://betteraibots.com/assets/mocrosoftcopilotaifreebots.jpg",
+            "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/assets/claudecode.png"
+          };
+          return ogImageMap[article.slug] || article.image;
         })()} />
         <meta name="article:published_time" content={article.date} />
         <meta name="article:author" content={article.author} />
@@ -2800,13 +2808,17 @@ function NewsArticle() {
             "headline": article.title,
             "description": article.excerpt,
             "image": (() => {
-              // Convert relative image paths to absolute URLs for proper social sharing
-              const imageUrl = article.image;
-              if (typeof imageUrl === 'string' && imageUrl.startsWith('http')) {
-                return imageUrl;
-              }
-              // For require() imported images, we need to use the full domain
-              return `https://betteraibots.com${imageUrl}`;
+              // Article-specific Open Graph images for news articles
+              const ogImageMap = {
+                "trump-ai-action-plan-global-leadership": "https://betteraibots.com/assets/trumpaiplan.png",
+                "china-global-ai-cooperation-organization": "https://betteraibots.com/assets/chinaaiplans.png",
+                "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/assets/openaigpt5announced.jpg",
+                "google-gemini-pro-100-million-users": "https://betteraibots.com/assets/googlegemininews.jpg",
+                "meta-llama-3-open-source-ai": "https://betteraibots.com/assets/llama3news.jpg",
+                "microsoft-copilot-pro-productivity": "https://betteraibots.com/assets/mocrosoftcopilotaifreebots.jpg",
+                "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/assets/claudecode.png"
+              };
+              return ogImageMap[article.slug] || article.image;
             })(),
             "author": {
               "@type": "Organization",
