@@ -1976,8 +1976,9 @@ function App() {
             </Form.Group>
             <div className="recaptcha-wrap">
               <ReCAPTCHA
-                sitekey="6LfKNiIpAAAAAF_aBzJK6QK6QK6QK6QK6QK6QK6Q"
+                sitekey="6Lf2wlArAAAAAH0GDpzc02uW1KAD8TJXgD_kSz1j"
                 onChange={setBotRecaptchaValue}
+                theme="dark"
               />
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
