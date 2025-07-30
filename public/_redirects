@@ -1,2 +1,11 @@
-# All routes go to React app
+# Serve static HTML for news articles (for social media crawlers)
+/news/trump-ai-action-plan-global-leadership /news/trump-ai-action-plan-global-leadership.html 200
+/news/china-global-ai-cooperation-organization /news/china-global-ai-cooperation-organization.html 200
+/news/openai-gpt5-revolutionary-multimodal-ai /news/openai-gpt5-revolutionary-multimodal-ai.html 200
+/news/google-gemini-pro-100-million-users /news/google-gemini-pro-100-million-users.html 200
+/news/meta-llama-3-open-source-ai /news/meta-llama-3-open-source-ai.html 200
+/news/microsoft-copilot-pro-productivity /news/microsoft-copilot-pro-productivity.html 200
+/news/anthropic-claude-35-sonnet-reasoning /news/anthropic-claude-35-sonnet-reasoning.html 200
+
+# All other routes go to React app
 /*    /index.html   200
