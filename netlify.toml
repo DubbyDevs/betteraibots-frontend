@@ -3,21 +3,4 @@
   command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "18"
-
-# Netlify Functions configuration
-[functions]
-  directory = "netlify/functions"
-
-# Redirects for news articles to use Netlify Functions
-[[redirects]]
-  from = "/news/*"
-  to = "/.netlify/functions/news-article"
-  status = 200
-  force = true
-
-# All other routes go to React app
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200 
+  NODE_VERSION = "18" 

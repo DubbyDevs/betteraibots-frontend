@@ -1,1 +1,2 @@
-# Redirects are now handled by netlify.toml
+# All routes go to React app
+/*    /index.html   200
