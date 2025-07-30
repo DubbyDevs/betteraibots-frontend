@@ -1588,6 +1588,10 @@ function DisclaimerBar() {
 // --- MAIN APP ROUTER ---
 function App() { 
   const [botList, setBotList] = useState(bots);
+  const [pendingBots, setPendingBots] = useState(() => {
+    const stored = localStorage.getItem("pendingBots");
+    return stored ? JSON.parse(stored) : [];
+  });
   const [searchValue, setSearchValue] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -1788,7 +1792,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/legal" element={<Legal />} />
-        <Route path="/moderation" element={<Moderation botList={botList} approveBot={approveBot} />} />
+        <Route path="/moderation" element={<Moderation approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <DisclaimerBar />
