@@ -2767,13 +2767,13 @@ function NewsArticle() {
         <meta property="og:image" content={(() => {
           // Article-specific Open Graph images for news articles
           const ogImageMap = {
-            "trump-ai-action-plan-global-leadership": "https://betteraibots.com/assets/trumpaiplan.png",
-            "china-global-ai-cooperation-organization": "https://betteraibots.com/assets/chinaaiplans.png",
-            "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/assets/openaigpt5announced.jpg",
-            "google-gemini-pro-100-million-users": "https://betteraibots.com/assets/googlegemininews.jpg",
-            "meta-llama-3-open-source-ai": "https://betteraibots.com/assets/llama3news.jpg",
-            "microsoft-copilot-pro-productivity": "https://betteraibots.com/assets/mocrosoftcopilotaifreebots.jpg",
-            "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/assets/claudecode.png"
+            "trump-ai-action-plan-global-leadership": "https://betteraibots.com/trumpaiplan.png",
+            "china-global-ai-cooperation-organization": "https://betteraibots.com/chinaaiplans.png",
+            "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/openaigpt5announced.jpg",
+            "google-gemini-pro-100-million-users": "https://betteraibots.com/googlegemininews.jpg",
+            "meta-llama-3-open-source-ai": "https://betteraibots.com/llama3news.jpg",
+            "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg",
+            "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png"
           };
           return ogImageMap[article.slug] || article.image;
         })()} />
@@ -2785,13 +2785,13 @@ function NewsArticle() {
         <meta name="twitter:image" content={(() => {
           // Article-specific Open Graph images for news articles
           const ogImageMap = {
-            "trump-ai-action-plan-global-leadership": "https://betteraibots.com/assets/trumpaiplan.png",
-            "china-global-ai-cooperation-organization": "https://betteraibots.com/assets/chinaaiplans.png",
-            "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/assets/openaigpt5announced.jpg",
-            "google-gemini-pro-100-million-users": "https://betteraibots.com/assets/googlegemininews.jpg",
-            "meta-llama-3-open-source-ai": "https://betteraibots.com/assets/llama3news.jpg",
-            "microsoft-copilot-pro-productivity": "https://betteraibots.com/assets/mocrosoftcopilotaifreebots.jpg",
-            "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/assets/claudecode.png"
+            "trump-ai-action-plan-global-leadership": "https://betteraibots.com/trumpaiplan.png",
+            "china-global-ai-cooperation-organization": "https://betteraibots.com/chinaaiplans.png",
+            "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/openaigpt5announced.jpg",
+            "google-gemini-pro-100-million-users": "https://betteraibots.com/googlegemininews.jpg",
+            "meta-llama-3-open-source-ai": "https://betteraibots.com/llama3news.jpg",
+            "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg",
+            "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png"
           };
           return ogImageMap[article.slug] || article.image;
         })()} />
@@ -2810,13 +2810,13 @@ function NewsArticle() {
             "image": (() => {
               // Article-specific Open Graph images for news articles
               const ogImageMap = {
-                "trump-ai-action-plan-global-leadership": "https://betteraibots.com/assets/trumpaiplan.png",
-                "china-global-ai-cooperation-organization": "https://betteraibots.com/assets/chinaaiplans.png",
-                "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/assets/openaigpt5announced.jpg",
-                "google-gemini-pro-100-million-users": "https://betteraibots.com/assets/googlegemininews.jpg",
-                "meta-llama-3-open-source-ai": "https://betteraibots.com/assets/llama3news.jpg",
-                "microsoft-copilot-pro-productivity": "https://betteraibots.com/assets/mocrosoftcopilotaifreebots.jpg",
-                "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/assets/claudecode.png"
+                "trump-ai-action-plan-global-leadership": "https://betteraibots.com/trumpaiplan.png",
+                "china-global-ai-cooperation-organization": "https://betteraibots.com/chinaaiplans.png",
+                "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/openaigpt5announced.jpg",
+                "google-gemini-pro-100-million-users": "https://betteraibots.com/googlegemininews.jpg",
+                "meta-llama-3-open-source-ai": "https://betteraibots.com/llama3news.jpg",
+                "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg",
+                "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png"
               };
               return ogImageMap[article.slug] || article.image;
             })(),
