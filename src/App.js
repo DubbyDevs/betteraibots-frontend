@@ -55,7 +55,7 @@ import {
   Navigate
 } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
+import { Auth0Provider } from "@auth0/auth0-react";
 import GoogleAnalytics from "./GoogleAnalytics";
 import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
 import InVideoFreeTrialPng from './assets/InVideoFreeTrial.png';
