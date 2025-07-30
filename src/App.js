@@ -433,7 +433,7 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
     <nav className="nav-tabs-bar">
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
-      <Link to="/articles" className="nav-tab" tabIndex={0}>Articles</Link>
+              <Link to="/articles" className="nav-tab" tabIndex={0}>Learn</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
       {isHomePage && (
         <button 
@@ -916,7 +916,7 @@ function HamburgerMenu({ open, onClose }) {
           </li>
 
           <li onClick={() => { navigate('/news'); onClose(); }}>News</li>
-          <li onClick={() => { navigate('/articles'); onClose(); }}>Articles</li>
+          <li onClick={() => { navigate('/articles'); onClose(); }}>Learn</li>
           <li onClick={() => { navigate('/contact'); onClose(); }}>Contact Us</li>
         </ul>
       </div>

@@ -1,4 +1,4 @@
-# Serve static HTML for social media crawlers (these have the correct meta tags)
+# Prerender news articles for social media crawlers
 /news/trump-ai-action-plan-global-leadership    /news/trump-ai-action-plan-global-leadership.html    200
 /news/china-global-ai-cooperation-organization    /news/china-global-ai-cooperation-organization.html    200
 /news/openai-gpt5-revolutionary-multimodal-ai    /news/openai-gpt5-revolutionary-multimodal-ai.html    200

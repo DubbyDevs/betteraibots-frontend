@@ -1,0 +1,13 @@
+[build]
+  publish = "build"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Enable prerendering for social media crawlers
+[context.production.environment]
+  PRERENDER = "true"
+
+[context.deploy-preview.environment]
+  PRERENDER = "true" 
