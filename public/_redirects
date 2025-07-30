@@ -1,6 +1,1 @@
-# Serve static HTML for social media crawlers (these have the correct meta tags)
-/news/trump-ai-action-plan-global-leadership    /news/trump-ai-action-plan-global-leadership.html    200
-/news/china-global-ai-cooperation-organization    /news/china-global-ai-cooperation-organization.html    200
-
-# All other routes go to React app
 /*    /index.html   200
