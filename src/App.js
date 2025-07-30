@@ -55,7 +55,7 @@ import {
   Navigate
 } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import GoogleAnalytics from "./GoogleAnalytics";
 import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
 import InVideoFreeTrialPng from './assets/InVideoFreeTrial.png';
@@ -390,12 +390,34 @@ function assignBotImages(rawBots) {
 }
 const bots = assignBotImages(rawBots);
 
+// --- AUTH BUTTONS ---
+function AuthButtons() {
+  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
 
+  if (isLoading) return <div style={{ color: "#36ff95" }}>Loading...</div>;
 
-
-
-
-
+  if (!isAuthenticated) {
+    return (
+      <button className="header-btn" onClick={() => loginWithRedirect()}>
+        Admin Login
+      </button>
+    );
+  }
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <span style={{ color: "#36ff95", fontWeight: 600 }}>
+        {user?.email}
+      </span>
+      <button
+        className="header-btn"
+        onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+        style={{ marginLeft: 10 }}
+      >
+        Logout
+      </button>
+    </div>
+  );
+}
 
 // --- Nav Tabs Bar ---
 function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
@@ -1314,6 +1336,7 @@ function Legal() {
 
 // --- MODERATION PAGE ---
 function Moderation({ approveBot, pendingBots, setPendingBots }) {
+  const { isAuthenticated, isLoading } = useAuth0();
   const [contactMessages, setContactMessages] = useState(() => {
     const stored = localStorage.getItem("contactMessages");
     return stored ? JSON.parse(stored) : [];
@@ -1399,8 +1422,43 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
     }
   }, [approveBot]);
 
+  if (isLoading) {
+    return (
+      <div className="hero-section">
+        <div style={{ color: "#36ff95", textAlign: "center", fontSize: "1.2rem" }}>Loading...</div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="hero-section">
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
+          <AuthButtons />
+        </div>
+        <h1 className="hero-headline">Moderation</h1>
+        <div style={{ 
+          textAlign: "center", 
+          color: "#fff", 
+          fontSize: "1.1rem", 
+          marginTop: "50px",
+          background: "#172d3e",
+          padding: "30px",
+          borderRadius: "18px",
+          boxShadow: "0 2px 14px #36ff9544"
+        }}>
+          <p>🔒 <strong>Admin Access Required</strong></p>
+          <p>Please log in to access the moderation panel.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="hero-section">
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
+        <AuthButtons />
+      </div>
       <h1 className="hero-headline">Moderation</h1>
       <div style={{ margin: "25px 0 40px 0", background: "#101c26", padding: 22, borderRadius: 18, boxShadow: "0 1px 10px #36ff9522" }}>
         <Button
