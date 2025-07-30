@@ -734,6 +734,7 @@ img[alt="preview"] {
   align-items: center;
   gap: 0;
   background: linear-gradient(135deg, #172d3e 0%, #101c26 100%);
+  border-top: 1px solid #36ff95;
   border-bottom: 1px solid #36ff95;
   padding: 0;
   margin: 0;
