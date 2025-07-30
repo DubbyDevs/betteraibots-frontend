@@ -1341,6 +1341,7 @@ function Legal() {
 
 // --- MODERATION PAGE ---
 function Moderation({ approveBot, pendingBots, setPendingBots }) {
+  const { isAuthenticated, isLoading } = useAuth0();
   const [contactMessages, setContactMessages] = useState(() => {
     const stored = localStorage.getItem("contactMessages");
     return stored ? JSON.parse(stored) : [];
@@ -1425,6 +1426,38 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
       localStorage.removeItem("approvedBots");
     }
   }, [approveBot]);
+
+  if (isLoading) {
+    return (
+      <div className="hero-section">
+        <div style={{ color: "#36ff95", textAlign: "center", fontSize: "1.2rem" }}>Loading...</div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="hero-section">
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
+          <AuthButtons />
+        </div>
+        <h1 className="hero-headline">Moderation</h1>
+        <div style={{ 
+          textAlign: "center", 
+          color: "#fff", 
+          fontSize: "1.1rem", 
+          marginTop: "50px",
+          background: "#172d3e",
+          padding: "30px",
+          borderRadius: "18px",
+          boxShadow: "0 2px 14px #36ff9544"
+        }}>
+          <p>🔒 <strong>Admin Access Required</strong></p>
+          <p>Please log in to access the moderation panel.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="hero-section">
