@@ -60,9 +60,6 @@
     }
     </script>
     
-    <!-- Redirect to React app -->
-    <meta http-equiv="refresh" content="0;url=https://betteraibots.com/news/china-global-ai-cooperation-organization" />
-    
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -75,15 +72,23 @@
             font-size: 18px; 
             margin-top: 20px; 
         }
+        .redirect-link {
+            color: #00ff88;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <h1>China Proposes Global AI Cooperation Organization</h1>
     <p>China announced plans for a new global AI cooperation organization with headquarters in Shanghai during the World AI Conference on July 26, 2025, marking a strategic response to America's AI Action Plan and positioning itself as a leader in international AI governance.</p>
     <div class="loading">Loading article...</div>
+    <p>If you're not automatically redirected, <a href="https://betteraibots.com/news/china-global-ai-cooperation-organization" class="redirect-link">click here to view the full article</a></p>
     <script>
-        // Redirect to the React app
-        window.location.href = 'https://betteraibots.com/news/china-global-ai-cooperation-organization';
+        // Immediate redirect to the React app
+        setTimeout(function() {
+            window.location.replace('https://betteraibots.com/news/china-global-ai-cooperation-organization');
+        }, 100);
     </script>
 </body>
 </html> 

@@ -60,9 +60,6 @@
     }
     </script>
     
-    <!-- Redirect to React app -->
-    <meta http-equiv="refresh" content="0;url=https://betteraibots.com/news/trump-ai-action-plan-global-leadership" />
-    
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -75,15 +72,23 @@
             font-size: 18px; 
             margin-top: 20px; 
         }
+        .redirect-link {
+            color: #00ff88;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <h1>Trump Unveils America's AI Action Plan</h1>
     <p>A comprehensive roadmap with 90+ policy actions to accelerate AI innovation, build infrastructure, and combat ideological bias in federal AI systems</p>
     <div class="loading">Loading article...</div>
+    <p>If you're not automatically redirected, <a href="https://betteraibots.com/news/trump-ai-action-plan-global-leadership" class="redirect-link">click here to view the full article</a></p>
     <script>
-        // Redirect to the React app
-        window.location.href = 'https://betteraibots.com/news/trump-ai-action-plan-global-leadership';
+        // Immediate redirect to the React app
+        setTimeout(function() {
+            window.location.replace('https://betteraibots.com/news/trump-ai-action-plan-global-leadership');
+        }, 100);
     </script>
 </body>
 </html> 
