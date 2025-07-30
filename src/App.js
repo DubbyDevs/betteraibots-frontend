@@ -2764,13 +2764,29 @@ function NewsArticle() {
         <meta name="description" content={article.excerpt} />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.excerpt} />
-        <meta property="og:image" content={article.image} />
+        <meta property="og:image" content={(() => {
+          // Convert relative image paths to absolute URLs for proper social sharing
+          const imageUrl = article.image;
+          if (typeof imageUrl === 'string' && imageUrl.startsWith('http')) {
+            return imageUrl;
+          }
+          // For require() imported images, we need to use the full domain
+          return `https://betteraibots.com${imageUrl}`;
+        })()} />
         <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.excerpt} />
-        <meta name="twitter:image" content={article.image} />
+        <meta name="twitter:image" content={(() => {
+          // Convert relative image paths to absolute URLs for proper social sharing
+          const imageUrl = article.image;
+          if (typeof imageUrl === 'string' && imageUrl.startsWith('http')) {
+            return imageUrl;
+          }
+          // For require() imported images, we need to use the full domain
+          return `https://betteraibots.com${imageUrl}`;
+        })()} />
         <meta name="article:published_time" content={article.date} />
         <meta name="article:author" content={article.author} />
         <meta name="article:section" content={article.category} />
@@ -2783,7 +2799,15 @@ function NewsArticle() {
             "@type": "NewsArticle",
             "headline": article.title,
             "description": article.excerpt,
-            "image": article.image,
+            "image": (() => {
+              // Convert relative image paths to absolute URLs for proper social sharing
+              const imageUrl = article.image;
+              if (typeof imageUrl === 'string' && imageUrl.startsWith('http')) {
+                return imageUrl;
+              }
+              // For require() imported images, we need to use the full domain
+              return `https://betteraibots.com${imageUrl}`;
+            })(),
             "author": {
               "@type": "Organization",
               "name": article.author,

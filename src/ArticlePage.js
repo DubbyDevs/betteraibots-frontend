@@ -128,13 +128,37 @@ export default function ArticlePage() {
         <meta name="description" content={article.preview} />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.preview} />
-        <meta property="og:image" content={images[0] || article.cover} />
+        <meta property="og:image" content={(() => {
+          // Article-specific Open Graph images for better social sharing
+          const ogImageMap = {
+            "paintr": "https://betteraibots.com/paintindetifierai.png",
+            "invideo-ai": "https://betteraibots.com/InVideoFreeTrial.png", 
+            "scholar-gpt": "https://betteraibots.com/bot-placeholder4.webp",
+            "vetgpt": "https://betteraibots.com/vetgpt-1.png",
+            "ai-fitness-coach": "https://betteraibots.com/bot-placeholder15.webp",
+            "cheat-coder": "https://betteraibots.com/cheatcoder.png",
+            "love-doc-ai": "https://betteraibots.com/bot-placeholder7.webp"
+          };
+          return ogImageMap[article.id] || images[0] || article.cover;
+        })()} />
         <meta property="og:url" content={shareUrl} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.preview} />
-        <meta name="twitter:image" content={images[0] || article.cover} />
+        <meta name="twitter:image" content={(() => {
+          // Article-specific Open Graph images for better social sharing
+          const ogImageMap = {
+            "paintr": "https://betteraibots.com/paintindetifierai.png",
+            "invideo-ai": "https://betteraibots.com/InVideoFreeTrial.png", 
+            "scholar-gpt": "https://betteraibots.com/bot-placeholder4.webp",
+            "vetgpt": "https://betteraibots.com/vetgpt-1.png",
+            "ai-fitness-coach": "https://betteraibots.com/bot-placeholder15.webp",
+            "cheat-coder": "https://betteraibots.com/cheatcoder.png",
+            "love-doc-ai": "https://betteraibots.com/bot-placeholder7.webp"
+          };
+          return ogImageMap[article.id] || images[0] || article.cover;
+        })()} />
         <meta name="article:published_time" content={article.date} />
         <meta name="article:author" content="BetterAiBots" />
         <meta name="article:section" content="AI Tools" />
@@ -147,7 +171,19 @@ export default function ArticlePage() {
             "@type": "Article",
             "headline": article.title,
             "description": article.preview,
-            "image": images[0] || article.cover,
+            "image": (() => {
+              // Article-specific Open Graph images for better social sharing
+              const ogImageMap = {
+                "paintr": "https://betteraibots.com/paintindetifierai.png",
+                "invideo-ai": "https://betteraibots.com/InVideoFreeTrial.png", 
+                "scholar-gpt": "https://betteraibots.com/bot-placeholder4.webp",
+                "vetgpt": "https://betteraibots.com/vetgpt-1.png",
+                "ai-fitness-coach": "https://betteraibots.com/bot-placeholder15.webp",
+                "cheat-coder": "https://betteraibots.com/cheatcoder.png",
+                "love-doc-ai": "https://betteraibots.com/bot-placeholder7.webp"
+              };
+              return ogImageMap[article.id] || images[0] || article.cover;
+            })(),
             "author": {
               "@type": "Organization",
               "name": "BetterAiBots",
@@ -181,6 +217,10 @@ export default function ArticlePage() {
         {/* Open GPT Button for specific articles (top, small) */}
         {(() => {
           const gptMap = {
+            "paintr": {
+              name: "PaintR",
+              link: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr"
+            },
             "vetgpt": {
               name: "VetGPT",
               link: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt"
@@ -381,6 +421,10 @@ export default function ArticlePage() {
       {/* Open GPT Button for other articles (bottom, large) */}
       {article.id !== 'scholar-gpt' && (() => {
         const gptMap = {
+          "paintr": {
+            name: "PaintR",
+            link: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr"
+          },
           "vetgpt": {
             name: "VetGPT",
             link: "https://chatgpt.com/g/g-ZR0aH16CQ-vetgpt"
