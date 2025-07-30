@@ -5,9 +5,19 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Enable prerendering for social media crawlers
-[context.production.environment]
-  PRERENDER = "true"
+# Netlify Functions configuration
+[functions]
+  directory = "netlify/functions"
 
-[context.deploy-preview.environment]
-  PRERENDER = "true" 
+# Redirects for news articles to use Netlify Functions
+[[redirects]]
+  from = "/news/*"
+  to = "/.netlify/functions/news-article"
+  status = 200
+  force = true
+
+# All other routes go to React app
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 
