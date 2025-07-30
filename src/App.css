@@ -732,13 +732,15 @@ img[alt="preview"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 16px;
-  margin-bottom: 10px;
-  gap: 54px;
-  z-index: 20;
+  gap: 0;
+  background: linear-gradient(135deg, #172d3e 0%, #101c26 100%);
+  border-bottom: 1px solid #36ff95;
+  padding: 0;
+  margin: 0;
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, #101c26 0%, #172d3e 100%); /* MATCHES body! */
+  z-index: 100;
+  box-shadow: 0 2px 20px #16ff6c20;
 }
 @media (min-width: 900px) {
   .nav-tabs-bar {
@@ -751,26 +753,27 @@ img[alt="preview"] {
 
 
 .nav-tab {
-  font-size: 1.32rem;
-  color: #36ff95;
-  font-weight: 700;
-  text-shadow: 0 0 8px #36ff958c;
-  text-decoration: none;
-  padding: 10px 22px;
-  border-radius: 13px;
-  transition: color 0.15s, background 0.16s, box-shadow 0.13s;
-  margin: 0 10px;
-  position: relative;
-  cursor: pointer;
-  background: none;
+  background: transparent;
   border: none;
+  color: #b5ffdb;
+  padding: 18px 32px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 0;
 }
 .nav-tab:hover, .nav-tab:focus {
-  background: #11222a;
-  color: #fff;
-  box-shadow: 0 0 18px #36ff95a8;
-  text-decoration: none;
-  outline: none;
+  background: linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%);
+  color: #101c26;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px #16ff6c40;
 }
 .nav-tab-dropdown {
   user-select: none;

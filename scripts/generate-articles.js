@@ -617,8 +617,8 @@ function generateArticleHTML(article) {
 <body>
     <!-- Header -->
     <div class="header">
-      <a href="https://betteraibots.com">
-        <img src="https://betteraibots.com/betteraibotsglowlogo8.png" class="header-logo" alt="BetterAiBots Logo" style="cursor: pointer" />
+      <a href="https://betteraibots.com" style="display: flex; justify-content: center; width: 100%;">
+        <img src="https://betteraibots.com/betteraiglowlogo.png" class="header-logo" alt="BetterAiBots Logo" style="cursor: pointer" />
       </a>
     </div>
     
