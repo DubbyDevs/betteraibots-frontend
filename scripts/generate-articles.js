@@ -1,42 +1,77 @@
 const fs = require('fs');
 const path = require('path');
 
-// News articles data
+// News articles data - EXACT MATCH to React app
 const newsArticles = [
   {
     slug: "trump-ai-action-plan-global-leadership",
-    title: "Trump's AI Action Plan: A New Era of Global Leadership",
-    excerpt: "Former President Trump unveils comprehensive artificial intelligence strategy, positioning America as the global leader in AI development and regulation.",
+    title: "Trump Unveils America's AI Action Plan: A Bold Strategy for Global AI Leadership",
+    excerpt: "A comprehensive roadmap with 90+ policy actions to accelerate AI innovation, build infrastructure, and combat ideological bias in federal AI systems",
     image: "https://betteraibots.com/trumpaiplan.png?v=2",
-    date: "2025-07-28",
+    date: "July 29, 2025",
     author: "BetterAiBots",
     category: "AI Policy",
     content: `
-      <p>Former President Trump has unveiled a comprehensive artificial intelligence strategy that positions America as the global leader in AI development and regulation. The plan, announced today, outlines a bold vision for maintaining American technological supremacy in the rapidly evolving AI landscape.</p>
-      
-      <p>The strategy focuses on three key pillars: innovation acceleration, responsible development, and international leadership. Trump emphasized the need for America to lead rather than follow in the AI revolution, calling it "the most important technological advancement of our time."</p>
-      
-      <p>"We cannot afford to let other nations dictate the future of AI," Trump stated during the announcement. "America must be at the forefront of this revolution, ensuring that our values and principles guide the development of these powerful technologies."</p>
-      
-      <p>The plan includes significant funding for AI research and development, streamlined regulatory frameworks, and international partnerships to establish global AI standards. Industry leaders have praised the comprehensive approach, noting its potential to accelerate innovation while maintaining safety and ethical considerations.</p>
+        <p>The Trump administration has launched a sweeping artificial intelligence strategy designed to cement America's position as the global AI superpower. On July 29, 2025, the White House released "Winning the AI Race: America's AI Action Plan," identifying over 90 Federal policy actions across three pillars – Accelerating Innovation, Building American AI Infrastructure, and Leading in International Diplomacy and Security.</p>
+        
+        <h3>Key Pillars of America's AI Action Plan</h3>
+        
+        <h4>Accelerating AI Innovation</h4>
+        <p>The plan prioritizes removing regulatory barriers that have historically hindered AI development. The administration will focus on "removing onerous Federal regulations that hinder AI development and deployment, and seek private sector input on rules to remove". This deregulatory approach aims to unleash American innovation in generative AI, machine learning, and other frontier technologies.</p>
+        
+        <p>A particularly significant aspect involves combating what the administration terms "woke AI." The plan requires AI companies doing business with the federal government to promote "ideological neutrality". Federal procurement guidelines will be updated to ensure that the government only contracts with frontier large language model developers who ensure that their systems are objective and free from top-down ideological bias.</p>
+        
+        <h4>Building American AI Infrastructure</h4>
+        <p>The infrastructure component addresses the massive computational demands of modern AI systems. The plan includes "promoting rapid buildout of data centers" by "expediting and modernizing permits for data centers and semiconductor fabs, as well as creating new national initiatives to increase high-demand occupations like electricians and HVAC technicians".</p>
+        
+        <p>This infrastructure push recognizes that AI supremacy requires not just algorithmic breakthroughs but also the physical computing power to support them. The emphasis on skilled trades training acknowledges the human capital needed to build and maintain AI infrastructure.</p>
+        
+        <h4>International Leadership and Security</h4>
+        <p>The global dimension of the AI Action Plan focuses on strengthening America's position relative to competitors like China. The Commerce and State Departments will partner with industry to deliver secure, full-stack AI export packages – including hardware, models, software, applications, and standards – to America's friends and allies around the world.</p>
+        
+        <p>This export strategy aims to create an American-led AI ecosystem that extends beyond U.S. borders, potentially limiting adversaries' access to cutting-edge AI technologies while strengthening partnerships with allied nations.</p>
+        
+        <h3>Political and Economic Implications</h3>
+        <p>The AI Action Plan reflects broader themes of the Trump administration's technology policy. The focus on preventing "political bias" in AI systems aligns with ongoing debates about content moderation and algorithmic fairness in social media platforms and search engines.</p>
+        
+        <p>AI-related stocks including Nvidia, AMD, Palantir Technologies, and Meta Platforms are seeing significant boosts from the plan, suggesting investor confidence in the policy's potential to accelerate AI adoption across sectors.</p>
+        
+        <h3>Looking Forward</h3>
+        <p>While the administration's AI policy is taking shape, experts note there's still significant work ahead. The success of America's AI Action Plan will depend heavily on implementation and coordination across federal agencies, as well as sustained investment in both research and infrastructure.</p>
+        
+        <p>The plan represents one of the most comprehensive AI strategies released by any administration, addressing everything from research funding to international competition. As AI continues to reshape industries from healthcare to defense, America's AI Action Plan positions the United States to maintain its technological edge in what many consider the defining technology of the 21st century.</p>
+        
+        <p>The full impact of these policies will unfold over the coming months as federal agencies begin implementing the plan's 90+ action items, potentially reshaping the landscape of American AI development and deployment.</p>
     `
   },
   {
     slug: "china-global-ai-cooperation-organization",
-    title: "China Launches Global AI Cooperation Organization",
-    excerpt: "Beijing establishes new international body to coordinate AI development standards and foster collaboration between nations.",
+    title: "China Proposes Global AI Cooperation Organization to Counter US Tech Strategy",
+    excerpt: "China announced plans for a new global AI cooperation organization with headquarters in Shanghai during the World AI Conference on July 26, 2025, marking a strategic response to America's AI Action Plan and positioning itself as a leader in international AI governance.",
     image: "https://betteraibots.com/chinaaiplans.png?v=2",
-    date: "2025-07-25",
+    date: "July 28, 2025",
     author: "BetterAiBots",
     category: "AI Policy",
     content: `
-      <p>China has announced the establishment of a new Global AI Cooperation Organization, marking a significant step in international AI governance. The organization aims to coordinate AI development standards and foster collaboration between nations in the rapidly evolving artificial intelligence landscape.</p>
-      
-      <p>The initiative, led by Beijing, brings together representatives from over 50 countries to establish common frameworks for AI development, safety protocols, and ethical guidelines. The organization will serve as a platform for sharing research, coordinating regulatory approaches, and addressing global AI challenges.</p>
-      
-      <p>"This represents a new era of international cooperation in AI development," stated the organization's founding director. "By working together, we can ensure that AI benefits all of humanity while addressing the complex challenges it presents."</p>
-      
-      <p>The organization will focus on areas including AI safety research, ethical development guidelines, and the establishment of international standards for AI systems. Experts believe this could significantly influence the future direction of global AI policy and development.</p>
+        <p>Chinese Premier Li Qiang announced China's ambitious plan to establish a global artificial intelligence cooperation organization at the opening of the 2025 World Artificial Intelligence Conference in Shanghai on July 26. This announcement represents China's most significant move yet in the escalating global AI competition, directly challenging US technological dominance through international cooperation.</p>
+        
+        <h3>Global AI Cooperation Organization: A New Framework</h3>
+        <p>The Chinese government has proposed the creation of a global artificial intelligence cooperation organization, with tentative plans to establish its headquarters in Shanghai. This initiative aims to create an alternative framework for international AI governance, emphasizing inclusive development and technology sharing, particularly with developing nations.</p>
+        
+        <p>The proposed organization represents China's practical response to the call of the Global South, aiming to bridge the digital and intelligent divide, and promote the development of AI for good and inclusive development. This approach contrasts sharply with the US strategy, which focuses on technology restrictions and alliance-building among developed nations.</p>
+        
+        <h3>Timing and Strategic Context</h3>
+        <p>The tech race between the world's two largest economies just intensified as China released a global action plan for artificial intelligence, calling for international cooperation on tech development and regulation. This announcement came just days after the White House unveiled "America's AI Action Plan," which emphasizes maintaining technological superiority and limiting China's access to advanced AI technologies.</p>
+        
+        <p>The three-day Shanghai conference brings together industry leaders and policymakers at a time of escalating technological competition between China and the United States — the world's two largest economies — with AI emerging as a key battleground.</p>
+        
+        <h3>Implications for Global AI Governance</h3>
+        <p>China's proposal for global AI cooperation represents a fundamental shift in how international AI governance might evolve. While the US focuses on building exclusive partnerships with allies and restricting technology exports, China is positioning itself as an inclusive leader that welcomes participation from all nations, especially developing countries.</p>
+        
+        <p>Building on the first Workshop on AI Capacity-Building this year, the Chinese government will hold 10 AI workshops and seminars primarily aimed at fellow developing countries by the end of 2025, demonstrating its commitment to technology transfer and capacity building in the Global South.</p>
+        
+        <h3>The Battle for AI Leadership</h3>
+        <p>This development signals that the global AI landscape is increasingly polarizing into two competing visions: the US model of technological exclusivity and alliance-based cooperation, versus China's inclusive, multilateral approach. The success of either strategy will likely determine the future structure of global AI governance and technology sharing.</p>
     `
   },
   {
