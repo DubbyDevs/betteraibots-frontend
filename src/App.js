@@ -2408,6 +2408,7 @@ export default function AppWithRouter() {
 // --- INDIVIDUAL NEWS ARTICLE PAGE ---
 function NewsArticle() {
   const { slug } = useParams();
+  console.log('NewsArticle component rendered with slug:', slug);
   
   const newsArticles = [
     {
@@ -2743,8 +2744,9 @@ function NewsArticle() {
     }
   ];
 
-  const article = newsArticles.find(article => article.slug === slug);
-
+    const article = newsArticles.find(article => article.slug === slug);
+  console.log('Article found:', article);
+  
   if (!article) {
     return (
       <div className="hero-section">
@@ -2759,11 +2761,13 @@ function NewsArticle() {
 
   return (
     <>
-      <Helmet>
+      <Helmet key={article.slug}>
         <title>{article.title} – BetterAiBots.com</title>
         <meta name="description" content={article.excerpt} />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.excerpt} />
+        <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
+        <meta property="og:type" content="article" />
         <meta property="og:image" content={(() => {
           // Article-specific Open Graph images for news articles
           const ogImageMap = {
@@ -2775,7 +2779,9 @@ function NewsArticle() {
             "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg",
             "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png"
           };
-          return ogImageMap[article.slug] || article.image;
+          const imageUrl = ogImageMap[article.slug] || article.image;
+          console.log('Open Graph image URL:', imageUrl);
+          return imageUrl;
         })()} />
         <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
         <meta property="og:type" content="article" />
@@ -2793,7 +2799,9 @@ function NewsArticle() {
             "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg",
             "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png"
           };
-          return ogImageMap[article.slug] || article.image;
+          const imageUrl = ogImageMap[article.slug] || article.image;
+          console.log('Twitter image URL:', imageUrl);
+          return imageUrl;
         })()} />
         <meta name="article:published_time" content={article.date} />
         <meta name="article:author" content={article.author} />
@@ -2818,7 +2826,9 @@ function NewsArticle() {
                 "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg",
                 "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png"
               };
-              return ogImageMap[article.slug] || article.image;
+              const imageUrl = ogImageMap[article.slug] || article.image;
+              console.log('Structured data image URL:', imageUrl);
+              return imageUrl;
             })(),
             "author": {
               "@type": "Organization",
