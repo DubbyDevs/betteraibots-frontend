@@ -2425,7 +2425,7 @@ export default function AppWithRouter() {
       domain={process.env.REACT_APP_AUTH0_DOMAIN}
       clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
               authorizationParams={{
-          redirect_uri: "https://betteraibots.com/moderation",
+          redirect_uri: "https://www.betteraibots.com/moderation",
           audience: process.env.REACT_APP_AUTH0_AUDIENCE,
         }}
     >
