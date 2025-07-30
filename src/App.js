@@ -394,24 +394,25 @@ const bots = assignBotImages(rawBots);
 function AuthButtons() {
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
 
-  if (isLoading) return <div style={{ color: "#36ff95" }}>Loading...</div>;
+  if (isLoading) return <div style={{ color: "#36ff95", textAlign: "center" }}>Loading...</div>;
 
   if (!isAuthenticated) {
     return (
-      <button className="header-btn" onClick={() => loginWithRedirect()}>
-        Admin Login
-      </button>
+      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+        <button className="header-btn" onClick={() => loginWithRedirect()}>
+          Admin Login
+        </button>
+      </div>
     );
   }
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, width: "100%" }}>
       <span style={{ color: "#36ff95", fontWeight: 600 }}>
         {user?.email}
       </span>
       <button
         className="header-btn"
         onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
-        style={{ marginLeft: 10 }}
       >
         Logout
       </button>
