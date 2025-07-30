@@ -320,99 +320,101 @@ function generateArticleHTML(article) {
         flex-wrap: wrap;
       }
       
+      /* Article Category - EXACT MATCH to React app */
       .article-category {
-        background: linear-gradient(45deg, #ff6b6b, #ffa500);
-        color: white;
+        background: linear-gradient(90deg, #09e269 0%, #0bbfdb 100%);
+        color: #101c26;
         padding: 6px 16px;
         border-radius: 20px;
-        font-size: 0.9em;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-shadow: 0 0 3px #16ff6c40;
+        box-shadow: 0 0 8px #16ff6c38;
       }
       
       .article-date, .article-read-time {
-        color: #888;
-        font-size: 1.1em;
+        color: #79f2c1;
+        font-weight: 500;
+        font-size: 0.95rem;
       }
       
       .article-title {
-        font-size: 2.8em;
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: #36ff95;
         margin-bottom: 20px;
-        background: linear-gradient(45deg, #00ff88, #00ccff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        font-weight: 700;
         line-height: 1.2;
+        text-shadow: 0 0 8px #36ff9540;
       }
       
       .article-excerpt {
-        font-size: 1.3em;
-        line-height: 1.6;
-        color: #ccc;
-        font-style: italic;
-        margin-bottom: 30px;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 1.3rem;
+        color: #d1efe7;
+        margin-bottom: 20px;
+        line-height: 1.5;
+        font-weight: 500;
       }
       
       .article-author {
         color: #36ff95;
         font-weight: 600;
-        font-size: 1.1em;
+        font-size: 1.1rem;
       }
       
       .article-image {
-        margin: 30px 0;
-        text-align: center;
+        margin-bottom: 40px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 6px 48px #0bbfdb25, 0 2px 6px #09e26922;
       }
       
       .article-image img {
-        max-width: 100%;
+        width: 100%;
         height: auto;
-        border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        display: block;
       }
       
       .article-content {
-        font-size: 1.1em;
-        line-height: 1.8;
-        color: #f8fafd;
-        max-width: 800px;
-        margin: 0 auto;
+        background: linear-gradient(135deg, #172d3e 0%, #101c26 100%);
+        border-radius: 24px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: 0 3px 38px #0bbfdb19, 0 1.5px 3px #09e26918;
+        border: 1px solid #36ff9522;
+        line-height: 1.7;
+        color: #e9f7ee;
       }
       
       .article-content h3 {
         color: #36ff95;
-        font-size: 1.8em;
-        margin-top: 40px;
-        margin-bottom: 20px;
+        font-size: 1.6rem;
         font-weight: 700;
+        margin: 30px 0 15px 0;
+        text-shadow: 0 0 6px #36ff9540;
       }
       
       .article-content h4 {
-        color: #00ccff;
-        font-size: 1.4em;
-        margin-top: 30px;
-        margin-bottom: 15px;
+        color: #0bbfdb;
+        font-size: 1.3rem;
         font-weight: 600;
+        margin: 25px 0 12px 0;
       }
       
       .article-content p {
         margin-bottom: 20px;
-        color: #f8fafd;
+        font-size: 1.1rem;
+        color: #e9f7ee;
       }
       
       .article-content ul {
-        margin-bottom: 20px;
+        margin: 20px 0;
         padding-left: 20px;
       }
       
       .article-content li {
-        margin-bottom: 10px;
-        color: #f8fafd;
+        margin-bottom: 12px;
+        font-size: 1.05rem;
+        color: #e9f7ee;
       }
       
       .article-content strong {
