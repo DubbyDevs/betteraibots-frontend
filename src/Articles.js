@@ -792,7 +792,16 @@ const promos = [
 function NewsTicker() {
   const [index, setIndex] = useState(0);
   React.useEffect(() => {
-    const timer = setInterval(() => setIndex(i => (i + 1) % promos.length), 4200);
+    const timer = setInterval(() => {
+      setIndex(i => {
+        try {
+          return (i + 1) % promos.length;
+        } catch (error) {
+          console.error('NewsTicker error:', error);
+          return 0;
+        }
+      });
+    }, 4200);
     return () => clearInterval(timer);
   }, []);
   return (
@@ -873,7 +882,7 @@ function ArticleCard({ article }) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        minHeight: 300,
+        minHeight: 380,
         maxWidth: 520,
         color: "#fff",
         textDecoration: "none",
@@ -891,10 +900,10 @@ function ArticleCard({ article }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginBottom: 14,
-          width: 120,
-          height: 120,
-          borderRadius: 20,
+          marginBottom: 16,
+          width: 165,
+          height: 165,
+          borderRadius: 24,
           background: "#22304a",
           boxShadow: "0 0 12px #36ff9522"
         }}>
@@ -903,25 +912,24 @@ function ArticleCard({ article }) {
           alt={`Cover for ${article.title}`}
           className="article-card-img"
           style={{
-            width: 100,
-            height: 100,
-            borderRadius: 16,
+            width: 145,
+            height: 145,
+            borderRadius: 20,
             objectFit: "cover",
-            boxShadow: "0 0 10px #0bbfdb33"
+            boxShadow: "0 0 28px #36ff95AA"
+          }}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = '/og-square.png';
           }}
         />
       </div>
-      {/* Read More Button (restored to original style) */}
-      <span className="read-more-btn" tabIndex={0}>
-        Read More
-      </span>
       {/* Title */}
       <div style={{
         fontWeight: 900,
         color: "#36ff95",
         fontSize: "1.32rem",
-        marginBottom: 5,
-        marginTop: 2,
+        marginBottom: 8,
         lineHeight: 1.17,
         textAlign: "center"
       }}>
@@ -932,22 +940,17 @@ function ArticleCard({ article }) {
         color: "#79f2c1",
         fontSize: "1.02rem",
         fontWeight: 500,
-        marginBottom: 7,
+        marginBottom: 16,
         textAlign: "center"
       }}>
         {article.date}
       </div>
-      {/* Preview */}
-      <div className="clamp-2-lines" style={{
-        color: "#e9f7ee",
-        fontSize: "1.05rem",
-        marginBottom: 3,
-        minHeight: 45,
-        maxHeight: 54,
-        textAlign: "center"
-      }}>
-        {article.preview}
-      </div>
+      {/* Spacer to push Read More button to bottom */}
+      <div style={{ flexGrow: 1 }}></div>
+      {/* Read More Button */}
+      <span className="read-more-btn" tabIndex={0}>
+        Read More
+      </span>
     </Link>
   );
 }
@@ -1169,8 +1172,8 @@ export default function Articles() {
   */
 
   return (
-    <div className="hero-section" style={{ maxWidth: 1100, margin: "0 auto", padding: "0 12px" }}>
-      <h1 className="hero-headline" style={{ marginBottom: 10 }}>BetterAiBots News & Articles</h1>
+    <div className="hero-section" style={{ maxWidth: 1100, margin: "40px auto 18px auto", padding: "0 12px" }}>
+      <h1 className="hero-headline" style={{ marginBottom: 10 }}>Learn AI With BetterAiBots</h1>
       <p className="hero-subheadline custom-hero-desc" style={{ marginBottom: 14 }}>
         Guides, spotlights, updates & ideas for every skill level.<br />
         <span style={{ color: "#36ff95", fontWeight: 600 }}>
@@ -1186,6 +1189,10 @@ export default function Articles() {
       src={featuredArticle.cover}
       alt={`Featured article cover: ${featuredArticle.title}`}
       className="feature-article-img"
+      onError={(e) => {
+        e.target.onerror = null;
+        e.target.src = '/og-square.png';
+      }}
     />
     <Link
       to={`/articles/${featuredArticle.id}`}
