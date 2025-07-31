@@ -272,6 +272,16 @@ const rawBots = [
     categories: ["Productivity", "Specialized Knowledge"]
   },
   {
+    title: "n8n - AI Workflow Automation",
+    desc: "Build AI agents and automate workflows with the world's most popular open-source automation platform.",
+    image: "/n8nai.jpg",
+    free: false,
+    openaiLink: "https://n8n.partnerlinks.io/wjt1744jflsx",
+    isAffiliate: true,
+    categories: ["Productivity", "AI"],
+    freeLabel: "Free Trial"
+  },
+  {
     title: "Accounting GPT",
     desc: "AI-powered accounting help, bookkeeping, and finance questions answered.",
     image: placeholderImg10,
@@ -295,7 +305,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
     categories: ["Health & Wellness", "Lifestyle"]
   },
-   {
+  {
     title: "InVideo",
     desc: "Create stunning AI videos from text with professional editing tools and 16M+ stock media.",
     image: InVideoFreeTrialPng,
@@ -344,14 +354,7 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-y2J4bAO8A-ai-music-prompt-generator",
     categories: ["Music", "Creative Tools"]
   },
-  {
-    title: "Stocks, Crypto, Options & Forex Market Summary",
-    desc: "Summaries for stocks, crypto, options, forex and market analysis.",
-    image: placeholderImg20,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-5wVuKfpEt-stocks-crypto-options-forex-market-summary",
-    categories: ["Productivity"]
-  },
+
  
   {
     title: "Logo",
@@ -1010,7 +1013,7 @@ function BotGrid({ bots, onOpenModal }) {
         />
       </div>
       {bots.map((bot, i) => (
-        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}`} key={i}>
+        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}`} key={i}>
           {bot.isAffiliate ? (
             <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
               <img

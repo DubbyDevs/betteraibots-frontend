@@ -328,6 +328,12 @@ color: transparent;
   position: static;
 }
 
+/* Fix for n8n bot image white line */
+.bot-card.n8n-bot .bot-image {
+  object-position: center 10%;
+  transform: scale(1.01);
+}
+
 .bot-card .bot-title {
   font-size: 1.18rem;
   font-weight: 700;
