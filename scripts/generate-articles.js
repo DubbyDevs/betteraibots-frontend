@@ -133,7 +133,7 @@ const newsArticles = [
     title: "Microsoft Copilot Pro is Transforming the Daily Grind",
     excerpt: "How AI integration in Office apps is saving workers hours every day—and changing the way we think about productivity.",
     image: "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg?v=2",
-    date: "2025-06-01",
+    date: "2025-06-07",
     author: "BetterAiBots",
     category: "AI Productivity",
     content: `
@@ -151,7 +151,7 @@ const newsArticles = [
     title: "Anthropic's Claude 3.5 Sonnet Raises the Bar for AI Reasoning",
     excerpt: "Latest model demonstrates unprecedented logical thinking and problem-solving capabilities across complex scenarios.",
     image: "https://betteraibots.com/claudecode.png?v=2",
-    date: "2025-05-14",
+    date: "2025-06-01",
     author: "BetterAiBots",
     category: "AI Development",
     content: `

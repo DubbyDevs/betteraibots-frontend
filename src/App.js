@@ -713,7 +713,7 @@ function News() {
         <p>For now, Copilot Pro offers a glimpse of that future, making AI assistance a natural part of the workday rather than a separate tool that requires special effort to use. That integration, more than any specific feature, may be its most revolutionary aspect.</p>
       `,
       author: "BetterAiBots",
-      date: "June 1, 2025",
+      date: "June 7, 2025",
       category: "AI Productivity",
       image: require('./assets/mocrosoftcopilotaifreebots.jpg'),
       featured: false,
@@ -776,7 +776,7 @@ function News() {
         <p>The model's success suggests that the future of AI development may depend less on building systems that can do everything and more on building systems that can be trusted to do what they claim to do. In a world increasingly skeptical of overconfident AI claims, that kind of reliability might be the most revolutionary feature of all.</p>
       `,
       author: "BetterAiBots",
-      date: "May 14, 2025",
+      date: "June 1, 2025",
       category: "AI Development",
       image: require('./assets/claudecode.png'),
       featured: false,
@@ -2823,7 +2823,7 @@ function NewsArticle() {
         <p>For now, Copilot Pro offers a glimpse of that future, making AI assistance a natural part of the workday rather than a separate tool that requires special effort to use. That integration, more than any specific feature, may be its most revolutionary aspect.</p>
       `,
       author: "BetterAiBots",
-      date: "June 1, 2025",
+      date: "June 7, 2025",
       category: "AI Productivity",
       image: require('./assets/mocrosoftcopilotaifreebots.jpg'),
       featured: false,
@@ -2886,7 +2886,7 @@ function NewsArticle() {
         <p>The model's success suggests that the future of AI development may depend less on building systems that can do everything and more on building systems that can be trusted to do what they claim to do. In a world increasingly skeptical of overconfident AI claims, that kind of reliability might be the most revolutionary feature of all.</p>
       `,
       author: "BetterAiBots",
-      date: "May 14, 2025",
+      date: "June 1, 2025",
       category: "AI Development",
       image: require('./assets/claudecode.png'),
       featured: false,
