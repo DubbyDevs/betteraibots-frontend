@@ -882,11 +882,12 @@ function ArticleCard({ article }) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        minHeight: 380,
-        maxWidth: 520,
+        width: 398,
+        height: 444,
+        maxWidth: 398,
         color: "#fff",
         textDecoration: "none",
-        margin: "0 auto",
+        margin: "1px auto 0 auto",
         transition: "box-shadow 0.17s, border 0.14s",
         position: "relative"
       }}
@@ -916,7 +917,9 @@ function ArticleCard({ article }) {
             height: 145,
             borderRadius: 20,
             objectFit: "cover",
-            boxShadow: "0 0 28px #36ff95AA"
+            objectPosition: "center",
+            boxShadow: "0 0 28px #36ff95AA",
+            display: "block"
           }}
           onError={(e) => {
             e.target.onerror = null;
