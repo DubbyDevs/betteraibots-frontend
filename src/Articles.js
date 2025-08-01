@@ -882,9 +882,9 @@ function ArticleCard({ article }) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        width: 398,
+        width: 480,
         height: 444,
-        maxWidth: 398,
+        maxWidth: 480,
         color: "#fff",
         textDecoration: "none",
         margin: "1px auto 0 auto",
@@ -901,10 +901,10 @@ function ArticleCard({ article }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginBottom: 16,
-          width: 165,
-          height: 165,
-          borderRadius: 24,
+          marginBottom: 18,
+          width: 182,
+          height: 182,
+          borderRadius: 26,
           background: "#22304a",
           boxShadow: "0 0 12px #36ff9522"
         }}>
@@ -913,9 +913,9 @@ function ArticleCard({ article }) {
           alt={`Cover for ${article.title}`}
           className="article-card-img"
           style={{
-            width: 145,
-            height: 145,
-            borderRadius: 20,
+            width: 160,
+            height: 160,
+            borderRadius: 22,
             objectFit: "cover",
             objectPosition: "center",
             boxShadow: "0 0 28px #36ff95AA",
@@ -931,8 +931,8 @@ function ArticleCard({ article }) {
       <div style={{
         fontWeight: 900,
         color: "#36ff95",
-        fontSize: "1.32rem",
-        marginBottom: 8,
+        fontSize: "1.45rem",
+        marginBottom: 9,
         lineHeight: 1.17,
         textAlign: "center"
       }}>
@@ -941,9 +941,9 @@ function ArticleCard({ article }) {
       {/* Date */}
       <div style={{
         color: "#79f2c1",
-        fontSize: "1.02rem",
+        fontSize: "1.12rem",
         fontWeight: 500,
-        marginBottom: 16,
+        marginBottom: 18,
         textAlign: "center"
       }}>
         {article.date}
