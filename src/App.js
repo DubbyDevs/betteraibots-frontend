@@ -1126,7 +1126,7 @@ function BotGrid({ bots, onOpenModal }) {
         />
       </div>
       {bots.map((bot, i) => (
-        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}`} key={i}>
+        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}${bot.title === "AI Music Maker" ? ' ai-music-maker' : ''}${bot.title === "Accounting GPT" ? ' accounting-gpt' : ''}`} key={i}>
           {bot.isAffiliate ? (
             <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
               <img
@@ -2336,19 +2336,9 @@ function FooterWithWallets() {
             style={{
               height: 44,
               width: "auto",
-              borderRadius: 12,
               marginRight: 13,
-              background: "#18232f",
-              boxShadow: "none",
-              transition: "box-shadow 0.25s"
+              background: "transparent"
             }}
-            onMouseOver={e =>
-              (e.currentTarget.style.boxShadow =
-                "0 0 28px #36ff95cc, 0 2px 18px #16ff6c40")
-            }
-            onMouseOut={e =>
-              (e.currentTarget.style.boxShadow = "none")
-            }
             draggable={false}
           />
         </div>

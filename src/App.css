@@ -334,6 +334,15 @@ color: transparent;
   transform: scale(1.01);
 }
 
+/* Fix for AI Music Maker and Accounting GPT to show full avatars */
+.bot-card.ai-music-maker .bot-image,
+.bot-card.accounting-gpt .bot-image {
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #1a2330 !important;
+  transform: scale(0.9) !important;
+}
+
 .bot-card .bot-title {
   font-size: 1.18rem;
   font-weight: 700;
