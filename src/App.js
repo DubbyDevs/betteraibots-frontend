@@ -275,7 +275,7 @@ const rawBots = [
   {
     title: "n8n - AI Workflow Automation",
     desc: "Build AI agents and automate workflows with the world's most popular open-source automation platform.",
-    image: "/n8nai.jpg",
+    image: "/n8nai.webp",
     free: false,
     openaiLink: "https://n8n.partnerlinks.io/wjt1744jflsx",
     isAffiliate: true,
@@ -1176,11 +1176,21 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       <Helmet>
         <title>BetterAiBots.com – Curated OpenAI GPT Bots Directory</title>
         <meta name="description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
-        <meta property="og:title" content="BetterAiBots.com" />
-        <meta property="og:description" content="Curated OpenAI GPT directory: Find, install, and share the best AI bots." />
-        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
-        <meta property="og:url" content="https://betteraibots.com/" />
+        
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://betteraibots.com/" />
+        <meta property="og:title" content="BetterAiBots.com – Curated OpenAI GPT Bots Directory" />
+        <meta property="og:description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="BetterAiBots.com" />
+        
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://betteraibots.com/" />
+        <meta property="twitter:title" content="BetterAiBots.com – Curated OpenAI GPT Bots Directory" />
+        <meta property="twitter:description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
+        <meta property="twitter:image" content="https://betteraibots.com/og-image.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

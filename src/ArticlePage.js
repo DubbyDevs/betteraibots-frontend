@@ -131,7 +131,7 @@ export default function ArticlePage() {
         <meta property="og:image" content={(() => {
           // Article-specific Open Graph images for better social sharing
           const ogImageMap = {
-            "paintr": "https://betteraibots.com/assets/paintindetifierai.png",
+            "paintr": "https://betteraibots.com/paintindetifierai.webp",
             "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
             "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
@@ -149,7 +149,7 @@ export default function ArticlePage() {
         <meta name="twitter:image" content={(() => {
           // Article-specific Open Graph images for better social sharing
           const ogImageMap = {
-            "paintr": "https://betteraibots.com/assets/paintindetifierai.png",
+            "paintr": "https://betteraibots.com/paintindetifierai.webp",
             "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
             "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
@@ -174,7 +174,7 @@ export default function ArticlePage() {
             "image": (() => {
               // Article-specific Open Graph images for better social sharing
               const ogImageMap = {
-                "paintr": "https://betteraibots.com/assets/paintindetifierai.png",
+                "paintr": "https://betteraibots.com/paintindetifierai.webp",
                 "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
                 "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
                 "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",

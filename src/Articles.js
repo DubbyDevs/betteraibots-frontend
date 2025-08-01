@@ -6,7 +6,7 @@ import VetGPT3 from "./assets/vetgpt-3.png";
 import placeholderImg4 from "./assets/bot-placeholder4.webp";
 import placeholderImg7 from "./assets/bot-placeholder7.webp";
 
-import paintindetifierai from "./assets/paintindetifierai.png";
+const paintindetifierai = "/paintindetifierai.webp";
 import invideofreetrialai from "./assets/invideofreetrialai.png";
 import InVideoFreeTrialPng from "./assets/InVideoFreeTrial.png";
 import cheatCoderImg from "./assets/cheatcoder.png";
