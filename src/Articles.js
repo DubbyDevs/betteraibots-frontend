@@ -1,3 +1,5 @@
+const paintindetifierai = "/paintindetifierai.webp";
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import VetGPT1 from "./assets/vetgpt-1.png";
@@ -5,8 +7,6 @@ import VetGPT2 from "./assets/vetgpt-2.png";
 import VetGPT3 from "./assets/vetgpt-3.png";
 import placeholderImg4 from "./assets/bot-placeholder4.webp";
 import placeholderImg7 from "./assets/bot-placeholder7.webp";
-
-const paintindetifierai = "/paintindetifierai.webp";
 import invideofreetrialai from "./assets/invideofreetrialai.png";
 import InVideoFreeTrialPng from "./assets/InVideoFreeTrial.png";
 import cheatCoderImg from "./assets/cheatcoder.png";
