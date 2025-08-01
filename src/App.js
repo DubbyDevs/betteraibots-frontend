@@ -3033,7 +3033,7 @@ function NewsArticle() {
             "ai-reshaping-employment-tech-layoffs-new-jobs-2025": "https://betteraibots.com/aiemploymentjobs.jpg?v=2",
             "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2"
           };
-          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
+          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.jpg?v=2";
           console.log('Open Graph image URL:', imageUrl);
           return imageUrl;
         })()} />
@@ -3053,7 +3053,7 @@ function NewsArticle() {
             "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg?v=2",
             "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png?v=2"
           };
-          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
+          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.jpg?v=2";
           console.log('Twitter image URL:', imageUrl);
           return imageUrl;
         })()} />
@@ -3080,7 +3080,7 @@ function NewsArticle() {
                 "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg?v=2",
                 "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png?v=2"
               };
-              const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
+              const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.jpg?v=2";
               console.log('Structured data image URL:', imageUrl);
               return imageUrl;
             })(),
