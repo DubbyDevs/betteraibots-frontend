@@ -198,13 +198,14 @@ const rawBots = [
     categories: ["Productivity"]
   },
   {
-    title: "Blood Test Result Analysis",
-    desc: "Understand your blood test results and get actionable health insights. Not real medical advice.",
-    image: placeholderImg24,
+    title: "Paintr",
+    desc: "Identify any exact color of paint in seconds!", 
+    image: placeholderImg31,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-1AahKhimZ-blood-test-result-analysis-for-health-insight",
-    categories: ["Health & Wellness", "Education"]
+    openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
+    categories: ["Specialized Knowledge"] 
   },
+  
   {
     title: "Cooking, Diet, Recipes, Nutrition",
     desc: "Personalized recipes, diet plans, nutrition tips, and food cooking advice in one spot.",
@@ -214,12 +215,12 @@ const rawBots = [
     categories: ["Health & Wellness", "Lifestyle"]
   },
   {
-    title: "Paintr",
-    desc: "Identify any exact color of paint in seconds!", 
-    image: placeholderImg31,
+    title: "Blood Test Result Analysis",
+    desc: "Understand your blood test results and get actionable health insights. Not real medical advice.",
+    image: placeholderImg24,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
-    categories: ["Specialized Knowledge"] 
+    openaiLink: "https://chatgpt.com/g/g-1AahKhimZ-blood-test-result-analysis-for-health-insight",
+    categories: ["Health & Wellness", "Education"]
   },
   {
     title: "Fitness Workout Diet PhD Coach",
@@ -2337,7 +2338,8 @@ function FooterWithWallets() {
               height: 44,
               width: "auto",
               marginRight: 13,
-              background: "transparent"
+              background: "transparent",
+              display: "block"
             }}
             draggable={false}
           />
