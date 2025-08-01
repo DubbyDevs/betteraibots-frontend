@@ -1324,7 +1324,7 @@ function Contact() {
           property="og:description"
           content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
         />
-        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png" />
         <meta property="og:url" content="https://betteraibots.com/contact" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -1368,7 +1368,7 @@ function Legal() {
         <meta name="robots" content="noindex" />
         <meta property="og:title" content="Legal, Terms & Privacy – BetterAiBots.com" />
         <meta property="og:description" content="Legal info, privacy policy, and terms of use for BetterAiBots.com." />
-        <meta property="og:image" content="/betteraibotsglowlogo8.png" />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png" />
         <meta property="og:url" content="https://betteraibots.com/legal" />
         <meta property="og:type" content="website" />
       </Helmet>
