@@ -1699,6 +1699,12 @@ img[alt="preview"] {
   box-shadow: 0 6px 48px #0bbfdb25, 0 2px 6px #09e26922;
 }
 
+.featured-news-image-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .featured-news-image {
   position: relative;
   border-radius: 24px;
@@ -1836,6 +1842,12 @@ img[alt="preview"] {
 .news-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 48px #0bbfdb25, 0 2px 6px #09e26922;
+}
+
+.news-card-image-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .news-card-image {
