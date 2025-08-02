@@ -59,10 +59,10 @@ const newsArticles = [
   },
   {
     slug: "anthropic-claude-35-sonnet-reasoning",
-    title: "Anthropic's Claude 3.5 Sonnet Raises the Bar for AI Reasoning",
-    excerpt: "Latest model demonstrates unprecedented logical thinking and problem-solving capabilities across complex scenarios.",
+    title: "Anthropic Unveils Claude 4: A New Era of AI Capability and Safety",
+    excerpt: "The latest generation of constitutional AI brings unprecedented reasoning, coding excellence, and enhanced safety features",
     image: "https://betteraibots.com/claudecode.png?v=2",
-    date: "2025-06-30",
+    date: "2025-06-01",
     author: "BetterAiBots",
     category: "AI Development"
   }
