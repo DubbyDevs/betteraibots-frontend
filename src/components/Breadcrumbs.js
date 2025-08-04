@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Breadcrumbs = () => {
   const location = useLocation();
-  const params = useParams();
   const pathSegments = location.pathname.split('/').filter(segment => segment);
 
   // Don't show breadcrumbs on home page
