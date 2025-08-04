@@ -79,7 +79,7 @@ export default function ArticlePage() {
   if (!article) {
     return (
       <div style={{ padding: 40, textAlign: "center" }}>
-        <h2>Article not found.</h2>
+        <h2>BetterAiBots Article Not Found</h2>
         <Link to="/articles" style={{ color: "#0bbfdb" }}>Back to Articles</Link>
       </div>
     );

@@ -457,7 +457,7 @@ function News() {
     {
       id: 0,
       title: "The n8n Revolution: How One Platform is Transforming Business",
-      excerpt: "n8n users are achieving remarkable results that are reshaping how we think about workflow automation",
+      excerpt: "BetterAiBots explores how n8n users are achieving remarkable results that are reshaping business automation. Discover AI-powered workflow automation transforming industries with 230,000+ active users and 500% revenue growth.",
       content: `
         <p>In an era where digital efficiency determines competitive advantage, one platform has quietly emerged as a game-changer in the automation landscape. n8n, the open-source workflow automation tool, is empowering users to achieve extraordinary results that extend far beyond simple task automation. From saving companies months of development time to enabling entirely new business models, the real-world applications of n8n are redefining what's possible in the realm of business process automation.</p>
         
@@ -1282,9 +1282,9 @@ function News() {
   return (
     <>
       <Helmet>
-        <title>AI News & Updates – BetterAiBots.com</title>
+        <title>AI Bots & Tools News – BetterAiBots.com</title>
         <meta name="description" content="Latest news, updates, and insights from the world of AI bots and artificial intelligence." />
-        <meta property="og:title" content="AI News & Updates – BetterAiBots.com" />
+        <meta property="og:title" content="AI Bots & Tools News – BetterAiBots.com" />
         <meta property="og:description" content="Stay informed with the latest AI news, bot updates, and industry insights." />
         <meta property="og:url" content="https://betteraibots.com/news" />
         <link rel="canonical" href="https://betteraibots.com/news" />
@@ -1604,9 +1604,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       <CategoryBar showCategoryBar={showCategoryBar} toggleCategoryBar={toggleCategoryBar} />
       
       <div className="hero-section">
-        <h1 className="hero-headline">Discover & Share The Best AI Bots</h1>
+        <h1 className="hero-headline">BetterAiBots: Discover & Share The Best AI Bots & Tools</h1>
         <p className="hero-subheadline custom-hero-desc">
-          Find better AI Bots to help improve workflow, improve your skills!
+          Find AI Bots to help improve workflow and improve your skills!
         </p>
       </div>
       <div className="site-disclaimer">
@@ -1709,12 +1709,12 @@ function Contact() {
   return (
     <div className="hero-section">
       <Helmet>
-        <title>Contact Us – BetterAiBots.com</title>
+        <title>Contact AI Bots & Tools – BetterAiBots.com</title>
         <meta
           name="description"
           content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
         />
-        <meta property="og:title" content="Contact Us – BetterAiBots.com" />
+        <meta property="og:title" content="Contact AI Bots & Tools – BetterAiBots.com" />
         <meta
           property="og:description"
           content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
@@ -1760,15 +1760,15 @@ function Legal() {
   return (
     <div className="hero-section" style={{ maxWidth: 900, margin: "auto" }}>
       <Helmet>
-        <title>Legal & Terms – BetterAiBots.com</title>
+        <title>AI Bots & Tools Legal Terms – BetterAiBots.com</title>
         <meta name="robots" content="noindex" />
-        <meta property="og:title" content="Legal, Terms & Privacy – BetterAiBots.com" />
+        <meta property="og:title" content="AI Bots & Tools Legal Terms – BetterAiBots.com" />
         <meta property="og:description" content="Legal info, privacy policy, and terms of use for BetterAiBots.com." />
         <meta property="og:image" content="https://betteraibots.com/og-image.png" />
         <meta property="og:url" content="https://betteraibots.com/legal" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <h1 className="hero-headline">Legal, Terms & Disclaimers</h1>
+      <h1 className="hero-headline">BetterAiBots Legal, Terms & Disclaimers</h1>
       <div style={{
         textAlign: "left", margin: "30px auto", fontSize: "1.15rem", color: "#e9f7ee",
         background: "#172d3e", borderRadius: 18, padding: "36px 28px", boxShadow: "0 2px 22px #09e26924"
@@ -1960,7 +1960,7 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
           <AuthButtons />
         </div>
-        <h1 className="hero-headline">Moderation</h1>
+        <h1 className="hero-headline">BetterAiBots Content Moderation</h1>
         <div style={{ 
           textAlign: "center", 
           color: "#fff", 
@@ -1983,7 +1983,7 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
         <AuthButtons />
       </div>
-      <h1 className="hero-headline">Moderation</h1>
+      <h1 className="hero-headline">BetterAiBots Content Moderation</h1>
       <div style={{ margin: "25px 0 40px 0", background: "#101c26", padding: 22, borderRadius: 18, boxShadow: "0 1px 10px #36ff9522" }}>
         <Button
           style={{ background: "#36ff95", color: "#101c26", border: "none", fontWeight: 700, marginBottom: 10 }}
@@ -2964,7 +2964,7 @@ function NewsArticle() {
     {
       id: 0,
       title: "The n8n Revolution: How One Platform is Transforming Business",
-      excerpt: "n8n users are achieving remarkable results that are reshaping how we think about workflow automation",
+      excerpt: "BetterAiBots explores how n8n users are achieving remarkable results that are reshaping business automation. Discover AI-powered workflow automation transforming industries with 230,000+ active users and 500% revenue growth.",
       content: `
         <p>In an era where digital efficiency determines competitive advantage, one platform has quietly emerged as a game-changer in the automation landscape. n8n, the open-source workflow automation tool, is empowering users to achieve extraordinary results that extend far beyond simple task automation. From saving companies months of development time to enabling entirely new business models, the real-world applications of n8n are redefining what's possible in the realm of business process automation.</p>
         
@@ -3792,7 +3792,7 @@ function NewsArticle() {
   if (!article) {
     return (
       <div className="hero-section">
-        <h1 className="hero-headline">Article Not Found</h1>
+        <h1 className="hero-headline">Page Not Found - BetterAiBots</h1>
         <p className="hero-subheadline custom-hero-desc">
           The article you're looking for doesn't exist.
         </p>

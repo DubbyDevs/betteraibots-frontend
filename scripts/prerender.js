@@ -15,7 +15,7 @@ const newsArticles = [
   {
     slug: "landmark-legal-victory-ai-copyright-training",
     title: "Landmark Legal Victory: How AI Companies Won the Right to Train on Copyrighted Content",
-    excerpt: "Federal court rulings in favor of Anthropic and Meta establish groundbreaking precedent that could reshape the entire AI industry and creative economy",
+    excerpt: "BetterAiBots reports on landmark federal court rulings in favor of Anthropic and Meta establishing groundbreaking precedent for AI copyright training. This legal victory could reshape the entire AI industry and creative economy.",
     image: "https://betteraibots.com/legalwinforai.png",
     date: "2025-08-03",
     author: "BetterAiBots",
@@ -24,7 +24,7 @@ const newsArticles = [
   {
     slug: "trump-ai-action-plan-global-leadership",
     title: "Trump's AI Action Plan: A New Era of Global Leadership",
-    excerpt: "Former President Trump unveils comprehensive artificial intelligence strategy, positioning America as the global leader in AI development and regulation.",
+    excerpt: "BetterAiBots covers Trump's comprehensive artificial intelligence strategy, positioning America as the global leader in AI development and regulation.",
     image: "https://betteraibots.com/trumpaiplan.png?v=2",
     date: "2025-07-28",
     author: "BetterAiBots",
@@ -33,7 +33,7 @@ const newsArticles = [
   {
     slug: "china-global-ai-cooperation-organization",
     title: "China Launches Global AI Cooperation Organization",
-    excerpt: "Beijing establishes new international body to coordinate AI development standards and foster collaboration between nations.",
+    excerpt: "BetterAiBots reports on Beijing's new international body to coordinate AI development standards and foster collaboration between nations.",
     image: "https://betteraibots.com/chinaaiplans.png?v=2",
     date: "2025-07-25",
     author: "BetterAiBots",
@@ -42,7 +42,7 @@ const newsArticles = [
   {
     slug: "openai-gpt5-revolutionary-multimodal-ai",
     title: "OpenAI Unveils GPT-5: Revolutionary Multimodal AI Model",
-    excerpt: "The latest iteration promises unprecedented capabilities in understanding and generating text, images, and video simultaneously.",
+    excerpt: "BetterAiBots explores OpenAI's latest iteration promising unprecedented capabilities in understanding and generating text, images, and video simultaneously.",
     image: "https://betteraibots.com/openaigpt5announced.jpg?v=2",
     date: "2025-07-28",
     author: "BetterAiBots",
@@ -51,7 +51,7 @@ const newsArticles = [
   {
     slug: "google-gemini-pro-100-million-users",
     title: "Google's Gemini Pro Surpasses 100 Million Users in Record Time",
-    excerpt: "AI assistant achieves unprecedented adoption rate, outpacing all previous artificial intelligence products.",
+    excerpt: "BetterAiBots reports on Google's AI assistant achieving unprecedented adoption rate, outpacing all previous artificial intelligence products.",
     image: "https://betteraibots.com/googlegemininews.jpg?v=2",
     date: "2025-07-25",
     author: "BetterAiBots",
@@ -60,7 +60,7 @@ const newsArticles = [
   {
     slug: "meta-llama-3-open-source-ai",
     title: "Meta's Llama 3 is Changing the Game for Open-Source AI",
-    excerpt: "The tech giant's latest model is winning over developers with its impressive capabilities and free accessibility.",
+    excerpt: "BetterAiBots covers Meta's latest model winning over developers with its impressive capabilities and free accessibility.",
     image: "https://betteraibots.com/llama3news.jpg?v=2",
     date: "2025-06-02",
     author: "BetterAiBots",
@@ -69,7 +69,7 @@ const newsArticles = [
   {
     slug: "microsoft-copilot-pro-productivity",
     title: "Microsoft Copilot Pro is Transforming the Daily Grind",
-    excerpt: "How AI integration in Office apps is saving workers hours every day—and changing the way we think about productivity.",
+    excerpt: "BetterAiBots explores how Microsoft's AI integration in Office apps is saving workers hours every day—and changing the way we think about productivity.",
     image: "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg?v=2",
     date: "2025-04-20",
     author: "BetterAiBots",
@@ -78,7 +78,7 @@ const newsArticles = [
   {
     slug: "anthropic-claude-35-sonnet-reasoning",
     title: "Anthropic Unveils Claude 4: A New Era of AI Capability and Safety",
-    excerpt: "The latest generation of constitutional AI brings unprecedented reasoning, coding excellence, and enhanced safety features",
+    excerpt: "BetterAiBots covers Anthropic's latest generation of constitutional AI bringing unprecedented reasoning, coding excellence, and enhanced safety features",
     image: "https://betteraibots.com/claudecode.png?v=2",
     date: "2025-06-01",
     author: "BetterAiBots",

@@ -6,7 +6,7 @@ const newsArticles = [
   {
     slug: "n8n-revolution-business-automation-2025",
     title: "The n8n Revolution: How One Platform is Transforming Business",
-    excerpt: "n8n users are achieving remarkable results that are reshaping how we think about workflow automation",
+    excerpt: "BetterAiBots explores how n8n users are achieving remarkable results that are reshaping business automation. Discover AI-powered workflow automation transforming industries with 230,000+ active users and 500% revenue growth.",
     image: "https://betteraibots.com/n8nforb2b.png",
     date: "August 4, 2025",
     author: "BetterAiBots",
@@ -138,7 +138,7 @@ const newsArticles = [
   {
     slug: "landmark-legal-victory-ai-copyright-training",
     title: "Landmark Legal Victory: How AI Companies Won the Right to Train on Copyrighted Content",
-    excerpt: "Federal court rulings in favor of Anthropic and Meta establish groundbreaking precedent that could reshape the entire AI industry and creative economy",
+    excerpt: "BetterAiBots reports on landmark federal court rulings in favor of Anthropic and Meta establishing groundbreaking precedent for AI copyright training. This legal victory could reshape the entire AI industry and creative economy.",
     image: "https://betteraibots.com/legalwinforai.png",
     date: "August 3, 2025",
     author: "BetterAiBots",
