@@ -4,6 +4,24 @@ const path = require('path');
 // News articles data (matching the React app)
 const newsArticles = [
   {
+    slug: "n8n-revolution-business-automation-2025",
+    title: "The n8n Revolution: How One Platform is Transforming Business",
+    excerpt: "n8n users are achieving remarkable results that are reshaping how we think about workflow automation",
+    image: "https://betteraibots.com/n8nforb2b.png",
+    date: "2025-08-04",
+    author: "BetterAiBots",
+    category: "AI Development"
+  },
+  {
+    slug: "landmark-legal-victory-ai-copyright-training",
+    title: "Landmark Legal Victory: How AI Companies Won the Right to Train on Copyrighted Content",
+    excerpt: "Federal court rulings in favor of Anthropic and Meta establish groundbreaking precedent that could reshape the entire AI industry and creative economy",
+    image: "https://betteraibots.com/legalwinforai.png",
+    date: "2025-08-03",
+    author: "BetterAiBots",
+    category: "AI Policy"
+  },
+  {
     slug: "trump-ai-action-plan-global-leadership",
     title: "Trump's AI Action Plan: A New Era of Global Leadership",
     excerpt: "Former President Trump unveils comprehensive artificial intelligence strategy, positioning America as the global leader in AI development and regulation.",
