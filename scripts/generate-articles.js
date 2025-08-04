@@ -696,6 +696,7 @@ function generateArticleHTML(article) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${article.title} | BetterAiBots</title>
     <meta name="description" content="${article.excerpt}">
+    <link rel="canonical" href="https://betteraibots.com/news/${article.slug}" />
     
     <!-- Open Graph -->
     <meta property="og:url" content="https://betteraibots.com/news/${article.slug}">

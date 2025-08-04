@@ -128,6 +128,7 @@ export default function ArticlePage() {
         <meta name="description" content={article.preview} />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.preview} />
+        <link rel="canonical" href={`https://betteraibots.com/articles/${article.id}`} />
         <meta property="og:image" content={(() => {
           // Article-specific Open Graph images for better social sharing
           const ogImageMap = {

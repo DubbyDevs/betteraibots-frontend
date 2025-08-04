@@ -1287,6 +1287,7 @@ function News() {
         <meta property="og:title" content="AI News & Updates – BetterAiBots.com" />
         <meta property="og:description" content="Stay informed with the latest AI news, bot updates, and industry insights." />
         <meta property="og:url" content="https://betteraibots.com/news" />
+        <link rel="canonical" href="https://betteraibots.com/news" />
       </Helmet>
       
       <div className="hero-section">
@@ -1568,6 +1569,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         <title>BetterAiBots.com – Curated OpenAI GPT Bots Directory</title>
         <meta name="description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
         <meta name="keywords" content="AI bots, ChatGPT, OpenAI GPT, free AI tools, AI automation, productivity bots, BetterAiBots, artificial intelligence tools, GPT bots, AI workflow, automation tools, free bots" />
+        <link rel="canonical" href="https://betteraibots.com/" />
         
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://betteraibots.com/" />
@@ -1647,6 +1649,7 @@ const CATEGORY_REVERSE = {
         />
         <meta property="og:title" content={`${catName} Bots – BetterAiBots.com`} />
         <meta property="og:url" content={`https://betteraibots.com/${encodeURIComponent(cat)}`} />
+        <link rel="canonical" href={`https://betteraibots.com/${encodeURIComponent(cat)}`} />
 
       </Helmet>
       <div className="hero-section">
@@ -1716,6 +1719,7 @@ function Contact() {
           property="og:description"
           content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
         />
+        <link rel="canonical" href="https://betteraibots.com/contact" />
         <meta property="og:image" content="https://betteraibots.com/og-image.png" />
         <meta property="og:url" content="https://betteraibots.com/contact" />
         <meta property="og:type" content="website" />
@@ -3805,6 +3809,7 @@ function NewsArticle() {
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.excerpt} />
         <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
+        <link rel="canonical" href={`https://betteraibots.com/news/${article.slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={(() => {
           // Article-specific Open Graph images for news articles

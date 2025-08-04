@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import VetGPT1 from "./assets/vetgpt-1.png";
 import VetGPT2 from "./assets/vetgpt-2.png";
 import VetGPT3 from "./assets/vetgpt-3.png";
@@ -1175,7 +1176,24 @@ export default function Articles() {
   */
 
   return (
-    <div className="hero-section" style={{ maxWidth: 1100, margin: "40px auto 18px auto", padding: "0 12px" }}>
+    <>
+      <Helmet>
+        <title>Learn AI With BetterAiBots – Articles & Guides</title>
+        <meta name="description" content="Explore guides, spotlights, and updates on AI tools like VetGPT, ScholarGPT, and Love Doc at BetterAiBots.com. Submit your own articles!" />
+        <meta name="keywords" content="AI tools, VetGPT, ScholarGPT, Love Doc, pet care AI, academic research AI, relationship coaching AI, free AI bots" />
+        <meta property="og:title" content="Learn AI With BetterAiBots – Articles & Guides" />
+        <meta property="og:description" content="Discover the latest AI tools for pet care, academic research, and emotional wellness. Read articles and submit your own at BetterAiBots.com!" />
+        <meta property="og:url" content="https://betteraibots.com/articles" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Learn AI With BetterAiBots – Articles & Guides" />
+        <meta name="twitter:description" content="Discover the latest AI tools for pet care, academic research, and emotional wellness." />
+        <meta name="twitter:image" content="https://betteraibots.com/og-image.png" />
+        <link rel="canonical" href="https://betteraibots.com/articles" />
+      </Helmet>
+      
+      <div className="hero-section" style={{ maxWidth: 1100, margin: "40px auto 18px auto", padding: "0 12px" }}>
       <h1 className="hero-headline" style={{ marginBottom: 10 }}>Learn AI With BetterAiBots</h1>
       <p className="hero-subheadline custom-hero-desc" style={{ marginBottom: 14 }}>
         Guides, spotlights, updates & ideas for every skill level.<br />
@@ -1280,5 +1298,6 @@ export default function Articles() {
         <span>🛡️ All articles are reviewed by moderators before publishing.</span>
       </div>
     </div>
+    </>
   );
 }
