@@ -60,6 +60,8 @@ import GoogleAnalytics from "./GoogleAnalytics";
 import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
 import InVideoFreeTrialPng from './assets/InVideoFreeTrial.png';
 import ArticlePage from "./ArticlePage";
+import PWAInstallPrompt from './components/PWAInstallPrompt';
+import Breadcrumbs from './components/Breadcrumbs';
 
 
 
@@ -2319,6 +2321,7 @@ function App() {
           />
         )}
       </div>
+      <Breadcrumbs />
       <HamburgerMenu open={menuOpen && isMobile} onClose={() => setMenuOpen(false)} />
       <Routes>
         <Route path="/" element={
@@ -2343,6 +2346,7 @@ function App() {
       </Routes>
       <DisclaimerBar />
       <FooterWithWallets />
+      <PWAInstallPrompt />
       
       {/* Floating Chat Button (opens search) */}
       {!showSearchBubble && (
