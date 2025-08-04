@@ -2788,7 +2788,7 @@ function FooterWithWallets() {
           textAlign: "center",
           fontWeight: 500,
           letterSpacing: 0.05,
-          marginBottom: 6
+          marginBottom: "-15px"
         }}
       >
         <span style={{ color: "#fff" }}>
