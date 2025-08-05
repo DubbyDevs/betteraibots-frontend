@@ -117,7 +117,7 @@ PaintR is an assistive AI tool and does not guarantee perfect color match under 
   {
     id: "invideo-ai",
     title: "InVideo AI Review: The Ultimate AI Video Generator Transforming Content Creation",
-    date: "July 2025",
+    date: "June 2025",
     cover: InVideoFreeTrialPng,
     preview: "InVideo AI is revolutionizing video content creation with cutting-edge artificial intelligence, enabling creators, marketers, and businesses to produce professional-quality videos in minutes without technical expertise.",
     images: [invideofreetrialai],
@@ -306,7 +306,7 @@ This review is based on extensive testing and user feedback. InVideo AI is a pow
   {
     id: "scholar-gpt",
     title: "Exclusive Interview with ScholarGPT: The AI Research Assistant Revolutionizing Academia",
-    date: "July 2025",
+    date: "May 2025",
     cover: placeholderImg4,
     preview: "Scholar GPT is revolutionizing academic research and study workflows with advanced AI-powered literature review, citation management, and personalized learning tools.",
     images: [placeholderImg4],
@@ -391,7 +391,7 @@ Conducted by BetterAiBots.com
   {
     id: "vetgpt",
     title: "Meet VetGPT: The Free AI Assistant for Pet Parents",
-    date: "June 2025",
+    date: "April 2025",
     cover: VetGPT1,
     preview: 'When It\'s 10 PM and Your Pet\'s Acting "Off" — You\'re Not Alone Anymore. Here\'s why VetGPT is the best, safest, and most accessible way to get honest pet help—day or night.',
     images: [VetGPT1, VetGPT2, VetGPT3],
@@ -513,7 +513,7 @@ VetGPT is an educational and informational AI tool. It is not a veterinarian and
   {
     id: "ai-fitness-coach",
     title: "AI Fitness Workout & Diet Coach",
-    date: "June 2025",
+    date: "March 2025",
     cover: fitnessCoachImg,
     preview: "How the PhD Coach GPT is changing the game for safe, science-based fitness and nutrition guidance—plus an exclusive interview.",
     content: <AIFitnessCoachInterview />
@@ -521,7 +521,7 @@ VetGPT is an educational and informational AI tool. It is not a veterinarian and
   {
     id: "cheat-coder",
     title: "Cheat Coder: The free AI Bot That Makes Coding a Breeze",
-    date: "June 2025",
+    date: "February 2025",
     cover: cheatCoderImg,
     preview: "Cheat Coder, built on GPT-4, is redefining AI-assisted programming with full-solution generation, educational integration, and collaborative workflows for developers of all skill levels.",
     images: [cheatCoderImg, cheatCoderLogo],
@@ -681,7 +681,7 @@ To begin working with Cheat Coder, simply describe your programming challenge or
   {
     id: "love-doc-ai",
     title: "Love Doc: Your Free AI Relationship Coach",
-    date: "May 2025",
+    date: "January 2025",
     cover: placeholderImg7,
     preview: "Relationship questions? Dating drama? Love Doc is a safe place to get honest, AI-powered advice—no signup, no judgment, just help.",
     images: [],
