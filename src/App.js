@@ -243,14 +243,7 @@ const rawBots = [
     categories: ["Health & Wellness", "Lifestyle"]
   },
  
-  {
-    title: "AI Video Maker",
-    desc: "Create AI-generated videos instantly.",
-    image: placeholderImg22, // Changed from placeholderImg1
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-68736569e14c81919097d15d1302fb50-video-creator",
-    categories: ["Creative Tools", "Productivity"]
-  },
+  
   {
     title: "AI Music Maker",
     desc: "Turn your words or lyrics into music with this AI-powered music generator.",
@@ -258,6 +251,14 @@ const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/g/g-rLVq3NTrN-ai-music-maker-song-words-to-music-free",
     categories: ["Music", "Creative Tools"]
+  },
+  {
+    title: "AI Video Maker",
+    desc: "Create AI-generated videos instantly.",
+    image: placeholderImg22, // Changed from placeholderImg1
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-68736569e14c81919097d15d1302fb50-video-creator",
+    categories: ["Creative Tools", "Productivity"]
   },
   {
     title: "Glibatree Art Designer",
