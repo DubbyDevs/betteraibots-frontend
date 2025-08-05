@@ -26,10 +26,6 @@ export const articles = [
     preview: "PaintR is changing the game for designers, decorators, and DIYers by instantly identifying exact paint colors from any image—free, fast, and simple.",
     images: [paintindetifierai],
     content: `
-PaintR is changing the game for designers, decorators, and DIYers by instantly identifying exact paint colors from any image—free, fast, and simple.
-
-*Conducted by BetterAiBots.com*
-
 ### 🎙️ Interview Questions & Answers with PaintR
 
 **BAIB:** Can you introduce yourself to our readers? What is PaintR?
