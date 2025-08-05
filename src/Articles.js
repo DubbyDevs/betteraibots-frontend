@@ -883,39 +883,45 @@ function ArticleCard({ article }) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        width: 480,
-        height: 444,
+        width: "100%",
         maxWidth: 480,
+        minWidth: 280,
+        height: 444,
         color: "#fff",
         textDecoration: "none",
         margin: "1px auto 0 auto",
         transition: "box-shadow 0.17s, border 0.14s",
-        position: "relative"
+        position: "relative",
+        boxSizing: "border-box"
       }}
       onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 42px #36ff95AA"; }}
       onMouseOut={e => { e.currentTarget.style.boxShadow = "0 0 32px #0bbfdb1A"; }}
     >
       {/* Image */}
-      <div
-        className="article-card-img-wrap"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginBottom: 18,
-          width: 182,
-          height: 182,
-          borderRadius: 26,
-          background: "#22304a",
-          boxShadow: "0 0 12px #36ff9522"
-        }}>
+              <div
+          className="article-card-img-wrap"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: 18,
+            width: "100%",
+            maxWidth: 182,
+            height: "auto",
+            aspectRatio: "1/1",
+            borderRadius: 26,
+            background: "#22304a",
+            boxShadow: "0 0 12px #36ff9522"
+          }}>
         <img
           src={article.cover}
           alt={`Cover for ${article.title}`}
           className="article-card-img"
           style={{
-            width: 160,
-            height: 160,
+            width: "100%",
+            maxWidth: 160,
+            height: "auto",
+            aspectRatio: "1/1",
             borderRadius: 22,
             objectFit: "cover",
             objectPosition: "center",
