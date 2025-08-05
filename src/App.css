@@ -471,10 +471,10 @@ color: transparent;
 /* Chat Button */
 .chat-btn {
   position: fixed;
-  bottom: 22px;
-  right: 22px;
-  width: 70px;
-  height: 70px;
+  bottom: 20px;
+  right: 20px;
+  width: 57px;
+  height: 57px;
   border-radius: 50%;
   background: linear-gradient(120deg, #09e269 0%, #0bbfdb 100%);
   box-shadow: 0 3px 22px #0bbfdb68;
