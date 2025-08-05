@@ -2376,6 +2376,42 @@ function App() {
       <FooterWithWallets showPWAInstallButton={true} onPWAInstallClick={() => setShowPWAInstallPrompt(true)} />
       <PWAInstallPrompt isVisible={showPWAInstallPrompt} onClose={() => setShowPWAInstallPrompt(false)} />
       
+      {/* Scroll to Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        style={{
+          position: 'fixed',
+          bottom: 20,
+          left: 20,
+          width: 40,
+          height: 40,
+          background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+          border: 'none',
+          borderRadius: '50%',
+          cursor: 'pointer',
+          zIndex: 99,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+          transition: 'all 0.2s ease',
+          fontSize: '18px',
+          color: '#101c26',
+          fontWeight: 'bold'
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 6px 16px rgba(54, 255, 149, 0.4)';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 4px 12px rgba(54, 255, 149, 0.3)';
+        }}
+        title="Scroll to top"
+      >
+        ↑
+      </button>
+
       {/* Floating Chat Button (opens search) */}
       {!showSearchBubble && (
         <button
@@ -2607,6 +2643,18 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
   const [showTip, setShowTip] = React.useState(false);
   const [btcCopied, setBtcCopied] = React.useState(false);
   const [solCopied, setSolCopied] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const BTC = "bc1qnswf7fyzkrwczkmlm9ann6rkmzcp0jd4jvzwxw";
   const SOL = "GCowBrjFfoXctJTQxwNgUuhCvuzD9hE4tHgBLWL39UR8";
@@ -2825,13 +2873,13 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
           alignItems: "center",
           justifyContent: "center",
           flexWrap: "wrap",
-          gap: "8px"
+          gap: "12px"
         }}
       >
         <span style={{ color: "#fff" }}>
           © {new Date().getFullYear()} BetterAiBots.com
         </span>
-        <span style={{ color: "#b5ffdb" }}>|</span>
+        {!isMobile && <span style={{ color: "#b5ffdb" }}>|</span>}
         <Link
           to="/legal"
           style={{
@@ -2845,24 +2893,35 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
         >
           Legal, Terms & Privacy
         </Link>
-        <span style={{ color: "#b5ffdb" }}>|</span>
-        <span style={{ color: "#fff" }}>Powered by </span>
-        <a
-          href="https://Dubby.fun"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            background: "linear-gradient(90deg, #36ff95, #ffd700)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            fontWeight: 700,
-            textDecoration: "none",
-            fontFamily: "Inter, Arial, sans-serif"
-          }}
-        >
-          DubbyDevs
-        </a>
+        {!isMobile && <span style={{ color: "#b5ffdb" }}>|</span>}
+                        <div style={{
+                  display: "flex",
+                  alignItems: "center",
+                  minWidth: "140px",
+                  justifyContent: "center"
+                }}>
+                  <span style={{ color: "#fff" }}>
+                    Powered by{" "}
+                  </span>
+                  <a
+                    href="https://Dubby.fun"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      background: "linear-gradient(90deg, #36ff95, #ffd700)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                      fontWeight: 700,
+                      textDecoration: "none",
+                      fontFamily: "Inter, Arial, sans-serif",
+                      display: "inline",
+                      verticalAlign: "baseline"
+                    }}
+                  >
+                    DubbyDevs
+                  </a>
+                </div>
       </div>
     </footer>
   );
