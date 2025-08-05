@@ -59,6 +59,7 @@ import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import GoogleAnalytics from "./GoogleAnalytics";
 import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
 import InVideoFreeTrialPng from './assets/InVideoFreeTrial.png';
+import adcreativeaiImg from './assets/adcreativeai.png';
 import ArticlePage from "./ArticlePage";
 import PWAInstallPrompt from './components/PWAInstallPrompt';
 import Breadcrumbs from './components/Breadcrumbs';
@@ -138,6 +139,24 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-684426fa2a588191aabb529e9ca6e26f-cheat-coder",
     categories: ["Productivity"]
   },
+  {
+    title: "n8n - AI Workflow Automation",
+    desc: "Build AI agents and automate workflows with the world's most popular open-source automation platform.",
+    image: "/n8nai.webp",
+    free: false,
+    openaiLink: "https://n8n.partnerlinks.io/wjt1744jflsx",
+    isAffiliate: true,
+    categories: ["Productivity", "AI"],
+    freeLabel: "Free Trial"
+  },
+  {
+    title: "Astrology Birth Chart GPT",
+    desc: "Personalized astrological insights based on your birth date, time, and location.",
+    image: placeholderImg30,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-WxckXARTP-astrology-birth-chart-gpt",
+    categories: ["Specialized Knowledge", "Lifestyle"]
+  },
   
   
   // ... const rawBots = [
@@ -161,27 +180,6 @@ const rawBots = [
     categories: ["Productivity"]
   },
 
-  
- 
-  {
-    title: "Astrology Birth Chart GPT",
-    desc: "Personalized astrological insights based on your birth date, time, and location.",
-    image: placeholderImg30,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-WxckXARTP-astrology-birth-chart-gpt",
-    categories: ["Specialized Knowledge", "Lifestyle"]
-  },
-  {
-    title: "InVideo AI",
-    desc: "The Future of Video Creation Is Here!",
-    image: InVideoFreeTrialImg,
-    free: false, // We'll use a custom badge below
-    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
-    isAffiliate: true,
-    affiliateHtml: `<a rel="sponsored" href="https://invideo.sjv.io/c/6368097/2210623/12258" target="_top" id="2210623"><img src="//a.impactradius-go.com/display-ad/12258-2210623" border="0" alt="" width="500" height="500"/></a><img height="0" width="0" src="https://imp.pxf.io/i/6368097/2210623/12258" style="position:absolute;visibility:hidden;" border="0" />`,
-    categories: ["Creative Tools"],
-    freeLabel: "Free Trial"
-  },
   {
     title: "Health & Medicine",
     desc: "General health and wellness info powered by AI. Not a substitute for professional medical advice.",
@@ -223,6 +221,17 @@ const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/g/g-1AahKhimZ-blood-test-result-analysis-for-health-insight",
     categories: ["Health & Wellness", "Education"]
+  },
+  {
+    title: "InVideo AI",
+    desc: "The Future of Video Creation Is Here!",
+    image: InVideoFreeTrialImg,
+    free: false, // We'll use a custom badge below
+    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
+    isAffiliate: true,
+    affiliateHtml: `<a rel="sponsored" href="https://invideo.sjv.io/c/6368097/2210623/12258" target="_top" id="2210623"><img src="//a.impactradius-go.com/display-ad/12258-2210623" border="0" alt="" width="500" height="500"/></a><img height="0" width="0" src="https://imp.pxf.io/i/6368097/2210623/12258" style="position:absolute;visibility:hidden;" border="0" />`,
+    categories: ["Creative Tools"],
+    freeLabel: "Free Trial"
   },
   {
     title: "Fitness Workout Diet PhD Coach",
@@ -275,16 +284,6 @@ const rawBots = [
     categories: ["Productivity", "Specialized Knowledge"]
   },
   {
-    title: "n8n - AI Workflow Automation",
-    desc: "Build AI agents and automate workflows with the world's most popular open-source automation platform.",
-    image: "/n8nai.webp",
-    free: false,
-    openaiLink: "https://n8n.partnerlinks.io/wjt1744jflsx",
-    isAffiliate: true,
-    categories: ["Productivity", "AI"],
-    freeLabel: "Free Trial"
-  },
-  {
     title: "Accounting GPT",
     desc: "AI-powered accounting help, bookkeeping, and finance questions answered.",
     image: placeholderImg10,
@@ -301,12 +300,31 @@ const rawBots = [
     categories: ["Education"]
   },
   {
+    title: "AdCreative.ai",
+    desc: "Generate conversion-focused ad creatives, texts, photoshoots, and videos that outperform competitors.",
+    image: adcreativeaiImg,
+    free: false,
+    openaiLink: "https://free-trial.adcreative.ai/0dkpoiajb7o2",
+    isAffiliate: true,
+    categories: ["Creative Tools", "Productivity"],
+    freeLabel: "Free Trial"
+  },
+  {
     title: "The Love Doc",
     desc: "Relationship and dating advice (Not a real doctor)",
     image: placeholderImg7,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
     categories: ["Health & Wellness", "Lifestyle"]
+  },
+  
+  {
+    title: "Math AI",
+    desc: "Math solver and explainer: equations, word problems, and more.",
+    image: placeholderImg33,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-WP1diWHRl-math",
+    categories: ["Education"]
   },
   {
     title: "InVideo",
@@ -317,15 +335,6 @@ const rawBots = [
     categories: ["Creative Tools", "Productivity"]
   },
   {
-    title: "Math AI",
-    desc: "Math solver and explainer: equations, word problems, and more.",
-    image: placeholderImg33,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-WP1diWHRl-math",
-    categories: ["Education"]
-  },
- 
-  {
     title: "Crypto Sentiment Tracker",
     desc: "Analyze real-time crypto sentiment and trends with one click. (Not financial advice)",
     image: placeholderImg13,
@@ -333,20 +342,21 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-6834013bf6288191ab9eaabe31591539-crypto-sentiment-tracker",
     categories: ["Productivity"]
   },
-  {
-    title: "DesignerGPT",
-    desc: "AI-powered design assistant for digital art, logos, and graphics.",
-    image: placeholderImg16,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-2Eo3NxuS7-designergpt",
-    categories: ["Creative Tools"] // Changed from ["Digital Art"]
-  },
+  
    {
     title: "GIF Generator",
     desc: "Quickly create custom GIFs on any topic or mood. Fun and easy to use.",
     image: placeholderImg6,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-45WfVCFcy-gif-generator",
+    categories: ["Creative Tools"]
+  },
+  {
+    title: "Logo",
+    desc: "Design professional brand logos with this AI-powered logo creation expert.",
+    image: placeholderImg32,
+    free: true,
+    openaiLink: "https://chatgpt.com/g/g-pCq5xaCri-logo",
     categories: ["Creative Tools"]
   },
   {
@@ -359,14 +369,7 @@ const rawBots = [
   },
 
  
-  {
-    title: "Logo",
-    desc: "Design professional brand logos with this AI-powered logo creation expert.",
-    image: placeholderImg32,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-pCq5xaCri-logo",
-    categories: ["Creative Tools"]
-  },
+  
 ];
 
 // Find the indexes of the affiliate ad and Cooking, Diet, Recipes, Nutrition & Food bot
