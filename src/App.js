@@ -453,6 +453,38 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
 
 // --- NEWS PAGE ---
 function News() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 825);
+
+  // Function to format date based on screen size
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    
+    if (isMobile) {
+      // Show only month and day on mobile
+      return date.toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric' 
+      });
+    } else {
+      // Show full date on desktop
+      return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+    }
+  };
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 825);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const newsArticles = [
     {
       id: 0,
@@ -1315,7 +1347,7 @@ function News() {
               <p className="featured-news-excerpt">{article.excerpt}</p>
               <div className="featured-news-meta">
                 <span className="news-author">By {article.author}</span>
-                <span className="news-date">{article.date}</span>
+                <span className="news-date">{formatDate(article.date)}</span>
               </div>
               <Link to={`/news/${article.slug}`} className="read-more-btn">Read Full Article</Link>
             </div>
@@ -1342,7 +1374,7 @@ function News() {
                 <div className="news-card-bottom-section">
                   <Link to={`/news/${article.slug}`} className="read-more-btn-small">Read Full Article</Link>
                   <div className="news-card-meta-right">
-                    <span className="news-date">{article.date}</span>
+                    <span className="news-date">{formatDate(article.date)}</span>
                   </div>
                 </div>
               </div>
