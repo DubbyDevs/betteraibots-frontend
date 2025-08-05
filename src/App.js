@@ -222,15 +222,15 @@ const rawBots = [
     openaiLink: "https://chatgpt.com/g/g-1AahKhimZ-blood-test-result-analysis-for-health-insight",
     categories: ["Health & Wellness", "Education"]
   },
+  
   {
-    title: "InVideo AI",
-    desc: "The Future of Video Creation Is Here!",
-    image: InVideoFreeTrialImg,
-    free: false, // We'll use a custom badge below
-    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
+    title: "AdCreative.ai",
+    desc: "Generate conversion-focused ad creatives, texts, photoshoots, and videos that outperform competitors.",
+    image: adcreativeaiImg,
+    free: false,
+    openaiLink: "https://free-trial.adcreative.ai/0dkpoiajb7o2",
     isAffiliate: true,
-    affiliateHtml: `<a rel="sponsored" href="https://invideo.sjv.io/c/6368097/2210623/12258" target="_top" id="2210623"><img src="//a.impactradius-go.com/display-ad/12258-2210623" border="0" alt="" width="500" height="500"/></a><img height="0" width="0" src="https://imp.pxf.io/i/6368097/2210623/12258" style="position:absolute;visibility:hidden;" border="0" />`,
-    categories: ["Creative Tools"],
+    categories: ["Creative Tools", "Productivity"],
     freeLabel: "Free Trial"
   },
   {
@@ -300,13 +300,14 @@ const rawBots = [
     categories: ["Education"]
   },
   {
-    title: "AdCreative.ai",
-    desc: "Generate conversion-focused ad creatives, texts, photoshoots, and videos that outperform competitors.",
-    image: adcreativeaiImg,
-    free: false,
-    openaiLink: "https://free-trial.adcreative.ai/0dkpoiajb7o2",
+    title: "InVideo AI",
+    desc: "The Future of Video Creation Is Here!",
+    image: InVideoFreeTrialImg,
+    free: false, // We'll use a custom badge below
+    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
     isAffiliate: true,
-    categories: ["Creative Tools", "Productivity"],
+    affiliateHtml: `<a rel="sponsored" href="https://invideo.sjv.io/c/6368097/2210623/12258" target="_top" id="2210623"><img src="//a.impactradius-go.com/display-ad/12258-2210623" border="0" alt="" width="500" height="500"/></a><img height="0" width="0" src="https://imp.pxf.io/i/6368097/2210623/12258" style="position:absolute;visibility:hidden;" border="0" />`,
+    categories: ["Creative Tools"],
     freeLabel: "Free Trial"
   },
   {
