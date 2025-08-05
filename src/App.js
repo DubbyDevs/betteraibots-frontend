@@ -1431,7 +1431,7 @@ function HamburgerMenu({ open, onClose }) {
 
 
 // --- HEADER with AUTH BUTTONS ---
-function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile, onToggleAnimation, animationPaused }) {
+function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile, onToggleAnimation, animationPaused, onPWAInstallClick }) {
   return (
     <div className="header">
       <Link to="/">
@@ -1445,7 +1445,29 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
             value={searchValue}
             onChange={e => setSearchValue(e.target.value)}
           />
-          <button className="header-btn" onClick={onOpenModal}>Submit Bot</button>
+                              <button 
+                      className="header-btn" 
+                      onClick={onPWAInstallClick}
+                      style={{
+                        background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
+                        color: "#101c26",
+                        border: "none",
+                        padding: "8px 16px",
+                        borderRadius: "8px",
+                        fontSize: "0.9rem",
+                        fontWeight: "600",
+                        cursor: "pointer",
+                        transition: "all 0.2s",
+                        fontFamily: "Inter, Arial, sans-serif",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px"
+                      }}
+                      onMouseOver={(e) => e.target.style.transform = "translateY(-1px)"}
+                      onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
+                    >
+                      Install App
+                    </button>
           <span
             className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
             onClick={onToggleAnimation}
@@ -2153,6 +2175,7 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [showSearchBubble, setShowSearchBubble] = useState(false);
   const [bubbleSearch, setBubbleSearch] = useState("");
+  const [showPWAInstallPrompt, setShowPWAInstallPrompt] = useState(false);
   const [form, setForm] = useState({
     gptName: "",
     gptDesc: "",
@@ -2287,6 +2310,7 @@ function App() {
         isMobile={isMobile}
         onToggleAnimation={() => setAnimationPaused(v => !v)}
         animationPaused={animationPaused}
+        onPWAInstallClick={() => setShowPWAInstallPrompt(true)}
       />
       {showStickyLogo && isMobile && (
   <div
@@ -2349,8 +2373,8 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <DisclaimerBar />
-      <FooterWithWallets />
-      <PWAInstallPrompt />
+      <FooterWithWallets showPWAInstallButton={true} onPWAInstallClick={() => setShowPWAInstallPrompt(true)} />
+      <PWAInstallPrompt isVisible={showPWAInstallPrompt} onClose={() => setShowPWAInstallPrompt(false)} />
       
       {/* Floating Chat Button (opens search) */}
       {!showSearchBubble && (
@@ -2363,8 +2387,8 @@ function App() {
             src={require('./assets/findthebestaibotshelper.png')}
             alt="Chat Bot Helper"
             style={{
-              width: 64,
-              height: 64,
+              width: 54,
+              height: 54,
               borderRadius: "50%",
               boxShadow: "0 0 18px #36ff9588, 0 0 32px #1affad55",
               background: "transparent",
@@ -2579,7 +2603,7 @@ function App() {
 }
 
 // --- FOOTER WITH WALLETS ---
-function FooterWithWallets() {
+function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) {
   const [showTip, setShowTip] = React.useState(false);
   const [btcCopied, setBtcCopied] = React.useState(false);
   const [solCopied, setSolCopied] = React.useState(false);
@@ -2607,7 +2631,6 @@ function FooterWithWallets() {
         marginTop: 0,
         background: "linear-gradient(90deg, #172d3e 0%, #18232f 100%)",
         color: "#b5ffdb",
-        borderRadius: "18px 18px 0 0",
         boxShadow: "0 -2px 24px #16ff6c16",
         padding: "10px 10px 0px 10px",
         fontSize: "1.01rem",
@@ -2616,7 +2639,7 @@ function FooterWithWallets() {
         userSelect: "none",
       }}
     >
-      <div
+              <div
         style={{
           display: "flex",
           alignItems: "center",
@@ -2625,7 +2648,7 @@ function FooterWithWallets() {
           width: "100%",
           fontWeight: 600,
           fontSize: "1.07rem",
-          padding: "10px 0 18px 0",
+          padding: "10px 0 10px 0",
           flexWrap: "wrap",
           position: "relative"
         }}
@@ -2745,42 +2768,50 @@ function FooterWithWallets() {
             style={{
               height: 44,
               width: "auto",
-              marginRight: 13,
+              marginRight: 5,
               background: "transparent",
-              display: "block"
+              display: "block",
+              boxShadow: showTip ? "none" : "0 0 0 transparent",
+              transition: "box-shadow 0.24s"
             }}
             draggable={false}
           />
         </div>
-        <div
-  style={{
-    color: "#fff",
-    display: "flex",
-    alignItems: "center",
-    position: "relative"
-  }}
->
-  <span>Powered by </span>
-  <a
-    href="https://Dubby.fun"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{
-      background: "linear-gradient(90deg, #36ff95, #ffd700)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      backgroundClip: "text",
-      fontWeight: 700,
-      textDecoration: "none",
-      marginLeft: 6,
-      fontFamily: "Inter, Arial, sans-serif"
-    }}
-  >
-    DubbyDevs
-  </a>
-</div>
 
       </div>
+      
+      {showPWAInstallButton && onPWAInstallClick && (
+        <div style={{ 
+          textAlign: "center", 
+          paddingBottom: "10px",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center"
+        }}>
+          <button
+            onClick={onPWAInstallClick}
+            style={{
+              background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
+              color: "#101c26",
+              border: "none",
+              padding: "7px 14px",
+              borderRadius: "7px",
+              fontSize: "0.81rem",
+              fontWeight: "600",
+              cursor: "pointer",
+              transition: "all 0.2s",
+              fontFamily: "Inter, Arial, sans-serif",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px"
+            }}
+            onMouseOver={(e) => e.target.style.transform = "translateY(-1px)"}
+            onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
+          >
+            📱 Install App
+          </button>
+        </div>
+      )}
       <div
         style={{
           fontSize: "0.94rem",
@@ -2788,13 +2819,19 @@ function FooterWithWallets() {
           textAlign: "center",
           fontWeight: 500,
           letterSpacing: 0.05,
-          marginBottom: "-15px"
+          marginBottom: "-15px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: "8px"
         }}
       >
         <span style={{ color: "#fff" }}>
           © {new Date().getFullYear()} BetterAiBots.com
         </span>
-         | 
+        <span style={{ color: "#b5ffdb" }}>|</span>
         <Link
           to="/legal"
           style={{
@@ -2808,6 +2845,24 @@ function FooterWithWallets() {
         >
           Legal, Terms & Privacy
         </Link>
+        <span style={{ color: "#b5ffdb" }}>|</span>
+        <span style={{ color: "#fff" }}>Powered by </span>
+        <a
+          href="https://Dubby.fun"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            background: "linear-gradient(90deg, #36ff95, #ffd700)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            fontWeight: 700,
+            textDecoration: "none",
+            fontFamily: "Inter, Arial, sans-serif"
+          }}
+        >
+          DubbyDevs
+        </a>
       </div>
     </footer>
   );

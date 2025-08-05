@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const PWAInstallPrompt = () => {
+const PWAInstallPrompt = ({ isVisible, onClose }) => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showInstallPrompt, setShowInstallPrompt] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
@@ -16,13 +15,12 @@ const PWAInstallPrompt = () => {
     const handleBeforeInstallPrompt = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      setShowInstallPrompt(true);
     };
 
     // Listen for app installed event
     const handleAppInstalled = () => {
       setIsInstalled(true);
-      setShowInstallPrompt(false);
+      if (onClose) onClose();
       console.log('PWA was installed');
     };
 
@@ -33,7 +31,7 @@ const PWAInstallPrompt = () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
       window.removeEventListener('appinstalled', handleAppInstalled);
     };
-  }, []);
+  }, [onClose]);
 
   const handleInstallClick = async () => {
     if (!deferredPrompt) return;
@@ -48,17 +46,15 @@ const PWAInstallPrompt = () => {
     }
     
     setDeferredPrompt(null);
-    setShowInstallPrompt(false);
+    if (onClose) onClose();
   };
 
   const handleDismiss = () => {
-    setShowInstallPrompt(false);
-    // Store in localStorage to remember user's choice
-    localStorage.setItem('pwa-install-dismissed', 'true');
+    if (onClose) onClose();
   };
 
-  // Don't show if already installed or user dismissed it
-  if (isInstalled || !showInstallPrompt || localStorage.getItem('pwa-install-dismissed')) {
+  // Don't show if already installed, not visible, or no install prompt available
+  if (isInstalled || !isVisible || !deferredPrompt) {
     return null;
   }
 

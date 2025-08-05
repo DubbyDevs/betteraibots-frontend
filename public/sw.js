@@ -1,4 +1,4 @@
-const CACHE_NAME = 'betteraibots-v1.0.0';
+const CACHE_NAME = 'betteraibots-v1.0.1';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -9,8 +9,6 @@ const urlsToCache = [
   '/logo512.png',
   '/apple-touch-icon.png',
   '/og-image.png',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
   'https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap',
   'https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2',
   'https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2',
@@ -33,6 +31,16 @@ self.addEventListener('install', (event) => {
 
 // Fetch event - serve from cache when offline
 self.addEventListener('fetch', (event) => {
+  // Skip caching for certain requests that could cause refresh loops
+  if (event.request.url.includes('/static/js/') || 
+      event.request.url.includes('/static/css/') ||
+      event.request.url.includes('hot-update') ||
+      event.request.url.includes('sockjs') ||
+      event.request.url.includes('webpack') ||
+      event.request.method !== 'GET') {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -50,27 +58,41 @@ self.addEventListener('fetch', (event) => {
             return response;
           }
           
-          // Clone the response because it's a stream and can only be consumed once
-          const responseToCache = response.clone();
-          
-          caches.open(CACHE_NAME)
-            .then((cache) => {
-              // Don't cache API calls or dynamic content
-              if (!event.request.url.includes('/api/') && 
-                  !event.request.url.includes('chrome-extension') &&
-                  event.request.method === 'GET') {
+          // Only cache static assets, not dynamic content
+          if (event.request.url.includes('.png') || 
+              event.request.url.includes('.jpg') || 
+              event.request.url.includes('.jpeg') || 
+              event.request.url.includes('.gif') || 
+              event.request.url.includes('.svg') || 
+              event.request.url.includes('.ico') || 
+              event.request.url.includes('.woff') || 
+              event.request.url.includes('.woff2') || 
+              event.request.url.includes('.ttf') || 
+              event.request.url.includes('.eot') ||
+              event.request.url.includes('fonts.googleapis.com') ||
+              event.request.url.includes('fonts.gstatic.com')) {
+            
+            // Clone the response because it's a stream and can only be consumed once
+            const responseToCache = response.clone();
+            
+            caches.open(CACHE_NAME)
+              .then((cache) => {
                 cache.put(event.request, responseToCache);
-              }
-            });
+              })
+              .catch((error) => {
+                console.log('Cache put failed:', error);
+              });
+          }
           
           return response;
+        }).catch((error) => {
+          console.log('Fetch failed:', error);
+          // Return offline page for navigation requests
+          if (event.request.mode === 'navigate') {
+            return caches.match('/offline.html');
+          }
+          return new Response('Network error', { status: 503 });
         });
-      })
-      .catch(() => {
-        // Return offline page for navigation requests
-        if (event.request.mode === 'navigate') {
-          return caches.match('/offline.html');
-        }
       })
   );
 });
