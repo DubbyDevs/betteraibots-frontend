@@ -847,7 +847,7 @@ function News() {
       author: "BetterAiBots",
       date: "July 27, 2025",
       category: "AI Development",
-      image: require('./assets/openaigpt5announced.jpg'),
+      image: require('./assets/openaigpt5.jpg'),
       featured: false,
       slug: "openai-gpt5-revolutionary-multimodal-ai"
     },
@@ -3240,7 +3240,7 @@ function NewsArticle() {
       author: "BetterAiBots",
       date: "August 4, 2025",
       category: "AI Development",
-      image: require('./assets/n8nforb2b.png'),
+      image: require('./assets/n8nforb2b.jpg'),
       featured: true,
       slug: "n8n-revolution-business-automation-2025"
     },
@@ -3471,7 +3471,7 @@ function NewsArticle() {
       author: "BetterAiBots",
       date: "July 27, 2025",
       category: "AI Development",
-      image: require('./assets/openaigpt5announced.jpg'),
+      image: require('./assets/openaigpt5.jpg'),
       featured: false,
       slug: "openai-gpt5-revolutionary-multimodal-ai"
     },

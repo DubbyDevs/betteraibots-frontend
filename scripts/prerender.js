@@ -7,7 +7,7 @@ const newsArticles = [
     slug: "n8n-revolution-business-automation-2025",
     title: "The n8n Revolution: How One Platform is Transforming Business",
     excerpt: "n8n users are achieving remarkable results that are reshaping how we think about workflow automation",
-    image: "https://betteraibots.com/n8nforb2b.png",
+    image: "https://betteraibots.com/n8nforb2b.jpg",
     date: "2025-08-04",
     author: "BetterAiBots",
     category: "AI Development"
@@ -43,7 +43,7 @@ const newsArticles = [
     slug: "openai-gpt5-revolutionary-multimodal-ai",
     title: "OpenAI Unveils GPT-5: Revolutionary Multimodal AI Model",
     excerpt: "BetterAiBots explores OpenAI's latest iteration promising unprecedented capabilities in understanding and generating text, images, and video simultaneously.",
-    image: "https://betteraibots.com/openaigpt5announced.jpg?v=2",
+    image: "https://betteraibots.com/openaigpt5.jpg",
     date: "2025-07-28",
     author: "BetterAiBots",
     category: "AI Development"
