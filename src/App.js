@@ -60,6 +60,7 @@ import GoogleAnalytics from "./GoogleAnalytics";
 import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
 import InVideoFreeTrialPng from './assets/InVideoFreeTrial.png';
 import adcreativeaiImg from './assets/adcreativeai.png';
+import trustygifImg from './assets/trustygif.gif';
 import ArticlePage from "./ArticlePage";
 import PWAInstallPrompt from './components/PWAInstallPrompt';
 import Breadcrumbs from './components/Breadcrumbs';
@@ -328,12 +329,12 @@ const rawBots = [
     categories: ["Education"]
   },
   {
-    title: "InVideo",
-    desc: "Create stunning AI videos from text with professional editing tools and 16M+ stock media.",
-    image: InVideoFreeTrialPng,
+    title: "Logo",
+    desc: "Design professional brand logos with this AI-powered logo creation expert.",
+    image: placeholderImg32,
     free: true,
-    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
-    categories: ["Creative Tools", "Productivity"]
+    openaiLink: "https://chatgpt.com/g/g-pCq5xaCri-logo",
+    categories: ["Creative Tools"]
   },
   {
     title: "Crypto Sentiment Tracker",
@@ -344,21 +345,22 @@ const rawBots = [
     categories: ["Productivity"]
   },
   
-   {
-    title: "GIF Generator",
-    desc: "Quickly create custom GIFs on any topic or mood. Fun and easy to use.",
-    image: placeholderImg6,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-45WfVCFcy-gif-generator",
-    categories: ["Creative Tools"]
-  },
+      {
+     title: "GIF Generator",
+     desc: "Quickly create custom GIFs on any topic or mood. Fun and easy to use.",
+     image: trustygifImg,
+     free: true,
+     openaiLink: "https://chatgpt.com/g/g-45WfVCFcy-gif-generator",
+     categories: ["Creative Tools"]
+   },
+  
   {
-    title: "Logo",
-    desc: "Design professional brand logos with this AI-powered logo creation expert.",
-    image: placeholderImg32,
+    title: "InVideo",
+    desc: "Create stunning AI videos from text with professional editing tools and 16M+ stock media.",
+    image: InVideoFreeTrialPng,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-pCq5xaCri-logo",
-    categories: ["Creative Tools"]
+    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
+    categories: ["Creative Tools", "Productivity"]
   },
   {
     title: "AI Music Prompt Generator",
