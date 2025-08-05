@@ -44,8 +44,8 @@ const Breadcrumbs = () => {
         friendlyName = categoryMap[segment] || decodedSegment;
       }
       
-      // Handle articles
-      if (pathSegments[0] === 'articles' && index === 1) {
+          // Handle learn
+    if (pathSegments[0] === 'learn' && index === 1) {
         // For article pages, we'll get the title from the URL or use a generic name
         friendlyName = decodedSegment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
       }

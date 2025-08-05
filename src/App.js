@@ -435,7 +435,7 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
     <nav className="nav-tabs-bar">
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
-              <Link to="/articles" className="nav-tab" tabIndex={0}>Learn</Link>
+              <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
       {isHomePage && (
         <button 
@@ -1421,7 +1421,7 @@ function HamburgerMenu({ open, onClose }) {
           </li>
 
           <li onClick={() => { navigate('/news'); onClose(); }}>News</li>
-          <li onClick={() => { navigate('/articles'); onClose(); }}>Learn</li>
+                      <li onClick={() => { navigate('/learn'); onClose(); }}>Learn</li>
           <li onClick={() => { navigate('/contact'); onClose(); }}>Contact Us</li>
         </ul>
       </div>
@@ -2364,8 +2364,8 @@ function App() {
         />
         <Route path="/:cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/articles" element={<Articles />} />
-        <Route path="/articles/:id" element={<ArticlePage />} />
+        <Route path="/learn" element={<Articles />} />
+        <Route path="/learn/:id" element={<ArticlePage />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/legal" element={<Legal />} />
@@ -2903,24 +2903,27 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
                   <span style={{ color: "#fff" }}>
                     Powered by{" "}
                   </span>
-                  <a
-                    href="https://Dubby.fun"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      background: "linear-gradient(90deg, #36ff95, #ffd700)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                      fontFamily: "Inter, Arial, sans-serif",
-                      display: "inline",
-                      verticalAlign: "baseline"
-                    }}
-                  >
-                    DubbyDevs
-                  </a>
+                              <a
+              href="https://Dubby.fun"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: "linear-gradient(90deg, #36ff95, #ffd700)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                fontWeight: 700,
+                textDecoration: "none",
+                fontFamily: "Inter, Arial, sans-serif",
+                display: "inline",
+                verticalAlign: "baseline",
+                fontSize: "15.04px",
+                paddingLeft: "3px",
+                paddingTop: "2px"
+              }}
+            >
+              {" "}DubbyDevs
+            </a>
                 </div>
       </div>
     </footer>

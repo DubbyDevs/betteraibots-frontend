@@ -1149,7 +1149,7 @@ function generateArticleHTML(article) {
     <div class="nav-tabs-bar">
       <a href="https://betteraibots.com" class="nav-tab">Home</a>
       <a href="https://betteraibots.com/news" class="nav-tab">News</a>
-      <a href="https://betteraibots.com/articles" class="nav-tab">Learn</a>
+              <a href="https://betteraibots.com/learn" class="nav-tab">Learn</a>
       <a href="https://betteraibots.com/contact" class="nav-tab">Contact Us</a>
     </div>
     

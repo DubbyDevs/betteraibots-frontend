@@ -868,7 +868,7 @@ function ArticleCard({ article }) {
 
   return (
     <Link
-      to={`/articles/${article.id}`}
+              to={`/learn/${article.id}`}
       className="article-card"
       aria-label={`Read article: ${article.title}`}
       ref={cardRef}
@@ -1184,30 +1184,39 @@ export default function Articles() {
   return (
     <>
               <Helmet>
-          <title>AI Bots & Tools Articles – BetterAiBots.com</title>
-          <meta name="description" content="Explore guides, spotlights, and updates on AI tools like VetGPT, ScholarGPT, and Love Doc at BetterAiBots.com. Submit your own articles!" />
-          <meta name="keywords" content="AI tools, VetGPT, ScholarGPT, Love Doc, pet care AI, academic research AI, relationship coaching AI, free AI bots" />
-          <meta property="og:title" content="AI Bots & Tools Articles – BetterAiBots.com" />
-          <meta property="og:description" content="Discover the latest AI tools for pet care, academic research, and emotional wellness. Read articles and submit your own at BetterAiBots.com!" />
-          <meta property="og:url" content="https://betteraibots.com/articles" />
+          <title>Learn AI Bots & Tools – App Spotlight & Guides – BetterAiBots.com</title>
+          <meta name="description" content="Learn AI with BetterAiBots App Spotlight featuring monthly AI tool reviews, guides, and tutorials. Discover VetGPT, ScholarGPT, Love Doc, and more AI bots for every skill level." />
+          <meta name="keywords" content="learn AI, AI learning, AI guides, AI tutorials, AI tools, AI bots, VetGPT, ScholarGPT, Love Doc, PaintR, Cheat Coder, AI fitness coach, InVideo AI, pet care AI, academic research AI, relationship coaching AI, free AI bots, BetterAiBots" />
+          <meta property="og:title" content="Learn AI Bots & Tools – App Spotlight & Guides – BetterAiBots.com" />
+          <meta property="og:description" content="Learn AI with BetterAiBots App Spotlight featuring monthly AI tool reviews, guides, and tutorials. Discover VetGPT, ScholarGPT, Love Doc, and more AI bots for every skill level." />
+          <meta property="og:url" content="https://betteraibots.com/learn" />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="https://betteraibots.com/og-image.png" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="AI Bots & Tools Articles – BetterAiBots.com" />
-          <meta name="twitter:description" content="Discover the latest AI tools for pet care, academic research, and emotional wellness." />
+          <meta name="twitter:title" content="Learn AI Bots & Tools – App Spotlight & Guides – BetterAiBots.com" />
+          <meta name="twitter:description" content="Learn AI with BetterAiBots App Spotlight featuring monthly AI tool reviews, guides, and tutorials." />
           <meta name="twitter:image" content="https://betteraibots.com/og-image.png" />
-          <link rel="canonical" href="https://betteraibots.com/articles" />
+          <link rel="canonical" href="https://betteraibots.com/learn" />
         </Helmet>
       
       <div className="hero-section" style={{ maxWidth: 1100, margin: "40px auto 18px auto", padding: "0 12px" }}>
       <h1 className="hero-headline" style={{ marginBottom: 10 }}>Learn AI With BetterAiBots</h1>
       <p className="hero-subheadline custom-hero-desc" style={{ marginBottom: 14 }}>
-        Guides, spotlights, updates & ideas for every skill level.<br />
-        <span style={{ color: "#36ff95", fontWeight: 600 }}>
-          Submit your article below!
-        </span>
+        Guides, spotlights, updates & ideas for every skill level.
       </p>
       <NewsTicker />
+      
+      <h2 style={{ 
+        textAlign: "center", 
+        color: "#36ff95", 
+        fontSize: "1.4rem", 
+        fontWeight: 600, 
+        marginTop: 30,
+        marginBottom: 20,
+        textShadow: "0 0 8px #36ff9544"
+      }}>
+        App Spotlight
+      </h2>
 
      {/* FEATURED ARTICLE (FULL WIDTH, MOBILE-RESPONSIVE) */}
 <article className="feature-article">
@@ -1222,7 +1231,7 @@ export default function Articles() {
       }}
     />
     <Link
-      to={`/articles/${featuredArticle.id}`}
+              to={`/learn/${featuredArticle.id}`}
       className="feature-article-read-btn"
       aria-label={`Read full article: ${featuredArticle.title}`}
     >

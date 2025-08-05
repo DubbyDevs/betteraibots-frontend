@@ -80,12 +80,12 @@ export default function ArticlePage() {
     return (
       <div style={{ padding: 40, textAlign: "center" }}>
         <h2>BetterAiBots Article Not Found</h2>
-        <Link to="/articles" style={{ color: "#0bbfdb" }}>Back to Articles</Link>
+        <Link to="/learn" style={{ color: "#0bbfdb" }}>Back to Learn</Link>
       </div>
     );
   }
 
-  const shareUrl = `${window.location.origin}/articles/${article.id}`;
+      const shareUrl = `${window.location.origin}/learn/${article.id}`;
   const images = article.images || [];
 
   // Utility to highlight speakers in any strong/bold text
@@ -128,7 +128,7 @@ export default function ArticlePage() {
         <meta name="description" content={article.preview} />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.preview} />
-        <link rel="canonical" href={`https://betteraibots.com/articles/${article.id}`} />
+        <link rel="canonical" href={`https://betteraibots.com/learn/${article.id}`} />
         <meta property="og:image" content={(() => {
           // Article-specific Open Graph images for better social sharing
           const ogImageMap = {
@@ -211,7 +211,7 @@ export default function ArticlePage() {
         </script>
       </Helmet>
       <div style={{ marginBottom: 15 }}>
-        <Link to="/articles" style={{ color: "#36ff95", textDecoration: "underline" }}>&larr; Back to Articles</Link>
+        <Link to="/learn" style={{ color: "#36ff95", textDecoration: "underline" }}>&larr; Back to Learn</Link>
       </div>
       <div style={{ display: "flex", gap: 16, marginBottom: 18, alignItems: "center" }}>
         <ShareButtons url={shareUrl} title={article.title} />
