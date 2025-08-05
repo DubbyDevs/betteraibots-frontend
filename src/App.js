@@ -1837,8 +1837,8 @@ function Legal() {
         <b>Disclaimer & Important Notices:</b><br />
         BetterAiBots.com ("the Site") is an <b>independent, free public directory</b> listing and linking to AI bots and OpenAI GPTs. The Site <b>does not own, operate, control, endorse, monitor, review, or vet any listed bots, AI services, or third-party content</b>. Bots, content, and links are provided "as is" and solely for informational, entertainment, and educational purposes.
         <br /><br />
-        <b>No Affiliation or Endorsement:</b><br />
-        BetterAiBots.com is not affiliated with OpenAI or any other bot developer or provider. Listing a bot does not constitute endorsement or verification of any kind.
+        <b>Affiliate Disclosure & Endorsement Policy:</b><br />
+        BetterAiBots.com may receive compensation for some links and recommendations through affiliate partnerships. While we are not affiliated with OpenAI directly, we do have affiliate relationships with certain AI tool providers and services. However, listing any bot or service does not constitute a blanket endorsement, and we do not guarantee the quality, safety, or suitability of any listed tools. Users should always conduct their own research and due diligence before using any AI service.
         <br /><br />
         <b>No Vetting, Verification, or Guarantee:</b><br />
         <b>Bots and links on this site are user-submitted or publicly available, and have <u>not been vetted, checked, reviewed, or verified for safety, accuracy, reliability, lawfulness, or suitability</u> by BetterAiBots.com.</b> We do not guarantee the quality, legality, completeness, or accuracy of any information, service, or software.
