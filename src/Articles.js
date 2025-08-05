@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import VetGPT1 from "./assets/vetgpt-1.png";
 import VetGPT2 from "./assets/vetgpt-2.png";
 import VetGPT3 from "./assets/vetgpt-3.png";
