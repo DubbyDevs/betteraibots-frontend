@@ -174,7 +174,8 @@ function News() {
         {/* Featured Article */}
         {newsArticles.filter(article => article.featured).map(article => (
           <article key={article.id} className="featured-news-article">
-            <Link to={`/news/${article.slug}`} className="featured-news-image-link">
+            <Link to={`/nenpm start
+            ws/${article.slug}`} className="featured-news-image-link">
               <div className="featured-news-image">
                 <img src={article.image} alt={article.title} />
               </div>
@@ -679,7 +680,12 @@ function Contact() {
         <div style={{ margin: "18px 0", display: 'flex', justifyContent: 'center' }}>
           <ReCAPTCHA
             sitekey="6Lf2wlArAAAAAH0GDpzc02uW1KAD8TJXgD_kSz1j"
-            onChange={val => setRecaptchaValue(val)}
+            onChange={val => {
+              console.log('reCAPTCHA value:', val);
+              setRecaptchaValue(val);
+            }}
+            onErrored={() => console.log('reCAPTCHA error occurred')}
+            onExpired={() => console.log('reCAPTCHA expired')}
             theme="dark"
           />
         </div>
