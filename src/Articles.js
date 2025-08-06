@@ -7,9 +7,9 @@ import VetGPT3 from "./assets/vetgpt-3.png";
 import placeholderImg4 from "./assets/bot-placeholder4.webp";
 import placeholderImg7 from "./assets/bot-placeholder7.webp";
 import invideofreetrialai from "./assets/invideofreetrialai.png";
-import InVideoFreeTrialPng from "./assets/InVideoFreeTrial.png";
-import cheatCoderImg from "./assets/cheatcoder.png";
-import cheatCoderLogo from "./assets/cheatcoderlogo.png";
+import InVideoFreeTrialPng from "./assets/InVideoFreeTrial.webp";
+import cheatCoderImg from "./assets/cheatcoder.webp";
+import cheatCoderLogo from "./assets/cheatcoderlogo.webp";
 import AIFitnessCoachInterview from "./AIFitnessCoachInterview";
 import fitnessCoachImg from "./assets/bot-placeholder15.webp";
 

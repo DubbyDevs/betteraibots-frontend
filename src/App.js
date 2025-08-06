@@ -56,9 +56,11 @@ import {
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import GoogleAnalytics from "./GoogleAnalytics";
-import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
-import InVideoFreeTrialPng from './assets/InVideoFreeTrial.png';
-import adcreativeaiImg from './assets/adcreativeai.png';
+import InVideoFreeTrialImg from './assets/InVideoFreeTrial.webp';
+import InVideoAvatar from './assets/InVideoAvatar.webp';
+import adcreativeaiImg from './assets/adcreativeai.webp';
+import adcreativeaiImg2 from './assets/adcreativeai2.webp';
+import adcreativeaiImg3 from './assets/adcreativeai3.webp';
 import trustygifVideo from './assets/trustygif.mp4';
 import ArticlePage from "./ArticlePage";
 import PWAInstallPrompt from './components/PWAInstallPrompt';
@@ -227,6 +229,7 @@ const rawBots = [
     title: "AdCreative.ai",
     desc: "Generate conversion-focused ad creatives, texts, photoshoots, and videos that outperform competitors.",
     image: adcreativeaiImg,
+    rotatingImages: [adcreativeaiImg, adcreativeaiImg2, adcreativeaiImg3],
     free: false,
     openaiLink: "https://free-trial.adcreative.ai/0dkpoiajb7o2",
     isAffiliate: true,
@@ -358,7 +361,7 @@ const rawBots = [
   {
     title: "InVideo",
     desc: "Create stunning AI videos from text with professional editing tools and 16M+ stock media.",
-    image: InVideoFreeTrialPng,
+    image: InVideoAvatar,
     free: true,
     openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
     categories: ["Creative Tools", "Productivity"]
@@ -1535,6 +1538,32 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
 // --- CATEGORY BUTTONS COMPONENT ---
 
 
+// --- ROTATING IMAGE COMPONENT ---
+function RotatingImage({ images, alt, className, style, onError }) {
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 6900); // 6.9 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <img
+      src={images[currentIndex]}
+      alt={alt}
+      className={className}
+      style={{
+        ...style,
+        transition: 'opacity 0.5s ease-in-out'
+      }}
+      onError={onError}
+    />
+  );
+}
+
 // --- BOT GRID ---
 function BotGrid({ bots, onOpenModal }) {
   return (
@@ -1583,12 +1612,21 @@ function BotGrid({ bots, onOpenModal }) {
         <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}${bot.title === "AI Music Maker" ? ' ai-music-maker' : ''}${bot.title === "Accounting GPT" ? ' accounting-gpt' : ''}`} key={i}>
           {bot.isAffiliate ? (
             <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
-              <img
-                src={bot.image}
-                alt={bot.title}
-                style={{ width: '100%', borderRadius: 18 }}
-                onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
-              />
+              {bot.rotatingImages ? (
+                <RotatingImage
+                  images={bot.rotatingImages}
+                  alt={bot.title}
+                  style={{ width: '100%', borderRadius: 18 }}
+                  onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
+                />
+              ) : (
+                <img
+                  src={bot.image}
+                  alt={bot.title}
+                  style={{ width: '100%', borderRadius: 18 }}
+                  onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
+                />
+              )}
             </a>
           ) : (
             <>
