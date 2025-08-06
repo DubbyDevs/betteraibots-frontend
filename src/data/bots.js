@@ -32,6 +32,7 @@ import placeholderImg32 from '../assets/bot-placeholder32.webp';
 import placeholderImg33 from '../assets/bot-placeholder33.webp';
 import placeholderImg34 from '../assets/bot-placeholder34.webp';
 import InVideoFreeTrialImg from '../assets/InVideoFreeTrial.webp';
+import InVideoFreeTrial2Img from '../assets/InVideoFreeTrial2.webp';
 import InVideoAvatar from '../assets/InVideoAvatar.webp';
 import adcreativeaiImg from '../assets/adcreativeai.webp';
 import adcreativeaiImg2 from '../assets/adcreativeai2.webp';
@@ -90,12 +91,12 @@ export const rawBots = [
     categories: ["Health & Wellness", "Specialized Knowledge"]
   },
   {
-    title: "Personal Assistant",
-    desc: "Organize and optimize your daily life with this AI-powered personal assistant.",
-    image: placeholderImg11,
+    title: "Paintr",
+    desc: "Identify any exact color of paint in seconds!", 
+    image: placeholderImg31,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-hWAjkwSzj-personal-assistant",
-    categories: ["Productivity"]
+    openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
+    categories: ["Specialized Knowledge"] 
   },
   {
     title: "Health & Medicine",
@@ -114,13 +115,14 @@ export const rawBots = [
     categories: ["Productivity"]
   },
   {
-    title: "Paintr",
-    desc: "Identify any exact color of paint in seconds!", 
-    image: placeholderImg31,
+    title: "Personal Assistant",
+    desc: "Organize and optimize your daily life with this AI-powered personal assistant.",
+    image: placeholderImg11,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-6833f9d3f1f88191ba83263ab7a99ea7-paintr",
-    categories: ["Specialized Knowledge"] 
+    openaiLink: "https://chatgpt.com/g/g-hWAjkwSzj-personal-assistant",
+    categories: ["Productivity"]
   },
+  
   {
     title: "Cooking, Diet, Recipes, Nutrition",
     desc: "Personalized recipes, diet plans, nutrition tips, and food cooking advice in one spot.",
@@ -216,6 +218,7 @@ export const rawBots = [
     title: "InVideo AI",
     desc: "The Future of Video Creation Is Here!",
     image: InVideoFreeTrialImg,
+    rotatingImages: [InVideoFreeTrialImg, InVideoFreeTrial2Img],
     free: false,
     openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
     isAffiliate: true,
