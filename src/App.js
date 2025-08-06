@@ -21,7 +21,6 @@ import placeholderImg12 from './assets/bot-placeholder12.webp';
 import placeholderImg13 from './assets/bot-placeholder13.webp';
 import placeholderImg14 from './assets/bot-placeholder14.webp';
 import placeholderImg15 from './assets/bot-placeholder15.webp';
-import placeholderImg16 from './assets/bot-placeholder16.webp';
 import placeholderImg17 from './assets/bot-placeholder17.webp';
 import placeholderImg18 from './assets/bot-placeholder18.webp';
 import placeholderImg19 from './assets/bot-placeholder19.webp';
@@ -60,7 +59,7 @@ import GoogleAnalytics from "./GoogleAnalytics";
 import InVideoFreeTrialImg from './assets/InVideoFreeTrial.jpg';
 import InVideoFreeTrialPng from './assets/InVideoFreeTrial.png';
 import adcreativeaiImg from './assets/adcreativeai.png';
-import trustygifImg from './assets/trustygif.gif';
+import trustygifVideo from './assets/trustygif.mp4';
 import ArticlePage from "./ArticlePage";
 import PWAInstallPrompt from './components/PWAInstallPrompt';
 import Breadcrumbs from './components/Breadcrumbs';
@@ -99,7 +98,7 @@ const placeholderImgs = [
   placeholderImg1, placeholderImg2, placeholderImg3, placeholderImg4, placeholderImg5,
   placeholderImg6, placeholderImg7, placeholderImg8, placeholderImg9, placeholderImg10,
   placeholderImg11, placeholderImg12, placeholderImg13, placeholderImg14, placeholderImg15,
-  placeholderImg16, placeholderImg17, placeholderImg18, placeholderImg19, placeholderImg20, 
+  placeholderImg17, placeholderImg18, placeholderImg19, placeholderImg20, 
   placeholderImg21, placeholderImg22, placeholderImg23, placeholderImg24, placeholderImg25, 
   placeholderImg26, placeholderImg27, placeholderImg28, placeholderImg29, placeholderImg30,
   placeholderImg31, placeholderImg32, placeholderImg33, 
@@ -349,7 +348,8 @@ const rawBots = [
       {
      title: "GIF Generator",
      desc: "Quickly create custom GIFs on any topic or mood. Fun and easy to use.",
-     image: trustygifImg,
+     image: trustygifVideo,
+     isVideo: true,
      free: true,
      openaiLink: "https://chatgpt.com/g/g-45WfVCFcy-gif-generator",
      categories: ["Creative Tools"]
@@ -1595,12 +1595,24 @@ function BotGrid({ bots, onOpenModal }) {
               <div className="bot-card-content">
                 {bot.free && bot.title !== "InVideo" && bot.title !== "VEED AI" && <div className="verified-badge">Free</div>}
                 {!bot.free && <div className="verified-badge">Paid</div>}
-                <img
-                  src={bot.image}
-                  alt={bot.title}
-                  className="bot-image"
-                  onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
-                />
+                {bot.isVideo ? (
+                  <video
+                    src={bot.image}
+                    alt={bot.title}
+                    className="bot-image"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={bot.image}
+                    alt={bot.title}
+                    className="bot-image"
+                    onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
+                  />
+                )}
                 <div className="bot-title">{bot.title}</div>
                 <div className="bot-desc">{bot.desc}</div>
               </div>
