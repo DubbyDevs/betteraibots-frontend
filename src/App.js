@@ -680,12 +680,7 @@ function Contact() {
         <div style={{ margin: "18px 0", display: 'flex', justifyContent: 'center' }}>
           <ReCAPTCHA
             sitekey="6Lf2wlArAAAAAH0GDpzc02uW1KAD8TJXgD_kSz1j"
-            onChange={val => {
-              console.log('reCAPTCHA value:', val);
-              setRecaptchaValue(val);
-            }}
-            onErrored={() => console.log('reCAPTCHA error occurred')}
-            onExpired={() => console.log('reCAPTCHA expired')}
+            onChange={val => setRecaptchaValue(val)}
             theme="dark"
           />
         </div>
