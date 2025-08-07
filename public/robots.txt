@@ -26,4 +26,5 @@ Disallow: /api/
 # Allow important pages
 Allow: /ai-starter-guide.html
 Allow: /AI-Starter-Quiz.html
+Allow: /apps
 Allow: /news/

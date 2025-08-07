@@ -548,14 +548,68 @@ function Apps() {
   return (
     <>
       <Helmet>
-        <title>AI Apps Directory – Free, Trial & Paid AI Tools | BetterAiBots.com</title>
-        <meta name="description" content="Discover the best AI apps and tools: free AI applications, free trials, and premium paid AI tools for productivity, creativity, and business." />
-        <meta name="keywords" content="AI apps, free AI tools, AI software, ChatGPT, Claude, AI trials, paid AI tools, artificial intelligence apps, AI productivity tools" />
-        <meta property="og:title" content="AI Apps Directory – Free, Trial & Paid AI Tools" />
-        <meta property="og:description" content="Explore curated AI apps and tools: free applications, trial versions, and premium paid tools to enhance your workflow." />
+        <title>AI Apps Directory 2025 – Free, Trial & Paid AI Tools | BetterAiBots.com</title>
+        <meta name="description" content="Discover the best AI apps and tools in 2025: free AI applications, free trials, and premium paid AI tools for productivity, creativity, marketing, and business automation." />
+        <meta name="keywords" content="AI apps, free AI tools, AI software, ChatGPT, Claude, Google Gemini, AI trials, paid AI tools, artificial intelligence apps, AI productivity tools, AI marketing tools, AI video creation, AI workflow automation, n8n, AdCreative, Invideo, VEED, Viral Launch, AI chatbots, AI writing tools, AI image generation, AI business tools" />
+        <meta name="author" content="BetterAiBots.com" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="AI Apps Directory 2025 – Free, Trial & Paid AI Tools" />
+        <meta property="og:description" content="Explore curated AI apps and tools: free applications, trial versions, and premium paid tools to enhance your workflow and boost productivity." />
         <meta property="og:url" content="https://betteraibots.com/apps" />
         <meta property="og:image" content="https://betteraibots.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="AI Apps Directory 2025 - Free, Trial & Paid AI Tools" />
+        <meta property="og:site_name" content="BetterAiBots.com" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="AI Apps Directory 2025 – Free, Trial & Paid AI Tools" />
+        <meta property="twitter:description" content="Discover the best AI apps and tools in 2025: free applications, trial versions, and premium paid tools for productivity and business." />
+        <meta property="twitter:image" content="https://betteraibots.com/og-image.png" />
+        <meta property="twitter:image:alt" content="AI Apps Directory 2025" />
         <link rel="canonical" href="https://betteraibots.com/apps" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+        {`{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "AI Apps Directory 2025",
+          "description": "Comprehensive directory of AI applications including free tools, trial versions, and premium paid solutions for productivity, creativity, and business automation.",
+          "url": "https://betteraibots.com/apps",
+          "image": "https://betteraibots.com/og-image.png",
+          "mainEntity": {
+            "@type": "ItemList",
+            "name": "AI Applications Directory",
+            "description": "Curated collection of AI tools and applications",
+            "numberOfItems": 18,
+            "itemListElement": [
+              {
+                "@type": "SoftwareApplication",
+                "name": "ChatGPT",
+                "description": "Free AI chatbot with GPT-4o mini",
+                "applicationCategory": "Chat & Writing",
+                "operatingSystem": "Web, iOS, Android"
+              },
+              {
+                "@type": "SoftwareApplication", 
+                "name": "Claude",
+                "description": "AI assistant with superior writing capabilities",
+                "applicationCategory": "Writing & Analysis",
+                "operatingSystem": "Web"
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "n8n",
+                "description": "Open-source workflow automation platform",
+                "applicationCategory": "Workflow Automation",
+                "operatingSystem": "Web, Self-hosted"
+              }
+            ]
+          }
+        }`}
+        </script>
       </Helmet>
       
       <div className="hero-section">
