@@ -341,13 +341,13 @@ function Apps() {
       image: "https://betteraibots.com/assets/veed-logo.png"
     },
     {
-      name: "Synthesia",
-      description: "AI video generation platform with realistic avatars and voices",
-      category: "Video Creation",
-      features: ["AI avatars", "Voice cloning", "Video templates", "Multilingual"],
-      link: "https://synthesia.io",
-      trialInfo: "Free demo video, plans from $30/month",
-      image: "https://betteraibots.com/assets/synthesia-logo.png"
+      name: "Lindy",
+      description: "AI-powered personal assistant that helps you manage tasks, schedule, and productivity",
+      category: "Productivity & Personal Assistant",
+      features: ["Task management", "Smart scheduling", "Email organization", "Meeting assistance"],
+      link: "https://try.lindy.ai/lhgvxfidor04",
+      trialInfo: "Free trial available, then $20/month",
+      image: "https://betteraibots.com/assets/lindy-logo.png"
     },
     {
       name: "Runway ML",
@@ -1909,9 +1909,9 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/apps" element={<Apps />} />
-        <Route path="/quiz" element={<AIQuiz />} />
-        <Route path="/quiz/intermediate" element={<IntermediateQuiz />} />
-        <Route path="/quiz/advanced" element={<AdvancedQuiz />} />
+        <Route path="/beginner-quiz" element={<AIQuiz />} />
+        <Route path="/intermediate-quiz" element={<IntermediateQuiz />} />
+        <Route path="/advanced-quiz" element={<AdvancedQuiz />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/moderation" element={<Moderation approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
         <Route path="*" element={<Navigate to="/" />} />

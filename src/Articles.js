@@ -1170,7 +1170,7 @@ function AIStarterGuide({ onClose }) {
               <button
                 onClick={() => {
                   onClose();
-                  window.location.href = '/quiz';
+                  window.location.href = '/beginner-quiz';
                 }}
                 style={{
                   background: 'rgba(16, 28, 38, 0.3)',
@@ -1769,7 +1769,7 @@ function AIStarterGuide({ onClose }) {
               onClick={() => {
                 onClose();
                 // Navigate to quiz page - you can update this link when the quiz is ready
-                window.location.href = '/quiz';
+                                   window.location.href = '/beginner-quiz';
               }}
               style={{
                 background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
@@ -1870,20 +1870,20 @@ function AdvancedGuide({ onClose }) {
           }}>
             The Advanced AI Guide: Mastering Enterprise-Level AI Implementation and Strategic Leadership
           </h1>
-          <button
-            onClick={() => window.open('/quiz/advanced', '_blank')}
-            style={{
-              background: 'linear-gradient(135deg, #ffd700, #ffb347)',
-              color: '#000',
-              border: 'none',
-              padding: '12px 24px',
-              borderRadius: '25px',
-              fontSize: '1.1rem',
-              fontWeight: 'bold',
-              cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(255, 215, 0, 0.3)',
-              transition: 'all 0.3s ease'
-            }}
+                           <button
+                   onClick={() => window.open('/advanced-quiz', '_blank')}
+                   style={{
+                     background: 'linear-gradient(135deg, #ffd700, #ffb347)',
+                     color: '#000',
+                     border: 'none',
+                     padding: '12px 24px',
+                     borderRadius: '25px',
+                     fontSize: '1.1rem',
+                     fontWeight: 'bold',
+                     cursor: 'pointer',
+                     boxShadow: '0 4px 15px rgba(255, 215, 0, 0.3)',
+                     transition: 'all 0.3s ease'
+                   }}
             onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
             onMouseOut={(e) => e.target.style.transform = 'translateY(0)'}
           >
@@ -2094,7 +2094,7 @@ function AdvancedGuide({ onClose }) {
               Take the Advanced AI Quiz to earn your Pro status and unlock exclusive content!
             </p>
             <button
-              onClick={() => window.open('/quiz/advanced', '_blank')}
+                                 onClick={() => window.open('/advanced-quiz', '_blank')}
               style={{
                 background: 'linear-gradient(135deg, #ffd700, #ffb347)',
                 color: '#000',
@@ -2176,7 +2176,7 @@ function IntermediateGuide({ onClose }) {
               <button
                 onClick={() => {
                   onClose();
-                  window.location.href = '/quiz/intermediate';
+                  window.location.href = '/intermediate-quiz';
                 }}
                 style={{
                   background: 'rgba(16, 28, 38, 0.3)',
@@ -2186,7 +2186,7 @@ function IntermediateGuide({ onClose }) {
                   fontSize: '0.9rem',
                   fontWeight: '600',
                   cursor: 'pointer',
-                  color: '#101c26',
+                  color: '#ffffff',
                   transition: 'all 0.2s',
                   display: 'flex',
                   alignItems: 'center',
@@ -2201,7 +2201,7 @@ function IntermediateGuide({ onClose }) {
                   e.target.style.transform = 'translateY(0)';
                 }}
               >
-                🚀 Take the Quiz!
+                Take the Quiz!
               </button>
               <button
                 onClick={onClose}
@@ -2455,6 +2455,30 @@ function IntermediateGuide({ onClose }) {
                 Allow organizations to adapt general AI capabilities to specific business requirements and domain expertise.
               </p>
             </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '8px' }}>Edge AI Computing</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Deploy AI processing directly on devices and local networks for faster response times and enhanced data privacy.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '8px' }}>AI-Powered Analytics</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Transform raw data into actionable insights through predictive modeling, pattern recognition, and automated reporting systems.
+              </p>
+            </div>
           </div>
 
           <h2 style={{
@@ -2612,7 +2636,7 @@ function IntermediateGuide({ onClose }) {
             <button
               onClick={() => {
                 onClose();
-                window.location.href = '/quiz/intermediate';
+                                 window.location.href = '/intermediate-quiz';
               }}
               style={{
                 background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)',
