@@ -2692,6 +2692,10 @@ export default function Articles({ level = "beginner" }) {
   const [userLevel, setUserLevel] = useState(() => {
     return localStorage.getItem('aiLevel') || 'beginner';
   });
+  const [proStatus, setProStatus] = useState(() => {
+    return localStorage.getItem('proStatus') === 'true';
+  });
+  const [showProAnimation, setShowProAnimation] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -2712,6 +2716,103 @@ export default function Articles({ level = "beginner" }) {
   // --- Article Layout Logic ---
   const featuredArticle = articles[0];
   const gridArticles = articles.slice(1);
+
+  // Pro Animation Component
+  function ProAnimation({ onComplete }) {
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        onComplete();
+      }, 4000);
+      return () => clearTimeout(timer);
+    }, [onComplete]);
+
+    return (
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        background: 'rgba(0, 0, 0, 0.9)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9999,
+        animation: 'fadeIn 0.5s ease-in'
+      }}>
+        <div style={{
+          background: 'linear-gradient(135deg, #ffd700 0%, #ffb347 50%, #ffd700 100%)',
+          borderRadius: '20px',
+          padding: '40px',
+          textAlign: 'center',
+          boxShadow: '0 0 50px rgba(255, 215, 0, 0.8)',
+          animation: 'proCardPulse 2s ease-in-out infinite',
+          maxWidth: '400px',
+          margin: '20px'
+        }}>
+          <div style={{
+            fontSize: '48px',
+            marginBottom: '20px',
+            animation: 'crownBounce 1s ease-in-out infinite'
+          }}>
+            👑
+          </div>
+          <h2 style={{
+            color: '#1a2330',
+            fontSize: '2rem',
+            fontWeight: 'bold',
+            marginBottom: '10px',
+            textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+          }}>
+            PRO STATUS UNLOCKED!
+          </h2>
+          <p style={{
+            color: '#1a2330',
+            fontSize: '1.2rem',
+            marginBottom: '20px',
+            fontWeight: '600'
+          }}>
+            Welcome to the Elite AI Community
+          </p>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px',
+            marginBottom: '20px'
+          }}>
+            <img
+              src="/probadge.webp"
+              alt="Pro Badge"
+              style={{
+                width: '60px',
+                height: '60px',
+                objectFit: 'contain',
+                animation: 'badgeSpin 2s ease-in-out infinite'
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+            <span style={{
+              color: '#1a2330',
+              fontSize: '1.1rem',
+              fontWeight: '600'
+            }}>
+              Exclusive Access Granted
+            </span>
+          </div>
+          <div style={{
+            color: '#1a2330',
+            fontSize: '1rem',
+            lineHeight: '1.5'
+          }}>
+            You now have access to advanced content, exclusive features, and the elite AI community!
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Simulated SEO meta tags (to be implemented with react-helmet or in index.html)
   /*
@@ -2753,7 +2854,52 @@ export default function Articles({ level = "beginner" }) {
 
   return (
     <>
-              <Helmet>
+      <style>
+        {`
+          @keyframes proBadgePulse {
+            0% {
+              transform: scale(1);
+              filter: drop-shadow(0 0 8px #ffd700) drop-shadow(0 0 16px #ffd700);
+            }
+            100% {
+              transform: scale(1.1);
+              filter: drop-shadow(0 0 12px #ffd700) drop-shadow(0 0 24px #ffd700);
+            }
+          }
+          
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          
+          @keyframes proCardPulse {
+            0% {
+              transform: scale(1);
+              box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+            }
+            50% {
+              transform: scale(1.05);
+              box-shadow: 0 0 80px rgba(255, 215, 0, 1);
+            }
+            100% {
+              transform: scale(1);
+              box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+            }
+          }
+          
+          @keyframes crownBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
+          
+          @keyframes badgeSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+          }
+        `}
+      </style>
+      <Helmet>
           <title>
             {level === 'beginner' ? 'Beginner AI Learning Guide & Quiz 2025 – BetterAiBots.com' :
              level === 'intermediate' ? 'Intermediate AI Learning Guide & Quiz 2025 – BetterAiBots.com' :
@@ -2857,7 +3003,7 @@ export default function Articles({ level = "beginner" }) {
                     "@type": "Quiz",
                     "name": level === 'beginner' ? 'Beginner AI Quiz' :
                             level === 'intermediate' ? 'Intermediate AI Quiz' :
-                            'Advanced AI Quiz - Pro Certification',
+                            'Advanced Quiz - Get Pro Status',
                     "description": level === 'beginner' ? 'Test your knowledge of AI fundamentals and basic concepts.' :
                                  level === 'intermediate' ? 'Assess your intermediate AI knowledge and practical application skills.' :
                                  'Advanced AI knowledge assessment for Pro status certification.'
@@ -2883,15 +3029,39 @@ export default function Articles({ level = "beginner" }) {
         marginTop: 40,
         marginBottom: 30
       }}>
-                       <h3 style={{
-                 color: "#36ff95",
-                 fontSize: "1.2rem",
-                 fontWeight: 600,
-                 marginBottom: 20,
-                 textShadow: "0 0 8px #36ff9544"
-               }}>
-                 Current Status: {userLevel.charAt(0).toUpperCase() + userLevel.slice(1)}
-               </h3>
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "12px"
+        }}>
+          <h3 style={{
+            color: "#36ff95",
+            fontSize: "1.2rem",
+            fontWeight: 600,
+            marginBottom: 20,
+            textShadow: "0 0 8px #36ff9544"
+          }}>
+            Current Status: {userLevel.charAt(0).toUpperCase() + userLevel.slice(1)}
+          </h3>
+          {proStatus && (
+            <img
+              src="/probadge.webp"
+              alt="Pro Badge"
+              style={{
+                width: "32px",
+                height: "32px",
+                objectFit: "contain",
+                marginBottom: "20px",
+                filter: "drop-shadow(0 0 8px #ffd700) drop-shadow(0 0 16px #ffd700)",
+                animation: "proBadgePulse 2s ease-in-out infinite alternate"
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+          )}
+        </div>
       </div>
 
       {/* Learning Path Section */}
@@ -3227,13 +3397,19 @@ export default function Articles({ level = "beginner" }) {
                onClose={() => setShowQuiz(false)}
                onAdvance={() => {
                  setUserLevel('pro');
+                 setProStatus(true);
                  setShowQuiz(false);
+                 setShowProAnimation(true);
                  localStorage.setItem('aiLevel', 'pro');
                  localStorage.setItem('proStatus', 'true');
                }}
              />
            )}
       
+      {showProAnimation && (
+        <ProAnimation onComplete={() => setShowProAnimation(false)} />
+      )}
+
       <BannerAd />
 
       {/* Trust/Moderation Info */}

@@ -6,9 +6,10 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const [showScorecard, setShowScorecard] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({});
 
-  const correctAnswers = ['b', 'c', 'a', 'd', 'b', 'c', 'a', 'd', 'b', 'c'];
+  const correctAnswers = ['b', 'c', 'a', 'd', 'a', 'c', 'b', 'd', 'b', 'a'];
   const questions = [
     {
       text: "What is the primary challenge in implementing AI at enterprise scale?",
@@ -95,6 +96,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
     setScore(0);
     setUserAnswers([]);
     setShowResults(false);
+    setShowScorecard(false);
     setSelectedOptions({});
   };
 
@@ -330,9 +332,10 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
               <div style={{
                 fontSize: '1.5rem',
                 marginBottom: '20px',
-                color: '#d1efe7'
+                color: '#d1efe7',
+                whiteSpace: 'pre-line'
               }}>
-                {score >= 8 ? '👑 Congratulations! You are now a Pro!' : 
+                {score >= 8 ? <span dangerouslySetInnerHTML={{ __html: 'Advanced Quiz<br>Get Pro Status' }} /> : 
                  score >= 6 ? '📚 Excellent work! Almost there!' : 
                  '🤔 Time to review the advanced concepts!'}
               </div>
@@ -397,6 +400,120 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                   Claim Pro Status
                 </button>
               )}
+              
+              {/* Scorecard Section */}
+              <div style={{ marginTop: '30px' }}>
+                <button
+                  onClick={() => setShowScorecard(!showScorecard)}
+                  style={{
+                    background: 'linear-gradient(135deg, #ffd700, #ffb347)',
+                    color: '#1a2330',
+                    border: 'none',
+                    padding: '12px 24px',
+                    borderRadius: '25px',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    marginBottom: '20px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'translateY(-2px)';
+                    e.target.style.boxShadow = '0 6px 20px rgba(255, 215, 0, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.boxShadow = 'none';
+                  }}
+                >
+                  {showScorecard ? '📊 Hide Detailed Answers' : '📊 Show Detailed Answers'}
+                </button>
+                
+                {showScorecard && (
+                  <div style={{
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    borderRadius: '15px',
+                    padding: '20px',
+                    border: '1px solid rgba(255, 215, 0, 0.2)',
+                    marginTop: '15px'
+                  }}>
+                    <h3 style={{
+                      marginBottom: '20px',
+                      color: '#ffd700',
+                      fontSize: '1.2rem',
+                      textAlign: 'center'
+                    }}>
+                      📋 Your Detailed Results
+                    </h3>
+                                         {questions.map((question, index) => {
+                       const isCorrect = userAnswers[index] === correctAnswers[index];
+                       const userAnswerText = userAnswers[index] ? questions[index].options[['a', 'b', 'c', 'd'].indexOf(userAnswers[index])] : 'Not answered';
+                       const correctAnswerText = questions[index].options[['a', 'b', 'c', 'd'].indexOf(correctAnswers[index])];
+                       
+                       return (
+                        <div key={index} style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'flex-start',
+                          padding: '15px',
+                          marginBottom: '10px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          borderRadius: '10px',
+                          border: '1px solid rgba(255, 215, 0, 0.2)'
+                        }}>
+                          <div style={{ flex: 1 }}>
+                            <div style={{
+                              color: '#ffd700',
+                              fontWeight: 'bold',
+                              marginBottom: '5px'
+                            }}>
+                              Question {index + 1}
+                            </div>
+                            <div style={{
+                              color: '#e0e0e0',
+                              fontSize: '0.9rem',
+                              marginBottom: '8px'
+                            }}>
+                              {question.text}
+                            </div>
+                            <div style={{ fontSize: '0.85rem' }}>
+                              <span style={{ color: '#e0e0e0' }}>
+                                Your answer: <span style={{
+                                  color: isCorrect ? '#22c55e' : '#ef4444',
+                                  fontWeight: 'bold'
+                                }}>
+                                  {userAnswerText}
+                                </span>
+                              </span>
+                              {!isCorrect && (
+                                <>
+                                  <br />
+                                                                     <span style={{ color: '#e0e0e0' }}>
+                                     Correct answer: <span style={{
+                                       color: '#22c55e',
+                                       fontWeight: 'bold'
+                                     }}>
+                                       {correctAnswerText}
+                                     </span>
+                                   </span>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                          <div style={{ marginLeft: '15px' }}>
+                            <span style={{
+                              color: isCorrect ? '#22c55e' : '#ef4444',
+                              fontSize: '1.2rem'
+                            }}>
+                              {isCorrect ? '✅' : '❌'}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>
@@ -616,9 +733,10 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
               <div style={{
                 fontSize: '1.5rem',
                 marginBottom: '20px',
-                color: '#d1efe7'
+                color: '#d1efe7',
+                whiteSpace: 'pre-line'
               }}>
-                {score >= 8 ? '👑 Congratulations! You are now a Pro!' : 
+                {score >= 8 ? <span dangerouslySetInnerHTML={{ __html: 'Advanced Quiz<br>Get Pro Status' }} /> : 
                  score >= 6 ? '📚 Excellent work! Almost there!' : 
                  '🤔 Time to review the advanced concepts!'}
               </div>

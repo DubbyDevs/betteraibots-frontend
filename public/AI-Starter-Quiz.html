@@ -80,6 +80,8 @@
             padding: 20px;
             position: relative;
             z-index: 1;
+            background: linear-gradient(135deg, #1a2330 0%, #0f1419 100%);
+            min-height: 100vh;
         }
 
         .header {
@@ -326,6 +328,95 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
         }
+        
+        .answers-section {
+            margin: 30px 0;
+        }
+        
+        .show-answers-btn {
+            background: linear-gradient(135deg, #36ff95, #0bbfdb);
+            color: #101c26;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .show-answers-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(54, 255, 149, 0.4);
+        }
+        
+        .answers-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(54, 255, 149, 0.2);
+            margin-top: 15px;
+        }
+        
+        .answer-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border: 1px solid rgba(54, 255, 149, 0.1);
+        }
+        
+        .question-info {
+            flex: 1;
+        }
+        
+        .question-title {
+            color: #36ff95;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .question-text-small {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .answer-details {
+            font-size: 0.85rem;
+        }
+        
+        .your-answer {
+            color: #e0e0e0;
+        }
+        
+        .correct-answer {
+            color: #36ff95;
+            font-weight: bold;
+        }
+        
+        .incorrect-answer {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        .status-icon {
+            margin-left: 15px;
+        }
+        
+        .correct-icon {
+            color: #36ff95;
+            font-size: 1.2rem;
+        }
+        
+        .incorrect-icon {
+            color: #ff6b6b;
+            font-size: 1.2rem;
+        }
 
         .clearfix::after {
             content: "";
@@ -503,6 +594,14 @@
             <div class="result-message" id="resultMessage"></div>
             <div class="result-description" id="resultDescription"></div>
             
+            <div class="answers-section">
+                <button class="show-answers-btn" id="showAnswersBtn" onclick="toggleAnswers()">📊 Show Detailed Answers</button>
+                <div class="answers-content" id="answersContent" style="display: none;">
+                    <h3 style="margin-bottom: 20px; color: #36ff95;">📋 Your Detailed Results</h3>
+                    <div id="answersDetails"></div>
+                </div>
+            </div>
+            
             <button class="restart-btn" onclick="restartQuiz()">Retake Quiz</button>
             <button class="advance-btn" id="advanceBtn" style="display: none;" onclick="advanceToIntermediate()">Advance to Intermediate</button>
         </div>
@@ -652,6 +751,9 @@
             scoreText.textContent = `${score}/10`;
             scoreCircle.style.setProperty('--score', (score / 10) * 100);
 
+            // Generate detailed answers
+            generateAnswers();
+
             if (score >= 7) {
                 resultMessage.textContent = '🎉 Congratulations! You passed!';
                 resultDescription.textContent = 'You have a solid understanding of AI fundamentals and are ready to advance to intermediate level. Well done!';
@@ -697,8 +799,62 @@
             // Store in localStorage for persistence
             localStorage.setItem('aiLevel', 'intermediate');
             alert('🚀 Welcome to Intermediate AI! Advanced features unlocked!');
-            // Redirect back to learn page
-            window.location.href = '/learn';
+            // Navigate to the intermediate learning page
+            window.location.href = '/learn/intermediate';
+        }
+        
+        function generateAnswers() {
+            const answersDetails = document.getElementById('answersDetails');
+            let answersHTML = '';
+
+            for (let i = 0; i < questions.length; i++) {
+                const isCorrect = userAnswers[i] === correctAnswers[i];
+                
+                // Find the user's answer text
+                let userAnswerText = 'Not answered';
+                if (userAnswers[i]) {
+                    const questionCard = document.getElementById(`questionCard${i + 1}`);
+                    const options = questionCard.querySelectorAll('.option');
+                    options.forEach(option => {
+                        if (option.dataset.answer === userAnswers[i]) {
+                            userAnswerText = option.textContent;
+                        }
+                    });
+                }
+                
+                const correctAnswerText = questions[i].correct;
+                
+                answersHTML += `
+                    <div class="answer-item">
+                        <div class="question-info">
+                            <div class="question-title">Question ${i + 1}</div>
+                            <div class="question-text-small">${questions[i].text}</div>
+                            <div class="answer-details">
+                                <span class="your-answer">Your answer: <span class="${isCorrect ? 'correct-answer' : 'incorrect-answer'}">${userAnswerText}</span></span>
+                                ${!isCorrect ? `<br>Correct answer: <span class="correct-answer">${correctAnswerText}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="status-icon">
+                            ${isCorrect ? '<span class="correct-icon">✅</span>' : '<span class="incorrect-icon">❌</span>'}
+                        </div>
+                    </div>
+                `;
+            }
+
+            answersDetails.innerHTML = answersHTML;
+        }
+        
+        function toggleAnswers() {
+            const answersContent = document.getElementById('answersContent');
+            const showAnswersBtn = document.getElementById('showAnswersBtn');
+            
+            if (answersContent.style.display === 'none') {
+                answersContent.style.display = 'block';
+                showAnswersBtn.textContent = '📊 Hide Detailed Answers';
+            } else {
+                answersContent.style.display = 'none';
+                showAnswersBtn.textContent = '📊 Show Detailed Answers';
+            }
         }
     </script>
 </body>

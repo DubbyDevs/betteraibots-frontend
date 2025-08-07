@@ -137,6 +137,10 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
+            background: linear-gradient(135deg, #1a2330 0%, #0f1419 100%);
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
         }
         
         .quiz-container {
@@ -467,6 +471,36 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
         }
+        
+        .answers-section {
+            margin: 30px 0;
+        }
+        
+        .show-answers-btn {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .show-answers-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+        
+        .answers-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            margin-top: 15px;
+        }
 
         .robot-icon {
             width: 60px;
@@ -651,13 +685,16 @@
             <div class="result-message" id="resultMessage"></div>
             <div class="result-description" id="resultDescription"></div>
             
-            <div class="scorecard" id="scorecard">
-                <h3 style="margin-bottom: 20px; color: #8b5cf6;">📊 Your Detailed Scorecard</h3>
-                <div id="scorecardDetails"></div>
+            <div class="answers-section">
+                <button class="show-answers-btn" id="showAnswersBtn" onclick="toggleAnswers()">📊 Show Detailed Answers</button>
+                <div class="answers-content" id="answersContent" style="display: none;">
+                    <h3 style="margin-bottom: 20px; color: #8b5cf6;">📋 Your Detailed Results</h3>
+                    <div id="scorecardDetails"></div>
+                </div>
             </div>
             
             <button class="restart-btn" onclick="restartQuiz()">Retake Quiz</button>
-            <button class="advance-btn" id="advanceBtn" style="display: none;">Advance to Advanced Level</button>
+            <button class="advance-btn" id="advanceBtn" style="display: none;" onclick="advanceToAdvanced()">Advance to Advanced Level</button>
         </div>
         </div>
     </main>
@@ -848,9 +885,6 @@
 
             // Generate detailed scorecard
             generateScorecard();
-            
-            // Make sure scorecard is visible
-            document.getElementById('scorecard').style.display = 'block';
 
             if (score >= 7) {
                 resultMessage.textContent = '🚀 Excellent! You\'re ready for advanced AI concepts!';
@@ -896,6 +930,26 @@
             
             // Reset progress
             document.getElementById('progressFill').style.width = '10%';
+        }
+        
+        function toggleAnswers() {
+            const answersContent = document.getElementById('answersContent');
+            const showAnswersBtn = document.getElementById('showAnswersBtn');
+            
+            if (answersContent.style.display === 'none') {
+                answersContent.style.display = 'block';
+                showAnswersBtn.textContent = '📊 Hide Detailed Answers';
+            } else {
+                answersContent.style.display = 'none';
+                showAnswersBtn.textContent = '📊 Show Detailed Answers';
+            }
+        }
+        
+        function advanceToAdvanced() {
+            // Set user level to advanced in localStorage
+            localStorage.setItem('aiLevel', 'advanced');
+            // Navigate to the advanced learning page
+            window.location.href = '/learn/advanced';
         }
     </script>
 </body>

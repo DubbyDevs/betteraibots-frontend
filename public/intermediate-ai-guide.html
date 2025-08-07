@@ -81,6 +81,21 @@
             min-height: 100vh;
             border-top: 2px solid #8b5cf6;
             box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            overflow-x: hidden;
+        }
+        
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
         
         .header {
@@ -245,8 +260,12 @@
         }
         
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
             .guide-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .container {
@@ -257,13 +276,35 @@
                 padding: 30px 20px;
             }
             
+            .guide-header .quiz-button {
+                display: none;
+            }
+            
             .content-section {
                 padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-content {
+                font-size: 1rem;
+            }
+            
+            .conclusion {
+                padding: 30px 20px;
+            }
+            
+            .conclusion h2 {
+                font-size: 1.6rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="background-pattern"></div>
+    
     <header class="header">
         <nav class="nav-container">
             <a href="/" class="logo">BetterAiBots</a>
