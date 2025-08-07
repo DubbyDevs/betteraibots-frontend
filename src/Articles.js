@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import AIQuiz from "./components/AIQuiz";
 import VetGPT1 from "./assets/vetgpt-1.webp";
 import VetGPT2 from "./assets/vetgpt-2.webp";
 import placeholderImg4 from "./assets/bot-placeholder4.webp";
@@ -1109,9 +1110,722 @@ const closeBtnStyle = {
   cursor: "pointer"
 };
 
+// --- AI STARTER GUIDE COMPONENT ---
+function AIStarterGuide({ onClose }) {
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'rgba(0, 0, 0, 0.8)',
+      zIndex: 1000,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '20px'
+    }}>
+      <div style={{
+        background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+        border: '2px solid #36ff95',
+        borderRadius: '20px',
+        maxWidth: '900px',
+        maxHeight: '90vh',
+        width: '100%',
+        overflow: 'auto',
+        position: 'relative',
+        boxShadow: '0 20px 60px rgba(54, 255, 149, 0.3)'
+      }}>
+        {/* Header */}
+        <div style={{
+          background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+          color: '#101c26',
+          padding: '20px 30px',
+          borderRadius: '18px 18px 0 0',
+          position: 'sticky',
+          top: 0,
+          zIndex: 10
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+          }}>
+            <h1 style={{
+              margin: 0,
+              fontSize: '1.8rem',
+              fontWeight: '700',
+              textShadow: '0 0 10px rgba(16, 28, 38, 0.3)'
+            }}>
+              The Complete AI Starter Guide
+            </h1>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '15px'
+            }}>
+              <button
+                onClick={() => {
+                  onClose();
+                  window.location.href = '/quiz';
+                }}
+                style={{
+                  background: 'rgba(16, 28, 38, 0.3)',
+                  border: '1px solid rgba(16, 28, 38, 0.5)',
+                  borderRadius: '20px',
+                  padding: '8px 16px',
+                  fontSize: '0.9rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  color: '#101c26',
+                  transition: 'all 0.2s',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(16, 28, 38, 0.5)';
+                  e.target.style.transform = 'translateY(-1px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(16, 28, 38, 0.3)';
+                  e.target.style.transform = 'translateY(0)';
+                }}
+              >
+                🧠 Take the Quiz!
+              </button>
+              <button
+                onClick={onClose}
+                style={{
+                  background: 'rgba(16, 28, 38, 0.3)',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '40px',
+                  height: '40px',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#101c26',
+                  transition: 'all 0.2s'
+                }}
+                onMouseEnter={(e) => e.target.style.background = 'rgba(16, 28, 38, 0.5)'}
+                onMouseLeave={(e) => e.target.style.background = 'rgba(16, 28, 38, 0.3)'}
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div style={{
+          padding: '30px',
+          color: '#d1efe7',
+          lineHeight: '1.6'
+        }}>
+          <div style={{
+            background: 'linear-gradient(135deg, #133626 0%, #18232f 100%)',
+            border: '1px solid #36ff95',
+            borderRadius: '12px',
+            padding: '20px',
+            marginBottom: '25px'
+          }}>
+            <p style={{ margin: 0, fontSize: '1.1rem', fontWeight: '500' }}>
+              The AI revolution has arrived, and choosing the right tools and pricing plans can save you thousands while dramatically boosting your productivity. In August 2025, the AI landscape offers unprecedented accessibility with five major players dominating the market, dramatic cost reductions thanks to breakthrough models like DeepSeek R1, and pricing plans ranging from free to $200+ monthly that serve everyone from students to enterprises.
+            </p>
+          </div>
+
+          <h2 style={{
+            color: '#36ff95',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #36ff9544'
+          }}>
+            🏆 Five Titans Dominate the Foundation Model Race
+          </h2>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '20px',
+            marginBottom: '30px'
+          }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '10px' }}>Microsoft/OpenAI</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Leads with 400 million weekly users, commanding the consumer market through ChatGPT's brand recognition and $3.6 billion annual revenue engine.
+              </p>
+              <p style={{ margin: 0, color: '#36ff95', fontWeight: '600', fontSize: '0.9rem' }}>
+                Free • Plus $20/mo • Pro $200/mo
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '10px' }}>Google</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Leverages vertical integration advantages through Gemini's deep integration across their ecosystem, boasting 23% US consumer adoption.
+              </p>
+              <p style={{ margin: 0, color: '#36ff95', fontWeight: '600', fontSize: '0.9rem' }}>
+                Free • AI Pro $19.99/mo • AI Ultra $149.99/mo
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '10px' }}>Anthropic</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Has carved out the safety-first premium position with Claude's superior writing capabilities and 200K token context windows.
+              </p>
+              <p style={{ margin: 0, color: '#36ff95', fontWeight: '600', fontSize: '0.9rem' }}>
+                Free • Pro $20/mo • Max $100-200/mo
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '10px' }}>Meta</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Champions the open-source democratization approach through their Llama model family, achieving massive distribution via Facebook, Instagram, and WhatsApp.
+              </p>
+              <p style={{ margin: 0, color: '#36ff95', fontWeight: '600', fontSize: '0.9rem' }}>
+                Free (Open Source) • Enterprise Pricing
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '10px' }}>xAI</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Brings real-time capabilities and scaling speed, with Grok offering live X data integration and the fastest data center deployment in the industry.
+              </p>
+              <p style={{ margin: 0, color: '#36ff95', fontWeight: '600', fontSize: '0.9rem' }}>
+                Premium Pricing • X Premium+ Required
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <img 
+                src="/aistarterguidehero.webp" 
+                alt="AI Starter Guide Hero" 
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '8px'
+                }}
+              />
+            </div>
+          </div>
+
+          <h2 style={{
+            color: '#36ff95',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #36ff9544'
+          }}>
+            💰 Current Pricing Reveals Clear Value Tiers
+          </h2>
+          
+          <div style={{
+            background: 'linear-gradient(135deg, #133626 0%, #18232f 100%)',
+            border: '1px solid #36ff95',
+            borderRadius: '12px',
+            padding: '20px',
+            marginBottom: '25px'
+          }}>
+            <p style={{ margin: 0, fontSize: '1.1rem', fontWeight: '500' }}>
+              The August 2025 pricing landscape shows remarkable standardization around key price points, with most platforms offering free tiers, $20 monthly plans, and $200 premium options targeting different user segments.
+            </p>
+          </div>
+
+          <h3 style={{
+            color: '#36ff95',
+            fontSize: '1.3rem',
+            fontWeight: '600',
+            marginTop: '25px',
+            marginBottom: '10px'
+          }}>
+            ChatGPT Pricing Structure
+          </h3>
+          <ul style={{ paddingLeft: '20px', marginBottom: '20px', textAlign: 'left' }}>
+            <li style={{ textAlign: 'left' }}><strong>Free:</strong> GPT-4o mini unlimited + severely limited GPT-4o (10 messages per 3-hour window)</li>
+            <li style={{ textAlign: 'left' }}><strong>Plus ($20/month):</strong> 80 GPT-4o messages every 3 hours, reasoning models, Advanced Voice mode</li>
+            <li style={{ textAlign: 'left' }}><strong>Pro ($200/month):</strong> Unlimited access to all models, exclusive Operator web agent</li>
+          </ul>
+
+          <h3 style={{
+            color: '#36ff95',
+            fontSize: '1.3rem',
+            fontWeight: '600',
+            marginTop: '25px',
+            marginBottom: '10px'
+          }}>
+            Claude Pricing
+          </h3>
+          <ul style={{ paddingLeft: '20px', marginBottom: '20px', textAlign: 'left' }}>
+            <li style={{ textAlign: 'left' }}><strong>Free:</strong> Basic access with limited usage</li>
+            <li style={{ textAlign: 'left' }}><strong>Pro ($20/month):</strong> 5x more usage than free, Google Workspace integrations, extended thinking mode</li>
+            <li style={{ textAlign: 'left' }}><strong>Max ($100-200/month):</strong> Dramatically higher usage limits for professionals</li>
+          </ul>
+
+          <h2 style={{
+            color: '#36ff95',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #36ff9544'
+          }}>
+            🧠 Essential AI Concepts Demystified
+          </h2>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '15px',
+            marginBottom: '30px'
+          }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#36ff95', marginTop: 0, marginBottom: '8px' }}>Large Language Models (LLMs)</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Sophisticated pattern matching systems that predict likely word sequences based on massive text training data.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#36ff95', marginTop: 0, marginBottom: '8px' }}>Tokens</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Fundamental processing units, typically equivalent to about 4 characters or ¾ of a word in English.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#36ff95', marginTop: 0, marginBottom: '8px' }}>Prompt Engineering</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                The most practical skill for maximizing AI effectiveness through role assignment and chain-of-thought reasoning.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#36ff95', marginTop: 0, marginBottom: '8px' }}>AI Hallucination</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Models generate convincing but factually incorrect information, requiring human verification for accuracy.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#36ff95', marginTop: 0, marginBottom: '8px' }}>Training Data Bias</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                AI models inherit biases from their training data, reflecting human prejudices and cultural assumptions present in the source material.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#36ff95', marginTop: 0, marginBottom: '8px' }}>Emergent Capabilities</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Unexpected abilities that appear in AI systems as they scale, often surprising even their creators with capabilities not explicitly programmed.
+              </p>
+            </div>
+          </div>
+
+          <h2 style={{
+            color: '#36ff95',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #36ff9544'
+          }}>
+            🚀 Step-by-Step Implementation Strategy
+          </h2>
+          
+          <div style={{
+            background: 'linear-gradient(135deg, #133626 0%, #18232f 100%)',
+            border: '1px solid #36ff95',
+            borderRadius: '12px',
+            padding: '20px',
+            marginBottom: '25px'
+          }}>
+            <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '15px' }}>Phase 1: Strategic Account Creation</h3>
+            <p style={{ margin: 0, marginBottom: '15px' }}>
+              Start with free accounts on ChatGPT, Claude, and Gemini to experience different conversation styles. Experiment with basic queries to identify which platform resonates with your communication preferences.
+            </p>
+            
+            <h3 style={{ color: '#36ff95', marginTop: '20px', marginBottom: '15px' }}>Phase 2: Skill Development</h3>
+            <p style={{ margin: 0, marginBottom: '15px' }}>
+              Practice with increasingly complex prompts. Begin with clear, specific requests that include context, desired format, and constraints. Gradually introduce advanced techniques like role-playing and chain-of-thought reasoning.
+            </p>
+            
+            <h3 style={{ color: '#36ff95', marginTop: '20px', marginBottom: '15px' }}>Phase 3: Workflow Integration</h3>
+            <p style={{ margin: 0 }}>
+              Identify specific tasks in your daily routine that AI can enhance or automate. Common starting points include email drafting, meeting summaries, content ideation, research assistance, and document analysis.
+            </p>
+          </div>
+
+          <h2 style={{
+            color: '#36ff95',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #36ff9544'
+          }}>
+            🎯 Strategic Tool Selection by Use Case
+          </h2>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '20px',
+            marginBottom: '30px'
+          }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '10px' }}>Content Creators</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Specialized writing platforms like Jasper, Notion AI, and DALL-E for visual content generation.
+              </p>
+              <p style={{ margin: 0, color: '#36ff95', fontWeight: '600' }}>
+                Cost: $50-100 monthly
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '10px' }}>Business Professionals</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Microsoft 365 Copilot, HubSpot AI, and Zapier for process automation.
+              </p>
+              <p style={{ margin: 0, color: '#36ff95', fontWeight: '600' }}>
+                Cost: $100-200 monthly per professional
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '10px' }}>Developers</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                GitHub Copilot, Cursor, and Claude for complex debugging and documentation.
+              </p>
+              <p style={{ margin: 0, color: '#36ff95', fontWeight: '600' }}>
+                Cost: $30-50 monthly
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#36ff95', marginTop: 0, marginBottom: '10px' }}>Students & Educators</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Perplexity for research, NotebookLM for document analysis, and free tiers of major platforms.
+              </p>
+              <p style={{ margin: 0, color: '#36ff95', fontWeight: '600' }}>
+                Cost: Free to $20 monthly
+              </p>
+            </div>
+          </div>
+
+          <h2 style={{
+            color: '#36ff95',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #36ff9544'
+          }}>
+            🏥 Industry-Specific Applications
+          </h2>
+          
+          <div style={{
+            background: 'linear-gradient(135deg, #133626 0%, #18232f 100%)',
+            border: '1px solid #36ff95',
+            borderRadius: '12px',
+            padding: '20px',
+            marginBottom: '25px'
+          }}>
+            <p style={{ margin: 0, fontSize: '1.1rem', fontWeight: '500', marginBottom: '15px' }}>
+              Organizations using AI strategically report 74% ROI within the first year, while those sticking with outdated approaches see 40% lower margins and 2.3x higher churn rates.
+            </p>
+            
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '15px',
+              marginTop: '20px'
+            }}>
+              <div>
+                <h4 style={{ color: '#36ff95', marginBottom: '5px' }}>Healthcare</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>50% reduction in discovery timelines, clinical decision support</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#36ff95', marginBottom: '5px' }}>Marketing</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>50% cost reduction, 80% faster captioning</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#36ff95', marginBottom: '5px' }}>Software Dev</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>30% more code generation, automated testing</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#36ff95', marginBottom: '5px' }}>Manufacturing</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>50% faster time-to-market, 30% cost reduction</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#36ff95', marginBottom: '5px' }}>Education</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>40% improved learning outcomes, personalized tutoring</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#36ff95', marginBottom: '5px' }}>Finance</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>60% faster fraud detection, automated compliance</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 style={{
+            color: '#36ff95',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #36ff9544'
+          }}>
+            🔮 Emerging Developments
+          </h2>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '15px',
+            marginBottom: '30px'
+          }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#36ff95', marginTop: 0, marginBottom: '8px' }}>Agentic AI Systems</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Autonomous decision-making across industries, with companies like Sierra providing intelligent customer service agents.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#36ff95', marginTop: 0, marginBottom: '8px' }}>Reasoning Models</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                OpenAI's o1 and DeepSeek R1 demonstrate breakthrough capabilities in complex problem-solving approaching human-level logical thinking.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #36ff95',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#36ff95', marginTop: 0, marginBottom: '8px' }}>Physical AI Integration</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Humanoid robotics, AR/VR interfaces, and autonomous systems across manufacturing and logistics.
+              </p>
+            </div>
+          </div>
+
+          <div style={{
+            background: 'linear-gradient(135deg, #133626 0%, #18232f 100%)',
+            border: '2px solid #36ff95',
+            borderRadius: '12px',
+            padding: '25px',
+            marginTop: '30px',
+            textAlign: 'center'
+          }}>
+            <h2 style={{
+              color: '#36ff95',
+              fontSize: '1.5rem',
+              fontWeight: '700',
+              marginTop: 0,
+              marginBottom: '15px',
+              textShadow: '0 0 8px #36ff9544'
+            }}>
+              🎯 Conclusion
+            </h2>
+            <p style={{
+              margin: 0,
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              lineHeight: '1.6'
+            }}>
+              The AI landscape in August 2025 offers unprecedented opportunities for individuals and organizations willing to approach implementation strategically. Success requires understanding competitive dynamics, selecting appropriate pricing tiers, developing practical prompting skills, and choosing tools that align with specific use cases and budgets.
+            </p>
+            <p style={{
+              margin: '15px 0 0 0',
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              lineHeight: '1.6'
+            }}>
+              The future belongs to those who master AI collaboration today. Start with clear objectives, begin small with high-impact use cases, and scale systematically based on demonstrated value and measurable results.
+            </p>
+          </div>
+
+          {/* Quiz Call-to-Action */}
+          <div style={{
+            textAlign: 'center',
+            marginTop: '40px',
+            marginBottom: '20px'
+          }}>
+            <h3 style={{
+              color: '#36ff95',
+              fontSize: '1.4rem',
+              fontWeight: '600',
+              marginBottom: '20px',
+              textShadow: '0 0 8px #36ff9544'
+            }}>
+              Think you're ready?
+            </h3>
+            <button
+              onClick={() => {
+                onClose();
+                // Navigate to quiz page - you can update this link when the quiz is ready
+                window.location.href = '/quiz';
+              }}
+              style={{
+                background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+                color: '#101c26',
+                border: 'none',
+                borderRadius: '25px',
+                padding: '15px 40px',
+                fontSize: '1.2rem',
+                fontWeight: '700',
+                cursor: 'pointer',
+                boxShadow: '0 8px 25px rgba(54, 255, 149, 0.4)',
+                transition: 'all 0.3s ease',
+                textShadow: '0 0 8px rgba(16, 28, 38, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-3px)';
+                e.target.style.boxShadow = '0 12px 35px rgba(54, 255, 149, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 8px 25px rgba(54, 255, 149, 0.4)';
+              }}
+            >
+              🧠 Take the Quiz
+            </button>
+            <p style={{
+              margin: '15px 0 0 0',
+              color: '#d1efe7',
+              fontSize: '0.95rem',
+              fontStyle: 'italic'
+            }}>
+              Test your knowledge and advance to Intermediate level!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // --- MAIN PAGE COMPONENT ---
 export default function Articles() {
   const [showModal, setShowModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [showAIStarterGuide, setShowAIStarterGuide] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [userLevel, setUserLevel] = useState(() => {
+    return localStorage.getItem('aiLevel') || 'beginner';
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   function handleArticleSubmit(newArticle) {
     const pending = JSON.parse(localStorage.getItem("pendingArticles") || "[]");
@@ -1187,6 +1901,149 @@ export default function Articles() {
       </p>
       <NewsTicker />
       
+      {/* Current Status Section */}
+      <div style={{
+        textAlign: "center",
+        marginTop: 40,
+        marginBottom: 30
+      }}>
+                       <h3 style={{
+                 color: "#36ff95",
+                 fontSize: "1.2rem",
+                 fontWeight: 600,
+                 marginBottom: 20,
+                 textShadow: "0 0 8px #36ff9544"
+               }}>
+                 Current Status: {userLevel.charAt(0).toUpperCase() + userLevel.slice(1)}
+               </h3>
+      </div>
+
+      {/* Learning Path Section */}
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+        gap: isMobile ? "16px" : "20px",
+        maxWidth: "800px",
+        margin: "0 auto 40px auto",
+        padding: isMobile ? "0 16px" : "0 20px"
+      }}>
+        {/* AI Starter Guide */}
+        <div 
+          onClick={() => setShowAIStarterGuide(true)}
+          style={{
+            aspectRatio: "1",
+            background: "linear-gradient(135deg, #1a2330 0%, #0f1419 100%)",
+            border: "2px solid #36ff95",
+            borderRadius: "16px",
+            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)"
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "translateY(-4px)";
+            e.currentTarget.style.boxShadow = "0 8px 30px rgba(54, 255, 149, 0.3)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "translateY(0)";
+            e.currentTarget.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
+          }}>
+          <div style={{
+            width: "80px",
+            height: "80px",
+            background: "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: "16px",
+            fontSize: "2rem"
+          }}>
+            📚
+          </div>
+          <h3 style={{
+            color: "#36ff95",
+            fontSize: "1.3rem",
+            fontWeight: "700",
+            marginBottom: "12px",
+            marginTop: "0"
+          }}>
+            AI Starter Guide
+          </h3>
+          <p style={{
+            color: "#d1efe7",
+            fontSize: "0.95rem",
+            lineHeight: "1.4",
+            margin: "0"
+          }}>
+            Master the basics of AI tools and concepts. Perfect for beginners starting their AI journey.
+          </p>
+        </div>
+
+                       {/* Test Your Knowledge */}
+               <div 
+                 onClick={() => setShowQuiz(true)}
+                 style={{
+                   aspectRatio: "1",
+                   background: "linear-gradient(135deg, #1a2330 0%, #0f1419 100%)",
+                   border: "2px solid #36ff95",
+                   borderRadius: "16px",
+                   padding: "20px",
+                   display: "flex",
+                   flexDirection: "column",
+                   justifyContent: "center",
+                   alignItems: "center",
+                   textAlign: "center",
+                   cursor: "pointer",
+                   transition: "all 0.3s ease",
+                   boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)"
+                 }}
+                 onMouseEnter={(e) => {
+                   e.currentTarget.style.transform = "translateY(-4px)";
+                   e.currentTarget.style.boxShadow = "0 8px 30px rgba(54, 255, 149, 0.3)";
+                 }}
+                 onMouseLeave={(e) => {
+                   e.currentTarget.style.transform = "translateY(0)";
+                   e.currentTarget.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
+                 }}>
+          <div style={{
+            width: "80px",
+            height: "80px",
+            background: "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: "16px",
+            fontSize: "2rem"
+          }}>
+            🧠
+          </div>
+          <h3 style={{
+            color: "#36ff95",
+            fontSize: "1.3rem",
+            fontWeight: "700",
+            marginBottom: "12px",
+            marginTop: "0"
+          }}>
+            Test Your Knowledge
+          </h3>
+          <p style={{
+            color: "#d1efe7",
+            fontSize: "0.95rem",
+            lineHeight: "1.4",
+            margin: "0"
+          }}>
+            Take a quiz and advance to Intermediate level. Challenge yourself and track your progress!
+          </p>
+        </div>
+      </div>
+
       <h2 style={{ 
         textAlign: "center", 
         color: "#36ff95", 
@@ -1282,6 +2139,23 @@ export default function Articles() {
         onClose={() => setShowModal(false)}
         onSubmit={handleArticleSubmit}
       />
+      
+                 {showAIStarterGuide && (
+             <AIStarterGuide onClose={() => setShowAIStarterGuide(false)} />
+           )}
+           
+           {showQuiz && (
+             <AIQuiz 
+               isEmbedded={true}
+               onClose={() => setShowQuiz(false)}
+               onAdvance={() => {
+                 setUserLevel('intermediate');
+                 setShowQuiz(false);
+                 localStorage.setItem('aiLevel', 'intermediate');
+               }}
+             />
+           )}
+      
       <BannerAd />
 
       {/* Trust/Moderation Info */}

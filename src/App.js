@@ -27,6 +27,7 @@ import { bots } from './data/bots';
 import { newsArticles } from './data/news';
 import Articles from "./Articles";
 import ArticlePage from "./ArticlePage";
+import AIQuiz from "./components/AIQuiz";
 
 
 
@@ -100,7 +101,8 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
     <nav className="nav-tabs-bar">
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
-              <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
+      <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
+      <div className="nav-tab" style={{ cursor: 'default' }} title="Coming Soon">Apps</div>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
       {isHomePage && (
         <button 
@@ -243,7 +245,39 @@ function News() {
   );
 }
 
-
+// --- APPS PAGE ---
+function Apps() {
+  return (
+    <>
+      <Helmet>
+        <title>Apps – BetterAiBots.com</title>
+        <meta name="description" content="Discover amazing AI apps and tools for productivity, creativity, and more." />
+        <meta property="og:title" content="Apps – BetterAiBots.com" />
+        <meta property="og:description" content="Explore curated AI apps and tools to enhance your workflow." />
+        <meta property="og:url" content="https://betteraibots.com/apps" />
+        <link rel="canonical" href="https://betteraibots.com/apps" />
+      </Helmet>
+      
+      <div className="hero-section">
+        <h1 className="hero-headline">Apps</h1>
+        <p className="hero-subheadline custom-hero-desc">
+          Coming Soon - Discover amazing AI apps and tools for productivity, creativity, and more.
+        </p>
+      </div>
+      
+      <div style={{ 
+        textAlign: 'center', 
+        padding: '60px 20px',
+        color: '#d1efe7',
+        fontSize: '1.1rem'
+      }}>
+        <p>We're working on curating the best AI apps and tools for you.</p>
+        <p>This page will feature affiliate apps and suggested tools to enhance your workflow.</p>
+        <p>Stay tuned for updates!</p>
+      </div>
+    </>
+  );
+}
 
 // --- Hamburger Menu (mobile) ---
 function HamburgerMenu({ open, onClose }) {
@@ -293,7 +327,8 @@ function HamburgerMenu({ open, onClose }) {
           </li>
 
           <li onClick={() => { navigate('/news'); onClose(); }}>News</li>
-                      <li onClick={() => { navigate('/learn'); onClose(); }}>Learn</li>
+          <li onClick={() => { navigate('/learn'); onClose(); }}>Learn</li>
+          <li style={{ opacity: 0.6, cursor: 'default' }} title="Coming Soon">Apps</li>
           <li onClick={() => { navigate('/contact'); onClose(); }}>Contact Us</li>
         </ul>
       </div>
@@ -1305,6 +1340,8 @@ function App() {
         <Route path="/learn/:id" element={<ArticlePage />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
+        <Route path="/apps" element={<Apps />} />
+        <Route path="/quiz" element={<AIQuiz />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/moderation" element={<Moderation approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
         <Route path="*" element={<Navigate to="/" />} />
