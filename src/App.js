@@ -1,4 +1,3 @@
-import Articles from "./Articles";
 import { CATEGORY_SLUGS } from './constants';
 import React, { useState, useEffect } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
@@ -22,11 +21,14 @@ import {
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import GoogleAnalytics from "./GoogleAnalytics";
-import ArticlePage from "./ArticlePage";
 import PWAInstallPrompt from './components/PWAInstallPrompt';
 import Breadcrumbs from './components/Breadcrumbs';
 import { bots } from './data/bots';
 import { newsArticles } from './data/news';
+import Articles from "./Articles";
+import ArticlePage from "./ArticlePage";
+
+
 
 
 
