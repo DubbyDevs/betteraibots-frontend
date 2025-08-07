@@ -54,13 +54,15 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(135deg, #1a2330 0%, #0f1419 100%);
+            color: #ffffff;
+            line-height: 1.6;
             min-height: 100vh;
-            color: white;
-            overflow-x: hidden;
+            border-top: 2px solid #8b5cf6;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
         }
-
+        
         .background-pattern {
             position: fixed;
             top: 0;
@@ -68,34 +70,92 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
             z-index: -1;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
+        
         .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(139, 92, 246, 0.2);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border-bottom: 2px solid #8b5cf6;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+        
         .logo {
-            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
             font-weight: bold;
-            margin-bottom: 10px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+        
+        .logo .ai {
+            color: #8b5cf6;
+        }
+        
+        .logo .bots {
+            color: #a855f7;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #8b5cf6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .quiz-container {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 2px solid #8b5cf6;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+        }
+        
+        .quiz-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .logo .better {
@@ -430,18 +490,28 @@
 <body>
     <div class="background-pattern"></div>
     
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <span class="better">Better</span><span class="ai">Ai</span><span class="bots">Bots</span>
-            </div>
-            <div class="quiz-title">Intermediate AI Quiz</div>
-            <div class="quiz-subtitle">Test your intermediate AI knowledge and advance to advanced level!</div>
-        </div>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <span class="ai">Better</span><span class="bots">AiBots</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/learn">Learn</a></li>
+                <li><a href="/apps">Apps</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
+    <main class="container">
+        <div class="quiz-container">
+            <h1 class="quiz-title">Intermediate AI Quiz 🚀</h1>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
 
         <div id="questionCard1" class="question-card active">
             <div class="question-number">Question 1 of 10</div>
@@ -589,6 +659,8 @@
             <button class="restart-btn" onclick="restartQuiz()">Retake Quiz</button>
             <button class="advance-btn" id="advanceBtn" style="display: none;">Advance to Advanced Level</button>
         </div>
+        </div>
+    </main>
     </div>
 
     <script>

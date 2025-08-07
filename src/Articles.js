@@ -1168,10 +1168,10 @@ function AIStarterGuide({ onClose }) {
               gap: '15px'
             }}>
               <button
-                onClick={() => {
-                  onClose();
-                  window.location.href = '/beginner-quiz';
-                }}
+                                  onClick={() => {
+                    onClose();
+                    window.location.href = '/AI-Starter-Quiz.html';
+                  }}
                 style={{
                   background: 'rgba(16, 28, 38, 0.3)',
                   border: '1px solid rgba(16, 28, 38, 0.5)',
@@ -1767,9 +1767,9 @@ function AIStarterGuide({ onClose }) {
             </h3>
             <button
               onClick={() => {
-                onClose();
-                // Navigate to quiz page - you can update this link when the quiz is ready
-                                   window.location.href = '/beginner-quiz';
+                                  onClose();
+                  // Navigate to quiz page - you can update this link when the quiz is ready
+                  window.location.href = '/AI-Starter-Quiz.html';
               }}
               style={{
                 background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
@@ -1871,7 +1871,7 @@ function AdvancedGuide({ onClose }) {
             The Advanced AI Guide: Mastering Enterprise-Level AI Implementation and Strategic Leadership
           </h1>
                            <button
-                   onClick={() => window.open('/advanced-quiz', '_blank')}
+                   onClick={() => window.open('/advanced-ai-quiz.html', '_blank')}
                    style={{
                      background: 'linear-gradient(135deg, #ffd700, #ffb347)',
                      color: '#000',
@@ -2093,8 +2093,8 @@ function AdvancedGuide({ onClose }) {
             <p style={{ color: '#e0e0e0', marginBottom: '20px' }}>
               Take the Advanced AI Quiz to earn your Pro status and unlock exclusive content!
             </p>
-            <button
-                                 onClick={() => window.open('/advanced-quiz', '_blank')}
+                        <button
+              onClick={() => window.open('/advanced-ai-quiz.html', '_blank')}
               style={{
                 background: 'linear-gradient(135deg, #ffd700, #ffb347)',
                 color: '#000',
@@ -2176,7 +2176,7 @@ function IntermediateGuide({ onClose }) {
               <button
                 onClick={() => {
                   onClose();
-                  window.location.href = '/intermediate-quiz';
+                  window.location.href = '/intermediate-ai-quiz.html';
                 }}
                 style={{
                   background: 'rgba(16, 28, 38, 0.3)',
@@ -2579,6 +2579,10 @@ function IntermediateGuide({ onClose }) {
                 <h4 style={{ color: '#8b5cf6', marginBottom: '5px' }}>Professional Services</h4>
                 <p style={{ margin: 0, fontSize: '0.9rem' }}>Automated contract analysis, research synthesis, client communication systems</p>
               </div>
+              <div>
+                <h4 style={{ color: '#8b5cf6', marginBottom: '5px' }}>Education & Training</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>Personalized learning paths, automated assessment, adaptive content delivery</p>
+              </div>
             </div>
           </div>
 
@@ -2634,9 +2638,9 @@ function IntermediateGuide({ onClose }) {
               Ready to advance to the next level?
             </h3>
             <button
-              onClick={() => {
+                            onClick={() => {
                 onClose();
-                                 window.location.href = '/intermediate-quiz';
+                window.location.href = '/intermediate-ai-quiz.html';
               }}
               style={{
                 background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)',
