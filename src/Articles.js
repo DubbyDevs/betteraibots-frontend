@@ -2726,19 +2726,118 @@ export default function Articles({ level = "beginner" }) {
   return (
     <>
               <Helmet>
-          <title>{level.charAt(0).toUpperCase() + level.slice(1)} AI Learning – BetterAiBots.com</title>
-          <meta name="description" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI learning content with guides, tutorials, and quizzes. Master AI at your own pace with BetterAiBots.`} />
-          <meta name="keywords" content={`${level} AI learning, AI ${level} level, AI guides, AI tutorials, AI tools, AI bots, BetterAiBots`} />
-          <meta property="og:title" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI Learning – BetterAiBots.com`} />
-          <meta property="og:description" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI learning content with guides, tutorials, and quizzes.`} />
-          <meta property="og:url" content={`https://betteraibots.com/learn/${level}`} />
+          <title>
+            {level === 'beginner' ? 'Beginner AI Learning Guide & Quiz 2025 – BetterAiBots.com' :
+             level === 'intermediate' ? 'Intermediate AI Learning Guide & Quiz 2025 – BetterAiBots.com' :
+             'Advanced AI Learning Guide & Pro Certification Quiz 2025 – BetterAiBots.com'}
+          </title>
+          <meta name="description" content={
+            level === 'beginner' ? 'Master AI fundamentals with our comprehensive Beginner AI Guide and Quiz. Learn ChatGPT, Claude, and essential AI concepts with practical examples and free resources.' :
+            level === 'intermediate' ? 'Advance your AI skills with our Intermediate AI Guide and Quiz. Master workflow automation, business integration, and advanced AI strategies for professional use.' :
+            'Become an AI expert with our Advanced AI Guide and Pro Certification Quiz. Master enterprise AI governance, custom model development, and strategic implementation to earn Pro status.'
+          } />
+          <meta name="keywords" content={
+            level === 'beginner' ? 'beginner AI learning, AI fundamentals, ChatGPT guide, Claude guide, AI basics, AI tutorial, AI quiz, artificial intelligence beginner, BetterAiBots' :
+            level === 'intermediate' ? 'intermediate AI learning, AI workflow automation, AI business integration, advanced AI strategies, AI prompting, AI quiz intermediate, BetterAiBots' :
+            'advanced AI learning, AI pro certification, enterprise AI governance, custom AI models, AI strategy, AI expert, Pro status, BetterAiBots'
+          } />
+          <meta name="author" content="BetterAiBots.com" />
+          <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+          
+          {/* Open Graph */}
           <meta property="og:type" content="website" />
-          <meta property="og:image" content="https://betteraibots.com/og-image.png" />
+          <meta property="og:title" content={
+            level === 'beginner' ? 'Beginner AI Learning Guide & Quiz 2025 – BetterAiBots.com' :
+            level === 'intermediate' ? 'Intermediate AI Learning Guide & Quiz 2025 – BetterAiBots.com' :
+            'Advanced AI Learning Guide & Pro Certification Quiz 2025 – BetterAiBots.com'
+          } />
+          <meta property="og:description" content={
+            level === 'beginner' ? 'Master AI fundamentals with our comprehensive Beginner AI Guide and Quiz. Learn ChatGPT, Claude, and essential AI concepts.' :
+            level === 'intermediate' ? 'Advance your AI skills with our Intermediate AI Guide and Quiz. Master workflow automation and advanced AI strategies.' :
+            'Become an AI expert with our Advanced AI Guide and Pro Certification Quiz. Master enterprise AI governance and earn Pro status.'
+          } />
+          <meta property="og:url" content={`https://betteraibots.com/learn/${level}`} />
+          <meta property="og:image" content="https://betteraibots.com/aistarterguidehero.webp" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content={
+            level === 'beginner' ? 'Beginner AI Learning Guide' :
+            level === 'intermediate' ? 'Intermediate AI Learning Guide' :
+            'Advanced AI Learning Guide'
+          } />
+          <meta property="og:site_name" content="BetterAiBots.com" />
+          <meta property="og:locale" content="en_US" />
+          
+          {/* Twitter Cards */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI Learning – BetterAiBots.com`} />
-          <meta name="twitter:description" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI learning content with guides and quizzes.`} />
-          <meta name="twitter:image" content="https://betteraibots.com/og-image.png" />
+          <meta name="twitter:title" content={
+            level === 'beginner' ? 'Beginner AI Learning Guide & Quiz 2025 – BetterAiBots.com' :
+            level === 'intermediate' ? 'Intermediate AI Learning Guide & Quiz 2025 – BetterAiBots.com' :
+            'Advanced AI Learning Guide & Pro Certification Quiz 2025 – BetterAiBots.com'
+          } />
+          <meta name="twitter:description" content={
+            level === 'beginner' ? 'Master AI fundamentals with our comprehensive Beginner AI Guide and Quiz. Learn ChatGPT, Claude, and essential AI concepts.' :
+            level === 'intermediate' ? 'Advance your AI skills with our Intermediate AI Guide and Quiz. Master workflow automation and advanced AI strategies.' :
+            'Become an AI expert with our Advanced AI Guide and Pro Certification Quiz. Master enterprise AI governance and earn Pro status.'
+          } />
+          <meta name="twitter:image" content="https://betteraibots.com/aistarterguide.webp" />
+          <meta name="twitter:image:alt" content={
+            level === 'beginner' ? 'Beginner AI Learning Guide' :
+            level === 'intermediate' ? 'Intermediate AI Learning Guide' :
+            'Advanced AI Learning Guide'
+          } />
+          
           <link rel="canonical" href={`https://betteraibots.com/learn/${level}`} />
+          
+          {/* Structured Data */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": level === 'beginner' ? 'Beginner AI Learning Guide & Quiz' :
+                      level === 'intermediate' ? 'Intermediate AI Learning Guide & Quiz' :
+                      'Advanced AI Learning Guide & Pro Certification Quiz',
+              "description": level === 'beginner' ? 'Master AI fundamentals with our comprehensive Beginner AI Guide and Quiz. Learn ChatGPT, Claude, and essential AI concepts.' :
+                           level === 'intermediate' ? 'Advance your AI skills with our Intermediate AI Guide and Quiz. Master workflow automation and advanced AI strategies.' :
+                           'Become an AI expert with our Advanced AI Guide and Pro Certification Quiz. Master enterprise AI governance and earn Pro status.',
+              "url": `https://betteraibots.com/learn/${level}`,
+              "image": "https://betteraibots.com/aistarterguidehero.webp",
+              "publisher": {
+                "@type": "Organization",
+                "name": "BetterAiBots",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://betteraibots.com/betteraibotsglowlogo.png"
+                }
+              },
+              "mainEntity": {
+                "@type": "ItemList",
+                "name": level === 'beginner' ? 'Beginner AI Learning Resources' :
+                        level === 'intermediate' ? 'Intermediate AI Learning Resources' :
+                        'Advanced AI Learning Resources',
+                "itemListElement": [
+                  {
+                    "@type": "Article",
+                    "name": level === 'beginner' ? 'Beginner AI Guide' :
+                            level === 'intermediate' ? 'Intermediate AI Guide' :
+                            'Advanced AI Guide',
+                    "description": level === 'beginner' ? 'Comprehensive guide to AI fundamentals, ChatGPT, and Claude usage.' :
+                                 level === 'intermediate' ? 'Advanced AI concepts, workflow automation, and business integration strategies.' :
+                                 'Enterprise AI governance, custom model development, and strategic implementation.'
+                  },
+                  {
+                    "@type": "Quiz",
+                    "name": level === 'beginner' ? 'Beginner AI Quiz' :
+                            level === 'intermediate' ? 'Intermediate AI Quiz' :
+                            'Advanced AI Quiz - Pro Certification',
+                    "description": level === 'beginner' ? 'Test your knowledge of AI fundamentals and basic concepts.' :
+                                 level === 'intermediate' ? 'Assess your intermediate AI knowledge and practical application skills.' :
+                                 'Advanced AI knowledge assessment for Pro status certification.'
+                  }
+                ]
+              }
+            })}
+          </script>
         </Helmet>
       
       <div className="hero-section" style={{ maxWidth: 1100, margin: "40px auto 18px auto", padding: "0 12px" }}>
