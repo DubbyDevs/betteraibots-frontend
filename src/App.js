@@ -1593,6 +1593,9 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Detect iOS mobile devices (iPhone/iPad)
+  const isIOSMobile = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
   const BTC = "bc1qnswf7fyzkrwczkmlm9ann6rkmzcp0jd4jvzwxw";
   const SOL = "GCowBrjFfoXctJTQxwNgUuhCvuzD9hE4tHgBLWL39UR8";
 
@@ -1765,7 +1768,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
 
       </div>
       
-      {showPWAInstallButton && onPWAInstallClick && (
+      {showPWAInstallButton && onPWAInstallClick && !isIOSMobile && (
         <div style={{ 
           textAlign: "center", 
           paddingBottom: "10px",

@@ -31,6 +31,7 @@ import placeholderImg31 from '../assets/bot-placeholder31.webp';
 import placeholderImg32 from '../assets/bot-placeholder32.webp';
 import placeholderImg33 from '../assets/bot-placeholder33.webp';
 import placeholderImg34 from '../assets/bot-placeholder34.webp';
+import placeholderImg36 from '../assets/bot-placeholder36.webp';
 import InVideoFreeTrialImg from '../assets/InVideoFreeTrial.webp';
 import InVideoFreeTrial2Img from '../assets/InVideoFreeTrial2.webp';
 import InVideoAvatar from '../assets/InVideoAvatar.webp';
@@ -75,13 +76,14 @@ export const rawBots = [
     freeLabel: "Free Trial"
   },
   {
-    title: "Astrology Birth Chart GPT",
-    desc: "Personalized astrological insights based on your birth date, time, and location.",
-    image: placeholderImg30,
+    title: "JSON Prompt Creator",
+    desc: "Magical JSON Prompt Creator for Video Generation",
+    image: placeholderImg36,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-WxckXARTP-astrology-birth-chart-gpt",
-    categories: ["Specialized Knowledge", "Lifestyle"]
+    openaiLink: "https://chatgpt.com/g/g-688ba73b3ba88191885c9b7009839045-json-prompt-creator",
+    categories: ["Productivity"]
   },
+  
   {
     title: "VetGPT",
     desc: "Get general veterinary advice on animal health, nutrition, and behavior. Not a substitute for professional veterinary care.",
@@ -199,12 +201,12 @@ export const rawBots = [
     categories: ["Productivity", "Specialized Knowledge"]
   },
   {
-    title: "Accounting GPT",
-    desc: "AI-powered accounting help, bookkeeping, and finance questions answered.",
-    image: placeholderImg10,
+    title: "Astrology Birth Chart GPT",
+    desc: "Personalized astrological insights based on your birth date, time, and location.",
+    image: placeholderImg30,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-7RJghLmOO-accounting-gpt",
-    categories: ["Productivity"]
+    openaiLink: "https://chatgpt.com/g/g-WxckXARTP-astrology-birth-chart-gpt",
+    categories: ["Specialized Knowledge", "Lifestyle"]
   },
   {
     title: "Academic Assistant Pro",
@@ -264,7 +266,7 @@ export const rawBots = [
     image: trustygifVideo,
     isVideo: true,
     free: true,
-    openaiLink: "https://chatgpt.com/g/g-45WfVCFCy-gif-generator",
+    openaiLink: "https://chatgpt.com/share/68941477-0b54-8004-83c8-5cb27d26bf96",
     categories: ["Creative Tools"]
   },
   {

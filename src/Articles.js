@@ -111,7 +111,7 @@ PaintR is an assistive AI tool and does not guarantee perfect color match under 
   },
   {
     id: "invideo-ai",
-    title: "InVideo AI Review: The Ultimate AI Video Generator Transforming Content Creation",
+    title: "InVideo: The Ultimate AI Video Generator",
     date: "June 2025",
     cover: InVideoAvatar,
     preview: "InVideo AI is revolutionizing video content creation with cutting-edge artificial intelligence, enabling creators, marketers, and businesses to produce professional-quality videos in minutes without technical expertise.",
