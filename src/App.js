@@ -102,7 +102,7 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
       <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
-      <div className="nav-tab" style={{ cursor: 'default' }} title="Coming Soon">Apps</div>
+              <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
       {isHomePage && (
         <button 
@@ -247,33 +247,540 @@ function News() {
 
 // --- APPS PAGE ---
 function Apps() {
+  const [activeSection, setActiveSection] = useState('free');
+
+  const freeApps = [
+    {
+      name: "ChatGPT",
+      description: "Free AI chatbot with GPT-4o mini, perfect for conversations and basic tasks",
+      category: "Chat & Writing",
+      features: ["Unlimited GPT-4o mini", "Web browsing", "File uploads", "Mobile app"],
+      link: "https://chat.openai.com",
+      image: "https://betteraibots.com/assets/chatgpt-logo.png"
+    },
+    {
+      name: "Claude",
+      description: "Anthropic's AI assistant with superior writing capabilities and 200K context",
+      category: "Writing & Analysis",
+      features: ["200K token context", "Superior writing", "File analysis", "Web search"],
+      link: "https://claude.ai",
+      image: "https://betteraibots.com/assets/claude-logo.png"
+    },
+    {
+      name: "Google Gemini",
+      description: "Google's AI model with advanced reasoning and multimodal capabilities",
+      category: "Multimodal AI",
+      features: ["Image analysis", "Code generation", "Creative writing", "Google integration"],
+      link: "https://gemini.google.com",
+      image: "https://betteraibots.com/assets/gemini-logo.png"
+    },
+    {
+      name: "Hugging Face",
+      description: "Open-source AI models and tools for developers and researchers",
+      category: "Development",
+      features: ["Open source models", "Model hosting", "Inference API", "Community"],
+      link: "https://huggingface.co",
+      image: "https://betteraibots.com/assets/huggingface-logo.png"
+    },
+    {
+      name: "Perplexity AI",
+      description: "AI-powered search engine that provides accurate answers with sources",
+      category: "Search & Research",
+      features: ["Real-time search", "Source citations", "Multiple perspectives", "Academic focus"],
+      link: "https://perplexity.ai",
+      image: "https://betteraibots.com/assets/perplexity-logo.png"
+    },
+    {
+      name: "Poe",
+      description: "Platform to chat with multiple AI models including Claude, GPT-4, and more",
+      category: "Multi-Model Chat",
+      features: ["Multiple AI models", "Custom bots", "Mobile app", "Free tier"],
+      link: "https://poe.com",
+      image: "https://betteraibots.com/assets/poe-logo.png"
+    }
+  ];
+
+  const trialApps = [
+    {
+      name: "AdCreative",
+      description: "AI-powered ad creative generator that creates high-converting ads in seconds",
+      category: "Marketing & Advertising",
+      features: ["AI ad generation", "Brand customization", "Performance tracking", "Multiple formats"],
+      link: "https://betteraibots.com/adcreative",
+      trialInfo: "Free trial available, then $29/month",
+      image: "https://betteraibots.com/assets/adcreative-logo.png"
+    },
+    {
+      name: "Invideo",
+      description: "AI video creation platform with thousands of templates and easy editing",
+      category: "Video Creation",
+      features: ["AI video generation", "5000+ templates", "Text-to-video", "Easy editing"],
+      link: "https://betteraibots.com/invideo",
+      trialInfo: "Free plan available, Pro $25/month",
+      image: "https://betteraibots.com/assets/invideo-logo.png"
+    },
+    {
+      name: "VEED",
+      description: "Online video editor with AI features for creating professional content",
+      category: "Video Editing",
+      features: ["AI video editing", "Auto-subtitles", "Background removal", "Collaboration tools"],
+      link: "https://betteraibots.com/veed",
+      trialInfo: "Free plan available, Pro $18/month",
+      image: "https://betteraibots.com/assets/veed-logo.png"
+    },
+    {
+      name: "Copy.ai",
+      description: "AI copywriting tool for marketing, sales, and business content",
+      category: "Copywriting",
+      features: ["Marketing copy", "Email campaigns", "Social media", "Product descriptions"],
+      link: "https://copy.ai",
+      trialInfo: "Free plan available, Pro $49/month",
+      image: "https://betteraibots.com/assets/copyai-logo.png"
+    },
+    {
+      name: "Synthesia",
+      description: "AI video generation platform with realistic avatars and voices",
+      category: "Video Creation",
+      features: ["AI avatars", "Voice cloning", "Video templates", "Multilingual"],
+      link: "https://synthesia.io",
+      trialInfo: "Free demo video, plans from $30/month",
+      image: "https://betteraibots.com/assets/synthesia-logo.png"
+    },
+    {
+      name: "Runway ML",
+      description: "Creative AI tools for video editing, image generation, and 3D creation",
+      category: "Creative Tools",
+      features: ["Video editing", "Image generation", "3D creation", "Motion graphics"],
+      link: "https://runwayml.com",
+      trialInfo: "Free tier available, Pro $15/month",
+      image: "https://betteraibots.com/assets/runway-logo.png"
+    }
+  ];
+
+  const paidApps = [
+    {
+      name: "n8n",
+      description: "Open-source workflow automation platform for connecting apps and services",
+      category: "Workflow Automation",
+      features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
+      price: "Free - $20/month",
+      link: "https://betteraibots.com/n8n",
+      image: "https://betteraibots.com/assets/n8n-logo.png"
+    },
+    {
+      name: "Viral Launch AI",
+      description: "AI-powered Amazon selling platform with product research, keyword tools, and listing optimization",
+      category: "E-commerce & Amazon",
+      features: ["Product discovery", "Market intelligence", "Keyword research", "Listing optimization"],
+      price: "$69-$199/month",
+      link: "https://affiliate.viral-launch.com/BAIB",
+      image: "https://betteraibots.com/assets/viral-launch-logo.png"
+    },
+    {
+      name: "ChatGPT Team",
+      description: "Team collaboration with ChatGPT, shared workspaces, and admin controls",
+      category: "Team Collaboration",
+      features: ["Team workspace", "Admin controls", "Shared conversations", "Priority support"],
+      price: "$25/user/month",
+      link: "https://chat.openai.com",
+      image: "https://betteraibots.com/assets/chatgpt-team-logo.png"
+    },
+    {
+      name: "Claude Enterprise",
+      description: "Enterprise-grade Claude with advanced security and customization",
+      category: "Enterprise",
+      features: ["Advanced security", "Custom models", "API access", "Dedicated support"],
+      price: "Contact sales",
+      link: "https://claude.ai",
+      image: "https://betteraibots.com/assets/claude-enterprise-logo.png"
+    },
+    {
+      name: "GitHub Copilot",
+      description: "AI pair programmer that helps write code faster and with fewer errors",
+      category: "Development",
+      features: ["Code completion", "Multi-language support", "IDE integration", "Security scanning"],
+      price: "$10/month",
+      link: "https://github.com/features/copilot",
+      image: "https://betteraibots.com/assets/github-copilot-logo.png"
+    },
+    {
+      name: "Adobe Firefly",
+      description: "Adobe's AI creative suite for image generation and editing",
+      category: "Creative Tools",
+      features: ["Image generation", "Text effects", "Vector recoloring", "Adobe integration"],
+      price: "$4.99/month",
+      link: "https://firefly.adobe.com",
+      image: "https://betteraibots.com/assets/adobe-firefly-logo.png"
+    }
+  ];
+
+  const renderAppCard = (app, type) => (
+    <div key={app.name} className="app-card" style={{
+      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)',
+      border: '1px solid rgba(54, 255, 149, 0.2)',
+      borderRadius: '16px',
+      padding: '24px',
+      marginBottom: '20px',
+      backdropFilter: 'blur(10px)',
+      transition: 'all 0.3s ease',
+      cursor: 'pointer'
+    }} onClick={() => window.open(app.link, '_blank')}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '16px' }}>
+        <div style={{
+          width: '60px',
+          height: '60px',
+          borderRadius: '12px',
+          background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexShrink: 0,
+          fontSize: '24px',
+          fontWeight: 'bold',
+          color: '#1a2330'
+        }}>
+          {app.name.charAt(0)}
+        </div>
+        <div style={{ flex: 1 }}>
+          <h3 style={{
+            margin: '0 0 8px 0',
+            fontSize: '1.3rem',
+            fontWeight: '600',
+            color: '#36ff95',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}>
+            {app.name}
+            {type === 'trial' && (
+              <span style={{
+                background: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+                color: 'white',
+                fontSize: '0.7rem',
+                padding: '2px 8px',
+                borderRadius: '12px',
+                fontWeight: '500'
+              }}>
+                TRIAL
+              </span>
+            )}
+            {type === 'paid' && (
+              <span style={{
+                background: 'linear-gradient(135deg, #ffd700, #ffb347)',
+                color: '#1a2330',
+                fontSize: '0.7rem',
+                padding: '2px 8px',
+                borderRadius: '12px',
+                fontWeight: '500'
+              }}>
+                {app.price}
+              </span>
+            )}
+          </h3>
+          <p style={{
+            margin: '0 0 8px 0',
+            color: '#9ca3af',
+            fontSize: '0.9rem',
+            fontWeight: '500'
+          }}>
+            {app.category}
+          </p>
+          {type === 'trial' && app.trialInfo && (
+            <p style={{
+              margin: '0 0 8px 0',
+              color: '#8b5cf6',
+              fontSize: '0.85rem',
+              fontWeight: '600'
+            }}>
+              {app.trialInfo}
+            </p>
+          )}
+        </div>
+      </div>
+      
+      <p style={{
+        margin: '0 0 16px 0',
+        color: '#d1efe7',
+        fontSize: '1rem',
+        lineHeight: '1.5'
+      }}>
+        {app.description}
+      </p>
+      
+      <div style={{ marginBottom: '16px' }}>
+        <h4 style={{
+          margin: '0 0 8px 0',
+          fontSize: '0.9rem',
+          color: '#36ff95',
+          fontWeight: '600'
+        }}>
+          Key Features:
+        </h4>
+        <ul style={{
+          margin: 0,
+          paddingLeft: '20px',
+          color: '#9ca3af',
+          fontSize: '0.9rem'
+        }}>
+          {app.features.map((feature, index) => (
+            <li key={index} style={{ marginBottom: '4px' }}>{feature}</li>
+          ))}
+        </ul>
+      </div>
+      
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginTop: 'auto'
+      }}>
+        <span style={{
+          color: '#36ff95',
+          fontSize: '0.9rem',
+          fontWeight: '600'
+        }}>
+          Click to visit →
+        </span>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <Helmet>
-        <title>Apps – BetterAiBots.com</title>
-        <meta name="description" content="Discover amazing AI apps and tools for productivity, creativity, and more." />
-        <meta property="og:title" content="Apps – BetterAiBots.com" />
-        <meta property="og:description" content="Explore curated AI apps and tools to enhance your workflow." />
+        <title>AI Apps Directory – Free, Trial & Paid AI Tools | BetterAiBots.com</title>
+        <meta name="description" content="Discover the best AI apps and tools: free AI applications, free trials, and premium paid AI tools for productivity, creativity, and business." />
+        <meta name="keywords" content="AI apps, free AI tools, AI software, ChatGPT, Claude, AI trials, paid AI tools, artificial intelligence apps, AI productivity tools" />
+        <meta property="og:title" content="AI Apps Directory – Free, Trial & Paid AI Tools" />
+        <meta property="og:description" content="Explore curated AI apps and tools: free applications, trial versions, and premium paid tools to enhance your workflow." />
         <meta property="og:url" content="https://betteraibots.com/apps" />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png" />
         <link rel="canonical" href="https://betteraibots.com/apps" />
       </Helmet>
       
       <div className="hero-section">
-        <h1 className="hero-headline">Apps</h1>
+        <h1 className="hero-headline">AI Apps Directory</h1>
         <p className="hero-subheadline custom-hero-desc">
-          Coming Soon - Discover amazing AI apps and tools for productivity, creativity, and more.
+          Discover the best AI applications: free tools, trial versions, and premium paid solutions
         </p>
       </div>
       
-      <div style={{ 
-        textAlign: 'center', 
-        padding: '60px 20px',
-        color: '#d1efe7',
-        fontSize: '1.1rem'
-      }}>
-        <p>We're working on curating the best AI apps and tools for you.</p>
-        <p>This page will feature affiliate apps and suggested tools to enhance your workflow.</p>
-        <p>Stay tuned for updates!</p>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+        {/* Section Navigation */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '20px',
+          marginBottom: '40px',
+          flexWrap: 'wrap'
+        }}>
+          <button
+            onClick={() => setActiveSection('free')}
+            style={{
+              background: activeSection === 'free' 
+                ? 'linear-gradient(135deg, #36ff95, #0bbfdb)' 
+                : 'rgba(255, 255, 255, 0.05)',
+              color: activeSection === 'free' ? '#1a2330' : '#d1efe7',
+              border: '1px solid rgba(54, 255, 149, 0.3)',
+              borderRadius: '30px',
+              padding: '12px 24px',
+              fontSize: '1rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            🆓 Free AI Apps ({freeApps.length})
+          </button>
+          <button
+            onClick={() => setActiveSection('trial')}
+            style={{
+              background: activeSection === 'trial' 
+                ? 'linear-gradient(135deg, #8b5cf6, #a855f7)' 
+                : 'rgba(255, 255, 255, 0.05)',
+              color: activeSection === 'trial' ? 'white' : '#d1efe7',
+              border: '1px solid rgba(139, 92, 246, 0.3)',
+              borderRadius: '30px',
+              padding: '12px 24px',
+              fontSize: '1rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            🎯 Free Trials ({trialApps.length})
+          </button>
+          <button
+            onClick={() => setActiveSection('paid')}
+            style={{
+              background: activeSection === 'paid' 
+                ? 'linear-gradient(135deg, #ffd700, #ffb347)' 
+                : 'rgba(255, 255, 255, 0.05)',
+              color: activeSection === 'paid' ? '#1a2330' : '#d1efe7',
+              border: '1px solid rgba(255, 215, 0, 0.3)',
+              borderRadius: '30px',
+              padding: '12px 24px',
+              fontSize: '1rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            💎 Paid AI Apps ({paidApps.length})
+          </button>
+        </div>
+
+        {/* Section Content */}
+        <div style={{ minHeight: '600px' }}>
+          {activeSection === 'free' && (
+            <div>
+              <div style={{
+                textAlign: 'center',
+                marginBottom: '40px',
+                padding: '30px',
+                background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)',
+                borderRadius: '20px',
+                border: '1px solid rgba(54, 255, 149, 0.2)'
+              }}>
+                <h2 style={{
+                  color: '#36ff95',
+                  fontSize: '2rem',
+                  marginBottom: '16px'
+                }}>
+                  🆓 Free AI Applications
+                </h2>
+                <p style={{
+                  color: '#d1efe7',
+                  fontSize: '1.1rem',
+                  maxWidth: '600px',
+                  margin: '0 auto'
+                }}>
+                  High-quality AI tools you can use right now without spending a dime. 
+                  Perfect for beginners and those exploring AI capabilities.
+                </p>
+              </div>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: '24px'
+              }}>
+                {freeApps.map(app => renderAppCard(app, 'free'))}
+              </div>
+            </div>
+          )}
+
+          {activeSection === 'trial' && (
+            <div>
+              <div style={{
+                textAlign: 'center',
+                marginBottom: '40px',
+                padding: '30px',
+                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%)',
+                borderRadius: '20px',
+                border: '1px solid rgba(139, 92, 246, 0.2)'
+              }}>
+                <h2 style={{
+                  color: '#8b5cf6',
+                  fontSize: '2rem',
+                  marginBottom: '16px'
+                }}>
+                  🎯 Free Trial AI Tools
+                </h2>
+                <p style={{
+                  color: '#d1efe7',
+                  fontSize: '1.1rem',
+                  maxWidth: '600px',
+                  margin: '0 auto'
+                }}>
+                  Try premium AI tools for free before committing. 
+                  Test advanced features and see if they fit your workflow.
+                </p>
+              </div>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: '24px'
+              }}>
+                {trialApps.map(app => renderAppCard(app, 'trial'))}
+              </div>
+            </div>
+          )}
+
+          {activeSection === 'paid' && (
+            <div>
+              <div style={{
+                textAlign: 'center',
+                marginBottom: '40px',
+                padding: '30px',
+                background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 179, 71, 0.1) 100%)',
+                borderRadius: '20px',
+                border: '1px solid rgba(255, 215, 0, 0.2)'
+              }}>
+                <h2 style={{
+                  color: '#ffd700',
+                  fontSize: '2rem',
+                  marginBottom: '16px'
+                }}>
+                  💎 Premium Paid AI Tools
+                </h2>
+                <p style={{
+                  color: '#d1efe7',
+                  fontSize: '1.1rem',
+                  maxWidth: '600px',
+                  margin: '0 auto'
+                }}>
+                  Professional-grade AI tools with advanced features, 
+                  higher limits, and dedicated support for serious users.
+                </p>
+              </div>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: '24px'
+              }}>
+                {paidApps.map(app => renderAppCard(app, 'paid'))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Bottom CTA */}
+        <div style={{
+          textAlign: 'center',
+          marginTop: '60px',
+          padding: '40px',
+          background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.05) 0%, rgba(11, 191, 219, 0.05) 100%)',
+          borderRadius: '20px',
+          border: '1px solid rgba(54, 255, 149, 0.2)'
+        }}>
+          <h3 style={{
+            color: '#36ff95',
+            fontSize: '1.5rem',
+            marginBottom: '16px'
+          }}>
+            Can't find what you're looking for?
+          </h3>
+          <p style={{
+            color: '#d1efe7',
+            fontSize: '1.1rem',
+            marginBottom: '24px'
+          }}>
+            We're constantly updating our directory with the latest AI tools and applications.
+          </p>
+          <Link to="/contact" style={{
+            background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+            color: '#1a2330',
+            padding: '12px 30px',
+            borderRadius: '30px',
+            textDecoration: 'none',
+            fontWeight: '600',
+            fontSize: '1rem',
+            display: 'inline-block',
+            transition: 'all 0.3s ease'
+          }}>
+            Suggest an AI App
+          </Link>
+        </div>
       </div>
     </>
   );
@@ -328,7 +835,7 @@ function HamburgerMenu({ open, onClose }) {
 
           <li onClick={() => { navigate('/news'); onClose(); }}>News</li>
           <li onClick={() => { navigate('/learn'); onClose(); }}>Learn</li>
-          <li style={{ opacity: 0.6, cursor: 'default' }} title="Coming Soon">Apps</li>
+          <li onClick={() => { navigate('/apps'); onClose(); }}>Apps</li>
           <li onClick={() => { navigate('/contact'); onClose(); }}>Contact Us</li>
         </ul>
       </div>
