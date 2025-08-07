@@ -572,7 +572,7 @@ function Apps() {
         
         {/* Structured Data */}
         <script type="application/ld+json">
-        {`{
+        {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "AI Apps Directory 2025",
@@ -608,7 +608,7 @@ function Apps() {
               }
             ]
           }
-        }`}
+        })}
         </script>
       </Helmet>
       
