@@ -280,11 +280,13 @@ export default function ArticlePage() {
       {/* Top Image */}
       {images[0] && (
         <img src={images[0]} alt="" style={{
-          width: "100%",
-          maxWidth: article.id === 'scholar-gpt' ? 200 : 480,
+          width: "480px",
+          height: "480px",
+          maxWidth: "100%",
           borderRadius: 16,
           margin: "0 0 24px 0",
-          display: "block"
+          display: "block",
+          objectFit: "cover"
         }} />
       )}
       <h1 style={{
@@ -379,6 +381,17 @@ export default function ArticlePage() {
         </ReactMarkdown>
       ) : (
         article.content
+      )}
+      {/* Middle image before interview section */}
+      {article.id === 'vetgpt' && images[1] && (
+        <div style={{ textAlign: "center", margin: "38px 0 14px 0" }}>
+          <img src={images[1]} alt="" style={{
+            width: "70%",
+            maxWidth: 370,
+            borderRadius: 18,
+            boxShadow: "0 0 16px #36ff9577"
+          }} />
+        </div>
       )}
       {/* Lower image at very bottom */}
       {images[2] && (

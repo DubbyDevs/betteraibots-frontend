@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import VetGPT1 from "./assets/vetgpt-1.png";
-import VetGPT2 from "./assets/vetgpt-2.png";
-import VetGPT3 from "./assets/vetgpt-3.png";
+import VetGPT1 from "./assets/vetgpt-1.webp";
+import VetGPT2 from "./assets/vetgpt-2.webp";
+import VetGPT3 from "./assets/vetgpt-3.webp";
 import placeholderImg4 from "./assets/bot-placeholder4.webp";
+import schlrgptArticleImg from "./assets/schlrgptarticle.webp";
+import aifitnessArticleImg from "./assets/aifitnessarticle.webp";
 import placeholderImg7 from "./assets/bot-placeholder7.webp";
-import invideofreetrialai from "./assets/invideofreetrialai.png";
+import lovedocAppImg from "./assets/thelovedocaiapp.webp";
+import lovedocImg from "./assets/lovedocai.webp";
+import invideofreetrialai from "./assets/invideofreetrialai.webp";
 import InVideoAvatar from "./assets/InVideoAvatar.webp";
 import cheatCoderImg from "./assets/cheatcoder.webp";
 import cheatCoderLogo from "./assets/cheatcoderlogo.webp";
@@ -115,8 +119,6 @@ PaintR is an assistive AI tool and does not guarantee perfect color match under 
     preview: "InVideo AI is revolutionizing video content creation with cutting-edge artificial intelligence, enabling creators, marketers, and businesses to produce professional-quality videos in minutes without technical expertise.",
     images: [invideofreetrialai],
     content: `
-InVideo AI is revolutionizing video content creation with cutting-edge artificial intelligence, enabling creators, marketers, and businesses to produce professional-quality videos in minutes without technical expertise.
-
 ## 🎬 What is InVideo AI?
 
 InVideo AI is a groundbreaking artificial intelligence-powered video generator that transforms text prompts into stunning, professional videos. This innovative platform combines advanced AI technology with an intuitive interface, making video creation accessible to everyone—from complete beginners to seasoned content creators.
@@ -295,11 +297,11 @@ This review is based on extensive testing and user feedback. InVideo AI is a pow
   },
   {
     id: "scholar-gpt",
-    title: "Exclusive Interview with ScholarGPT: The AI Research Assistant Revolutionizing Academia",
+    title: "ScholarGPT: The AI Research Assistant Revolutionizing Academia",
     date: "May 2025",
     cover: placeholderImg4,
     preview: "Scholar GPT is revolutionizing academic research and study workflows with advanced AI-powered literature review, citation management, and personalized learning tools.",
-    images: [placeholderImg4],
+    images: [schlrgptArticleImg],
     content: `
 ## 🎙️ Interview Questions & Answers with ScholarGPT
 
@@ -378,7 +380,7 @@ This review is based on extensive testing and user feedback. InVideo AI is a pow
     date: "April 2025",
     cover: VetGPT1,
     preview: 'When It\'s 10 PM and Your Pet\'s Acting "Off" — You\'re Not Alone Anymore. Here\'s why VetGPT is the best, safest, and most accessible way to get honest pet help—day or night.',
-    images: [VetGPT1, VetGPT2, VetGPT3],
+    images: [VetGPT1, VetGPT2],
     content: `
 We've all been there. Your dog won't stop scratching. Your cat hasn't eaten in a day. Your rabbit suddenly seems lethargic. Your regular vet is closed, Google makes you panic, and you just want clear, honest advice.
 
@@ -496,6 +498,7 @@ VetGPT is an educational and informational AI tool. It is not a veterinarian and
     date: "March 2025",
     cover: fitnessCoachImg,
     preview: "How the PhD Coach GPT is changing the game for safe, science-based fitness and nutrition guidance—plus an exclusive interview.",
+    images: [aifitnessArticleImg],
     content: <AIFitnessCoachInterview />
   },
   {
@@ -662,9 +665,9 @@ To begin working with Cheat Coder, simply describe your programming challenge or
     id: "love-doc-ai",
     title: "Love Doc: Your Free AI Relationship Coach",
     date: "January 2025",
-    cover: placeholderImg7,
+    cover: lovedocImg,
     preview: "Relationship questions? Dating drama? Love Doc is a safe place to get honest, AI-powered advice—no signup, no judgment, just help.",
-    images: [],
+    images: [lovedocAppImg],
     content: `
 # 📰 New AI Service Empowers Emotional Healing Through Reflective Conversations
 

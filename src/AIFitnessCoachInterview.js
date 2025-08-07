@@ -12,7 +12,6 @@ const nameStyle = {
 export default function AIFitnessCoachInterview() {
   return (
     <div className="article-container">
-      <img src={fitnessCoachImg} alt="AI Fitness Coach" className="article-image" style={{ maxWidth: 320, borderRadius: 12, marginBottom: 24 }} onError={e => { e.target.onerror = null; e.target.src = '/og-square.png'; }} />
       <h1>🏋️‍♀️ The AI Fitness Coach Revolutionizing Workouts and Nutrition</h1>
       <p>In the ever-evolving world of artificial intelligence, one standout GPT is transforming how individuals approach fitness, nutrition, and wellness: <b>Fitness, Workout & Diet - PhD Coach</b>. This advanced AI app isn't just another chatbot or generic assistant — it's a highly specialized digital coach designed to provide safe, evidence-based, and fully personalized fitness and diet guidance.</p>
       <h2>🚀 What Is the PhD Coach GPT?</h2>
