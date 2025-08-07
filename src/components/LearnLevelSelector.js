@@ -128,105 +128,127 @@ const LearnLevelSelector = () => {
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   position: 'relative',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%',
+                  minHeight: '500px'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.transform = 'translateY(-5px)';
-                  e.target.style.borderColor = `${level.color}80`;
-                  e.target.style.boxShadow = `0 20px 40px ${level.color}20`;
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                  e.currentTarget.style.borderColor = `${level.color}80`;
+                  e.currentTarget.style.boxShadow = `0 20px 40px ${level.color}20`;
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.transform = 'translateY(0)';
-                  e.target.style.borderColor = `${level.color}40`;
-                  e.target.style.boxShadow = 'none';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = `${level.color}40`;
+                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                {/* Badge */}
-                <div style={{
-                  fontSize: '3rem',
-                  marginBottom: '20px',
-                  textAlign: 'center'
-                }}>
-                  {level.badge}
+                {/* Content Container */}
+                <div style={{ flex: '1' }}>
+                                  {/* Badge */}
+                                 <div style={{
+                   width: '125px',
+                   height: '125px',
+                   display: 'flex',
+                   alignItems: 'center',
+                   justifyContent: 'center',
+                   marginBottom: '20px',
+                   margin: '0 auto 20px auto'
+                 }}>
+                  <img 
+                    src={level.id === 'beginner' ? '/beginnerbadge.webp' : level.id === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
+                    alt={`${level.title} badge`}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain'
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
                 </div>
 
-                {/* Title and Difficulty */}
-                <div style={{
-                  textAlign: 'center',
-                  marginBottom: '25px'
-                }}>
-                  <h2 style={{
-                    fontSize: '2rem',
-                    fontWeight: '700',
-                    margin: '0 0 10px 0',
-                    color: level.color
+                  {/* Title and Difficulty */}
+                  <div style={{
+                    textAlign: 'center',
+                    marginBottom: '25px'
                   }}>
-                    {level.title}
-                  </h2>
-                  <span style={{
-                    background: level.gradient,
-                    color: level.id === 'advanced' ? '#1a2330' : 'white',
-                    padding: '6px 16px',
-                    borderRadius: '20px',
-                    fontSize: '0.9rem',
-                    fontWeight: '600'
-                  }}>
-                    {level.difficulty}
-                  </span>
-                </div>
+                    <h2 style={{
+                      fontSize: '2rem',
+                      fontWeight: '700',
+                      margin: '0 0 10px 0',
+                      color: level.color
+                    }}>
+                      {level.title}
+                    </h2>
+                    <span style={{
+                      background: level.gradient,
+                      color: level.id === 'advanced' ? '#1a2330' : 'white',
+                      padding: '6px 16px',
+                      borderRadius: '20px',
+                      fontSize: '0.9rem',
+                      fontWeight: '600'
+                    }}>
+                      {level.difficulty}
+                    </span>
+                  </div>
 
-                {/* Description */}
-                <p style={{
-                  color: '#9ca3af',
-                  fontSize: '1.1rem',
-                  lineHeight: '1.6',
-                  marginBottom: '25px',
-                  textAlign: 'center'
-                }}>
-                  {level.description}
-                </p>
-
-                {/* Features */}
-                <div style={{
-                  marginBottom: '25px'
-                }}>
-                  <h3 style={{
-                    color: '#d1efe7',
+                  {/* Description */}
+                  <p style={{
+                    color: '#9ca3af',
                     fontSize: '1.1rem',
-                    marginBottom: '15px',
-                    fontWeight: '600'
+                    lineHeight: '1.6',
+                    marginBottom: '25px',
+                    textAlign: 'center'
                   }}>
-                    What you'll learn:
-                  </h3>
-                  <ul style={{
-                    listStyle: 'none',
-                    padding: 0,
-                    margin: 0
+                    {level.description}
+                  </p>
+
+                  {/* Features */}
+                  <div style={{
+                    marginBottom: '25px'
                   }}>
-                    {level.features.map((feature, index) => (
-                      <li key={index} style={{
-                        color: '#9ca3af',
-                        fontSize: '0.95rem',
-                        marginBottom: '8px',
-                        paddingLeft: '20px',
-                        position: 'relative'
-                      }}>
-                        <span style={{
-                          position: 'absolute',
-                          left: 0,
-                          top: '2px',
-                          color: level.color,
-                          fontSize: '0.8rem'
+                    <h3 style={{
+                      color: '#d1efe7',
+                      fontSize: '1.1rem',
+                      marginBottom: '15px',
+                      fontWeight: '600'
+                    }}>
+                      What you'll learn:
+                    </h3>
+                    <ul style={{
+                      listStyle: 'none',
+                      padding: 0,
+                      margin: 0
+                    }}>
+                      {level.features.map((feature, index) => (
+                        <li key={index} style={{
+                          color: '#9ca3af',
+                          fontSize: '0.95rem',
+                          marginBottom: '8px',
+                          paddingLeft: '20px',
+                          position: 'relative'
                         }}>
-                          ✓
-                        </span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                          <span style={{
+                            position: 'absolute',
+                            left: 0,
+                            top: '2px',
+                            color: level.color,
+                            fontSize: '0.8rem'
+                          }}>
+                            ✓
+                          </span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button - Pinned to Bottom */}
                 <button style={{
                   width: '100%',
                   background: level.gradient,
@@ -237,7 +259,8 @@ const LearnLevelSelector = () => {
                   fontSize: '1.1rem',
                   fontWeight: '600',
                   cursor: 'pointer',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  marginTop: 'auto'
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = 'translateY(-2px)';

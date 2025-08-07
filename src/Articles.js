@@ -2800,7 +2800,8 @@ export default function Articles({ level = "beginner" }) {
             textAlign: "center",
             cursor: "pointer",
             transition: "all 0.3s ease",
-            boxShadow: level === 'beginner' ? "0 4px 20px rgba(54, 255, 149, 0.2)" : level === 'intermediate' ? "0 4px 20px rgba(139, 92, 246, 0.2)" : "0 4px 20px rgba(255, 215, 0, 0.2)"
+            boxShadow: level === 'beginner' ? "0 4px 20px rgba(54, 255, 149, 0.2)" : level === 'intermediate' ? "0 4px 20px rgba(139, 92, 246, 0.2)" : "0 4px 20px rgba(255, 215, 0, 0.2)",
+            position: "relative"
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "translateY(-4px)";
@@ -2810,18 +2811,44 @@ export default function Articles({ level = "beginner" }) {
             e.currentTarget.style.transform = "translateY(0)";
             e.currentTarget.style.boxShadow = level === 'beginner' ? "0 4px 20px rgba(54, 255, 149, 0.2)" : level === 'intermediate' ? "0 4px 20px rgba(139, 92, 246, 0.2)" : "0 4px 20px rgba(255, 215, 0, 0.2)";
           }}>
+          {/* Guide Label Badge */}
           <div style={{
-            width: "80px",
-            height: "80px",
-            background: level === 'beginner' ? "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)" : level === 'intermediate' ? "linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)" : "linear-gradient(135deg, #ffd700 0%, #ffb347 100%)",
-            borderRadius: "50%",
+            position: "absolute",
+            top: "12px",
+            left: "12px",
+            background: level === 'beginner' ? "linear-gradient(135deg, #36ff95, #0bbfdb)" : level === 'intermediate' ? "linear-gradient(135deg, #8b5cf6, #a855f7)" : "linear-gradient(135deg, #ffd700, #ffb347)",
+            color: level === 'advanced' ? "#1a2330" : "white",
+            padding: "4px 12px",
+            borderRadius: "12px",
+            fontSize: "0.75rem",
+            fontWeight: "600",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            {level.charAt(0).toUpperCase() + level.slice(1)} Guide
+          </div>
+          <div style={{
+            width: "100%",
+            maxWidth: "180px",
+            height: "auto",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            marginBottom: "16px",
-            fontSize: "2rem"
+            marginBottom: "16px"
           }}>
-            {level === 'beginner' ? '📚' : level === 'intermediate' ? '🚀' : '👑'}
+            <img 
+              src="/aistarterguide.webp"
+              alt="AI Starter Guide"
+              style={{
+                width: '100%',
+                height: 'auto',
+                objectFit: 'contain',
+                borderRadius: '8px'
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
           </div>
           <h3 style={{
             color: level === 'beginner' ? "#36ff95" : level === 'intermediate' ? "#8b5cf6" : "#ffd700",
@@ -2860,7 +2887,8 @@ export default function Articles({ level = "beginner" }) {
                    textAlign: "center",
                    cursor: "pointer",
                    transition: "all 0.3s ease",
-                   boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)"
+                   boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)",
+                   position: "relative"
                  }}
                  onMouseEnter={(e) => {
                    e.currentTarget.style.transform = "translateY(-4px)";
@@ -2870,20 +2898,45 @@ export default function Articles({ level = "beginner" }) {
                    e.currentTarget.style.transform = "translateY(0)";
                    e.currentTarget.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
                  }}>
+          {/* Quiz Label Badge */}
           <div style={{
-            width: "80px",
-            height: "80px",
-            background: level === 'beginner' ? "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)" :
-                         level === 'intermediate' ? "linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)" :
-                         "linear-gradient(135deg, #ffd700 0%, #ffb347 100%)",
-            borderRadius: "50%",
+            position: "absolute",
+            top: "12px",
+            left: "12px",
+            background: level === 'beginner' ? "linear-gradient(135deg, #36ff95, #0bbfdb)" : level === 'intermediate' ? "linear-gradient(135deg, #8b5cf6, #a855f7)" : "linear-gradient(135deg, #ffd700, #ffb347)",
+            color: level === 'advanced' ? "#1a2330" : "white",
+            padding: "4px 12px",
+            borderRadius: "12px",
+            fontSize: "0.75rem",
+            fontWeight: "600",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            {level.charAt(0).toUpperCase() + level.slice(1)} Quiz
+          </div>
+          <div style={{
+            width: "100%",
+            maxWidth: "150px",
+            maxHeight: "150px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            marginBottom: "16px",
-            fontSize: "2rem"
+            marginBottom: "16px"
           }}>
-            {level === 'beginner' ? '🧠' : level === 'intermediate' ? '🚀' : '👑'}
+            <img 
+              src={level === 'beginner' ? '/beginnerbadge.webp' : level === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
+              alt={`${level} badge`}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                maxWidth: '150px',
+                maxHeight: '150px'
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
           </div>
           <h3 style={{
             color: level === 'beginner' ? "#36ff95" : level === 'intermediate' ? "#8b5cf6" : "#ffd700",
