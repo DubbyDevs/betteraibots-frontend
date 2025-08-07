@@ -311,6 +311,15 @@ function Apps() {
       image: "https://betteraibots.com/assets/adcreative-logo.png"
     },
     {
+      name: "Apollo AI",
+      description: "AI sales platform with over 210 million contacts to find, contact, and close your ideal buyers",
+      category: "Sales & CRM",
+      features: ["Contact database", "AI-powered prospecting", "Email automation", "Sales intelligence"],
+      link: "https://get.apollo.io/BAIB",
+      trialInfo: "Free forever plan available, Pro plans from $49/month",
+      image: "https://betteraibots.com/assets/apollo-logo.png"
+    },
+    {
       name: "Invideo",
       description: "AI video creation platform with thousands of templates and easy editing",
       category: "Video Creation",
@@ -327,15 +336,6 @@ function Apps() {
       link: "https://betteraibots.com/veed",
       trialInfo: "Free plan available, Pro $18/month",
       image: "https://betteraibots.com/assets/veed-logo.png"
-    },
-    {
-      name: "Copy.ai",
-      description: "AI copywriting tool for marketing, sales, and business content",
-      category: "Copywriting",
-      features: ["Marketing copy", "Email campaigns", "Social media", "Product descriptions"],
-      link: "https://copy.ai",
-      trialInfo: "Free plan available, Pro $49/month",
-      image: "https://betteraibots.com/assets/copyai-logo.png"
     },
     {
       name: "Synthesia",
