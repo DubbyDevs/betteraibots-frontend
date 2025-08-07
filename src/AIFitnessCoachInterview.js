@@ -1,5 +1,4 @@
 import React from "react";
-import fitnessCoachImg from "./assets/bot-placeholder15.webp";
 import botPlaceholder35 from "./assets/bot-placeholder35.webp";
 import "./App.css";
 
