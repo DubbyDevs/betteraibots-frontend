@@ -369,25 +369,43 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
 // --- ROTATING IMAGE COMPONENT ---
 function RotatingImage({ images, alt, className, style, onError }) {
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [isHovered, setIsHovered] = React.useState(false);
+  const intervalRef = React.useRef(null);
 
   React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 6900); // 6.9 seconds
+    if (!isHovered) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 6900); // 6.9 seconds
+    }
 
-    return () => clearInterval(interval);
-  }, [images.length]);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [images.length, isHovered]);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   return (
     <img
       src={images[currentIndex]}
       alt={alt}
       className={className}
-      style={{
-        ...style,
-        transition: 'opacity 0.5s ease-in-out'
-      }}
+      style={style}
       onError={onError}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     />
   );
 }
