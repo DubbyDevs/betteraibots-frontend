@@ -9,3 +9,9 @@
 
 # All other routes go to React app
 /*    /index.html   200
+
+# Force HTTPS
+http://betteraibots.com/* https://betteraibots.com/:splat 301!
+
+# Handle 404s gracefully
+/404 /index.html 200

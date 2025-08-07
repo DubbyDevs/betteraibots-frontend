@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced AI Quiz - Pro Certification – BetterAiBots.com</title>
+    <meta name="description" content="Test your advanced AI knowledge and earn Pro status. Master enterprise AI governance, custom model development, and strategic implementation.">
+    <meta name="keywords" content="advanced AI quiz, AI pro certification, enterprise AI, AI governance, custom AI models, BetterAiBots">
+    <meta name="author" content="BetterAiBots">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://betteraibots.com/advanced-ai-quiz.html">
+    <meta property="og:title" content="Advanced AI Quiz - Pro Certification – BetterAiBots.com">
+    <meta property="og:description" content="Test your advanced AI knowledge and earn Pro status. Master enterprise AI governance, custom model development, and strategic implementation.">
+    <meta property="og:image" content="https://betteraibots.com/aistarterguidehero.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Advanced AI Quiz - Pro Certification">
+    <meta property="og:site_name" content="BetterAiBots">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://betteraibots.com/advanced-ai-quiz.html">
+    <meta name="twitter:title" content="Advanced AI Quiz - Pro Certification – BetterAiBots.com">
+    <meta name="twitter:description" content="Test your advanced AI knowledge and earn Pro status. Master enterprise AI governance, custom model development, and strategic implementation.">
+    <meta name="twitter:image" content="https://betteraibots.com/aistarterguide.webp">
+    <meta name="twitter:image:alt" content="Advanced AI Quiz - Pro Certification">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://betteraibots.com/advanced-ai-quiz.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Advanced AI Quiz - Pro Certification",
+      "description": "Test your advanced AI knowledge and earn Pro status. Master enterprise AI governance, custom model development, and strategic implementation.",
+      "url": "https://betteraibots.com/advanced-ai-quiz.html",
+      "image": "https://betteraibots.com/aistarterguidehero.webp",
+      "publisher": {
+        "@type": "Organization",
+        "name": "BetterAiBots",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://betteraibots.com/betteraibotsglowlogo.png"
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      "name": "Advanced AI Quiz - Pro Certification",
+      "description": "Advanced AI knowledge assessment for Pro status certification",
+      "educationalLevel": "Advanced",
+      "learningResourceType": "Quiz",
+      "url": "https://betteraibots.com/advanced-ai-quiz.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "BetterAiBots"
+      }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            border-top: 2px solid #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 179, 71, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 179, 71, 0.1) 100%);
+            border-bottom: 2px solid #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #ffffff;
+        }
+        
+        .logo .ai {
+            color: #ffd700;
+        }
+        
+        .logo .bots {
+            color: #ffb347;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .quiz-container {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 179, 71, 0.1) 100%);
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .quiz-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            width: 10%;
+        }
+        
+        .question-card {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .question-card.active {
+            display: block;
+        }
+        
+        .question-number {
+            color: #ffd700;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .option {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        
+        .option:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #ffd700;
+            transform: translateY(-2px);
+        }
+        
+        .option.selected {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: #ffd700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .option.correct {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+        }
+        
+        .option.incorrect {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+        }
+        
+        .next-btn {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .next-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .next-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .results-card {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .results-card.show {
+            display: block;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: conic-gradient(#ffd700 0deg var(--score), rgba(255, 255, 255, 0.1) var(--score) 360deg);
+        }
+        
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        
+        .score-text {
+            position: relative;
+            z-index: 1;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        
+        .scorecard h3 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .scorecard p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        .scorecard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .question-info {
+            flex: 1;
+        }
+        
+        .question-title {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .question-text-small {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .answer-details {
+            font-size: 0.85rem;
+        }
+        
+        .your-answer {
+            color: #e0e0e0;
+        }
+        
+        .correct-answer {
+            color: #22c55e;
+            font-weight: bold;
+        }
+        
+        .incorrect-answer {
+            color: #ef4444;
+            font-weight: bold;
+        }
+        
+        .status-icon {
+            margin-left: 15px;
+        }
+        
+        .correct-icon {
+            color: #22c55e;
+            font-size: 1.2rem;
+        }
+        
+        .incorrect-icon {
+            color: #ef4444;
+            font-size: 1.2rem;
+        }
+        
+        .restart-btn, .advance-btn {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .restart-btn:hover, .advance-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .robot-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .quiz-container {
+                padding: 20px;
+            }
+            
+            .quiz-title {
+                font-size: 1.8rem;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .option {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <span class="ai">Better</span><span class="bots">AiBots</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/learn">Learn</a></li>
+                <li><a href="/apps">Apps</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="quiz-container">
+            <h1 class="quiz-title">Advanced AI Quiz - Pro Certification 👑</h1>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <!-- Question Cards -->
+            <div class="question-card active" id="questionCard1">
+                <div class="question-number">Question 1 of 10</div>
+                <div class="question-text">What is the primary purpose of enterprise AI governance frameworks?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) To restrict AI innovation and slow down development</div>
+                    <div class="option" data-answer="b">B) To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation</div>
+                    <div class="option" data-answer="c">C) To increase AI development costs and complexity</div>
+                    <div class="option" data-answer="d">D) To replace human decision-making entirely</div>
+                </div>
+                <button class="next-btn" id="nextBtn1" disabled>Next Question</button>
+            </div>
+
+            <div class="question-card" id="questionCard2">
+                <div class="question-number">Question 2 of 10</div>
+                <div class="question-text">Which technique is most effective for creating domain-specific AI models that outperform general-purpose models?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) Using only prompt engineering</div>
+                    <div class="option" data-answer="b">B) Fine-tuning with techniques like LoRA (Low-Rank Adaptation)</div>
+                    <div class="option" data-answer="c">C) Training models from scratch</div>
+                    <div class="option" data-answer="d">D) Using only pre-trained models without modification</div>
+                </div>
+                <button class="next-btn" id="nextBtn2" disabled>Next Question</button>
+            </div>
+
+            <div class="question-card" id="questionCard3">
+                <div class="question-number">Question 3 of 10</div>
+                <div class="question-text">What is the key benefit of composable AI frameworks?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) They reduce system reliability</div>
+                    <div class="option" data-answer="b">B) They increase vendor lock-in</div>
+                    <div class="option" data-answer="c">C) They enable rapid experimentation and deployment while maintaining enterprise-grade security</div>
+                    <div class="option" data-answer="d">D) They simplify AI architecture to basic components only</div>
+                </div>
+                <button class="next-btn" id="nextBtn3" disabled>Next Question</button>
+            </div>
+
+            <div class="question-card" id="questionCard4">
+                <div class="question-number">Question 4 of 10</div>
+                <div class="question-text">What is the recommended approach for deploying AI capabilities across an organization?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) Deploy all AI systems simultaneously across the entire organization</div>
+                    <div class="option" data-answer="b">B) Start with high-value, low-risk use cases and gradually expand</div>
+                    <div class="option" data-answer="c">C) Deploy only in IT departments first</div>
+                    <div class="option" data-answer="d">D) Wait until all employees are fully trained before any deployment</div>
+                </div>
+                <button class="next-btn" id="nextBtn4" disabled>Next Question</button>
+            </div>
+
+            <div class="question-card" id="questionCard5">
+                <div class="question-number">Question 5 of 10</div>
+                <div class="question-text">What is the primary advantage of multi-agent orchestration systems?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) They reduce the need for human oversight</div>
+                    <div class="option" data-answer="b">B) They coordinate multiple specialized AI agents to handle complex business processes</div>
+                    <div class="option" data-answer="c">C) They eliminate the need for data architecture</div>
+                    <div class="option" data-answer="d">D) They simplify AI implementation to single-agent systems</div>
+                </div>
+                <button class="next-btn" id="nextBtn5" disabled>Next Question</button>
+            </div>
+
+            <div class="question-card" id="questionCard6">
+                <div class="question-number">Question 6 of 10</div>
+                <div class="question-text">What is the purpose of AI observability and monitoring systems?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) To increase system complexity</div>
+                    <div class="option" data-answer="b">B) To enable real-time governance enforcement and continuous improvement</div>
+                    <div class="option" data-answer="c">C) To replace human monitoring entirely</div>
+                    <div class="option" data-answer="d">D) To reduce system performance</div>
+                </div>
+                <button class="next-btn" id="nextBtn6" disabled>Next Question</button>
+            </div>
+
+            <div class="question-card" id="questionCard7">
+                <div class="question-number">Question 7 of 10</div>
+                <div class="question-text">What is the key characteristic of agentic AI systems?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) They require constant human supervision</div>
+                    <div class="option" data-answer="b">B) They operate autonomously to achieve business objectives with minimal human oversight</div>
+                    <div class="option" data-answer="c">C) They only work in controlled laboratory environments</div>
+                    <div class="option" data-answer="d">D) They are limited to simple, repetitive tasks only</div>
+                </div>
+                <button class="next-btn" id="nextBtn7" disabled>Next Question</button>
+            </div>
+
+            <div class="question-card" id="questionCard8">
+                <div class="question-number">Question 8 of 10</div>
+                <div class="question-text">What is the primary goal of ROI measurement frameworks for AI initiatives?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) To justify increased AI spending</div>
+                    <div class="option" data-answer="b">B) To track productivity gains, cost reductions, and strategic value creation</div>
+                    <div class="option" data-answer="c">C) To reduce AI implementation costs</div>
+                    <div class="option" data-answer="d">D) To eliminate the need for business case development</div>
+                </div>
+                <button class="next-btn" id="nextBtn8" disabled>Next Question</button>
+            </div>
+
+            <div class="question-card" id="questionCard9">
+                <div class="question-number">Question 9 of 10</div>
+                <div class="question-text">What is the purpose of risk-based governance approaches?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) To apply the same governance requirements to all AI applications</div>
+                    <div class="option" data-answer="b">B) To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases</div>
+                    <div class="option" data-answer="c">C) To eliminate all AI risks completely</div>
+                    <div class="option" data-answer="d">D) To slow down all AI development processes</div>
+                </div>
+                <button class="next-btn" id="nextBtn9" disabled>Next Question</button>
+            </div>
+
+            <div class="question-card" id="questionCard10">
+                <div class="question-number">Question 10 of 10</div>
+                <div class="question-text">What is the key success factor for advanced AI practitioners?</div>
+                <div class="options">
+                    <div class="option" data-answer="a">A) Focusing only on technical implementation</div>
+                    <div class="option" data-answer="b">B) Treating AI as business transformation rather than technology deployment</div>
+                    <div class="option" data-answer="c">C) Implementing AI without considering organizational change</div>
+                    <div class="option" data-answer="d">D) Deploying AI systems without governance frameworks</div>
+                </div>
+                <button class="next-btn" id="nextBtn10" disabled>Show Results</button>
+            </div>
+
+            <!-- Results Card -->
+            <div class="results-card" id="resultsCard">
+                <div class="robot-icon">👑</div>
+                <div class="scorecard">
+                    <h3 id="resultMessage">Results</h3>
+                    <p id="resultDescription">Your advanced AI knowledge assessment results</p>
+                    <div class="score-circle" id="scoreCircle">
+                        <div class="score-text" id="scoreText">0/10</div>
+                    </div>
+                    <div id="scorecardDetails"></div>
+                    <button class="restart-btn" onclick="restartQuiz()">Retake Quiz</button>
+                    <button class="advance-btn" id="advanceBtn" style="display: none;" onclick="claimProStatus()">Claim Pro Status! 👑</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let currentQuestion = 1;
+        let score = 0;
+        let userAnswers = [];
+        
+        const questions = [
+            {
+                text: "What is the primary purpose of enterprise AI governance frameworks?",
+                options: [
+                    "To restrict AI innovation and slow down development",
+                    "To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation",
+                    "To increase AI development costs and complexity",
+                    "To replace human decision-making entirely"
+                ],
+                correct: "To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation"
+            },
+            {
+                text: "Which technique is most effective for creating domain-specific AI models that outperform general-purpose models?",
+                options: [
+                    "Using only prompt engineering",
+                    "Fine-tuning with techniques like LoRA (Low-Rank Adaptation)",
+                    "Training models from scratch",
+                    "Using only pre-trained models without modification"
+                ],
+                correct: "Fine-tuning with techniques like LoRA (Low-Rank Adaptation)"
+            },
+            {
+                text: "What is the key benefit of composable AI frameworks?",
+                options: [
+                    "They reduce system reliability",
+                    "They increase vendor lock-in",
+                    "They enable rapid experimentation and deployment while maintaining enterprise-grade security",
+                    "They simplify AI architecture to basic components only"
+                ],
+                correct: "They enable rapid experimentation and deployment while maintaining enterprise-grade security"
+            },
+            {
+                text: "What is the recommended approach for deploying AI capabilities across an organization?",
+                options: [
+                    "Deploy all AI systems simultaneously across the entire organization",
+                    "Start with high-value, low-risk use cases and gradually expand",
+                    "Deploy only in IT departments first",
+                    "Wait until all employees are fully trained before any deployment"
+                ],
+                correct: "Start with high-value, low-risk use cases and gradually expand"
+            },
+            {
+                text: "What is the primary advantage of multi-agent orchestration systems?",
+                options: [
+                    "They reduce the need for human oversight",
+                    "They coordinate multiple specialized AI agents to handle complex business processes",
+                    "They eliminate the need for data architecture",
+                    "They simplify AI implementation to single-agent systems"
+                ],
+                correct: "They coordinate multiple specialized AI agents to handle complex business processes"
+            },
+            {
+                text: "What is the purpose of AI observability and monitoring systems?",
+                options: [
+                    "To increase system complexity",
+                    "To enable real-time governance enforcement and continuous improvement",
+                    "To replace human monitoring entirely",
+                    "To reduce system performance"
+                ],
+                correct: "To enable real-time governance enforcement and continuous improvement"
+            },
+            {
+                text: "What is the key characteristic of agentic AI systems?",
+                options: [
+                    "They require constant human supervision",
+                    "They operate autonomously to achieve business objectives with minimal human oversight",
+                    "They only work in controlled laboratory environments",
+                    "They are limited to simple, repetitive tasks only"
+                ],
+                correct: "They operate autonomously to achieve business objectives with minimal human oversight"
+            },
+            {
+                text: "What is the primary goal of ROI measurement frameworks for AI initiatives?",
+                options: [
+                    "To justify increased AI spending",
+                    "To track productivity gains, cost reductions, and strategic value creation",
+                    "To reduce AI implementation costs",
+                    "To eliminate the need for business case development"
+                ],
+                correct: "To track productivity gains, cost reductions, and strategic value creation"
+            },
+            {
+                text: "What is the purpose of risk-based governance approaches?",
+                options: [
+                    "To apply the same governance requirements to all AI applications",
+                    "To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases",
+                    "To eliminate all AI risks completely",
+                    "To slow down all AI development processes"
+                ],
+                correct: "To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases"
+            },
+            {
+                text: "What is the key success factor for advanced AI practitioners?",
+                options: [
+                    "Focusing only on technical implementation",
+                    "Treating AI as business transformation rather than technology deployment",
+                    "Implementing AI without considering organizational change",
+                    "Deploying AI systems without governance frameworks"
+                ],
+                correct: "Treating AI as business transformation rather than technology deployment"
+            }
+        ];
+        
+        const correctAnswers = [
+            "To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation",
+            "Fine-tuning with techniques like LoRA (Low-Rank Adaptation)",
+            "They enable rapid experimentation and deployment while maintaining enterprise-grade security",
+            "Start with high-value, low-risk use cases and gradually expand",
+            "They coordinate multiple specialized AI agents to handle complex business processes",
+            "To enable real-time governance enforcement and continuous improvement",
+            "They operate autonomously to achieve business objectives with minimal human oversight",
+            "To track productivity gains, cost reductions, and strategic value creation",
+            "To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases",
+            "Treating AI as business transformation rather than technology deployment"
+        ];
+        
+        // Initialize quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            setupQuiz();
+        });
+        
+        function setupQuiz() {
+            // Add event listeners to all options
+            for (let i = 1; i <= 10; i++) {
+                const questionCard = document.getElementById(`questionCard${i}`);
+                const options = questionCard.querySelectorAll('.option');
+                const nextBtn = document.getElementById(`nextBtn${i}`);
+                
+                options.forEach(option => {
+                    option.addEventListener('click', function() {
+                        // Remove selected class from all options in this question
+                        options.forEach(opt => opt.classList.remove('selected'));
+                        
+                        // Add selected class to clicked option
+                        this.classList.add('selected');
+                        
+                        // Enable next button
+                        nextBtn.disabled = false;
+                        
+                        // Store user answer
+                        userAnswers[i - 1] = this.textContent;
+                    });
+                });
+                
+                // Add event listener to next button
+                nextBtn.addEventListener('click', function() {
+                    if (i === 10) {
+                        showResults();
+                    } else {
+                        nextQuestion();
+                    }
+                });
+            }
+        }
+        
+        function nextQuestion() {
+            // Hide current question
+            document.getElementById(`questionCard${currentQuestion}`).classList.remove('active');
+            
+            // Show next question
+            currentQuestion++;
+            document.getElementById(`questionCard${currentQuestion}`).classList.add('active');
+            
+            // Update progress
+            updateProgress();
+        }
+        
+        function updateProgress() {
+            const progress = (currentQuestion / 10) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+        
+        function generateScorecard() {
+            const scorecardDetails = document.getElementById('scorecardDetails');
+            let scorecardHTML = '';
+
+            for (let i = 0; i < questions.length; i++) {
+                const isCorrect = userAnswers[i] === correctAnswers[i];
+                
+                // Find the user's answer text
+                let userAnswerText = 'Not answered';
+                if (userAnswers[i]) {
+                    userAnswerText = userAnswers[i];
+                }
+                
+                const correctAnswerText = questions[i].correct;
+                
+                scorecardHTML += `
+                    <div class="scorecard-item">
+                        <div class="question-info">
+                            <div class="question-title">Question ${i + 1}</div>
+                            <div class="question-text-small">${questions[i].text}</div>
+                            <div class="answer-details">
+                                <span class="your-answer">Your answer: <span class="${isCorrect ? 'correct-answer' : 'incorrect-answer'}">${userAnswerText}</span></span>
+                                ${!isCorrect ? `<br>Correct answer: <span class="correct-answer">${correctAnswerText}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="status-icon">
+                            ${isCorrect ? '<span class="correct-icon">✅</span>' : '<span class="incorrect-icon">❌</span>'}
+                        </div>
+                    </div>
+                `;
+            }
+
+            scorecardDetails.innerHTML = scorecardHTML;
+        }
+        
+        function showResults() {
+            // Calculate score
+            score = 0;
+            for (let i = 0; i < correctAnswers.length; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+
+            // Hide last question
+            document.getElementById(`questionCard${currentQuestion}`).classList.remove('active');
+            
+            // Show results
+            const resultsCard = document.getElementById('resultsCard');
+            const scoreCircle = document.getElementById('scoreCircle');
+            const scoreText = document.getElementById('scoreText');
+            const resultMessage = document.getElementById('resultMessage');
+            const resultDescription = document.getElementById('resultDescription');
+            const advanceBtn = document.getElementById('advanceBtn');
+
+            resultsCard.classList.add('show');
+            scoreText.textContent = `${score}/10`;
+            scoreCircle.style.setProperty('--score', (score / 10) * 100);
+
+            // Generate detailed scorecard
+            generateScorecard();
+            
+            // Make sure scorecard is visible
+            document.getElementById('scorecardDetails').style.display = 'block';
+
+            if (score >= 8) {
+                resultMessage.textContent = '👑 Congratulations! You are now a Pro!';
+                resultDescription.textContent = 'You have demonstrated exceptional advanced AI knowledge and are ready to lead enterprise AI initiatives. Your understanding of governance, custom model development, and strategic implementation is outstanding!';
+                advanceBtn.style.display = 'inline-block';
+            } else if (score >= 6) {
+                resultMessage.textContent = '🚀 Excellent work! You\'re very close to Pro status!';
+                resultDescription.textContent = `You scored ${score}/10. You have strong advanced AI knowledge but need to deepen your understanding of enterprise governance, custom model development, and strategic implementation. Review the Advanced AI Guide and retake the quiz to earn Pro status.`;
+            } else {
+                resultMessage.textContent = '📚 Keep learning! Review the Advanced AI Guide and try again!';
+                resultDescription.textContent = `You scored ${score}/10. Focus on studying the Advanced AI Guide more thoroughly, particularly enterprise governance frameworks, custom model development, and strategic implementation methodologies. These concepts are essential for Pro-level AI expertise.`;
+            }
+        }
+        
+        function restartQuiz() {
+            currentQuestion = 1;
+            score = 0;
+            userAnswers = [];
+            
+            // Reset all questions
+            for (let i = 1; i <= 10; i++) {
+                const questionCard = document.getElementById(`questionCard${i}`);
+                const options = questionCard.querySelectorAll('.option');
+                const nextBtn = document.getElementById(`nextBtn${i}`);
+                
+                questionCard.classList.remove('active');
+                options.forEach(opt => {
+                    opt.classList.remove('selected', 'correct', 'incorrect');
+                });
+                nextBtn.disabled = true;
+            }
+            
+            // Show first question
+            document.getElementById('questionCard1').classList.add('active');
+            
+            // Hide results
+            document.getElementById('resultsCard').classList.remove('show');
+            
+            // Reset progress
+            document.getElementById('progressFill').style.width = '10%';
+        }
+        
+        function claimProStatus() {
+            // Set user level to pro in localStorage
+            localStorage.setItem('aiLevel', 'pro');
+            localStorage.setItem('proStatus', 'true');
+            alert('🎉 Congratulations! You are now a Pro! Welcome to the elite AI community with exclusive access to advanced content and features.');
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate AI Quiz 2025 | Test Your Advanced AI Knowledge – BetterAiBots.com</title>
+    <meta name="description" content="Test your intermediate AI knowledge with our comprehensive Intermediate AI Quiz. Questions on advanced prompting, workflow automation, and strategic AI implementation. Perfect for intermediate AI practitioners!">
+    <meta name="keywords" content="intermediate AI quiz, advanced AI quiz, AI workflow automation quiz, AI prompting quiz, AI strategy quiz, AI knowledge test, artificial intelligence intermediate quiz, BetterAiBots quiz" />
+    <meta name="author" content="BetterAiBots.com" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://betteraibots.com/intermediate-ai-quiz.html" />
+
+    <!-- Open Graph & Twitter Cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Intermediate AI Quiz 2025 | Test Your Advanced AI Knowledge" />
+    <meta property="og:description" content="Test your intermediate AI knowledge with our comprehensive Intermediate AI Quiz. Questions on advanced prompting, workflow automation, and strategic AI implementation." />
+    <meta property="og:url" content="https://betteraibots.com/intermediate-ai-quiz.html" />
+    <meta property="og:image" content="https://betteraibots.com/aistarterguidehero.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Intermediate AI Quiz 2025" />
+    <meta property="og:site_name" content="BetterAiBots.com" />
+    <meta property="og:locale" content="en_US" />
+    
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Intermediate AI Quiz 2025 | Test Your Advanced AI Knowledge" />
+    <meta property="twitter:description" content="Test your intermediate AI knowledge with our comprehensive Intermediate AI Quiz. Questions on advanced prompting, workflow automation, and strategic AI implementation." />
+    <meta property="twitter:image" content="https://betteraibots.com/aistarterguide.webp" />
+    <meta property="twitter:image:alt" content="Intermediate AI Quiz 2025" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Intermediate AI Quiz 2025",
+      "description": "Test your intermediate AI knowledge with our comprehensive Intermediate AI Quiz. Questions on advanced prompting, workflow automation, and strategic AI implementation.",
+      "url": "https://betteraibots.com/intermediate-ai-quiz.html",
+      "image": "https://betteraibots.com/aistarterguidehero.webp",
+      "mainEntity": {
+        "@type": "Quiz",
+        "name": "Intermediate AI Quiz 2025",
+        "description": "Comprehensive quiz testing knowledge of advanced AI concepts, workflow automation, strategic implementation, and intermediate-level AI techniques",
+        "educationalLevel": "Intermediate",
+        "learningResourceType": "Quiz"
+      }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2330 0%, #0f1419 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .logo .better {
+            color: #9ca3af;
+        }
+
+        .logo .ai {
+            color: #8b5cf6;
+        }
+
+        .logo .bots {
+            color: #8b5cf6;
+        }
+
+        .quiz-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #8b5cf6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quiz-subtitle {
+            color: #9ca3af;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8b5cf6, #a855f7);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .question-card.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-number {
+            color: #8b5cf6;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            color: #d1efe7;
+        }
+
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 18px 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: #d1efe7;
+        }
+
+        .option:hover {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.2);
+            transform: translateX(5px);
+        }
+
+        .option.correct {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.3);
+        }
+
+        .option.incorrect {
+            border-color: #ff4757;
+            background: rgba(255, 71, 87, 0.3);
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            color: #1a2330;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 25px;
+            float: right;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .next-btn:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            color: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .results-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            display: none;
+        }
+
+        .results-card.show {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#8b5cf6 0deg, #8b5cf6 calc(var(--score) * 3.6deg), rgba(255, 255, 255, 0.1) calc(var(--score) * 3.6deg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #1a2330;
+            position: absolute;
+        }
+
+        .score-text {
+            position: relative;
+            z-index: 1;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8b5cf6;
+        }
+
+        .result-message {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .result-description {
+            color: #9ca3af;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .scorecard {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .scorecard-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .scorecard-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .question-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .question-title {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 5px;
+        }
+
+        .question-text-small {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .answer-details {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .your-answer {
+            margin-right: 5px;
+        }
+
+        .correct-answer {
+            color: #8b5cf6;
+            font-weight: bold;
+        }
+
+        .incorrect-answer {
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        .status-icon {
+            font-size: 1.5rem;
+            margin-left: 15px;
+            min-width: 30px;
+        }
+
+        .correct-icon {
+            color: #8b5cf6;
+        }
+
+        .incorrect-icon {
+            color: #ff4757;
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            color: #1a2330;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .advance-btn {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #1a2330;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .advance-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .robot-icon {
+            width: 60px;
+            height: 60px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <span class="better">Better</span><span class="ai">Ai</span><span class="bots">Bots</span>
+            </div>
+            <div class="quiz-title">Intermediate AI Quiz</div>
+            <div class="quiz-subtitle">Test your intermediate AI knowledge and advance to advanced level!</div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div id="questionCard1" class="question-card active">
+            <div class="question-number">Question 1 of 10</div>
+            <div class="question-text">What is the CLEAR framework in advanced prompting?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A method for clearing AI cache</div>
+                <div class="option" data-answer="b">A five-component prompt structure (Context, Logic, Examples, Action, Review)</div>
+                <div class="option" data-answer="c">A way to clear browser history</div>
+                <div class="option" data-answer="d">A technique for clearing memory</div>
+            </div>
+            <button class="next-btn" id="nextBtn1" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard2" class="question-card">
+            <div class="question-number">Question 2 of 10</div>
+            <div class="question-text">What is Chain-of-Thought (CoT) prompting?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A way to chain multiple AI models together</div>
+                <div class="option" data-answer="b">Explicitly requesting step-by-step thinking processes</div>
+                <div class="option" data-answer="c">A method for linking thoughts in a chain</div>
+                <div class="option" data-answer="d">A technique for chaining prompts together</div>
+            </div>
+            <button class="next-btn" id="nextBtn2" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard3" class="question-card">
+            <div class="question-number">Question 3 of 10</div>
+            <div class="question-text">What percentage improvement in accuracy can CoT prompting achieve on complex analytical tasks?</div>
+            <div class="options">
+                <div class="option" data-answer="a">10-20%</div>
+                <div class="option" data-answer="b">30-50%</div>
+                <div class="option" data-answer="c">85-90%</div>
+                <div class="option" data-answer="d">95-100%</div>
+            </div>
+            <button class="next-btn" id="nextBtn3" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard4" class="question-card">
+            <div class="question-number">Question 4 of 10</div>
+            <div class="question-text">What is Few-Shot prompting?</div>
+            <div class="options">
+                <div class="option" data-answer="a">Providing many examples to train the AI</div>
+                <div class="option" data-answer="b">Providing 3-5 carefully crafted examples to guide AI behavior</div>
+                <div class="option" data-answer="c">Shooting prompts at the AI quickly</div>
+                <div class="option" data-answer="d">Using few words in prompts</div>
+            </div>
+            <button class="next-btn" id="nextBtn4" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard5" class="question-card">
+            <div class="question-number">Question 5 of 10</div>
+            <div class="question-text">What is AI workflow orchestration?</div>
+            <div class="options">
+                <div class="option" data-answer="a">Conducting an orchestra with AI</div>
+                <div class="option" data-answer="b">Understanding trigger events, data flow patterns, and decision trees</div>
+                <div class="option" data-answer="c">Orchestrating music with AI</div>
+                <div class="option" data-answer="d">Managing AI workflows manually</div>
+            </div>
+            <button class="next-btn" id="nextBtn5" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard6" class="question-card">
+            <div class="question-number">Question 6 of 10</div>
+            <div class="question-text">What do organizations with robust data foundations achieve compared to those without?</div>
+            <div class="options">
+                <div class="option" data-answer="a">Same AI implementation success rates</div>
+                <div class="option" data-answer="b">2x better AI implementation success rates</div>
+                <div class="option" data-answer="c">3x better AI implementation success rates</div>
+                <div class="option" data-answer="d">4x better AI implementation success rates</div>
+            </div>
+            <button class="next-btn" id="nextBtn6" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard7" class="question-card">
+            <div class="question-number">Question 7 of 10</div>
+            <div class="question-text">What are Agentic AI systems?</div>
+            <div class="options">
+                <div class="option" data-answer="a">AI systems that work for agents</div>
+                <div class="option" data-answer="b">Systems that operate autonomously to achieve business objectives</div>
+                <div class="option" data-answer="c">AI systems that act like agents</div>
+                <div class="option" data-answer="d">Systems that require constant human supervision</div>
+            </div>
+            <button class="next-btn" id="nextBtn7" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard8" class="question-card">
+            <div class="question-number">Question 8 of 10</div>
+            <div class="question-text">What do multimodal AI capabilities process?</div>
+            <div class="options">
+                <div class="option" data-answer="a">Only text</div>
+                <div class="option" data-answer="b">Only images</div>
+                <div class="option" data-answer="c">Text, images, audio, and video</div>
+                <div class="option" data-answer="d">Only audio and video</div>
+            </div>
+            <button class="next-btn" id="nextBtn8" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard9" class="question-card">
+            <div class="question-number">Question 9 of 10</div>
+            <div class="question-text">What is the first phase of strategic AI implementation?</div>
+            <div class="options">
+                <div class="option" data-answer="a">Implementing workflow automation</div>
+                <div class="option" data-answer="b">Establishing advanced prompting expertise</div>
+                <div class="option" data-answer="c">Deploying strategic AI integration</div>
+                <div class="option" data-answer="d">Setting up basic AI tools</div>
+            </div>
+            <button class="next-btn" id="nextBtn9" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard10" class="question-card">
+            <div class="question-number">Question 10 of 10</div>
+            <div class="question-text">What percentage of organizations using AI strategically report ROI within the first year?</div>
+            <div class="options">
+                <div class="option" data-answer="a">50%</div>
+                <div class="option" data-answer="b">60%</div>
+                <div class="option" data-answer="c">74%</div>
+                <div class="option" data-answer="d">85%</div>
+            </div>
+            <button class="next-btn" id="nextBtn10" disabled>Show Results</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="resultsCard" class="results-card">
+            <div class="robot-icon">🚀</div>
+            <div class="score-circle" id="scoreCircle">
+                <div class="score-text" id="scoreText">0/10</div>
+            </div>
+            <div class="result-message" id="resultMessage"></div>
+            <div class="result-description" id="resultDescription"></div>
+            
+            <div class="scorecard" id="scorecard">
+                <h3 style="margin-bottom: 20px; color: #8b5cf6;">📊 Your Detailed Scorecard</h3>
+                <div id="scorecardDetails"></div>
+            </div>
+            
+            <button class="restart-btn" onclick="restartQuiz()">Retake Quiz</button>
+            <button class="advance-btn" id="advanceBtn" style="display: none;">Advance to Advanced Level</button>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = ['b', 'b', 'c', 'b', 'b', 'c', 'b', 'c', 'b', 'c'];
+        const questions = [
+            {
+                text: "What is the CLEAR framework in advanced prompting?",
+                options: ["A method for clearing AI cache", "A five-component prompt structure (Context, Logic, Examples, Action, Review)", "A way to clear browser history", "A technique for clearing memory"],
+                correct: "A five-component prompt structure (Context, Logic, Examples, Action, Review)"
+            },
+            {
+                text: "What is Chain-of-Thought (CoT) prompting?",
+                options: ["A way to chain multiple AI models together", "Explicitly requesting step-by-step thinking processes", "A method for linking thoughts in a chain", "A technique for chaining prompts together"],
+                correct: "Explicitly requesting step-by-step thinking processes"
+            },
+            {
+                text: "What percentage improvement in accuracy can CoT prompting achieve on complex analytical tasks?",
+                options: ["10-20%", "30-50%", "85-90%", "95-100%"],
+                correct: "85-90%"
+            },
+            {
+                text: "What is Few-Shot prompting?",
+                options: ["Providing many examples to train the AI", "Providing 3-5 carefully crafted examples to guide AI behavior", "Shooting prompts at the AI quickly", "Using few words in prompts"],
+                correct: "Providing 3-5 carefully crafted examples to guide AI behavior"
+            },
+            {
+                text: "What is AI workflow orchestration?",
+                options: ["Conducting an orchestra with AI", "Understanding trigger events, data flow patterns, and decision trees", "Orchestrating music with AI", "Managing AI workflows manually"],
+                correct: "Understanding trigger events, data flow patterns, and decision trees"
+            },
+            {
+                text: "What do organizations with robust data foundations achieve compared to those without?",
+                options: ["Same AI implementation success rates", "2x better AI implementation success rates", "3x better AI implementation success rates", "4x better AI implementation success rates"],
+                correct: "3x better AI implementation success rates"
+            },
+            {
+                text: "What are Agentic AI systems?",
+                options: ["AI systems that work for agents", "Systems that operate autonomously to achieve business objectives", "AI systems that act like agents", "Systems that require constant human supervision"],
+                correct: "Systems that operate autonomously to achieve business objectives"
+            },
+            {
+                text: "What do multimodal AI capabilities process?",
+                options: ["Only text", "Only images", "Text, images, audio, and video", "Only audio and video"],
+                correct: "Text, images, audio, and video"
+            },
+            {
+                text: "What is the first phase of strategic AI implementation?",
+                options: ["Implementing workflow automation", "Establishing advanced prompting expertise", "Deploying strategic AI integration", "Setting up basic AI tools"],
+                correct: "Establishing advanced prompting expertise"
+            },
+            {
+                text: "What percentage of organizations using AI strategically report ROI within the first year?",
+                options: ["50%", "60%", "74%", "85%"],
+                correct: "74%"
+            }
+        ];
+        
+        let currentQuestion = 1;
+        let score = 0;
+        let userAnswers = [];
+
+        // Initialize quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            setupQuestionListeners();
+        });
+
+        function setupQuestionListeners() {
+            for (let i = 1; i <= 10; i++) {
+                const options = document.querySelectorAll(`#questionCard${i} .option`);
+                const nextBtn = document.getElementById(`nextBtn${i}`);
+                
+                options.forEach(option => {
+                    option.addEventListener('click', function() {
+                        selectOption(i, this);
+                    });
+                });
+
+                nextBtn.addEventListener('click', function() {
+                    if (i === 10) {
+                        showResults();
+                    } else {
+                        nextQuestion();
+                    }
+                });
+            }
+        }
+
+        function selectOption(questionNum, selectedOption) {
+            const questionCard = document.getElementById(`questionCard${questionNum}`);
+            const options = questionCard.querySelectorAll('.option');
+            const nextBtn = document.getElementById(`nextBtn${questionNum}`);
+            
+            // Remove previous selections
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Select current option
+            selectedOption.classList.add('selected');
+            
+            // Store answer
+            userAnswers[questionNum - 1] = selectedOption.dataset.answer;
+            
+            // Enable next button
+            nextBtn.disabled = false;
+        }
+
+        function nextQuestion() {
+            // Hide current question
+            document.getElementById(`questionCard${currentQuestion}`).classList.remove('active');
+            
+            // Show next question
+            currentQuestion++;
+            document.getElementById(`questionCard${currentQuestion}`).classList.add('active');
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / 10) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function generateScorecard() {
+            const scorecardDetails = document.getElementById('scorecardDetails');
+            let scorecardHTML = '';
+
+            for (let i = 0; i < questions.length; i++) {
+                const isCorrect = userAnswers[i] === correctAnswers[i];
+                
+                // Find the user's answer text
+                let userAnswerText = 'Not answered';
+                if (userAnswers[i]) {
+                    const answerLetter = userAnswers[i].toLowerCase();
+                    const answerIndex = ['a', 'b', 'c', 'd'].indexOf(answerLetter);
+                    if (answerIndex !== -1 && questions[i].options[answerIndex]) {
+                        userAnswerText = questions[i].options[answerIndex];
+                    }
+                }
+                
+                const correctAnswerText = questions[i].correct;
+                
+                scorecardHTML += `
+                    <div class="scorecard-item">
+                        <div class="question-info">
+                            <div class="question-title">Question ${i + 1}</div>
+                            <div class="question-text-small">${questions[i].text}</div>
+                            <div class="answer-details">
+                                <span class="your-answer">Your answer: <span class="${isCorrect ? 'correct-answer' : 'incorrect-answer'}">${userAnswerText}</span></span>
+                                ${!isCorrect ? `<br>Correct answer: <span class="correct-answer">${correctAnswerText}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="status-icon">
+                            ${isCorrect ? '<span class="correct-icon">✅</span>' : '<span class="incorrect-icon">❌</span>'}
+                        </div>
+                    </div>
+                `;
+            }
+
+            scorecardDetails.innerHTML = scorecardHTML;
+        }
+
+        function showResults() {
+            // Calculate score
+            score = 0;
+            for (let i = 0; i < correctAnswers.length; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+
+            // Hide last question
+            document.getElementById(`questionCard${currentQuestion}`).classList.remove('active');
+            
+            // Show results
+            const resultsCard = document.getElementById('resultsCard');
+            const scoreCircle = document.getElementById('scoreCircle');
+            const scoreText = document.getElementById('scoreText');
+            const resultMessage = document.getElementById('resultMessage');
+            const resultDescription = document.getElementById('resultDescription');
+            const advanceBtn = document.getElementById('advanceBtn');
+
+            resultsCard.classList.add('show');
+            scoreText.textContent = `${score}/10`;
+            scoreCircle.style.setProperty('--score', (score / 10) * 100);
+
+            // Generate detailed scorecard
+            generateScorecard();
+            
+            // Make sure scorecard is visible
+            document.getElementById('scorecard').style.display = 'block';
+
+            if (score >= 7) {
+                resultMessage.textContent = '🚀 Excellent! You\'re ready for advanced AI concepts!';
+                resultDescription.textContent = 'You have solid intermediate AI knowledge and are ready to advance to the advanced level. Your understanding of advanced prompting techniques, workflow automation, and strategic AI implementation is excellent!';
+                advanceBtn.style.display = 'inline-block';
+                advanceBtn.addEventListener('click', function() {
+                    // Set user level to advanced in localStorage
+                    localStorage.setItem('aiLevel', 'advanced');
+                    alert('🎯 Welcome to Advanced AI! Pro features unlocked!');
+                });
+            } else if (score >= 5) {
+                resultMessage.textContent = '⚡ Good work! Keep practicing to master intermediate concepts!';
+                resultDescription.textContent = `You scored ${score}/10. You have a good grasp of intermediate AI concepts but need to deepen your understanding of advanced prompting techniques and workflow automation. Review the key concepts and retake the quiz to advance to advanced level.`;
+            } else {
+                resultMessage.textContent = '📚 Keep learning! Review the intermediate guide and try again!';
+                resultDescription.textContent = `You scored ${score}/10. Focus on studying the Intermediate AI Guide more thoroughly, particularly the CLEAR framework, Chain-of-thought prompting, and agentic AI systems. These advanced concepts are essential for intermediate-level AI implementation.`;
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 1;
+            score = 0;
+            userAnswers = [];
+            
+            // Reset all questions
+            for (let i = 1; i <= 10; i++) {
+                const questionCard = document.getElementById(`questionCard${i}`);
+                const options = questionCard.querySelectorAll('.option');
+                const nextBtn = document.getElementById(`nextBtn${i}`);
+                
+                questionCard.classList.remove('active');
+                options.forEach(opt => {
+                    opt.classList.remove('selected', 'correct', 'incorrect');
+                });
+                nextBtn.disabled = true;
+            }
+            
+            // Show first question
+            document.getElementById('questionCard1').classList.add('active');
+            
+            // Hide results
+            document.getElementById('resultsCard').classList.remove('show');
+            
+            // Reset progress
+            document.getElementById('progressFill').style.width = '10%';
+        }
+    </script>
+</body>
+</html>

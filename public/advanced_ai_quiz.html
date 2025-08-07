@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced AI Guide Quiz - BetterAiBots</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #16213e 75%, #1a1a2e 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 159, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(0, 200, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 159, 0.2);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .logo .better {
+            color: #9ca3af;
+        }
+
+        .logo .ai {
+            color: #00ff9f;
+        }
+
+        .logo .bots {
+            color: #00ff9f;
+        }
+
+        .quiz-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #00ff9f, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quiz-subtitle {
+            color: #9ca3af;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff9f, #00ccff);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 255, 159, 0.2);
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .question-card.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-number {
+            color: #00ff9f;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 18px 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .option:hover {
+            border-color: #00ff9f;
+            background: rgba(0, 255, 159, 0.1);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: #00ff9f;
+            background: rgba(0, 255, 159, 0.2);
+            transform: translateX(5px);
+        }
+
+        .option.correct {
+            border-color: #00ff9f;
+            background: rgba(0, 255, 159, 0.3);
+        }
+
+        .option.incorrect {
+            border-color: #ff4757;
+            background: rgba(255, 71, 87, 0.3);
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #00ff9f, #00ccff);
+            color: #1a1a2e;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 25px;
+            float: right;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 159, 0.3);
+        }
+
+        .next-btn:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            color: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .results-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 159, 0.2);
+            display: none;
+        }
+
+        .results-card.show {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#00ff9f 0deg, #00ff9f calc(var(--score) * 3.6deg), rgba(255, 255, 255, 0.1) calc(var(--score) * 3.6deg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #1a1a2e;
+            position: absolute;
+        }
+
+        .score-text {
+            position: relative;
+            z-index: 1;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff9f;
+        }
+
+        .result-message {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .result-description {
+            color: #9ca3af;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .scorecard {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(0, 255, 159, 0.1);
+        }
+
+        .scorecard-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .scorecard-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .question-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .question-title {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 5px;
+        }
+
+        .question-text-small {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .answer-details {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .your-answer {
+            margin-right: 5px;
+        }
+
+        .correct-answer {
+            color: #00ff9f;
+            font-weight: bold;
+        }
+
+        .incorrect-answer {
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        .status-icon {
+            font-size: 1.5rem;
+            margin-left: 15px;
+            min-width: 30px;
+        }
+
+        .correct-icon {
+            color: #00ff9f;
+        }
+
+        .incorrect-icon {
+            color: #ff4757;
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #00ff9f, #00ccff);
+            color: #1a1a2e;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 159, 0.3);
+        }
+
+        .expert-btn {
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            color: #1a1a2e;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .expert-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .robot-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <span class="better">Better</span><span class="ai">Ai</span><span class="bots">Bots</span>
+            </div>
+            <div class="quiz-title">The Advanced AI Guide Quiz</div>
+            <div class="quiz-subtitle">Master enterprise AI strategy and achieve professional-level expertise!</div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div id="questionCard1" class="question-card active">
+            <div class="question-number">Question 1 of 10</div>
+            <div class="question-text">What is the maximum penalty for non-compliance with the EU AI Act when it's fully enforced?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) €20 million or 4% of global revenue</div>
+                <div class="option" data-answer="b">B) €35 million or 7% of global revenue</div>
+                <div class="option" data-answer="c">C) €50 million or 10% of global revenue</div>
+                <div class="option" data-answer="d">D) €100 million or 15% of global revenue</div>
+            </div>
+            <button class="next-btn" id="nextBtn1" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard2" class="question-card">
+            <div class="question-number">Question 2 of 10</div>
+            <div class="question-text">What average profit increase do enterprises implementing advanced AI strategies report within 24 months?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) 25% profit increase</div>
+                <div class="option" data-answer="b">B) 35% profit increase</div>
+                <div class="option" data-answer="c">C) 47% profit increase</div>
+                <div class="option" data-answer="d">D) 60% profit increase</div>
+            </div>
+            <button class="next-btn" id="nextBtn2" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard3" class="question-card">
+            <div class="question-number">Question 3 of 10</div>
+            <div class="question-text">What percentage of organizations fail to see tangible EBIT impact from their AI investments despite massive spending?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) 60%</div>
+                <div class="option" data-answer="b">B) 70%</div>
+                <div class="option" data-answer="c">C) 80%</div>
+                <div class="option" data-answer="d">D) 90%</div>
+            </div>
+            <button class="next-btn" id="nextBtn3" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard4" class="question-card">
+            <div class="question-number">Question 4 of 10</div>
+            <div class="question-text">By how much do organizations with composable AI architectures outpace competitors in feature implementation speed?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) 50%</div>
+                <div class="option" data-answer="b">B) 65%</div>
+                <div class="option" data-answer="c">C) 80%</div>
+                <div class="option" data-answer="d">D) 95%</div>
+            </div>
+            <button class="next-btn" id="nextBtn4" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard5" class="question-card">
+            <div class="question-number">Question 5 of 10</div>
+            <div class="question-text">What cost-effectiveness improvement can fine-tuning achieve compared to prompt engineering approaches?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) 2x better cost-effectiveness</div>
+                <div class="option" data-answer="b">B) 3x better cost-effectiveness</div>
+                <div class="option" data-answer="c">C) 4x better cost-effectiveness</div>
+                <div class="option" data-answer="d">D) 5x better cost-effectiveness</div>
+            </div>
+            <button class="next-btn" id="nextBtn5" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard6" class="question-card">
+            <div class="question-number">Question 6 of 10</div>
+            <div class="question-text">What is the primary reason most organizations fail to achieve AI ROI according to the guide?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) Insufficient technology capabilities</div>
+                <div class="option" data-answer="b">B) Strategic misalignment and execution gaps</div>
+                <div class="option" data-answer="c">C) Lack of skilled personnel</div>
+                <div class="option" data-answer="d">D) Inadequate budget allocation</div>
+            </div>
+            <button class="next-btn" id="nextBtn6" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard7" class="question-card">
+            <div class="question-number">Question 7 of 10</div>
+            <div class="question-text">What annual cost savings do enterprises implementing advanced AI strategies typically achieve?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) $1.5 million</div>
+                <div class="option" data-answer="b">B) $2.8 million</div>
+                <div class="option" data-answer="c">C) $4.2 million</div>
+                <div class="option" data-answer="d">D) $6.1 million</div>
+            </div>
+            <button class="next-btn" id="nextBtn7" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard8" class="question-card">
+            <div class="question-number">Question 8 of 10</div>
+            <div class="question-text">What improvement in risk assessment accuracy do financial services organizations typically report with advanced AI?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) 20-30% improvement</div>
+                <div class="option" data-answer="b">B) 30-50% improvement</div>
+                <div class="option" data-answer="c">C) 40-60% improvement</div>
+                <div class="option" data-answer="d">D) 50-70% improvement</div>
+            </div>
+            <button class="next-btn" id="nextBtn8" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard9" class="question-card">
+            <div class="question-number">Question 9 of 10</div>
+            <div class="question-text">What is the key characteristic that separates advanced AI practitioners from intermediate users?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) Using more sophisticated tools</div>
+                <div class="option" data-answer="b">B) Operating as strategic leaders who bridge technology and business objectives</div>
+                <div class="option" data-answer="c">C) Having larger budgets for AI projects</div>
+                <div class="option" data-answer="d">D) Working exclusively with cutting-edge models</div>
+            </div>
+            <button class="next-btn" id="nextBtn9" disabled>Next Question</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="questionCard10" class="question-card">
+            <div class="question-number">Question 10 of 10</div>
+            <div class="question-text">What reduction in unplanned downtime do manufacturing enterprises typically achieve with advanced AI implementations?</div>
+            <div class="options">
+                <div class="option" data-answer="a">A) 15-25% reduction</div>
+                <div class="option" data-answer="b">B) 20-40% reduction</div>
+                <div class="option" data-answer="c">C) 30-50% reduction</div>
+                <div class="option" data-answer="d">D) 40-60% reduction</div>
+            </div>
+            <button class="next-btn" id="nextBtn10" disabled>Show Results</button>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="resultsCard" class="results-card">
+            <div class="robot-icon">👑</div>
+            <div class="score-circle" id="scoreCircle">
+                <div class="score-text" id="scoreText">0/10</div>
+            </div>
+            <div class="result-message" id="resultMessage"></div>
+            <div class="result-description" id="resultDescription"></div>
+            
+            <div class="scorecard" id="scorecard">
+                <h3 style="margin-bottom: 20px; color: #00ff9f;">📊 Your Executive Scorecard</h3>
+                <div id="scorecardDetails"></div>
+            </div>
+            
+            <button class="restart-btn" onclick="restartQuiz()">Retake Quiz</button>
+            <button class="expert-btn" id="expertBtn" style="display: none;">Certified AI Expert 🏆</button>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = ['b', 'c', 'c', 'c', 'b', 'b', 'b', 'b', 'b', 'b'];
+        const questions = [
+            {
+                text: "What is the maximum penalty for non-compliance with the EU AI Act when it's fully enforced?",
+                options: ["A) €20 million or 4% of global revenue", "B) €35 million or 7% of global revenue", "C) €50 million or 10% of global revenue", "D) €100 million or 15% of global revenue"],
+                correct: "B) €35 million or 7% of global revenue"
+            },
+            {
+                text: "What average profit increase do enterprises implementing advanced AI strategies report within 24 months?",
+                options: ["A) 25% profit increase", "B) 35% profit increase", "C) 47% profit increase", "D) 60% profit increase"],
+                correct: "C) 47% profit increase"
+            },
+            {
+                text: "What percentage of organizations fail to see tangible EBIT impact from their AI investments despite massive spending?",
+                options: ["A) 60%", "B) 70%", "C) 80%", "D) 90%"],
+                correct: "C) 80%"
+            },
+            {
+                text: "By how much do organizations with composable AI architectures outpace competitors in feature implementation speed?",
+                options: ["A) 50%", "B) 65%", "C) 80%", "D) 95%"],
+                correct: "C) 80%"
+            },
+            {
+                text: "What cost-effectiveness improvement can fine-tuning achieve compared to prompt engineering approaches?",
+                options: ["A) 2x better cost-effectiveness", "B) 3x better cost-effectiveness", "C) 4x better cost-effectiveness", "D) 5x better cost-effectiveness"],
+                correct: "B) 3x better cost-effectiveness"
+            },
+            {
+                text: "What is the primary reason most organizations fail to achieve AI ROI according to the guide?",
+                options: ["A) Insufficient technology capabilities", "B) Strategic misalignment and execution gaps", "C) Lack of skilled personnel", "D) Inadequate budget allocation"],
+                correct: "B) Strategic misalignment and execution gaps"
+            },
+            {
+                text: "What annual cost savings do enterprises implementing advanced AI strategies typically achieve?",
+                options: ["A) $1.5 million", "B) $2.8 million", "C) $4.2 million", "D) $6.1 million"],
+                correct: "B) $2.8 million"
+            },
+            {
+                text: "What improvement in risk assessment accuracy do financial services organizations typically report with advanced AI?",
+                options: ["A) 20-30% improvement", "B) 30-50% improvement", "C) 40-60% improvement", "D) 50-70% improvement"],
+                correct: "B) 30-50% improvement"
+            },
+            {
+                text: "What is the key characteristic that separates advanced AI practitioners from intermediate users?",
+                options: ["A) Using more sophisticated tools", "B) Operating as strategic leaders who bridge technology and business objectives", "C) Having larger budgets for AI projects", "D) Working exclusively with cutting-edge models"],
+                correct: "B) Operating as strategic leaders who bridge technology and business objectives"
+            },
+            {
+                text: "What reduction in unplanned downtime do manufacturing enterprises typically achieve with advanced AI implementations?",
+                options: ["A) 15-25% reduction", "B) 20-40% reduction", "C) 30-50% reduction", "D) 40-60% reduction"],
+                correct: "B) 20-40% reduction"
+            }
+        ];
+        
+        let currentQuestion = 1;
+        let score = 0;
+        let userAnswers = [];
+
+        // Initialize quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            setupQuestionListeners();
+        });
+
+        function setupQuestionListeners() {
+            for (let i = 1; i <= 10; i++) {
+                const options = document.querySelectorAll(`#questionCard${i} .option`);
+                const nextBtn = document.getElementById(`nextBtn${i}`);
+                
+                options.forEach(option => {
+                    option.addEventListener('click', function() {
+                        selectOption(i, this);
+                    });
+                });
+
+                nextBtn.addEventListener('click', function() {
+                    if (i === 10) {
+                        showResults();
+                    } else {
+                        nextQuestion();
+                    }
+                });
+            }
+        }
+
+        function selectOption(questionNum, selectedOption) {
+            const questionCard = document.getElementById(`questionCard${questionNum}`);
+            const options = questionCard.querySelectorAll('.option');
+            const nextBtn = document.getElementById(`nextBtn${questionNum}`);
+            
+            // Remove previous selections
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Select current option
+            selectedOption.classList.add('selected');
+            
+            // Store answer
+            userAnswers[questionNum - 1] = selectedOption.dataset.answer;
+            
+            // Enable next button
+            nextBtn.disabled = false;
+        }
+
+        function nextQuestion() {
+            // Hide current question
+            document.getElementById(`questionCard${currentQuestion}`).classList.remove('active');
+            
+            // Show next question
+            currentQuestion++;
+            document.getElementById(`questionCard${currentQuestion}`).classList.add('active');
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / 10) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function generateScorecard() {
+            const scorecardDetails = document.getElementById('scorecardDetails');
+            let scorecardHTML = '';
+
+            for (let i = 0; i < questions.length; i++) {
+                const isCorrect = userAnswers[i] === correctAnswers[i];
+                
+                // Find the user's answer text
+                let userAnswerText = 'Not answered';
+                if (userAnswers[i]) {
+                    const answerLetter = userAnswers[i].toLowerCase();
+                    const answerIndex = ['a', 'b', 'c', 'd'].indexOf(answerLetter);
+                    if (answerIndex !== -1 && questions[i].options[answerIndex]) {
+                        userAnswerText = questions[i].options[answerIndex];
+                    }
+                }
+                
+                const correctAnswerText = questions[i].correct;
+                
+                scorecardHTML += `
+                    <div class="scorecard-item">
+                        <div class="question-info">
+                            <div class="question-title">Question ${i + 1}</div>
+                            <div class="question-text-small">${questions[i].text}</div>
+                            <div class="answer-details">
+                                <span class="your-answer">Your answer: <span class="${isCorrect ? 'correct-answer' : 'incorrect-answer'}">${userAnswerText}</span></span>
+                                ${!isCorrect ? `<br>Correct answer: <span class="correct-answer">${correctAnswerText}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="status-icon">
+                            ${isCorrect ? '<span class="correct-icon">✅</span>' : '<span class="incorrect-icon">❌</span>'}
+                        </div>
+                    </div>
+                `;
+            }
+
+            scorecardDetails.innerHTML = scorecardHTML;
+        }
+
+        function showResults() {
+            // Calculate score
+            score = 0;
+            for (let i = 0; i < correctAnswers.length; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+
+            // Hide last question
+            document.getElementById(`questionCard${currentQuestion}`).classList.remove('active');
+            
+            // Show results
+            const resultsCard = document.getElementById('resultsCard');
+            const scoreCircle = document.getElementById('scoreCircle');
+            const scoreText = document.getElementById('scoreText');
+            const resultMessage = document.getElementById('resultMessage');
+            const resultDescription = document.getElementById('resultDescription');
+            const expertBtn = document.getElementById('expertBtn');
+
+            resultsCard.classList.add('show');
+            scoreText.textContent = `${score}/10`;
+            scoreCircle.style.setProperty('--score', (score / 10) * 100);
+
+            // Generate detailed scorecard
+            generateScorecard();
+            
+            // Make sure scorecard is visible
+            document.getElementById('scorecard').style.display = 'block';
+
+            if (score >= 8) {
+                resultMessage.textContent = '👑 Exceptional! You are an AI Strategic Leader!';
+                resultDescription.textContent = 'You have achieved mastery of enterprise-level AI concepts and are ready to lead organizational AI transformations. Your understanding of governance, strategic implementation, and advanced AI architectures qualifies you as a certified AI expert!';
+                expertBtn.style.display = 'inline-block';
+                expertBtn.addEventListener('click', function() {
+                    alert('🏆 Congratulations! You are now a Certified AI Strategic Leader! You have mastered enterprise AI governance, strategic implementation, and advanced architectural concepts.');
+                });
+            } else if (score >= 6) {
+                resultMessage.textContent = '🎯 Excellent progress toward AI leadership!';
+                resultDescription.textContent = `You scored ${score}/10. You have a strong foundation in advanced AI concepts but need to deepen your understanding of enterprise governance frameworks and strategic implementation. Focus on AI compliance, custom model development, and organizational transformation strategies.`;
+            } else {
+                resultMessage.textContent = '📈 Building toward advanced AI expertise!';
+                resultDescription.textContent = `You scored ${score}/10. Continue studying the Advanced AI Guide, particularly focusing on enterprise governance frameworks, EU AI Act compliance, strategic architecture, and ROI measurement. Master these executive-level concepts to achieve AI leadership certification.`;
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 1;
+            score = 0;
+            userAnswers = [];
+            
+            // Reset all questions
+            for (let i = 1; i <= 10; i++) {
+                const questionCard = document.getElementById(`questionCard${i}`);
+                const options = questionCard.querySelectorAll('.option');
+                const nextBtn = document.getElementById(`nextBtn${i}`);
+                
+                questionCard.classList.remove('active');
+                options.forEach(opt => {
+                    opt.classList.remove('selected', 'correct', 'incorrect');
+                });
+                nextBtn.disabled = true;
+            }
+            
+            // Show first question
+            document.getElementById('questionCard1').classList.add('active');
+            
+            // Hide results
+            document.getElementById('resultsCard').classList.remove('show');
+            
+            // Reset progress
+            document.getElementById('progressFill').style.width = '10%';
+        }
+    </script>
+</body>
+</html>

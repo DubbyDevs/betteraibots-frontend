@@ -46,8 +46,13 @@ const Breadcrumbs = () => {
       
           // Handle learn
     if (pathSegments[0] === 'learn' && index === 1) {
-        // For article pages, we'll get the title from the URL or use a generic name
-        friendlyName = decodedSegment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        // Handle learning levels
+        if (['beginner', 'intermediate', 'advanced'].includes(segment)) {
+          friendlyName = decodedSegment.charAt(0).toUpperCase() + decodedSegment.slice(1);
+        } else {
+          // For article pages, we'll get the title from the URL or use a generic name
+          friendlyName = decodedSegment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        }
       }
       
       // Handle news

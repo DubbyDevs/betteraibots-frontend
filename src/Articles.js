@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AIQuiz from "./components/AIQuiz";
+import IntermediateQuiz from "./components/IntermediateQuiz";
+import AdvancedQuiz from "./components/AdvancedQuiz";
 import VetGPT1 from "./assets/vetgpt-1.webp";
 import VetGPT2 from "./assets/vetgpt-2.webp";
 import placeholderImg4 from "./assets/bot-placeholder4.webp";
@@ -1808,11 +1810,856 @@ function AIStarterGuide({ onClose }) {
   );
 }
 
+function AdvancedGuide({ onClose }) {
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.9)',
+      zIndex: 1000,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '20px',
+      overflowY: 'auto'
+    }}>
+      <div style={{
+        background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%)',
+        border: '2px solid #ffd700',
+        borderRadius: '20px',
+        padding: '40px',
+        maxWidth: '1000px',
+        width: '100%',
+        maxHeight: '90vh',
+        overflowY: 'auto',
+        position: 'relative',
+        color: '#ffffff',
+        boxShadow: '0 0 30px rgba(255, 215, 0, 0.3)'
+      }}>
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            background: 'none',
+            border: 'none',
+            color: '#ffd700',
+            fontSize: '24px',
+            cursor: 'pointer',
+            fontWeight: 'bold'
+          }}
+        >
+          ✕
+        </button>
+
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+          <h1 style={{
+            color: '#ffd700',
+            fontSize: '2.2rem',
+            fontWeight: 'bold',
+            marginBottom: '15px',
+            background: 'linear-gradient(135deg, #ffd700, #ffb347)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            The Advanced AI Guide: Mastering Enterprise-Level AI Implementation and Strategic Leadership
+          </h1>
+          <button
+            onClick={() => window.open('/quiz/advanced', '_blank')}
+            style={{
+              background: 'linear-gradient(135deg, #ffd700, #ffb347)',
+              color: '#000',
+              border: 'none',
+              padding: '12px 24px',
+              borderRadius: '25px',
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              boxShadow: '0 4px 15px rgba(255, 215, 0, 0.3)',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
+            onMouseOut={(e) => e.target.style.transform = 'translateY(0)'}
+          >
+            Take the Quiz!
+          </button>
+        </div>
+
+        {/* Content */}
+        <div style={{ lineHeight: '1.8', fontSize: '1.05rem' }}>
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            You've progressed from basic tool usage to sophisticated workflow automation, and now you're positioned to <strong style={{ color: '#ffd700' }}>architect enterprise-wide AI transformations that create sustainable competitive advantages</strong>. In August 2025, advanced AI practitioners operate at the intersection of technology strategy, organizational change management, and regulatory compliance, deploying custom AI solutions that generate measurable ROI at unprecedented scale. This comprehensive guide elevates you to the professional tier, providing the executive-level frameworks and implementation strategies needed to lead AI initiatives that transform entire organizations and define industry standards.
+          </p>
+
+          <p style={{ marginBottom: '30px', color: '#e0e0e0' }}>
+            The stakes at this level are transformational: <strong style={{ color: '#ffd700' }}>enterprises implementing advanced AI strategies report average profit increases of 47% within 24 months</strong>, with organizations achieving $2.8 million in annual cost savings and 20-30% ROI for sophisticated initiatives. Yet over 80% of organizations still fail to see tangible EBIT impact from their AI investments, primarily due to strategic misalignment and execution gaps rather than technological limitations. Advanced practitioners bridge this gap by treating AI as business transformation rather than technology deployment, implementing governance frameworks that ensure ethical and compliant AI usage while maximizing strategic value creation.
+          </p>
+
+          <h2 style={{ color: '#ffd700', fontSize: '1.8rem', marginBottom: '20px', marginTop: '40px' }}>
+            Enterprise AI governance defines sustainable competitive advantage
+          </h2>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Comprehensive governance frameworks establish the foundation</strong> for scalable AI deployment that maintains ethical standards, regulatory compliance, and stakeholder trust while enabling innovation and competitive differentiation. Advanced practitioners develop governance structures that encompass algorithmic accountability, data stewardship, risk management, and ethical AI principles aligned with organizational values and regulatory requirements. These frameworks operate as strategic enablers rather than constraints, providing clear guidelines that accelerate responsible AI adoption across all business functions.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>The EU AI Act and global regulatory landscape</strong> require proactive compliance strategies that anticipate regulatory requirements rather than reacting to enforcement actions. With the AI Act entering full enforcement by August 2026 and potential fines reaching €35 million or 7% of global revenue, advanced practitioners implement governance systems that exceed minimum compliance requirements while maintaining operational flexibility. This includes establishing AI ethics councils, implementing algorithmic auditing processes, and developing documentation standards that demonstrate responsible AI practices to stakeholders and regulators.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>AI observability and monitoring systems</strong> become critical infrastructure components that enable real-time governance enforcement and continuous improvement of AI systems. Advanced practitioners implement comprehensive observability frameworks that track model performance, detect drift and bias, monitor resource utilization, and ensure adherence to ethical and operational guidelines. These systems provide the data foundation for governance decisions and enable rapid response to emerging risks or performance issues.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Cross-functional governance teams</strong> integrate legal, compliance, technical, and business stakeholders to ensure comprehensive oversight of AI initiatives. Advanced practitioners establish governance structures that include AI ethics boards, technical review committees, and business value assessment groups that collaborate to balance innovation, risk management, and strategic objectives. This collaborative approach ensures governance frameworks remain practical and business-relevant while maintaining rigorous standards.
+          </p>
+
+          <p style={{ marginBottom: '30px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Risk-based governance approaches</strong> prioritize oversight resources on high-impact AI applications while enabling faster deployment of lower-risk use cases. Advanced practitioners develop risk classification systems that guide governance requirements, with high-risk applications like employment decisions or financial services receiving comprehensive oversight while lower-risk applications like content recommendation systems operate under streamlined governance processes.
+          </p>
+
+          <h2 style={{ color: '#ffd700', fontSize: '1.8rem', marginBottom: '20px', marginTop: '40px' }}>
+            Custom model development and fine-tuning unlock domain expertise
+          </h2>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Fine-tuning strategies transform generic AI capabilities</strong> into specialized domain experts that significantly outperform general-purpose models on business-specific tasks. Advanced practitioners leverage supervised fine-tuning, parameter-efficient techniques like LoRA (Low-Rank Adaptation), and reinforcement learning approaches to create custom models that understand industry terminology, business processes, and organizational context. Research demonstrates fine-tuned models achieving 3x better cost-effectiveness compared to prompt engineering approaches while delivering superior accuracy and consistency.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Data preparation and curation methodologies</strong> determine fine-tuning success through careful selection, cleaning, and augmentation of training datasets. Advanced practitioners develop systematic approaches to data collection that balance quality, quantity, and diversity while addressing bias and representation concerns. This includes implementing data validation pipelines, establishing quality metrics, and developing augmentation strategies that improve model robustness without introducing artifacts or biases.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Multi-modal fine-tuning capabilities</strong> enable AI systems that process text, images, audio, and video within unified frameworks that understand complex relationships across different data types. Advanced implementations leverage models like GPT-4o and Gemini that support vision fine-tuning, enabling applications like automated document processing, visual quality assessment, and integrated multimedia analysis that provide comprehensive business intelligence capabilities.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Model evaluation and validation frameworks</strong> ensure fine-tuned models meet business requirements through systematic testing against domain-specific metrics and real-world performance criteria. Advanced practitioners implement evaluation pipelines that assess accuracy, fairness, robustness, and business impact while identifying potential failure modes and edge cases. This includes A/B testing frameworks, human evaluation protocols, and automated monitoring systems that track model performance in production environments.
+          </p>
+
+          <p style={{ marginBottom: '30px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Deployment and scaling strategies</strong> optimize fine-tuned models for production environments through techniques like model quantization, pruning, and distributed serving architectures that balance performance, cost, and latency requirements. Advanced practitioners develop deployment pipelines that support model versioning, gradual rollout, and rapid rollback capabilities while maintaining high availability and performance standards across diverse use cases and user bases.
+          </p>
+
+          <h2 style={{ color: '#ffd700', fontSize: '1.8rem', marginBottom: '20px', marginTop: '40px' }}>
+            Strategic AI architecture enables organizational transformation
+          </h2>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Enterprise AI architecture requires systematic integration</strong> of AI capabilities with existing technology infrastructure, business processes, and organizational structures. Advanced practitioners design AI architectures that leverage microservices, API-first design principles, and event-driven architectures to create flexible, scalable systems that integrate seamlessly with legacy systems while enabling rapid innovation and adaptation to changing business requirements.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Composable AI frameworks</strong> provide the flexibility to integrate and swap models, data layers, agents, and infrastructure components without disrupting business operations. Research indicates organizations adopting composable architectures outpace competitors by 80% in feature implementation speed while maintaining system reliability and reducing vendor lock-in risks. Advanced practitioners implement modular architectures that enable rapid experimentation and deployment while maintaining enterprise-grade security and governance.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Multi-agent orchestration systems</strong> coordinate multiple specialized AI agents to handle complex business processes that require diverse expertise and sophisticated collaboration. Advanced implementations deploy research agents, analytical agents, and execution agents that work together to complete comprehensive business workflows while maintaining appropriate human oversight and control mechanisms. These systems represent the evolution from individual AI tools to intelligent business process automation.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Data architecture and infrastructure</strong> form the foundation for advanced AI capabilities through comprehensive data lakes, real-time streaming pipelines, and metadata management systems that ensure AI systems have access to complete, current, and high-quality information. Advanced practitioners implement data architectures that support both batch and real-time processing, enable sophisticated data lineage tracking, and provide robust security and access control mechanisms.
+          </p>
+
+          <p style={{ marginBottom: '30px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Integration patterns and API strategies</strong> enable seamless connectivity between AI systems and existing business applications through well-designed interfaces that abstract complexity while providing powerful functionality. Advanced practitioners develop API strategies that support both synchronous and asynchronous processing, enable efficient batching and caching, and provide comprehensive error handling and monitoring capabilities.
+          </p>
+
+          <h2 style={{ color: '#ffd700', fontSize: '1.8rem', marginBottom: '20px', marginTop: '40px' }}>
+            Advanced implementation methodologies maximize organizational ROI
+          </h2>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Phased deployment strategies</strong> minimize risk while maximizing learning and adaptation opportunities through systematic rollout of AI capabilities across the organization. Advanced practitioners implement deployment methodologies that begin with high-value, low-risk use cases to build confidence and expertise while gradually expanding to more complex and strategic applications. This approach enables organizations to build internal capabilities while demonstrating value and securing continued investment in AI initiatives.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Change management and organizational transformation</strong> address the human and cultural aspects of AI implementation through comprehensive training programs, communication strategies, and incentive structures that encourage AI adoption while addressing concerns and resistance. Advanced practitioners develop change management frameworks that include executive sponsorship, change champion networks, and continuous feedback mechanisms that ensure successful AI integration across all levels of the organization.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>ROI measurement and value realization frameworks</strong> provide comprehensive tracking of AI investments and returns through sophisticated metrics that capture both direct financial impact and strategic value creation. Advanced practitioners implement measurement systems that track productivity gains, cost reductions, revenue enhancements, and competitive advantages while accounting for implementation costs, training expenses, and ongoing operational requirements.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Scaling methodologies</strong> enable successful expansion of AI capabilities from pilot projects to enterprise-wide deployment through systematic approaches to resource planning, capability development, and operational optimization. Advanced practitioners develop scaling frameworks that address technical infrastructure requirements, human resource needs, governance structures, and business process integration while maintaining quality and performance standards.
+          </p>
+
+          <p style={{ marginBottom: '30px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Continuous improvement cycles</strong> ensure AI systems evolve and improve over time through systematic monitoring, evaluation, and optimization processes. Advanced practitioners implement improvement frameworks that include performance tracking, user feedback collection, model retraining schedules, and strategic planning cycles that enable organizations to maintain competitive advantage through continuous AI innovation.
+          </p>
+
+          <h2 style={{ color: '#ffd700', fontSize: '1.8rem', marginBottom: '20px', marginTop: '40px' }}>
+            Industry-specific applications demonstrate transformational impact
+          </h2>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Financial services organizations</strong> implement advanced AI for algorithmic trading, risk management, regulatory compliance, and personalized financial advisory services that transform both operational efficiency and customer experience. Advanced applications include real-time fraud detection systems that adapt to emerging threats, robo-advisors that provide personalized investment strategies at scale, and regulatory reporting systems that ensure compliance while reducing manual overhead. Organizations in this sector report 30-50% improvements in risk assessment accuracy and 60% reduction in compliance processing time.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Healthcare institutions</strong> deploy AI for clinical decision support, drug discovery, personalized treatment protocols, and operational optimization that improve both patient outcomes and system efficiency. Advanced implementations include diagnostic imaging systems that exceed human accuracy, predictive analytics for patient risk assessment, and automated clinical workflow optimization that reduces physician workload while improving care quality. Healthcare AI implementations demonstrate particular value in medical imaging analysis, treatment protocol optimization, and operational workflow automation.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Manufacturing enterprises</strong> utilize AI for predictive maintenance, quality control, supply chain optimization, and autonomous production systems that dramatically improve efficiency while reducing costs and defects. Advanced applications include sensor-based monitoring systems that predict equipment failures weeks in advance, computer vision quality inspection that identifies defects beyond human capability, and integrated supply chain optimization that responds dynamically to market conditions. Manufacturing AI implementations typically achieve 20-40% reduction in unplanned downtime and 15-25% improvement in quality metrics.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Technology companies</strong> leverage AI for product development, customer experience optimization, and operational automation that accelerate innovation while improving user satisfaction. Advanced implementations include AI-powered development tools that significantly increase programmer productivity, personalization engines that improve user engagement and retention, and automated customer support systems that provide superior service while reducing costs.
+          </p>
+
+          <p style={{ marginBottom: '30px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Professional services firms</strong> implement AI for research automation, document analysis, client communication, and knowledge management that scale expertise while improving service quality and delivery speed. Applications include automated contract analysis, research synthesis systems, client communication optimization, and knowledge base systems that enable firms to handle larger client loads while maintaining quality standards. Professional services AI implementations enable firms to scale expert knowledge while reducing delivery time.
+          </p>
+
+          <h2 style={{ color: '#ffd700', fontSize: '1.8rem', marginBottom: '20px', marginTop: '40px' }}>
+            Emerging technologies and future readiness strategies
+          </h2>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Agentic AI systems</strong> represent the next evolution in enterprise AI, enabling autonomous business process execution that requires minimal human oversight while maintaining appropriate control and governance mechanisms. Advanced practitioners implement agentic systems that can handle complex multi-step processes, make contextual decisions, and adapt to changing conditions while operating within defined parameters and escalation protocols. Early implementations focus on areas like customer service automation, financial processing, and operational monitoring where autonomous operation provides clear value while maintaining appropriate oversight.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Reasoning models and advanced inference capabilities</strong> enable AI systems that can handle complex analytical tasks, strategic planning, and multi-step problem solving that approaches human-level business intelligence. Models like OpenAI's o3 and advanced reasoning systems provide capabilities for strategy development, complex analysis, and sophisticated decision-making that transform how organizations approach planning and problem-solving processes.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Edge AI and distributed computing</strong> enable real-time processing and local intelligence that support latency-sensitive applications while maintaining data privacy and reducing bandwidth requirements. Advanced practitioners implement edge AI architectures that process data locally while maintaining connectivity to central systems for coordination and learning, enabling applications like real-time personalization, immediate fraud detection, and local data processing that enhance both performance and privacy.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Federated learning and privacy-preserving AI</strong> techniques enable organizations to benefit from AI capabilities while maintaining data privacy and regulatory compliance. Advanced implementations use federated learning approaches that enable model training across distributed datasets without centralizing sensitive information, supporting applications in healthcare, finance, and other privacy-sensitive domains.
+          </p>
+
+          <p style={{ marginBottom: '30px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>AI-human collaboration frameworks</strong> optimize the combination of human creativity and AI processing power to achieve superior outcomes compared to either humans or AI working independently. Advanced practitioners develop collaboration models that leverage human judgment for complex decisions while using AI for data processing, pattern recognition, and routine task automation, creating hybrid systems that multiply human capabilities rather than replacing them.
+          </p>
+
+          <h2 style={{ color: '#ffd700', fontSize: '1.8rem', marginBottom: '20px', marginTop: '40px' }}>
+            Strategic leadership and organizational capabilities
+          </h2>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>AI strategy development</strong> requires comprehensive assessment of organizational capabilities, market opportunities, and competitive dynamics to create strategic plans that maximize AI value while managing implementation risks. Advanced practitioners develop AI strategies that align with business objectives, account for organizational constraints, and create sustainable competitive advantages through superior AI utilization and innovation capabilities.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Executive stakeholder management</strong> ensures sustained commitment and appropriate resource allocation for AI initiatives through comprehensive communication strategies that demonstrate value while addressing concerns and building confidence. Advanced practitioners develop stakeholder management frameworks that include regular reporting, strategic reviews, and adaptation mechanisms that maintain executive support through implementation challenges and changing priorities.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Talent acquisition and development strategies</strong> build the organizational capabilities needed to sustain AI leadership through strategic hiring, comprehensive training programs, and capability development initiatives. Advanced practitioners develop talent strategies that balance external recruitment with internal development while creating career paths and incentive structures that attract and retain top AI talent in competitive markets.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Partnership and ecosystem development</strong> accelerate AI capability development through strategic relationships with technology vendors, research institutions, and industry collaborators that provide access to cutting-edge capabilities while reducing development costs and risks. Advanced practitioners develop partnership strategies that balance competitive advantage with collaboration benefits while maintaining intellectual property protection and strategic independence.
+          </p>
+
+          <p style={{ marginBottom: '30px', color: '#e0e0e0' }}>
+            <strong style={{ color: '#ffd700' }}>Innovation management and R&D strategies</strong> ensure organizations remain at the forefront of AI development through systematic exploration of emerging technologies, experimental implementation of new capabilities, and strategic investment in research and development activities that create future competitive advantages.
+          </p>
+
+          <h2 style={{ color: '#ffd700', fontSize: '1.8rem', marginBottom: '20px', marginTop: '40px' }}>
+            Conclusion
+          </h2>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            Advanced AI implementation in August 2025 represents the convergence of technological sophistication, strategic business thinking, and organizational transformation capabilities that separate industry leaders from followers. Success at this level requires mastering enterprise governance frameworks that ensure ethical and compliant AI deployment, developing custom AI solutions that provide sustainable competitive advantages, and architecting organizational transformations that create lasting business value.
+          </p>
+
+          <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
+            The most successful advanced AI practitioners operate as strategic leaders who bridge technology capabilities with business objectives, implementing comprehensive AI strategies that transform organizational capabilities while maintaining operational excellence and stakeholder trust. They understand that AI advancement requires addressing technical infrastructure, governance frameworks, organizational change management, and strategic positioning simultaneously, approaching implementation as comprehensive business transformation rather than technology deployment.
+          </p>
+
+          <p style={{ marginBottom: '30px', color: '#e0e0e0' }}>
+            The future belongs to organizations that build advanced AI capabilities today, positioning themselves to lead their industries through superior AI utilization, ethical governance practices, and strategic innovation capabilities. Master enterprise-level AI governance, develop custom AI solutions that address specific business needs, and architect organizational transformations that unlock AI's full strategic potential. Focus on sustainable competitive advantage creation, comprehensive risk management, and continuous innovation that enables adaptation to rapidly evolving AI capabilities and market dynamics while maintaining the highest standards of ethical and responsible AI deployment.
+          </p>
+
+          {/* Quiz Call-to-Action */}
+          <div style={{ textAlign: 'center', marginTop: '40px', padding: '30px', background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 179, 71, 0.1) 100%)', borderRadius: '15px', border: '2px solid #ffd700' }}>
+            <h3 style={{ color: '#ffd700', fontSize: '1.5rem', marginBottom: '15px' }}>
+              Ready to Test Your Advanced AI Knowledge?
+            </h3>
+            <p style={{ color: '#e0e0e0', marginBottom: '20px' }}>
+              Take the Advanced AI Quiz to earn your Pro status and unlock exclusive content!
+            </p>
+            <button
+              onClick={() => window.open('/quiz/advanced', '_blank')}
+              style={{
+                background: 'linear-gradient(135deg, #ffd700, #ffb347)',
+                color: '#000',
+                border: 'none',
+                padding: '15px 30px',
+                borderRadius: '25px',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                boxShadow: '0 4px 15px rgba(255, 215, 0, 0.3)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
+              onMouseOut={(e) => e.target.style.transform = 'translateY(0)'}
+            >
+              Take Advanced Quiz & Earn Pro Status! 👑
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function IntermediateGuide({ onClose }) {
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'rgba(0, 0, 0, 0.8)',
+      zIndex: 1000,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '20px'
+    }}>
+      <div style={{
+        background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+        border: '2px solid #8b5cf6',
+        borderRadius: '20px',
+        maxWidth: '900px',
+        maxHeight: '90vh',
+        width: '100%',
+        overflow: 'auto',
+        position: 'relative',
+        boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)'
+      }}>
+        {/* Header */}
+        <div style={{
+          background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)',
+          color: '#101c26',
+          padding: '20px 30px',
+          borderRadius: '18px 18px 0 0',
+          position: 'sticky',
+          top: 0,
+          zIndex: 10
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+          }}>
+            <h1 style={{
+              margin: 0,
+              fontSize: '1.8rem',
+              fontWeight: '700',
+              textShadow: '0 0 10px rgba(16, 28, 38, 0.3)'
+            }}>
+              The Intermediate AI Guide: Elevating Your AI Skills to Professional Level
+            </h1>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '15px'
+            }}>
+              <button
+                onClick={() => {
+                  onClose();
+                  window.location.href = '/quiz/intermediate';
+                }}
+                style={{
+                  background: 'rgba(16, 28, 38, 0.3)',
+                  border: '1px solid rgba(16, 28, 38, 0.5)',
+                  borderRadius: '20px',
+                  padding: '8px 16px',
+                  fontSize: '0.9rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  color: '#101c26',
+                  transition: 'all 0.2s',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(16, 28, 38, 0.5)';
+                  e.target.style.transform = 'translateY(-1px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(16, 28, 38, 0.3)';
+                  e.target.style.transform = 'translateY(0)';
+                }}
+              >
+                🚀 Take the Quiz!
+              </button>
+              <button
+                onClick={onClose}
+                style={{
+                  background: 'rgba(16, 28, 38, 0.3)',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '40px',
+                  height: '40px',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#101c26',
+                  transition: 'all 0.2s'
+                }}
+                onMouseEnter={(e) => e.target.style.background = 'rgba(16, 28, 38, 0.5)'}
+                onMouseLeave={(e) => e.target.style.background = 'rgba(16, 28, 38, 0.3)'}
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div style={{
+          padding: '30px',
+          color: '#d1efe7',
+          lineHeight: '1.6'
+        }}>
+          <div style={{
+            background: 'linear-gradient(135deg, #2d1b69 0%, #18232f 100%)',
+            border: '1px solid #8b5cf6',
+            borderRadius: '12px',
+            padding: '20px',
+            marginBottom: '25px'
+          }}>
+            <p style={{ margin: 0, fontSize: '1.1rem', fontWeight: '500' }}>
+              You've mastered the basics, experimented with different platforms, and started seeing real value from AI in your daily work. Now you're ready to <strong>unlock the advanced capabilities that separate casual users from AI power users</strong>. In August 2025, the intermediate AI landscape is defined by sophisticated prompting techniques that achieve 90% accuracy improvements, workflow automation systems delivering measurable ROI, and agentic AI systems that work autonomously across business functions.
+            </p>
+          </div>
+
+          <h2 style={{
+            color: '#8b5cf6',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #8b5cf644'
+          }}>
+            🧠 Advanced Prompting Transforms AI from Helpful to Strategic
+          </h2>
+          
+          <div style={{
+            background: 'linear-gradient(135deg, #2d1b69 0%, #18232f 100%)',
+            border: '1px solid #8b5cf6',
+            borderRadius: '12px',
+            padding: '20px',
+            marginBottom: '25px'
+          }}>
+            <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '15px' }}>The CLEAR Framework Revolutionizes Prompt Structure</h3>
+            <p style={{ margin: 0, marginBottom: '15px' }}>
+              Through five essential components that dramatically improve output quality and consistency:
+            </p>
+            <ul style={{ paddingLeft: '20px', marginBottom: '15px' }}>
+              <li><strong>Context:</strong> Provides comprehensive background information including relevant data, constraints, and business objectives</li>
+              <li><strong>Logic:</strong> Defines the reasoning approach, whether analytical, creative, or problem-solving focused</li>
+              <li><strong>Examples:</strong> Demonstrates desired formats, styles, and quality levels through concrete illustrations</li>
+              <li><strong>Action:</strong> Specifies exact deliverables with clear success criteria and measurable outcomes</li>
+              <li><strong>Review:</strong> Establishes evaluation criteria and iterative improvement processes</li>
+            </ul>
+          </div>
+
+          <h3 style={{
+            color: '#8b5cf6',
+            fontSize: '1.3rem',
+            fontWeight: '600',
+            marginTop: '25px',
+            marginBottom: '10px'
+          }}>
+            Chain-of-Thought Prompting
+          </h3>
+          <p style={{ marginBottom: '20px' }}>
+            Unlocks complex reasoning capabilities by explicitly requesting step-by-step thinking processes that mirror human problem-solving approaches. Research from leading AI labs demonstrates that CoT prompting can improve accuracy from basic 30% baselines to sophisticated 85-90% performance levels on complex analytical tasks.
+          </p>
+
+          <h3 style={{
+            color: '#8b5cf6',
+            fontSize: '1.3rem',
+            fontWeight: '600',
+            marginTop: '25px',
+            marginBottom: '10px'
+          }}>
+            Few-Shot Prompting
+          </h3>
+          <p style={{ marginBottom: '20px' }}>
+            Provides powerful training through examples that guide AI behavior without requiring extensive fine-tuning or technical implementation. By providing 3-5 carefully crafted examples that demonstrate desired input-output patterns, users can achieve near-custom model performance for specific tasks.
+          </p>
+
+          <h2 style={{
+            color: '#8b5cf6',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #8b5cf644'
+          }}>
+            ⚙️ Workflow Automation Architecture Drives Operational Transformation
+          </h2>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '20px',
+            marginBottom: '30px'
+          }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '10px' }}>AI Workflow Orchestration</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Requires understanding trigger events, data flow patterns, and decision trees that create seamless automation across multiple business systems.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '10px' }}>Integration Strategies</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Must account for data formats, system compatibility, and error handling protocols that ensure reliable operation at scale.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '10px' }}>Conditional Logic</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Creates intelligent systems that respond appropriately to different scenarios rather than following rigid predetermined paths.
+              </p>
+            </div>
+          </div>
+
+          <h2 style={{
+            color: '#8b5cf6',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #8b5cf644'
+          }}>
+            🏢 Business Integration Strategies Maximize Organizational Impact
+          </h2>
+          
+          <div style={{
+            background: 'linear-gradient(135deg, #2d1b69 0%, #18232f 100%)',
+            border: '1px solid #8b5cf6',
+            borderRadius: '12px',
+            padding: '20px',
+            marginBottom: '25px'
+          }}>
+            <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '15px' }}>Cross-Functional AI Implementation</h3>
+            <p style={{ margin: 0, marginBottom: '15px' }}>
+              Requires systematic change management that addresses technical infrastructure, process redesign, and cultural adaptation simultaneously. Successful organizations approach AI integration as a business transformation initiative rather than a technology deployment.
+            </p>
+            
+            <h3 style={{ color: '#8b5cf6', marginTop: '20px', marginBottom: '15px' }}>Data Architecture and Governance</h3>
+            <p style={{ margin: 0, marginBottom: '15px' }}>
+              Provides the foundation for sophisticated AI applications that require access to comprehensive, clean, and properly structured information assets. Organizations with robust data foundations achieve 3x better AI implementation success rates.
+            </p>
+            
+            <h3 style={{ color: '#8b5cf6', marginTop: '20px', marginBottom: '15px' }}>ROI Measurement and Optimization</h3>
+            <p style={{ margin: 0 }}>
+              Proves business value while identifying opportunities for expanded AI deployment across the organization. Advanced practitioners establish baseline metrics, track performance improvements, and calculate comprehensive return on investment.
+            </p>
+          </div>
+
+          <h2 style={{
+            color: '#8b5cf6',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #8b5cf644'
+          }}>
+            🚀 Emerging Technologies Reshape Competitive Landscapes
+          </h2>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '15px',
+            marginBottom: '30px'
+          }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '8px' }}>Agentic AI Systems</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Operate autonomously to achieve business objectives without constant human supervision or detailed instruction sets.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '8px' }}>Multimodal AI Capabilities</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Process text, images, audio, and video within unified systems that understand and generate content across multiple communication channels.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '8px' }}>Real-Time AI Processing</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Enable immediate responses and local intelligence that support time-sensitive business operations and privacy-sensitive applications.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '10px',
+              padding: '15px'
+            }}>
+              <h4 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '8px' }}>AI Model Customization</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                Allow organizations to adapt general AI capabilities to specific business requirements and domain expertise.
+              </p>
+            </div>
+          </div>
+
+          <h2 style={{
+            color: '#8b5cf6',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #8b5cf644'
+          }}>
+            🎯 Strategic Implementation Roadmaps Accelerate Adoption
+          </h2>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '20px',
+            marginBottom: '30px'
+          }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '10px' }}>Phase One</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Establishes advanced prompting expertise through systematic practice with sophisticated techniques and measurement of performance improvements.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '10px' }}>Phase Two</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Implements workflow automation systems that connect AI capabilities with existing business processes and technology infrastructure.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '10px' }}>Phase Three</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Deploys strategic AI integration that aligns technology capabilities with business objectives through comprehensive planning and optimization.
+              </p>
+            </div>
+          </div>
+
+          <h2 style={{
+            color: '#8b5cf6',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            marginTop: '30px',
+            marginBottom: '15px',
+            textShadow: '0 0 8px #8b5cf644'
+          }}>
+            🏥 Industry-Specific Applications Demonstrate Measurable Value
+          </h2>
+          
+          <div style={{
+            background: 'linear-gradient(135deg, #2d1b69 0%, #18232f 100%)',
+            border: '1px solid #8b5cf6',
+            borderRadius: '12px',
+            padding: '20px',
+            marginBottom: '25px'
+          }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '15px',
+              marginTop: '20px'
+            }}>
+              <div>
+                <h4 style={{ color: '#8b5cf6', marginBottom: '5px' }}>Financial Services</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>30-50% improvements in risk assessment accuracy, 60% reduction in manual compliance processing</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#8b5cf6', marginBottom: '5px' }}>Healthcare</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>Diagnostic assistance systems, predictive analytics for patient risk management</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#8b5cf6', marginBottom: '5px' }}>Manufacturing</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>20-40% reduction in unplanned downtime, 15-25% improvement in quality metrics</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#8b5cf6', marginBottom: '5px' }}>Marketing & Sales</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>Dynamic pricing strategies, personalized content generation, predictive analytics</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#8b5cf6', marginBottom: '5px' }}>Professional Services</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>Automated contract analysis, research synthesis, client communication systems</p>
+              </div>
+            </div>
+          </div>
+
+          <div style={{
+            background: 'linear-gradient(135deg, #2d1b69 0%, #18232f 100%)',
+            border: '2px solid #8b5cf6',
+            borderRadius: '12px',
+            padding: '25px',
+            marginTop: '30px',
+            textAlign: 'center'
+          }}>
+            <h2 style={{
+              color: '#8b5cf6',
+              fontSize: '1.5rem',
+              fontWeight: '700',
+              marginTop: 0,
+              marginBottom: '15px',
+              textShadow: '0 0 8px #8b5cf644'
+            }}>
+              🎯 Conclusion
+            </h2>
+            <p style={{
+              margin: 0,
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              lineHeight: '1.6'
+            }}>
+              The intermediate AI landscape in August 2025 rewards organizations and individuals who move beyond basic tool usage to develop sophisticated AI integration capabilities, strategic implementation frameworks, and advanced technical skills. Success requires mastering complex prompting techniques that achieve professional-grade results, implementing workflow automation systems that transform business operations, and developing strategic AI capabilities that create sustainable competitive advantages.
+            </p>
+            <p style={{
+              margin: '15px 0 0 0',
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              lineHeight: '1.6'
+            }}>
+              The future belongs to organizations that build intermediate AI capabilities today, positioning themselves to capitalize on emerging technologies like agentic systems, multimodal processing, and autonomous business intelligence.
+            </p>
+          </div>
+
+          {/* Quiz Call-to-Action */}
+          <div style={{
+            textAlign: 'center',
+            marginTop: '40px',
+            marginBottom: '20px'
+          }}>
+            <h3 style={{
+              color: '#8b5cf6',
+              fontSize: '1.4rem',
+              fontWeight: '600',
+              marginBottom: '20px',
+              textShadow: '0 0 8px #8b5cf644'
+            }}>
+              Ready to advance to the next level?
+            </h3>
+            <button
+              onClick={() => {
+                onClose();
+                window.location.href = '/quiz/intermediate';
+              }}
+              style={{
+                background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)',
+                color: '#101c26',
+                border: 'none',
+                borderRadius: '25px',
+                padding: '15px 40px',
+                fontSize: '1.2rem',
+                fontWeight: '700',
+                cursor: 'pointer',
+                boxShadow: '0 8px 25px rgba(139, 92, 246, 0.4)',
+                transition: 'all 0.3s ease',
+                textShadow: '0 0 8px rgba(16, 28, 38, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-3px)';
+                e.target.style.boxShadow = '0 12px 35px rgba(139, 92, 246, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 8px 25px rgba(139, 92, 246, 0.4)';
+              }}
+            >
+              🚀 Take the Intermediate Quiz
+            </button>
+            <p style={{
+              margin: '15px 0 0 0',
+              color: '#d1efe7',
+              fontSize: '0.95rem',
+              fontStyle: 'italic'
+            }}>
+              Test your intermediate knowledge and advance to Advanced level!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // --- MAIN PAGE COMPONENT ---
-export default function Articles() {
+export default function Articles({ level = "beginner" }) {
   const [showModal, setShowModal] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [showAIStarterGuide, setShowAIStarterGuide] = useState(false);
+  const [showIntermediateGuide, setShowIntermediateGuide] = useState(false);
+  const [showAdvancedGuide, setShowAdvancedGuide] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
   const [userLevel, setUserLevel] = useState(() => {
     return localStorage.getItem('aiLevel') || 'beginner';
@@ -1879,25 +2726,27 @@ export default function Articles() {
   return (
     <>
               <Helmet>
-          <title>Learn AI Bots & Tools – App Spotlight & Guides – BetterAiBots.com</title>
-          <meta name="description" content="Learn AI with BetterAiBots App Spotlight featuring monthly AI tool reviews, guides, and tutorials. Discover VetGPT, ScholarGPT, Love Doc, and more AI bots for every skill level." />
-          <meta name="keywords" content="learn AI, AI learning, AI guides, AI tutorials, AI tools, AI bots, VetGPT, ScholarGPT, Love Doc, PaintR, Cheat Coder, AI fitness coach, InVideo AI, pet care AI, academic research AI, relationship coaching AI, free AI bots, BetterAiBots" />
-          <meta property="og:title" content="Learn AI Bots & Tools – App Spotlight & Guides – BetterAiBots.com" />
-          <meta property="og:description" content="Learn AI with BetterAiBots App Spotlight featuring monthly AI tool reviews, guides, and tutorials. Discover VetGPT, ScholarGPT, Love Doc, and more AI bots for every skill level." />
-          <meta property="og:url" content="https://betteraibots.com/learn" />
+          <title>{level.charAt(0).toUpperCase() + level.slice(1)} AI Learning – BetterAiBots.com</title>
+          <meta name="description" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI learning content with guides, tutorials, and quizzes. Master AI at your own pace with BetterAiBots.`} />
+          <meta name="keywords" content={`${level} AI learning, AI ${level} level, AI guides, AI tutorials, AI tools, AI bots, BetterAiBots`} />
+          <meta property="og:title" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI Learning – BetterAiBots.com`} />
+          <meta property="og:description" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI learning content with guides, tutorials, and quizzes.`} />
+          <meta property="og:url" content={`https://betteraibots.com/learn/${level}`} />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="https://betteraibots.com/og-image.png" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Learn AI Bots & Tools – App Spotlight & Guides – BetterAiBots.com" />
-          <meta name="twitter:description" content="Learn AI with BetterAiBots App Spotlight featuring monthly AI tool reviews, guides, and tutorials." />
+          <meta name="twitter:title" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI Learning – BetterAiBots.com`} />
+          <meta name="twitter:description" content={`${level.charAt(0).toUpperCase() + level.slice(1)} AI learning content with guides and quizzes.`} />
           <meta name="twitter:image" content="https://betteraibots.com/og-image.png" />
-          <link rel="canonical" href="https://betteraibots.com/learn" />
+          <link rel="canonical" href={`https://betteraibots.com/learn/${level}`} />
         </Helmet>
       
       <div className="hero-section" style={{ maxWidth: 1100, margin: "40px auto 18px auto", padding: "0 12px" }}>
-      <h1 className="hero-headline" style={{ marginBottom: 10 }}>Learn AI With BetterAiBots</h1>
+      <h1 className="hero-headline" style={{ marginBottom: 10 }}>{level.charAt(0).toUpperCase() + level.slice(1)} AI Learning</h1>
       <p className="hero-subheadline custom-hero-desc" style={{ marginBottom: 14 }}>
-        Guides, spotlights, updates & ideas for every skill level.
+        {level === 'beginner' && 'Master the fundamentals of AI with our comprehensive beginner guide and quiz.'}
+        {level === 'intermediate' && 'Dive deeper into AI applications with advanced concepts and practical strategies.'}
+        {level === 'advanced' && 'Become an AI expert and earn Pro status with our advanced curriculum.'}
       </p>
       <NewsTicker />
       
@@ -1927,13 +2776,21 @@ export default function Articles() {
         margin: "0 auto 40px auto",
         padding: isMobile ? "0 16px" : "0 20px"
       }}>
-        {/* AI Starter Guide */}
+        {/* AI Guide */}
         <div 
-          onClick={() => setShowAIStarterGuide(true)}
+          onClick={() => {
+            if (level === 'beginner') {
+              setShowAIStarterGuide(true);
+            } else if (level === 'intermediate') {
+              setShowIntermediateGuide(true);
+            } else if (level === 'advanced') {
+              setShowAdvancedGuide(true);
+            }
+          }}
           style={{
             aspectRatio: "1",
             background: "linear-gradient(135deg, #1a2330 0%, #0f1419 100%)",
-            border: "2px solid #36ff95",
+            border: level === 'beginner' ? "2px solid #36ff95" : level === 'intermediate' ? "2px solid #8b5cf6" : "2px solid #ffd700",
             borderRadius: "16px",
             padding: "20px",
             display: "flex",
@@ -1943,20 +2800,20 @@ export default function Articles() {
             textAlign: "center",
             cursor: "pointer",
             transition: "all 0.3s ease",
-            boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)"
+            boxShadow: level === 'beginner' ? "0 4px 20px rgba(54, 255, 149, 0.2)" : level === 'intermediate' ? "0 4px 20px rgba(139, 92, 246, 0.2)" : "0 4px 20px rgba(255, 215, 0, 0.2)"
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "translateY(-4px)";
-            e.currentTarget.style.boxShadow = "0 8px 30px rgba(54, 255, 149, 0.3)";
+            e.currentTarget.style.boxShadow = level === 'beginner' ? "0 8px 30px rgba(54, 255, 149, 0.3)" : level === 'intermediate' ? "0 8px 30px rgba(139, 92, 246, 0.3)" : "0 8px 30px rgba(255, 215, 0, 0.3)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
+            e.currentTarget.style.boxShadow = level === 'beginner' ? "0 4px 20px rgba(54, 255, 149, 0.2)" : level === 'intermediate' ? "0 4px 20px rgba(139, 92, 246, 0.2)" : "0 4px 20px rgba(255, 215, 0, 0.2)";
           }}>
           <div style={{
             width: "80px",
             height: "80px",
-            background: "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)",
+            background: level === 'beginner' ? "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)" : level === 'intermediate' ? "linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)" : "linear-gradient(135deg, #ffd700 0%, #ffb347 100%)",
             borderRadius: "50%",
             display: "flex",
             alignItems: "center",
@@ -1964,16 +2821,16 @@ export default function Articles() {
             marginBottom: "16px",
             fontSize: "2rem"
           }}>
-            📚
+            {level === 'beginner' ? '📚' : level === 'intermediate' ? '🚀' : '👑'}
           </div>
           <h3 style={{
-            color: "#36ff95",
+            color: level === 'beginner' ? "#36ff95" : level === 'intermediate' ? "#8b5cf6" : "#ffd700",
             fontSize: "1.3rem",
             fontWeight: "700",
             marginBottom: "12px",
             marginTop: "0"
           }}>
-            AI Starter Guide
+            {level === 'beginner' ? 'AI Starter Guide' : level === 'intermediate' ? 'Intermediate AI Guide' : 'Advanced AI Guide'}
           </h3>
           <p style={{
             color: "#d1efe7",
@@ -1981,7 +2838,9 @@ export default function Articles() {
             lineHeight: "1.4",
             margin: "0"
           }}>
-            Master the basics of AI tools and concepts. Perfect for beginners starting their AI journey.
+            {level === 'beginner' ? 'Master the basics of AI tools and concepts. Perfect for beginners starting their AI journey.' :
+             level === 'intermediate' ? 'Elevate your AI skills to professional level with advanced techniques and strategies.' :
+             'Become an AI expert with cutting-edge knowledge and earn Pro status.'}
           </p>
         </div>
 
@@ -2014,7 +2873,9 @@ export default function Articles() {
           <div style={{
             width: "80px",
             height: "80px",
-            background: "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)",
+            background: level === 'beginner' ? "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)" :
+                         level === 'intermediate' ? "linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)" :
+                         "linear-gradient(135deg, #ffd700 0%, #ffb347 100%)",
             borderRadius: "50%",
             display: "flex",
             alignItems: "center",
@@ -2022,16 +2883,18 @@ export default function Articles() {
             marginBottom: "16px",
             fontSize: "2rem"
           }}>
-            🧠
+            {level === 'beginner' ? '🧠' : level === 'intermediate' ? '🚀' : '👑'}
           </div>
           <h3 style={{
-            color: "#36ff95",
+            color: level === 'beginner' ? "#36ff95" : level === 'intermediate' ? "#8b5cf6" : "#ffd700",
             fontSize: "1.3rem",
             fontWeight: "700",
             marginBottom: "12px",
             marginTop: "0"
           }}>
-            Test Your Knowledge
+            {level === 'beginner' ? 'Test Your Knowledge' : 
+             level === 'intermediate' ? 'Intermediate Quiz' : 
+             'Advanced Quiz - Pro Certification'}
           </h3>
           <p style={{
             color: "#d1efe7",
@@ -2039,7 +2902,9 @@ export default function Articles() {
             lineHeight: "1.4",
             margin: "0"
           }}>
-            Take a quiz and advance to Intermediate level. Challenge yourself and track your progress!
+            {level === 'beginner' ? 'Take a quiz and advance to Intermediate level. Challenge yourself and track your progress!' :
+             level === 'intermediate' ? 'Test your intermediate knowledge and advance to Advanced level. Master practical AI applications!' :
+             'Earn Pro status! Pass this expert-level quiz to join the elite AI community with exclusive access.'}
           </p>
         </div>
       </div>
@@ -2144,7 +3009,15 @@ export default function Articles() {
              <AIStarterGuide onClose={() => setShowAIStarterGuide(false)} />
            )}
            
-           {showQuiz && (
+           {showIntermediateGuide && (
+             <IntermediateGuide onClose={() => setShowIntermediateGuide(false)} />
+           )}
+           
+           {showAdvancedGuide && (
+             <AdvancedGuide onClose={() => setShowAdvancedGuide(false)} />
+           )}
+           
+           {showQuiz && level === 'beginner' && (
              <AIQuiz 
                isEmbedded={true}
                onClose={() => setShowQuiz(false)}
@@ -2152,6 +3025,31 @@ export default function Articles() {
                  setUserLevel('intermediate');
                  setShowQuiz(false);
                  localStorage.setItem('aiLevel', 'intermediate');
+               }}
+             />
+           )}
+           
+           {showQuiz && level === 'intermediate' && (
+             <IntermediateQuiz 
+               isEmbedded={true}
+               onClose={() => setShowQuiz(false)}
+               onAdvance={() => {
+                 setUserLevel('advanced');
+                 setShowQuiz(false);
+                 localStorage.setItem('aiLevel', 'advanced');
+               }}
+             />
+           )}
+           
+           {showQuiz && level === 'advanced' && (
+             <AdvancedQuiz 
+               isEmbedded={true}
+               onClose={() => setShowQuiz(false)}
+               onAdvance={() => {
+                 setUserLevel('pro');
+                 setShowQuiz(false);
+                 localStorage.setItem('aiLevel', 'pro');
+                 localStorage.setItem('proStatus', 'true');
                }}
              />
            )}

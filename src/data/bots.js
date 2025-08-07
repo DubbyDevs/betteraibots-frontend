@@ -38,6 +38,7 @@ import InVideoAvatar from '../assets/InVideoAvatar.webp';
 import adcreativeaiImg from '../assets/adcreativeai.webp';
 import adcreativeaiImg2 from '../assets/adcreativeai2.webp';
 import adcreativeaiImg3 from '../assets/adcreativeai3.webp';
+import lovedocImg from '../assets/lovedocai.webp';
 import trustygifVideo from '../assets/trustygif.mp4';
 
 export const rawBots = [
@@ -231,7 +232,7 @@ export const rawBots = [
   {
     title: "The Love Doc",
     desc: "Relationship and dating advice (Not a real doctor)",
-    image: placeholderImg7,
+    image: lovedocImg,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
     categories: ["Health & Wellness", "Lifestyle"]

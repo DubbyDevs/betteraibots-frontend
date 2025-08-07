@@ -1,4 +1,4 @@
-const CACHE_NAME = 'betteraibots-v1.0.1';
+const CACHE_NAME = 'betteraibots-v1.0.2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -37,6 +37,9 @@ self.addEventListener('fetch', (event) => {
       event.request.url.includes('hot-update') ||
       event.request.url.includes('sockjs') ||
       event.request.url.includes('webpack') ||
+      event.request.url.includes('chunk') ||
+      event.request.url.includes('runtime') ||
+      event.request.url.includes('main') ||
       event.request.method !== 'GET') {
     return;
   }

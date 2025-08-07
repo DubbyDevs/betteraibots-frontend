@@ -28,6 +28,9 @@ import { newsArticles } from './data/news';
 import Articles from "./Articles";
 import ArticlePage from "./ArticlePage";
 import AIQuiz from "./components/AIQuiz";
+import IntermediateQuiz from "./components/IntermediateQuiz";
+import AdvancedQuiz from "./components/AdvancedQuiz";
+import LearnLevelSelector from "./components/LearnLevelSelector";
 
 
 
@@ -1898,12 +1901,17 @@ function App() {
         />
         <Route path="/:cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/learn" element={<Articles />} />
+        <Route path="/learn" element={<LearnLevelSelector />} />
+        <Route path="/learn/beginner" element={<Articles level="beginner" />} />
+        <Route path="/learn/intermediate" element={<Articles level="intermediate" />} />
+        <Route path="/learn/advanced" element={<Articles level="advanced" />} />
         <Route path="/learn/:id" element={<ArticlePage />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/apps" element={<Apps />} />
         <Route path="/quiz" element={<AIQuiz />} />
+        <Route path="/quiz/intermediate" element={<IntermediateQuiz />} />
+        <Route path="/quiz/advanced" element={<AdvancedQuiz />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/moderation" element={<Moderation approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
         <Route path="*" element={<Navigate to="/" />} />
@@ -2588,26 +2596,6 @@ function ClipboardBtn({ address, copied, handleCopy }) {
         <rect x="4" y="4" width="10" height="10" rx="2" />
       </svg>
     </button>
-  );
-}
-
-// --- AUTH0 PROVIDER WRAPPER ---
-export default function AppWithRouter() {
-  return (
-    <Auth0Provider
-      domain={process.env.REACT_APP_AUTH0_DOMAIN}
-      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-              authorizationParams={{
-          redirect_uri: "https://www.betteraibots.com/moderation",
-          audience: process.env.REACT_APP_AUTH0_AUDIENCE,
-        }}
-    >
-      <HelmetProvider>
-        <Router>
-          <App />
-        </Router>
-      </HelmetProvider>
-    </Auth0Provider>
   );
 }
 
@@ -3704,5 +3692,25 @@ function CategoryBar({ showCategoryBar, toggleCategoryBar }) {
         ×
       </button>
     </div>
+  );
+}
+
+// --- AUTH0 PROVIDER WRAPPER ---
+export default function AppWithRouter() {
+  return (
+    <Auth0Provider
+      domain={process.env.REACT_APP_AUTH0_DOMAIN}
+      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+              authorizationParams={{
+          redirect_uri: "https://www.betteraibots.com/moderation",
+          audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+        }}
+    >
+      <HelmetProvider>
+        <Router>
+          <App />
+        </Router>
+      </HelmetProvider>
+    </Auth0Provider>
   );
 }
