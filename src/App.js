@@ -377,6 +377,15 @@ function Apps() {
       image: "https://betteraibots.com/assets/viral-launch-logo.png"
     },
     {
+      name: "AiSDR",
+      description: "AI sales development representative that books meetings with your ideal prospects through personalized outreach",
+      category: "Sales & CRM",
+      features: ["AI prospecting", "Personalized emails", "LinkedIn automation", "HubSpot integration"],
+      price: "$900/month",
+      link: "https://partner.aisdr.com/5fxea2u5m85d",
+      image: "https://betteraibots.com/assets/aisdr-logo.png"
+    },
+    {
       name: "ChatGPT Team",
       description: "Team collaboration with ChatGPT, shared workspaces, and admin controls",
       category: "Team Collaboration",
@@ -394,15 +403,7 @@ function Apps() {
       link: "https://claude.ai",
       image: "https://betteraibots.com/assets/claude-enterprise-logo.png"
     },
-    {
-      name: "GitHub Copilot",
-      description: "AI pair programmer that helps write code faster and with fewer errors",
-      category: "Development",
-      features: ["Code completion", "Multi-language support", "IDE integration", "Security scanning"],
-      price: "$10/month",
-      link: "https://github.com/features/copilot",
-      image: "https://betteraibots.com/assets/github-copilot-logo.png"
-    },
+
     {
       name: "Adobe Firefly",
       description: "Adobe's AI creative suite for image generation and editing",
