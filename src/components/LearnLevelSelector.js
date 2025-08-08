@@ -125,11 +125,11 @@ const LearnLevelSelector = () => {
           <div style={{
             display: 'grid',
             gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '30px',
+            gap: isMobile ? '20px' : '30px',
             marginBottom: '40px',
             justifyContent: 'center',
             maxWidth: isMobile ? '100%' : 'none',
-            padding: isMobile ? '0 16px' : '0'
+            padding: isMobile ? '0 8px' : '0'
           }}>
             {levels.map((level) => (
               <div
@@ -139,7 +139,7 @@ const LearnLevelSelector = () => {
                   background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)',
                   border: `2px solid ${level.color}40`,
                   borderRadius: '20px',
-                  padding: '30px',
+                  padding: isMobile ? '20px' : '30px',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   position: 'relative',
@@ -147,7 +147,7 @@ const LearnLevelSelector = () => {
                   display: 'flex',
                   flexDirection: 'column',
                   height: '100%',
-                  minHeight: '500px'
+                  minHeight: isMobile ? '400px' : '500px'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-5px)';
@@ -164,13 +164,13 @@ const LearnLevelSelector = () => {
                 <div style={{ flex: '1' }}>
                                   {/* Badge */}
                                  <div style={{
-                   width: '125px',
-                   height: '125px',
+                   width: isMobile ? '100px' : '125px',
+                   height: isMobile ? '100px' : '125px',
                    display: 'flex',
                    alignItems: 'center',
                    justifyContent: 'center',
-                   marginBottom: '20px',
-                   margin: '0 auto 20px auto'
+                   marginBottom: isMobile ? '15px' : '20px',
+                   margin: '0 auto 15px auto'
                  }}>
                   <img 
                     src={level.id === 'beginner' ? '/beginnerbadge.webp' : level.id === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
@@ -189,7 +189,7 @@ const LearnLevelSelector = () => {
                   {/* Title and Difficulty */}
                   <div style={{
                     textAlign: 'center',
-                    marginBottom: '25px'
+                    marginBottom: isMobile ? '20px' : '25px'
                   }}>
                     <h2 style={{
                       fontSize: '2rem',
@@ -214,9 +214,9 @@ const LearnLevelSelector = () => {
                   {/* Description */}
                   <p style={{
                     color: '#9ca3af',
-                    fontSize: '1.1rem',
+                    fontSize: isMobile ? '1rem' : '1.1rem',
                     lineHeight: '1.6',
-                    marginBottom: '25px',
+                    marginBottom: isMobile ? '20px' : '25px',
                     textAlign: 'center'
                   }}>
                     {level.description}
@@ -224,7 +224,7 @@ const LearnLevelSelector = () => {
 
                   {/* Features */}
                   <div style={{
-                    marginBottom: '25px'
+                    marginBottom: isMobile ? '20px' : '25px'
                   }}>
                     <h3 style={{
                       color: '#d1efe7',
