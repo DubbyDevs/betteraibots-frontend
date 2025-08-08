@@ -366,8 +366,8 @@ function Apps() {
       description: "Open-source workflow automation platform for connecting apps and services",
       category: "Workflow Automation",
       features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
-      price: "Free - $20/month",
-      link: "https://betteraibots.com/n8n",
+      price: "$20-$50/month",
+      link: "https://n8n.partnerlinks.io/wjt1744jflsx",
       image: "https://betteraibots.com/assets/n8n-logo.png"
     },
     {
@@ -375,7 +375,7 @@ function Apps() {
       description: "AI-powered Amazon selling platform with product research, keyword tools, and listing optimization",
       category: "E-commerce & Amazon",
       features: ["Product discovery", "Market intelligence", "Keyword research", "Listing optimization"],
-      price: "$69-$199/month",
+      price: "$48-$199/month",
       link: "https://affiliate.viral-launch.com/BAIB",
       image: "https://betteraibots.com/assets/viral-launch-logo.png"
     },
@@ -408,13 +408,13 @@ function Apps() {
     },
 
     {
-      name: "Adobe Firefly",
-      description: "Adobe's AI creative suite for image generation and editing",
-      category: "Creative Tools",
-      features: ["Image generation", "Text effects", "Vector recoloring", "Adobe integration"],
-      price: "$4.99/month",
-      link: "https://firefly.adobe.com",
-      image: "https://betteraibots.com/assets/adobe-firefly-logo.png"
+      name: "CastMagic",
+      description: "AI-powered content operating system that transforms video/audio files into 100+ content assets",
+      category: "Content Creation & Media",
+      features: ["AI transcription", "Content repurposing", "Multi-brand CMS", "Brand voice training"],
+      price: "From $19/month",
+      link: "https://get.castmagic.io/qdu0jfhfcurv",
+      image: "https://betteraibots.com/assets/castmagic-logo.png"
     }
   ];
 
