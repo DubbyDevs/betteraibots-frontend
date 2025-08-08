@@ -997,28 +997,7 @@
             }
         ];
         
-        const correctAnswers = [
-            "B) Data governance and compliance",
-            "C) Stream processing with ML",
-            "A) Transparency and accountability",
-            "D) Continuous monitoring and feedback loops",
-            "A) Gradual rollout with A/B testing",
-            "C) System availability and uptime",
-            "B) Data privacy preservation",
-            "D) All of the above",
-            "B) Change management and culture",
-            "A) Continuous learning and adaptation",
-            "B) To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation",
-            "C) Training models from scratch",
-            "C) They enable rapid experimentation and deployment while maintaining enterprise-grade security",
-            "B) Start with high-value, low-risk use cases and gradually expand",
-            "B) They coordinate multiple specialized AI agents to handle complex business processes",
-            "B) To enable real-time governance enforcement and continuous improvement",
-            "B) They operate autonomously to achieve business objectives with minimal human oversight",
-            "B) To track productivity gains, cost reductions, and strategic value creation",
-            "B) To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases",
-            "B) Treating AI as business transformation rather than technology deployment"
-        ];
+        const correctAnswers = ['b', 'c', 'a', 'd', 'a', 'c', 'b', 'd', 'b', 'a', 'b', 'c', 'c', 'b', 'b', 'b', 'b', 'b', 'b', 'b'];
         
         // Initialize quiz
         document.addEventListener('DOMContentLoaded', function() {
@@ -1043,8 +1022,8 @@
                         // Enable next button
                         nextBtn.disabled = false;
                         
-                        // Store user answer (trimmed to match correctAnswers format)
-                        userAnswers[i - 1] = this.textContent.trim();
+                        // Store user answer (extract letter to match correctAnswers format)
+                        userAnswers[i - 1] = this.textContent.trim().charAt(0).toLowerCase();
                     });
                 });
                 
@@ -1086,7 +1065,9 @@
                 // Find the user's answer text
                 let userAnswerText = 'Not answered';
                 if (userAnswers[i]) {
-                    userAnswerText = userAnswers[i];
+                    // Convert letter back to full answer text for display
+                    const answerLetter = userAnswers[i].toUpperCase();
+                    userAnswerText = questions[i].options.find(option => option.startsWith(answerLetter + ')'));
                 }
                 
                 const correctAnswerText = questions[i].correct;
