@@ -2939,11 +2939,11 @@ export default function Articles({ level = "beginner" }) {
           @keyframes proBadgePulse {
             0% {
               transform: scale(1);
-              filter: drop-shadow(0 0 8px #ffd700) drop-shadow(0 0 16px #ffd700);
+              filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px #ffd700);
             }
             100% {
               transform: scale(1.1);
-              filter: drop-shadow(0 0 12px #ffd700) drop-shadow(0 0 24px #ffd700);
+              filter: drop-shadow(0 0 9px #ffd700) drop-shadow(0 0 18px #ffd700);
             }
           }
           
@@ -2955,15 +2955,15 @@ export default function Articles({ level = "beginner" }) {
           @keyframes proCardPulse {
             0% {
               transform: scale(1);
-              box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+              box-shadow: 0 0 37.5px rgba(255, 215, 0, 0.8);
             }
             50% {
               transform: scale(1.05);
-              box-shadow: 0 0 80px rgba(255, 215, 0, 1);
+              box-shadow: 0 0 60px rgba(255, 215, 0, 1);
             }
             100% {
               transform: scale(1);
-              box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+              box-shadow: 0 0 37.5px rgba(255, 215, 0, 0.8);
             }
           }
           
@@ -3326,7 +3326,7 @@ export default function Articles({ level = "beginner" }) {
           }}>
             {level === 'beginner' ? 'Test Your Knowledge' : 
              level === 'intermediate' ? 'Intermediate Quiz' : 
-             'Advanced Quiz - Pro Certification'}
+                'Advanced Quiz'}
           </h3>
           <p style={{
             color: "#d1efe7",

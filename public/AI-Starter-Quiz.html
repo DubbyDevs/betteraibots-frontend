@@ -73,49 +73,88 @@
                 radial-gradient(circle at 40% 60%, rgba(54, 255, 149, 0.05) 0%, transparent 50%);
             z-index: -1;
         }
+        
+        .header {
+            background: linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%);
+            border-bottom: 2px solid #36ff95;
+            box-shadow: 0 0 20px rgba(54, 255, 149, 0.3);
+            padding: 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #ffffff;
+        }
+        
+        .logo .ai {
+            color: #36ff95;
+        }
+        
+        .logo .bots {
+            color: #0bbfdb;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #36ff95;
+        }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
+            padding: 40px 20px;
             background: linear-gradient(135deg, #1a2330 0%, #0f1419 100%);
             min-height: 100vh;
+            position: relative;
+            z-index: 1;
         }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px;
+        
+        .quiz-container {
+            background: linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%);
+            border: 2px solid #36ff95;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(54, 255, 149, 0.2);
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(54, 255, 149, 0.3);
         }
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
 
-        .logo .better {
-            color: #9ca3af;
-        }
-
-        .logo .ai {
-            color: #36ff95;
-        }
-
-        .logo .bots {
-            color: #36ff95;
-        }
 
         .quiz-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #36ff95, #0bbfdb);
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #36ff95, #0bbfdb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -423,35 +462,65 @@
             display: table;
             clear: both;
         }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #36ff95;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .quiz-container {
+                padding: 20px;
+            }
+            
+            .quiz-title {
+                font-size: 1.8rem;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .option {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+            }
         }
 
-        .back-link:hover {
-            color: #0bbfdb;
-            transform: translateX(-5px);
-        }
+
     </style>
 </head>
 <body>
     <div class="background-pattern"></div>
     
-    <div class="container">
-        <a href="/learn" class="back-link">← Back to Learn</a>
-        
-        <div class="header">
-            <div class="logo">
-                <span class="better">Better</span><span class="ai">Ai</span><span class="bots">Bots</span>
-            </div>
-            <div class="quiz-title">The AI Starter Guide Quiz</div>
-            <div class="quiz-subtitle">Test your knowledge and advance to intermediate level!</div>
-        </div>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <span class="ai">Better</span><span class="bots">AiBots</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/learn">Learn</a></li>
+                <li><a href="/apps">Apps</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs" style="max-width: 900px; margin: 0 auto; padding: 20px 20px 0; color: #d1efe7; font-size: 0.9rem;">
+        <a href="https://betteraibots.com" style="color: #36ff95; text-decoration: none;">Home</a>
+        <span style="margin: 0 8px; color: #36ff95;">/</span>
+        <a href="https://betteraibots.com/learn" style="color: #36ff95; text-decoration: none;">Learn</a>
+        <span style="margin: 0 8px; color: #36ff95;">/</span>
+        <a href="https://betteraibots.com/learn/beginner" style="color: #36ff95; text-decoration: none;">Beginner</a>
+        <span style="margin: 0 8px; color: #36ff95;">/</span>
+        <span style="color: #d1efe7;">Beginner Quiz</span>
+    </div>
+
+    <main class="container">
+        <div class="quiz-container">
+            <h1 class="quiz-title">The AI Starter Guide Quiz</h1>
 
         <div class="progress-bar">
             <div class="progress-fill" id="progressFill"></div>
@@ -606,6 +675,8 @@
             <button class="advance-btn" id="advanceBtn" style="display: none;" onclick="advanceToIntermediate()">Advance to Intermediate</button>
         </div>
     </div>
+        </div>
+    </main>
 
     <script>
         const correctAnswers = ['b', 'b', 'b', 'b', 'b', 'c', 'c', 'b', 'b', 'b'];
