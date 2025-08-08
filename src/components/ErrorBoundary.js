@@ -55,7 +55,7 @@ class ErrorBoundary extends React.Component {
             marginBottom: '30px',
             maxWidth: '500px'
           }}>
-            We encountered an unexpected error. Please refresh the page to try again.
+            We encountered an unexpected error. This might be due to cached data. Try refreshing the page or clearing your cache.
           </div>
           <button 
             onClick={() => window.location.reload()} 
@@ -73,6 +73,24 @@ class ErrorBoundary extends React.Component {
           >
             Refresh Page
           </button>
+          
+          <button 
+            onClick={() => window.location.href = '/clear-cache'} 
+            style={{
+              background: 'rgba(255, 107, 107, 0.1)',
+              color: '#ff6b6b',
+              border: '1px solid #ff6b6b',
+              padding: '12px 24px',
+              borderRadius: '8px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              fontFamily: 'Poppins, sans-serif',
+              marginBottom: '15px'
+            }}
+          >
+            Clear Cache
+          </button>
+          
           <button 
             onClick={() => this.setState({ hasError: false })} 
             style={{

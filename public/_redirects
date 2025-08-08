@@ -7,6 +7,9 @@
 /news/microsoft-copilot-pro-productivity /news/microsoft-copilot-pro-productivity.html 200
 /news/anthropic-claude-35-sonnet-reasoning /news/anthropic-claude-35-sonnet-reasoning.html 200
 
+# Cache clearing page
+/clear-cache /clear-cache.html 200
+
 # All other routes go to React app
 /*    /index.html   200
 

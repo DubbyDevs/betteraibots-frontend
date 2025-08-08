@@ -22,6 +22,11 @@
     
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://plausible.io https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://plausible.io; frame-src 'self' https://www.google.com https://www.gstatic.com https://www.recaptcha.net;">
+    
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <!-- App Name & Standalone -->
     <meta name="apple-mobile-web-app-title" content="BetterAiBots" />
@@ -84,6 +89,17 @@
       gtag('js', new Date());
 
       gtag('config', 'G-J3TD7Y2P7M');
+      
+      // Clear old caches on page load to prevent white screens
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          for (let name of names) {
+            if (name !== 'betteraibots-v1.0.3') {
+              caches.delete(name);
+            }
+          }
+        });
+      }
     </script>
     <meta name='impact-site-verification' value='cfbac7eb-75f8-40e4-a326-57f3a39c7653'>
   </head>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'betteraibots-v1.0.2';
+const CACHE_NAME = 'betteraibots-v1.0.3';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -31,7 +31,7 @@ self.addEventListener('install', (event) => {
 
 // Fetch event - serve from cache when offline
 self.addEventListener('fetch', (event) => {
-  // Skip caching for certain requests that could cause refresh loops
+  // Skip caching for dynamic content and development files
   if (event.request.url.includes('/static/js/') || 
       event.request.url.includes('/static/css/') ||
       event.request.url.includes('hot-update') ||
@@ -40,6 +40,9 @@ self.addEventListener('fetch', (event) => {
       event.request.url.includes('chunk') ||
       event.request.url.includes('runtime') ||
       event.request.url.includes('main') ||
+      event.request.url.includes('api/') ||
+      event.request.url.includes('quiz') ||
+      event.request.url.includes('learn') ||
       event.request.method !== 'GET') {
     return;
   }
