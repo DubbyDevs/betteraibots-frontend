@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 const LearnLevelSelector = () => {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const levels = [
     {
@@ -112,9 +124,12 @@ const LearnLevelSelector = () => {
           {/* Level Cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
             gap: '30px',
-            marginBottom: '40px'
+            marginBottom: '40px',
+            justifyContent: 'center',
+            maxWidth: isMobile ? '100%' : 'none',
+            padding: isMobile ? '0 16px' : '0'
           }}>
             {levels.map((level) => (
               <div
