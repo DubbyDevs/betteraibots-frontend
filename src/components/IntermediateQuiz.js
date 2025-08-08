@@ -631,6 +631,218 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
               </div>
             </div>
           )}
+
+          {/* Share Buttons */}
+          <div style={{
+            marginTop: '40px',
+            paddingTop: '30px',
+            borderTop: '1px solid rgba(139, 92, 246, 0.2)'
+          }}>
+            <h3 style={{
+              color: '#d1efe7',
+              fontSize: '1.2rem',
+              marginBottom: '20px',
+              textAlign: 'center'
+            }}>
+              Share this quiz:
+            </h3>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '15px',
+              flexWrap: 'wrap'
+            }}>
+              {/* X (Twitter) */}
+              <button
+                onClick={() => {
+                  const url = 'https://betteraibots.com/intermediate-ai-quiz.html';
+                  const text = `I just scored ${score}/10 on the Intermediate AI Quiz! Test your AI knowledge:`;
+                  window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+                }}
+                style={{
+                  background: '#000',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '12px 20px',
+                  borderRadius: '25px',
+                  fontSize: '0.9rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = 'none';
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                Share to X
+              </button>
+
+              {/* Facebook */}
+              <button
+                onClick={() => {
+                  const url = 'https://betteraibots.com/intermediate-ai-quiz.html';
+                  window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                }}
+                style={{
+                  background: '#4267B2',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '12px 20px',
+                  borderRadius: '25px',
+                  fontSize: '0.9rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 12px rgba(66, 103, 178, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = 'none';
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Facebook
+              </button>
+
+              {/* Email */}
+              <button
+                onClick={() => {
+                  const url = 'https://betteraibots.com/intermediate-ai-quiz.html';
+                  const subject = 'Intermediate AI Quiz - Test Your Knowledge!';
+                  const body = `I just scored ${score}/10 on the Intermediate AI Quiz! Test your AI knowledge: ${url}`;
+                  window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+                }}
+                style={{
+                  background: '#ea4335',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '12px 20px',
+                  borderRadius: '25px',
+                  fontSize: '0.9rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 12px rgba(234, 67, 53, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = 'none';
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 7 8-7V20H4z"/>
+                </svg>
+                Email
+              </button>
+
+              {/* SMS */}
+              <button
+                onClick={() => {
+                  const url = 'https://betteraibots.com/intermediate-ai-quiz.html';
+                  const body = `I just scored ${score}/10 on the Intermediate AI Quiz! Test your AI knowledge: ${url}`;
+                  window.open(`sms:?body=${encodeURIComponent(body)}`);
+                }}
+                style={{
+                  background: '#25d366',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '12px 20px',
+                  borderRadius: '25px',
+                  fontSize: '0.9rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 12px rgba(37, 211, 102, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = 'none';
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 2H4C2.897 2 2 2.897 2 4v14c0 1.103.897 2 2 2h14l4 4V4c0-1.103-.897-2-2-2zm0 15.172L18.828 16H4V4h16v13.172z"/>
+                </svg>
+                SMS
+              </button>
+
+              {/* Copy Link */}
+              <button
+                onClick={() => {
+                  const url = 'https://betteraibots.com/intermediate-ai-quiz.html';
+                  navigator.clipboard.writeText(url).then(() => {
+                    alert('Link copied to clipboard!');
+                  }).catch(() => {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = url;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('Link copied to clipboard!');
+                  });
+                }}
+                style={{
+                  background: '#8b5cf6',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '12px 20px',
+                  borderRadius: '25px',
+                  fontSize: '0.9rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 12px rgba(139, 92, 246, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = 'none';
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3.9 12c0-2.25 1.85-4.1 4.1-4.1h4V6.5h-4C5.01 6.5 3 8.51 3 11s2.01 4.5 4.5 4.5h4v-1.4h-4c-2.25 0-4.1-1.85-4.1-4.1zm5.6 1.4h5V10.6h-5v2.8zm7.5-7.5h-4v1.4h4c2.25 0 4.1 1.85 4.1 4.1s-1.85 4.1-4.1 4.1h-4v1.4h4c2.99 0 5-2.01 5-4.5s-2.01-4.5-5-4.5z"/>
+                </svg>
+                Copy Link
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

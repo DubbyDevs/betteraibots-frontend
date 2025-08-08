@@ -673,6 +673,54 @@
             
             <button class="restart-btn" onclick="restartQuiz()">Retake Quiz</button>
             <button class="advance-btn" id="advanceBtn" style="display: none;" onclick="advanceToIntermediate()">Advance to Intermediate</button>
+            
+            <!-- Share Buttons -->
+            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(54, 255, 149, 0.2);">
+                <h3 style="color: #d1efe7; font-size: 1.2rem; margin-bottom: 20px; text-align: center;">
+                    Share this quiz:
+                </h3>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <!-- X (Twitter) -->
+                    <button onclick="shareToX()" style="background: #000; color: #fff; border: none; padding: 12px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.3)';" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        Share to X
+                    </button>
+
+                    <!-- Facebook -->
+                    <button onclick="shareToFacebook()" style="background: #4267B2; color: #fff; border: none; padding: 12px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(66, 103, 178, 0.3)';" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        Facebook
+                    </button>
+
+                    <!-- Email -->
+                    <button onclick="shareToEmail()" style="background: #ea4335; color: #fff; border: none; padding: 12px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(234, 67, 53, 0.3)';" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 7 8-7V20H4z"/>
+                        </svg>
+                        Email
+                    </button>
+
+                    <!-- SMS -->
+                    <button onclick="shareToSMS()" style="background: #25d366; color: #fff; border: none; padding: 12px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(37, 211, 102, 0.3)';" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 2H4C2.897 2 2 2.897 2 4v14c0 1.103.897 2 2 2h14l4 4V4c0-1.103-.897-2-2-2zm0 15.172L18.828 16H4V4h16v13.172z"/>
+                        </svg>
+                        SMS
+                    </button>
+
+                    <!-- Copy Link -->
+                    <button onclick="copyLink()" style="background: #36ff95; color: #1a2330; border: none; padding: 12px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(54, 255, 149, 0.3)';" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.9 12c0-2.25 1.85-4.1 4.1-4.1h4V6.5h-4C5.01 6.5 3 8.51 3 11s2.01 4.5 4.5 4.5h4v-1.4h-4c-2.25 0-4.1-1.85-4.1-4.1zm5.6 1.4h5V10.6h-5v2.8zm7.5-7.5h-4v1.4h4c2.25 0 4.1 1.85 4.1 4.1s-1.85 4.1-4.1 4.1h-4v1.4h4c2.99 0 5-2.01 5-4.5s-2.01-4.5-5-4.5z"/>
+                        </svg>
+                        Copy Link
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
         </div>
@@ -849,11 +897,9 @@
                 const options = questionCard.querySelectorAll('.option');
                 const nextBtn = document.getElementById(`nextBtn${i}`);
                 
-                questionCard.classList.remove('active');
-                options.forEach(opt => {
-                    opt.classList.remove('selected', 'correct', 'incorrect');
-                });
+                options.forEach(opt => opt.classList.remove('selected'));
                 nextBtn.disabled = true;
+                questionCard.classList.remove('active');
             }
             
             // Show first question
@@ -863,58 +909,49 @@
             document.getElementById('resultsCard').classList.remove('show');
             
             // Reset progress
-            document.getElementById('progressFill').style.width = '10%';
+            updateProgress();
         }
 
         function advanceToIntermediate() {
-            // Store in localStorage for persistence
+            // Set user level to intermediate in localStorage
             localStorage.setItem('aiLevel', 'intermediate');
-            alert('🚀 Welcome to Intermediate AI! Advanced features unlocked!');
-            // Navigate to the intermediate learning page
-            window.location.href = '/learn/intermediate';
+            alert('🎯 Welcome to Intermediate AI! New features unlocked!');
         }
-        
+
         function generateAnswers() {
             const answersDetails = document.getElementById('answersDetails');
-            let answersHTML = '';
-
+            answersDetails.innerHTML = '';
+            
             for (let i = 0; i < questions.length; i++) {
-                const isCorrect = userAnswers[i] === correctAnswers[i];
+                const question = questions[i];
+                const userAnswer = userAnswers[i];
+                const correctAnswer = correctAnswers[i];
+                const isCorrect = userAnswer === correctAnswer;
                 
-                // Find the user's answer text
-                let userAnswerText = 'Not answered';
-                if (userAnswers[i]) {
-                    const questionCard = document.getElementById(`questionCard${i + 1}`);
-                    const options = questionCard.querySelectorAll('.option');
-                    options.forEach(option => {
-                        if (option.dataset.answer === userAnswers[i]) {
-                            userAnswerText = option.textContent;
-                        }
-                    });
-                }
+                const answerItem = document.createElement('div');
+                answerItem.className = 'answer-item';
                 
-                const correctAnswerText = questions[i].correct;
+                const userAnswerText = question.options[['a', 'b', 'c', 'd'].indexOf(userAnswer)];
+                const correctAnswerText = question.options[['a', 'b', 'c', 'd'].indexOf(correctAnswer)];
                 
-                answersHTML += `
-                    <div class="answer-item">
-                        <div class="question-info">
-                            <div class="question-title">Question ${i + 1}</div>
-                            <div class="question-text-small">${questions[i].text}</div>
-                            <div class="answer-details">
-                                <span class="your-answer">Your answer: <span class="${isCorrect ? 'correct-answer' : 'incorrect-answer'}">${userAnswerText}</span></span>
-                                ${!isCorrect ? `<br>Correct answer: <span class="correct-answer">${correctAnswerText}</span>` : ''}
-                            </div>
-                        </div>
-                        <div class="status-icon">
-                            ${isCorrect ? '<span class="correct-icon">✅</span>' : '<span class="incorrect-icon">❌</span>'}
+                answerItem.innerHTML = `
+                    <div class="question-info">
+                        <div class="question-title">Question ${i + 1}</div>
+                        <div class="question-text-small">${question.text}</div>
+                        <div class="answer-details">
+                            <div class="your-answer">Your answer: ${userAnswerText}</div>
+                            <div class="correct-answer">Correct answer: ${correctAnswerText}</div>
                         </div>
                     </div>
+                    <div class="status-icon">
+                        <span class="${isCorrect ? 'correct-icon' : 'incorrect-icon'}">${isCorrect ? '✅' : '❌'}</span>
+                    </div>
                 `;
+                
+                answersDetails.appendChild(answerItem);
             }
-
-            answersDetails.innerHTML = answersHTML;
         }
-        
+
         function toggleAnswers() {
             const answersContent = document.getElementById('answersContent');
             const showAnswersBtn = document.getElementById('showAnswersBtn');
@@ -926,6 +963,47 @@
                 answersContent.style.display = 'none';
                 showAnswersBtn.textContent = '📊 Show Detailed Answers';
             }
+        }
+
+        // Share functions
+        function shareToX() {
+            const url = 'https://betteraibots.com/AI-Starter-Quiz.html';
+            const text = `I just scored ${score}/10 on the AI Starter Quiz! Test your AI knowledge:`;
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function shareToFacebook() {
+            const url = 'https://betteraibots.com/AI-Starter-Quiz.html';
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareToEmail() {
+            const url = 'https://betteraibots.com/AI-Starter-Quiz.html';
+            const subject = 'AI Starter Quiz - Test Your Knowledge!';
+            const body = `I just scored ${score}/10 on the AI Starter Quiz! Test your AI knowledge: ${url}`;
+            window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+        }
+
+        function shareToSMS() {
+            const url = 'https://betteraibots.com/AI-Starter-Quiz.html';
+            const body = `I just scored ${score}/10 on the AI Starter Quiz! Test your AI knowledge: ${url}`;
+            window.open(`sms:?body=${encodeURIComponent(body)}`);
+        }
+
+        function copyLink() {
+            const url = 'https://betteraibots.com/AI-Starter-Quiz.html';
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = url;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Link copied to clipboard!');
+            });
         }
     </script>
 </body>
