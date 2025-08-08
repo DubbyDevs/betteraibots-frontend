@@ -471,6 +471,24 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
         }
+
+        .back-btn {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            color: #1a2330;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
         
         .answers-section {
             margin: 30px 0;
@@ -694,6 +712,7 @@
             </div>
             
             <button class="restart-btn" onclick="restartQuiz()">Retake Quiz</button>
+            <button class="back-btn" onclick="goBackToLearn()">Back to Learn</button>
             <button class="advance-btn" id="advanceBtn" style="display: none;" onclick="advanceToAdvanced()">Advance to Advanced Level</button>
         </div>
         </div>
@@ -950,6 +969,11 @@
             localStorage.setItem('aiLevel', 'advanced');
             // Navigate to the advanced learning page
             window.location.href = '/learn/advanced';
+        }
+        
+        function goBackToLearn() {
+            // Navigate back to the learn page
+            window.location.href = '/learn';
         }
     </script>
 </body>

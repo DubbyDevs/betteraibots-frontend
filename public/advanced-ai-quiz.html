@@ -764,6 +764,106 @@
                     "D) Manual intervention"
                 ],
                 correct: "A) Continuous learning and adaptation"
+            },
+            {
+                text: "What is the primary purpose of enterprise AI governance frameworks?",
+                options: [
+                    "A) To restrict AI innovation and slow down development",
+                    "B) To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation",
+                    "C) To increase AI development costs and complexity",
+                    "D) To replace human decision-making entirely"
+                ],
+                correct: "B) To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation"
+            },
+            {
+                text: "Which technique is most effective for creating domain-specific AI models that outperform general-purpose models?",
+                options: [
+                    "A) Using only prompt engineering",
+                    "B) Fine-tuning with techniques like LoRA (Low-Rank Adaptation)",
+                    "C) Training models from scratch",
+                    "D) Using only pre-trained models without modification"
+                ],
+                correct: "B) Fine-tuning with techniques like LoRA (Low-Rank Adaptation)"
+            },
+            {
+                text: "What is the key benefit of composable AI frameworks?",
+                options: [
+                    "A) They reduce system reliability",
+                    "B) They increase vendor lock-in",
+                    "C) They enable rapid experimentation and deployment while maintaining enterprise-grade security",
+                    "D) They simplify AI architecture to basic components only"
+                ],
+                correct: "C) They enable rapid experimentation and deployment while maintaining enterprise-grade security"
+            },
+            {
+                text: "What is the recommended approach for deploying AI capabilities across an organization?",
+                options: [
+                    "A) Deploy all AI systems simultaneously across the entire organization",
+                    "B) Start with high-value, low-risk use cases and gradually expand",
+                    "C) Deploy only in IT departments first",
+                    "D) Wait until all employees are fully trained before any deployment"
+                ],
+                correct: "B) Start with high-value, low-risk use cases and gradually expand"
+            },
+            {
+                text: "What is the primary advantage of multi-agent orchestration systems?",
+                options: [
+                    "A) They reduce the need for human oversight",
+                    "B) They coordinate multiple specialized AI agents to handle complex business processes",
+                    "C) They eliminate the need for data architecture",
+                    "D) They simplify AI implementation to single-agent systems"
+                ],
+                correct: "B) They coordinate multiple specialized AI agents to handle complex business processes"
+            },
+            {
+                text: "What is the purpose of AI observability and monitoring systems?",
+                options: [
+                    "A) To increase system complexity",
+                    "B) To enable real-time governance enforcement and continuous improvement",
+                    "C) To replace human monitoring entirely",
+                    "D) To reduce system performance"
+                ],
+                correct: "B) To enable real-time governance enforcement and continuous improvement"
+            },
+            {
+                text: "What is the key characteristic of agentic AI systems?",
+                options: [
+                    "A) They require constant human supervision",
+                    "B) They operate autonomously to achieve business objectives with minimal human oversight",
+                    "C) They only work in controlled laboratory environments",
+                    "D) They are limited to simple, repetitive tasks only"
+                ],
+                correct: "B) They operate autonomously to achieve business objectives with minimal human oversight"
+            },
+            {
+                text: "What is the primary goal of ROI measurement frameworks for AI initiatives?",
+                options: [
+                    "A) To justify increased AI spending",
+                    "B) To track productivity gains, cost reductions, and strategic value creation",
+                    "C) To reduce AI implementation costs",
+                    "D) To eliminate the need for business case development"
+                ],
+                correct: "B) To track productivity gains, cost reductions, and strategic value creation"
+            },
+            {
+                text: "What is the purpose of risk-based governance approaches?",
+                options: [
+                    "A) To apply the same governance requirements to all AI applications",
+                    "B) To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases",
+                    "C) To eliminate all AI risks completely",
+                    "D) To slow down all AI development processes"
+                ],
+                correct: "B) To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases"
+            },
+            {
+                text: "What is the key success factor for advanced AI practitioners?",
+                options: [
+                    "A) Focusing only on technical implementation",
+                    "B) Treating AI as business transformation rather than technology deployment",
+                    "C) Implementing AI without considering organizational change",
+                    "D) Deploying AI systems without governance frameworks"
+                ],
+                correct: "B) Treating AI as business transformation rather than technology deployment"
             }
         ];
         
@@ -777,7 +877,17 @@
             "B) Data privacy preservation",
             "D) All of the above",
             "B) Change management and culture",
-            "A) Continuous learning and adaptation"
+            "A) Continuous learning and adaptation",
+            "B) To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation",
+            "B) Fine-tuning with techniques like LoRA (Low-Rank Adaptation)",
+            "C) They enable rapid experimentation and deployment while maintaining enterprise-grade security",
+            "B) Start with high-value, low-risk use cases and gradually expand",
+            "B) They coordinate multiple specialized AI agents to handle complex business processes",
+            "B) To enable real-time governance enforcement and continuous improvement",
+            "B) They operate autonomously to achieve business objectives with minimal human oversight",
+            "B) To track productivity gains, cost reductions, and strategic value creation",
+            "B) To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases",
+            "B) Treating AI as business transformation rather than technology deployment"
         ];
         
         // Initialize quiz
@@ -787,7 +897,7 @@
         
         function setupQuiz() {
             // Add event listeners to all options
-            for (let i = 1; i <= 10; i++) {
+            for (let i = 1; i <= 20; i++) {
                 const questionCard = document.getElementById(`questionCard${i}`);
                 const options = questionCard.querySelectorAll('.option');
                 const nextBtn = document.getElementById(`nextBtn${i}`);
@@ -810,7 +920,7 @@
                 
                 // Add event listener to next button
                 nextBtn.addEventListener('click', function() {
-                    if (i === 10) {
+                    if (i === 20) {
                         showResults();
                     } else {
                         nextQuestion();
@@ -832,7 +942,7 @@
         }
         
         function updateProgress() {
-            const progress = (currentQuestion / 10) * 100;
+            const progress = (currentQuestion / 20) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
         }
         
@@ -892,22 +1002,22 @@
             const advanceBtn = document.getElementById('advanceBtn');
 
             resultsCard.classList.add('show');
-            scoreText.textContent = `${score}/10`;
-            scoreCircle.style.setProperty('--score', (score / 10) * 100);
+            scoreText.textContent = `${score}/20`;
+            scoreCircle.style.setProperty('--score', (score / 20) * 100);
 
             // Generate detailed scorecard
             generateScorecard();
 
-            if (score >= 8) {
+            if (score >= 16) {
                 resultMessage.innerHTML = 'Advanced Quiz<br>Get Pro Status';
                 resultDescription.textContent = 'You have demonstrated exceptional advanced AI knowledge and are ready to lead enterprise AI initiatives. Your understanding of governance, custom model development, and strategic implementation is outstanding!';
                 advanceBtn.style.display = 'inline-block';
-            } else if (score >= 6) {
+            } else if (score >= 12) {
                 resultMessage.textContent = '🚀 Excellent work! You\'re very close to Pro status!';
-                resultDescription.textContent = `You scored ${score}/10. You have strong advanced AI knowledge but need to deepen your understanding of enterprise governance, custom model development, and strategic implementation. Review the Advanced AI Guide and retake the quiz to earn Pro status.`;
+                resultDescription.textContent = `You scored ${score}/20. You have strong advanced AI knowledge but need to deepen your understanding of enterprise governance, custom model development, and strategic implementation. Review the Advanced AI Guide and retake the quiz to earn Pro status.`;
             } else {
                 resultMessage.textContent = '📚 Keep learning! Review the Advanced AI Guide and try again!';
-                resultDescription.textContent = `You scored ${score}/10. Focus on studying the Advanced AI Guide more thoroughly, particularly enterprise governance frameworks, custom model development, and strategic implementation methodologies. These concepts are essential for Pro-level AI expertise.`;
+                resultDescription.textContent = `You scored ${score}/20. Focus on studying the Advanced AI Guide more thoroughly, particularly enterprise governance frameworks, custom model development, and strategic implementation methodologies. These concepts are essential for Pro-level AI expertise.`;
             }
         }
         
@@ -917,7 +1027,7 @@
             userAnswers = [];
             
             // Reset all questions
-            for (let i = 1; i <= 10; i++) {
+            for (let i = 1; i <= 20; i++) {
                 const questionCard = document.getElementById(`questionCard${i}`);
                 const options = questionCard.querySelectorAll('.option');
                 const nextBtn = document.getElementById(`nextBtn${i}`);
@@ -944,18 +1054,14 @@
             localStorage.setItem('aiLevel', 'pro');
             localStorage.setItem('proStatus', 'true');
             
-            // Show Pro animation
+            // Show Pro animation with persistent badge
             showProAnimation();
-            
-            // Navigate to the advanced learning page after animation
-            setTimeout(() => {
-                window.location.href = '/learn/advanced';
-            }, 4000);
         }
         
         function showProAnimation() {
             // Create animation overlay
             const overlay = document.createElement('div');
+            overlay.id = 'proAnimationOverlay';
             overlay.style.cssText = `
                 position: fixed;
                 top: 0;
@@ -991,7 +1097,8 @@
                     <img src="/probadge.webp" alt="Pro Badge" style="width: 60px; height: 60px; object-fit: contain; animation: badgeSpin 2s ease-in-out infinite;" onerror="this.style.display='none';">
                     <span style="color: #1a2330; font-size: 1.1rem; font-weight: 600;">Exclusive Access Granted</span>
                 </div>
-                <div style="color: #1a2330; font-size: 1rem; line-height: 1.5;">You now have access to advanced content, exclusive features, and the elite AI community!</div>
+                <div style="color: #1a2330; font-size: 1rem; line-height: 1.5; margin-bottom: 30px;">You now have access to advanced content, exclusive features, and the elite AI community!</div>
+                <button onclick="closeProAnimation()" style="background: linear-gradient(135deg, #1a2330, #0f1419); color: #ffd700; border: 2px solid #ffd700; padding: 12px 30px; border-radius: 25px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">Continue to Advanced Level</button>
             `;
             
             overlay.appendChild(card);
@@ -1033,6 +1140,17 @@
                 answersContent.style.display = 'none';
                 showAnswersBtn.textContent = '📊 Show Detailed Answers';
             }
+        }
+        
+        function closeProAnimation() {
+            // Remove the animation overlay
+            const overlay = document.getElementById('proAnimationOverlay');
+            if (overlay) {
+                overlay.remove();
+            }
+            
+            // Navigate to the advanced learning page
+            window.location.href = '/learn/advanced';
         }
     </script>
 </body>

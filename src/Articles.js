@@ -1139,87 +1139,92 @@ function AIStarterGuide({ onClose }) {
         position: 'relative',
         boxShadow: '0 20px 60px rgba(54, 255, 149, 0.3)'
       }}>
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            background: 'none',
+            border: 'none',
+            color: '#36ff95',
+            fontSize: '24px',
+            cursor: 'pointer',
+            fontWeight: 'bold'
+          }}
+        >
+          ✕
+        </button>
+
         {/* Header */}
-        <div style={{
-          background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
-          color: '#101c26',
-          padding: '20px 30px',
-          borderRadius: '18px 18px 0 0',
-          position: 'sticky',
-          top: 0,
-          zIndex: 10
-        }}>
+        <div style={{ textAlign: 'center', marginBottom: '30px', paddingTop: '20px' }}>
           <div style={{
             display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '15px'
           }}>
-            <h1 style={{
-              margin: 0,
-              fontSize: '1.8rem',
-              fontWeight: '700',
-              textShadow: '0 0 10px rgba(16, 28, 38, 0.3)'
-            }}>
-              The Complete AI Starter Guide
-            </h1>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '15px'
-            }}>
-              <button
-                                  onClick={() => {
-                    onClose();
-                    window.location.href = '/AI-Starter-Quiz.html';
-                  }}
-                style={{
-                  background: 'rgba(16, 28, 38, 0.3)',
-                  border: '1px solid rgba(16, 28, 38, 0.5)',
-                  borderRadius: '20px',
-                  padding: '8px 16px',
-                  fontSize: '0.9rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  color: '#101c26',
-                  transition: 'all 0.2s',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(16, 28, 38, 0.5)';
-                  e.target.style.transform = 'translateY(-1px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(16, 28, 38, 0.3)';
-                  e.target.style.transform = 'translateY(0)';
-                }}
-              >
-                🧠 Take the Quiz!
-              </button>
-              <button
-                onClick={onClose}
-                style={{
-                  background: 'rgba(16, 28, 38, 0.3)',
-                  border: 'none',
-                  borderRadius: '50%',
-                  width: '40px',
-                  height: '40px',
-                  fontSize: '1.5rem',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#101c26',
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => e.target.style.background = 'rgba(16, 28, 38, 0.5)'}
-                onMouseLeave={(e) => e.target.style.background = 'rgba(16, 28, 38, 0.3)'}
-              >
-                ×
-              </button>
-            </div>
+            <img
+              src="/beginnerbadge.webp"
+              alt="Beginner Badge"
+              style={{
+                width: '120px',
+                height: '120px',
+                maxWidth: '120px',
+                maxHeight: '120px',
+                objectFit: 'contain',
+                marginRight: '15px',
+                filter: 'drop-shadow(0 0 8px rgba(54, 255, 149, 0.6))'
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
           </div>
+          <h1 style={{
+            color: '#36ff95',
+            fontSize: '2.2rem',
+            fontWeight: 'bold',
+            marginBottom: '15px',
+            marginTop: '10px',
+            background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            The Complete AI Starter Guide
+          </h1>
+          <h1 style={{
+            color: '#36ff95',
+            fontSize: '2.2rem',
+            fontWeight: 'bold',
+            marginBottom: '15px',
+            marginTop: '0px',
+            background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            Master the Fundamentals of AI
+          </h1>
+          <button
+            onClick={() => window.open('/AI-Starter-Quiz.html', '_blank')}
+            style={{
+              background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+              color: '#000',
+              border: 'none',
+              padding: '12px 24px',
+              borderRadius: '25px',
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              boxShadow: '0 4px 15px rgba(54, 255, 149, 0.3)',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
+            onMouseOut={(e) => e.target.style.transform = 'translateY(0)'}
+          >
+            🧠 Take the Quiz!
+          </button>
         </div>
 
         {/* Content */}
@@ -1858,17 +1863,53 @@ function AdvancedGuide({ onClose }) {
         </button>
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '30px', paddingTop: '20px' }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '15px'
+          }}>
+            <img
+              src="/advancedbadge.webp"
+              alt="Advanced Badge"
+              style={{
+                width: '120px',
+                height: '120px',
+                maxWidth: '120px',
+                maxHeight: '120px',
+                objectFit: 'contain',
+                marginRight: '15px',
+                filter: 'drop-shadow(0 0 8px rgba(255, 215, 0, 0.6))'
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+          </div>
           <h1 style={{
             color: '#ffd700',
             fontSize: '2.2rem',
             fontWeight: 'bold',
             marginBottom: '15px',
+            marginTop: '10px',
             background: 'linear-gradient(135deg, #ffd700, #ffb347)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}>
-            The Advanced AI Guide: Mastering Enterprise-Level AI Implementation and Strategic Leadership
+            The Advanced AI Guide:
+          </h1>
+          <h1 style={{
+            color: '#ffd700',
+            fontSize: '2.2rem',
+            fontWeight: 'bold',
+            marginBottom: '15px',
+            marginTop: '0px',
+            background: 'linear-gradient(135deg, #ffd700, #ffb347)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            Mastering Enterprise-Level AI Implementation and Strategic Leadership
           </h1>
                            <button
                    onClick={() => window.open('/advanced-ai-quiz.html', '_blank')}
@@ -2145,87 +2186,92 @@ function IntermediateGuide({ onClose }) {
         position: 'relative',
         boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)'
       }}>
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            background: 'none',
+            border: 'none',
+            color: '#8b5cf6',
+            fontSize: '24px',
+            cursor: 'pointer',
+            fontWeight: 'bold'
+          }}
+        >
+          ✕
+        </button>
+
         {/* Header */}
-        <div style={{
-          background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)',
-          color: '#101c26',
-          padding: '20px 30px',
-          borderRadius: '18px 18px 0 0',
-          position: 'sticky',
-          top: 0,
-          zIndex: 10
-        }}>
+        <div style={{ textAlign: 'center', marginBottom: '30px', paddingTop: '20px' }}>
           <div style={{
             display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '15px'
           }}>
-            <h1 style={{
-              margin: 0,
-              fontSize: '1.8rem',
-              fontWeight: '700',
-              textShadow: '0 0 10px rgba(16, 28, 38, 0.3)'
-            }}>
-              The Intermediate AI Guide: Elevating Your AI Skills to Professional Level
-            </h1>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '15px'
-            }}>
-              <button
-                onClick={() => {
-                  onClose();
-                  window.location.href = '/intermediate-ai-quiz.html';
-                }}
-                style={{
-                  background: 'rgba(16, 28, 38, 0.3)',
-                  border: '1px solid rgba(16, 28, 38, 0.5)',
-                  borderRadius: '20px',
-                  padding: '8px 16px',
-                  fontSize: '0.9rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  color: '#ffffff',
-                  transition: 'all 0.2s',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(16, 28, 38, 0.5)';
-                  e.target.style.transform = 'translateY(-1px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(16, 28, 38, 0.3)';
-                  e.target.style.transform = 'translateY(0)';
-                }}
-              >
-                Take the Quiz!
-              </button>
-              <button
-                onClick={onClose}
-                style={{
-                  background: 'rgba(16, 28, 38, 0.3)',
-                  border: 'none',
-                  borderRadius: '50%',
-                  width: '40px',
-                  height: '40px',
-                  fontSize: '1.5rem',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#101c26',
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => e.target.style.background = 'rgba(16, 28, 38, 0.5)'}
-                onMouseLeave={(e) => e.target.style.background = 'rgba(16, 28, 38, 0.3)'}
-              >
-                ×
-              </button>
-            </div>
+            <img
+              src="/intermediatebadge.webp"
+              alt="Intermediate Badge"
+              style={{
+                width: '120px',
+                height: '120px',
+                maxWidth: '120px',
+                maxHeight: '120px',
+                objectFit: 'contain',
+                marginRight: '15px',
+                filter: 'drop-shadow(0 0 8px rgba(139, 92, 246, 0.6))'
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
           </div>
+          <h1 style={{
+            color: '#8b5cf6',
+            fontSize: '2.2rem',
+            fontWeight: 'bold',
+            marginBottom: '15px',
+            marginTop: '10px',
+            background: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            The Intermediate AI Guide:
+          </h1>
+          <h1 style={{
+            color: '#8b5cf6',
+            fontSize: '2.2rem',
+            fontWeight: 'bold',
+            marginBottom: '15px',
+            marginTop: '0px',
+            background: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            Elevating Your AI Skills to Professional Level
+          </h1>
+          <button
+            onClick={() => window.open('/intermediate-ai-quiz.html', '_blank')}
+            style={{
+              background: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+              color: '#000',
+              border: 'none',
+              padding: '12px 24px',
+              borderRadius: '25px',
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              boxShadow: '0 4px 15px rgba(139, 92, 246, 0.3)',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
+            onMouseOut={(e) => e.target.style.transform = 'translateY(0)'}
+          >
+            Take the Quiz!
+          </button>
         </div>
 
         {/* Content */}
@@ -2268,7 +2314,7 @@ function IntermediateGuide({ onClose }) {
             <p style={{ margin: 0, marginBottom: '15px' }}>
               Through five essential components that dramatically improve output quality and consistency:
             </p>
-            <ul style={{ paddingLeft: '20px', marginBottom: '15px' }}>
+            <ul style={{ paddingLeft: '0px', marginBottom: '15px', textAlign: 'left' }}>
               <li><strong>Context:</strong> Provides comprehensive background information including relevant data, constraints, and business objectives</li>
               <li><strong>Logic:</strong> Defines the reasoning approach, whether analytical, creative, or problem-solving focused</li>
               <li><strong>Examples:</strong> Demonstrates desired formats, styles, and quality levels through concrete illustrations</li>
@@ -2353,6 +2399,18 @@ function IntermediateGuide({ onClose }) {
               <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '10px' }}>Conditional Logic</h3>
               <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
                 Creates intelligent systems that respond appropriately to different scenarios rather than following rigid predetermined paths.
+              </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '12px',
+              padding: '20px'
+            }}>
+              <h3 style={{ color: '#8b5cf6', marginTop: 0, marginBottom: '10px' }}>Performance Monitoring</h3>
+              <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
+                Implements real-time tracking and alerting systems that monitor workflow efficiency, identify bottlenecks, and optimize resource allocation for continuous improvement.
               </p>
             </div>
           </div>
@@ -2532,6 +2590,28 @@ function IntermediateGuide({ onClose }) {
               <p style={{ margin: 0, fontSize: '0.95rem', marginBottom: '10px' }}>
                 Deploys strategic AI integration that aligns technology capabilities with business objectives through comprehensive planning and optimization.
               </p>
+            </div>
+            
+            <div style={{
+              background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+              border: '1px solid #8b5cf6',
+              borderRadius: '12px',
+              padding: '0px',
+              overflow: 'hidden'
+            }}>
+              <img
+                src="/aistarterguidehero.webp"
+                alt="AI Starter Guide Hero"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block'
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
             </div>
           </div>
 
@@ -3112,7 +3192,8 @@ export default function Articles({ level = "beginner" }) {
           <div style={{
             position: "absolute",
             top: "12px",
-            left: "12px",
+            left: "50%",
+            transform: "translateX(-50%)",
             background: level === 'beginner' ? "linear-gradient(135deg, #36ff95, #0bbfdb)" : level === 'intermediate' ? "linear-gradient(135deg, #8b5cf6, #a855f7)" : "linear-gradient(135deg, #ffd700, #ffb347)",
             color: level === 'advanced' ? "#1a2330" : "white",
             padding: "4px 12px",
@@ -3199,7 +3280,8 @@ export default function Articles({ level = "beginner" }) {
           <div style={{
             position: "absolute",
             top: "12px",
-            left: "12px",
+            left: "50%",
+            transform: "translateX(-50%)",
             background: level === 'beginner' ? "linear-gradient(135deg, #36ff95, #0bbfdb)" : level === 'intermediate' ? "linear-gradient(135deg, #8b5cf6, #a855f7)" : "linear-gradient(135deg, #ffd700, #ffb347)",
             color: level === 'advanced' ? "#1a2330" : "white",
             padding: "4px 12px",

@@ -6,6 +6,7 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
+  const [showScorecard, setShowScorecard] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({});
 
   const questions = [
@@ -152,6 +153,7 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
     setScore(0);
     setUserAnswers({});
     setShowResults(false);
+    setShowScorecard(false);
     setSelectedOptions({});
   };
 
@@ -431,11 +433,126 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
                 {getMessage(score)}
               </p>
 
+              {/* Scorecard Section */}
+              <div style={{ marginTop: '30px' }}>
+                <button
+                  onClick={() => setShowScorecard(!showScorecard)}
+                  style={{
+                    background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)',
+                    color: '#101c26',
+                    border: 'none',
+                    padding: '12px 24px',
+                    borderRadius: '25px',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    marginBottom: '20px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'translateY(-2px)';
+                    e.target.style.boxShadow = '0 6px 20px rgba(139, 92, 246, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.boxShadow = 'none';
+                  }}
+                >
+                  {showScorecard ? '📊 Hide Detailed Answers' : '📊 Show Detailed Answers'}
+                </button>
+                
+                {showScorecard && (
+                  <div style={{
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    borderRadius: '15px',
+                    padding: '20px',
+                    border: '1px solid rgba(139, 92, 246, 0.2)',
+                    marginTop: '15px'
+                  }}>
+                    <h3 style={{
+                      marginBottom: '20px',
+                      color: '#8b5cf6',
+                      fontSize: '1.2rem',
+                      textAlign: 'center'
+                    }}>
+                      📋 Your Detailed Results
+                    </h3>
+                    {questions.map((question, index) => {
+                      const isCorrect = userAnswers[index] === question.correct;
+                      const userAnswerText = userAnswers[index] !== undefined ? question.options[userAnswers[index]] : 'Not answered';
+                      const correctAnswerText = question.options[question.correct];
+                      
+                      return (
+                        <div key={index} style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'flex-start',
+                          padding: '15px',
+                          marginBottom: '10px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          borderRadius: '10px',
+                          border: '1px solid rgba(139, 92, 246, 0.2)'
+                        }}>
+                          <div style={{ flex: 1 }}>
+                            <div style={{
+                              color: '#8b5cf6',
+                              fontWeight: 'bold',
+                              marginBottom: '5px'
+                            }}>
+                              Question {index + 1}
+                            </div>
+                            <div style={{
+                              color: '#e0e0e0',
+                              fontSize: '0.9rem',
+                              marginBottom: '8px'
+                            }}>
+                              {question.question}
+                            </div>
+                            <div style={{ fontSize: '0.85rem' }}>
+                              <span style={{ color: '#e0e0e0' }}>
+                                Your answer: <span style={{
+                                  color: isCorrect ? '#22c55e' : '#ef4444',
+                                  fontWeight: 'bold'
+                                }}>
+                                  {userAnswerText}
+                                </span>
+                              </span>
+                              {!isCorrect && (
+                                <>
+                                  <br />
+                                  <span style={{ color: '#e0e0e0' }}>
+                                    Correct answer: <span style={{
+                                      color: '#22c55e',
+                                      fontWeight: 'bold'
+                                    }}>
+                                      {correctAnswerText}
+                                    </span>
+                                  </span>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                          <div style={{ marginLeft: '15px' }}>
+                            <span style={{
+                              color: isCorrect ? '#22c55e' : '#ef4444',
+                              fontSize: '1.2rem'
+                            }}>
+                              {isCorrect ? '✅' : '❌'}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
               <div style={{
                 display: 'flex',
                 gap: '15px',
                 justifyContent: 'center',
-                flexWrap: 'wrap'
+                flexWrap: 'wrap',
+                marginTop: '20px'
               }}>
                 <button
                   onClick={restartQuiz}
@@ -460,6 +577,31 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
                   }}
                 >
                   Retake Quiz
+                </button>
+
+                <button
+                  onClick={onClose}
+                  style={{
+                    background: 'rgba(139, 92, 246, 0.2)',
+                    border: '2px solid #8b5cf6',
+                    color: '#8b5cf6',
+                    borderRadius: '25px',
+                    padding: '12px 25px',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(139, 92, 246, 0.3)';
+                    e.target.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(139, 92, 246, 0.2)';
+                    e.target.style.transform = 'translateY(0)';
+                  }}
+                >
+                  Back to Learn
                 </button>
 
                 {score >= 7 && (

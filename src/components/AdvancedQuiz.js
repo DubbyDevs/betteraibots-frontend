@@ -9,7 +9,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
   const [showScorecard, setShowScorecard] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({});
 
-  const correctAnswers = ['b', 'c', 'a', 'd', 'a', 'c', 'b', 'd', 'b', 'a'];
+  const correctAnswers = ['b', 'c', 'a', 'd', 'a', 'c', 'b', 'd', 'b', 'a', 'b', 'c', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'];
   const questions = [
     {
       text: "What is the primary challenge in implementing AI at enterprise scale?",
@@ -60,6 +60,56 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
       text: "Which approach ensures long-term AI system sustainability?",
       options: ["A) Continuous learning and adaptation", "B) Static model deployment", "C) Periodic updates", "D) Manual intervention"],
       correct: "A) Continuous learning and adaptation"
+    },
+    {
+      text: "What is the primary purpose of enterprise AI governance frameworks?",
+      options: ["A) To restrict AI innovation and slow down development", "B) To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation", "C) To increase AI development costs and complexity", "D) To replace human decision-making entirely"],
+      correct: "B) To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation"
+    },
+    {
+      text: "Which technique is most effective for creating domain-specific AI models that outperform general-purpose models?",
+      options: ["A) Using only prompt engineering", "B) Fine-tuning with techniques like LoRA (Low-Rank Adaptation)", "C) Training models from scratch", "D) Using only pre-trained models without modification"],
+      correct: "B) Fine-tuning with techniques like LoRA (Low-Rank Adaptation)"
+    },
+    {
+      text: "What is the key benefit of composable AI frameworks?",
+      options: ["A) They reduce system reliability", "B) They increase vendor lock-in", "C) They enable rapid experimentation and deployment while maintaining enterprise-grade security", "D) They simplify AI architecture to basic components only"],
+      correct: "C) They enable rapid experimentation and deployment while maintaining enterprise-grade security"
+    },
+    {
+      text: "What is the recommended approach for deploying AI capabilities across an organization?",
+      options: ["A) Deploy all AI systems simultaneously across the entire organization", "B) Start with high-value, low-risk use cases and gradually expand", "C) Deploy only in IT departments first", "D) Wait until all employees are fully trained before any deployment"],
+      correct: "B) Start with high-value, low-risk use cases and gradually expand"
+    },
+    {
+      text: "What is the primary advantage of multi-agent orchestration systems?",
+      options: ["A) They reduce the need for human oversight", "B) They coordinate multiple specialized AI agents to handle complex business processes", "C) They eliminate the need for data architecture", "D) They simplify AI implementation to single-agent systems"],
+      correct: "B) They coordinate multiple specialized AI agents to handle complex business processes"
+    },
+    {
+      text: "What is the purpose of AI observability and monitoring systems?",
+      options: ["A) To increase system complexity", "B) To enable real-time governance enforcement and continuous improvement", "C) To replace human monitoring entirely", "D) To reduce system performance"],
+      correct: "B) To enable real-time governance enforcement and continuous improvement"
+    },
+    {
+      text: "What is the key characteristic of agentic AI systems?",
+      options: ["A) They require constant human supervision", "B) They operate autonomously to achieve business objectives with minimal human oversight", "C) They only work in controlled laboratory environments", "D) They are limited to simple, repetitive tasks only"],
+      correct: "B) They operate autonomously to achieve business objectives with minimal human oversight"
+    },
+    {
+      text: "What is the primary goal of ROI measurement frameworks for AI initiatives?",
+      options: ["A) To justify increased AI spending", "B) To track productivity gains, cost reductions, and strategic value creation", "C) To reduce AI implementation costs", "D) To eliminate the need for business case development"],
+      correct: "B) To track productivity gains, cost reductions, and strategic value creation"
+    },
+    {
+      text: "What is the purpose of risk-based governance approaches?",
+      options: ["A) To apply the same governance requirements to all AI applications", "B) To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases", "C) To eliminate all AI risks completely", "D) To slow down all AI development processes"],
+      correct: "B) To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases"
+    },
+    {
+      text: "What is the key success factor for advanced AI practitioners?",
+      options: ["A) Focusing only on technical implementation", "B) Treating AI as business transformation rather than technology deployment", "C) Implementing AI without considering organizational change", "D) Deploying AI systems without governance frameworks"],
+      correct: "B) Treating AI as business transformation rather than technology deployment"
     }
   ];
 
@@ -111,7 +161,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
     }
   };
 
-  const progress = (currentQuestion / 10) * 100;
+  const progress = (currentQuestion / 20) * 100;
 
   if (isEmbedded) {
     return (
@@ -374,7 +424,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
               >
                 Retake Quiz
               </button>
-              {score >= 8 && (
+                             {score >= 16 && (
                 <button
                   onClick={handleProStatus}
                   style={{
