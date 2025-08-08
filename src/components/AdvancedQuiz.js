@@ -9,7 +9,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
   const [showScorecard, setShowScorecard] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({});
 
-  const correctAnswers = ['b', 'c', 'a', 'd', 'a', 'c', 'b', 'd', 'b', 'a', 'b', 'c', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'];
+  const correctAnswers = ['b', 'c', 'a', 'd', 'a', 'c', 'b', 'd', 'b', 'a', 'b', 'c', 'c', 'b', 'b', 'b', 'b', 'b', 'b', 'b'];
   const questions = [
     {
       text: "What is the primary challenge in implementing AI at enterprise scale?",
@@ -123,7 +123,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
   };
 
   const nextQuestion = () => {
-    if (currentQuestion === 10) {
+    if (currentQuestion === 20) {
       calculateResults();
     } else {
       setCurrentQuestion(prev => prev + 1);
@@ -395,9 +395,9 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                 marginBottom: '30px',
                 lineHeight: '1.6'
               }}>
-                {score >= 8 ? 'You have demonstrated expert-level AI knowledge and are now certified as a Pro! Welcome to the elite AI community with access to exclusive content and features.' :
-                 score >= 6 ? `You scored ${score}/10. You're very close to Pro status! Review the advanced concepts and retake the quiz. You need at least 8 correct answers for Pro certification.` :
-                 `You scored ${score}/10. We recommend thoroughly reviewing the advanced AI concepts before retaking the quiz. Focus on enterprise implementation, ethics, and governance.`}
+                {score >= 16 ? 'You have demonstrated expert-level AI knowledge and are now certified as a Pro! Welcome to the elite AI community with access to exclusive content and features.' :
+                 score >= 12 ? `You scored ${score}/20. You're very close to Pro status! Review the advanced concepts and retake the quiz. You need at least 16 correct answers for Pro certification.` :
+                 `You scored ${score}/20. We recommend thoroughly reviewing the advanced AI concepts before retaking the quiz. Focus on enterprise implementation, ethics, and governance.`}
               </div>
               <button
                 onClick={restartQuiz}
