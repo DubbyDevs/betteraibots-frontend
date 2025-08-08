@@ -69,7 +69,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
     {
       text: "Which technique is most effective for creating domain-specific AI models that outperform general-purpose models?",
       options: ["A) Using only prompt engineering", "B) Fine-tuning with techniques like LoRA (Low-Rank Adaptation)", "C) Training models from scratch", "D) Using only pre-trained models without modification"],
-      correct: "B) Fine-tuning with techniques like LoRA (Low-Rank Adaptation)"
+      correct: "C) Training models from scratch"
     },
     {
       text: "What is the key benefit of composable AI frameworks?",
@@ -260,7 +260,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                 fontWeight: 'bold',
                 marginBottom: '10px'
               }}>
-                Question {currentQuestion} of 10
+                Question {currentQuestion} of 20
               </div>
               <div style={{
                 fontSize: '1.3rem',
@@ -661,7 +661,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                 fontWeight: 'bold',
                 marginBottom: '10px'
               }}>
-                Question {currentQuestion} of 10
+                Question {currentQuestion} of 20
               </div>
               <div style={{
                 fontSize: '1.3rem',
@@ -796,9 +796,9 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                 marginBottom: '30px',
                 lineHeight: '1.6'
               }}>
-                {score >= 8 ? 'You have demonstrated expert-level AI knowledge and are now certified as a Pro! Welcome to the elite AI community with access to exclusive content and features.' :
-                 score >= 6 ? `You scored ${score}/10. You're very close to Pro status! Review the advanced concepts and retake the quiz. You need at least 8 correct answers for Pro certification.` :
-                 `You scored ${score}/10. We recommend thoroughly reviewing the advanced AI concepts before retaking the quiz. Focus on enterprise implementation, ethics, and governance.`}
+                                 {score >= 16 ? 'You have demonstrated expert-level AI knowledge and are now certified as a Pro! Welcome to the elite AI community with access to exclusive content and features.' :
+                  score >= 12 ? `You scored ${score}/20. You're very close to Pro status! Review the advanced concepts and retake the quiz. You need at least 16 correct answers for Pro certification.` :
+                  `You scored ${score}/20. We recommend thoroughly reviewing the advanced AI concepts before retaking the quiz. Focus on enterprise implementation, ethics, and governance.`}
               </div>
               <button
                 onClick={restartQuiz}
@@ -825,7 +825,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
               >
                 Retake Quiz
               </button>
-              {score >= 8 && (
+                             {score >= 16 && (
                 <button
                   onClick={handleProStatus}
                   style={{
