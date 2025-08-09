@@ -851,6 +851,15 @@ function HamburgerMenu({ open, onClose }) {
 
   if (!open) return null;
 
+  // Enhanced navigation function that ensures scroll to top
+  const handleNavigation = (path) => {
+    onClose();
+    // Small delay to ensure menu closes before navigation
+    setTimeout(() => {
+      navigate(path);
+    }, 50);
+  };
+
   return (
     <div className="menu-overlay" onClick={onClose}>
       <div
@@ -859,7 +868,7 @@ function HamburgerMenu({ open, onClose }) {
         style={{ minWidth: 240 }}
       >
         <ul>
-          <li onClick={() => { navigate('/'); onClose(); }}>Home</li>
+          <li onClick={() => handleNavigation('/')}>Home</li>
 
           <li
             onClick={() => setShowDropdown((prev) => !prev)}
@@ -880,10 +889,7 @@ function HamburgerMenu({ open, onClose }) {
                 <li
                   key={cat.name}
                   className="nav-dropdown-item"
-                  onClick={() => {
-                    navigate(`/${encodeURIComponent(cat.name)}`);
-                    onClose();
-                  }}
+                  onClick={() => handleNavigation(`/${encodeURIComponent(cat.name)}`)}
                 >
                   {cat.name}
                 </li>
@@ -891,10 +897,10 @@ function HamburgerMenu({ open, onClose }) {
             </ul>
           </li>
 
-          <li onClick={() => { navigate('/news'); onClose(); }}>News</li>
-          <li onClick={() => { navigate('/learn'); onClose(); }}>Learn</li>
-          <li onClick={() => { navigate('/apps'); onClose(); }}>Apps</li>
-          <li onClick={() => { navigate('/contact'); onClose(); }}>Contact Us</li>
+          <li onClick={() => handleNavigation('/news')}>News</li>
+          <li onClick={() => handleNavigation('/learn')}>Learn</li>
+          <li onClick={() => handleNavigation('/apps')}>Apps</li>
+          <li onClick={() => handleNavigation('/contact')}>Contact Us</li>
         </ul>
       </div>
     </div>
@@ -1797,7 +1803,58 @@ function App() {
 
   const location = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // More robust scroll to top for mobile compatibility
+    const scrollToTop = () => {
+      // Try multiple methods for better mobile compatibility
+      if (window.scrollTo) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+      if (document.documentElement) {
+        document.documentElement.scrollTop = 0;
+      }
+      if (document.body) {
+        document.body.scrollTop = 0;
+      }
+      
+      // Force scroll position for mobile browsers that might ignore the above
+      setTimeout(() => {
+        if (window.pageYOffset > 0) {
+          window.scrollTo(0, 0);
+        }
+      }, 50);
+    };
+    
+    // Immediate scroll attempt
+    scrollToTop();
+    
+    // Small delay to ensure DOM is ready, especially important on mobile
+    const timer = setTimeout(scrollToTop, 100);
+    
+    // Additional fallback for mobile devices that might need more time
+    const fallbackTimer = setTimeout(scrollToTop, 300);
+    
+    // Final check for stubborn mobile browsers
+    const finalCheck = setTimeout(() => {
+      if (window.pageYOffset > 0) {
+        window.scrollTo(0, 0);
+      }
+    }, 500);
+    
+    // Extra aggressive check for mobile browsers that preserve scroll position
+    const mobileCheck = setTimeout(() => {
+      if (window.pageYOffset > 0 || document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }
+    }, 800);
+    
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(fallbackTimer);
+      clearTimeout(finalCheck);
+      clearTimeout(mobileCheck);
+    };
   }, [location.pathname]);
 
   const toggleCategoryBar = () => {
@@ -1877,7 +1934,7 @@ function App() {
         position: "sticky",
         top: 0,
         background: "linear-gradient(135deg, #101c26 0%, #172d3e 100%)",
-        zIndex: 20,
+        zIndex: 100,
       }}>
         {!isMobile && (
           <NavTabsBar 

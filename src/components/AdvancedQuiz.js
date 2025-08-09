@@ -161,6 +161,132 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
     }
   };
 
+  const showCopiedMessage = (button) => {
+    // Create the "Copied!" message
+    const message = document.createElement('div');
+    message.textContent = 'Copied!';
+    message.style.cssText = `
+      position: absolute;
+      background: #ffd700;
+      color: #1a2330;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    `;
+    
+    // Position the message near the button
+    const buttonRect = button.getBoundingClientRect();
+    message.style.left = buttonRect.left + 'px';
+    message.style.top = (buttonRect.top - 40) + 'px';
+    
+    document.body.appendChild(message);
+    
+    // Animate in
+    setTimeout(() => {
+      message.style.opacity = '1';
+      message.style.transform = 'translateY(0)';
+    }, 10);
+    
+    // Animate out and remove
+    setTimeout(() => {
+      message.style.opacity = '0';
+      message.style.transform = 'translateY(-10px)';
+      setTimeout(() => {
+        document.body.removeChild(message);
+      }, 300);
+    }, 2000);
+  };
+
+  const showShareFeedback = (platform) => {
+    const message = document.createElement('div');
+    message.textContent = `Shared to ${platform}!`;
+    message.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #ffd700, #ffb347);
+      color: #1a2330;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    `;
+    
+    document.body.appendChild(message);
+    
+    // Animate in
+    setTimeout(() => {
+      message.style.opacity = '1';
+      message.style.transform = 'translateX(0)';
+    }, 10);
+    
+    // Animate out and remove
+    setTimeout(() => {
+      message.style.opacity = '0';
+      message.style.transform = 'translateX(100px)';
+      setTimeout(() => {
+        document.body.removeChild(message);
+      }, 300);
+    }, 3000);
+  };
+
+  const handleShare = async (platform) => {
+    const url = 'https://betteraibots.com/advanced-ai-quiz.html';
+    const text = `I just scored ${score}/20 on the Advanced AI Quiz! Test your AI knowledge:`;
+    
+    try {
+      // Try Web Share API first (mobile)
+      if (navigator.share) {
+        await navigator.share({
+          title: 'Advanced AI Quiz Results',
+          text: text,
+          url: url
+        });
+        showShareFeedback(platform);
+        return;
+      }
+    } catch (error) {
+      // Web Share API failed or was cancelled, fall back to platform-specific sharing
+    }
+    
+    // Platform-specific fallbacks
+    switch (platform) {
+      case 'x':
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+        break;
+      case 'facebook':
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        break;
+      case 'email':
+        const subject = 'Advanced AI Quiz - Test Your Knowledge!';
+        const body = `${text} ${url}`;
+        window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+        break;
+      case 'sms':
+        const smsBody = `${text} ${url}`;
+        window.open(`sms:?body=${encodeURIComponent(smsBody)}`);
+        break;
+      default:
+        break;
+    }
+    
+    showShareFeedback(platform.charAt(0).toUpperCase() + platform.slice(1));
+  };
+
   const progress = (currentQuestion / 20) * 100;
 
   if (isEmbedded) {
@@ -874,11 +1000,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                 }}>
                   {/* X (Twitter) */}
                   <button
-                    onClick={() => {
-                      const url = 'https://betteraibots.com/advanced-ai-quiz.html';
-                      const text = `I just scored ${score}/20 on the Advanced AI Quiz! Test your AI knowledge:`;
-                      window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
-                    }}
+                    onClick={() => handleShare('x')}
                     style={{
                       background: '#000',
                       color: '#fff',
@@ -910,10 +1032,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
 
                   {/* Facebook */}
                   <button
-                    onClick={() => {
-                      const url = 'https://betteraibots.com/advanced-ai-quiz.html';
-                      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-                    }}
+                    onClick={() => handleShare('facebook')}
                     style={{
                       background: '#4267B2',
                       color: '#fff',
@@ -945,12 +1064,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
 
                   {/* Email */}
                   <button
-                    onClick={() => {
-                      const url = 'https://betteraibots.com/advanced-ai-quiz.html';
-                      const subject = 'Advanced AI Quiz - Test Your Knowledge!';
-                      const body = `I just scored ${score}/20 on the Advanced AI Quiz! Test your AI knowledge: ${url}`;
-                      window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-                    }}
+                    onClick={() => handleShare('email')}
                     style={{
                       background: '#ea4335',
                       color: '#fff',
@@ -982,11 +1096,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
 
                   {/* SMS */}
                   <button
-                    onClick={() => {
-                      const url = 'https://betteraibots.com/advanced-ai-quiz.html';
-                      const body = `I just scored ${score}/20 on the Advanced AI Quiz! Test your AI knowledge: ${url}`;
-                      window.open(`sms:?body=${encodeURIComponent(body)}`);
-                    }}
+                    onClick={() => handleShare('sms')}
                     style={{
                       background: '#25d366',
                       color: '#fff',
@@ -1018,10 +1128,10 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
 
                   {/* Copy Link */}
                   <button
-                    onClick={() => {
+                    onClick={(e) => {
                       const url = 'https://betteraibots.com/advanced-ai-quiz.html';
                       navigator.clipboard.writeText(url).then(() => {
-                        alert('Link copied to clipboard!');
+                        showCopiedMessage(e.target);
                       }).catch(() => {
                         // Fallback for older browsers
                         const textArea = document.createElement('textarea');
@@ -1030,7 +1140,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                         textArea.select();
                         document.execCommand('copy');
                         document.body.removeChild(textArea);
-                        alert('Link copied to clipboard!');
+                        showCopiedMessage(e.target);
                       });
                     }}
                     style={{
