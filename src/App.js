@@ -104,7 +104,7 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
     <nav className="nav-tabs-bar">
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
-      <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
+              <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
               <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
       {isHomePage && (
@@ -332,15 +332,6 @@ function Apps() {
       image: "https://betteraibots.com/assets/invideo-logo.png"
     },
     {
-      name: "VEED",
-      description: "Online video editor with AI features for creating professional content",
-      category: "Video Editing",
-      features: ["AI video editing", "Auto-subtitles", "Background removal", "Collaboration tools"],
-      link: "https://betteraibots.com/veed",
-      trialInfo: "Free plan available, Pro $18/month",
-      image: "https://betteraibots.com/assets/veed-logo.png"
-    },
-    {
       name: "Lindy",
       description: "AI-powered personal assistant that helps you manage tasks, schedule, and productivity",
       category: "Productivity & Personal Assistant",
@@ -350,13 +341,22 @@ function Apps() {
       image: "https://betteraibots.com/assets/lindy-logo.png"
     },
     {
-      name: "Runway ML",
-      description: "Creative AI tools for video editing, image generation, and 3D creation",
-      category: "Creative Tools",
-      features: ["Video editing", "Image generation", "3D creation", "Motion graphics"],
-      link: "https://runwayml.com",
-      trialInfo: "Free tier available, Pro $15/month",
-      image: "https://betteraibots.com/assets/runway-logo.png"
+      name: "VEED",
+      description: "Online video editor with AI features for creating professional content",
+      category: "Video Editing",
+      features: ["AI video editing", "Auto-subtitles", "Background removal", "Collaboration tools"],
+      link: "https://betteraibots.com/veed",
+      trialInfo: "Free plan available, Pro $18/month",
+      image: "https://betteraibots.com/assets/veed-logo.png"
+    },
+    {
+      name: "Warmy",
+      description: "Auto All-In-One Tool For Email Deliverability To Make Your Email Channel Reliable",
+      category: "Email Marketing",
+      features: ["AI-driven automation", "Email deliverability optimization", "Spam folder avoidance", "Real-time insights"],
+      link: "https://warmyio.partnerlinks.io/ffy5y6ll9374",
+      trialInfo: "7-Day Free Trial, No Credit Card Required",
+      image: "https://betteraibots.com/assets/warmy-logo.png"
     }
   ];
 
@@ -983,8 +983,8 @@ function RotatingImage({ images, alt, className, style, onError }) {
   React.useEffect(() => {
     if (!isHovered) {
       intervalRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 6900); // 6.9 seconds
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 6900); // 6.9 seconds
     }
 
     return () => {
@@ -1819,7 +1819,7 @@ function App() {
       // Force scroll position for mobile browsers that might ignore the above
       setTimeout(() => {
         if (window.pageYOffset > 0) {
-          window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
         }
       }, 50);
     };
