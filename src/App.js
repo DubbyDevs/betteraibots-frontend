@@ -1875,11 +1875,9 @@ function App() {
     setBotList(prev => [{ ...bot, verified: true }, ...prev]);
   }
 
-  const location = useLocation();
+    const location = useLocation();
   useEffect(() => {
-    // More robust scroll to top for mobile compatibility
     const scrollToTop = () => {
-      // Try multiple methods for better mobile compatibility
       if (window.scrollTo) {
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       }
@@ -1889,32 +1887,20 @@ function App() {
       if (document.body) {
         document.body.scrollTop = 0;
       }
-      
-      // Force scroll position for mobile browsers that might ignore the above
       setTimeout(() => {
         if (window.pageYOffset > 0) {
-    window.scrollTo(0, 0);
+          window.scrollTo(0, 0);
         }
       }, 50);
     };
-    
-    // Immediate scroll attempt
     scrollToTop();
-    
-    // Small delay to ensure DOM is ready, especially important on mobile
     const timer = setTimeout(scrollToTop, 100);
-    
-    // Additional fallback for mobile devices that might need more time
     const fallbackTimer = setTimeout(scrollToTop, 300);
-    
-    // Final check for stubborn mobile browsers
     const finalCheck = setTimeout(() => {
       if (window.pageYOffset > 0) {
         window.scrollTo(0, 0);
       }
     }, 500);
-    
-    // Extra aggressive check for mobile browsers that preserve scroll position
     const mobileCheck = setTimeout(() => {
       if (window.pageYOffset > 0 || document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) {
         window.scrollTo(0, 0);
@@ -1922,7 +1908,6 @@ function App() {
         document.body.scrollTop = 0;
       }
     }, 800);
-    
     return () => {
       clearTimeout(timer);
       clearTimeout(fallbackTimer);
