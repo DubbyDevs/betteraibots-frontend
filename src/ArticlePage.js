@@ -471,6 +471,10 @@ export default function ArticlePage() {
           </div>
         );
       })()}
+      {/* Bottom-centered share buttons */}
+      <div style={{ display: "flex", justifyContent: "center", margin: "32px 0 0 0" }}>
+        <ShareButtons url={shareUrl} title={article.title} />
+      </div>
     </div>
   );
 }

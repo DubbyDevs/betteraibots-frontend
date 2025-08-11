@@ -431,6 +431,15 @@ function Apps() {
       link: "https://warmyio.partnerlinks.io/ffy5y6ll9374",
       trialInfo: "7-Day Free Trial, No Credit Card Required",
       image: "https://betteraibots.com/assets/warmy-logo.png"
+    },
+    {
+      name: "Reply.io",
+      description: "AI-powered sales outreach platform with multichannel sequences, email automation, and AI SDR agents",
+      category: "Sales & CRM",
+      features: ["AI SDR agents", "Multichannel sequences", "Email automation", "LinkedIn automation", "Meeting scheduler"],
+      link: "https://get.reply.io/ub7edypmq2gj",
+      trialInfo: "14-day free trial, then $49/month",
+      image: "https://betteraibots.com/assets/reply-logo.png"
     }
   ];
 
