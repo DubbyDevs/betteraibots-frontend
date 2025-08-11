@@ -15,7 +15,7 @@ function ShareButtons({ url, title }) {
   return (
     <div style={{ display: "flex", gap: 16, marginBottom: 18 }}>
       {/* Twitter */}
-      <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title + ' ' + url)}`}
+      <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title.replace('Apollo.io', 'Apollo') + ' ' + url)}`}
         target="_blank" rel="noopener noreferrer" title="Share on Twitter"
         style={{ color: "#1da1f2", ...iconStyle }}>
         <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M22.46 5.93c-.8.36-1.66.62-2.56.73a4.5 4.5 0 0 0 1.97-2.49 9.1 9.1 0 0 1-2.86 1.1A4.52 4.52 0 0 0 16.16 4a4.52 4.52 0 0 0-4.5 4.5c0 .35.04.7.1 1.02A12.82 12.82 0 0 1 3.13 4.67a4.51 4.51 0 0 0-.61 2.28c0 1.57.8 2.96 2.03 3.77a4.5 4.5 0 0 1-2.04-.56v.05c0 2.19 1.56 4.03 3.64 4.45a4.53 4.53 0 0 1-2.03.08c.57 1.78 2.23 3.09 4.2 3.12A9.06 9.06 0 0 1 2 19.54a12.79 12.79 0 0 0 6.94 2.03c8.33 0 12.89-6.89 12.89-12.89 0-.2 0-.41-.01-.61.88-.64 1.65-1.44 2.26-2.35z"/></svg>
@@ -85,7 +85,11 @@ export default function ArticlePage() {
     );
   }
 
-      const shareUrl = `${window.location.origin}/learn/${article.id}`;
+      const pageUrl = `${window.location.origin}/learn/${article.id}`;
+      const shareAffiliateMap = {
+        'apollo-io': 'https://get.apollo.io/BAIB'
+      };
+      const shareUrl = shareAffiliateMap[article.id] || pageUrl;
   const images = article.images || [];
 
   // Utility to highlight speakers in any strong/bold text
@@ -142,7 +146,7 @@ export default function ArticlePage() {
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
-        <meta property="og:url" content={shareUrl} />
+        <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
@@ -202,7 +206,7 @@ export default function ArticlePage() {
             "dateModified": article.date,
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": shareUrl
+              "@id": pageUrl
             },
             "keywords": "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots",
             "articleSection": "AI Tools",
@@ -358,6 +362,46 @@ export default function ArticlePage() {
                       }}
                     >
                       {children}
+                    </a>
+                  </div>
+                );
+              }
+              // Apollo.io CTA button with container
+              if (href && href.includes('get.apollo.io')) {
+                return (
+                  <div style={{
+                    textAlign: 'center',
+                    margin: '40px 0',
+                    padding: '30px',
+                    background: 'linear-gradient(135deg, #1a3447 0%, #0f1a26 100%)',
+                    borderRadius: 16,
+                    border: '1px solid #36ff9522'
+                  }}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-block',
+                        background: 'linear-gradient(90deg, #36ff95 0%, #00ffb2 100%)',
+                        color: '#1a1a1a',
+                        padding: '16px 32px',
+                        borderRadius: '12px',
+                        textDecoration: 'none',
+                        fontWeight: 700,
+                        fontSize: '1.2rem',
+                        boxShadow: '0 4px 16px rgba(54, 255, 149, 0.3)'
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.transform = 'translateY(-2px)';
+                        e.target.style.boxShadow = '0 6px 20px rgba(54, 255, 149, 0.4)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.transform = 'translateY(0)';
+                        e.target.style.boxShadow = '0 4px 16px rgba(54, 255, 149, 0.3)';
+                      }}
+                    >
+                      {children && typeof children[0] === 'string' ? children : 'Try Apollo Now →'}
                     </a>
                   </div>
                 );
