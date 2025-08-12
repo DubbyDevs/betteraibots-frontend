@@ -385,7 +385,8 @@ function Apps() {
       features: ["AI ad generation", "Brand customization", "Performance tracking", "Multiple formats"],
       link: "https://betteraibots.com/adcreative",
       trialInfo: "Free trial available, then $29/month",
-      image: "https://betteraibots.com/assets/adcreative-logo.png"
+      image: "https://betteraibots.com/assets/adcreative-logo.png",
+      readMoreLink: "/learn/adcreative-ai"
     },
     {
       name: "Apollo AI",
@@ -643,16 +644,18 @@ function Apps() {
               padding: '4px 8px',
               borderRadius: '8px',
               background: 'rgba(139, 92, 246, 0.1)',
-              border: '1px solid rgba(139, 92, 246, 0.3)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
               transition: 'all 0.2s ease'
             }}
             onMouseEnter={(e) => {
               e.target.style.background = 'rgba(139, 92, 246, 0.2)';
               e.target.style.transform = 'translateY(-1px)';
+              e.target.style.border = '1px solid rgba(255, 255, 255, 0.5)';
             }}
             onMouseLeave={(e) => {
               e.target.style.background = 'rgba(139, 92, 246, 0.1)';
               e.target.style.transform = 'translateY(0)';
+              e.target.style.border = '1px solid rgba(255, 255, 255, 0.3)';
             }}
           >
             Read More

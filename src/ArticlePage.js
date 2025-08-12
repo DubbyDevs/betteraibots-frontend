@@ -406,6 +406,89 @@ export default function ArticlePage() {
                   </div>
                 );
               }
+              // AdCreative CTA button with container
+              if (href && href.includes('betteraibots.com/adcreative')) {
+                return (
+                  <div style={{
+                    textAlign: 'center',
+                    margin: '40px 0',
+                    padding: '30px',
+                    background: 'linear-gradient(135deg, #1a3447 0%, #0f1a26 100%)',
+                    borderRadius: 16,
+                    border: '1px solid #36ff9522'
+                  }}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-block',
+                        background: 'linear-gradient(90deg, #36ff95 0%, #00ffb2 100%)',
+                        color: '#1a1a1a',
+                        padding: '16px 32px',
+                        borderRadius: '12px',
+                        textDecoration: 'none',
+                        fontWeight: 700,
+                        fontSize: '1.2rem',
+                        boxShadow: '0 4px 16px rgba(54, 255, 149, 0.3)'
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.transform = 'translateY(-2px)';
+                        e.target.style.boxShadow = '0 6px 20px rgba(54, 255, 149, 0.4)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.transform = 'translateY(0)';
+                        e.target.style.boxShadow = '0 4px 16px rgba(54, 255, 149, 0.3)';
+                      }}
+                    >
+                      {children && typeof children[0] === 'string' ? children : 'Try AdCreative Now →'}
+                    </a>
+                  </div>
+                );
+              }
+              // Share button styling
+              if (href && (href.includes('twitter.com/intent/tweet') || href.includes('facebook.com/sharer') || href.includes('linkedin.com/sharing') || href.includes('mailto:') || href.includes('javascript:void(0)') || children && (children.toString().includes('Share on X') || children.toString().includes('Share on Facebook') || children.toString().includes('Share on LinkedIn') || children.toString().includes('Share via Email') || children.toString().includes('Copy Link')))) {
+                return (
+                  <button
+                    onClick={() => {
+                      if (href.includes('mailto:')) {
+                        window.location.href = href;
+                      } else if (href.includes('javascript:void(0)')) {
+                        // Copy link functionality
+                        navigator.clipboard.writeText(window.location.href).then(() => {
+                          alert('Link copied to clipboard!');
+                        });
+                      } else {
+                        window.open(href, '_blank');
+                      }
+                    }}
+                    style={{
+                      display: 'inline-block',
+                      background: 'linear-gradient(135deg, #2a3a4a 0%, #1a2330 100%)',
+                      color: '#36ff95',
+                      padding: '8px 16px',
+                      borderRadius: '8px',
+                      textDecoration: 'none',
+                      fontWeight: '600',
+                      fontSize: '0.9rem',
+                      border: '1px solid #36ff9522',
+                      margin: '4px',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onMouseOver={(e) => {
+                      e.target.style.background = 'linear-gradient(135deg, #36ff95 0%, #00ffb2 100%)';
+                      e.target.style.color = '#1a1a1a';
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.background = 'linear-gradient(135deg, #2a3a4a 0%, #1a2330 100%)';
+                      e.target.style.color = '#36ff95';
+                    }}
+                  >
+                    {children}
+                  </button>
+                );
+              }
               // Default link styling
               return (
                 <a
