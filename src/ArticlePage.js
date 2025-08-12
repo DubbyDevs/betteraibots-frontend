@@ -447,13 +447,13 @@ export default function ArticlePage() {
                 );
               }
               // Share button styling
-              if (href && (href.includes('twitter.com/intent/tweet') || href.includes('facebook.com/sharer') || href.includes('linkedin.com/sharing') || href.includes('mailto:') || href.includes('javascript:void(0)') || children && (children.toString().includes('Share on X') || children.toString().includes('Share on Facebook') || children.toString().includes('Share on LinkedIn') || children.toString().includes('Share via Email') || children.toString().includes('Copy Link')))) {
+              if (href && (href.includes('twitter.com/intent/tweet') || href.includes('facebook.com/sharer') || href.includes('linkedin.com/sharing') || href.includes('mailto:') || href.includes('javascript:void(0)') || href === '#' || (children && (children.toString().includes('Share on X') || children.toString().includes('Share on Facebook') || children.toString().includes('Share on LinkedIn') || children.toString().includes('Share via Email') || children.toString().includes('Copy Link'))))) {
                 return (
                   <button
                     onClick={() => {
                       if (href.includes('mailto:')) {
                         window.location.href = href;
-                      } else if (href.includes('javascript:void(0)')) {
+                      } else if (href.includes('javascript:void(0)') || href === '#') {
                         // Copy link functionality
                         navigator.clipboard.writeText(window.location.href).then(() => {
                           alert('Link copied to clipboard!');
