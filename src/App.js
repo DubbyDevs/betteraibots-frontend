@@ -394,7 +394,8 @@ function Apps() {
       features: ["Contact database", "AI-powered prospecting", "Email automation", "Sales intelligence"],
       link: "https://get.apollo.io/BAIB",
       trialInfo: "Free forever plan available, Pro plans from $49/month",
-      image: "https://betteraibots.com/assets/apollo-logo.png"
+      image: "https://betteraibots.com/assets/apollo-logo.png",
+      readMoreLink: "/learn/apollo-io"
     },
     {
       name: "Invideo",
@@ -403,7 +404,8 @@ function Apps() {
       features: ["AI video generation", "5000+ templates", "Text-to-video", "Easy editing"],
       link: "https://betteraibots.com/invideo",
       trialInfo: "Free plan available, Pro $25/month",
-      image: "https://betteraibots.com/assets/invideo-logo.png"
+      image: "https://betteraibots.com/assets/invideo-logo.png",
+      readMoreLink: "/learn/invideo-ai"
     },
     {
       name: "Lindy",
@@ -413,6 +415,15 @@ function Apps() {
       link: "https://try.lindy.ai/lhgvxfidor04",
       trialInfo: "Free trial available, then $20/month",
       image: "https://betteraibots.com/assets/lindy-logo.png"
+    },
+    {
+      name: "Reply.io",
+      description: "AI-powered sales outreach platform with multichannel sequences, email automation, and AI SDR agents",
+      category: "Sales & CRM",
+      features: ["AI SDR agents", "Multichannel sequences", "Email automation", "LinkedIn automation", "Meeting scheduler"],
+      link: "https://get.reply.io/ub7edypmq2gj",
+      trialInfo: "14-day free trial, then $49/month",
+      image: "https://betteraibots.com/assets/reply-logo.png"
     },
     {
       name: "VEED",
@@ -431,15 +442,6 @@ function Apps() {
       link: "https://warmyio.partnerlinks.io/ffy5y6ll9374",
       trialInfo: "7-Day Free Trial, No Credit Card Required",
       image: "https://betteraibots.com/assets/warmy-logo.png"
-    },
-    {
-      name: "Reply.io",
-      description: "AI-powered sales outreach platform with multichannel sequences, email automation, and AI SDR agents",
-      category: "Sales & CRM",
-      features: ["AI SDR agents", "Multichannel sequences", "Email automation", "LinkedIn automation", "Meeting scheduler"],
-      link: "https://get.reply.io/ub7edypmq2gj",
-      trialInfo: "14-day free trial, then $49/month",
-      image: "https://betteraibots.com/assets/reply-logo.png"
     }
   ];
 
@@ -451,7 +453,8 @@ function Apps() {
       features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
       price: "$20-$50/month",
       link: "https://n8n.partnerlinks.io/wjt1744jflsx",
-      image: "https://betteraibots.com/assets/n8n-logo.png"
+      image: "https://betteraibots.com/assets/n8n-logo.png",
+      readMoreLink: "http://localhost:3000/news/n8n-revolution-business-automation-2025"
     },
     {
       name: "Viral Launch AI",
@@ -481,13 +484,13 @@ function Apps() {
       image: "https://betteraibots.com/assets/chatgpt-team-logo.png"
     },
     {
-      name: "Claude Enterprise",
-      description: "Enterprise-grade Claude with advanced security and customization",
-      category: "Enterprise",
-      features: ["Advanced security", "Custom models", "API access", "Dedicated support"],
+      name: "Pipes.ai",
+      description: "AI-powered lead engagement platform that converts web leads into live calls for your sales team",
+      category: "Sales & Lead Generation",
+      features: ["AI-powered voice and SMS", "Lead verification and filtering", "Automated follow-ups", "Real-time analytics", "CRM integration"],
       price: "Contact sales",
-      link: "https://claude.ai",
-      image: "https://betteraibots.com/assets/claude-enterprise-logo.png"
+      link: "https://try.pipes.ai/hmqj0m3am6un",
+      image: "https://betteraibots.com/assets/pipes-ai-logo.png"
     },
 
     {
@@ -628,6 +631,33 @@ function Apps() {
         }}>
           Click to visit →
         </span>
+        {app.readMoreLink && (
+          <Link
+            to={app.readMoreLink}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              color: '#8b5cf6',
+              fontSize: '0.85rem',
+              fontWeight: '600',
+              textDecoration: 'none',
+              padding: '4px 8px',
+              borderRadius: '8px',
+              background: 'rgba(139, 92, 246, 0.1)',
+              border: '1px solid rgba(139, 92, 246, 0.3)',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'rgba(139, 92, 246, 0.2)';
+              e.target.style.transform = 'translateY(-1px)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'rgba(139, 92, 246, 0.1)';
+              e.target.style.transform = 'translateY(0)';
+            }}
+          >
+            Read More
+          </Link>
+        )}
       </div>
     </div>
   );
