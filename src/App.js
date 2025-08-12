@@ -476,19 +476,19 @@ function Apps() {
       image: "https://betteraibots.com/assets/aisdr-logo.png"
     },
     {
-      name: "ChatGPT Team",
-      description: "Team collaboration with ChatGPT, shared workspaces, and admin controls",
-      category: "Team Collaboration",
-      features: ["Team workspace", "Admin controls", "Shared conversations", "Priority support"],
-      price: "$25/user/month",
-      link: "https://chat.openai.com",
-      image: "https://betteraibots.com/assets/chatgpt-team-logo.png"
+      name: "RunPod.io",
+      description: "Cloud GPU platform for training, fine-tuning, and deploying AI models with zero infrastructure management",
+      category: "AI Infrastructure",
+      features: ["On-demand GPUs", "Serverless AI workloads", "Instant scaling", "Global deployment"],
+      price: "Pay per use",
+      link: "https://get.runpod.io/w3na2cm4xdjp",
+      image: "https://betteraibots.com/assets/runpod-logo.png"
     },
     {
       name: "Pipes.ai",
       description: "AI-powered lead engagement platform that converts web leads into live calls for your sales team",
       category: "Sales & Lead Generation",
-      features: ["AI-powered voice and SMS", "Lead verification and filtering", "Automated follow-ups", "Real-time analytics", "CRM integration"],
+      features: ["AI-powered voice and SMS", "Lead verification and filtering", "Automated follow-ups", "Real-time analytics"],
       price: "Contact sales",
       link: "https://try.pipes.ai/hmqj0m3am6un",
       image: "https://betteraibots.com/assets/pipes-ai-logo.png"
