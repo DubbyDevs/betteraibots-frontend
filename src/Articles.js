@@ -3444,6 +3444,7 @@ export default function Articles({ level = "beginner" }) {
       setIsMobile(window.innerWidth <= 768);
     };
 
+    handleResize(); // Call immediately to set initial state
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -4006,7 +4007,11 @@ export default function Articles({ level = "beginner" }) {
       {/* GUIDES SECTION */}
       <div style={{
         marginTop: 40,
-        marginBottom: 40
+        marginBottom: 40,
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
       }}>
         <h2 style={{ 
           textAlign: "center", 
@@ -4022,9 +4027,13 @@ export default function Articles({ level = "beginner" }) {
         <div style={{
           display: "grid",
           gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
-          gap: "20px",
-          maxWidth: "800px",
-          margin: "0 auto"
+          gap: isMobile ? "15px" : "20px",
+          maxWidth: isMobile ? "600px" : "1200px",
+          margin: "0 auto",
+          padding: isMobile ? "0 15px" : "0 40px",
+          justifyItems: "center",
+          alignItems: "start",
+          width: "100%"
         }}>
           {/* AI for Dummies Guide */}
           <a 
@@ -4035,7 +4044,8 @@ export default function Articles({ level = "beginner" }) {
               display: "block",
               textDecoration: "none",
               color: "inherit",
-              transition: "transform 0.2s ease-in-out"
+              transition: "transform 0.2s ease-in-out",
+              width: "100%"
             }}
             onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
             onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
@@ -4044,21 +4054,23 @@ export default function Articles({ level = "beginner" }) {
               background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
               border: "2px solid #36ff95",
               borderRadius: "16px",
-              padding: "20px",
+              padding: isMobile ? "15px" : "20px",
               textAlign: "center",
               boxShadow: "0 0 20px #36ff9544",
               height: "100%",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center"
+              justifyContent: "center",
+              minHeight: isMobile ? "280px" : "320px",
+              width: "100%"
             }}>
               <img
                 src="/aifordummies.png"
                 alt="AI for Dummies Guide"
                 style={{
-                  width: "160px",
-                  height: "160px",
+                  width: isMobile ? "120px" : "160px",
+                  height: isMobile ? "120px" : "160px",
                   objectFit: "cover",
                   borderRadius: "12px",
                   marginBottom: "15px"
@@ -4069,7 +4081,7 @@ export default function Articles({ level = "beginner" }) {
               />
               <h3 style={{
                 color: "#36ff95",
-                fontSize: "1.1rem",
+                fontSize: isMobile ? "1rem" : "1.1rem",
                 fontWeight: 600,
                 margin: "0",
                 textShadow: "0 0 8px #36ff9544"
@@ -4078,7 +4090,7 @@ export default function Articles({ level = "beginner" }) {
               </h3>
               <p style={{
                 color: "#b2ffe0",
-                fontSize: "0.9rem",
+                fontSize: isMobile ? "0.85rem" : "0.9rem",
                 margin: "8px 0 0 0",
                 lineHeight: "1.4"
               }}>
@@ -4096,7 +4108,8 @@ export default function Articles({ level = "beginner" }) {
               display: "block",
               textDecoration: "none",
               color: "inherit",
-              transition: "transform 0.2s ease-in-out"
+              transition: "transform 0.2s ease-in-out",
+              width: "100%"
             }}
             onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
             onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
@@ -4105,21 +4118,23 @@ export default function Articles({ level = "beginner" }) {
               background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
               border: "2px solid #36ff95",
               borderRadius: "16px",
-              padding: "20px",
+              padding: isMobile ? "15px" : "20px",
               textAlign: "center",
               boxShadow: "0 0 20px #36ff9544",
               height: "100%",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center"
+              justifyContent: "center",
+              minHeight: isMobile ? "280px" : "320px",
+              width: "100%"
             }}>
               <img
                 src="/begguide.png"
                 alt="Beginner AI Guide"
                 style={{
-                  width: "160px",
-                  height: "160px",
+                  width: isMobile ? "120px" : "160px",
+                  height: isMobile ? "120px" : "160px",
                   objectFit: "cover",
                   borderRadius: "12px",
                   marginBottom: "15px"
@@ -4130,7 +4145,7 @@ export default function Articles({ level = "beginner" }) {
               />
               <h3 style={{
                 color: "#36ff95",
-                fontSize: "1.1rem",
+                fontSize: isMobile ? "1rem" : "1.1rem",
                 fontWeight: 600,
                 margin: "0",
                 textShadow: "0 0 8px #36ff9544"
@@ -4139,7 +4154,7 @@ export default function Articles({ level = "beginner" }) {
               </h3>
               <p style={{
                 color: "#b2ffe0",
-                fontSize: "0.9rem",
+                fontSize: isMobile ? "0.85rem" : "0.9rem",
                 margin: "8px 0 0 0",
                 lineHeight: "1.4"
               }}>
@@ -4157,7 +4172,8 @@ export default function Articles({ level = "beginner" }) {
               display: "block",
               textDecoration: "none",
               color: "inherit",
-              transition: "transform 0.2s ease-in-out"
+              transition: "transform 0.2s ease-in-out",
+              width: "100%"
             }}
             onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
             onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
@@ -4166,21 +4182,23 @@ export default function Articles({ level = "beginner" }) {
               background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
               border: "2px solid #36ff95",
               borderRadius: "16px",
-              padding: "20px",
+              padding: isMobile ? "15px" : "20px",
               textAlign: "center",
               boxShadow: "0 0 20px #36ff9544",
               height: "100%",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center"
+              justifyContent: "center",
+              minHeight: isMobile ? "280px" : "320px",
+              width: "100%"
             }}>
               <img
                 src="/intguide.png"
                 alt="Intermediate AI Guide"
                 style={{
-                  width: "160px",
-                  height: "160px",
+                  width: isMobile ? "120px" : "160px",
+                  height: isMobile ? "120px" : "160px",
                   objectFit: "cover",
                   borderRadius: "12px",
                   marginBottom: "15px"
@@ -4191,7 +4209,7 @@ export default function Articles({ level = "beginner" }) {
               />
               <h3 style={{
                 color: "#36ff95",
-                fontSize: "1.1rem",
+                fontSize: isMobile ? "1rem" : "1.1rem",
                 fontWeight: 600,
                 margin: "0",
                 textShadow: "0 0 8px #36ff9544"
@@ -4200,7 +4218,7 @@ export default function Articles({ level = "beginner" }) {
               </h3>
               <p style={{
                 color: "#b2ffe0",
-                fontSize: "0.9rem",
+                fontSize: isMobile ? "0.85rem" : "0.9rem",
                 margin: "8px 0 0 0",
                 lineHeight: "1.4"
               }}>
@@ -4218,7 +4236,8 @@ export default function Articles({ level = "beginner" }) {
               display: "block",
               textDecoration: "none",
               color: "inherit",
-              transition: "transform 0.2s ease-in-out"
+              transition: "transform 0.2s ease-in-out",
+              width: "100%"
             }}
             onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
             onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
@@ -4227,21 +4246,23 @@ export default function Articles({ level = "beginner" }) {
               background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
               border: "2px solid #36ff95",
               borderRadius: "16px",
-              padding: "20px",
+              padding: isMobile ? "15px" : "20px",
               textAlign: "center",
               boxShadow: "0 0 20px #36ff9544",
               height: "100%",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center"
+              justifyContent: "center",
+              minHeight: isMobile ? "280px" : "320px",
+              width: "100%"
             }}>
               <img
                 src="/advguide.png"
                 alt="Advanced AI Guide"
                 style={{
-                  width: "160px",
-                  height: "160px",
+                  width: isMobile ? "120px" : "160px",
+                  height: isMobile ? "120px" : "160px",
                   objectFit: "cover",
                   borderRadius: "12px",
                   marginBottom: "15px"
@@ -4252,7 +4273,7 @@ export default function Articles({ level = "beginner" }) {
               />
               <h3 style={{
                 color: "#36ff95",
-                fontSize: "1.1rem",
+                fontSize: isMobile ? "1rem" : "1.1rem",
                 fontWeight: 600,
                 margin: "0",
                 textShadow: "0 0 8px #36ff9544"
@@ -4261,7 +4282,7 @@ export default function Articles({ level = "beginner" }) {
               </h3>
               <p style={{
                 color: "#b2ffe0",
-                fontSize: "0.9rem",
+                fontSize: isMobile ? "0.85rem" : "0.9rem",
                 margin: "8px 0 0 0",
                 lineHeight: "1.4"
               }}>
