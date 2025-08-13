@@ -4003,6 +4003,275 @@ export default function Articles({ level = "beginner" }) {
         </div>
       </div>
 
+      {/* GUIDES SECTION */}
+      <div style={{
+        marginTop: 40,
+        marginBottom: 40
+      }}>
+        <h2 style={{ 
+          textAlign: "center", 
+          color: "#36ff95", 
+          fontSize: "1.4rem", 
+          fontWeight: 600, 
+          marginBottom: 30,
+          textShadow: "0 0 8px #36ff9544"
+        }}>
+          Guides
+        </h2>
+        
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
+          gap: "20px",
+          maxWidth: "800px",
+          margin: "0 auto"
+        }}>
+          {/* AI for Dummies Guide */}
+          <a 
+            href="/ai-for-dummies-guide.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              textDecoration: "none",
+              color: "inherit",
+              transition: "transform 0.2s ease-in-out"
+            }}
+            onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
+            onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+          >
+            <div style={{
+              background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+              border: "2px solid #36ff95",
+              borderRadius: "16px",
+              padding: "20px",
+              textAlign: "center",
+              boxShadow: "0 0 20px #36ff9544",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center"
+            }}>
+              <img
+                src="/aifordummies.png"
+                alt="AI for Dummies Guide"
+                style={{
+                  width: "160px",
+                  height: "160px",
+                  objectFit: "cover",
+                  borderRadius: "12px",
+                  marginBottom: "15px"
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              <h3 style={{
+                color: "#36ff95",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                margin: "0",
+                textShadow: "0 0 8px #36ff9544"
+              }}>
+                AI for Dummies
+              </h3>
+              <p style={{
+                color: "#b2ffe0",
+                fontSize: "0.9rem",
+                margin: "8px 0 0 0",
+                lineHeight: "1.4"
+              }}>
+                Super simple guide to getting started with AI
+              </p>
+            </div>
+          </a>
+
+          {/* Beginner Guide */}
+          <a 
+            href="/ai-starter-guide.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              textDecoration: "none",
+              color: "inherit",
+              transition: "transform 0.2s ease-in-out"
+            }}
+            onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
+            onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+          >
+            <div style={{
+              background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+              border: "2px solid #36ff95",
+              borderRadius: "16px",
+              padding: "20px",
+              textAlign: "center",
+              boxShadow: "0 0 20px #36ff9544",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center"
+            }}>
+              <img
+                src="/begguide.png"
+                alt="Beginner AI Guide"
+                style={{
+                  width: "160px",
+                  height: "160px",
+                  objectFit: "cover",
+                  borderRadius: "12px",
+                  marginBottom: "15px"
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              <h3 style={{
+                color: "#36ff95",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                margin: "0",
+                textShadow: "0 0 8px #36ff9544"
+              }}>
+                Beginner Guide
+              </h3>
+              <p style={{
+                color: "#b2ffe0",
+                fontSize: "0.9rem",
+                margin: "8px 0 0 0",
+                lineHeight: "1.4"
+              }}>
+                Master the fundamentals of AI
+              </p>
+            </div>
+          </a>
+
+          {/* Intermediate Guide */}
+          <a 
+            href="/intermediate-ai-guide.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              textDecoration: "none",
+              color: "inherit",
+              transition: "transform 0.2s ease-in-out"
+            }}
+            onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
+            onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+          >
+            <div style={{
+              background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+              border: "2px solid #36ff95",
+              borderRadius: "16px",
+              padding: "20px",
+              textAlign: "center",
+              boxShadow: "0 0 20px #36ff9544",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center"
+            }}>
+              <img
+                src="/intguide.png"
+                alt="Intermediate AI Guide"
+                style={{
+                  width: "160px",
+                  height: "160px",
+                  objectFit: "cover",
+                  borderRadius: "12px",
+                  marginBottom: "15px"
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              <h3 style={{
+                color: "#36ff95",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                margin: "0",
+                textShadow: "0 0 8px #36ff9544"
+              }}>
+                Intermediate Guide
+              </h3>
+              <p style={{
+                color: "#b2ffe0",
+                fontSize: "0.9rem",
+                margin: "8px 0 0 0",
+                lineHeight: "1.4"
+              }}>
+                Dive deeper into AI applications
+              </p>
+            </div>
+          </a>
+
+          {/* Advanced Guide */}
+          <a 
+            href="/advanced-ai-guide.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              textDecoration: "none",
+              color: "inherit",
+              transition: "transform 0.2s ease-in-out"
+            }}
+            onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
+            onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+          >
+            <div style={{
+              background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+              border: "2px solid #36ff95",
+              borderRadius: "16px",
+              padding: "20px",
+              textAlign: "center",
+              boxShadow: "0 0 20px #36ff9544",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center"
+            }}>
+              <img
+                src="/advguide.png"
+                alt="Advanced AI Guide"
+                style={{
+                  width: "160px",
+                  height: "160px",
+                  objectFit: "cover",
+                  borderRadius: "12px",
+                  marginBottom: "15px"
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              <h3 style={{
+                color: "#36ff95",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                margin: "0",
+                textShadow: "0 0 8px #36ff9544"
+              }}>
+                Advanced Guide
+              </h3>
+              <p style={{
+                color: "#b2ffe0",
+                fontSize: "0.9rem",
+                margin: "8px 0 0 0",
+                lineHeight: "1.4"
+              }}>
+                Become an AI expert and earn Pro status
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
       <h2 style={{ 
         textAlign: "center", 
         color: "#36ff95", 
