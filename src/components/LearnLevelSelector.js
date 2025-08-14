@@ -389,8 +389,6 @@ const LearnLevelSelector = () => {
               {/* AI for Dummies Guide */}
               <a 
                 href="/ai-for-dummies-guide.html"
-                target="_blank"
-                rel="noopener noreferrer"
                 style={{
                   display: "block",
                   textDecoration: "none",
@@ -453,8 +451,6 @@ const LearnLevelSelector = () => {
               {/* Beginner Guide */}
               <a 
                 href="/ai-starter-guide.html"
-                target="_blank"
-                rel="noopener noreferrer"
                 style={{
                   display: "block",
                   textDecoration: "none",
@@ -517,8 +513,6 @@ const LearnLevelSelector = () => {
               {/* Intermediate Guide */}
               <a 
                 href="/intermediate-ai-guide.html"
-                target="_blank"
-                rel="noopener noreferrer"
                 style={{
                   display: "block",
                   textDecoration: "none",
@@ -581,8 +575,6 @@ const LearnLevelSelector = () => {
               {/* Advanced Guide */}
               <a 
                 href="/advanced-ai-guide.html"
-                target="_blank"
-                rel="noopener noreferrer"
                 style={{
                   display: "block",
                   textDecoration: "none",

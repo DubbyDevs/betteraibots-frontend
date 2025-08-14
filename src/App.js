@@ -511,6 +511,15 @@ function Apps() {
       price: "From $19/month",
       link: "https://get.castmagic.io/qdu0jfhfcurv",
       image: "https://betteraibots.com/assets/castmagic-logo.png"
+    },
+    {
+      name: "AnyBiz.io",
+      description: "AI sales agents that generate meetings and sales for any business through email, LinkedIn, and phone calls",
+      category: "Sales & Lead Generation",
+      features: ["AI sales agents", "Email automation", "LinkedIn outreach", "Phone call automation"],
+      price: "Contact sales",
+      link: "https://anybiz.io/?fpr=ai4n56",
+      image: "https://betteraibots.com/assets/anybiz-logo.png"
     }
   ];
 
