@@ -8,7 +8,7 @@ const LearnLevelSelector = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 1030);
     };
     
     checkMobile();
@@ -644,140 +644,364 @@ const LearnLevelSelector = () => {
             </div>
           </div>
 
-          {/* APP SPOTLIGHT SECTION */}
-          <div style={{
-            marginTop: 40,
-            marginBottom: 40,
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center"
-          }}>
-            <h2 style={{ 
-              textAlign: "center", 
-              color: "#36ff95", 
-              fontSize: "1.4rem", 
-              fontWeight: 600, 
-              marginBottom: 30,
-              textShadow: "0 0 8px #36ff9544"
-            }}>
-              App Spotlight
-            </h2>
-            
-            {/* Featured Article Card */}
-            <div style={{
-              maxWidth: isMobile ? "600px" : "800px",
-              margin: "0 auto",
-              padding: isMobile ? "0 15px" : "0 40px",
-              width: "100%"
-            }}>
-              <div style={{
-                background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                border: "2px solid #36ff95",
-                borderRadius: "16px",
-                overflow: "hidden",
-                boxShadow: "0 0 20px #36ff9544",
-                transition: "transform 0.2s ease-in-out"
-              }}
-              onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-              onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
-              >
-                <div style={{
-                  display: isMobile ? "block" : "flex",
-                  alignItems: "stretch"
-                }}>
-                  <div style={{
-                    flex: isMobile ? "none" : "0 0 300px",
-                    position: "relative"
+                     {/* APP SPOTLIGHT SECTION */}
+           <div style={{
+             marginTop: 40,
+             marginBottom: 40,
+             width: "100%",
+             display: "flex",
+             flexDirection: "column",
+             alignItems: "center"
+           }}>
+             <h2 style={{ 
+               textAlign: "center", 
+               color: "#36ff95", 
+               fontSize: "1.4rem", 
+               fontWeight: 600, 
+               marginBottom: 30,
+               textShadow: "0 0 8px #36ff9544"
+             }}>
+               App Spotlight
+             </h2>
+             
+                                         {/* App Spotlight Cards Grid */}
+               <div style={{
+                 display: "grid",
+                 gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(600px, 1fr))",
+                 gap: "30px",
+                 maxWidth: isMobile ? "600px" : "1000px",
+                 margin: "0 auto",
+                 padding: isMobile ? "0 15px" : "0 40px",
+                 width: "100%"
+               }}>
+                               {/* Apollo Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                                   <div style={{
+                    display: "flex",
+                    alignItems: "stretch"
                   }}>
-                    <img
-                      src="/scholargpt.jpg"
-                      alt="ScholarGPT - AI Research Assistant"
-                      style={{
-                        width: "100%",
-                        height: isMobile ? "200px" : "100%",
-                        objectFit: "cover"
-                      }}
-                      onError={(e) => {
-                        e.target.src = '/og-square.png';
-                      }}
-                    />
                     <div style={{
-                      position: "absolute",
-                      top: "15px",
-                      right: "15px",
-                      background: "rgba(54, 255, 149, 0.9)",
-                      color: "#1a2330",
-                      padding: "5px 12px",
-                      borderRadius: "20px",
-                      fontSize: "0.8rem",
-                      fontWeight: "600"
+                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      position: "relative"
                     }}>
-                      FEATURED
+                                                                                        <img
+                          src={require("../assets/apolloailogo.webp")}
+                          alt="Apollo AI - Sales Intelligence Platform"
+                         style={{
+                           width: "100%",
+                           height: "100%",
+                           objectFit: "contain"
+                         }}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                     <div style={{
+                       position: "absolute",
+                       top: "15px",
+                       right: "15px",
+                       background: "rgba(54, 255, 149, 0.9)",
+                       color: "#1a2330",
+                       padding: "5px 12px",
+                       borderRadius: "20px",
+                       fontSize: "0.8rem",
+                       fontWeight: "600"
+                     }}>
+                       FEATURED
+                     </div>
+                   </div>
+                   <div style={{
+                     flex: "1",
+                     padding: isMobile ? "15px" : "25px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1rem" : "1.4rem",
+                         fontWeight: "600",
+                         margin: "0 0 10px 0",
+                         lineHeight: "1.3"
+                       }}>
+                         Apollo AI - Sales Intelligence Platform
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Sales & CRM
+                       </p>
+                       <p style={{
+                         color: "#b2ffe0",
+                         fontSize: isMobile ? "0.9rem" : "1rem",
+                         lineHeight: "1.5",
+                         margin: "0 0 20px 0"
+                       }}>
+                         Explore how Apollo AI is transforming sales with over 210 million contacts, AI-powered prospecting, and intelligent lead generation.
+                       </p>
+                     </div>
+                                           <a
+                        href="/learn/apollo-io"
+                        style={{
+                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
+                          color: "#1a2330",
+                          textDecoration: "none",
+                          padding: "12px 24px",
+                          borderRadius: "8px",
+                          fontWeight: "600",
+                          textAlign: "center",
+                          transition: "all 0.3s ease",
+                          alignSelf: "stretch",
+                          width: "100%",
+                          display: "block"
+                        }}
+                       onMouseOver={(e) => {
+                         e.target.style.transform = "translateY(-2px)";
+                         e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
+                       }}
+                       onMouseOut={(e) => {
+                         e.target.style.transform = "translateY(0)";
+                         e.target.style.boxShadow = "none";
+                       }}
+                     >
+                       Read Full Article
+                     </a>
+                   </div>
+                 </div>
+               </div>
+
+               {/* AdCreative Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                                   <div style={{
+                    display: "flex",
+                    alignItems: "stretch"
+                  }}>
+                    <div style={{
+                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      position: "relative"
+                    }}>
+                                                                                                                                                                                <img
+                           src={require("../assets/adcreativeaitrial.png")}
+                           alt="AdCreative AI - Ad Generation Platform"
+                         style={{
+                           width: "100%",
+                           height: "100%",
+                           objectFit: "contain"
+                         }}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                     <div style={{
+                       position: "absolute",
+                       top: "15px",
+                       right: "15px",
+                       background: "rgba(54, 255, 149, 0.9)",
+                       color: "#1a2330",
+                       padding: "5px 12px",
+                       borderRadius: "20px",
+                       fontSize: "0.8rem",
+                       fontWeight: "600"
+                     }}>
+                       FEATURED
+                     </div>
+                   </div>
+                   <div style={{
+                     flex: "1",
+                     padding: isMobile ? "15px" : "25px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1rem" : "1.4rem",
+                         fontWeight: "600",
+                         margin: "0 0 10px 0",
+                         lineHeight: "1.3"
+                       }}>
+                         AdCreative AI - Ad Generation Platform
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Marketing & Advertising
+                       </p>
+                       <p style={{
+                         color: "#b2ffe0",
+                         fontSize: isMobile ? "0.9rem" : "1rem",
+                         lineHeight: "1.5",
+                         margin: "0 0 20px 0"
+                       }}>
+                         Learn how AdCreative AI is revolutionizing digital advertising with AI-powered ad generation and high-converting creative assets.
+                       </p>
+                     </div>
+                                           <a
+                        href="/learn/adcreative-ai"
+                        style={{
+                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
+                          color: "#1a2330",
+                          textDecoration: "none",
+                          padding: "12px 24px",
+                          borderRadius: "8px",
+                          fontWeight: "600",
+                          textAlign: "center",
+                          transition: "all 0.3s ease",
+                          alignSelf: "stretch",
+                          width: "100%",
+                          display: "block"
+                        }}
+                       onMouseOver={(e) => {
+                         e.target.style.transform = "translateY(-2px)";
+                         e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
+                       }}
+                       onMouseOut={(e) => {
+                         e.target.style.transform = "translateY(0)";
+                         e.target.style.boxShadow = "none";
+                       }}
+                                           >
+                        Read Full Article
+                      </a>
                     </div>
                   </div>
+                </div>
+
+                {/* ScholarGPT Card */}
+                <div style={{
+                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                  border: "2px solid #36ff95",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  boxShadow: "0 0 20px #36ff9544",
+                  transition: "transform 0.2s ease-in-out"
+                }}
+                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+                >
                   <div style={{
-                    flex: "1",
-                    padding: "25px",
                     display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between"
+                    alignItems: "stretch"
                   }}>
-                    <div>
-                      <h3 style={{
-                        color: "#36ff95",
-                        fontSize: isMobile ? "1.2rem" : "1.4rem",
-                        fontWeight: "600",
-                        margin: "0 0 10px 0",
-                        lineHeight: "1.3"
-                      }}>
-                        ScholarGPT - AI Research Assistant
-                      </h3>
-                      <p style={{
-                        color: "#9ca3af",
-                        fontSize: "0.9rem",
-                        margin: "0 0 15px 0"
-                      }}>
-                        Featured • Research & Education
-                      </p>
-                      <p style={{
-                        color: "#b2ffe0",
-                        fontSize: "1rem",
-                        lineHeight: "1.5",
-                        margin: "0 0 20px 0"
-                      }}>
-                        Discover how ScholarGPT is revolutionizing academic research with AI-powered literature analysis, citation management, and research paper generation.
-                      </p>
-                    </div>
-                    <a
-                      href="/learn/scholar-gpt"
-                      style={{
-                        background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
+                    <div style={{
+                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      position: "relative"
+                    }}>
+                      <img
+                        src="/scholargpt.jpg"
+                        alt="ScholarGPT - AI Research Assistant"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain"
+                        }}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                      <div style={{
+                        position: "absolute",
+                        top: "15px",
+                        right: "15px",
+                        background: "rgba(54, 255, 149, 0.9)",
                         color: "#1a2330",
-                        textDecoration: "none",
-                        padding: "12px 24px",
-                        borderRadius: "8px",
-                        fontWeight: "600",
-                        textAlign: "center",
-                        transition: "all 0.3s ease",
-                        alignSelf: "flex-start"
-                      }}
-                      onMouseOver={(e) => {
-                        e.target.style.transform = "translateY(-2px)";
-                        e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
-                      }}
-                      onMouseOut={(e) => {
-                        e.target.style.transform = "translateY(0)";
-                        e.target.style.boxShadow = "none";
-                      }}
-                    >
-                      Read Full Article
-                    </a>
+                        padding: "5px 12px",
+                        borderRadius: "20px",
+                        fontSize: "0.8rem",
+                        fontWeight: "600"
+                      }}>
+                        FEATURED
+                      </div>
+                    </div>
+                    <div style={{
+                      flex: "1",
+                      padding: isMobile ? "15px" : "25px",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between"
+                    }}>
+                      <div>
+                        <h3 style={{
+                          color: "#36ff95",
+                          fontSize: isMobile ? "1rem" : "1.4rem",
+                          fontWeight: "600",
+                          margin: "0 0 10px 0",
+                          lineHeight: "1.3"
+                        }}>
+                          ScholarGPT - AI Research Assistant
+                        </h3>
+                        <p style={{
+                          color: "#9ca3af",
+                          fontSize: isMobile ? "0.8rem" : "0.9rem",
+                          margin: "0 0 15px 0"
+                        }}>
+                          Featured • Research & Education
+                        </p>
+                        <p style={{
+                          color: "#b2ffe0",
+                          fontSize: isMobile ? "0.9rem" : "1rem",
+                          lineHeight: "1.5",
+                          margin: "0 0 20px 0"
+                        }}>
+                          Discover how ScholarGPT is revolutionizing academic research with AI-powered literature analysis, citation management, and research paper generation.
+                        </p>
+                      </div>
+                      <a
+                        href="/learn/scholar-gpt"
+                        style={{
+                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
+                          color: "#1a2330",
+                          textDecoration: "none",
+                          padding: "12px 24px",
+                          borderRadius: "8px",
+                          fontWeight: "600",
+                          textAlign: "center",
+                          transition: "all 0.3s ease",
+                          alignSelf: "stretch",
+                          width: "100%",
+                          display: "block"
+                        }}
+                        onMouseOver={(e) => {
+                          e.target.style.transform = "translateY(-2px)";
+                          e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
+                        }}
+                        onMouseOut={(e) => {
+                          e.target.style.transform = "translateY(0)";
+                          e.target.style.boxShadow = "none";
+                        }}
+                      >
+                        Read Full Article
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+           </div>
         </div>
       </div>
     </>
