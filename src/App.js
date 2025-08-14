@@ -2818,6 +2818,9 @@ function NewsArticle() {
           // Article-specific Open Graph images for news articles
           const ogImageMap = {
             "robot-uprising-ai-revolution-2025": "https://betteraibots.com/uprisingrobots.jpg?v=2",
+            "gpt-5-dawn-ai-revolution-2025": "https://betteraibots.com/gpt5updates.webp?v=2",
+            "n8n-revolution-business-automation-2025": "https://betteraibots.com/n8nforb2b.jpg?v=2",
+            "landmark-legal-victory-ai-copyright-training": "https://betteraibots.com/legalwinforai.png?v=2",
             "trump-ai-action-plan-global-leadership": "https://betteraibots.com/trumpaiplan.png?v=2",
             "china-global-ai-cooperation-organization": "https://betteraibots.com/chinaaiplans.png?v=2",
             "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/openaigpt5announced.jpg?v=2",
@@ -2843,6 +2846,9 @@ function NewsArticle() {
           // Article-specific Open Graph images for news articles
           const ogImageMap = {
             "robot-uprising-ai-revolution-2025": "https://betteraibots.com/uprisingrobots.jpg?v=2",
+            "gpt-5-dawn-ai-revolution-2025": "https://betteraibots.com/gpt5updates.webp?v=2",
+            "n8n-revolution-business-automation-2025": "https://betteraibots.com/n8nforb2b.jpg?v=2",
+            "landmark-legal-victory-ai-copyright-training": "https://betteraibots.com/legalwinforai.png?v=2",
             "trump-ai-action-plan-global-leadership": "https://betteraibots.com/trumpaiplan.png?v=2",
             "china-global-ai-cooperation-organization": "https://betteraibots.com/chinaaiplans.png?v=2",
             "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/openaigpt5announced.jpg?v=2",
@@ -2875,6 +2881,9 @@ function NewsArticle() {
               // Article-specific Open Graph images for news articles
               const ogImageMap = {
                 "robot-uprising-ai-revolution-2025": "https://betteraibots.com/uprisingrobots.jpg?v=2",
+                "gpt-5-dawn-ai-revolution-2025": "https://betteraibots.com/gpt5updates.webp?v=2",
+                "n8n-revolution-business-automation-2025": "https://betteraibots.com/n8nforb2b.jpg?v=2",
+                "landmark-legal-victory-ai-copyright-training": "https://betteraibots.com/legalwinforai.png?v=2",
                 "trump-ai-action-plan-global-leadership": "https://betteraibots.com/trumpaiplan.png?v=2",
                 "china-global-ai-cooperation-organization": "https://betteraibots.com/chinaaiplans.png?v=2",
                 "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/openaigpt5announced.jpg?v=2",
