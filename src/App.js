@@ -399,6 +399,15 @@ function Apps() {
       readMoreLink: "/learn/apollo-io"
     },
     {
+      name: "Flowith.io",
+      description: "AI-powered workflow automation platform that helps streamline your business processes",
+      category: "Workflow Automation",
+      features: ["AI process automation", "No-code workflows", "Integration capabilities", "Analytics dashboard"],
+      link: "https://aff.flowith.io/52dtlja1b580",
+      trialInfo: "Free trial available",
+      image: "https://betteraibots.com/assets/flowith-logo.png"
+    },
+    {
       name: "Invideo",
       description: "AI video creation platform with thousands of templates and easy editing",
       category: "Video Creation",
