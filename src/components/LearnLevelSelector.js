@@ -354,6 +354,430 @@ const LearnLevelSelector = () => {
               </div>
             </div>
           </div>
+
+          {/* GUIDES SECTION */}
+          <div style={{
+            marginTop: 40,
+            marginBottom: 40,
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}>
+            <h2 style={{ 
+              textAlign: "center", 
+              color: "#36ff95", 
+              fontSize: "1.4rem", 
+              fontWeight: 600, 
+              marginBottom: 30,
+              textShadow: "0 0 8px #36ff9544"
+            }}>
+              Guides
+            </h2>
+            
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
+              gap: isMobile ? "15px" : "20px",
+              maxWidth: isMobile ? "600px" : "1200px",
+              margin: "0 auto",
+              padding: isMobile ? "0 15px" : "0 40px",
+              justifyItems: "center",
+              alignItems: "start",
+              width: "100%"
+            }}>
+              {/* AI for Dummies Guide */}
+              <a 
+                href="/ai-for-dummies-guide.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  textDecoration: "none",
+                  color: "inherit",
+                  transition: "transform 0.2s ease-in-out",
+                  width: "100%"
+                }}
+                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
+                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+              >
+                <div style={{
+                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                  border: "2px solid #36ff95",
+                  borderRadius: "16px",
+                  padding: isMobile ? "15px" : "20px",
+                  textAlign: "center",
+                  boxShadow: "0 0 20px #36ff9544",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: isMobile ? "280px" : "320px",
+                  width: "100%"
+                }}>
+                  <img
+                    src="/aifordummies.png"
+                    alt="AI for Dummies Guide"
+                    style={{
+                      width: isMobile ? "120px" : "160px",
+                      height: isMobile ? "120px" : "160px",
+                      objectFit: "cover",
+                      borderRadius: "12px",
+                      marginBottom: "15px"
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                  <h3 style={{
+                    color: "#36ff95",
+                    fontSize: isMobile ? "1rem" : "1.1rem",
+                    fontWeight: 600,
+                    margin: "0",
+                    textShadow: "0 0 8px #36ff9544"
+                  }}>
+                    AI for Dummies
+                  </h3>
+                  <p style={{
+                    color: "#b2ffe0",
+                    fontSize: isMobile ? "0.85rem" : "0.9rem",
+                    margin: "8px 0 0 0",
+                    lineHeight: "1.4"
+                  }}>
+                    Super simple guide to getting started with AI
+                  </p>
+                </div>
+              </a>
+
+              {/* Beginner Guide */}
+              <a 
+                href="/ai-starter-guide.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  textDecoration: "none",
+                  color: "inherit",
+                  transition: "transform 0.2s ease-in-out",
+                  width: "100%"
+                }}
+                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
+                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+              >
+                <div style={{
+                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                  border: "2px solid #36ff95",
+                  borderRadius: "16px",
+                  padding: isMobile ? "15px" : "20px",
+                  textAlign: "center",
+                  boxShadow: "0 0 20px #36ff9544",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: isMobile ? "280px" : "320px",
+                  width: "100%"
+                }}>
+                  <img
+                    src="/begguide.png"
+                    alt="Beginner AI Guide"
+                    style={{
+                      width: isMobile ? "120px" : "160px",
+                      height: isMobile ? "120px" : "160px",
+                      objectFit: "cover",
+                      borderRadius: "12px",
+                      marginBottom: "15px"
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                  <h3 style={{
+                    color: "#36ff95",
+                    fontSize: isMobile ? "1rem" : "1.1rem",
+                    fontWeight: 600,
+                    margin: "0",
+                    textShadow: "0 0 8px #36ff9544"
+                  }}>
+                    Beginner Guide
+                  </h3>
+                  <p style={{
+                    color: "#b2ffe0",
+                    fontSize: isMobile ? "0.85rem" : "0.9rem",
+                    margin: "8px 0 0 0",
+                    lineHeight: "1.4"
+                  }}>
+                    Master the fundamentals of AI
+                  </p>
+                </div>
+              </a>
+
+              {/* Intermediate Guide */}
+              <a 
+                href="/intermediate-ai-guide.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  textDecoration: "none",
+                  color: "inherit",
+                  transition: "transform 0.2s ease-in-out",
+                  width: "100%"
+                }}
+                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
+                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+              >
+                <div style={{
+                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                  border: "2px solid #36ff95",
+                  borderRadius: "16px",
+                  padding: isMobile ? "15px" : "20px",
+                  textAlign: "center",
+                  boxShadow: "0 0 20px #36ff9544",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: isMobile ? "280px" : "320px",
+                  width: "100%"
+                }}>
+                  <img
+                    src="/intguide.png"
+                    alt="Intermediate AI Guide"
+                    style={{
+                      width: isMobile ? "120px" : "160px",
+                      height: isMobile ? "120px" : "160px",
+                      objectFit: "cover",
+                      borderRadius: "12px",
+                      marginBottom: "15px"
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                  <h3 style={{
+                    color: "#36ff95",
+                    fontSize: isMobile ? "1rem" : "1.1rem",
+                    fontWeight: 600,
+                    margin: "0",
+                    textShadow: "0 0 8px #36ff9544"
+                  }}>
+                    Intermediate Guide
+                  </h3>
+                  <p style={{
+                    color: "#b2ffe0",
+                    fontSize: isMobile ? "0.85rem" : "0.9rem",
+                    margin: "8px 0 0 0",
+                    lineHeight: "1.4"
+                  }}>
+                    Dive deeper into AI applications
+                  </p>
+                </div>
+              </a>
+
+              {/* Advanced Guide */}
+              <a 
+                href="/advanced-ai-guide.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  textDecoration: "none",
+                  color: "inherit",
+                  transition: "transform 0.2s ease-in-out",
+                  width: "100%"
+                }}
+                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
+                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+              >
+                <div style={{
+                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                  border: "2px solid #36ff95",
+                  borderRadius: "16px",
+                  padding: isMobile ? "15px" : "20px",
+                  textAlign: "center",
+                  boxShadow: "0 0 20px #36ff9544",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: isMobile ? "280px" : "320px",
+                  width: "100%"
+                }}>
+                  <img
+                    src="/advguide.png"
+                    alt="Advanced AI Guide"
+                    style={{
+                      width: isMobile ? "120px" : "160px",
+                      height: isMobile ? "120px" : "160px",
+                      objectFit: "cover",
+                      borderRadius: "12px",
+                      marginBottom: "15px"
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                  <h3 style={{
+                    color: "#36ff95",
+                    fontSize: isMobile ? "1rem" : "1.1rem",
+                    fontWeight: 600,
+                    margin: "0",
+                    textShadow: "0 0 8px #36ff9544"
+                  }}>
+                    Advanced Guide
+                  </h3>
+                  <p style={{
+                    color: "#b2ffe0",
+                    fontSize: isMobile ? "0.85rem" : "0.9rem",
+                    margin: "8px 0 0 0",
+                    lineHeight: "1.4"
+                  }}>
+                    Become an AI expert and earn Pro status
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* APP SPOTLIGHT SECTION */}
+          <div style={{
+            marginTop: 40,
+            marginBottom: 40,
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}>
+            <h2 style={{ 
+              textAlign: "center", 
+              color: "#36ff95", 
+              fontSize: "1.4rem", 
+              fontWeight: 600, 
+              marginBottom: 30,
+              textShadow: "0 0 8px #36ff9544"
+            }}>
+              App Spotlight
+            </h2>
+            
+            {/* Featured Article Card */}
+            <div style={{
+              maxWidth: isMobile ? "600px" : "800px",
+              margin: "0 auto",
+              padding: isMobile ? "0 15px" : "0 40px",
+              width: "100%"
+            }}>
+              <div style={{
+                background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                border: "2px solid #36ff95",
+                borderRadius: "16px",
+                overflow: "hidden",
+                boxShadow: "0 0 20px #36ff9544",
+                transition: "transform 0.2s ease-in-out"
+              }}
+              onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+              onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+              >
+                <div style={{
+                  display: isMobile ? "block" : "flex",
+                  alignItems: "stretch"
+                }}>
+                  <div style={{
+                    flex: isMobile ? "none" : "0 0 300px",
+                    position: "relative"
+                  }}>
+                    <img
+                      src="/scholargpt.jpg"
+                      alt="ScholarGPT - AI Research Assistant"
+                      style={{
+                        width: "100%",
+                        height: isMobile ? "200px" : "100%",
+                        objectFit: "cover"
+                      }}
+                      onError={(e) => {
+                        e.target.src = '/og-square.png';
+                      }}
+                    />
+                    <div style={{
+                      position: "absolute",
+                      top: "15px",
+                      right: "15px",
+                      background: "rgba(54, 255, 149, 0.9)",
+                      color: "#1a2330",
+                      padding: "5px 12px",
+                      borderRadius: "20px",
+                      fontSize: "0.8rem",
+                      fontWeight: "600"
+                    }}>
+                      FEATURED
+                    </div>
+                  </div>
+                  <div style={{
+                    flex: "1",
+                    padding: "25px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between"
+                  }}>
+                    <div>
+                      <h3 style={{
+                        color: "#36ff95",
+                        fontSize: isMobile ? "1.2rem" : "1.4rem",
+                        fontWeight: "600",
+                        margin: "0 0 10px 0",
+                        lineHeight: "1.3"
+                      }}>
+                        ScholarGPT - AI Research Assistant
+                      </h3>
+                      <p style={{
+                        color: "#9ca3af",
+                        fontSize: "0.9rem",
+                        margin: "0 0 15px 0"
+                      }}>
+                        Featured • Research & Education
+                      </p>
+                      <p style={{
+                        color: "#b2ffe0",
+                        fontSize: "1rem",
+                        lineHeight: "1.5",
+                        margin: "0 0 20px 0"
+                      }}>
+                        Discover how ScholarGPT is revolutionizing academic research with AI-powered literature analysis, citation management, and research paper generation.
+                      </p>
+                    </div>
+                    <a
+                      href="/learn/scholar-gpt"
+                      style={{
+                        background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
+                        color: "#1a2330",
+                        textDecoration: "none",
+                        padding: "12px 24px",
+                        borderRadius: "8px",
+                        fontWeight: "600",
+                        textAlign: "center",
+                        transition: "all 0.3s ease",
+                        alignSelf: "flex-start"
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.transform = "translateY(-2px)";
+                        e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.transform = "translateY(0)";
+                        e.target.style.boxShadow = "none";
+                      }}
+                    >
+                      Read Full Article
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
