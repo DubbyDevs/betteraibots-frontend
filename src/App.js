@@ -360,7 +360,7 @@ function Apps() {
       category: "Marketing & Advertising",
       features: ["AI ad generation", "Brand customization", "Performance tracking", "Multiple formats"],
       link: "https://betteraibots.com/adcreative",
-      trialInfo: "Free trial available, then $29/month",
+      trialInfo: "Free Trial Available",
       image: "https://betteraibots.com/assets/adcreative-logo.png",
       readMoreLink: "/learn/adcreative-ai"
     },
@@ -370,7 +370,7 @@ function Apps() {
       category: "Sales & CRM",
       features: ["Contact database", "AI-powered prospecting", "Email automation", "Sales intelligence"],
       link: "https://get.apollo.io/BAIB",
-      trialInfo: "Free forever plan available, Pro plans from $49/month",
+      trialInfo: "Pro plans from $49/month",
       image: "https://betteraibots.com/assets/apollo-logo.png",
       readMoreLink: "/learn/apollo-io"
     },
@@ -381,7 +381,8 @@ function Apps() {
       features: ["AI process automation", "No-code workflows", "Integration capabilities", "Analytics dashboard"],
       link: "https://aff.flowith.io/52dtlja1b580",
       trialInfo: "Free trial available",
-      image: "https://betteraibots.com/assets/flowith-logo.png"
+      image: "https://betteraibots.com/assets/flowith-logo.png",
+      readMoreLink: "/learn/flowith-io"
     },
     {
       name: "Invideo",
@@ -389,17 +390,17 @@ function Apps() {
       category: "Video Creation",
       features: ["AI video generation", "5000+ templates", "Text-to-video", "Easy editing"],
       link: "https://betteraibots.com/invideo",
-      trialInfo: "Free plan available, Pro $25/month",
+      trialInfo: "Free Trial Available",
       image: "https://betteraibots.com/assets/invideo-logo.png",
       readMoreLink: "/learn/invideo-ai"
     },
     {
       name: "Lindy",
-      description: "AI-powered personal assistant that helps you manage tasks, schedule, and productivity",
+      description: "AI-powered personal assistant that helps you manage tasks",
       category: "Productivity & Personal Assistant",
       features: ["Task management", "Smart scheduling", "Email organization", "Meeting assistance"],
       link: "https://try.lindy.ai/lhgvxfidor04",
-      trialInfo: "Free trial available, then $20/month",
+      trialInfo: "Free Trial Available",
       image: "https://betteraibots.com/assets/lindy-logo.png"
     },
     {

@@ -406,6 +406,46 @@ export default function ArticlePage() {
                   </div>
                 );
               }
+              // Flowith CTA button with container
+              if (href && href.includes('aff.flowith.io')) {
+                return (
+                  <div style={{
+                    textAlign: 'center',
+                    margin: '40px 0',
+                    padding: '30px',
+                    background: 'linear-gradient(135deg, #1a3447 0%, #0f1a26 100%)',
+                    borderRadius: 16,
+                    border: '1px solid #36ff9522'
+                  }}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-block',
+                        background: 'linear-gradient(90deg, #36ff95 0%, #00ffb2 100%)',
+                        color: '#1a1a1a',
+                        padding: '16px 32px',
+                        borderRadius: '12px',
+                        textDecoration: 'none',
+                        fontWeight: 700,
+                        fontSize: '1.2rem',
+                        boxShadow: '0 4px 16px rgba(54, 255, 149, 0.3)'
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.transform = 'translateY(-2px)';
+                        e.target.style.boxShadow = '0 6px 20px rgba(54, 255, 149, 0.4)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.transform = 'translateY(0)';
+                        e.target.style.boxShadow = '0 4px 16px rgba(54, 255, 149, 0.3)';
+                      }}
+                    >
+                      {children && typeof children[0] === 'string' ? children : 'Try Flowith Now →'}
+                    </a>
+                  </div>
+                );
+              }
               // AdCreative CTA button with container
               if (href && href.includes('betteraibots.com/adcreative')) {
                 return (

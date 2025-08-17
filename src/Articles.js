@@ -959,6 +959,267 @@ This review is based on extensive testing and user feedback. InVideo AI is a pow
 `
   },
   {
+    id: "flowith-io",
+    title: "Flowith.io: The Revolutionary AI Canvas That's Changing How We Work with Artificial Intelligence",
+    date: "June 2025",
+    cover: "/flowith.jpg",
+    preview: "Your Complete Guide to the Next-Generation AI Workspace That Goes Beyond Traditional Chatbots",
+    images: ["/flowith.jpg"],
+    content: `
+# Flowith.io: The Revolutionary AI Canvas That's Changing How We Work with Artificial Intelligence
+
+*Your Complete Guide to the Next-Generation AI Workspace That Goes Beyond Traditional Chatbots*
+
+In a world where AI interactions are typically confined to linear chat windows, Flowith.io emerges as a game-changing platform that reimagines how humans collaborate with artificial intelligence. This isn't just another AI tool—it's a revolutionary workspace that transforms scattered thoughts into organized workflows, complex research into visual knowledge maps, and overwhelming tasks into manageable, automated processes.
+
+## What is Flowith.io?
+
+Flowith.io is an AI-powered creation workspace that fundamentally differs from traditional chatbot interfaces. Instead of limiting you to linear conversations, Flowith provides an infinite two-dimensional canvas where you can interact with multiple AI models simultaneously, create visual workflows, and organize complex projects in an intuitive, collaborative environment.
+
+Think of it as the difference between having a single phone conversation and orchestrating a symphony—Flowith allows you to conduct multiple AI "instruments" at once, creating rich, multi-layered outputs that would be impossible with traditional chat-based tools.
+
+### The Core Philosophy: Multi-Threaded Intelligence
+
+Just like our name suggests, flowith aims to provide a new way of interacting with AI that goes beyond traditional conversations. We believe that, similar to human-to-human interaction and collaboration, the optimal way for humans and AI to interact should be divergent, multi-threaded, and collaborative.
+
+This philosophy manifests in three key ways:
+- **Divergent Thinking**: Explore multiple ideas simultaneously without losing track
+- **Multi-threaded Conversations**: Run parallel discussions with different AI models
+- **Collaborative Creation**: Work alongside AI as a creative partner, not just a tool
+
+## Key Features That Set Flowith Apart
+
+### 1. The Infinite Canvas Interface
+
+Unlike traditional chat interfaces that scroll endlessly downward, Flowith's canvas allows you to:
+- **Visualize Connections**: See how different ideas and outputs relate to each other
+- **Organize Spatially**: Arrange information in a way that makes sense to your brain
+- **Navigate Non-linearly**: Jump between different conversation threads without losing context
+- **Compare Results**: Place outputs from different AI models side-by-side for easy comparison
+
+### 2. Multiple AI Model Access
+
+Unlike interactions limited to a single type of large language model, our platform offers users a diverse range of models to choose from. This includes: Multimodal models such as OpenAI: o1 Preview、GPT-4o、4o-mini、Claude 3.5 sonnet · Image generation models like Stable Diffusion and DALL·E 3
+
+This variety means you can:
+- Choose the best model for specific tasks
+- Compare outputs from different AI systems
+- Switch between text, image, and multimodal capabilities seamlessly
+- Optimize for speed, quality, or specialized functions
+
+### 3. Agent Neo: The Infinite AI Agent
+
+The crown jewel of Flowith is Agent Neo, described as "a cutting-edge intelligent agent designed by the Flowith team to autonomously handle complex, multi-step tasks. It represents an evolution beyond static, pre-planned execution agents, operating with a dynamic and adaptive methodology."
+
+Agent Neo is characterized by being:
+- **Autonomous**: Interprets high-level goals and works independently toward solutions
+- **Dynamic**: Adapts its approach in real-time based on new information
+- **Tool-Oriented**: Utilizes a diverse and expanding set of tools
+- **Self-Correcting**: Identifies failures and modifies strategies to overcome obstacles
+
+### 4. Oracle Mode: Intelligent Task Decomposition
+
+Oracle is a cutting-edge intelligent agent system developed by the flowith team, designed with the goal of achieving pre-AGI (pre-Artificial General Intelligence). It is specifically engineered to handle multi-step, complex tasks that require the use of multiple tools.
+
+Oracle Mode eliminates the need for manual prompt engineering by:
+- **Autonomous Planning**: Breaking down complex requests into manageable steps
+- **Tool Integration**: Automatically selecting and using appropriate tools from its library
+- **Dynamic Adaptation**: Modifying plans based on real-time results
+- **Context Management**: Maintaining relevant information across long, complex tasks
+
+### 5. Knowledge Garden: Your Personal AI Brain
+
+The Knowledge Garden feature transforms how you manage and leverage information:
+- **Automatic Organization**: Breaks down documents, notes, and links into manageable "Seeds"
+- **Intelligent Connections**: Creates relationships between different pieces of information
+- **Context-Aware Responses**: Uses your personal knowledge base to provide tailored outputs
+- **Growing Intelligence**: Becomes smarter and more useful as you add more information
+
+## How to Use Flowith to Work Smarter
+
+### Getting Started: Basic Workflow
+
+1. **Sign Up and Explore**: Create your account at try.flowith.io
+2. **Choose Your Mode**: Start with Flow Mode for general tasks or Agent Mode for complex automation
+3. **Create Your First Canvas**: Begin with a simple question or project goal
+4. **Add Parallel Threads**: Explore different aspects of your topic simultaneously
+5. **Compare and Combine**: Use the visual interface to see connections and insights
+
+### Advanced Workflows for Maximum Productivity
+
+#### For Content Creators and Writers
+
+**Multi-Angle Research**:
+- Place your main topic in the center of the canvas
+- Create branches for different perspectives, sources, or angles
+- Use different AI models to generate varied viewpoints
+- Visually organize findings before writing
+
+**Content Planning and Creation**:
+Content generated on the canvas can be imported into the Composer with a single click, where you can edit, refine, and polish your work. From capturing inspiration to in-depth research, from initial drafts to final publication, Flowith helps you complete everything in one place.
+
+#### For Researchers and Analysts
+
+**Complex Data Analysis**:
+- Upload multiple documents to your Knowledge Garden
+- Use Agent Neo to analyze patterns across different sources
+- Create visual maps of findings and connections
+- Generate comprehensive reports with automated insights
+
+**Literature Reviews**:
+- Organize papers and sources spatially on the canvas
+- Compare methodologies and findings visually
+- Generate synthesis documents that pull from multiple sources
+
+#### For Project Managers and Strategists
+
+**Project Planning**:
+- Use Oracle Mode to break down complex projects into actionable steps
+- Create visual roadmaps with dependencies and timelines
+- Generate documentation and reports automatically
+- Track progress across multiple workstreams
+
+**Strategic Analysis**:
+- Map out different scenarios and their implications
+- Compare competitive landscapes side-by-side
+- Generate comprehensive strategy documents
+
+#### For Designers and Creative Professionals
+
+**Ideation and Concept Development**:
+Flowith.io offers AI-based suggestions that help in ideation and analysis. When I input case study data or research material, the AI provided valuable insights on: User behavior patterns. Design trends relevant to my project. Potential areas for improving user experience.
+
+**Portfolio and Case Study Creation**:
+- Organize design processes visually
+- Generate structured case study templates
+- Compare different design directions and their rationales
+
+### Real-World Use Cases
+
+#### Business Applications
+
+**Market Research and Analysis**:
+Use Agent Neo to gather and analyze market data from multiple sources, create competitive analysis reports, and generate strategic recommendations—all within a single workflow.
+
+**Customer Support Automation**:
+Create knowledge bases that automatically answer common questions, generate personalized responses, and escalate complex issues with full context.
+
+**Content Marketing Pipelines**:
+Develop automated workflows that research topics, generate content outlines, create drafts, and produce final marketing materials across multiple channels.
+
+#### Educational Applications
+
+**Research Paper Development**:
+Students and academics can use Flowith to gather sources, organize research, develop arguments, and create comprehensive papers with proper citations and structure.
+
+**Course Development**:
+Educators can create entire curricula by organizing learning objectives, developing content, creating assessments, and designing interactive elements.
+
+#### Personal Productivity
+
+**Learning and Skill Development**:
+Create personalized learning paths that adapt to your progress, generate practice exercises, and provide feedback on your development.
+
+**Life and Career Planning**:
+Use the visual canvas to explore different career paths, compare opportunities, and create actionable plans for achieving your goals.
+
+## Advanced Features for Power Users
+
+### Recipe Creation and Sharing
+
+The term "recipe" originally refers to a set of instructions for preparing a dish. In the context of Oracle, a Recipe represents a systematic workflow that AI executes to complete user tasks.
+
+Create reusable workflows that can be:
+- Shared with team members
+- Applied to similar projects
+- Modified and improved over time
+- Scaled across different contexts
+
+### Multi-Agent Collaboration
+
+The platform emphasizes that you get "not just one agent - a whole team working in parallel on your tasks." This multi-agent architecture offers several critical advantages: Parallel Processing: Different facets of a complex problem can be assigned to specialized sub-agents or parallel processing units, all working simultaneously.
+
+### Real-Time Collaboration
+
+Flowith's canvas-based interface is inherently suited for multi-user collaboration. Here, you can share a flow link with your colleagues, allowing them to: Directly view generated results; Join your creative process; Collaboratively generate and debug content
+
+## Tips for Maximizing Flowith's Potential
+
+### 1. Start Simple, Scale Complex
+Begin with basic questions and gradually build complexity as you become comfortable with the interface.
+
+### 2. Leverage the Visual Nature
+Use the spatial arrangement to create logical flows and visual hierarchies that match your thinking process.
+
+### 3. Experiment with Different Models
+Try the same prompt with different AI models to see which produces the best results for your specific needs.
+
+### 4. Build Your Knowledge Garden Gradually
+Upload documents and resources over time to create a powerful, personalized knowledge base.
+
+### 5. Create Templates and Recipes
+Develop reusable workflows for common tasks to save time and ensure consistency.
+
+### 6. Use Agent Mode for Complex Tasks
+When you have multi-step projects, let Agent Neo handle the orchestration while you focus on high-level guidance.
+
+## Pricing and Accessibility
+
+Flowith operates on a freemium model with various subscription tiers. flowith neo is now open to everyone. no more codes hunting. gen anything (3d, speech, music, videos, images, games, webpages...) by an infinite agent, on an infinite canvas. 50% off annual plans + $34 in free credits.
+
+The platform offers:
+- Free tier with basic functionality
+- Paid plans with increased capabilities and credits
+- Mobile app availability for iOS
+- Regular promotional offers and discounts
+
+## The Future of AI Interaction
+
+Flowith represents a fundamental shift in how we think about AI interaction. Instead of treating AI as a question-and-answer machine, Flowith positions AI as a collaborative partner in the creative and analytical process.
+
+The debut of Agent Neo in May 2025 drew more than 200,000 users within days, heralding a shift toward spatial, agent-orchestrated AI workspaces.
+
+This rapid adoption suggests that users are hungry for more sophisticated ways to interact with AI—ways that match the complexity and creativity of human thought processes.
+
+## Getting Started Today
+
+Ready to transform your AI workflow? Here's how to begin:
+
+1. **Visit**: Go to try.flowith.io and create your account
+2. **Explore**: Start with the guided tutorial to understand the canvas interface
+3. **Experiment**: Try a simple project using both Flow Mode and Agent Mode
+4. **Build**: Upload some documents to start building your Knowledge Garden
+5. **Share**: Invite team members to collaborate on a project
+6. **Scale**: Gradually take on more complex tasks as you master the platform
+
+## 🚀 Ready to Transform Your AI Workflow?
+
+**Experience the Flowith.io difference today with revolutionary AI canvas technology at your fingertips.**
+
+---
+
+**🎯 Start Your AI Revolution**
+
+Join thousands of users already experiencing the future of AI interaction with Flowith.io's infinite canvas and multi-threaded conversations.
+
+**[Try Flowith Now →](https://aff.flowith.io/52dtlja1b580)**
+
+*50% off annual plans + $34 in free credits*
+
+---
+
+## Conclusion: Beyond the Chat Window
+
+Flowith.io isn't just another AI tool—it's a glimpse into the future of human-AI collaboration. By breaking free from the constraints of linear chat interfaces and embracing spatial, visual, and multi-threaded interactions, Flowith enables new forms of creativity, productivity, and insight generation.
+
+Whether you're a content creator looking to streamline research, a business professional managing complex projects, or a student conducting academic research, Flowith provides the tools and framework to work smarter, not harder.
+
+The age of simple chatbots is ending. The era of intelligent, collaborative AI workspaces has begun. And Flowith.io is leading the way.
+
+*Ready to experience the future of AI interaction? Start your journey at flowith.io and discover what becomes possible when you move beyond the chat window.*
+    `
+  },
+  {
     id: "scholar-gpt",
     title: "ScholarGPT: The AI Research Assistant Revolutionizing Academia",
     date: "May 2025",
