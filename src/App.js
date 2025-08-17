@@ -350,30 +350,6 @@ function Apps() {
       features: ["Image analysis", "Code generation", "Creative writing", "Google integration"],
       link: "https://gemini.google.com",
       image: "https://betteraibots.com/assets/gemini-logo.png"
-    },
-    {
-      name: "Hugging Face",
-      description: "Open-source AI models and tools for developers and researchers",
-      category: "Development",
-      features: ["Open source models", "Model hosting", "Inference API", "Community"],
-      link: "https://huggingface.co",
-      image: "https://betteraibots.com/assets/huggingface-logo.png"
-    },
-    {
-      name: "Perplexity AI",
-      description: "AI-powered search engine that provides accurate answers with sources",
-      category: "Search & Research",
-      features: ["Real-time search", "Source citations", "Multiple perspectives", "Academic focus"],
-      link: "https://perplexity.ai",
-      image: "https://betteraibots.com/assets/perplexity-logo.png"
-    },
-    {
-      name: "Poe",
-      description: "Platform to chat with multiple AI models including Claude, GPT-4, and more",
-      category: "Multi-Model Chat",
-      features: ["Multiple AI models", "Custom bots", "Mobile app", "Free tier"],
-      link: "https://poe.com",
-      image: "https://betteraibots.com/assets/poe-logo.png"
     }
   ];
 
@@ -452,6 +428,15 @@ function Apps() {
       link: "https://warmyio.partnerlinks.io/ffy5y6ll9374",
       trialInfo: "7-Day Free Trial, No Credit Card Required",
       image: "https://betteraibots.com/assets/warmy-logo.png"
+    },
+    {
+      name: "Wispr Flow",
+      description: "Voice-first AI assistant for faster typing, note-taking, and content creation across all your apps",
+      category: "Productivity & Voice AI",
+      features: ["Voice dictation", "Cross-platform compatibility", "AI-powered transcription", "Background operation"],
+      link: "https://wisprflow.ai/downloads?referral=KING16",
+      trialInfo: "Free for students (3 months), then paid plans",
+      image: "https://betteraibots.com/assets/wispr-flow-logo.png"
     }
   ];
 
@@ -876,7 +861,7 @@ function Apps() {
                   fontSize: '2rem',
                   marginBottom: '16px'
                 }}>
-                  🎯 Free Trial AI Tools
+                  🎯 Free Trial AI Trials
                 </h2>
                 <p style={{
                   color: '#d1efe7',
