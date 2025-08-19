@@ -404,6 +404,15 @@ function Apps() {
       image: "https://betteraibots.com/assets/lindy-logo.png"
     },
     {
+      name: "MRPeasy",
+      description: "AI-powered MRP software for small manufacturers with 10-200 employees",
+      category: "Manufacturing & ERP",
+      features: ["Production planning", "Inventory management", "CRM integration", "Real-time reporting"],
+      link: "https://try.mrpeasy.com/m72w6bztymwh",
+      trialInfo: "14-Day Free Trial",
+      image: "https://betteraibots.com/assets/mrpeasy-logo.png"
+    },
+    {
       name: "Reply.io",
       description: "AI-powered sales outreach platform with multichannel sequences, email automation, and AI SDR agents",
       category: "Sales & CRM",
@@ -459,7 +468,8 @@ function Apps() {
       features: ["Product discovery", "Market intelligence", "Keyword research", "Listing optimization"],
       price: "$48-$199/month",
       link: "https://affiliate.viral-launch.com/BAIB",
-      image: "https://betteraibots.com/assets/viral-launch-logo.png"
+      image: "https://betteraibots.com/assets/viral-launch-logo.png",
+      readMoreLink: "/learn/viral-launch"
     },
     {
       name: "AiSDR",
@@ -862,7 +872,7 @@ function Apps() {
                   fontSize: '2rem',
                   marginBottom: '16px'
                 }}>
-                  🎯 Free Trial AI Trials
+                  🎯 Free Premium AI App Trials
                 </h2>
                 <p style={{
                   color: '#d1efe7',
