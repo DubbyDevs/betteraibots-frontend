@@ -401,7 +401,8 @@ function Apps() {
       features: ["Task management", "Smart scheduling", "Email organization", "Meeting assistance"],
       link: "https://try.lindy.ai/lhgvxfidor04",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/assets/lindy-logo.png"
+      image: "https://betteraibots.com/assets/lindy-logo.png",
+      readMoreLink: "/learn/lindy-ai"
     },
     {
       name: "MRPeasy",

@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { articles } from "./Articles";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 function ShareButtons({ url, title }) {
   // Copy link handler
@@ -284,8 +285,8 @@ export default function ArticlePage() {
       {/* Top Image */}
       {images[0] && (
         <img src={images[0]} alt="" style={{
-          width: "480px",
-          height: "480px",
+          width: "420px",
+          height: "420px",
           maxWidth: "100%",
           borderRadius: 16,
           margin: "0 0 24px 0",
@@ -315,6 +316,7 @@ export default function ArticlePage() {
       }}>{article.preview}</p>
       {typeof article.content === "string" ? (
         <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
           components={{
             h2: ScholarGPTHeading,
             h3: ({ node, children, ...props }) => (
@@ -402,6 +404,46 @@ export default function ArticlePage() {
                       }}
                     >
                       {children && typeof children[0] === 'string' ? children : 'Try Apollo Now →'}
+                    </a>
+                  </div>
+                );
+              }
+              // Lindy.ai CTA button with container
+              if (href && href.includes('try.lindy.ai/BAIB')) {
+                return (
+                  <div style={{
+                    textAlign: 'center',
+                    margin: '40px 0',
+                    padding: '30px',
+                    background: 'linear-gradient(135deg, #1a3447 0%, #0f1a26 100%)',
+                    borderRadius: 16,
+                    border: '1px solid #36ff9522'
+                  }}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-block',
+                        background: 'linear-gradient(90deg, #36ff95 0%, #00ffb2 100%)',
+                        color: '#1a1a1a',
+                        padding: '16px 32px',
+                        borderRadius: '12px',
+                        textDecoration: 'none',
+                        fontWeight: 700,
+                        fontSize: '1.2rem',
+                        boxShadow: '0 4px 16px rgba(54, 255, 149, 0.3)'
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.transform = 'translateY(-2px)';
+                        e.target.style.boxShadow = '0 6px 20px rgba(54, 255, 149, 0.4)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.transform = 'translateY(0)';
+                        e.target.style.boxShadow = '0 4px 16px rgba(54, 255, 149, 0.3)';
+                      }}
+                    >
+                      {children && typeof children[0] === 'string' ? children : 'Try Lindy.ai Now →'}
                     </a>
                   </div>
                 );
@@ -582,6 +624,54 @@ export default function ArticlePage() {
                 </a>
               );
             },
+            table: ({ children, ...props }) => (
+              <div style={{ overflowX: 'auto', margin: '20px 0' }}>
+                <table {...props} style={{
+                  width: '100%',
+                  borderCollapse: 'collapse',
+                  border: '1px solid #36ff9522',
+                  borderRadius: '8px',
+                  overflow: 'hidden'
+                }}>
+                  {children}
+                </table>
+              </div>
+            ),
+            thead: ({ children, ...props }) => (
+              <thead {...props} style={{ backgroundColor: '#1a1a1a' }}>
+                {children}
+              </thead>
+            ),
+            tbody: ({ children, ...props }) => (
+              <tbody {...props}>
+                {children}
+              </tbody>
+            ),
+            tr: ({ children, ...props }) => (
+              <tr {...props} style={{ borderBottom: '1px solid #36ff9522' }}>
+                {children}
+              </tr>
+            ),
+            th: ({ children, ...props }) => (
+              <th {...props} style={{
+                padding: '12px 16px',
+                textAlign: 'left',
+                fontWeight: 'bold',
+                color: '#36ff95',
+                borderRight: '1px solid #36ff9522'
+              }}>
+                {children}
+              </th>
+            ),
+            td: ({ children, ...props }) => (
+              <td {...props} style={{
+                padding: '12px 16px',
+                borderRight: '1px solid #36ff9522',
+                color: '#ffffff'
+              }}>
+                {children}
+              </td>
+            ),
           }}
         >
           {article.content}

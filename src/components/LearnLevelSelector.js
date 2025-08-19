@@ -666,6 +666,115 @@ const LearnLevelSelector = () => {
                  padding: isMobile ? "0 15px" : "0 40px",
                  width: "100%"
                }}>
+                               {/* Lindy.ai Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                                   <div style={{
+                    display: "flex",
+                    alignItems: "stretch"
+                  }}>
+                    <div style={{
+                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      position: "relative"
+                    }}>
+                                                                                        <img
+                          src="/lindy.png"
+                          alt="Lindy.ai - AI Automation Platform"
+                         style={{
+                           width: "100%",
+                           height: "100%",
+                           objectFit: "contain"
+                         }}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                     <div style={{
+                       position: "absolute",
+                       top: "15px",
+                       right: "15px",
+                       background: "rgba(54, 255, 149, 0.9)",
+                       color: "#1a2330",
+                       padding: "5px 12px",
+                       borderRadius: "20px",
+                       fontSize: "0.8rem",
+                       fontWeight: "600"
+                     }}>
+                       FEATURED
+                     </div>
+                   </div>
+                   <div style={{
+                     flex: "1",
+                     padding: isMobile ? "15px" : "25px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1rem" : "1.4rem",
+                         fontWeight: "600",
+                         margin: "0 0 10px 0",
+                         lineHeight: "1.3"
+                       }}>
+                         Lindy.ai - AI Automation Platform
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Productivity & Automation
+                       </p>
+                       <p style={{
+                         color: "#b2ffe0",
+                         fontSize: isMobile ? "0.9rem" : "1rem",
+                         lineHeight: "1.5",
+                         margin: "0 0 20px 0"
+                       }}>
+                         Discover how Lindy.ai's AI automation platform helps businesses create custom AI agents without coding, with 6,000+ integrations and 24/7 operation capabilities.
+                       </p>
+                     </div>
+                                           <a
+                        href="/learn/lindy-ai"
+                        style={{
+                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
+                          color: "#1a2330",
+                          textDecoration: "none",
+                          padding: "12px 24px",
+                          borderRadius: "8px",
+                          fontWeight: "600",
+                          textAlign: "center",
+                          transition: "all 0.3s ease",
+                          alignSelf: "stretch",
+                          width: "100%",
+                          display: "block"
+                        }}
+                       onMouseOver={(e) => {
+                         e.target.style.transform = "translateY(-2px)";
+                         e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
+                       }}
+                       onMouseOut={(e) => {
+                         e.target.style.transform = "translateY(0)";
+                         e.target.style.boxShadow = "none";
+                       }}
+                                           >
+                        Read Full Article
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
                                {/* Viral Launch Card */}
                <div style={{
                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
