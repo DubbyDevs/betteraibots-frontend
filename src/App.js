@@ -365,6 +365,15 @@ function Apps() {
       readMoreLink: "/learn/adcreative-ai"
     },
     {
+      name: "Alli AI",
+      description: "AI-powered SEO automation platform that optimizes, automates, and scales SEO campaigns without coding",
+      category: "SEO & Marketing",
+      features: ["SEO automation", "On-page optimization", "Real-time deployment", "No coding required", "Works with any CMS"],
+      link: "https://try.alliai.com/0guepbqpqhsf",
+      trialInfo: "10-Day Free Trial",
+      image: "https://betteraibots.com/assets/alli-ai-logo.png"
+    },
+    {
       name: "Apollo AI",
       description: "AI sales platform with over 210 million contacts to find, contact, and close your ideal buyers",
       category: "Sales & CRM",
@@ -373,6 +382,15 @@ function Apps() {
       trialInfo: "Pro plans from $49/month",
       image: "https://betteraibots.com/assets/apollo-logo.png",
       readMoreLink: "/learn/apollo-io"
+    },
+    {
+      name: "Brevo",
+      description: "AI-driven email marketing platform trusted by 500,000+ companies with automation and smart segmentation",
+      category: "Email Marketing & Automation",
+      features: ["Smart segmentation", "Send time optimization", "Automation workflows", "150+ integrations"],
+      link: "https://get.brevo.com/um9xszmf3nfd",
+      trialInfo: "Free plan available",
+      image: "https://betteraibots.com/assets/brevo-logo.png"
     },
     {
       name: "Flowith.io",
