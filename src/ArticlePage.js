@@ -409,7 +409,7 @@ export default function ArticlePage() {
                 );
               }
               // Lindy.ai CTA button with container
-              if (href && href.includes('try.lindy.ai/BAIB')) {
+              if (href && href.includes('try.lindy.ai')) {
                 return (
                   <div style={{
                     textAlign: 'center',
@@ -529,7 +529,7 @@ export default function ArticlePage() {
                 );
               }
               // AdCreative CTA button with container
-              if (href && href.includes('betteraibots.com/adcreative')) {
+              if (href && href.includes('adcreative.ai')) {
                 return (
                   <div style={{
                     textAlign: 'center',
