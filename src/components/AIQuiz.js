@@ -1158,7 +1158,41 @@ const AIQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                     onClick={() => {
                       const url = 'https://betteraibots.com/AI-Starter-Quiz.html';
                       navigator.clipboard.writeText(url).then(() => {
-                        alert('Link copied to clipboard!');
+                        // Create and show quick "Copied" popup
+                        const popup = document.createElement('div');
+                        popup.textContent = 'Copied!';
+                        popup.style.cssText = `
+                          position: fixed;
+                          top: 20px;
+                          right: 20px;
+                          background: linear-gradient(135deg, #36ff95 0%, #00ffb2 100%);
+                          color: #1a1a1a;
+                          padding: 12px 20px;
+                          border-radius: 8px;
+                          font-weight: 600;
+                          font-size: 14px;
+                          z-index: 10000;
+                          box-shadow: 0 4px 16px rgba(54, 255, 149, 0.3);
+                          transform: translateX(100%);
+                          transition: transform 0.3s ease;
+                        `;
+                        
+                        document.body.appendChild(popup);
+                        
+                        // Animate in
+                        setTimeout(() => {
+                          popup.style.transform = 'translateX(0)';
+                        }, 10);
+                        
+                        // Remove after 2 seconds
+                        setTimeout(() => {
+                          popup.style.transform = 'translateX(100%)';
+                          setTimeout(() => {
+                            if (document.body.contains(popup)) {
+                              document.body.removeChild(popup);
+                            }
+                          }, 300);
+                        }, 2000);
                       }).catch(() => {
                         // Fallback for older browsers
                         const textArea = document.createElement('textarea');
@@ -1167,7 +1201,42 @@ const AIQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                         textArea.select();
                         document.execCommand('copy');
                         document.body.removeChild(textArea);
-                        alert('Link copied to clipboard!');
+                        
+                        // Show the same popup for fallback
+                        const popup = document.createElement('div');
+                        popup.textContent = 'Copied!';
+                        popup.style.cssText = `
+                          position: fixed;
+                          top: 20px;
+                          right: 20px;
+                          background: linear-gradient(135deg, #36ff95 0%, #00ffb2 100%);
+                          color: #1a1a1a;
+                          padding: 12px 20px;
+                          border-radius: 8px;
+                          font-weight: 600;
+                          font-size: 14px;
+                          z-index: 10000;
+                          box-shadow: 0 4px 16px rgba(54, 255, 149, 0.3);
+                          transform: translateX(100%);
+                          transition: transform 0.3s ease;
+                        `;
+                        
+                        document.body.appendChild(popup);
+                        
+                        // Animate in
+                        setTimeout(() => {
+                          popup.style.transform = 'translateX(0)';
+                        }, 10);
+                        
+                        // Remove after 2 seconds
+                        setTimeout(() => {
+                          popup.style.transform = 'translateX(100%)';
+                          setTimeout(() => {
+                            if (document.body.contains(popup)) {
+                              document.body.removeChild(popup);
+                            }
+                          }, 300);
+                        }, 2000);
                       });
                     }}
                     style={{

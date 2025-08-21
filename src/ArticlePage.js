@@ -6,10 +6,47 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 function ShareButtons({ url, title }) {
-  // Copy link handler
+  // Copy link handler with quick popup
   const handleCopy = () => {
-    navigator.clipboard.writeText(url);
-    alert("Link copied to clipboard!");
+    // Always copy the article URL, not affiliate links
+    const articleUrl = `${window.location.origin}/learn/${window.location.pathname.split('/').pop()}`;
+    navigator.clipboard.writeText(articleUrl);
+    
+    // Create and show quick "Copied" popup
+    const popup = document.createElement('div');
+    popup.textContent = 'Copied!';
+    popup.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #36ff95 0%, #00ffb2 100%);
+      color: #1a1a1a;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      z-index: 10000;
+      box-shadow: 0 4px 16px rgba(54, 255, 149, 0.3);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    `;
+    
+    document.body.appendChild(popup);
+    
+    // Animate in
+    setTimeout(() => {
+      popup.style.transform = 'translateX(0)';
+    }, 10);
+    
+    // Remove after 2 seconds
+    setTimeout(() => {
+      popup.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        if (document.body.contains(popup)) {
+          document.body.removeChild(popup);
+        }
+      }, 300);
+    }, 2000);
   };
   const iconSize = 28;
   const iconStyle = { display: 'inline-block', verticalAlign: 'middle', fontSize: iconSize, width: iconSize, height: iconSize, padding: 2, cursor: 'pointer' };
@@ -49,7 +86,20 @@ export default function ArticlePage() {
   const { id } = useParams();
   const article = articles.find(a => a.id === id);
 
+  // Function to generate heading ID from text
+  const generateHeadingId = (text) => {
+    return text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+  };
+
   const ScholarGPTHeading = ({ level, children, ...props }) => {
+    const headingText = typeof children === 'string' ? children : children[0] || '';
+    const headingId = generateHeadingId(headingText);
+    
     if (
       article.id === 'scholar-gpt' &&
       level === 2 &&
@@ -58,7 +108,7 @@ export default function ArticlePage() {
     ) {
       return (
         <>
-          <h2 {...props} style={{ color: '#36ff95', fontWeight: 700, margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</h2>
+          <h2 {...props} id={headingId} style={{ color: '#36ff95', fontWeight: 700, margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</h2>
           <img
             src="/scholargpt.jpg"
             alt="Scholar GPT"
@@ -74,7 +124,7 @@ export default function ArticlePage() {
       );
     }
     const Tag = `h${level}`;
-    return <Tag {...props} style={{ color: '#36ff95', fontWeight: 700, margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</Tag>;
+    return <Tag {...props} id={headingId} style={{ color: '#36ff95', fontWeight: 700, margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</Tag>;
   };
 
   if (!article) {
@@ -319,9 +369,13 @@ export default function ArticlePage() {
           remarkPlugins={[remarkGfm]}
           components={{
             h2: ScholarGPTHeading,
-            h3: ({ node, children, ...props }) => (
-              <h3 {...props} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
-            ),
+            h3: ({ node, children, ...props }) => {
+              const headingText = typeof children === 'string' ? children : children[0] || '';
+              const headingId = generateHeadingId(headingText);
+              return (
+                <h3 {...props} id={headingId} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
+              );
+            },
             p: ({ children }) => <p>{children}</p>,
             strong: ({ children, ...props }) => {
               // Neon highlight for speaker names
@@ -332,6 +386,30 @@ export default function ArticlePage() {
             ),
             img: () => null, // Prevent user-submitted inline images
             a: ({ href, children, ...props }) => {
+              // Handle anchor links for TOC
+              if (href && href.startsWith('#')) {
+                return (
+                  <a
+                    href={href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const targetId = href.substring(1);
+                      const targetElement = document.getElementById(targetId);
+                      if (targetElement) {
+                        targetElement.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }
+                    }}
+                    style={{ color: '#36ff95', textDecoration: 'underline', cursor: 'pointer' }}
+                    {...props}
+                  >
+                    {children}
+                  </a>
+                );
+              }
+              
               // Check if this is the InVideo link
               if (href && href.includes('invideo.sjv.io')) {
                 return (
@@ -576,9 +654,45 @@ export default function ArticlePage() {
                       if (href.includes('mailto:')) {
                         window.location.href = href;
                       } else if (href === '#') {
-                        // Copy link functionality
-                        navigator.clipboard.writeText(window.location.href).then(() => {
-                          alert('Link copied to clipboard!');
+                        // Copy link functionality with quick popup
+                        // Always copy the article URL, not affiliate links
+                        const articleUrl = `${window.location.origin}/learn/${window.location.pathname.split('/').pop()}`;
+                        navigator.clipboard.writeText(articleUrl).then(() => {
+                          // Create and show quick "Copied" popup
+                          const popup = document.createElement('div');
+                          popup.textContent = 'Copied!';
+                          popup.style.cssText = `
+                            position: fixed;
+                            top: 20px;
+                            right: 20px;
+                            background: linear-gradient(135deg, #36ff95 0%, #00ffb2 100%);
+                            color: #1a1a1a;
+                            padding: 12px 20px;
+                            border-radius: 8px;
+                            font-weight: 600;
+                            font-size: 14px;
+                            z-index: 10000;
+                            box-shadow: 0 4px 16px rgba(54, 255, 149, 0.3);
+                            transform: translateX(100%);
+                            transition: transform 0.3s ease;
+                          `;
+                          
+                          document.body.appendChild(popup);
+                          
+                          // Animate in
+                          setTimeout(() => {
+                            popup.style.transform = 'translateX(0)';
+                          }, 10);
+                          
+                          // Remove after 2 seconds
+                          setTimeout(() => {
+                            popup.style.transform = 'translateX(100%)';
+                            setTimeout(() => {
+                              if (document.body.contains(popup)) {
+                                document.body.removeChild(popup);
+                              }
+                            }, 300);
+                          }, 2000);
                         });
                       } else {
                         window.open(href, '_blank');

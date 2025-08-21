@@ -450,7 +450,7 @@
     <!-- Header -->
     <div class="header">
       <a href="https://betteraibots.com" style="display: flex; justify-content: center; width: 100%;">
-        <img src="https://betteraibots.com/betteraibotsglowlogo.webp" class="header-logo" alt="BetterAiBots Logo" style="cursor: pointer" />
+        <img src="https://betteraibots.com/betteraiglowlogo.png" class="header-logo" alt="BetterAiBots Logo" style="cursor: pointer" />
       </a>
     </div>
     
@@ -585,7 +585,22 @@
                 </button>
                 
                 <button 
-                    onclick="navigator.clipboard.writeText('AI Cybersecurity: How Autonomous Threat Defense Transforms Security in 2025 - AI-powered cybersecurity solutions are revolutionizing threat detection with autonomous response capabilities. The global AI cybersecurity market is expected to reach $31.48 billion in 2025, growing to $219.53 billion by 2034, as organizations deploy intelligent defense systems like Darktrace's Antigena to combat increasingly sophisticated cyberattacks.\n\nhttps://betteraibots.com/news/ai-cybersecurity-autonomous-threat-defense-2025').then(() => alert('Link copied to clipboard!'))"
+                    onclick="navigator.clipboard.writeText('https://betteraibots.com/news/ai-cybersecurity-autonomous-threat-defense-2025').then(() => {
+                        // Create and show quick 'Copied' popup
+                        const popup = document.createElement('div');
+                        popup.textContent = 'Copied!';
+                        popup.style.cssText = 'position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #36ff95 0%, #00ffb2 100%); color: #1a1a1a; padding: 12px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; z-index: 10000; box-shadow: 0 4px 16px rgba(54, 255, 149, 0.3); transform: translateX(100%); transition: transform 0.3s ease;';
+                        document.body.appendChild(popup);
+                        setTimeout(() => { popup.style.transform = 'translateX(0)'; }, 10);
+                        setTimeout(() => {
+                            popup.style.transform = 'translateX(100%)';
+                            setTimeout(() => {
+                                if (document.body.contains(popup)) {
+                                    document.body.removeChild(popup);
+                                }
+                            }, 300);
+                        }, 2000);
+                    })"
                     class="share-btn copy"
                     title="Copy link"
                 >
@@ -605,7 +620,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="https://betteraibots.com/betteraibotsglowlogo.webp" alt="BetterAiBots Logo" class="footer-logo" />
+            <img src="https://betteraibots.com/betteraiglowlogo.png" alt="BetterAiBots Logo" class="footer-logo" />
             <span class="footer-text">Powered by <a href="https://dubbydevs.com" style="color: #36ff95; text-decoration: none;">DubbyDevs</a></span>
         </div>
         <div class="footer-copyright">
