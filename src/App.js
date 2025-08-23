@@ -393,6 +393,15 @@ function Apps() {
       image: "https://betteraibots.com/assets/brevo-logo.png"
     },
     {
+      name: "Capsule CRM",
+      description: "Simple CRM for small businesses to manage contacts, sales pipeline, and customer relationships",
+      category: "Sales & CRM",
+      features: ["Contact management", "Sales pipeline", "Email marketing", "Project management", "Workflow automation"],
+      link: "https://get.capsulenow.io/6894ebdizsds",
+      trialInfo: "14-day free trial",
+      image: "https://betteraibots.com/assets/capsule-crm-logo.png"
+    },
+    {
       name: "Flowith.io",
       description: "AI-powered workflow automation platform that helps streamline your business processes",
       category: "Workflow Automation",
@@ -949,6 +958,25 @@ function Apps() {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Affiliate Disclaimer */}
+        <div style={{
+          textAlign: 'center',
+          marginTop: '40px',
+          padding: '20px',
+          background: 'rgba(255, 255, 255, 0.02)',
+          borderRadius: '12px',
+          border: '1px solid rgba(255, 255, 255, 0.1)'
+        }}>
+          <p style={{
+            color: '#8a8a8a',
+            fontSize: '0.85rem',
+            margin: '0',
+            fontStyle: 'italic'
+          }}>
+            💡 Some links on this page are affiliate partnerships. We may earn a commission when you sign up through our links, at no extra cost to you.
+          </p>
         </div>
 
         {/* Bottom CTA */}
