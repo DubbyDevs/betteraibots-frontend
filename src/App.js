@@ -441,12 +441,21 @@ function Apps() {
       image: "https://betteraibots.com/assets/mrpeasy-logo.png"
     },
     {
+      name: "Murf.ai",
+      description: "Versatile AI voice generator & Text to Speech software with 200+ realistic voices in 20+ languages",
+      category: "Voice AI & Audio",
+      features: ["Voice cloning", "AI dubbing", "Voice changer", "200+ voices"],
+      link: "https://get.murf.ai/i5n7gfvz5cbw",
+      trialInfo: "Free trial available",
+      image: "https://betteraibots.com/assets/murf-ai-logo.png"
+    },
+    {
       name: "Reply.io",
       description: "AI-powered sales outreach platform with multichannel sequences, email automation, and AI SDR agents",
       category: "Sales & CRM",
       features: ["AI SDR agents", "Multichannel sequences", "Email automation", "LinkedIn automation", "Meeting scheduler"],
       link: "https://get.reply.io/ub7edypmq2gj",
-      trialInfo: "14-day free trial, then $49/month",
+      trialInfo: "14-day free trial",
       image: "https://betteraibots.com/assets/reply-logo.png"
     },
     {
@@ -455,7 +464,7 @@ function Apps() {
       category: "Video Editing",
       features: ["AI video editing", "Auto-subtitles", "Background removal", "Collaboration tools"],
       link: "https://betteraibots.com/veed",
-      trialInfo: "Free plan available, Pro $18/month",
+      trialInfo: "Free plan available",
       image: "https://betteraibots.com/assets/veed-logo.png"
     },
     {
@@ -464,7 +473,7 @@ function Apps() {
       category: "Email Marketing",
       features: ["AI-driven automation", "Email deliverability optimization", "Spam folder avoidance", "Real-time insights"],
       link: "https://warmyio.partnerlinks.io/ffy5y6ll9374",
-      trialInfo: "7-Day Free Trial, No Credit Card Required",
+      trialInfo: "7-Day Free Trial",
       image: "https://betteraibots.com/assets/warmy-logo.png"
     },
     {
@@ -473,7 +482,7 @@ function Apps() {
       category: "Productivity & Voice AI",
       features: ["Voice dictation", "Cross-platform compatibility", "AI-powered transcription", "Background operation"],
       link: "https://wisprflow.ai/downloads?referral=KING16",
-      trialInfo: "Free for students (3 months), then paid plans",
+      trialInfo: "Free trial available",
       image: "https://betteraibots.com/assets/wispr-flow-logo.png"
     }
   ];
