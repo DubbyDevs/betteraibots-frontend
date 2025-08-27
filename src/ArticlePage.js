@@ -192,8 +192,7 @@ export default function ArticlePage() {
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
             "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
             "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
-            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
-            "love-doc-ai": "https://betteraibots.com/assets/bot-placeholder7.webp"
+            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -210,8 +209,7 @@ export default function ArticlePage() {
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
             "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
             "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
-            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
-            "love-doc-ai": "https://betteraibots.com/assets/bot-placeholder7.webp"
+            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -235,8 +233,7 @@ export default function ArticlePage() {
                 "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
                 "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
                 "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
-                "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
-                "love-doc-ai": "https://betteraibots.com/assets/bot-placeholder7.webp"
+                "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png"
               };
               return ogImageMap[article.id] || images[0] || article.cover;
             })(),
@@ -292,10 +289,6 @@ export default function ArticlePage() {
             "scholar-gpt": {
               name: "Scholar GPT",
               link: "https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt"
-            },
-            "love-doc-ai": {
-              name: "Love Doc",
-              link: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc"
             }
           };
           const gpt = gptMap[article.id];
@@ -861,10 +854,6 @@ export default function ArticlePage() {
           "cheat-coder": {
             name: "Cheat Coder",
             link: "https://chatgpt.com/g/g-684426fa2a588191aabb529e9ca6e26f-cheat-coder"
-          },
-          "love-doc-ai": {
-            name: "Love Doc",
-            link: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc"
           }
         };
         const gpt = gptMap[article.id];

@@ -368,10 +368,11 @@ function Apps() {
       name: "Alli AI",
       description: "AI-powered SEO automation platform that optimizes, automates, and scales SEO campaigns without coding",
       category: "SEO & Marketing",
-      features: ["SEO automation", "On-page optimization", "Real-time deployment", "No coding required", "Works with any CMS"],
+      features: ["On-page optimization", "Real-time deployment", "No coding required", "Works with any CMS"],
       link: "https://try.alliai.com/0guepbqpqhsf",
       trialInfo: "10-Day Free Trial",
-      image: "https://betteraibots.com/assets/alli-ai-logo.png"
+      image: "https://betteraibots.com/assets/alli-ai-logo.png",
+      readMoreLink: "/learn/alli-ai"
     },
     {
       name: "Apollo AI",
@@ -396,7 +397,7 @@ function Apps() {
       name: "Capsule CRM",
       description: "Simple CRM for small businesses to manage contacts, sales pipeline, and customer relationships",
       category: "Sales & CRM",
-      features: ["Contact management", "Sales pipeline", "Email marketing", "Project management", "Workflow automation"],
+      features: ["Contact management", "Email marketing", "Project management", "Workflow automation"],
       link: "https://get.capsulenow.io/6894ebdizsds",
       trialInfo: "14-day free trial",
       image: "https://betteraibots.com/assets/capsule-crm-logo.png"
@@ -699,14 +700,18 @@ function Apps() {
               transition: 'all 0.2s ease'
             }}
             onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(139, 92, 246, 0.2)';
+              e.target.style.background = 'rgba(54, 255, 149, 0.2)';
               e.target.style.transform = 'translateY(-1px)';
-              e.target.style.border = '1px solid rgba(255, 255, 255, 0.5)';
+              e.target.style.border = '1px solid rgba(54, 255, 149, 0.5)';
+              e.target.style.color = '#36ff95';
+              e.target.style.boxShadow = '0 0 10px rgba(54, 255, 149, 0.3)';
             }}
             onMouseLeave={(e) => {
               e.target.style.background = 'rgba(139, 92, 246, 0.1)';
               e.target.style.transform = 'translateY(0)';
               e.target.style.border = '1px solid rgba(255, 255, 255, 0.3)';
+              e.target.style.color = '#8b5cf6';
+              e.target.style.boxShadow = 'none';
             }}
           >
             Read More

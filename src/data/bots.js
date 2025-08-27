@@ -38,7 +38,7 @@ import InVideoAvatar from '../assets/InVideoAvatar.webp';
 import adcreativeaiImg from '../assets/adcreativeai.webp';
 import adcreativeaiImg2 from '../assets/adcreativeai2.webp';
 import adcreativeaiImg3 from '../assets/adcreativeai3.webp';
-import lovedocImg from '../assets/lovedocai.webp';
+
 import trustygifVideo from '../assets/trustygif.mp4';
 
 export const rawBots = [
@@ -228,14 +228,6 @@ export const rawBots = [
     affiliateHtml: `<a rel="sponsored" href="https://invideo.sjv.io/c/6368097/2210623/12258" target="_top" id="2210623"><img src="//a.impactradius-go.com/display-ad/12258-2210623" border="0" alt="" width="500" height="500"/></a><img height="0" width="0" src="https://imp.pxf.io/i/6368097/2210623/12258" style="position:absolute;visibility:hidden;" border="0" />`,
     categories: ["Creative Tools"],
     freeLabel: "Free Trial"
-  },
-  {
-    title: "The Love Doc",
-    desc: "Relationship and dating advice (Not a real doctor)",
-    image: lovedocImg,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
-    categories: ["Health & Wellness", "Lifestyle"]
   },
   {
     title: "Math AI",
