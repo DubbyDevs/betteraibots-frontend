@@ -554,6 +554,15 @@ function Apps() {
       price: "Contact sales",
       link: "https://anybiz.io/?fpr=ai4n56",
       image: "https://betteraibots.com/assets/anybiz-logo.png"
+    },
+    {
+      name: "Mega HR",
+      description: "AI-powered hiring platform that automates job advertising, screening, interviewing & nurturing candidates with 78% less busy work",
+      category: "HR & Recruitment",
+      features: ["AI screening & shortlisting", "Interview scheduling", "AI-powered insights", "Job board advertising"],
+      price: "$49-$149/month",
+      link: "https://try.megahr.com/63arc24w9i8s",
+      image: "https://betteraibots.com/assets/megahr-logo.png"
     }
   ];
 
