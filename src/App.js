@@ -563,6 +563,15 @@ function Apps() {
       price: "$49-$149/month",
       link: "https://try.megahr.com/63arc24w9i8s",
       image: "https://betteraibots.com/assets/megahr-logo.png"
+    },
+    {
+      name: "Bebop.ai",
+      description: "AI-powered platform for intelligent automation and workflow optimization",
+      category: "AI & Automation",
+      features: ["AI workflow automation", "Intelligent process optimization", "Smart integrations", "Advanced analytics"],
+      price: "Contact sales",
+      link: "https://try.bebop.ai/o004cood3aod",
+      image: "https://betteraibots.com/assets/bebop-ai-logo.png"
     }
   ];
 
