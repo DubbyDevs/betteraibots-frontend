@@ -2910,6 +2910,8 @@ function NewsArticle() {
         <meta property="og:image" content={(() => {
           // Article-specific Open Graph images for news articles
           const ogImageMap = {
+            "nano-banana-game-changing-ai-image-editor": "https://betteraibots.com/nanabananaguide.png?v=2",
+            "warmy-io-spam-folder-rebellion-email-deliverability": "https://betteraibots.com/warmyio.jpg?v=2",
             "robot-uprising-ai-revolution-2025": "https://betteraibots.com/uprisingrobots.jpg?v=2",
             "gpt-5-dawn-ai-revolution-2025": "https://betteraibots.com/gpt5updates.webp?v=2",
             "n8n-revolution-business-automation-2025": "https://betteraibots.com/n8nforb2b.jpg?v=2",
@@ -2938,6 +2940,8 @@ function NewsArticle() {
         <meta name="twitter:image" content={(() => {
           // Article-specific Open Graph images for news articles
           const ogImageMap = {
+            "nano-banana-game-changing-ai-image-editor": "https://betteraibots.com/nanabananaguide.png?v=2",
+            "warmy-io-spam-folder-rebellion-email-deliverability": "https://betteraibots.com/warmyio.jpg?v=2",
             "robot-uprising-ai-revolution-2025": "https://betteraibots.com/uprisingrobots.jpg?v=2",
             "gpt-5-dawn-ai-revolution-2025": "https://betteraibots.com/gpt5updates.webp?v=2",
             "n8n-revolution-business-automation-2025": "https://betteraibots.com/n8nforb2b.jpg?v=2",
