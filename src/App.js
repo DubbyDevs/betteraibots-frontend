@@ -2927,7 +2927,8 @@ function NewsArticle() {
             "ai-reshaping-employment-tech-layoffs-new-jobs-2025": "https://betteraibots.com/aiemploymentjobs.jpg?v=2",
             "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2",
             "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
-            "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2"
+            "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
+            "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
           console.log('Open Graph image URL:', imageUrl);
@@ -2957,7 +2958,8 @@ function NewsArticle() {
             "ai-reshaping-employment-tech-layoffs-new-jobs-2025": "https://betteraibots.com/aiemploymentjobs.jpg?v=2",
             "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2",
             "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
-            "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2"
+            "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
+            "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
           console.log('Twitter image URL:', imageUrl);
@@ -2992,7 +2994,8 @@ function NewsArticle() {
                 "ai-reshaping-employment-tech-layoffs-new-jobs-2025": "https://betteraibots.com/aiemploymentjobs.jpg?v=2",
                 "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2",
                 "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
-                "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2"
+                "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
+                "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2"
               };
               const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
               console.log('Structured data image URL:', imageUrl);

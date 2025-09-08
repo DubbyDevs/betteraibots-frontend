@@ -192,7 +192,8 @@ export default function ArticlePage() {
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
             "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
             "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
-            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png"
+            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
+            "brevo-complete-guide": "https://betteraibots.com/brevologo.png"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -209,7 +210,8 @@ export default function ArticlePage() {
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
             "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
             "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
-            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png"
+            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
+            "brevo-complete-guide": "https://betteraibots.com/brevologo.png"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
