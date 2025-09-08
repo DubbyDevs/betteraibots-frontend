@@ -391,7 +391,8 @@ function Apps() {
       features: ["Smart segmentation", "Send time optimization", "Automation workflows", "150+ integrations"],
       link: "https://get.brevo.com/um9xszmf3nfd",
       trialInfo: "Free plan available",
-      image: "https://betteraibots.com/assets/brevo-logo.png"
+      image: "https://betteraibots.com/assets/brevo-logo.png",
+      readMoreLink: "/learn/brevo-complete-guide"
     },
     {
       name: "Capsule CRM",
