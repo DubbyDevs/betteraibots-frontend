@@ -32,8 +32,6 @@ export const articles = [
     preview: "Discover how Capsule CRM's intuitive design and powerful automation features help growing businesses manage customer relationships without the complexity of enterprise solutions.",
     images: ["/capsulecrm.png"],
     content: `
-# Capsule CRM: The Simple Yet Powerful Solution for Growing Businesses
-
 Sarah stared at her growing client list with a mix of excitement and dread. Her consulting business had tripled in the past year, but her current system of sticky notes, Excel spreadsheets, and scattered email threads was starting to crack under the pressure. She needed something that could grow with her business—powerful enough to handle complex sales processes but simple enough that she could actually use it without a computer science degree.
 
 That's when she discovered **Capsule CRM**, the customer relationship management platform that proves you don't need enterprise-level complexity to achieve professional results. In just three months, Sarah transformed her chaotic client management into a streamlined, automated system that not only kept her organized but actually helped her close 40% more deals.
@@ -270,8 +268,6 @@ Ready to transform your customer relationship management? [Start your free trial
     preview: "Discover how MRPeasy's cloud-based ERP system helps small manufacturing businesses streamline production, manage inventory, and scale operations efficiently.",
     images: ["/mrpeasy.png"],
     content: `
-# MRPeasy: The Complete Manufacturing ERP Solution for Small Businesses
-
 David stared at the chaos in his small manufacturing workshop with growing frustration. His team of 12 employees was producing quality custom furniture, but the business was drowning in paperwork, inventory confusion, and production delays. Orders were getting lost, materials were running out unexpectedly, and customers were growing impatient with delivery times. He knew he needed a proper system to manage his manufacturing operations, but enterprise ERP solutions like SAP or Oracle were far beyond his budget and complexity needs.
 
 That's when he discovered **MRPeasy**, the cloud-based manufacturing ERP system designed specifically for small to medium manufacturing businesses. Within just two months, David transformed his chaotic workshop into a streamlined operation that could handle 40% more orders with the same team, while reducing material waste by 25% and improving on-time delivery to 95%.
@@ -3316,14 +3312,12 @@ To begin working with Cheat Coder, simply describe your programming challenge or
   },
   {
     id: "alli-ai",
-    title: "Alli AI Review 2025: Complete SEO Automation Platform Guide (10-Day Free Trial)",
+    title: "Alli AI Review 2025: Complete SEO Automation Platform Guide",
     date: "June 2025",
     cover: "/alliai.png",
     preview: "Discover how Alli AI's automated SEO platform helps agencies optimize thousands of pages instantly, with real-time deployment and universal CMS compatibility.",
     images: ["/alliai.png"],
     content: `
-# Alli AI Review 2025: Complete SEO Automation Platform Guide (10-Day Free Trial)
-
 **Table of Contents**
 - [What is Alli AI?](#what-is-alli-ai)
 - [Alli AI Features and Capabilities](#alli-ai-features-and-capabilities)
