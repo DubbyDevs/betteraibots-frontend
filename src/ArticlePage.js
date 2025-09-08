@@ -193,7 +193,10 @@ export default function ArticlePage() {
             "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
             "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
             "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
-            "brevo-complete-guide": "https://betteraibots.com/brevologo.png"
+            "alli-ai-complete-guide": "https://betteraibots.com/alliai.png",
+            "brevo-complete-guide": "https://betteraibots.com/brevologo.png",
+            "capsule-crm-complete-guide": "https://betteraibots.com/capsulecrm.png",
+            "mrpeasy-complete-guide": "https://betteraibots.com/mrpeasy.png"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -211,7 +214,10 @@ export default function ArticlePage() {
             "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
             "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
             "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
-            "brevo-complete-guide": "https://betteraibots.com/brevologo.png"
+            "alli-ai-complete-guide": "https://betteraibots.com/alliai.png",
+            "brevo-complete-guide": "https://betteraibots.com/brevologo.png",
+            "capsule-crm-complete-guide": "https://betteraibots.com/capsulecrm.png",
+            "mrpeasy-complete-guide": "https://betteraibots.com/mrpeasy.png"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />

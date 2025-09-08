@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 const LearnLevelSelector = () => {
@@ -666,6 +666,332 @@ const LearnLevelSelector = () => {
                  padding: isMobile ? "0 15px" : "0 40px",
                  width: "100%"
                }}>
+                               {/* Capsule CRM Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                                   <div style={{
+                    display: "flex",
+                    alignItems: "stretch"
+                  }}>
+                    <div style={{
+                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      position: "relative"
+                    }}>
+                                                                                        <img
+                       src="/capsulecrm.png"
+                       alt="Capsule CRM - Simple Yet Powerful CRM"
+                         style={{
+                           width: "100%",
+                           height: "100%",
+                           objectFit: "contain"
+                         }}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                   </div>
+                     <div style={{
+                     flex: 1,
+                     padding: "24px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         Capsule CRM
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Sales & CRM
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.9rem" : "1rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 16px 0"
+                       }}>
+                         Simple yet powerful CRM trusted by 10,000+ businesses. Manage contacts, track deals, and automate workflows without complexity.
+                       </p>
+                       <div style={{
+                         display: "flex",
+                         flexWrap: "wrap",
+                         gap: "8px",
+                         marginBottom: "16px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                       fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           Free Plan Available
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           Easy Setup
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           60+ Integrations
+                         </span>
+                     </div>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://get.capsulenow.io/6894ebdizsds"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Free Trial
+                       </a>
+                       <Link
+                         to="/learn/capsule-crm-complete-guide"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+                               {/* MRPeasy Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                 <div style={{
+                   display: "flex",
+                   alignItems: "stretch"
+                 }}>
+                   <div style={{
+                     flex: isMobile ? "0 0 120px" : "0 0 300px",
+                     position: "relative"
+                   }}>
+                     <img
+                       src="/mrpeasy.png"
+                       alt="MRPeasy - Manufacturing ERP Solution"
+                       style={{
+                         width: "100%",
+                         height: "100%",
+                         objectFit: "contain"
+                       }}
+                       onError={(e) => {
+                         e.target.style.display = 'none';
+                       }}
+                     />
+                   </div>
+                   <div style={{
+                     flex: 1,
+                     padding: "24px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         MRPeasy
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Manufacturing & ERP
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.9rem" : "1rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 16px 0"
+                       }}>
+                         Complete Manufacturing ERP for small businesses. Manage production, inventory, sales, and finances in one integrated platform.
+                       </p>
+                       <div style={{
+                         display: "flex",
+                         flexWrap: "wrap",
+                         gap: "8px",
+                         marginBottom: "16px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           30-Day Free Trial
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           All-in-One ERP
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           Production Planning
+                         </span>
+                       </div>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://try.mrpeasy.com/m72w6bztymwh"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Free Trial
+                       </a>
+                       <Link
+                         to="/learn/mrpeasy-complete-guide"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
                                {/* Lindy.ai Card */}
                <div style={{
                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
@@ -698,19 +1024,6 @@ const LearnLevelSelector = () => {
                           e.target.style.display = 'none';
                         }}
                       />
-                     <div style={{
-                       position: "absolute",
-                       top: "15px",
-                       right: "15px",
-                       background: "rgba(54, 255, 149, 0.9)",
-                       color: "#1a2330",
-                       padding: "5px 12px",
-                       borderRadius: "20px",
-                       fontSize: "0.8rem",
-                       fontWeight: "600"
-                     }}>
-                       FEATURED
-                     </div>
                    </div>
                    <div style={{
                      flex: "1",
@@ -722,10 +1035,10 @@ const LearnLevelSelector = () => {
                      <div>
                        <h3 style={{
                          color: "#36ff95",
-                         fontSize: isMobile ? "1rem" : "1.4rem",
-                         fontWeight: "600",
-                         margin: "0 0 10px 0",
-                         lineHeight: "1.3"
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
                        }}>
                          Lindy.ai - AI Automation Platform
                        </h3>
@@ -737,40 +1050,107 @@ const LearnLevelSelector = () => {
                          Featured • Productivity & Automation
                        </p>
                        <p style={{
-                         color: "#b2ffe0",
+                         color: "#e0e0e0",
                          fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: "1.5",
-                         margin: "0 0 20px 0"
+                         lineHeight: 1.5,
+                         margin: "0 0 16px 0"
                        }}>
                          Discover how Lindy.ai's AI automation platform helps businesses create custom AI agents without coding, with 6,000+ integrations and 24/7 operation capabilities.
                        </p>
+                       <div style={{
+                         display: "flex",
+                         flexWrap: "wrap",
+                         gap: "8px",
+                         marginBottom: "16px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           Free Trial Available
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           AI Automation
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           6,000+ Integrations
+                         </span>
                      </div>
-                                           <a
-                        href="/learn/lindy-ai"
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://try.lindy.ai/lhgvxfidor04"
+                         target="_blank"
+                         rel="noopener noreferrer"
                         style={{
-                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
-                          color: "#1a2330",
-                          textDecoration: "none",
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
                           padding: "12px 24px",
                           borderRadius: "8px",
-                          fontWeight: "600",
-                          textAlign: "center",
-                          transition: "all 0.3s ease",
-                          alignSelf: "stretch",
-                          width: "100%",
-                          display: "block"
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
                         }}
                        onMouseOver={(e) => {
                          e.target.style.transform = "translateY(-2px)";
-                         e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
                        }}
                        onMouseOut={(e) => {
                          e.target.style.transform = "translateY(0)";
-                         e.target.style.boxShadow = "none";
-                       }}
-                                           >
-                        Read Full Article
-                      </a>
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Free Trial
+                       </a>
+                       <Link
+                         to="/learn/lindy-ai"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
                     </div>
                   </div>
                 </div>
@@ -807,19 +1187,6 @@ const LearnLevelSelector = () => {
                           e.target.style.display = 'none';
                         }}
                       />
-                     <div style={{
-                       position: "absolute",
-                       top: "15px",
-                       right: "15px",
-                       background: "rgba(54, 255, 149, 0.9)",
-                       color: "#1a2330",
-                       padding: "5px 12px",
-                       borderRadius: "20px",
-                       fontSize: "0.8rem",
-                       fontWeight: "600"
-                     }}>
-                       FEATURED
-                     </div>
                    </div>
                    <div style={{
                      flex: "1",
@@ -831,10 +1198,10 @@ const LearnLevelSelector = () => {
                      <div>
                        <h3 style={{
                          color: "#36ff95",
-                         fontSize: isMobile ? "1rem" : "1.4rem",
-                         fontWeight: "600",
-                         margin: "0 0 10px 0",
-                         lineHeight: "1.3"
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
                        }}>
                          Viral Launch - Amazon Seller Optimization Platform
                        </h3>
@@ -846,40 +1213,107 @@ const LearnLevelSelector = () => {
                          Featured • E-commerce & Amazon
                        </p>
                        <p style={{
-                         color: "#b2ffe0",
+                         color: "#e0e0e0",
                          fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: "1.5",
-                         margin: "0 0 20px 0"
+                         lineHeight: 1.5,
+                         margin: "0 0 16px 0"
                        }}>
                          Discover how Viral Launch's AI-powered platform has helped over 300,000 businesses drive $34 billion in Amazon sales with data-driven product research and optimization tools.
                        </p>
+                       <div style={{
+                         display: "flex",
+                         flexWrap: "wrap",
+                         gap: "8px",
+                         marginBottom: "16px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           Free Trial Available
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           Amazon Optimization
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           Product Research
+                         </span>
+                       </div>
                      </div>
-                                           <a
-                        href="/learn/viral-launch"
-                        style={{
-                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
-                          color: "#1a2330",
-                          textDecoration: "none",
-                          padding: "12px 24px",
-                          borderRadius: "8px",
-                          fontWeight: "600",
-                          textAlign: "center",
-                          transition: "all 0.3s ease",
-                          alignSelf: "stretch",
-                          width: "100%",
-                          display: "block"
-                        }}
-                       onMouseOver={(e) => {
-                         e.target.style.transform = "translateY(-2px)";
-                         e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
-                       }}
-                       onMouseOut={(e) => {
-                         e.target.style.transform = "translateY(0)";
-                         e.target.style.boxShadow = "none";
-                       }}
-                                           >
-                        Read Full Article
-                      </a>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://affiliate.viral-launch.com/BAIB"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Free Trial
+                       </a>
+                       <Link
+                         to="/learn/viral-launch"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
                     </div>
                   </div>
                 </div>
@@ -916,19 +1350,6 @@ const LearnLevelSelector = () => {
                           e.target.style.display = 'none';
                         }}
                       />
-                     <div style={{
-                       position: "absolute",
-                       top: "15px",
-                       right: "15px",
-                       background: "rgba(54, 255, 149, 0.9)",
-                       color: "#1a2330",
-                       padding: "5px 12px",
-                       borderRadius: "20px",
-                       fontSize: "0.8rem",
-                       fontWeight: "600"
-                     }}>
-                       FEATURED
-                     </div>
                    </div>
                    <div style={{
                      flex: "1",
@@ -940,10 +1361,10 @@ const LearnLevelSelector = () => {
                      <div>
                        <h3 style={{
                          color: "#36ff95",
-                         fontSize: isMobile ? "1rem" : "1.4rem",
-                         fontWeight: "600",
-                         margin: "0 0 10px 0",
-                         lineHeight: "1.3"
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
                        }}>
                          Apollo AI - Sales Intelligence Platform
                        </h3>
@@ -955,40 +1376,270 @@ const LearnLevelSelector = () => {
                          Featured • Sales & CRM
                        </p>
                        <p style={{
-                         color: "#b2ffe0",
+                         color: "#e0e0e0",
                          fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: "1.5",
-                         margin: "0 0 20px 0"
+                         lineHeight: 1.5,
+                         margin: "0 0 16px 0"
                        }}>
                          Explore how Apollo AI is transforming sales with over 210 million contacts, AI-powered prospecting, and intelligent lead generation.
                        </p>
+                       <div style={{
+                         display: "flex",
+                         flexWrap: "wrap",
+                         gap: "8px",
+                         marginBottom: "16px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           Free Trial Available
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           Sales Intelligence
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           210M+ Contacts
+                         </span>
+                       </div>
                      </div>
-                                           <a
-                        href="/learn/apollo-io"
-                        style={{
-                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
-                          color: "#1a2330",
-                          textDecoration: "none",
-                          padding: "12px 24px",
-                          borderRadius: "8px",
-                          fontWeight: "600",
-                          textAlign: "center",
-                          transition: "all 0.3s ease",
-                          alignSelf: "stretch",
-                          width: "100%",
-                          display: "block"
-                        }}
-                       onMouseOver={(e) => {
-                         e.target.style.transform = "translateY(-2px)";
-                         e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://get.apollo.io/BAIB"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Free Trial
+                       </a>
+                       <Link
+                         to="/learn/apollo-io"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                    </div>
+                  </div>
+                </div>
+
+               {/* Alli AI Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                 <div style={{
+                   display: "flex",
+                   alignItems: "stretch"
+                 }}>
+                   <div style={{
+                     flex: isMobile ? "0 0 120px" : "0 0 300px",
+                     position: "relative"
+                   }}>
+                     <img
+                       src="/alliai.png"
+                       alt="Alli AI - SEO Automation Platform"
+                       style={{
+                         width: "100%",
+                         height: "100%",
+                         objectFit: "contain"
                        }}
-                       onMouseOut={(e) => {
-                         e.target.style.transform = "translateY(0)";
-                         e.target.style.boxShadow = "none";
+                       onError={(e) => {
+                         e.target.style.display = 'none';
                        }}
-                     >
-                       Read Full Article
-                     </a>
+                     />
+                   </div>
+                   <div style={{
+                     flex: "1",
+                     padding: isMobile ? "15px" : "25px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         Alli AI - SEO Automation Platform
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • SEO & Marketing
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.9rem" : "1rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 16px 0"
+                       }}>
+                         Discover how Alli AI is revolutionizing SEO with AI-powered automation that optimizes, deploys, and scales SEO campaigns without any coding required.
+                       </p>
+                       <div style={{
+                         display: "flex",
+                         flexWrap: "wrap",
+                         gap: "8px",
+                         marginBottom: "16px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           10-Day Free Trial
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           SEO Automation
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           No Coding Required
+                         </span>
+                       </div>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://try.alliai.com/0guepbqpqhsf"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Free Trial
+                       </a>
+                       <Link
+                         to="/learn/alli-ai"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
                    </div>
                  </div>
                </div>
@@ -1013,9 +1664,172 @@ const LearnLevelSelector = () => {
                       flex: isMobile ? "0 0 120px" : "0 0 300px",
                       position: "relative"
                     }}>
-                                                                                                                                                                                <img
+                                                                                        <img
                            src={require("../assets/adcreativeaitrial.png")}
                            alt="AdCreative AI - Ad Generation Platform"
+                         style={{
+                           width: "100%",
+                           height: "100%",
+                           objectFit: "contain"
+                         }}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                   </div>
+                   <div style={{
+                     flex: "1",
+                     padding: isMobile ? "15px" : "25px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         AdCreative AI - Ad Generation Platform
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Marketing & Advertising
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.9rem" : "1rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 16px 0"
+                       }}>
+                         Learn how AdCreative AI is revolutionizing digital advertising with AI-powered ad generation and high-converting creative assets.
+                       </p>
+                       <div style={{
+                         display: "flex",
+                         flexWrap: "wrap",
+                         gap: "8px",
+                         marginBottom: "16px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           Free Trial Available
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           AI Ad Generation
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.75rem",
+                           fontWeight: "500"
+                         }}>
+                           High-Converting Ads
+                         </span>
+                       </div>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://betteraibots.com/adcreative"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Free Trial
+                       </a>
+                       <Link
+                         to="/learn/adcreative-ai"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+                {/* Flowith Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                                   <div style={{
+                    display: "flex",
+                    alignItems: "stretch"
+                  }}>
+                    <div style={{
+                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      position: "relative"
+                    }}>
+                                                                                                                                                                                <img
+                        src="/flowith.jpg"
+                        alt="Flowith.io - Revolutionary AI Canvas"
                          style={{
                            width: "100%",
                            height: "100%",
@@ -1054,14 +1868,14 @@ const LearnLevelSelector = () => {
                          margin: "0 0 10px 0",
                          lineHeight: "1.3"
                        }}>
-                         AdCreative AI - Ad Generation Platform
+                          Flowith.io - Revolutionary AI Canvas
                        </h3>
                        <p style={{
                          color: "#9ca3af",
                          fontSize: isMobile ? "0.8rem" : "0.9rem",
                          margin: "0 0 15px 0"
                        }}>
-                         Featured • Marketing & Advertising
+                          Featured • Productivity & AI Workspace
                        </p>
                        <p style={{
                          color: "#b2ffe0",
@@ -1069,11 +1883,11 @@ const LearnLevelSelector = () => {
                          lineHeight: "1.5",
                          margin: "0 0 20px 0"
                        }}>
-                         Learn how AdCreative AI is revolutionizing digital advertising with AI-powered ad generation and high-converting creative assets.
+                          Discover how Flowith.io is revolutionizing AI interaction with its infinite canvas, multi-threaded conversations, and collaborative AI workspace.
                        </p>
                      </div>
                                            <a
-                        href="/learn/adcreative-ai"
+                        href="/learn/flowith-io"
                         style={{
                           background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
                           color: "#1a2330",
@@ -1096,115 +1910,6 @@ const LearnLevelSelector = () => {
                          e.target.style.boxShadow = "none";
                        }}
                                            >
-                        Read Full Article
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Flowith Card */}
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 0 20px #36ff9544",
-                  transition: "transform 0.2s ease-in-out"
-                }}
-                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
-                >
-                  <div style={{
-                    display: "flex",
-                    alignItems: "stretch"
-                  }}>
-                    <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 300px",
-                      position: "relative"
-                    }}>
-                      <img
-                        src="/flowith.jpg"
-                        alt="Flowith.io - Revolutionary AI Canvas"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "contain"
-                        }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                      <div style={{
-                        position: "absolute",
-                        top: "15px",
-                        right: "15px",
-                        background: "rgba(54, 255, 149, 0.9)",
-                        color: "#1a2330",
-                        padding: "5px 12px",
-                        borderRadius: "20px",
-                        fontSize: "0.8rem",
-                        fontWeight: "600"
-                      }}>
-                        FEATURED
-                      </div>
-                    </div>
-                    <div style={{
-                      flex: "1",
-                      padding: isMobile ? "15px" : "25px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between"
-                    }}>
-                      <div>
-                        <h3 style={{
-                          color: "#36ff95",
-                          fontSize: isMobile ? "1rem" : "1.4rem",
-                          fontWeight: "600",
-                          margin: "0 0 10px 0",
-                          lineHeight: "1.3"
-                        }}>
-                          Flowith.io - Revolutionary AI Canvas
-                        </h3>
-                        <p style={{
-                          color: "#9ca3af",
-                          fontSize: isMobile ? "0.8rem" : "0.9rem",
-                          margin: "0 0 15px 0"
-                        }}>
-                          Featured • Productivity & AI Workspace
-                        </p>
-                        <p style={{
-                          color: "#b2ffe0",
-                          fontSize: isMobile ? "0.9rem" : "1rem",
-                          lineHeight: "1.5",
-                          margin: "0 0 20px 0"
-                        }}>
-                          Discover how Flowith.io is revolutionizing AI interaction with its infinite canvas, multi-threaded conversations, and collaborative AI workspace.
-                        </p>
-                      </div>
-                      <a
-                        href="/learn/flowith-io"
-                        style={{
-                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
-                          color: "#1a2330",
-                          textDecoration: "none",
-                          padding: "12px 24px",
-                          borderRadius: "8px",
-                          fontWeight: "600",
-                          textAlign: "center",
-                          transition: "all 0.3s ease",
-                          alignSelf: "stretch",
-                          width: "100%",
-                          display: "block"
-                        }}
-                        onMouseOver={(e) => {
-                          e.target.style.transform = "translateY(-2px)";
-                          e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
-                        }}
-                        onMouseOut={(e) => {
-                          e.target.style.transform = "translateY(0)";
-                          e.target.style.boxShadow = "none";
-                        }}
-                      >
                         Read Full Article
                       </a>
                     </div>

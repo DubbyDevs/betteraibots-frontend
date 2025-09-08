@@ -25,6 +25,488 @@ const paintindetifierai = "/paintindetifierai.webp";
 // --- ARTICLES ---
 export const articles = [
   {
+    id: "capsule-crm-complete-guide",
+    title: "Capsule CRM: The Simple Yet Powerful Solution for Growing Businesses",
+    date: "September 2025",
+    cover: "/capsulecrm.png",
+    preview: "Discover how Capsule CRM's intuitive design and powerful automation features help growing businesses manage customer relationships without the complexity of enterprise solutions.",
+    images: ["/capsulecrm.png"],
+    content: `
+# Capsule CRM: The Simple Yet Powerful Solution for Growing Businesses
+
+Sarah stared at her growing client list with a mix of excitement and dread. Her consulting business had tripled in the past year, but her current system of sticky notes, Excel spreadsheets, and scattered email threads was starting to crack under the pressure. She needed something that could grow with her business—powerful enough to handle complex sales processes but simple enough that she could actually use it without a computer science degree.
+
+That's when she discovered **Capsule CRM**, the customer relationship management platform that proves you don't need enterprise-level complexity to achieve professional results. In just three months, Sarah transformed her chaotic client management into a streamlined, automated system that not only kept her organized but actually helped her close 40% more deals.
+
+## What is Capsule CRM? The Platform That Gets It Right
+
+### The Philosophy Behind the Simplicity
+
+Capsule CRM was built on a simple but revolutionary premise: CRM software should make your life easier, not harder. While competitors like Salesforce and HubSpot were adding layers of complexity to justify enterprise pricing, Capsule focused on creating an intuitive platform that small to medium businesses could actually use effectively.
+
+Founded in 2008, Capsule has spent over a decade perfecting the art of "just enough" functionality. Every feature serves a purpose, every interface element is intentional, and every automation is designed to save time rather than create more work. The result? A CRM that feels like it was designed by people who actually run businesses, not by engineers who've never made a sales call.
+
+### Core Platform Components
+
+**Contact Management**: The heart of any CRM, Capsule's contact system goes beyond basic name and email storage. Each contact includes a complete interaction history, custom fields for industry-specific data, and intelligent tagging that makes finding the right person at the right time effortless.
+
+**Sales Pipeline Management**: Visual sales pipelines that actually make sense. Unlike complex enterprise systems with dozens of stages and confusing workflows, Capsule's pipeline is designed around how real sales actually happen. Drag-and-drop simplicity meets powerful automation.
+
+**Task and Activity Tracking**: Never miss a follow-up again. Capsule's task system integrates seamlessly with your sales process, automatically creating reminders based on your interactions and ensuring nothing falls through the cracks.
+
+**Email Integration**: Full two-way email sync with Gmail, Outlook, and other major providers. Every email conversation is automatically logged against the relevant contact, creating a complete communication history without manual data entry.
+
+**Reporting and Analytics**: Clean, actionable reports that actually help you make decisions. No complex dashboards with 50 different metrics—just the key performance indicators that matter for growing businesses.
+
+## The Capsule CRM Advantage: Why Simplicity Wins
+
+### 1. **Intuitive Design That Actually Works**
+
+Most CRM platforms require weeks of training and constant reference to user manuals. Capsule's interface is so intuitive that new users are productive within hours, not weeks. The clean, uncluttered design focuses on what matters most: your relationships with customers.
+
+The platform's "less is more" philosophy extends to every interaction. Instead of overwhelming users with options, Capsule presents the most common actions prominently while keeping advanced features easily accessible but not intrusive.
+
+### 2. **Powerful Automation Without Complexity**
+
+Capsule's automation features are designed around real business workflows. Set up automated follow-up sequences, trigger tasks based on contact behavior, and create custom rules that work the way your business actually operates.
+
+Unlike enterprise platforms where automation requires a dedicated administrator, Capsule's automation tools are accessible to any team member. Create rules in plain English, test them with a single click, and modify them as your processes evolve.
+
+### 3. **Seamless Integration Ecosystem**
+
+Capsule integrates with over 50 popular business tools, from accounting software like Xero and QuickBooks to marketing platforms like Mailchimp and Zapier. The integrations are designed to be plug-and-play, requiring minimal setup and configuration.
+
+The platform's open API also allows for custom integrations, making it possible to connect Capsule with virtually any business system you're already using.
+
+### 4. **Mobile-First Approach**
+
+In today's mobile world, your CRM needs to work as well on a smartphone as it does on a desktop. Capsule's mobile app isn't an afterthought—it's a fully-featured extension of the desktop platform that lets you manage relationships from anywhere.
+
+The mobile interface maintains the same intuitive design principles as the desktop version, ensuring a consistent experience across all devices.
+
+## Real-World Success Stories: Capsule in Action
+
+### Case Study 1: The Growing Agency
+
+**The Challenge**: A digital marketing agency with 15 employees was struggling to manage 200+ clients across multiple service lines. Client information was scattered across different systems, follow-ups were frequently missed, and the sales team had no visibility into the sales pipeline.
+
+**The Solution**: Capsule CRM provided a centralized platform for all client interactions, automated follow-up sequences, and clear pipeline visibility. The agency implemented custom fields for different service types and created automated workflows for client onboarding.
+
+**The Results**: 
+- 60% reduction in missed follow-ups
+- 35% increase in client retention
+- 50% faster client onboarding process
+- Complete visibility into sales pipeline for all team members
+
+### Case Study 2: The Solo Consultant
+
+**The Challenge**: A business consultant was managing 50+ clients using a combination of email, calendar, and spreadsheet systems. Client information was difficult to track, and opportunities were frequently lost due to poor follow-up systems.
+
+**The Solution**: Capsule's simple interface and powerful automation features allowed the consultant to centralize all client information and automate routine follow-up tasks. The platform's mobile app ensured she could access client information during meetings and calls.
+
+**The Results**:
+- 40% increase in deal closure rate
+- 3 hours per week saved on administrative tasks
+- 100% improvement in client information organization
+- Seamless mobile access to all client data
+
+## Key Features That Set Capsule Apart
+
+### 1. **Smart Contact Management**
+
+Capsule's contact system goes beyond basic CRM functionality. Each contact includes:
+- Complete interaction history with automatic email logging
+- Custom fields for industry-specific information
+- Intelligent tagging and categorization
+- Relationship mapping between contacts and organizations
+- Social media integration for enhanced contact profiles
+
+### 2. **Visual Sales Pipeline**
+
+The sales pipeline is where Capsule truly shines. Features include:
+- Drag-and-drop opportunity management
+- Customizable pipeline stages that match your sales process
+- Automatic probability calculations based on stage and activity
+- Pipeline forecasting and revenue projections
+- Team collaboration tools for complex sales processes
+
+### 3. **Advanced Task Management**
+
+Capsule's task system is designed around real business workflows:
+- Automatic task creation based on sales activities
+- Recurring task templates for routine follow-ups
+- Task delegation and team collaboration
+- Integration with calendar systems for seamless scheduling
+- Priority-based task organization
+
+### 4. **Comprehensive Reporting**
+
+Capsule's reporting features provide actionable insights without complexity:
+- Pre-built reports for common business metrics
+- Custom report builder with drag-and-drop interface
+- Visual dashboards with key performance indicators
+- Export capabilities for further analysis
+- Automated report scheduling and distribution
+
+### 5. **Email Marketing Integration**
+
+Unlike many CRMs that treat email as an afterthought, Capsule includes powerful email marketing features:
+- Built-in email templates and campaigns
+- Automated email sequences based on contact behavior
+- A/B testing for email campaigns
+- Detailed email analytics and tracking
+- Integration with external email marketing platforms
+
+## Pricing and Plans: Value That Makes Sense
+
+Capsule CRM offers transparent, straightforward pricing that scales with your business:
+
+**Professional Plan ($18/user/month)**:
+- Up to 50,000 contacts
+- Unlimited opportunities and cases
+- Advanced automation and workflows
+- Custom fields and data import
+- Email marketing and campaigns
+- Mobile app access
+- Email and phone support
+
+**Teams Plan ($36/user/month)**:
+- Everything in Professional
+- Up to 100,000 contacts
+- Advanced reporting and analytics
+- Team collaboration features
+- Custom branding and white-labeling
+- Priority support
+- Advanced integrations
+
+**Enterprise Plan (Custom pricing)**:
+- Everything in Teams
+- Unlimited contacts
+- Custom development and integrations
+- Dedicated account manager
+- Advanced security and compliance features
+- Custom training and onboarding
+
+## Getting Started with Capsule CRM: Your Implementation Roadmap
+
+### Week 1: Foundation Setup
+- Import existing contact data
+- Configure custom fields for your industry
+- Set up basic automation rules
+- Train team members on core features
+
+### Week 2: Process Integration
+- Map your sales process to pipeline stages
+- Create task templates for routine activities
+- Set up email integration
+- Configure reporting dashboards
+
+### Week 3: Advanced Features
+- Implement advanced automation workflows
+- Set up team collaboration features
+- Create custom reports and analytics
+- Integrate with existing business tools
+
+### Week 4: Optimization and Growth
+- Analyze usage patterns and optimize workflows
+- Train additional team members
+- Plan for scaling and advanced features
+- Establish ongoing maintenance procedures
+
+## Common Use Cases and Industry Applications
+
+### Professional Services
+- Client relationship management
+- Project tracking and billing
+- Referral and lead management
+- Service delivery optimization
+
+### E-commerce and Retail
+- Customer segmentation and targeting
+- Order tracking and fulfillment
+- Customer service and support
+- Loyalty program management
+
+### Real Estate
+- Lead management and nurturing
+- Property listing tracking
+- Client communication and follow-up
+- Transaction management
+
+### Healthcare and Wellness
+- Patient relationship management
+- Appointment scheduling and tracking
+- Treatment plan management
+- Referral network management
+
+## The Future of Capsule CRM: Continuous Innovation
+
+Capsule CRM continues to evolve based on user feedback and changing business needs. Recent updates include:
+- Enhanced mobile app functionality
+- Improved automation capabilities
+- Advanced reporting and analytics
+- Expanded integration options
+- Enhanced security and compliance features
+
+The platform's commitment to simplicity while adding powerful features ensures that Capsule remains relevant as businesses grow and evolve.
+
+## Conclusion: Why Capsule CRM is the Right Choice
+
+Capsule CRM represents the perfect balance between simplicity and power. It's a platform that grows with your business without overwhelming you with unnecessary complexity. Whether you're a solo entrepreneur managing your first clients or a growing team looking to scale your operations, Capsule provides the tools you need without the learning curve that comes with enterprise solutions.
+
+The platform's intuitive design, powerful automation, and comprehensive feature set make it an ideal choice for businesses that want professional CRM functionality without the enterprise-level complexity and cost. With transparent pricing, excellent customer support, and a commitment to continuous improvement, Capsule CRM is more than just a tool—it's a partner in your business growth.
+
+Ready to transform your customer relationship management? [Start your free trial of Capsule CRM today](https://capsulecrm.com) and discover how simplicity can revolutionize your business operations.
+
+*Transform your customer relationships with Capsule CRM's intuitive platform. Start your free trial today and experience the power of simplicity in CRM.*
+    `,
+    featured: true
+  },
+  {
+    id: "mrpeasy-complete-guide",
+    title: "MRPeasy: The Complete Manufacturing ERP Solution for Small Businesses",
+    date: "September 2025",
+    cover: "/mrpeasy.png",
+    preview: "Discover how MRPeasy's cloud-based ERP system helps small manufacturing businesses streamline production, manage inventory, and scale operations efficiently.",
+    images: ["/mrpeasy.png"],
+    content: `
+# MRPeasy: The Complete Manufacturing ERP Solution for Small Businesses
+
+David stared at the chaos in his small manufacturing workshop with growing frustration. His team of 12 employees was producing quality custom furniture, but the business was drowning in paperwork, inventory confusion, and production delays. Orders were getting lost, materials were running out unexpectedly, and customers were growing impatient with delivery times. He knew he needed a proper system to manage his manufacturing operations, but enterprise ERP solutions like SAP or Oracle were far beyond his budget and complexity needs.
+
+That's when he discovered **MRPeasy**, the cloud-based manufacturing ERP system designed specifically for small to medium manufacturing businesses. Within just two months, David transformed his chaotic workshop into a streamlined operation that could handle 40% more orders with the same team, while reducing material waste by 25% and improving on-time delivery to 95%.
+
+## What is MRPeasy? Manufacturing Made Simple
+
+### The Philosophy Behind the Platform
+
+MRPeasy was built on a simple but powerful premise: small manufacturing businesses shouldn't have to choose between expensive, complex enterprise systems and basic spreadsheet management. Founded in 2014, MRPeasy set out to create a manufacturing ERP solution that combines the power of enterprise-level functionality with the simplicity and affordability that small businesses need.
+
+Unlike traditional ERP systems that require months of implementation and dedicated IT staff, MRPeasy is designed to be implemented quickly and managed by existing team members. The platform focuses on the core manufacturing processes that matter most: production planning, inventory management, shop floor control, and customer order tracking.
+
+### Core Platform Components
+
+**Production Planning**: Advanced production scheduling that considers material availability, machine capacity, and delivery deadlines. The system automatically creates realistic production schedules and identifies potential bottlenecks before they become problems.
+
+**Inventory Management**: Real-time inventory tracking with automatic reorder points, supplier management, and cost tracking. The system integrates with your production planning to ensure materials are available when needed.
+
+**Shop Floor Control**: Digital work orders, time tracking, and quality control processes that keep production running smoothly. Workers can access their tasks on mobile devices, update progress in real-time, and report issues immediately.
+
+**Customer Order Management**: Complete order lifecycle tracking from initial inquiry to final delivery. The system automatically generates production orders, tracks progress, and provides customers with real-time updates.
+
+**Financial Integration**: Built-in accounting features that track production costs, material usage, and profitability by product or customer. The system integrates with popular accounting software for seamless financial management.
+
+## The MRPeasy Advantage: Why Small Manufacturers Choose MRPeasy
+
+### 1. **Designed for Small Business Reality**
+
+Most ERP systems are designed for large enterprises with dedicated IT departments and complex approval processes. MRPeasy understands that small manufacturers need systems that work with their existing team structure and can be implemented without disrupting ongoing operations.
+
+The platform's intuitive interface means that shop floor workers, production managers, and business owners can all use the system effectively without extensive training. This democratization of manufacturing data ensures that everyone has access to the information they need to make better decisions.
+
+### 2. **Cloud-Based Flexibility**
+
+Unlike traditional on-premise ERP systems that require expensive hardware and IT maintenance, MRPeasy is completely cloud-based. This means:
+- No upfront hardware costs
+- Automatic updates and security patches
+- Access from anywhere with an internet connection
+- Scalable infrastructure that grows with your business
+- Reduced IT maintenance requirements
+
+### 3. **Manufacturing-Focused Features**
+
+While many ERP systems try to be everything to everyone, MRPeasy focuses specifically on manufacturing processes. This specialization means:
+- Features designed around real manufacturing workflows
+- Terminology and processes that manufacturing professionals understand
+- Integration with manufacturing-specific tools and equipment
+- Support for complex manufacturing scenarios like multi-level bills of materials
+
+### 4. **Affordable Pricing That Scales**
+
+MRPeasy's pricing model is designed for small businesses, starting at just $49 per month for up to 5 users. This makes professional manufacturing ERP functionality accessible to businesses that would never be able to afford traditional enterprise solutions.
+
+The pricing scales transparently with your business growth, with no hidden fees or surprise costs. You only pay for what you use, and you can upgrade or downgrade your plan as your needs change.
+
+## Real-World Success Stories: MRPeasy in Action
+
+### Case Study 1: The Growing Custom Furniture Business
+
+**The Challenge**: A custom furniture manufacturer with 15 employees was struggling to manage 50+ active orders simultaneously. Production schedules were constantly changing, materials were frequently out of stock, and customers were frustrated with delivery delays. The business was growing but couldn't scale efficiently.
+
+**The Solution**: MRPeasy provided a centralized system for production planning, inventory management, and order tracking. The company implemented digital work orders, automated material planning, and real-time production tracking.
+
+**The Results**:
+- 40% increase in production capacity with the same team
+- 60% reduction in material waste through better planning
+- 95% on-time delivery rate (up from 70%)
+- 50% reduction in administrative time spent on production planning
+- Complete visibility into production status for all team members
+
+### Case Study 2: The Electronics Assembly Company
+
+**The Challenge**: A small electronics assembly company was managing complex multi-level bills of materials using spreadsheets and manual processes. Component shortages were frequent, quality control was inconsistent, and production costs were difficult to track accurately.
+
+**The Solution**: MRPeasy's advanced bill of materials management, component tracking, and quality control features provided the structure needed for complex electronics manufacturing. The system automated material planning and provided real-time visibility into component availability.
+
+**The Results**:
+- 80% reduction in component shortages
+- 30% improvement in production efficiency
+- 25% reduction in production costs through better material planning
+- 100% traceability of components and finished products
+- Automated quality control processes that reduced defects by 40%
+
+## Key Features That Set MRPeasy Apart
+
+### 1. **Advanced Production Planning**
+
+MRPeasy's production planning capabilities rival those of enterprise systems:
+- Multi-level production scheduling with capacity planning
+- Automatic material requirement planning (MRP)
+- Finite capacity scheduling that considers machine availability
+- What-if scenario planning for production optimization
+- Integration with customer demand forecasting
+
+### 2. **Comprehensive Inventory Management**
+
+The platform's inventory management features are designed for manufacturing complexity:
+- Multi-location inventory tracking
+- Serial number and batch tracking
+- Automatic reorder point calculations
+- Supplier management and purchase order automation
+- Cost tracking with multiple costing methods (FIFO, LIFO, Average)
+
+### 3. **Shop Floor Control**
+
+Digital transformation of shop floor operations:
+- Digital work orders with mobile access
+- Real-time production tracking and reporting
+- Time and attendance tracking
+- Quality control checkpoints and documentation
+- Machine and equipment maintenance scheduling
+
+### 4. **Customer Order Management**
+
+Complete order lifecycle management:
+- Sales order processing with automatic production order generation
+- Customer portal for order tracking and communication
+- Delivery scheduling and tracking
+- Invoice generation and payment tracking
+- Customer relationship management features
+
+### 5. **Financial Integration**
+
+Built-in financial management for manufacturing:
+- Production cost tracking and analysis
+- Job costing with detailed cost breakdowns
+- Profitability analysis by product, customer, or project
+- Integration with popular accounting software
+- Financial reporting and analytics
+
+## Pricing and Plans: Transparent and Affordable
+
+MRPeasy offers straightforward pricing that scales with your business:
+
+**Starter Plan ($49/month for up to 5 users)**:
+- Basic production planning and scheduling
+- Inventory management with 1,000 items
+- Customer order management
+- Basic reporting and analytics
+- Email support
+- Mobile app access
+
+**Professional Plan ($99/month for up to 15 users)**:
+- Everything in Starter
+- Advanced production planning with capacity management
+- Unlimited inventory items
+- Shop floor control and time tracking
+- Advanced reporting and analytics
+- Priority support
+- API access for integrations
+
+**Enterprise Plan ($199/month for up to 50 users)**:
+- Everything in Professional
+- Advanced manufacturing features
+- Custom reporting and dashboards
+- Dedicated account manager
+- Custom integrations and training
+- Advanced security and compliance features
+
+## Getting Started with MRPeasy: Your Implementation Roadmap
+
+### Week 1: Foundation Setup
+- Import existing product and customer data
+- Set up basic inventory items and suppliers
+- Configure user accounts and permissions
+- Train key team members on core features
+
+### Week 2: Production Planning
+- Create bills of materials for your products
+- Set up production routing and work centers
+- Configure production scheduling parameters
+- Test production order generation
+
+### Week 3: Shop Floor Implementation
+- Deploy mobile devices for shop floor access
+- Train production workers on digital work orders
+- Set up quality control checkpoints
+- Implement time tracking and reporting
+
+### Week 4: Optimization and Growth
+- Analyze production data and optimize processes
+- Set up advanced reporting and analytics
+- Plan for scaling and additional features
+- Establish ongoing maintenance procedures
+
+## Common Use Cases and Industry Applications
+
+### Custom Manufacturing
+- Job shop production with unique customer orders
+- Complex routing and scheduling requirements
+- Material planning for custom products
+- Customer communication and order tracking
+
+### Electronics Assembly
+- Multi-level bill of materials management
+- Component tracking and traceability
+- Quality control and testing procedures
+- Compliance documentation and reporting
+
+### Food and Beverage
+- Batch tracking and traceability
+- Expiration date management
+- Quality control and safety procedures
+- Regulatory compliance and reporting
+
+### Metal Fabrication
+- Complex routing and machining operations
+- Material planning and waste reduction
+- Quality control and inspection processes
+- Equipment maintenance and scheduling
+
+## The Future of MRPeasy: Continuous Innovation
+
+MRPeasy continues to evolve based on customer feedback and manufacturing industry trends. Recent updates include:
+- Enhanced mobile app functionality
+- Advanced analytics and reporting
+- Improved integration capabilities
+- Enhanced security and compliance features
+- AI-powered production optimization
+
+The platform's commitment to small business manufacturing ensures that MRPeasy remains relevant as manufacturing processes evolve and businesses grow.
+
+## Conclusion: Why MRPeasy is the Right Choice
+
+MRPeasy represents the perfect solution for small to medium manufacturing businesses that need professional ERP functionality without enterprise-level complexity and cost. The platform's manufacturing focus, cloud-based architecture, and affordable pricing make it accessible to businesses that would never be able to afford traditional ERP solutions.
+
+Whether you're a custom manufacturer managing complex job orders or a small assembly operation looking to scale efficiently, MRPeasy provides the tools you need to streamline operations, reduce costs, and improve customer satisfaction. With its intuitive interface, comprehensive features, and excellent customer support, MRPeasy is more than just software—it's a partner in your manufacturing success.
+
+Ready to transform your manufacturing operations? [Start your free trial of MRPeasy today](https://mrpeasy.com) and discover how professional ERP functionality can revolutionize your small manufacturing business.
+
+*Streamline your manufacturing operations with MRPeasy's cloud-based ERP system. Start your free trial today and experience the power of professional manufacturing management.*
+    `,
+    featured: false
+  },
+  {
     id: "brevo-complete-guide",
     title: "Brevo Complete App Spotlight: The Ultimate All-in-One Marketing Platform Guide",
     date: "September 2025",
@@ -1700,7 +2182,7 @@ The future of sales is intelligent, automated, and data-driven. With Apollo.io, 
   {
     id: "paintr",
     title: "Exclusive Interview with PaintR: The AI Paint Matcher Transforming Design Workflows",
-    date: "July 2025",
+    date: "August 2025",
     cover: paintindetifierai,
     preview: "PaintR is changing the game for designers, decorators, and DIYers by instantly identifying exact paint colors from any image—free, fast, and simple.",
     images: [paintindetifierai],
@@ -1950,7 +2432,7 @@ Your future self (and your conversion rates) will thank you. And who knows? You 
   {
     id: "invideo-ai",
     title: "InVideo: The Ultimate AI Video Generator",
-    date: "June 2025",
+    date: "July 2025",
     cover: InVideoAvatar,
     preview: "InVideo AI is revolutionizing video content creation with cutting-edge artificial intelligence, enabling creators, marketers, and businesses to produce professional-quality videos in minutes without technical expertise.",
     images: [invideofreetrialai],
@@ -2134,7 +2616,7 @@ This review is based on extensive testing and user feedback. InVideo AI is a pow
   {
     id: "flowith-io",
     title: "Flowith.io: The Revolutionary AI Canvas That's Changing How We Work with Artificial Intelligence",
-    date: "June 2025",
+    date: "July 2025",
     cover: "/flowith.jpg",
     preview: "Your Complete Guide to the Next-Generation AI Workspace That Goes Beyond Traditional Chatbots",
     images: ["/flowith.jpg"],
@@ -2395,7 +2877,7 @@ The age of simple chatbots is ending. The era of intelligent, collaborative AI w
   {
     id: "scholar-gpt",
     title: "ScholarGPT: The AI Research Assistant Revolutionizing Academia",
-    date: "May 2025",
+    date: "July 2025",
     cover: placeholderImg4,
     preview: "Scholar GPT is revolutionizing academic research and study workflows with advanced AI-powered literature review, citation management, and personalized learning tools.",
     images: [schlrgptArticleImg],
@@ -2548,7 +3030,7 @@ Your next discovery is waiting. The only question is: how quickly do you want to
   {
     id: "vetgpt",
     title: "Meet VetGPT: The Free AI Assistant for Pet Parents",
-    date: "April 2025",
+    date: "June 2025",
     cover: VetGPT1,
     preview: 'When It\'s 10 PM and Your Pet\'s Acting "Off" — You\'re Not Alone Anymore. Here\'s why VetGPT is the best, safest, and most accessible way to get honest pet help—day or night.',
     images: [VetGPT1, VetGPT2],
@@ -2666,7 +3148,7 @@ VetGPT is an educational and informational AI tool. It is not a veterinarian and
   {
     id: "ai-fitness-coach",
     title: "AI Fitness Workout & Diet Coach",
-    date: "March 2025",
+    date: "June 2025",
     cover: fitnessCoachImg,
     preview: "How the PhD Coach GPT is changing the game for safe, science-based fitness and nutrition guidance—plus an exclusive interview.",
     images: [aifitnessArticleImg],
@@ -2675,7 +3157,7 @@ VetGPT is an educational and informational AI tool. It is not a veterinarian and
   {
     id: "cheat-coder",
     title: "Cheat Coder: The free AI Bot That Makes Coding a Breeze",
-    date: "February 2025",
+    date: "June 2025",
     cover: cheatCoderImg,
     preview: "Cheat Coder, built on GPT-4, is redefining AI-assisted programming with full-solution generation, educational integration, and collaborative workflows for developers of all skill levels.",
     images: [cheatCoderImg, cheatCoderLogo],
@@ -2835,7 +3317,7 @@ To begin working with Cheat Coder, simply describe your programming challenge or
   {
     id: "alli-ai",
     title: "Alli AI Review 2025: Complete SEO Automation Platform Guide (10-Day Free Trial)",
-    date: "January 2025",
+    date: "June 2025",
     cover: "/alliai.png",
     preview: "Discover how Alli AI's automated SEO platform helps agencies optimize thousands of pages instantly, with real-time deployment and universal CMS compatibility.",
     images: ["/alliai.png"],

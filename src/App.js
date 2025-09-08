@@ -401,7 +401,8 @@ function Apps() {
       features: ["Contact management", "Email marketing", "Project management", "Workflow automation"],
       link: "https://get.capsulenow.io/6894ebdizsds",
       trialInfo: "14-day free trial",
-      image: "https://betteraibots.com/assets/capsule-crm-logo.png"
+      image: "https://betteraibots.com/assets/capsule-crm-logo.png",
+      readMoreLink: "/learn/capsule-crm-complete-guide"
     },
     {
       name: "Flowith.io",
@@ -440,7 +441,8 @@ function Apps() {
       features: ["Production planning", "Inventory management", "CRM integration", "Real-time reporting"],
       link: "https://try.mrpeasy.com/m72w6bztymwh",
       trialInfo: "14-Day Free Trial",
-      image: "https://betteraibots.com/assets/mrpeasy-logo.png"
+      image: "https://betteraibots.com/assets/mrpeasy-logo.png",
+      readMoreLink: "/learn/mrpeasy-complete-guide"
     },
     {
       name: "Murf.ai",
@@ -476,7 +478,8 @@ function Apps() {
       features: ["AI-driven automation", "Email deliverability optimization", "Spam folder avoidance", "Real-time insights"],
       link: "https://warmyio.partnerlinks.io/ffy5y6ll9374",
       trialInfo: "7-Day Free Trial",
-      image: "https://betteraibots.com/assets/warmy-logo.png"
+      image: "https://betteraibots.com/assets/warmy-logo.png",
+      readMoreLink: "/news/warmy-io-spam-folder-rebellion-email-deliverability"
     },
     {
       name: "Wispr Flow",
@@ -914,6 +917,70 @@ function Apps() {
                 gap: '24px'
               }}>
                 {freeApps.map(app => renderAppCard(app, 'free'))}
+              </div>
+              
+              {/* Free Trials Highlight */}
+              <div style={{
+                marginTop: '40px',
+                padding: '25px',
+                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%)',
+                borderRadius: '16px',
+                border: '2px solid rgba(139, 92, 246, 0.3)',
+                textAlign: 'center',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '-50%',
+                  right: '-50%',
+                  width: '200px',
+                  height: '200px',
+                  background: 'radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)',
+                  borderRadius: '50%'
+                }} />
+                <h3 style={{
+                  color: '#8b5cf6',
+                  fontSize: '1.5rem',
+                  marginBottom: '12px',
+                  fontWeight: '700'
+                }}>
+                  🎯 Want More Premium Features?
+                </h3>
+                <p style={{
+                  color: '#d1efe7',
+                  fontSize: '1rem',
+                  marginBottom: '20px',
+                  maxWidth: '500px',
+                  margin: '0 auto 20px auto'
+                }}>
+                  Discover our collection of free trial apps with premium features, advanced AI models, and professional tools.
+                </p>
+                <button
+                  onClick={() => setActiveSection('trial')}
+                  style={{
+                    background: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '25px',
+                    padding: '12px 30px',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 15px rgba(139, 92, 246, 0.3)'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.transform = 'translateY(-2px)';
+                    e.target.style.boxShadow = '0 6px 20px rgba(139, 92, 246, 0.4)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.boxShadow = '0 4px 15px rgba(139, 92, 246, 0.3)';
+                  }}
+                >
+                  Explore Free Trials →
+                </button>
               </div>
             </div>
           )}
