@@ -190,7 +190,6 @@ export default function ArticlePage() {
             "paintr": "https://betteraibots.com/paintindetifierai.webp",
             "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
-            "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
             "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
             "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
             "alli-ai": "https://betteraibots.com/alliai.png",
@@ -201,7 +200,8 @@ export default function ArticlePage() {
             "viral-launch": "https://betteraibots.com/virallaunch.png",
             "apollo-io": "https://betteraibots.com/apollo.png",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
-            "flowith-io": "https://betteraibots.com/flowith.jpg"
+            "flowith-io": "https://betteraibots.com/flowith.jpg",
+            "murf-ai-complete-guide": "https://betteraibots.com/murfai.png"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -216,7 +216,6 @@ export default function ArticlePage() {
             "paintr": "https://betteraibots.com/paintindetifierai.webp",
             "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
-            "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
             "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
             "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
             "alli-ai": "https://betteraibots.com/alliai.png",
@@ -227,7 +226,8 @@ export default function ArticlePage() {
             "viral-launch": "https://betteraibots.com/virallaunch.png",
             "apollo-io": "https://betteraibots.com/apollo.png",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
-            "flowith-io": "https://betteraibots.com/flowith.jpg"
+            "flowith-io": "https://betteraibots.com/flowith.jpg",
+            "murf-ai-complete-guide": "https://betteraibots.com/murfai.png"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -249,7 +249,6 @@ export default function ArticlePage() {
                 "paintr": "https://betteraibots.com/paintindetifierai.webp",
                 "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
                 "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
-                "vetgpt": "https://betteraibots.com/assets/vetgpt-1.png",
                 "ai-fitness-coach": "https://betteraibots.com/assets/bot-placeholder15.webp",
                 "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
                 "alli-ai": "https://betteraibots.com/alliai.png",

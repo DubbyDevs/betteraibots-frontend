@@ -451,7 +451,8 @@ function Apps() {
       features: ["Voice cloning", "AI dubbing", "Voice changer", "200+ voices"],
       link: "https://get.murf.ai/i5n7gfvz5cbw",
       trialInfo: "Free trial available",
-      image: "https://betteraibots.com/assets/murf-ai-logo.png"
+      image: "https://betteraibots.com/assets/murf-ai-logo.png",
+      readMoreLink: "/learn/murf-ai-complete-guide"
     },
     {
       name: "Reply.io",

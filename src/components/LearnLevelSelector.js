@@ -992,6 +992,169 @@ const LearnLevelSelector = () => {
                  </div>
                </div>
 
+                               {/* Murf.ai Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                 <div style={{
+                   display: "flex",
+                   alignItems: "stretch"
+                 }}>
+                   <div style={{
+                     flex: isMobile ? "0 0 120px" : "0 0 300px",
+                     position: "relative"
+                   }}>
+                     <img
+                       src="/murfai.png"
+                       alt="Murf.ai - AI Voice Generation Platform"
+                       style={{
+                         width: "100%",
+                         height: "100%",
+                         objectFit: "contain"
+                       }}
+                       onError={(e) => {
+                         e.target.style.display = 'none';
+                       }}
+                     />
+                   </div>
+                   <div style={{
+                     flex: 1,
+                     padding: "24px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         Murf.ai
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • AI Voice Generation
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.9rem" : "1rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 16px 0"
+                       }}>
+                         Ultra-realistic AI voice generation with 200+ voices, voice cloning, and comprehensive customization tools for content creators and businesses.
+                       </p>
+                       <div style={{
+                         display: "flex",
+                         flexWrap: "wrap",
+                         gap: "8px",
+                         marginBottom: "16px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           10 Min Free Trial
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           Voice Cloning
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           20+ Languages
+                         </span>
+                       </div>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://get.murf.ai/i5n7gfvz5cbw"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Free Trial
+                       </a>
+                       <Link
+                         to="/learn/murf-ai-complete-guide"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
                                {/* Lindy.ai Card */}
                <div style={{
                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
