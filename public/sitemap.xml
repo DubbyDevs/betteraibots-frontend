@@ -193,4 +193,17 @@
     <priority>0.7</priority>
   </url>
   
+  <!-- AiSDR Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/aisdr-complete-guide</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/aisdr.png</image:loc>
+      <image:title>AiSDR - AI Sales Development Platform</image:title>
+      <image:caption>Transform your sales pipeline with AI that never sleeps, never forgets, and never burns out</image:caption>
+    </image:image>
+  </url>
+  
 </urlset> 
