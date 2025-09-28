@@ -261,7 +261,8 @@ export default function ArticlePage() {
                 "apollo-io": "https://betteraibots.com/apollo.png",
                 "adcreative-ai": "https://betteraibots.com/adcreative.png",
                 "flowith-io": "https://betteraibots.com/flowith.jpg",
-                "murf-ai-complete-guide": "https://betteraibots.com/murfai.png"
+                "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
+                "aisdr-complete-guide": "https://betteraibots.com/aisdr.png"
               };
               return ogImageMap[article.id] || images[0] || article.cover;
             })(),
