@@ -666,6 +666,169 @@ const LearnLevelSelector = () => {
                  padding: isMobile ? "0 15px" : "0 40px",
                  width: "100%"
                }}>
+                               {/* AiSDR Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                 <div style={{
+                   display: "flex",
+                   alignItems: "stretch"
+                 }}>
+                   <div style={{
+                     flex: isMobile ? "0 0 120px" : "0 0 300px",
+                     position: "relative"
+                   }}>
+                     <img
+                       src="/aisdr.png"
+                       alt="AiSDR - AI Sales Development Platform"
+                       style={{
+                         width: "100%",
+                         height: "100%",
+                         objectFit: "contain"
+                       }}
+                       onError={(e) => {
+                         e.target.style.display = 'none';
+                       }}
+                     />
+                   </div>
+                   <div style={{
+                     flex: 1,
+                     padding: "24px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         AiSDR
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Sales & AI
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.9rem" : "1rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 16px 0"
+                       }}>
+                         AI-powered sales development platform that books qualified meetings 24/7. Transform your pipeline with personalized outreach at scale.
+                       </p>
+                       <div style={{
+                         display: "flex",
+                         flexWrap: "wrap",
+                         gap: "8px",
+                         marginBottom: "16px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           AI-Powered
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           10-Min Response
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.1)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "12px",
+                           fontSize: "0.8rem",
+                           border: "1px solid rgba(54, 255, 149, 0.3)"
+                         }}>
+                           HubSpot Integration
+                         </span>
+                       </div>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://aisdr.com/?ref=betteraibots"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try AiSDR Now
+                       </a>
+                       <Link
+                         to="/learn/aisdr-complete-guide"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
                                {/* Capsule CRM Card */}
                <div style={{
                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",

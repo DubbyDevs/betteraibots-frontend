@@ -521,7 +521,8 @@ function Apps() {
       features: ["AI prospecting", "Personalized emails", "LinkedIn automation", "HubSpot integration"],
       price: "$900/month",
       link: "https://partner.aisdr.com/5fxea2u5m85d",
-      image: "https://betteraibots.com/assets/aisdr-logo.png"
+      image: "https://betteraibots.com/assets/aisdr-logo.png",
+      readMoreLink: "/learn/aisdr-complete-guide"
     },
     {
       name: "RunPod.io",
@@ -1617,7 +1618,7 @@ function Legal() {
         background: "#172d3e", borderRadius: 18, padding: "36px 28px", boxShadow: "0 2px 22px #09e26924"
       }}>
         <b>Disclaimer & Important Notices:</b><br />
-        BetterAiBots.com ("the Site") is an <b>independent, free public directory</b> listing and linking to AI bots and OpenAI GPTs. The Site <b>does not own, operate, control, endorse, monitor, review, or vet any listed bots, AI services, or third-party content</b>. Bots, content, and links are provided "as is" and solely for informational, entertainment, and educational purposes.
+        BetterAiBots.com ("the Site") is a <b>free public directory</b> listing and linking to AI bots and OpenAI GPTs. The Site <b>does not own, operate, or control any listed bots, AI services, or third-party content</b>. Bots, content, and links are provided "as is" and solely for informational, entertainment, and educational purposes.
         <br /><br />
         <b>Affiliate Disclosure & Endorsement Policy:</b><br />
         BetterAiBots.com may receive compensation for some links and recommendations through affiliate partnerships. While we are not affiliated with OpenAI directly, we do have affiliate relationships with certain AI tool providers and services. However, listing any bot or service does not constitute a blanket endorsement, and we do not guarantee the quality, safety, or suitability of any listed tools. Users should always conduct their own research and due diligence before using any AI service.
@@ -1975,7 +1976,7 @@ function DisclaimerBar() {
         display: "block",
         marginTop: 8
       }}>
-        BetterAiBots is an independent directory for OpenAI GPTs and AI bots. All trademarks and content belong to their respective owners.
+        BetterAiBots is a directory for AI tools and bots. Some links may be affiliate partnerships. All trademarks and content belong to their respective owners.
       </span>
     </div>
   );
