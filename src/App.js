@@ -435,6 +435,15 @@ function Apps() {
       readMoreLink: "/learn/lindy-ai"
     },
     {
+      name: "Miro",
+      description: "AI-powered collaboration platform with limitless canvas for teams to build, plan, and innovate together",
+      category: "Collaboration & Design",
+      features: ["AI-powered canvas", "160+ integrations", "Real-time collaboration", "Templates & workflows"],
+      link: "https://ps.miro-affiliate.com/gwnvu4zj3r8r",
+      trialInfo: "Free plan available",
+      image: "https://betteraibots.com/assets/miro-logo.png"
+    },
+    {
       name: "MRPeasy",
       description: "AI-powered MRP software for small manufacturers with 10-200 employees",
       category: "Manufacturing & ERP",
