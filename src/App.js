@@ -599,7 +599,11 @@ function Apps() {
       marginBottom: '20px',
       backdropFilter: 'blur(10px)',
       transition: 'all 0.3s ease',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+      minHeight: '400px'
     }} onClick={() => window.open(app.link, '_blank')}>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '16px' }}>
         <div style={{
@@ -683,7 +687,7 @@ function Apps() {
         {app.description}
       </p>
       
-      <div style={{ marginBottom: '16px' }}>
+      <div style={{ marginBottom: '16px', flex: 1 }}>
         <h4 style={{
           margin: '0 0 8px 0',
           fontSize: '0.9rem',
