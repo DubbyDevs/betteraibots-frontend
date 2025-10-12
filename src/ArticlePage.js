@@ -83,7 +83,7 @@ function ShareButtons({ url, title }) {
 }
 
 export default function ArticlePage() {
-  const { id } = useParams();
+  const { id, level } = useParams();
   const article = articles.find(a => a.id === id);
 
   // Function to generate heading ID from text
@@ -97,7 +97,29 @@ export default function ArticlePage() {
   };
 
   const ScholarGPTHeading = ({ level, children, ...props }) => {
-    const headingText = typeof children === 'string' ? children : children[0] || '';
+    // Extract text content from children, handling both strings and React elements
+    const extractTextFromChildren = (children) => {
+      if (typeof children === 'string') {
+        return children;
+      }
+      if (Array.isArray(children)) {
+        return children.map(child => {
+          if (typeof child === 'string') {
+            return child;
+          }
+          if (child && typeof child === 'object' && child.props && child.props.children) {
+            return extractTextFromChildren(child.props.children);
+          }
+          return '';
+        }).join('');
+      }
+      if (children && typeof children === 'object' && children.props && children.props.children) {
+        return extractTextFromChildren(children.props.children);
+      }
+      return '';
+    };
+    
+    const headingText = extractTextFromChildren(children);
     const headingId = generateHeadingId(headingText);
     
     if (
@@ -295,8 +317,39 @@ export default function ArticlePage() {
           })}
         </script>
       </Helmet>
+      {/* Breadcrumbs */}
       <div style={{ marginBottom: 15 }}>
-        <Link to="/learn" style={{ color: "#36ff95", textDecoration: "underline" }}>&larr; Back to Learn</Link>
+        <Link to="/learn" style={{ color: "#36ff95", textDecoration: "none" }}>Learn</Link>
+        {level && (
+          <>
+            <span style={{ color: "#36ff95", margin: "0 8px" }}>/</span>
+            <Link to={`/learn/${level}`} style={{ color: "#36ff95", textDecoration: "none", textTransform: "capitalize" }}>
+              {level}
+            </Link>
+          </>
+        )}
+        <span style={{ color: "#36ff95", margin: "0 8px" }}>/</span>
+        <span style={{ color: "#e0e0e0" }}>{article?.title || "Article"}</span>
+      </div>
+      
+      {/* Site Disclaimer */}
+      <div style={{
+        background: "rgba(255, 0, 0, 0.1)",
+        border: "1px solid rgba(255, 0, 0, 0.3)",
+        borderRadius: "8px",
+        padding: "12px 16px",
+        margin: "0 0 24px 0",
+        textAlign: "center"
+      }}>
+        <p style={{
+          color: "#ff6b6b",
+          fontSize: "0.9rem",
+          fontWeight: "600",
+          margin: 0,
+          lineHeight: 1.4
+        }}>
+          🔴 This site includes affiliate links and does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.
+        </p>
       </div>
       <div style={{ display: "flex", gap: 16, marginBottom: 18, alignItems: "center" }}>
         <ShareButtons url={shareUrl} title={article.title} />
@@ -396,7 +449,29 @@ export default function ArticlePage() {
           components={{
             h2: ScholarGPTHeading,
             h3: ({ node, children, ...props }) => {
-              const headingText = typeof children === 'string' ? children : children[0] || '';
+              // Extract text content from children, handling both strings and React elements
+              const extractTextFromChildren = (children) => {
+                if (typeof children === 'string') {
+                  return children;
+                }
+                if (Array.isArray(children)) {
+                  return children.map(child => {
+                    if (typeof child === 'string') {
+                      return child;
+                    }
+                    if (child && typeof child === 'object' && child.props && child.props.children) {
+                      return extractTextFromChildren(child.props.children);
+                    }
+                    return '';
+                  }).join('');
+                }
+                if (children && typeof children === 'object' && children.props && children.props.children) {
+                  return extractTextFromChildren(children.props.children);
+                }
+                return '';
+              };
+              
+              const headingText = extractTextFromChildren(children);
               const headingId = generateHeadingId(headingText);
               return (
                 <h3 {...props} id={headingId} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
@@ -407,8 +482,14 @@ export default function ArticlePage() {
               // Neon highlight for speaker names
               return highlightSpeakers(children);
             },
+            ul: ({ children, ...props }) => (
+              <ul style={{ paddingLeft: 20, margin: '16px 0' }}>{children}</ul>
+            ),
+            ol: ({ children, ...props }) => (
+              <ol style={{ paddingLeft: 20, margin: '16px 0' }}>{children}</ol>
+            ),
             li: ({ children, ...props }) => (
-              <li style={{ marginBottom: 4 }}>{children}</li>
+              <li style={{ marginBottom: 8, display: 'block' }}>{children}</li>
             ),
             img: () => null, // Prevent user-submitted inline images
             a: ({ href, children, ...props }) => {

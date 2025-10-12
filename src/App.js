@@ -479,9 +479,10 @@ function Apps() {
       description: "Online video editor with AI features for creating professional content",
       category: "Video Editing",
       features: ["AI video editing", "Auto-subtitles", "Background removal", "Collaboration tools"],
-      link: "https://betteraibots.com/veed",
+      link: "https://veed.cello.so/rwFO6zwGZh9",
       trialInfo: "Free plan available",
-      image: "https://betteraibots.com/assets/veed-logo.png"
+      image: "https://betteraibots.com/assets/veed-logo.png",
+      readMoreLink: "/learn/veed-complete-guide"
     },
     {
       name: "Warmy",
@@ -2241,6 +2242,7 @@ function App() {
         <Route path="/learn/beginner" element={<Articles level="beginner" />} />
         <Route path="/learn/intermediate" element={<Articles level="intermediate" />} />
         <Route path="/learn/advanced" element={<Articles level="advanced" />} />
+        <Route path="/learn/:level/:id" element={<ArticlePage />} />
         <Route path="/learn/:id" element={<ArticlePage />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
