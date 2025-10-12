@@ -83,7 +83,7 @@ function ShareButtons({ url, title }) {
 }
 
 export default function ArticlePage() {
-  const { id, level } = useParams();
+  const { id } = useParams();
   const article = articles.find(a => a.id === id);
 
   // Function to generate heading ID from text

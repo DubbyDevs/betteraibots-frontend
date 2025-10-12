@@ -6,14 +6,10 @@ import IntermediateQuiz from "./components/IntermediateQuiz";
 import AdvancedQuiz from "./components/AdvancedQuiz";
 import placeholderImg4 from "./assets/bot-placeholder4.webp";
 import schlrgptArticleImg from "./assets/schlrgptarticle.webp";
-import aifitnessArticleImg from "./assets/aifitnessarticle.webp";
-
 import invideofreetrialai from "./assets/invideofreetrialai.webp";
 import InVideoAvatar from "./assets/InVideoAvatar.webp";
 import cheatCoderImg from "./assets/cheatcoder.webp";
 import cheatCoderLogo from "./assets/cheatcoderlogo.webp";
-import AIFitnessCoachInterview from "./AIFitnessCoachInterview";
-import fitnessCoachImg from "./assets/bot-placeholder15.webp";
 import apolloLogo from "./assets/apolloailogo.webp";
 import adcreativeaitrial from "./assets/adcreativeaitrial.png";
 
