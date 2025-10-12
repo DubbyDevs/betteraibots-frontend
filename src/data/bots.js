@@ -38,7 +38,6 @@ import InVideoAvatar from '../assets/InVideoAvatar.webp';
 import adcreativeaiImg from '../assets/adcreativeai.webp';
 import adcreativeaiImg2 from '../assets/adcreativeai2.webp';
 import adcreativeaiImg3 from '../assets/adcreativeai3.webp';
-import  from '../assets/thelovedocaiapp.webp';
 
 import trustygifVideo from '../assets/trustygif.mp4';
 
