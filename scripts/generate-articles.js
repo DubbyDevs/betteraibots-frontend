@@ -1644,8 +1644,7 @@ function generateArticleHTML(article) {
     }
     </script>
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;500&display=swap" rel="stylesheet">
+    <!-- Fonts - Loaded from main index.html -->
     
     <style>
       /* Full React App CSS */

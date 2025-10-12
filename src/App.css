@@ -1,7 +1,6 @@
 /* App.css */
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;500&display=swap');
+/* Fonts - Loaded from index.html */
 
 body {
   background: linear-gradient(135deg, #101c26 0%, #172d3e 100%);
