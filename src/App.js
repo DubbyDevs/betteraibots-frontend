@@ -441,7 +441,8 @@ function Apps() {
       features: ["AI-powered canvas", "160+ integrations", "Real-time collaboration", "Templates & workflows"],
       link: "https://ps.miro-affiliate.com/gwnvu4zj3r8r",
       trialInfo: "Free plan available",
-      image: "https://betteraibots.com/assets/miro-logo.png"
+      image: "https://betteraibots.com/assets/miro-logo.png",
+      readMoreLink: "/learn/miro-complete-guide"
     },
     {
       name: "MRPeasy",
