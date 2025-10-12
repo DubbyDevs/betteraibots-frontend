@@ -901,6 +901,26 @@ function Apps() {
           </button>
         </div>
 
+        {/* Affiliate Disclaimer */}
+        <div style={{
+          textAlign: 'center',
+          marginTop: '20px',
+          marginBottom: '20px',
+          padding: '20px',
+          background: 'rgba(255, 255, 255, 0.02)',
+          borderRadius: '12px',
+          border: '1px solid rgba(255, 255, 255, 0.1)'
+        }}>
+          <p style={{
+            color: '#8a8a8a',
+            fontSize: '0.85rem',
+            margin: '0',
+            fontStyle: 'italic'
+          }}>
+            💡 Some links on this page are affiliate partnerships. We may earn a commission when you sign up through our links, at no extra cost to you.
+          </p>
+        </div>
+
         {/* Section Content */}
         <div style={{ minHeight: '600px' }}>
           {activeSection === 'free' && (
@@ -1077,25 +1097,6 @@ function Apps() {
               </div>
             </div>
           )}
-        </div>
-
-        {/* Affiliate Disclaimer */}
-        <div style={{
-          textAlign: 'center',
-          marginTop: '40px',
-          padding: '20px',
-          background: 'rgba(255, 255, 255, 0.02)',
-          borderRadius: '12px',
-          border: '1px solid rgba(255, 255, 255, 0.1)'
-        }}>
-          <p style={{
-            color: '#8a8a8a',
-            fontSize: '0.85rem',
-            margin: '0',
-            fontStyle: 'italic'
-          }}>
-            💡 Some links on this page are affiliate partnerships. We may earn a commission when you sign up through our links, at no extra cost to you.
-          </p>
         </div>
 
         {/* Bottom CTA */}
@@ -3015,7 +3016,8 @@ function NewsArticle() {
             "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2",
             "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
             "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
-            "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2"
+            "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
+            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
           console.log('Open Graph image URL:', imageUrl);
@@ -3046,7 +3048,8 @@ function NewsArticle() {
             "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2",
             "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
             "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
-            "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2"
+            "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
+            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
           console.log('Twitter image URL:', imageUrl);
@@ -3082,7 +3085,8 @@ function NewsArticle() {
                 "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2",
                 "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
                 "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
-                "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2"
+                "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
+            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2"
               };
               const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
               console.log('Structured data image URL:', imageUrl);

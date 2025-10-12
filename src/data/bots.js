@@ -231,14 +231,6 @@ export const rawBots = [
     freeLabel: "Free Trial"
   },
   {
-    title: "The Love Doc",
-    desc: "Relationship and dating advice (Not a real doctor)",
-    image: lovedocImg,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-6833fa918b148191a7b2d4cc2ea7114f-love-doc",
-    categories: ["Health & Wellness", "Lifestyle"]
-  },
-  {
     title: "Math AI",
     desc: "Math solver and explainer: equations, word problems, and more.",
     image: placeholderImg33,
@@ -253,14 +245,6 @@ export const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/g/g-pCq5xaCri-logo",
     categories: ["Creative Tools"]
-  },
-  {
-    title: "Crypto Sentiment Tracker",
-    desc: "Analyze real-time crypto sentiment and trends with one click. (Not financial advice)",
-    image: placeholderImg13,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-6834013bf6288191ab9eaabe31591539-crypto-sentiment-tracker",
-    categories: ["Productivity"]
   },
   {
     title: "GIF Generator",
@@ -278,14 +262,6 @@ export const rawBots = [
     free: true,
     openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
     categories: ["Creative Tools", "Productivity"]
-  },
-  {
-    title: "AI Music Prompt Generator",
-    desc: "Generate creative prompts for AI music generation and songwriting.",
-    image: placeholderImg19,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-y2J4bAO8A-ai-music-prompt-generator",
-    categories: ["Music", "Creative Tools"]
   }
 ];
 
