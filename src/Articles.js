@@ -2217,7 +2217,7 @@ Ready to transform your manufacturing operations? [Start your free trial of MRPe
   },
   {
     id: "murf-ai-complete-guide",
-    title: "Murf.ai: The Complete Guide to AI Voice Generation That's Revolutionizing Content Creation",
+    title: "Murf.ai: AI Voice Generation That's Revolutionizing Content Creation",
     date: "September 2025",
     cover: "/murfai.png",
     preview: "Discover how Murf.ai's AI voice generation platform transforms content creation with ultra-realistic voiceovers, voice cloning, and comprehensive customization tools for creators and businesses.",
@@ -2939,7 +2939,7 @@ The future of content creation is here, and it speaks with the voice you choose.
   },
   {
     id: "brevo-complete-guide",
-    title: "Brevo Complete App Spotlight: The Ultimate All-in-One Marketing Platform Guide",
+    title: "Brevo: The Ultimate All-in-One Marketing Platform Guide",
     date: "September 2025",
     cover: "/brevologo.png",
     preview: "Discover how Brevo's AI-powered marketing platform helps businesses of all sizes connect with customers through email, SMS, WhatsApp, and automation workflows.",
@@ -3304,7 +3304,7 @@ Start your journey today with Brevo's free plan, implement the strategies outlin
   },
   {
     id: "lindy-ai",
-    title: "Lindy.ai Review 2025: Complete Guide to AI Automation Platform (Free Trial Available)",
+    title: "Lindy.ai Review 2025: Complete Guide to AI Automation Platform",
     date: "August 2025",
     cover: "/lindy.png",
     preview: "Discover how Lindy.ai's AI automation platform helps businesses create custom AI agents without coding, with 6,000+ integrations and 24/7 operation capabilities.",
@@ -4107,7 +4107,7 @@ Because somewhere out there, your next winning product is waiting to be discover
   },
   {
     id: "apollo-io",
-    title: "The Great Sales Hunt: How Apollo.io Turned Amateur Prospectors Into Lead Generation Legends",
+    title: "How Apollo.io Turned Amateur Prospectors Into Lead Generation Legends",
     date: "August 2025",
     cover: apolloLogo,
     preview: "A tale of cold emails, warm responses, and the platform that changed everything. Discover how Apollo.io revolutionized sales prospecting with AI-powered intelligence.",
@@ -4613,7 +4613,7 @@ The future of sales is intelligent, automated, and data-driven. With Apollo.io, 
   {
     id: "paintr",
     title: "Exclusive Interview with PaintR: The AI Paint Matcher Transforming Design Workflows",
-    date: "August 2025",
+    date: "July 2025",
     cover: paintindetifierai,
     preview: "PaintR is changing the game for designers, decorators, and DIYers by instantly identifying exact paint colors from any image—free, fast, and simple.",
     images: [paintindetifierai],
