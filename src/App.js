@@ -471,7 +471,8 @@ function Apps() {
       features: ["AI SDR agents", "Multichannel sequences", "Email automation", "LinkedIn automation", "Meeting scheduler"],
       link: "https://get.reply.io/ub7edypmq2gj",
       trialInfo: "14-day free trial",
-      image: "https://betteraibots.com/assets/reply-logo.png"
+      image: "https://betteraibots.com/assets/reply-logo.png",
+      readMoreLink: "/learn/reply-io-complete-guide"
     },
     {
       name: "VEED",
