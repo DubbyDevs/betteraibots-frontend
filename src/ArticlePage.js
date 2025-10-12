@@ -361,8 +361,8 @@ export default function ArticlePage() {
       {/* Top Image */}
       {images[0] && (
         <img src={images[0]} alt="" style={{
-          width: "420px",
-          height: "420px",
+          width: "200px",
+          height: "200px",
           maxWidth: "100%",
           borderRadius: 16,
           margin: "0 0 24px 0",

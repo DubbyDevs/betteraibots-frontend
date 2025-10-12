@@ -200,7 +200,7 @@ function News() {
       </div>
       
       <div className="site-disclaimer" style={{ padding: '0 20px', textAlign: 'center' }}>
-        🔴 <strong>This site does not provide financial, legal, or medical advice. News articles are for informational purposes only.</strong>
+        🔴 <strong>This site includes affiliate links and does not provide financial, legal, or medical advice. News articles are for informational purposes only.</strong>
       </div>
 
       <div className="news-container">
@@ -1468,7 +1468,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         </p>
       </div>
       <div className="site-disclaimer">
-  🔴 <strong>This site does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.</strong>
+  🔴 <strong>This site includes affiliate links and does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.</strong>
 </div>
       <BotGrid bots={filteredBots} onOpenModal={onOpenModal} />
     </>
@@ -1517,7 +1517,7 @@ const CATEGORY_REVERSE = {
         </p>
       </div>
       <div className="site-disclaimer" style={{ padding: '0 20px', textAlign: 'center' }}>
-        🔴 <strong>This site does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.</strong>
+        🔴 <strong>This site includes affiliate links and does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.</strong>
       </div>
       <BotGrid bots={botsForCategory} onOpenModal={onOpenModal} />
     </>
