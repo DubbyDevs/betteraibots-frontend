@@ -317,21 +317,6 @@ export default function ArticlePage() {
           })}
         </script>
       </Helmet>
-      {/* Breadcrumbs */}
-      <div style={{ marginBottom: 15 }}>
-        <Link to="/learn" style={{ color: "#36ff95", textDecoration: "none" }}>Learn</Link>
-        {level && (
-          <>
-            <span style={{ color: "#36ff95", margin: "0 8px" }}>/</span>
-            <Link to={`/learn/${level}`} style={{ color: "#36ff95", textDecoration: "none", textTransform: "capitalize" }}>
-              {level}
-            </Link>
-          </>
-        )}
-        <span style={{ color: "#36ff95", margin: "0 8px" }}>/</span>
-        <span style={{ color: "#e0e0e0" }}>{article?.title || "Article"}</span>
-      </div>
-      
       {/* Site Disclaimer */}
       <div style={{
         background: "rgba(255, 0, 0, 0.1)",

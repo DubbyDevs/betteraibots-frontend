@@ -501,7 +501,8 @@ function Apps() {
       features: ["Voice dictation", "Cross-platform compatibility", "AI-powered transcription", "Background operation"],
       link: "https://wisprflow.ai/downloads?referral=KING16",
       trialInfo: "Free trial available",
-      image: "https://betteraibots.com/assets/wispr-flow-logo.png"
+      image: "https://betteraibots.com/assets/wispr-flow-logo.png",
+      readMoreLink: "/learn/wispr-flow-complete-guide"
     }
   ];
 
