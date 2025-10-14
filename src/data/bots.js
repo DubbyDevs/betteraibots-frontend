@@ -12,7 +12,6 @@ import placeholderImg11 from '../assets/bot-placeholder11.webp';
 import placeholderImg12 from '../assets/bot-placeholder12.webp';
 import placeholderImg13 from '../assets/bot-placeholder13.webp';
 import placeholderImg14 from '../assets/bot-placeholder14.webp';
-import placeholderImg15 from '../assets/bot-placeholder15.webp';
 import placeholderImg17 from '../assets/bot-placeholder17.webp';
 import placeholderImg18 from '../assets/bot-placeholder18.webp';
 import placeholderImg19 from '../assets/bot-placeholder19.webp';
@@ -156,7 +155,7 @@ export const rawBots = [
   {
     title: "Fitness Workout Diet PhD Coach",
     desc: "AI-powered fitness, workout, and diet advice from a PhD-level virtual coach.",
-    image: placeholderImg15,
+    image: placeholderImg14,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-ipOIcM229-fitness-workout-diet-phd-coach",
     categories: ["Health & Wellness", "Lifestyle"]
@@ -268,7 +267,7 @@ export const rawBots = [
 export const placeholderImgs = [
   placeholderImg1, placeholderImg2, placeholderImg3, placeholderImg4, placeholderImg5,
   placeholderImg6, placeholderImg7, placeholderImg8, placeholderImg9, placeholderImg10,
-  placeholderImg11, placeholderImg12, placeholderImg13, placeholderImg14, placeholderImg15,
+  placeholderImg11, placeholderImg12, placeholderImg13, placeholderImg14,
   placeholderImg17, placeholderImg18, placeholderImg19, placeholderImg20, 
   placeholderImg21, placeholderImg22, placeholderImg23, placeholderImg24, placeholderImg25, 
   placeholderImg26, placeholderImg27, placeholderImg28, placeholderImg29, placeholderImg30,

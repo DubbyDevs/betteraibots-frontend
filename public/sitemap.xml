@@ -258,12 +258,38 @@
     </image:image>
   </url>
 
+  <!-- AI Remote Jobs Home Office Gold Rush News Article -->
+  <url>
+    <loc>https://betteraibots.com/news/ai-remote-jobs-home-office-gold-rush-2025</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/airemotejobs.jpg?v=2</image:loc>
+      <image:title>AI Remote Jobs - Home Office Gold Rush</image:title>
+      <image:caption>Remember when 'working from home' meant stuffing envelopes or taking sketchy surveys for gift cards? Those days are dead. And AI just killed them</image:caption>
+    </image:image>
+  </url>
+
+  <!-- AI Robotics Revolution News Article -->
+  <url>
+    <loc>https://betteraibots.com/news/ai-robotics-revolution-everything-you-own-2025</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/AiRoboticsNews.jpg?v=2</image:loc>
+      <image:title>AI Robotics Revolution - Everything You Own</image:title>
+      <image:caption>The robot isn't coming. It's already here—it just doesn't look like you expected. The real AI revolution is quieter, stranger, and already sitting on your kitchen counter</image:caption>
+    </image:image>
+  </url>
+
   <!-- Alibaba AI Revolution News Article -->
   <url>
     <loc>https://betteraibots.com/news/alibaba-ai-revolution-53-billion-investment-2025</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://betteraibots.com/alibabanews.jpg?v=2</image:loc>
       <image:title>Alibaba's AI Revolution - $53 Billion Investment</image:title>

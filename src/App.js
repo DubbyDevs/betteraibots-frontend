@@ -501,7 +501,7 @@ function Apps() {
       features: ["Voice dictation", "Cross-platform compatibility", "AI-powered transcription", "Background operation"],
       link: "https://wisprflow.ai/downloads?referral=KING16",
       trialInfo: "Free trial available",
-      image: "https://betteraibots.com/assets/wispr-flow-logo.png",
+      image: "https://betteraibots.com/wispr.png",
       readMoreLink: "/learn/wispr-flow-complete-guide"
     }
   ];
@@ -3017,7 +3017,9 @@ function NewsArticle() {
             "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
             "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
             "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
-            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2"
+            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
+            "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
+            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
           console.log('Open Graph image URL:', imageUrl);
@@ -3049,7 +3051,9 @@ function NewsArticle() {
             "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
             "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
             "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
-            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2"
+            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
+            "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
+            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
           console.log('Twitter image URL:', imageUrl);
@@ -3058,7 +3062,13 @@ function NewsArticle() {
         <meta name="article:published_time" content={article.date} />
         <meta name="article:author" content={article.author} />
         <meta name="article:section" content={article.category} />
-        <meta name="article:tag" content="AI, Artificial Intelligence, AI News, BetterAiBots" />
+        <meta name="article:tag" content={(() => {
+          const tagMap = {
+            "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
+            "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots"
+          };
+          return tagMap[article.slug] || "AI, Artificial Intelligence, AI News, BetterAiBots";
+        })()} />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -3086,7 +3096,9 @@ function NewsArticle() {
                 "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
                 "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
                 "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
-            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2"
+            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
+            "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
+            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
               };
               const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
               console.log('Structured data image URL:', imageUrl);
@@ -3111,7 +3123,13 @@ function NewsArticle() {
               "@type": "WebPage",
               "@id": `https://betteraibots.com/news/${article.slug}`
             },
-            "keywords": "AI, Artificial Intelligence, AI News, BetterAiBots",
+            "keywords": (() => {
+              const keywordMap = {
+                "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
+                "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots"
+              };
+              return keywordMap[article.slug] || "AI, Artificial Intelligence, AI News, BetterAiBots";
+            })(),
             "articleSection": article.category,
             "inLanguage": "en-US"
           })}
