@@ -420,7 +420,7 @@ const LearnLevelSelector = () => {
                     style={{
                       width: isMobile ? "120px" : "160px",
                       height: isMobile ? "120px" : "160px",
-                      objectFit: "cover",
+                      objectFit: "contain",
                       borderRadius: "12px",
                       marginBottom: "15px"
                     }}
@@ -482,7 +482,7 @@ const LearnLevelSelector = () => {
                     style={{
                       width: isMobile ? "120px" : "160px",
                       height: isMobile ? "120px" : "160px",
-                      objectFit: "cover",
+                      objectFit: "contain",
                       borderRadius: "12px",
                       marginBottom: "15px"
                     }}
@@ -544,7 +544,7 @@ const LearnLevelSelector = () => {
                     style={{
                       width: isMobile ? "120px" : "160px",
                       height: isMobile ? "120px" : "160px",
-                      objectFit: "cover",
+                      objectFit: "contain",
                       borderRadius: "12px",
                       marginBottom: "15px"
                     }}
@@ -606,7 +606,7 @@ const LearnLevelSelector = () => {
                     style={{
                       width: isMobile ? "120px" : "160px",
                       height: isMobile ? "120px" : "160px",
-                      objectFit: "cover",
+                      objectFit: "contain",
                       borderRadius: "12px",
                       marginBottom: "15px"
                     }}
@@ -680,22 +680,28 @@ const LearnLevelSelector = () => {
                >
                  <div style={{
                    display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   height: "100%"
+                   alignItems: "stretch"
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
                      position: "relative",
-                     height: isMobile ? "80px" : "120px"
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)"
                    }}>
                      <img
                        src="/veedreview.png"
                        alt="VEED.io - Online Video Editor"
                        style={{
-                         width: "100%",
-                         height: "100%",
+                         maxWidth: "95%",
+                         maxHeight: "95%",
                          objectFit: "contain",
-                         paddingLeft: "25px"
+                         transform: "scale(1.2)"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -846,22 +852,27 @@ const LearnLevelSelector = () => {
                >
                  <div style={{
                    display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   height: "100%"
+                   alignItems: "stretch"
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
                      position: "relative",
-                     height: isMobile ? "80px" : "120px"
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)"
                    }}>
                      <img
                        src="/replyio.png"
                        alt="Reply.io - AI Sales Automation Platform"
                        style={{
-                         width: "100%",
-                         height: "100%",
-                         objectFit: "contain",
-                         paddingLeft: "25px"
+                         maxWidth: "95%",
+                         maxHeight: "95%",
+                         objectFit: "contain"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1016,17 +1027,23 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
                      position: "relative",
-                     height: isMobile ? "80px" : "120px"
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)"
                    }}>
                      <img
                        src="/aisdr.png"
                        alt="AiSDR - AI Sales Development Platform"
                        style={{
-                         width: "100%",
-                         height: "100%",
-                         objectFit: "contain",
-                         paddingLeft: "25px"
+                         maxWidth: "95%",
+                         maxHeight: "95%",
+                         objectFit: "contain"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1181,17 +1198,23 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative",
-                     height: isMobile ? "80px" : "120px"
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
+                     position: "relative"
                    }}>
                      <img
                        src="/miro.png"
                        alt="Miro - Visual Collaboration Platform"
                        style={{
-                         width: "100%",
-                         height: "100%",
-                         objectFit: "contain",
-                         paddingLeft: "25px"
+                         maxWidth: "95%",
+                         maxHeight: "95%",
+                         objectFit: "contain"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1346,15 +1369,22 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
-                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                        src="/capsulecrm.png"
                        alt="Capsule CRM - Simple Yet Powerful CRM"
                          style={{
-                           width: "100%",
-                           height: "100%",
+                           maxWidth: "95%",
+                           maxHeight: "95%",
                            objectFit: "contain"
                          }}
                         onError={(e) => {
@@ -1510,17 +1540,23 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative",
-                     height: isMobile ? "80px" : "120px"
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
+                     position: "relative"
                    }}>
                      <img
                        src="/mrpeasy.png"
                        alt="MRPeasy - Manufacturing ERP Solution"
                        style={{
-                         width: "100%",
-                         height: "100%",
-                         objectFit: "contain",
-                         paddingLeft: "25px"
+                         maxWidth: "95%",
+                         maxHeight: "95%",
+                         objectFit: "contain"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1573,7 +1609,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.8rem",
                            border: "1px solid rgba(54, 255, 149, 0.3)"
                          }}>
-                           30-Day Free Trial
+                           AI-Powered
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.1)",
@@ -1583,7 +1619,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.8rem",
                            border: "1px solid rgba(54, 255, 149, 0.3)"
                          }}>
-                           All-in-One ERP
+                           10-Min Response
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.1)",
@@ -1593,7 +1629,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.8rem",
                            border: "1px solid rgba(54, 255, 149, 0.3)"
                          }}>
-                           Production Planning
+                           HubSpot Integration
                          </span>
                        </div>
                      </div>
@@ -1675,17 +1711,23 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative",
-                     height: isMobile ? "80px" : "120px"
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
+                     position: "relative"
                    }}>
                      <img
                        src="/murfai.png"
                        alt="Murf.ai - AI Voice Generation Platform"
                        style={{
-                         width: "100%",
-                         height: "100%",
-                         objectFit: "contain",
-                         paddingLeft: "25px"
+                         maxWidth: "95%",
+                         maxHeight: "95%",
+                         objectFit: "contain"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1840,15 +1882,22 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
-                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                           src="/lindy.png"
                           alt="Lindy.ai - AI Automation Platform"
                          style={{
-                           width: "100%",
-                           height: "100%",
+                           maxWidth: "95%",
+                           maxHeight: "95%",
                            objectFit: "contain"
                          }}
                         onError={(e) => {
@@ -2004,15 +2053,22 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
-                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                           src="/virallaunch.png"
                           alt="Viral Launch - Amazon Seller Optimization Platform"
                          style={{
-                           width: "100%",
-                           height: "100%",
+                           maxWidth: "95%",
+                           maxHeight: "95%",
                            objectFit: "contain"
                          }}
                         onError={(e) => {
@@ -2168,15 +2224,22 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
-                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                           src={require("../assets/apolloailogo.webp")}
                           alt="Apollo AI - Sales Intelligence Platform"
                          style={{
-                           width: "100%",
-                           height: "100%",
+                           maxWidth: "95%",
+                           maxHeight: "95%",
                            objectFit: "contain"
                          }}
                         onError={(e) => {
@@ -2332,17 +2395,23 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative",
-                     height: isMobile ? "80px" : "120px"
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
+                     position: "relative"
                    }}>
                      <img
                        src="/alliai.png"
                        alt="Alli AI - SEO Automation Platform"
                        style={{
-                         width: "100%",
-                         height: "100%",
-                         objectFit: "contain",
-                         paddingLeft: "25px"
+                         maxWidth: "95%",
+                         maxHeight: "95%",
+                         objectFit: "contain"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -2497,15 +2566,22 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
-                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                            src={require("../assets/adcreativeaitrial.png")}
                            alt="AdCreative AI - Ad Generation Platform"
                          style={{
-                           width: "100%",
-                           height: "100%",
+                           maxWidth: "95%",
+                           maxHeight: "95%",
                            objectFit: "contain"
                          }}
                         onError={(e) => {
@@ -2661,15 +2737,22 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
-                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                                                                                                                 <img
                         src="/flowith.jpg"
                         alt="Flowith.io - Revolutionary AI Canvas"
                          style={{
-                           width: "100%",
-                           height: "100%",
+                           maxWidth: "95%",
+                           maxHeight: "95%",
                            objectFit: "contain"
                          }}
                         onError={(e) => {
@@ -2771,8 +2854,15 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
-                      height: isMobile ? "80px" : "120px"
                     }}>
                       <img
                         src="/scholargpt.jpg"
@@ -2881,8 +2971,15 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     height: isMobile ? "120px" : "200px",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: "8px",
+                     margin: "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
-                      height: isMobile ? "80px" : "120px"
                     }}>
                       <img
                         src="/brevologo.png"
