@@ -161,8 +161,6 @@ export const newsArticles = [
     content: `
       <h1>Your Fridge Is Watching You (And That's Just the Beginning): The AI Revolution Coming to Everything You Own</h1>
 
-      <p>The robot isn't coming. It's already here—it just doesn't look like you expected.</p>
-
       <p>Forget the humanoid machines straight out of sci-fi movies. The real AI revolution happening right now is quieter, stranger, and already sitting on your kitchen counter. It's in your watch. Your doorbell. That vacuum humming across your floor while you sleep. The physical world isn't just getting "smart" anymore—it's getting intelligent. And the difference between those two things? That's what's about to change everything.</p>
 
       <h2>When Your Coffee Maker Knows You Better Than Your Spouse</h2>
@@ -1138,7 +1136,7 @@ export const newsArticles = [
       `,
   },
   {
-    id: 1,
+    id: 21,
     slug: "robot-uprising-ai-revolution-2025",
     title: "The Robot Uprising is Here, and It's Learning to Fold Your Laundry",
     excerpt: "Fear and Loathing in Silicon Valley: A Savage Journey into the Heart of the AI Revolution. Google DeepMind's robots are now mastering origami, Tesla's Optimus learns from YouTube, and White Castle deploys AI delivery bots. The revolution isn't coming—it's here.",

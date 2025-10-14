@@ -666,6 +666,262 @@ const LearnLevelSelector = () => {
                  padding: isMobile ? "0 15px" : "0 40px",
                  width: "100%"
                }}>
+                               {/* VEED Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                 <div style={{
+                   display: "flex",
+                   flexDirection: isMobile ? "column" : "row",
+                   height: "100%"
+                 }}>
+                   <div style={{
+                     flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     position: "relative"
+                   }}>
+                     <img
+                       src="/veedreview.png"
+                       alt="VEED.io - Online Video Editor"
+                       style={{
+                         width: "100%",
+                         height: "100%",
+                         objectFit: "contain",
+                         paddingLeft: "25px"
+                       }}
+                       onError={(e) => {
+                         e.target.style.display = 'none';
+                       }}
+                     />
+                   </div>
+                   <div style={{
+                     flex: 1,
+                     padding: isMobile ? "20px" : "30px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         VEED.io
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Video Editing
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.85rem" : "0.95rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 20px 0"
+                       }}>
+                         Professional video editing made simple. Create stunning videos with AI-powered tools, automatic subtitles, and seamless collaboration features.
+                       </p>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://veed.cello.so/rwFO6zwGZh9"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try VEED Free
+                       </a>
+                       <Link
+                         to="/learn/veed-complete-complete-guide"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+                               {/* Reply.io Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out"
+               }}
+               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                 <div style={{
+                   display: "flex",
+                   flexDirection: isMobile ? "column" : "row",
+                   height: "100%"
+                 }}>
+                   <div style={{
+                     flex: isMobile ? "0 0 120px" : "0 0 200px",
+                     position: "relative"
+                   }}>
+                     <img
+                       src="/replyio.png"
+                       alt="Reply.io - AI Sales Automation Platform"
+                       style={{
+                         width: "100%",
+                         height: "100%",
+                         objectFit: "contain",
+                         paddingLeft: "25px"
+                       }}
+                       onError={(e) => {
+                         e.target.style.display = 'none';
+                       }}
+                     />
+                   </div>
+                   <div style={{
+                     flex: 1,
+                     padding: isMobile ? "20px" : "30px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         Reply.io
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Sales Automation
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.85rem" : "0.95rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 20px 0"
+                       }}>
+                         AI-powered sales automation platform that helps you find, engage, and convert prospects with personalized outreach at scale.
+                       </p>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://get.reply.io/ub7edypmq2gj"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Reply.io Free
+                       </a>
+                       <Link
+                         to="/learn/reply-io-complete-guide"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
                                {/* AiSDR Card */}
                <div style={{
                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
@@ -683,7 +939,7 @@ const LearnLevelSelector = () => {
                    alignItems: "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 300px",
+                     flex: isMobile ? "0 0 120px" : "0 0 200px",
                      position: "relative"
                    }}>
                      <img
@@ -692,7 +948,8 @@ const LearnLevelSelector = () => {
                        style={{
                          width: "100%",
                          height: "100%",
-                         objectFit: "contain"
+                         objectFit: "contain",
+                         paddingLeft: "25px"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -846,7 +1103,7 @@ const LearnLevelSelector = () => {
                    alignItems: "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 300px",
+                     flex: isMobile ? "0 0 120px" : "0 0 200px",
                      position: "relative"
                    }}>
                      <img
@@ -855,7 +1112,8 @@ const LearnLevelSelector = () => {
                        style={{
                          width: "100%",
                          height: "100%",
-                         objectFit: "contain"
+                         objectFit: "contain",
+                         paddingLeft: "25px"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1009,7 +1267,7 @@ const LearnLevelSelector = () => {
                     alignItems: "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      flex: isMobile ? "0 0 120px" : "0 0 200px",
                       position: "relative"
                     }}>
                                                                                         <img
@@ -1172,7 +1430,7 @@ const LearnLevelSelector = () => {
                    alignItems: "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 300px",
+                     flex: isMobile ? "0 0 120px" : "0 0 200px",
                      position: "relative"
                    }}>
                      <img
@@ -1181,7 +1439,8 @@ const LearnLevelSelector = () => {
                        style={{
                          width: "100%",
                          height: "100%",
-                         objectFit: "contain"
+                         objectFit: "contain",
+                         paddingLeft: "25px"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1335,7 +1594,7 @@ const LearnLevelSelector = () => {
                    alignItems: "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 300px",
+                     flex: isMobile ? "0 0 120px" : "0 0 200px",
                      position: "relative"
                    }}>
                      <img
@@ -1344,7 +1603,8 @@ const LearnLevelSelector = () => {
                        style={{
                          width: "100%",
                          height: "100%",
-                         objectFit: "contain"
+                         objectFit: "contain",
+                         paddingLeft: "25px"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1498,7 +1758,7 @@ const LearnLevelSelector = () => {
                     alignItems: "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      flex: isMobile ? "0 0 120px" : "0 0 200px",
                       position: "relative"
                     }}>
                                                                                         <img
@@ -1661,7 +1921,7 @@ const LearnLevelSelector = () => {
                     alignItems: "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      flex: isMobile ? "0 0 120px" : "0 0 200px",
                       position: "relative"
                     }}>
                                                                                         <img
@@ -1824,7 +2084,7 @@ const LearnLevelSelector = () => {
                     alignItems: "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      flex: isMobile ? "0 0 120px" : "0 0 200px",
                       position: "relative"
                     }}>
                                                                                         <img
@@ -1987,7 +2247,7 @@ const LearnLevelSelector = () => {
                    alignItems: "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 300px",
+                     flex: isMobile ? "0 0 120px" : "0 0 200px",
                      position: "relative"
                    }}>
                      <img
@@ -1996,7 +2256,8 @@ const LearnLevelSelector = () => {
                        style={{
                          width: "100%",
                          height: "100%",
-                         objectFit: "contain"
+                         objectFit: "contain",
+                         paddingLeft: "25px"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -2150,7 +2411,7 @@ const LearnLevelSelector = () => {
                     alignItems: "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      flex: isMobile ? "0 0 120px" : "0 0 200px",
                       position: "relative"
                     }}>
                                                                                         <img
@@ -2313,7 +2574,7 @@ const LearnLevelSelector = () => {
                     alignItems: "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      flex: isMobile ? "0 0 120px" : "0 0 200px",
                       position: "relative"
                     }}>
                                                                                                                                                                                 <img
@@ -2422,7 +2683,7 @@ const LearnLevelSelector = () => {
                     alignItems: "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      flex: isMobile ? "0 0 120px" : "0 0 200px",
                       position: "relative"
                     }}>
                       <img
@@ -2531,7 +2792,7 @@ const LearnLevelSelector = () => {
                     alignItems: "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 300px",
+                      flex: isMobile ? "0 0 120px" : "0 0 200px",
                       position: "relative"
                     }}>
                       <img

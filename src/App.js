@@ -122,7 +122,7 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
 }
 
 // --- NEWS PAGE ---
-function News() {
+function News({ searchValue }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 825);
 
   // Rotating image component for GPT-5 article
@@ -181,6 +181,16 @@ function News() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Filter news articles based on search value (ensure no duplicates)
+  const filteredNewsArticles = newsArticles.filter(article => {
+    const searchTerm = searchValue.toLowerCase();
+    return article.title.toLowerCase().includes(searchTerm) ||
+           article.excerpt.toLowerCase().includes(searchTerm) ||
+           article.category.toLowerCase().includes(searchTerm) ||
+           article.author.toLowerCase().includes(searchTerm);
+  });
+
+
   return (
     <>
       <Helmet>
@@ -203,9 +213,24 @@ function News() {
         🔴 <strong>This site includes affiliate links and does not provide financial, legal, or medical advice. News articles are for informational purposes only.</strong>
       </div>
 
+      {/* Search Results Indicator */}
+      {searchValue && (
+        <div style={{ 
+          padding: '10px 20px', 
+          textAlign: 'center', 
+          backgroundColor: '#f0f8ff', 
+          border: '1px solid #36ff95',
+          margin: '10px 20px',
+          borderRadius: '5px',
+          color: '#333333'
+        }}>
+          <strong>Search Results:</strong> Showing {filteredNewsArticles.length} article{filteredNewsArticles.length !== 1 ? 's' : ''} matching "{searchValue}"
+        </div>
+      )}
+
       <div className="news-container">
         {/* Featured Article */}
-        {newsArticles.filter(article => article.featured).map(article => (
+        {filteredNewsArticles.filter(article => article.featured).map(article => (
           <article key={article.id} className="featured-news-article">
             <Link to={`/news/${article.slug}`} className="featured-news-image-link">
               <div className="featured-news-image">
@@ -231,11 +256,11 @@ function News() {
         {/* News Grid */}
         <div className="news-grid">
           {(() => {
-            const nonFeaturedArticles = newsArticles
+            const nonFeaturedArticles = filteredNewsArticles
               .filter(article => !article.featured)
               .sort((a, b) => new Date(b.date) - new Date(a.date));
             
-            const totalArticles = newsArticles.length;
+            const totalArticles = filteredNewsArticles.length;
             const isEvenTotal = totalArticles % 2 === 0;
             
             // If even total, render all but the last article in the grid
@@ -270,11 +295,11 @@ function News() {
 
         {/* Bottom Featured Article for Even Total */}
         {(() => {
-          const nonFeaturedArticles = newsArticles
+          const nonFeaturedArticles = filteredNewsArticles
             .filter(article => !article.featured)
             .sort((a, b) => new Date(b.date) - new Date(a.date));
           
-          const totalArticles = newsArticles.length;
+          const totalArticles = filteredNewsArticles.length;
           const isEvenTotal = totalArticles % 2 === 0;
           
           if (isEvenTotal && nonFeaturedArticles.length > 0) {
@@ -2173,6 +2198,11 @@ function App() {
     };
   }, [showSearchBubble]);
 
+  // Clear search when navigating to a new page
+  useEffect(() => {
+    setSearchValue("");
+  }, [location.pathname]);
+
   return (
     <>
     <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
@@ -2246,7 +2276,7 @@ function App() {
         <Route path="/learn/advanced" element={<Articles level="advanced" />} />
         <Route path="/learn/:level/:id" element={<ArticlePage />} />
         <Route path="/learn/:id" element={<ArticlePage />} />
-        <Route path="/news" element={<News />} />
+        <Route path="/news" element={<News searchValue={searchValue} />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/apps" element={<Apps />} />
         <Route path="/beginner-quiz" element={<AIQuiz />} />
