@@ -799,7 +799,7 @@ function Apps() {
         <meta property="og:title" content="AI Apps Directory 2025 – Free, Trial & Paid AI Tools" />
         <meta property="og:description" content="Explore curated AI apps and tools: free applications, trial versions, and premium paid tools to enhance your workflow and boost productivity." />
         <meta property="og:url" content="https://betteraibots.com/apps" />
-        <meta property="og:image" content="https://betteraibots.com/og-image.png" />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png?v=3" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="AI Apps Directory 2025 - Free, Trial & Paid AI Tools" />
@@ -808,7 +808,7 @@ function Apps() {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="AI Apps Directory 2025 – Free, Trial & Paid AI Tools" />
         <meta property="twitter:description" content="Discover the best AI apps and tools in 2025: free applications, trial versions, and premium paid tools for productivity and business." />
-        <meta property="twitter:image" content="https://betteraibots.com/og-image.png" />
+        <meta property="twitter:image" content="https://betteraibots.com/og-image.png?v=3" />
         <meta property="twitter:image:alt" content="AI Apps Directory 2025" />
         <link rel="canonical" href="https://betteraibots.com/apps" />
         
@@ -820,7 +820,7 @@ function Apps() {
           "name": "AI Apps Directory 2025",
           "description": "Comprehensive directory of AI applications including free tools, trial versions, and premium paid solutions for productivity, creativity, and business automation.",
           "url": "https://betteraibots.com/apps",
-          "image": "https://betteraibots.com/og-image.png",
+          "image": "https://betteraibots.com/og-image.png?v=3",
           "mainEntity": {
             "@type": "ItemList",
             "name": "AI Applications Directory",
@@ -1462,7 +1462,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         <meta property="og:url" content="https://betteraibots.com/" />
         <meta property="og:title" content="BetterAiBots.com – Curated OpenAI GPT Bots Directory" />
         <meta property="og:description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
-        <meta property="og:image" content="https://betteraibots.com/og-image.png" />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png?v=3" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="BetterAiBots.com" />
@@ -1471,7 +1471,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         <meta property="twitter:url" content="https://betteraibots.com/" />
         <meta property="twitter:title" content="BetterAiBots.com – Curated OpenAI GPT Bots Directory" />
         <meta property="twitter:description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
-        <meta property="twitter:image" content="https://betteraibots.com/og-image.png" />
+        <meta property="twitter:image" content="https://betteraibots.com/og-image.png?v=3" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -1607,7 +1607,7 @@ function Contact() {
           content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
         />
         <link rel="canonical" href="https://betteraibots.com/contact" />
-        <meta property="og:image" content="https://betteraibots.com/og-image.png" />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png?v=3" />
         <meta property="og:url" content="https://betteraibots.com/contact" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -1651,7 +1651,7 @@ function Legal() {
         <meta name="robots" content="noindex" />
         <meta property="og:title" content="AI Bots & Tools Legal Terms – BetterAiBots.com" />
         <meta property="og:description" content="Legal info, privacy policy, and terms of use for BetterAiBots.com." />
-        <meta property="og:image" content="https://betteraibots.com/og-image.png" />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png?v=3" />
         <meta property="og:url" content="https://betteraibots.com/legal" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -3051,7 +3051,7 @@ function NewsArticle() {
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
           };
-          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
+          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
           console.log('Open Graph image URL:', imageUrl);
           return imageUrl;
         })()} />
@@ -3085,7 +3085,7 @@ function NewsArticle() {
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
           };
-          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
+          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
           console.log('Twitter image URL:', imageUrl);
           return imageUrl;
         })()} />
@@ -3130,7 +3130,7 @@ function NewsArticle() {
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
               };
-              const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=2";
+              const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
               console.log('Structured data image URL:', imageUrl);
               return imageUrl;
             })(),

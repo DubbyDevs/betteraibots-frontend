@@ -729,10 +729,47 @@ const LearnLevelSelector = () => {
                          color: "#e0e0e0",
                          fontSize: isMobile ? "0.85rem" : "0.95rem",
                          lineHeight: 1.5,
-                         margin: "0 0 20px 0"
+                         margin: "0 0 15px 0"
                        }}>
                          Professional video editing made simple. Create stunning videos with AI-powered tools, automatic subtitles, and seamless collaboration features.
                        </p>
+                       <div style={{
+                         display: "flex",
+                         gap: "8px",
+                         flexWrap: "wrap",
+                         marginBottom: "20px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           AI-Powered
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           Auto Subtitles
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           Team Collaboration
+                         </span>
+                       </div>
                      </div>
                      <div style={{
                        display: "flex",
@@ -857,10 +894,47 @@ const LearnLevelSelector = () => {
                          color: "#e0e0e0",
                          fontSize: isMobile ? "0.85rem" : "0.95rem",
                          lineHeight: 1.5,
-                         margin: "0 0 20px 0"
+                         margin: "0 0 15px 0"
                        }}>
                          AI-powered sales automation platform that helps you find, engage, and convert prospects with personalized outreach at scale.
                        </p>
+                       <div style={{
+                         display: "flex",
+                         gap: "8px",
+                         flexWrap: "wrap",
+                         marginBottom: "20px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           AI-Powered
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           Multi-Channel
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           CRM Integration
+                         </span>
+                       </div>
                      </div>
                      <div style={{
                        display: "flex",
