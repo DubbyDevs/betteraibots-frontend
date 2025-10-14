@@ -685,7 +685,8 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative"
+                     position: "relative",
+                     height: isMobile ? "80px" : "120px"
                    }}>
                      <img
                        src="/veedreview.png"
@@ -850,7 +851,8 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative"
+                     position: "relative",
+                     height: isMobile ? "80px" : "120px"
                    }}>
                      <img
                        src="/replyio.png"
@@ -1014,7 +1016,8 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative"
+                     position: "relative",
+                     height: isMobile ? "80px" : "120px"
                    }}>
                      <img
                        src="/aisdr.png"
@@ -1178,7 +1181,8 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative"
+                     position: "relative",
+                     height: isMobile ? "80px" : "120px"
                    }}>
                      <img
                        src="/miro.png"
@@ -1342,7 +1346,8 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
-                      position: "relative"
+                      position: "relative",
+                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                        src="/capsulecrm.png"
@@ -1505,7 +1510,8 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative"
+                     position: "relative",
+                     height: isMobile ? "80px" : "120px"
                    }}>
                      <img
                        src="/mrpeasy.png"
@@ -1669,7 +1675,8 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative"
+                     position: "relative",
+                     height: isMobile ? "80px" : "120px"
                    }}>
                      <img
                        src="/murfai.png"
@@ -1833,7 +1840,8 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
-                      position: "relative"
+                      position: "relative",
+                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                           src="/lindy.png"
@@ -1996,7 +2004,8 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
-                      position: "relative"
+                      position: "relative",
+                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                           src="/virallaunch.png"
@@ -2159,7 +2168,8 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
-                      position: "relative"
+                      position: "relative",
+                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                           src={require("../assets/apolloailogo.webp")}
@@ -2322,7 +2332,8 @@ const LearnLevelSelector = () => {
                  }}>
                    <div style={{
                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     position: "relative"
+                     position: "relative",
+                     height: isMobile ? "80px" : "120px"
                    }}>
                      <img
                        src="/alliai.png"
@@ -2486,7 +2497,8 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
-                      position: "relative"
+                      position: "relative",
+                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                         <img
                            src={require("../assets/adcreativeaitrial.png")}
@@ -2649,7 +2661,8 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
-                      position: "relative"
+                      position: "relative",
+                      height: isMobile ? "80px" : "120px"
                     }}>
                                                                                                                                                                                 <img
                         src="/flowith.jpg"
@@ -2758,7 +2771,8 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
-                      position: "relative"
+                      position: "relative",
+                      height: isMobile ? "80px" : "120px"
                     }}>
                       <img
                         src="/scholargpt.jpg"
@@ -2867,7 +2881,8 @@ const LearnLevelSelector = () => {
                   }}>
                     <div style={{
                       flex: isMobile ? "0 0 120px" : "0 0 200px",
-                      position: "relative"
+                      position: "relative",
+                      height: isMobile ? "80px" : "120px"
                     }}>
                       <img
                         src="/brevologo.png"
