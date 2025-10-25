@@ -103,9 +103,9 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
   return (
     <nav className="nav-tabs-bar">
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
+      <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
+      <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
-              <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
-              <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
       {isHomePage && (
         <button 
@@ -1191,6 +1191,8 @@ function HamburgerMenu({ open, onClose }) {
       >
         <ul>
           <li onClick={() => handleNavigation('/')}>Home</li>
+          <li onClick={() => handleNavigation('/apps')}>Apps</li>
+          <li onClick={() => handleNavigation('/learn')}>Learn</li>
 
           <li
             onClick={() => setShowDropdown((prev) => !prev)}
@@ -1220,8 +1222,6 @@ function HamburgerMenu({ open, onClose }) {
           </li>
 
           <li onClick={() => handleNavigation('/news')}>News</li>
-          <li onClick={() => handleNavigation('/learn')}>Learn</li>
-          <li onClick={() => handleNavigation('/apps')}>Apps</li>
           <li onClick={() => handleNavigation('/contact')}>Contact Us</li>
         </ul>
       </div>
