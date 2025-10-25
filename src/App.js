@@ -3049,6 +3049,7 @@ function NewsArticle() {
             "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
             "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
+            "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
@@ -3083,6 +3084,7 @@ function NewsArticle() {
             "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
             "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
+            "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
@@ -3128,6 +3130,7 @@ function NewsArticle() {
                 "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
             "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
+            "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
               };
               const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
@@ -3155,6 +3158,7 @@ function NewsArticle() {
             },
             "keywords": (() => {
               const keywordMap = {
+                "sora-2-physics-reality-ai-video-revolution-2025": "AI, Artificial Intelligence, Sora 2, OpenAI, AI Video Generation, Physics Simulation, AI Video Editing, Video AI, BetterAiBots",
                 "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
                 "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots"
               };
