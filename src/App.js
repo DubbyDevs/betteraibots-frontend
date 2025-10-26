@@ -2268,7 +2268,6 @@ function App() {
             toggleCategoryBar={toggleCategoryBar}
           />}
         />
-        <Route path="/:cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/learn" element={<LearnLevelSelector />} />
         <Route path="/learn/beginner" element={<Articles level="beginner" />} />
@@ -2279,6 +2278,7 @@ function App() {
         <Route path="/news" element={<News searchValue={searchValue} />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/apps" element={<Apps />} />
+        <Route path="/:cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="/beginner-quiz" element={<AIQuiz />} />
         <Route path="/intermediate-quiz" element={<IntermediateQuiz />} />
         <Route path="/advanced-quiz" element={<AdvancedQuiz />} />

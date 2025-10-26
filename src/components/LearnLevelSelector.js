@@ -810,7 +810,7 @@ const LearnLevelSelector = () => {
                          Try VEED Free
                        </a>
                        <Link
-                         to="/learn/veed-complete-complete-guide"
+                         to="/learn/veed-complete-guide"
                          style={{
                            background: "transparent",
                            color: "#36ff95",
