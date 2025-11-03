@@ -1,5 +1,5 @@
 import { CATEGORY_SLUGS } from './constants';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
@@ -696,12 +696,15 @@ function Apps() {
     }
   ];
 
+  // Memoize paidApps to prevent unnecessary re-shuffling
+  const memoizedPaidApps = useMemo(() => paidApps, []);
+
   // Shuffle paid apps whenever the paid section is accessed
   useEffect(() => {
-    if (activeSection === 'paid' && paidApps.length > 0) {
-      setShuffledPaidApps(shuffleArray(paidApps));
+    if (activeSection === 'paid' && memoizedPaidApps.length > 0) {
+      setShuffledPaidApps(shuffleArray(memoizedPaidApps));
     }
-  }, [activeSection]);
+  }, [activeSection, memoizedPaidApps]);
 
   const renderAppCard = (app, type) => (
     <div key={app.name} className="app-card" style={{
@@ -1209,7 +1212,7 @@ function Apps() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
                 gap: '24px'
               }}>
-                {(shuffledPaidApps.length > 0 ? shuffledPaidApps : paidApps).map(app => renderAppCard(app, 'paid'))}
+                {(shuffledPaidApps.length > 0 ? shuffledPaidApps : memoizedPaidApps).map(app => renderAppCard(app, 'paid'))}
               </div>
             </div>
           )}

@@ -85,7 +85,6 @@ function ShareButtons({ url, title }) {
 export default function ArticlePage() {
   const { id } = useParams();
   const location = useLocation();
-  const navigate = useNavigate();
   const article = articles.find(a => a.id === id);
   const fromPage = location.state?.from || (location.pathname.startsWith('/learn') ? '/learn' : '/');
 
