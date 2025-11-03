@@ -1013,7 +1013,7 @@ function Apps() {
               transition: 'all 0.3s ease'
             }}
           >
-            💎 Paid AI Apps ({paidApps.length})
+            💎 Paid AI Apps ({PAID_APPS.length})
           </button>
         </div>
 
