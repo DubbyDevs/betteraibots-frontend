@@ -2,6 +2,7 @@
   "short_name": "BetterAiBots",
   "name": "BetterAiBots – Discover the Best Free AI Bots",
   "description": "Directory of free AI bots. Find, share, and use the best free OpenAI-powered tools!",
+  "version": "2.0.0",
   "icons": [
     {
       "src": "favicon.ico",

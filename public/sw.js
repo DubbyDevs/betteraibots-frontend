@@ -1,4 +1,8 @@
-const CACHE_NAME = 'betteraibots-v1.0.3';
+// Use timestamp-based cache version to force updates on each deployment
+const CACHE_VERSION = 'v2.0.0';
+const BUILD_TIMESTAMP = '2025-11-03T23-55-16Z';
+const CACHE_NAME = `betteraibots-${CACHE_VERSION}-${BUILD_TIMESTAMP}`;
+
 const urlsToCache = [
   '/',
   '/index.html',
@@ -15,106 +19,132 @@ const urlsToCache = [
   'https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2'
 ];
 
-// Install event - cache resources
+// Install event - cache resources and skip waiting to activate immediately
 self.addEventListener('install', (event) => {
+  console.log('Service Worker installing with cache:', CACHE_NAME);
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log('Opened cache');
+        console.log('Opened cache:', CACHE_NAME);
         return cache.addAll(urlsToCache);
       })
       .catch((error) => {
         console.log('Cache failed:', error);
       })
-  );
-});
-
-// Fetch event - serve from cache when offline
-self.addEventListener('fetch', (event) => {
-  // Skip caching for dynamic content and development files
-  if (event.request.url.includes('/static/js/') || 
-      event.request.url.includes('/static/css/') ||
-      event.request.url.includes('hot-update') ||
-      event.request.url.includes('sockjs') ||
-      event.request.url.includes('webpack') ||
-      event.request.url.includes('chunk') ||
-      event.request.url.includes('runtime') ||
-      event.request.url.includes('main') ||
-      event.request.url.includes('api/') ||
-      event.request.url.includes('quiz') ||
-      event.request.url.includes('learn') ||
-      event.request.method !== 'GET') {
-    return;
-  }
-
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        if (response) {
-          return response;
-        }
-        
-        // Clone the request because it's a stream and can only be consumed once
-        const fetchRequest = event.request.clone();
-        
-        return fetch(fetchRequest).then((response) => {
-          // Check if we received a valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-          
-          // Only cache static assets, not dynamic content
-          if (event.request.url.includes('.png') || 
-              event.request.url.includes('.jpg') || 
-              event.request.url.includes('.jpeg') || 
-              event.request.url.includes('.gif') || 
-              event.request.url.includes('.svg') || 
-              event.request.url.includes('.ico') || 
-              event.request.url.includes('.woff') || 
-              event.request.url.includes('.woff2') || 
-              event.request.url.includes('.ttf') || 
-              event.request.url.includes('.eot') ||
-              event.request.url.includes('fonts.googleapis.com') ||
-              event.request.url.includes('fonts.gstatic.com')) {
-            
-            // Clone the response because it's a stream and can only be consumed once
-            const responseToCache = response.clone();
-            
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              })
-              .catch((error) => {
-                console.log('Cache put failed:', error);
-              });
-          }
-          
-          return response;
-        }).catch((error) => {
-          console.log('Fetch failed:', error);
-          // Return offline page for navigation requests
-          if (event.request.mode === 'navigate') {
-            return caches.match('/offline.html');
-          }
-          return new Response('Network error', { status: 503 });
-        });
+      .then(() => {
+        // Skip waiting to activate the new service worker immediately
+        return self.skipWaiting();
       })
   );
 });
 
-// Activate event - clean up old caches
+// Fetch event - network-first strategy for updates, cache-fallback for offline
+self.addEventListener('fetch', (event) => {
+  // Skip service worker file itself
+  if (event.request.url.includes('/sw.js')) {
+    return;
+  }
+
+  // Skip non-GET requests
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  // For HTML, JS, CSS - use network-first to always get latest updates
+  if (event.request.mode === 'navigate' || 
+      event.request.url.includes('/static/js/') || 
+      event.request.url.includes('/static/css/') ||
+      event.request.url.includes('.html')) {
+    
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          // If network request succeeds, update cache and return response
+          if (response && response.status === 200) {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME)
+              .then((cache) => {
+                cache.put(event.request, responseToCache);
+              });
+          }
+          return response;
+        })
+        .catch(() => {
+          // If network fails, try cache
+          return caches.match(event.request)
+            .then((cachedResponse) => {
+              if (cachedResponse) {
+                return cachedResponse;
+              }
+              // If navigation fails and no cache, return offline page
+              if (event.request.mode === 'navigate') {
+                return caches.match('/offline.html');
+              }
+              return new Response('Network error', { status: 503 });
+            });
+        })
+    );
+    return;
+  }
+
+  // For static assets (images, fonts) - use cache-first with network fallback
+  event.respondWith(
+    caches.match(event.request)
+      .then((cachedResponse) => {
+        if (cachedResponse) {
+          // Also fetch in background to update cache
+          fetch(event.request)
+            .then((response) => {
+              if (response && response.status === 200) {
+                const responseToCache = response.clone();
+                caches.open(CACHE_NAME)
+                  .then((cache) => {
+                    cache.put(event.request, responseToCache);
+                  });
+              }
+            })
+            .catch(() => {
+              // Ignore background fetch errors
+            });
+          return cachedResponse;
+        }
+        
+        // Not in cache, fetch from network
+        return fetch(event.request)
+          .then((response) => {
+            if (response && response.status === 200) {
+              const responseToCache = response.clone();
+              caches.open(CACHE_NAME)
+                .then((cache) => {
+                  cache.put(event.request, responseToCache);
+                });
+            }
+            return response;
+          })
+          .catch(() => {
+            return new Response('Network error', { status: 503 });
+          });
+      })
+  );
+});
+
+// Activate event - clean up old caches and claim clients immediately
 self.addEventListener('activate', (event) => {
+  console.log('Service Worker activating with cache:', CACHE_NAME);
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
+          // Delete all caches that don't match current cache name
+          if (!cacheName.startsWith('betteraibots-') || cacheName !== CACHE_NAME) {
             console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
       );
+    }).then(() => {
+      // Claim all clients immediately to activate the new service worker
+      return self.clients.claim();
     })
   );
 });

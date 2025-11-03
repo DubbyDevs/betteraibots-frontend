@@ -16,33 +16,45 @@ root.render(
   </React.StrictMode>
 );
 
-// Register service worker for PWA functionality with better error handling
+// Register service worker for PWA functionality with aggressive update handling
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    // Unregister any existing service workers first to prevent conflicts
-    navigator.serviceWorker.getRegistrations().then((registrations) => {
-      for (let registration of registrations) {
-        registration.unregister();
-      }
-    }).then(() => {
-      // Register new service worker
-      return navigator.serviceWorker.register('/sw.js', { 
-        updateViaCache: 'none',
-        scope: '/'
-      });
+    // Register service worker with no cache
+    navigator.serviceWorker.register('/sw.js', { 
+      updateViaCache: 'none',
+      scope: '/'
     }).then((registration) => {
       console.log('SW registered: ', registration);
+      
+      // Check for updates immediately and periodically
+      registration.update();
+      setInterval(() => {
+        registration.update();
+      }, 60000); // Check every minute
       
       // Handle service worker updates
       registration.addEventListener('updatefound', () => {
         const newWorker = registration.installing;
+        console.log('New service worker found, installing...');
+        
         newWorker.addEventListener('statechange', () => {
-          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-            // New service worker is available
-            console.log('New service worker available');
-            // Don't auto-reload, let user decide
+          if (newWorker.state === 'installed') {
+            if (navigator.serviceWorker.controller) {
+              // New service worker is available, force reload
+              console.log('New service worker installed, reloading page...');
+              window.location.reload();
+            } else {
+              // First install, no reload needed
+              console.log('Service worker installed for first time');
+            }
           }
         });
+      });
+      
+      // Handle controller change (when new service worker takes control)
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        console.log('Service worker controller changed, reloading...');
+        window.location.reload();
       });
     }).catch((registrationError) => {
       console.log('SW registration failed: ', registrationError);
