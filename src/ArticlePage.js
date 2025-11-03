@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { articles } from "./Articles";
 import ReactMarkdown from "react-markdown";

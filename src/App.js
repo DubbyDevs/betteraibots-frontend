@@ -1,5 +1,5 @@
 import { CATEGORY_SLUGS } from './constants';
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
@@ -347,6 +347,130 @@ function News({ searchValue }) {
   );
 }
 
+// Constant array for paid apps - defined outside component for stable reference
+const PAID_APPS = [
+  {
+    name: "n8n",
+    description: "Open-source workflow automation platform for connecting apps and services",
+    category: "Workflow Automation",
+    features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
+    price: "$20-$50/month",
+    link: "https://n8n.partnerlinks.io/wjt1744jflsx",
+    image: "https://betteraibots.com/assets/n8n-logo.png",
+    readMoreLink: "http://localhost:3000/news/n8n-revolution-business-automation-2025"
+  },
+  {
+    name: "Viral Launch AI",
+    description: "AI-powered Amazon selling platform with product research, keyword tools, and listing optimization",
+    category: "E-commerce & Amazon",
+    features: ["Product discovery", "Market intelligence", "Keyword research", "Listing optimization"],
+    price: "$48-$199/month",
+    link: "https://affiliate.viral-launch.com/BAIB",
+    image: "https://betteraibots.com/assets/viral-launch-logo.png",
+    readMoreLink: "/learn/viral-launch"
+  },
+  {
+    name: "AiSDR",
+    description: "AI sales development representative that books meetings with your ideal prospects through personalized outreach",
+    category: "Sales & CRM",
+    features: ["AI prospecting", "Personalized emails", "LinkedIn automation", "HubSpot integration"],
+    price: "$900/month",
+    link: "https://partner.aisdr.com/5fxea2u5m85d",
+    image: "https://betteraibots.com/assets/aisdr-logo.png",
+    readMoreLink: "/learn/aisdr-complete-guide"
+  },
+  {
+    name: "RunPod.io",
+    description: "Cloud GPU platform for training, fine-tuning, and deploying AI models with zero infrastructure management",
+    category: "AI Infrastructure",
+    features: ["On-demand GPUs", "Serverless AI workloads", "Instant scaling", "Global deployment"],
+    price: "Pay per use",
+    link: "https://get.runpod.io/w3na2cm4xdjp",
+    image: "https://betteraibots.com/assets/runpod-logo.png",
+    readMoreLink: "/learn/runpod"
+  },
+  {
+    name: "Pipes.ai",
+    description: "AI-powered lead engagement platform that converts web leads into live calls for your sales team",
+    category: "Sales & Lead Generation",
+    features: ["AI-powered voice and SMS", "Lead verification and filtering", "Automated follow-ups", "Real-time analytics"],
+    price: "Contact sales",
+    link: "https://try.pipes.ai/hmqj0m3am6un",
+    image: "https://betteraibots.com/assets/pipes-ai-logo.png",
+    readMoreLink: "/learn/pipes-ai"
+  },
+  {
+    name: "CastMagic",
+    description: "AI-powered content operating system that transforms video/audio files into 100+ content assets",
+    category: "Content Creation & Media",
+    features: ["AI transcription", "Content repurposing", "Multi-brand CMS", "Brand voice training"],
+    price: "From $19/month",
+    link: "https://get.castmagic.io/qdu0jfhfcurv",
+    image: "https://betteraibots.com/assets/castmagic-logo.png",
+    readMoreLink: "/learn/castmagic"
+  },
+  {
+    name: "AnyBiz.io",
+    description: "AI sales agents that generate meetings and sales for any business through email, LinkedIn, and phone calls",
+    category: "Sales & Lead Generation",
+    features: ["AI sales agents", "Email automation", "LinkedIn outreach", "Phone call automation"],
+    price: "Contact sales",
+    link: "https://anybiz.io/?fpr=ai4n56",
+    image: "https://betteraibots.com/assets/anybiz-logo.png",
+    readMoreLink: "/learn/anybiz"
+  },
+  {
+    name: "Mega HR",
+    description: "AI-powered hiring platform that automates job advertising, screening, interviewing & nurturing candidates with 78% less busy work",
+    category: "HR & Recruitment",
+    features: ["AI screening & shortlisting", "Interview scheduling", "AI-powered insights", "Job board advertising"],
+    price: "$49-$149/month",
+    link: "https://try.megahr.com/BAIB",
+    image: "https://betteraibots.com/assets/megahr-logo.png",
+    readMoreLink: "/learn/megahr"
+  },
+  {
+    name: "Bebop.ai",
+    description: "AI-powered platform for intelligent automation and workflow optimization",
+    category: "AI & Automation",
+    features: ["AI workflow automation", "Intelligent process optimization", "Smart integrations", "Advanced analytics"],
+    price: "Contact sales",
+    link: "https://try.bebop.ai/BAIB",
+    image: "https://betteraibots.com/assets/bebop-ai-logo.png",
+    readMoreLink: "/learn/bebop-ai"
+  },
+  {
+    name: "Catalister",
+    description: "AI-powered platform for dropshipping and e-commerce automation with Shopify integration",
+    category: "E-commerce & Dropshipping",
+    features: ["Shopify integration", "AI product sourcing", "Automated order fulfillment", "Inventory management"],
+    price: "From $29/month",
+    link: "https://join.catalister.com/BAIB",
+    image: "https://betteraibots.com/assets/catalister-logo.png",
+    readMoreLink: "/learn/catalister"
+  },
+  {
+    name: "SEOSparkPlug",
+    description: "AI-powered SEO platform that analyzes 25+ factors, writes code, optimizes social content, and tracks results in one workflow",
+    category: "SEO & Digital Marketing",
+    features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
+    price: "Contact sales",
+    link: "https://seosparkplug.com",
+    image: "https://betteraibots.com/assets/seosparkplug-logo.png",
+    readMoreLink: "/learn/seosparkplug"
+  },
+  {
+    name: "Airia",
+    description: "Enterprise AI orchestration platform that accelerates agent development from concept to production with rapid prototyping and intelligent operations",
+    category: "AI & Enterprise Automation",
+    features: ["Rapid agent prototyping", "Data integration", "Intelligent AI operations", "Security & governance"],
+    price: "Contact sales",
+    link: "https://try.airia.com/BAIB",
+    image: "https://betteraibots.com/assets/airia-logo.png",
+    readMoreLink: "/learn/airia"
+  }
+];
+
 // --- APPS PAGE ---
 function Apps() {
   const [activeSection, setActiveSection] = useState('free');
@@ -572,139 +696,12 @@ function Apps() {
     }
   ];
 
-  const paidApps = [
-    {
-      name: "n8n",
-      description: "Open-source workflow automation platform for connecting apps and services",
-      category: "Workflow Automation",
-      features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
-      price: "$20-$50/month",
-      link: "https://n8n.partnerlinks.io/wjt1744jflsx",
-      image: "https://betteraibots.com/assets/n8n-logo.png",
-      readMoreLink: "http://localhost:3000/news/n8n-revolution-business-automation-2025"
-    },
-    {
-      name: "Viral Launch AI",
-      description: "AI-powered Amazon selling platform with product research, keyword tools, and listing optimization",
-      category: "E-commerce & Amazon",
-      features: ["Product discovery", "Market intelligence", "Keyword research", "Listing optimization"],
-      price: "$48-$199/month",
-      link: "https://affiliate.viral-launch.com/BAIB",
-      image: "https://betteraibots.com/assets/viral-launch-logo.png",
-      readMoreLink: "/learn/viral-launch"
-    },
-    {
-      name: "AiSDR",
-      description: "AI sales development representative that books meetings with your ideal prospects through personalized outreach",
-      category: "Sales & CRM",
-      features: ["AI prospecting", "Personalized emails", "LinkedIn automation", "HubSpot integration"],
-      price: "$900/month",
-      link: "https://partner.aisdr.com/5fxea2u5m85d",
-      image: "https://betteraibots.com/assets/aisdr-logo.png",
-      readMoreLink: "/learn/aisdr-complete-guide"
-    },
-    {
-      name: "RunPod.io",
-      description: "Cloud GPU platform for training, fine-tuning, and deploying AI models with zero infrastructure management",
-      category: "AI Infrastructure",
-      features: ["On-demand GPUs", "Serverless AI workloads", "Instant scaling", "Global deployment"],
-      price: "Pay per use",
-      link: "https://get.runpod.io/w3na2cm4xdjp",
-      image: "https://betteraibots.com/assets/runpod-logo.png",
-      readMoreLink: "/learn/runpod"
-    },
-    {
-      name: "Pipes.ai",
-      description: "AI-powered lead engagement platform that converts web leads into live calls for your sales team",
-      category: "Sales & Lead Generation",
-      features: ["AI-powered voice and SMS", "Lead verification and filtering", "Automated follow-ups", "Real-time analytics"],
-      price: "Contact sales",
-      link: "https://try.pipes.ai/hmqj0m3am6un",
-      image: "https://betteraibots.com/assets/pipes-ai-logo.png",
-      readMoreLink: "/learn/pipes-ai"
-    },
-
-    {
-      name: "CastMagic",
-      description: "AI-powered content operating system that transforms video/audio files into 100+ content assets",
-      category: "Content Creation & Media",
-      features: ["AI transcription", "Content repurposing", "Multi-brand CMS", "Brand voice training"],
-      price: "From $19/month",
-      link: "https://get.castmagic.io/qdu0jfhfcurv",
-      image: "https://betteraibots.com/assets/castmagic-logo.png",
-      readMoreLink: "/learn/castmagic"
-    },
-    {
-      name: "AnyBiz.io",
-      description: "AI sales agents that generate meetings and sales for any business through email, LinkedIn, and phone calls",
-      category: "Sales & Lead Generation",
-      features: ["AI sales agents", "Email automation", "LinkedIn outreach", "Phone call automation"],
-      price: "Contact sales",
-      link: "https://anybiz.io/?fpr=ai4n56",
-      image: "https://betteraibots.com/assets/anybiz-logo.png",
-      readMoreLink: "/learn/anybiz"
-    },
-    {
-      name: "Mega HR",
-      description: "AI-powered hiring platform that automates job advertising, screening, interviewing & nurturing candidates with 78% less busy work",
-      category: "HR & Recruitment",
-      features: ["AI screening & shortlisting", "Interview scheduling", "AI-powered insights", "Job board advertising"],
-      price: "$49-$149/month",
-      link: "https://try.megahr.com/BAIB",
-      image: "https://betteraibots.com/assets/megahr-logo.png",
-      readMoreLink: "/learn/megahr"
-    },
-    {
-      name: "Bebop.ai",
-      description: "AI-powered platform for intelligent automation and workflow optimization",
-      category: "AI & Automation",
-      features: ["AI workflow automation", "Intelligent process optimization", "Smart integrations", "Advanced analytics"],
-      price: "Contact sales",
-      link: "https://try.bebop.ai/BAIB",
-      image: "https://betteraibots.com/assets/bebop-ai-logo.png",
-      readMoreLink: "/learn/bebop-ai"
-    },
-    {
-      name: "Catalister",
-      description: "AI-powered platform for dropshipping and e-commerce automation with Shopify integration",
-      category: "E-commerce & Dropshipping",
-      features: ["Shopify integration", "AI product sourcing", "Automated order fulfillment", "Inventory management"],
-      price: "From $29/month",
-      link: "https://join.catalister.com/BAIB",
-      image: "https://betteraibots.com/assets/catalister-logo.png",
-      readMoreLink: "/learn/catalister"
-    },
-    {
-      name: "SEOSparkPlug",
-      description: "AI-powered SEO platform that analyzes 25+ factors, writes code, optimizes social content, and tracks results in one workflow",
-      category: "SEO & Digital Marketing",
-      features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
-      price: "Contact sales",
-      link: "https://seosparkplug.com",
-      image: "https://betteraibots.com/assets/seosparkplug-logo.png",
-      readMoreLink: "/learn/seosparkplug"
-    },
-    {
-      name: "Airia",
-      description: "Enterprise AI orchestration platform that accelerates agent development from concept to production with rapid prototyping and intelligent operations",
-      category: "AI & Enterprise Automation",
-      features: ["Rapid agent prototyping", "Data integration", "Intelligent AI operations", "Security & governance"],
-      price: "Contact sales",
-      link: "https://try.airia.com/BAIB",
-      image: "https://betteraibots.com/assets/airia-logo.png",
-      readMoreLink: "/learn/airia"
-    }
-  ];
-
-  // Memoize paidApps to prevent unnecessary re-shuffling
-  const memoizedPaidApps = useMemo(() => paidApps, []);
-
   // Shuffle paid apps whenever the paid section is accessed
   useEffect(() => {
-    if (activeSection === 'paid' && memoizedPaidApps.length > 0) {
-      setShuffledPaidApps(shuffleArray(memoizedPaidApps));
+    if (activeSection === 'paid' && PAID_APPS.length > 0) {
+      setShuffledPaidApps(shuffleArray(PAID_APPS));
     }
-  }, [activeSection, memoizedPaidApps]);
+  }, [activeSection]);
 
   const renderAppCard = (app, type) => (
     <div key={app.name} className="app-card" style={{
@@ -1212,7 +1209,7 @@ function Apps() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
                 gap: '24px'
               }}>
-                {(shuffledPaidApps.length > 0 ? shuffledPaidApps : memoizedPaidApps).map(app => renderAppCard(app, 'paid'))}
+                {(shuffledPaidApps.length > 0 ? shuffledPaidApps : PAID_APPS).map(app => renderAppCard(app, 'paid'))}
               </div>
             </div>
           )}
