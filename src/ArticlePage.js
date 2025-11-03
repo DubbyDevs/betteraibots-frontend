@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { articles } from "./Articles";
 import ReactMarkdown from "react-markdown";
@@ -84,7 +84,10 @@ function ShareButtons({ url, title }) {
 
 export default function ArticlePage() {
   const { id } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
   const article = articles.find(a => a.id === id);
+  const fromPage = location.state?.from || (location.pathname.startsWith('/learn') ? '/learn' : '/');
 
   // Function to generate heading ID from text
   const generateHeadingId = (text) => {
@@ -153,7 +156,7 @@ export default function ArticlePage() {
     return (
       <div style={{ padding: 40, textAlign: "center" }}>
         <h2>BetterAiBots Article Not Found</h2>
-        <Link to="/learn" style={{ color: "#0bbfdb" }}>Back to Learn</Link>
+        <Link to={fromPage} style={{ color: "#0bbfdb" }}>Back to {fromPage === '/apps' ? 'Apps' : 'Learn'}</Link>
       </div>
     );
   }
@@ -228,7 +231,16 @@ export default function ArticlePage() {
             "miro-complete-guide": "https://betteraibots.com/miro.png",
             "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
             "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
-            "thordata": "https://betteraibots.com/thordata-logo.png?v=2"
+            "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
+            "seosparkplug": "https://betteraibots.com/freeseoscore.jpg?v=2",
+            "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
+            "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
+            "runpod": "https://betteraibots.com/runpod.jpg?v=2",
+            "pipes-ai": "https://betteraibots.com/pipesai.jpg?v=2",
+            "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
+            "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
+            "megahr": "https://betteraibots.com/megahr.jpg?v=2",
+            "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -259,7 +271,16 @@ export default function ArticlePage() {
             "miro-complete-guide": "https://betteraibots.com/miro.png",
             "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
             "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
-            "thordata": "https://betteraibots.com/thordata-logo.png?v=2"
+            "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
+            "seosparkplug": "https://betteraibots.com/freeseoscore.jpg?v=2",
+            "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
+            "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
+            "runpod": "https://betteraibots.com/runpod.jpg?v=2",
+            "pipes-ai": "https://betteraibots.com/pipesai.jpg?v=2",
+            "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
+            "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
+            "megahr": "https://betteraibots.com/megahr.jpg?v=2",
+            "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -270,7 +291,16 @@ export default function ArticlePage() {
           const tagMap = {
             "blackbox-ai": "AI, Artificial Intelligence, Blackbox.ai, AI Code Assistant, Code Completion, AI Development Tools, Programming, Software Development, BetterAiBots",
             "webydo": "AI, Artificial Intelligence, Webydo, Web Design, No-Code Design, Website Builder, CMS, Client Management, BetterAiBots",
-            "thordata": "AI, Artificial Intelligence, ThorData, Proxy, Web Scraping, Data Collection, AI Data Infrastructure, Residential Proxies, Scraper APIs, BetterAiBots"
+            "thordata": "AI, Artificial Intelligence, ThorData, Proxy, Web Scraping, Data Collection, AI Data Infrastructure, Residential Proxies, Scraper APIs, BetterAiBots",
+            "seosparkplug": "AI, Artificial Intelligence, SEOSparkPlug, SEO Platform, AI SEO, SEO Analysis, Digital Marketing, Website Optimization, SEO Tools, BetterAiBots",
+            "catalister": "AI, Artificial Intelligence, Catalister, Dropshipping, E-commerce Automation, Shopify Integration, AI Dropshipping, E-commerce Tools, BetterAiBots",
+            "airia": "AI, Artificial Intelligence, Airia, Enterprise AI, AI Orchestration, AI Agent Development, Enterprise Automation, AI Platform, BetterAiBots",
+            "runpod": "AI, Artificial Intelligence, RunPod, Cloud GPU, GPU Computing, AI Training, AI Model Deployment, GPU Infrastructure, BetterAiBots",
+            "pipes-ai": "AI, Artificial Intelligence, Pipes.ai, Lead Engagement, AI Sales, Lead Generation, Sales Automation, AI Voice, SMS Marketing, BetterAiBots",
+            "castmagic": "AI, Artificial Intelligence, CastMagic, Content Creation, AI Transcription, Content Repurposing, Podcast Tools, Video Content, BetterAiBots",
+            "anybiz": "AI, Artificial Intelligence, AnyBiz.io, AI Sales Agents, Sales Automation, Lead Generation, Email Automation, LinkedIn Outreach, BetterAiBots",
+            "megahr": "AI, Artificial Intelligence, Mega HR, AI Hiring, HR Automation, Recruitment, AI Hiring Assistant, Megan AI, Hiring Platform, BetterAiBots",
+            "bebop-ai": "AI, Artificial Intelligence, Bebop.ai, Workflow Automation, Process Optimization, AI Automation, Business Automation, Workflow Management, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -278,7 +308,16 @@ export default function ArticlePage() {
           const keywordMap = {
             "blackbox-ai": "Blackbox.ai, AI code assistant, code completion, AI autocomplete, programming tools, software development, AI coding, code generation, developer tools, BetterAiBots",
             "webydo": "Webydo, web design platform, no-code design, website builder, CMS, client management, web development, design tools, BetterAiBots",
-            "thordata": "ThorData, proxy service, web scraping, data collection, residential proxies, scraper APIs, AI data infrastructure, web data collection, BetterAiBots"
+            "thordata": "ThorData, proxy service, web scraping, data collection, residential proxies, scraper APIs, AI data infrastructure, web data collection, BetterAiBots",
+            "seosparkplug": "SEOSparkPlug, AI SEO platform, SEO analysis, SEO tools, digital marketing, website optimization, SEO automation, AI SEO tools, BetterAiBots",
+            "catalister": "Catalister, dropshipping automation, e-commerce automation, Shopify integration, AI dropshipping, e-commerce tools, dropshipping platform, BetterAiBots",
+            "airia": "Airia, enterprise AI, AI orchestration, AI agent development, enterprise automation, AI platform, rapid prototyping, BetterAiBots",
+            "runpod": "RunPod, cloud GPU, GPU computing, AI training, AI model deployment, GPU infrastructure, serverless AI, cloud computing, BetterAiBots",
+            "pipes-ai": "Pipes.ai, lead engagement, AI sales, lead generation, sales automation, AI voice, SMS marketing, lead qualification, BetterAiBots",
+            "castmagic": "CastMagic, content creation, AI transcription, content repurposing, podcast tools, video content, multi-brand CMS, brand voice, BetterAiBots",
+            "anybiz": "AnyBiz.io, AI sales agents, sales automation, lead generation, email automation, LinkedIn outreach, phone call automation, BetterAiBots",
+            "megahr": "Mega HR, AI hiring, HR automation, recruitment, AI hiring assistant, Megan AI, hiring platform, candidate screening, BetterAiBots",
+            "bebop-ai": "Bebop.ai, workflow automation, process optimization, AI automation, business automation, workflow management, intelligent automation, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -312,7 +351,16 @@ export default function ArticlePage() {
                 "miro-complete-guide": "https://betteraibots.com/miro.png",
                 "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
                 "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
-                "thordata": "https://betteraibots.com/thordata-logo.png?v=2"
+                "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
+                "seosparkplug": "https://betteraibots.com/freeseoscore.jpg?v=2",
+                "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
+                "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
+                "runpod": "https://betteraibots.com/runpod.jpg?v=2",
+                "pipes-ai": "https://betteraibots.com/pipesai.jpg?v=2",
+                "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
+                "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
+                "megahr": "https://betteraibots.com/megahr.jpg?v=2",
+                "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2"
               };
               return ogImageMap[article.id] || images[0] || article.cover;
             })(),
@@ -429,15 +477,296 @@ export default function ArticlePage() {
       </div>
       {/* Top Image */}
       {images[0] && (
-        <img src={images[0]} alt="" style={{
-          width: "200px",
-          height: "200px",
-          maxWidth: "100%",
-          borderRadius: 16,
-          margin: "0 0 24px 0",
-          display: "block",
-          objectFit: "cover"
-        }} />
+        article.id === "seosparkplug" ? (
+          <a 
+            href="https://seosparkplug.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "catalister" ? (
+          <a 
+            href="https://join.catalister.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "airia" ? (
+          <a 
+            href="https://try.airia.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "runpod" ? (
+          <a 
+            href="https://get.runpod.io/w3na2cm4xdjp" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "pipes-ai" ? (
+          <a 
+            href="https://try.pipes.ai/hmqj0m3am6un" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "castmagic" ? (
+          <a 
+            href="https://get.castmagic.io/qdu0jfhfcurv" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "anybiz" ? (
+          <a 
+            href="https://anybiz.io/?fpr=ai4n56" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "megahr" ? (
+          <a 
+            href="https://try.megahr.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "bebop-ai" ? (
+          <a 
+            href="https://try.bebop.ai/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : (
+          <img src={images[0]} alt="" style={{
+            width: "200px",
+            height: "200px",
+            maxWidth: "100%",
+            borderRadius: 16,
+            margin: "0 0 24px 0",
+            display: "block",
+            objectFit: "cover"
+          }} />
+        )
       )}
       <h1 style={{
         fontSize: "2.0rem",

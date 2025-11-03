@@ -4,6 +4,26 @@ import { Link, useLocation } from 'react-router-dom';
 const Breadcrumbs = () => {
   const location = useLocation();
   const pathSegments = location.pathname.split('/').filter(segment => segment);
+  
+  // Get referrer from location state, or check sessionStorage as fallback
+  let fromPage = location.state?.from;
+  if (!fromPage && pathSegments[0] === 'learn' && pathSegments.length > 1) {
+    // Check sessionStorage for referrer info
+    const storedFrom = sessionStorage.getItem('articleFromPage');
+    if (storedFrom) {
+      fromPage = storedFrom;
+    }
+  }
+  
+  // Store referrer in sessionStorage if we have it (for persistence across refreshes)
+  if (location.state?.from && pathSegments[0] === 'learn') {
+    sessionStorage.setItem('articleFromPage', location.state.from);
+  }
+  
+  // Clear sessionStorage when navigating away from learn articles
+  if (pathSegments[0] !== 'learn' && pathSegments.length > 0) {
+    sessionStorage.removeItem('articleFromPage');
+  }
 
   // Don't show breadcrumbs on home page
   if (pathSegments.length === 0) {
@@ -20,6 +40,25 @@ const Breadcrumbs = () => {
       path: '/',
       isActive: false
     });
+
+    // Handle special case: if coming from /apps and viewing a /learn article, show Apps instead of Learn
+    if (fromPage === '/apps' && pathSegments[0] === 'learn' && pathSegments.length > 1) {
+      items.push({
+        name: 'Apps',
+        path: '/apps',
+        isActive: false
+      });
+      // Skip "learn" segment and go directly to article name
+      const articleSegment = pathSegments[1];
+      const decodedArticle = decodeURIComponent(articleSegment);
+      const friendlyName = decodedArticle.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      items.push({
+        name: friendlyName,
+        path: location.pathname, // Keep current path for article name (non-clickable)
+        isActive: true
+      });
+      return items;
+    }
 
     pathSegments.forEach((segment, index) => {
       currentPath += `/${segment}`;
@@ -44,8 +83,13 @@ const Breadcrumbs = () => {
         friendlyName = categoryMap[segment] || decodedSegment;
       }
       
-          // Handle learn
-    if (pathSegments[0] === 'learn' && index === 1) {
+      // Handle learn
+      if (pathSegments[0] === 'learn' && index === 0) {
+        friendlyName = 'Learn';
+      }
+      
+      // Handle learn article pages
+      if (pathSegments[0] === 'learn' && index === 1) {
         // Handle learning levels
         if (['beginner', 'intermediate', 'advanced'].includes(segment)) {
           friendlyName = decodedSegment.charAt(0).toUpperCase() + decodedSegment.slice(1);

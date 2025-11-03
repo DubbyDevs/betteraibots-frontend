@@ -297,6 +297,19 @@
     </image:image>
   </url>
 
+  <!-- Why Small Businesses Beat Enterprise AI Tools News Article -->
+  <url>
+    <loc>https://betteraibots.com/news/why-small-businesses-beat-enterprise-ai-tools-2025</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/aismallbusinesstools.jpg?v=2</image:loc>
+      <image:title>Why Small Businesses Beat Enterprise AI Tools</image:title>
+      <image:caption>The competitive landscape between small businesses and large enterprises is experiencing an unusual shift. AI tools are disrupting traditional patterns, with small businesses implementing AI capabilities at speeds that leave enterprise competitors struggling to match pace.</image:caption>
+    </image:image>
+  </url>
+
   <!-- AI Virtual Assistant How To Automate Tasks News Article -->
   <url>
     <loc>https://betteraibots.com/news/ai-virtual-assistant-how-to-automate-tasks-2025</loc>
@@ -359,6 +372,123 @@
       <image:loc>https://betteraibots.com/alibabanews.jpg?v=2</image:loc>
       <image:title>Alibaba's AI Revolution - $53 Billion Investment</image:title>
       <image:caption>Alibaba Group has launched the most ambitious artificial intelligence investment program in Chinese tech history, committing $53 billion over three years to become a global AI superpower</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SEOSparkPlug Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/seosparkplug</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/freeseoscore.jpg?v=2</image:loc>
+      <image:title>SEOSparkPlug - AI SEO Platform</image:title>
+      <image:caption>Discover how SEOSparkPlug's AI-powered platform analyzes 25+ SEO factors, generates copy-ready code, optimizes social content, and tracks results—all in one seamless workflow that transforms audits into actionable improvements.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Catalister Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/catalister</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/catalister2.jpg?v=2</image:loc>
+      <image:title>Catalister - AI-Powered Dropshipping Platform</image:title>
+      <image:caption>Discover how Catalister's AI-powered platform helps e-commerce businesses automate dropshipping operations, manage inventory, and streamline Shopify workflows with intelligent automation.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Airia Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/airia</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/airiaaidemo.jpg?v=2</image:loc>
+      <image:title>Airia - Enterprise AI Orchestration Platform</image:title>
+      <image:caption>Discover how Airia's enterprise AI orchestration platform accelerates agent development from concept to production with rapid prototyping, intelligent operations, and enterprise-grade security.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- RunPod Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/runpod</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/runpod.jpg?v=2</image:loc>
+      <image:title>RunPod - Cloud GPU Platform for AI Training</image:title>
+      <image:caption>Discover how RunPod's cloud GPU platform helps developers train, fine-tune, and deploy AI models with on-demand GPUs, serverless AI workloads, and zero infrastructure management.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Pipes.ai Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/pipes-ai</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/pipesai.jpg?v=2</image:loc>
+      <image:title>Pipes.ai - AI-Powered Lead Engagement Platform</image:title>
+      <image:caption>Discover how Pipes.ai's AI-powered lead engagement platform converts web leads into live calls for your sales team with AI voice, SMS, lead verification, and automated follow-ups.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- CastMagic Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/castmagic</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/castmagicai.jpg?v=2</image:loc>
+      <image:title>CastMagic - AI-Powered Content Operating System</image:title>
+      <image:caption>Discover how CastMagic's AI-powered content operating system transforms video and audio files into 100+ content assets with AI transcription, content repurposing, multi-brand CMS, and brand voice training.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- AnyBiz.io Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/anybiz</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/anybizio.jpg?v=2</image:loc>
+      <image:title>AnyBiz.io - AI Sales Agents Platform</image:title>
+      <image:caption>Discover how AnyBiz.io's AI sales agents generate meetings and sales for any business through email automation, LinkedIn outreach, and phone call automation with intelligent AI-powered sales agents.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Mega HR Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/megahr</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/megahr.jpg?v=2</image:loc>
+      <image:title>Mega HR - AI-Powered Hiring Platform</image:title>
+      <image:caption>Discover how Mega HR's AI-powered hiring platform automates job advertising, screening, interviewing, and nurturing candidates with Megan, the first human-quality AI hiring partner, saving your team hundreds of hours each month.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Bebop.ai Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/bebop-ai</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/bebopaitools.jpg?v=2</image:loc>
+      <image:title>Bebop.ai - AI-Powered Workflow Automation Platform</image:title>
+      <image:caption>Discover how Bebop.ai's AI-powered platform automates workflows, optimizes processes, and integrates with your existing tools through intelligent automation and advanced analytics.</image:caption>
     </image:image>
   </url>
   

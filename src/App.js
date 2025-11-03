@@ -350,6 +350,17 @@ function News({ searchValue }) {
 // --- APPS PAGE ---
 function Apps() {
   const [activeSection, setActiveSection] = useState('free');
+  const [shuffledPaidApps, setShuffledPaidApps] = useState([]);
+
+  // Shuffle function for arrays
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
 
   const freeApps = [
     {
@@ -400,16 +411,6 @@ function Apps() {
       readMoreLink: "/learn/alli-ai"
     },
     {
-      name: "Blackbox.ai",
-      description: "AI-powered code assistant that helps developers write code faster with real-time autocomplete and intelligent suggestions",
-      category: "Development & Coding",
-      features: ["AI code completion", "Multi-language support", "Context-aware suggestions", "Real-time autocomplete"],
-      link: "https://blackboxai.partnerlinks.io/BAIB",
-      trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/assets/blackbox-logo.png",
-      readMoreLink: "/learn/blackbox-ai"
-    },
-    {
       name: "Apollo AI",
       description: "AI sales platform with over 210 million contacts to find, contact, and close your ideal buyers",
       category: "Sales & CRM",
@@ -418,6 +419,16 @@ function Apps() {
       trialInfo: "Pro plans from $49/month",
       image: "https://betteraibots.com/assets/apollo-logo.png",
       readMoreLink: "/learn/apollo-io"
+    },
+    {
+      name: "Blackbox.ai",
+      description: "AI-powered code assistant that helps developers write code faster with real-time autocomplete and intelligent suggestions",
+      category: "Development & Coding",
+      features: ["AI code completion", "Multi-language support", "Context-aware suggestions", "Real-time autocomplete"],
+      link: "https://blackboxai.partnerlinks.io/BAIB",
+      trialInfo: "Free Trial Available",
+      image: "https://betteraibots.com/assets/blackbox-logo.png",
+      readMoreLink: "/learn/blackbox-ai"
     },
     {
       name: "Brevo",
@@ -599,7 +610,8 @@ function Apps() {
       features: ["On-demand GPUs", "Serverless AI workloads", "Instant scaling", "Global deployment"],
       price: "Pay per use",
       link: "https://get.runpod.io/w3na2cm4xdjp",
-      image: "https://betteraibots.com/assets/runpod-logo.png"
+      image: "https://betteraibots.com/assets/runpod-logo.png",
+      readMoreLink: "/learn/runpod"
     },
     {
       name: "Pipes.ai",
@@ -608,7 +620,8 @@ function Apps() {
       features: ["AI-powered voice and SMS", "Lead verification and filtering", "Automated follow-ups", "Real-time analytics"],
       price: "Contact sales",
       link: "https://try.pipes.ai/hmqj0m3am6un",
-      image: "https://betteraibots.com/assets/pipes-ai-logo.png"
+      image: "https://betteraibots.com/assets/pipes-ai-logo.png",
+      readMoreLink: "/learn/pipes-ai"
     },
 
     {
@@ -618,7 +631,8 @@ function Apps() {
       features: ["AI transcription", "Content repurposing", "Multi-brand CMS", "Brand voice training"],
       price: "From $19/month",
       link: "https://get.castmagic.io/qdu0jfhfcurv",
-      image: "https://betteraibots.com/assets/castmagic-logo.png"
+      image: "https://betteraibots.com/assets/castmagic-logo.png",
+      readMoreLink: "/learn/castmagic"
     },
     {
       name: "AnyBiz.io",
@@ -627,7 +641,8 @@ function Apps() {
       features: ["AI sales agents", "Email automation", "LinkedIn outreach", "Phone call automation"],
       price: "Contact sales",
       link: "https://anybiz.io/?fpr=ai4n56",
-      image: "https://betteraibots.com/assets/anybiz-logo.png"
+      image: "https://betteraibots.com/assets/anybiz-logo.png",
+      readMoreLink: "/learn/anybiz"
     },
     {
       name: "Mega HR",
@@ -635,8 +650,9 @@ function Apps() {
       category: "HR & Recruitment",
       features: ["AI screening & shortlisting", "Interview scheduling", "AI-powered insights", "Job board advertising"],
       price: "$49-$149/month",
-      link: "https://try.megahr.com/63arc24w9i8s",
-      image: "https://betteraibots.com/assets/megahr-logo.png"
+      link: "https://try.megahr.com/BAIB",
+      image: "https://betteraibots.com/assets/megahr-logo.png",
+      readMoreLink: "/learn/megahr"
     },
     {
       name: "Bebop.ai",
@@ -644,10 +660,48 @@ function Apps() {
       category: "AI & Automation",
       features: ["AI workflow automation", "Intelligent process optimization", "Smart integrations", "Advanced analytics"],
       price: "Contact sales",
-      link: "https://try.bebop.ai/o004cood3aod",
-      image: "https://betteraibots.com/assets/bebop-ai-logo.png"
+      link: "https://try.bebop.ai/BAIB",
+      image: "https://betteraibots.com/assets/bebop-ai-logo.png",
+      readMoreLink: "/learn/bebop-ai"
+    },
+    {
+      name: "Catalister",
+      description: "AI-powered platform for dropshipping and e-commerce automation with Shopify integration",
+      category: "E-commerce & Dropshipping",
+      features: ["Shopify integration", "AI product sourcing", "Automated order fulfillment", "Inventory management"],
+      price: "From $29/month",
+      link: "https://join.catalister.com/BAIB",
+      image: "https://betteraibots.com/assets/catalister-logo.png",
+      readMoreLink: "/learn/catalister"
+    },
+    {
+      name: "SEOSparkPlug",
+      description: "AI-powered SEO platform that analyzes 25+ factors, writes code, optimizes social content, and tracks results in one workflow",
+      category: "SEO & Digital Marketing",
+      features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
+      price: "Contact sales",
+      link: "https://seosparkplug.com",
+      image: "https://betteraibots.com/assets/seosparkplug-logo.png",
+      readMoreLink: "/learn/seosparkplug"
+    },
+    {
+      name: "Airia",
+      description: "Enterprise AI orchestration platform that accelerates agent development from concept to production with rapid prototyping and intelligent operations",
+      category: "AI & Enterprise Automation",
+      features: ["Rapid agent prototyping", "Data integration", "Intelligent AI operations", "Security & governance"],
+      price: "Contact sales",
+      link: "https://try.airia.com/BAIB",
+      image: "https://betteraibots.com/assets/airia-logo.png",
+      readMoreLink: "/learn/airia"
     }
   ];
+
+  // Shuffle paid apps whenever the paid section is accessed
+  useEffect(() => {
+    if (activeSection === 'paid' && paidApps.length > 0) {
+      setShuffledPaidApps(shuffleArray(paidApps));
+    }
+  }, [activeSection]);
 
   const renderAppCard = (app, type) => (
     <div key={app.name} className="app-card" style={{
@@ -710,7 +764,9 @@ function Apps() {
                 fontSize: '0.7rem',
                 padding: '2px 8px',
                 borderRadius: '12px',
-                fontWeight: '500'
+                fontWeight: '500',
+                whiteSpace: 'nowrap',
+                display: 'inline-block'
               }}>
                 {app.price}
               </span>
@@ -783,7 +839,12 @@ function Apps() {
         {app.readMoreLink && (
           <Link
             to={app.readMoreLink}
-            onClick={(e) => e.stopPropagation()}
+            state={{ from: '/apps' }}
+            onClick={(e) => {
+              e.stopPropagation();
+              // Store referrer in sessionStorage as backup
+              sessionStorage.setItem('articleFromPage', '/apps');
+            }}
             style={{
               color: '#8b5cf6',
               fontSize: '0.85rem',
@@ -1148,7 +1209,7 @@ function Apps() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
                 gap: '24px'
               }}>
-                {paidApps.map(app => renderAppCard(app, 'paid'))}
+                {(shuffledPaidApps.length > 0 ? shuffledPaidApps : paidApps).map(app => renderAppCard(app, 'paid'))}
               </div>
             </div>
           )}
@@ -3081,7 +3142,8 @@ function NewsArticle() {
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
             "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
-            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2"
+            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2",
+            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
           console.log('Open Graph image URL:', imageUrl);
@@ -3117,7 +3179,8 @@ function NewsArticle() {
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
             "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
-            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2"
+            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2",
+            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
           console.log('Twitter image URL:', imageUrl);
@@ -3130,7 +3193,8 @@ function NewsArticle() {
           const tagMap = {
             "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
             "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots",
-            "ai-virtual-assistant-how-to-automate-tasks-2025": "AI, Artificial Intelligence, AI Virtual Assistant, Task Automation, AI Productivity, Business Automation, Personal Automation, AI Tools, BetterAiBots"
+            "ai-virtual-assistant-how-to-automate-tasks-2025": "AI, Artificial Intelligence, AI Virtual Assistant, Task Automation, AI Productivity, Business Automation, Personal Automation, AI Tools, BetterAiBots",
+            "why-small-businesses-beat-enterprise-ai-tools-2025": "AI, Artificial Intelligence, Small Business AI, Enterprise AI, Business Automation, AI Tools, SMB Technology, Competitive Advantage, BetterAiBots"
           };
           return tagMap[article.slug] || "AI, Artificial Intelligence, AI News, BetterAiBots";
         })()} />
@@ -3165,7 +3229,8 @@ function NewsArticle() {
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
             "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
-            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2"
+            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2",
+            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2"
               };
               const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
               console.log('Structured data image URL:', imageUrl);
@@ -3195,7 +3260,8 @@ function NewsArticle() {
                 "sora-2-physics-reality-ai-video-revolution-2025": "AI, Artificial Intelligence, Sora 2, OpenAI, AI Video Generation, Physics Simulation, AI Video Editing, Video AI, BetterAiBots",
                 "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
                 "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots",
-                "ai-virtual-assistant-how-to-automate-tasks-2025": "AI, Artificial Intelligence, AI Virtual Assistant, Task Automation, AI Productivity, Business Automation, Personal Automation, AI Tools, BetterAiBots"
+                "ai-virtual-assistant-how-to-automate-tasks-2025": "AI, Artificial Intelligence, AI Virtual Assistant, Task Automation, AI Productivity, Business Automation, Personal Automation, AI Tools, BetterAiBots",
+                "why-small-businesses-beat-enterprise-ai-tools-2025": "AI, Artificial Intelligence, Small Business AI, Enterprise AI, Business Automation, AI Tools, SMB Technology, Competitive Advantage, Small Business, BetterAiBots"
               };
               return keywordMap[article.slug] || "AI, Artificial Intelligence, AI News, BetterAiBots";
             })(),
