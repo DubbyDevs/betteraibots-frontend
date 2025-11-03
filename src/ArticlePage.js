@@ -225,7 +225,10 @@ export default function ArticlePage() {
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
             "aisdr-complete-guide": "https://betteraibots.com/aisdr.png",
-            "miro-complete-guide": "https://betteraibots.com/miro.png"
+            "miro-complete-guide": "https://betteraibots.com/miro.png",
+            "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
+            "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
+            "thordata": "https://betteraibots.com/thordata-logo.png?v=2"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -253,14 +256,32 @@ export default function ArticlePage() {
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
             "aisdr-complete-guide": "https://betteraibots.com/aisdr.png",
-            "miro-complete-guide": "https://betteraibots.com/miro.png"
+            "miro-complete-guide": "https://betteraibots.com/miro.png",
+            "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
+            "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
+            "thordata": "https://betteraibots.com/thordata-logo.png?v=2"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
         <meta name="article:published_time" content={article.date} />
         <meta name="article:author" content="BetterAiBots" />
         <meta name="article:section" content="AI Tools" />
-        <meta name="article:tag" content="AI, Artificial Intelligence, GPT, ChatGPT, AI Tools" />
+        <meta name="article:tag" content={(() => {
+          const tagMap = {
+            "blackbox-ai": "AI, Artificial Intelligence, Blackbox.ai, AI Code Assistant, Code Completion, AI Development Tools, Programming, Software Development, BetterAiBots",
+            "webydo": "AI, Artificial Intelligence, Webydo, Web Design, No-Code Design, Website Builder, CMS, Client Management, BetterAiBots",
+            "thordata": "AI, Artificial Intelligence, ThorData, Proxy, Web Scraping, Data Collection, AI Data Infrastructure, Residential Proxies, Scraper APIs, BetterAiBots"
+          };
+          return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
+        })()} />
+        <meta name="keywords" content={(() => {
+          const keywordMap = {
+            "blackbox-ai": "Blackbox.ai, AI code assistant, code completion, AI autocomplete, programming tools, software development, AI coding, code generation, developer tools, BetterAiBots",
+            "webydo": "Webydo, web design platform, no-code design, website builder, CMS, client management, web development, design tools, BetterAiBots",
+            "thordata": "ThorData, proxy service, web scraping, data collection, residential proxies, scraper APIs, AI data infrastructure, web data collection, BetterAiBots"
+          };
+          return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
+        })()} />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -288,7 +309,10 @@ export default function ArticlePage() {
                 "flowith-io": "https://betteraibots.com/flowith.jpg",
                 "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
                 "aisdr-complete-guide": "https://betteraibots.com/aisdr.png",
-                "miro-complete-guide": "https://betteraibots.com/miro.png"
+                "miro-complete-guide": "https://betteraibots.com/miro.png",
+                "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
+                "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
+                "thordata": "https://betteraibots.com/thordata-logo.png?v=2"
               };
               return ogImageMap[article.id] || images[0] || article.cover;
             })(),
@@ -311,7 +335,14 @@ export default function ArticlePage() {
               "@type": "WebPage",
               "@id": pageUrl
             },
-            "keywords": "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots",
+            "keywords": (() => {
+              const keywordMap = {
+                "blackbox-ai": "Blackbox.ai, AI code assistant, code completion, AI autocomplete, programming tools, software development, AI coding, code generation, developer tools, BetterAiBots",
+                "webydo": "Webydo, web design platform, no-code design, website builder, CMS, client management, web development, design tools, BetterAiBots",
+                "thordata": "ThorData, proxy service, web scraping, data collection, residential proxies, scraper APIs, AI data infrastructure, web data collection, BetterAiBots"
+              };
+              return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
+            })(),
             "articleSection": "AI Tools",
             "inLanguage": "en-US"
           })}

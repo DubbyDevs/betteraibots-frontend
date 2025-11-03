@@ -400,6 +400,16 @@ function Apps() {
       readMoreLink: "/learn/alli-ai"
     },
     {
+      name: "Blackbox.ai",
+      description: "AI-powered code assistant that helps developers write code faster with real-time autocomplete and intelligent suggestions",
+      category: "Development & Coding",
+      features: ["AI code completion", "Multi-language support", "Context-aware suggestions", "Real-time autocomplete"],
+      link: "https://blackboxai.partnerlinks.io/BAIB",
+      trialInfo: "Free Trial Available",
+      image: "https://betteraibots.com/assets/blackbox-logo.png",
+      readMoreLink: "/learn/blackbox-ai"
+    },
+    {
       name: "Apollo AI",
       description: "AI sales platform with over 210 million contacts to find, contact, and close your ideal buyers",
       category: "Sales & CRM",
@@ -500,6 +510,16 @@ function Apps() {
       readMoreLink: "/learn/reply-io-complete-guide"
     },
     {
+      name: "ThorData",
+      description: "Enterprise-grade proxy and web scraping infrastructure with 60M+ IPs, 120+ scraper APIs, and powerful tools for AI data collection",
+      category: "Data & Proxies",
+      features: ["60M+ residential IPs", "120+ scraper APIs", "99.9% uptime", "Free trial available"],
+      link: "https://affiliate.thordata.com/BAIB",
+      trialInfo: "Free Trial Available",
+      image: "https://betteraibots.com/assets/thordata-logo.png",
+      readMoreLink: "/learn/thordata"
+    },
+    {
       name: "VEED",
       description: "Online video editor with AI features for creating professional content",
       category: "Video Editing",
@@ -518,6 +538,16 @@ function Apps() {
       trialInfo: "7-Day Free Trial",
       image: "https://betteraibots.com/assets/warmy-logo.png",
       readMoreLink: "/news/warmy-io-spam-folder-rebellion-email-deliverability"
+    },
+    {
+      name: "Webydo",
+      description: "Professional web design platform that lets you create pixel-perfect websites without coding, with built-in CMS and client management",
+      category: "Web Design & Development",
+      features: ["No-code design", "Built-in CMS", "Client management", "Secure hosting"],
+      link: "https://partners.webydo.com/BAIB",
+      trialInfo: "Free Trial Available",
+      image: "https://betteraibots.com/assets/webydo-logo.png",
+      readMoreLink: "/learn/webydo"
     },
     {
       name: "Wispr Flow",
@@ -3050,7 +3080,8 @@ function NewsArticle() {
             "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
             "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
-            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
+            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
+            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
           console.log('Open Graph image URL:', imageUrl);
@@ -3085,7 +3116,8 @@ function NewsArticle() {
             "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
             "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
-            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
+            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
+            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2"
           };
           const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
           console.log('Twitter image URL:', imageUrl);
@@ -3097,7 +3129,8 @@ function NewsArticle() {
         <meta name="article:tag" content={(() => {
           const tagMap = {
             "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
-            "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots"
+            "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots",
+            "ai-virtual-assistant-how-to-automate-tasks-2025": "AI, Artificial Intelligence, AI Virtual Assistant, Task Automation, AI Productivity, Business Automation, Personal Automation, AI Tools, BetterAiBots"
           };
           return tagMap[article.slug] || "AI, Artificial Intelligence, AI News, BetterAiBots";
         })()} />
@@ -3131,7 +3164,8 @@ function NewsArticle() {
             "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
             "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
             "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
-            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2"
+            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
+            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2"
               };
               const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
               console.log('Structured data image URL:', imageUrl);
@@ -3160,7 +3194,8 @@ function NewsArticle() {
               const keywordMap = {
                 "sora-2-physics-reality-ai-video-revolution-2025": "AI, Artificial Intelligence, Sora 2, OpenAI, AI Video Generation, Physics Simulation, AI Video Editing, Video AI, BetterAiBots",
                 "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
-                "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots"
+                "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots",
+                "ai-virtual-assistant-how-to-automate-tasks-2025": "AI, Artificial Intelligence, AI Virtual Assistant, Task Automation, AI Productivity, Business Automation, Personal Automation, AI Tools, BetterAiBots"
               };
               return keywordMap[article.slug] || "AI, Artificial Intelligence, AI News, BetterAiBots";
             })(),

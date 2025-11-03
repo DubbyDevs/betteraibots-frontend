@@ -258,6 +258,58 @@
     </image:image>
   </url>
 
+  <!-- Blackbox.ai Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/blackbox-ai</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/blackbox-logo.png?v=2</image:loc>
+      <image:title>Blackbox.ai - AI Code Assistant</image:title>
+      <image:caption>Discover how Blackbox.ai's AI-powered code assistant helps developers write code faster with real-time autocomplete, intelligent suggestions, and multi-language support.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Webydo Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/webydo</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/webydo-logo.png?v=2</image:loc>
+      <image:title>Webydo - No-Code Web Design Platform</image:title>
+      <image:caption>Discover how Webydo's professional web design platform helps designers create pixel-perfect websites without coding, with built-in CMS and client management tools.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ThorData Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/thordata</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/thordata-logo.png?v=2</image:loc>
+      <image:title>ThorData - Proxy & Web Scraping Infrastructure</image:title>
+      <image:caption>Discover how ThorData's enterprise-grade proxy and web scraping infrastructure helps businesses collect data at scale with 60M+ IPs, 120+ scraper APIs, and powerful tools for AI data collection.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- AI Virtual Assistant How To Automate Tasks News Article -->
+  <url>
+    <loc>https://betteraibots.com/news/ai-virtual-assistant-how-to-automate-tasks-2025</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/aivirtualassistanthowto.jpg?v=2</image:loc>
+      <image:title>AI Virtual Assistant How To Automate Tasks</image:title>
+      <image:caption>AI virtual assistants have evolved from experimental tools to practical solutions for managing repetitive tasks in both personal and professional contexts.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Sora 2 Physics Reality AI Video Revolution News Article -->
   <url>
     <loc>https://betteraibots.com/news/sora-2-physics-reality-ai-video-revolution-2025</loc>
