@@ -9,6 +9,11 @@
     <lastmod>2025-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/og-image.png?v=3</image:loc>
+      <image:title>BetterAiBots.com – Free AI Bot Directory</image:title>
+      <image:caption>Discover the best AI bots, ChatGPT tools, Claude assistants, and GPT-powered applications. Free curated directory of artificial intelligence tools.</image:caption>
+    </image:image>
   </url>
   
   <!-- AI Starter Guide -->
@@ -83,6 +88,11 @@
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/og-image.png?v=3</image:loc>
+      <image:title>AI Apps Directory 2025 – Free, Trial & Paid AI Tools</image:title>
+      <image:caption>Explore curated AI apps and tools: free applications, trial versions, and premium paid tools to enhance your workflow and boost productivity.</image:caption>
+    </image:image>
   </url>
   
   <!-- Contact Page -->

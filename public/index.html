@@ -90,11 +90,12 @@
 
       gtag('config', 'G-J3TD7Y2P7M');
       
-      // Clear old caches on page load to prevent white screens
+      // Clear very old caches on page load to prevent white screens
       if ('caches' in window) {
         caches.keys().then(function(names) {
           for (let name of names) {
-            if (name !== 'betteraibots-v1.0.3') {
+            // Only clear old v1.x caches, let service worker handle v2.x cache cleanup
+            if (name.startsWith('betteraibots-v1.')) {
               caches.delete(name);
             }
           }
