@@ -102,8 +102,11 @@ body {
 
 .header-logo {
   height: 48px;
+  width: auto;
   margin-right: 10px;
   margin-left: 0px;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .header-search {

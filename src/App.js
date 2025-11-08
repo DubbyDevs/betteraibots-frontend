@@ -1327,7 +1327,12 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
   return (
     <div className="header">
       <Link to="/">
-        <img src={logo} className="header-logo" alt="BetterAiBots Logo" style={{ cursor: "pointer" }} />
+        <img 
+          src={logo} 
+          className="header-logo" 
+          alt="BetterAiBots Logo" 
+          style={{ cursor: "pointer" }}
+        />
       </Link>
       {!isMobile ? (
         <div className="header-search">
@@ -1463,6 +1468,7 @@ function BotGrid({ bots, onOpenModal }) {
         <img
           src={helperLogo}
           alt="BetterAiBots Helper"
+          srcSet={`${helperLogo} 1x, ${helperLogo} 2x`}
           style={{
             marginTop: 18,
             width: "80px",
@@ -2133,8 +2139,6 @@ function App() {
   const [animationPaused, setAnimationPaused] = useState(false);
   const [showCategoryBar, setShowCategoryBar] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [showSearchBubble, setShowSearchBubble] = useState(false);
-  const [bubbleSearch, setBubbleSearch] = useState("");
   const [showPWAInstallPrompt, setShowPWAInstallPrompt] = useState(false);
   const [form, setForm] = useState({
     gptName: "",
@@ -2262,36 +2266,6 @@ function App() {
   const toggleCategoryBar = () => {
     setShowCategoryBar(!showCategoryBar);
   };
-
-  // Floating chat search functionality
-  const handleBubbleSearch = (e) => {
-    e.preventDefault();
-    if (bubbleSearch.trim()) {
-      setSearchValue(bubbleSearch);
-      setShowSearchBubble(false);
-      setBubbleSearch("");
-      // Navigate to home page if not already there
-      if (location.pathname !== "/") {
-        window.location.href = "/";
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (!showSearchBubble) return;
-    const onKey = (e) => { if (e.key === "Escape") setShowSearchBubble(false); };
-    const onClick = (e) => {
-      if (!e.target.closest('.floating-search-box') && !e.target.closest('.chat-btn')) {
-        setShowSearchBubble(false);
-      }
-    };
-    document.addEventListener('keydown', onKey);
-    document.addEventListener('click', onClick);
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.removeEventListener('click', onClick);
-    };
-  }, [showSearchBubble]);
 
   // Clear search when navigating to a new page
   useEffect(() => {
@@ -2421,118 +2395,6 @@ function App() {
         ↑
       </button>
 
-      {/* Floating Chat Button (opens search) */}
-      {!showSearchBubble && (
-        <button
-          className="chat-btn"
-          onClick={() => { setShowSearchBubble(true); setBubbleSearch(""); }}
-          style={{ padding: 0, background: "none", border: "none", boxShadow: "none" }}
-        >
-          <img
-            src={require('./assets/findthebestaibotshelper.png')}
-            alt="Chat Bot Helper"
-            style={{
-              width: 54,
-              height: 54,
-              borderRadius: "50%",
-              boxShadow: "0 0 18px #36ff9588, 0 0 32px #1affad55",
-              background: "transparent",
-              transition: "box-shadow 0.2s"
-            }}
-          />
-        </button>
-      )}
-      {showSearchBubble && (
-        <div className="floating-search-box" style={{
-          position: 'fixed',
-          bottom: 20,
-          right: 20,
-          width: 300,
-          background: '#192738',
-          borderRadius: 22,
-          boxShadow: '0 7px 48px #16ff6c58, 0 2px 8px #0bbfdb18',
-          zIndex: 100,
-          padding: 22,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 12,
-        }}>
-          <input
-            className="floating-chat-input"
-            style={{ 
-              width: '100%', 
-              fontSize: "1.18rem",
-              padding: '12px 16px',
-              borderRadius: '12px',
-              border: 'none',
-              background: '#2a3a4a',
-              color: '#ffffff',
-              marginBottom: '8px'
-            }}
-            value={bubbleSearch}
-            onChange={e => setBubbleSearch(e.target.value)}
-            placeholder="search"
-            autoFocus
-          />
-          <button 
-            type="button"
-            className="floating-chat-send" 
-            style={{ 
-              width: '100%',
-              fontSize: "1.09rem", 
-              padding: "8px 16px",
-              background: 'linear-gradient(90deg, #09e269 0%, #0bbfdb 100%)',
-              color: '#101c26',
-              border: 'none',
-              borderRadius: '12px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              marginBottom: '8px'
-            }}
-            onClick={handleBubbleSearch}
-          >
-            search
-          </button>
-          <div 
-            style={{
-              color: '#09e269',
-              fontSize: '1.08rem',
-              fontWeight: '600',
-              cursor: 'pointer',
-              textAlign: 'center',
-              marginBottom: '8px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px'
-            }}
-            onClick={() => {
-              window.open('https://chatgpt.com/g/g-683e57f7b0b88191b0b8313aee04ea59-betteraibots-concierge', '_blank');
-            }}
-          >
-            <span>Click Here to talk with BAIB</span>
-            <img
-              src={require('./assets/findthebestaibotshelper.png')}
-              alt="BAIB Logo"
-              style={{
-                width: 20,
-                height: 20,
-                borderRadius: "50%",
-                boxShadow: "0 0 4px #36ff9588",
-                cursor: 'pointer',
-                transition: 'transform 0.2s'
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                window.open('https://chatgpt.com/g/g-683e57f7b0b88191b0b8313aee04ea59-betteraibots-concierge', '_blank');
-              }}
-              onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
-              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-            />
-          </div>
-        </div>
-      )}
       
       <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
         <Modal.Header closeButton>
