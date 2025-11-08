@@ -196,6 +196,7 @@ function News({ searchValue }) {
       <Helmet>
         <title>AI Bots & Tools News – BetterAiBots.com</title>
         <meta name="description" content="Latest news, updates, and insights from the world of AI bots and artificial intelligence." />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta property="og:title" content="AI Bots & Tools News – BetterAiBots.com" />
         <meta property="og:description" content="Stay informed with the latest AI news, bot updates, and industry insights." />
         <meta property="og:url" content="https://betteraibots.com/news" />
@@ -1547,6 +1548,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         <title>BetterAiBots.com – Curated OpenAI GPT Bots Directory</title>
         <meta name="description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
         <meta name="keywords" content="AI bots, ChatGPT, OpenAI GPT, free AI tools, AI automation, productivity bots, BetterAiBots, artificial intelligence tools, GPT bots, AI workflow, automation tools, free bots" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://betteraibots.com/" />
         
         <meta property="og:type" content="website" />
@@ -1625,6 +1627,7 @@ const CATEGORY_REVERSE = {
           name="description"
           content={`Best free ${catName} AI bots for productivity, health, creative tools, and more.`}
         />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta property="og:title" content={`${catName} Bots – BetterAiBots.com`} />
         <meta property="og:url" content={`https://betteraibots.com/${encodeURIComponent(cat)}`} />
         <link rel="canonical" href={`https://betteraibots.com/${encodeURIComponent(cat)}`} />
@@ -1692,6 +1695,7 @@ function Contact() {
           name="description"
           content="Contact BetterAiBots.com for inquiries about our curated free AI bots directory. Questions, suggestions, or feedback? Reach out!"
         />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta property="og:title" content="Contact AI Bots & Tools – BetterAiBots.com" />
         <meta
           property="og:description"
@@ -3112,6 +3116,7 @@ function NewsArticle() {
       <Helmet key={article.slug}>
         <title>{article.title} – BetterAiBots.com</title>
         <meta name="description" content={article.excerpt} />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.excerpt} />
         <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />

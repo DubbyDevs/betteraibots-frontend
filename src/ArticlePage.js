@@ -205,6 +205,7 @@ export default function ArticlePage() {
       <Helmet>
         <title>{article.title} – BetterAiBots.com</title>
         <meta name="description" content={article.preview} />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.preview} />
         <link rel="canonical" href={`https://betteraibots.com/learn/${article.id}`} />
