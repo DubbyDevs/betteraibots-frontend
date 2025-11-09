@@ -3040,12 +3040,18 @@ function NewsArticle() {
             "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
             "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2",
-            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2"
+            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2",
+            "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025": "https://betteraibots.com/solofoundersai.jpg?v=2"
           };
-          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
+          // Prioritize article.image, then ogImageMap, then fallback to default
+          const articleImage = article.image ? (article.image.startsWith('http') ? article.image : `https://betteraibots.com${article.image}`) : null;
+          const imageUrl = articleImage || ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
           console.log('Open Graph image URL:', imageUrl);
           return imageUrl;
         })()} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={article.title} />
         <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -3077,9 +3083,12 @@ function NewsArticle() {
             "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
             "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2",
-            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2"
+            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2",
+            "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025": "https://betteraibots.com/solofoundersai.jpg?v=2"
           };
-          const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
+          // Prioritize article.image, then ogImageMap, then fallback to default
+          const articleImage = article.image ? (article.image.startsWith('http') ? article.image : `https://betteraibots.com${article.image}`) : null;
+          const imageUrl = articleImage || ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
           console.log('Twitter image URL:', imageUrl);
           return imageUrl;
         })()} />
