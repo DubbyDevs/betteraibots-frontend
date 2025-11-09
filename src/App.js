@@ -3052,9 +3052,12 @@ function NewsArticle() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={article.title} />
+        <meta property="og:site_name" content="BetterAiBots.com" />
+        <meta property="og:locale" content="en_US" />
         <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@BetterAiBots" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.excerpt} />
         <meta name="twitter:image" content={(() => {

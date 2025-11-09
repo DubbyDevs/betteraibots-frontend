@@ -20,3 +20,4 @@ fs.writeFileSync(swPath, updatedContent, 'utf8');
 console.log(`Service worker cache version updated to ${version} with timestamp ${timestamp}`);
 
 
+
