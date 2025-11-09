@@ -474,7 +474,7 @@ const PAID_APPS = [
 
 // --- APPS PAGE ---
 function Apps() {
-  const [activeSection, setActiveSection] = useState('free');
+  const [activeSection, setActiveSection] = useState('trial');
   const [shuffledPaidApps, setShuffledPaidApps] = useState([]);
 
   // Shuffle function for arrays
@@ -3127,7 +3127,8 @@ function NewsArticle() {
             "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
             "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
             "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2",
-            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2"
+            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2",
+            "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025": "https://betteraibots.com/solofoundersai.jpg?v=2"
               };
               const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
               console.log('Structured data image URL:', imageUrl);
@@ -3158,7 +3159,8 @@ function NewsArticle() {
                 "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
                 "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots",
                 "ai-virtual-assistant-how-to-automate-tasks-2025": "AI, Artificial Intelligence, AI Virtual Assistant, Task Automation, AI Productivity, Business Automation, Personal Automation, AI Tools, BetterAiBots",
-                "why-small-businesses-beat-enterprise-ai-tools-2025": "AI, Artificial Intelligence, Small Business AI, Enterprise AI, Business Automation, AI Tools, SMB Technology, Competitive Advantage, Small Business, BetterAiBots"
+                "why-small-businesses-beat-enterprise-ai-tools-2025": "AI, Artificial Intelligence, Small Business AI, Enterprise AI, Business Automation, AI Tools, SMB Technology, Competitive Advantage, Small Business, BetterAiBots",
+                "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025": "AI, Artificial Intelligence, Solo Founder, AI Productivity Stack, Business Automation, AI Tools for Entrepreneurs, One-Person Business, Solo Entrepreneurship, AI Customer Service, AI Sales Tools, Workflow Automation, BetterAiBots"
               };
               return keywordMap[article.slug] || "AI, Artificial Intelligence, AI News, BetterAiBots";
             })(),

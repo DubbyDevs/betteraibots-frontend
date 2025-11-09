@@ -307,6 +307,19 @@
     </image:image>
   </url>
 
+  <!-- AI Productivity Stack for Solo Founders News Article -->
+  <url>
+    <loc>https://betteraibots.com/news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/solofoundersai.jpg?v=2</image:loc>
+      <image:title>AI Productivity Stack for Solo Founders: 10 Tools to Run Your Business Alone</image:title>
+      <image:caption>Running a business solo doesn't mean doing everything manually. Discover the essential AI tools that let solo founders compete with teams—from customer service automation to sales outreach, workflow management to content creation. Build your one-person powerhouse with these 10 game-changing tools.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Why Small Businesses Beat Enterprise AI Tools News Article -->
   <url>
     <loc>https://betteraibots.com/news/why-small-businesses-beat-enterprise-ai-tools-2025</loc>
