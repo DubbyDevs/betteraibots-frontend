@@ -240,7 +240,10 @@ export default function ArticlePage() {
             "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
             "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
             "megahr": "https://betteraibots.com/megahr.jpg?v=2",
-            "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2"
+            "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
+            "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
+            "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
+            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -280,7 +283,10 @@ export default function ArticlePage() {
             "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
             "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
             "megahr": "https://betteraibots.com/megahr.jpg?v=2",
-            "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2"
+            "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
+            "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
+            "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
+            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2"
           };
           return ogImageMap[article.id] || images[0] || article.cover;
         })()} />
@@ -300,7 +306,10 @@ export default function ArticlePage() {
             "castmagic": "AI, Artificial Intelligence, CastMagic, Content Creation, AI Transcription, Content Repurposing, Podcast Tools, Video Content, BetterAiBots",
             "anybiz": "AI, Artificial Intelligence, AnyBiz.io, AI Sales Agents, Sales Automation, Lead Generation, Email Automation, LinkedIn Outreach, BetterAiBots",
             "megahr": "AI, Artificial Intelligence, Mega HR, AI Hiring, HR Automation, Recruitment, AI Hiring Assistant, Megan AI, Hiring Platform, BetterAiBots",
-            "bebop-ai": "AI, Artificial Intelligence, Bebop.ai, Workflow Automation, Process Optimization, AI Automation, Business Automation, Workflow Management, BetterAiBots"
+            "bebop-ai": "AI, Artificial Intelligence, Bebop.ai, Workflow Automation, Process Optimization, AI Automation, Business Automation, Workflow Management, BetterAiBots",
+            "lusha": "AI, Artificial Intelligence, Lusha, B2B Contact Data, Email Finder, Phone Number Lookup, Sales Intelligence, Lead Generation, CRM Integration, BetterAiBots",
+            "hume-ai": "AI, Artificial Intelligence, Hume AI, Empathic AI, Emotion Recognition, Voice AI, Facial Expression Analysis, Emotional Intelligence, AI Interactions, BetterAiBots",
+            "tidio-ai": "AI, Artificial Intelligence, Tidio AI, Lyro AI Agent, Customer Service Automation, Live Chat, Help Desk, AI Chatbot, Customer Support, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -317,7 +326,10 @@ export default function ArticlePage() {
             "castmagic": "CastMagic, content creation, AI transcription, content repurposing, podcast tools, video content, multi-brand CMS, brand voice, BetterAiBots",
             "anybiz": "AnyBiz.io, AI sales agents, sales automation, lead generation, email automation, LinkedIn outreach, phone call automation, BetterAiBots",
             "megahr": "Mega HR, AI hiring, HR automation, recruitment, AI hiring assistant, Megan AI, hiring platform, candidate screening, BetterAiBots",
-            "bebop-ai": "Bebop.ai, workflow automation, process optimization, AI automation, business automation, workflow management, intelligent automation, BetterAiBots"
+            "bebop-ai": "Bebop.ai, workflow automation, process optimization, AI automation, business automation, workflow management, intelligent automation, BetterAiBots",
+            "lusha": "Lusha, B2B contact data, email finder, phone number lookup, sales intelligence, lead generation, CRM integration, verified contacts, sales prospecting, BetterAiBots",
+            "hume-ai": "Hume AI, empathic AI, emotion recognition, voice AI, facial expression analysis, emotional intelligence, AI interactions, emotion detection, empathic computing, BetterAiBots",
+            "tidio-ai": "Tidio AI, Lyro AI Agent, customer service automation, live chat, help desk, AI chatbot, customer support, automated support, customer service platform, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -728,6 +740,99 @@ export default function ArticlePage() {
         ) : article.id === "bebop-ai" ? (
           <a 
             href="https://try.bebop.ai/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "lusha" ? (
+          <a 
+            href="https://partnerstack.lusha.com/w61xn76pa3sr" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "hume-ai" ? (
+          <a 
+            href="https://try.hume.ai/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={images[0]} alt="" style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "cover",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "tidio-ai" ? (
+          <a 
+            href="https://affiliate.tidio.com/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{

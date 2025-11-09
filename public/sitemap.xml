@@ -501,5 +501,44 @@
       <image:caption>Discover how Bebop.ai's AI-powered platform automates workflows, optimizes processes, and integrates with your existing tools through intelligent automation and advanced analytics.</image:caption>
     </image:image>
   </url>
+
+  <!-- Lusha Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/lusha</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/lushaai.jpg?v=2</image:loc>
+      <image:title>Lusha - B2B Contact Data Platform</image:title>
+      <image:caption>Discover how Lusha's verified contact data platform helps sales teams find accurate emails, phone numbers, and company intelligence to accelerate pipeline growth.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Hume AI Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/hume-ai</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/hume2.jpg?v=2</image:loc>
+      <image:title>Hume AI - Empathic AI Platform</image:title>
+      <image:caption>Master Hume AI's empathic AI platform with comprehensive guides on emotion recognition, voice AI, and facial expression analysis to create more natural, engaging AI interactions.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Tidio AI Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/tidio-ai</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/tidio2.jpg?v=2</image:loc>
+      <image:title>Tidio AI - Customer Service Automation Platform</image:title>
+      <image:caption>Discover how Tidio AI's Lyro AI Agent eliminates up to 90% of support questions with the highest resolution rate in the industry. Complete user guide and cheatsheet for maximizing customer service automation.</image:caption>
+    </image:image>
+  </url>
   
 </urlset> 

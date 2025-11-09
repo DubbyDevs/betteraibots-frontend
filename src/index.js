@@ -17,7 +17,8 @@ root.render(
 );
 
 // Register service worker for PWA functionality with aggressive update handling
-if ('serviceWorker' in navigator) {
+// Only register in production (not in development)
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   window.addEventListener('load', () => {
     // Register service worker with no cache
     navigator.serviceWorker.register('/sw.js', { 
@@ -59,6 +60,19 @@ if ('serviceWorker' in navigator) {
     }).catch((registrationError) => {
       console.log('SW registration failed: ', registrationError);
       // Don't let service worker errors break the app
+    });
+  });
+} else if ('serviceWorker' in navigator && process.env.NODE_ENV === 'development') {
+  // In development, unregister any existing service workers to avoid conflicts
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister().then((success) => {
+          if (success) {
+            console.log('Service worker unregistered in development mode');
+          }
+        });
+      }
     });
   });
 }

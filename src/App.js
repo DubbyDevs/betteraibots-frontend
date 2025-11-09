@@ -586,6 +586,16 @@ function Apps() {
       readMoreLink: "/learn/flowith-io"
     },
     {
+      name: "Hume AI",
+      description: "Empathic AI platform that understands human emotion and expression to create more natural, engaging interactions",
+      category: "AI & Machine Learning",
+      features: ["Emotion recognition", "Voice AI", "Facial expression analysis", "Empathic AI models", "Real-time emotion detection"],
+      link: "https://try.hume.ai/BAIB",
+      trialInfo: "Free Trial Available",
+      image: "https://betteraibots.com/assets/hume-ai-logo.png",
+      readMoreLink: "/learn/hume-ai"
+    },
+    {
       name: "Invideo",
       description: "AI video creation platform with thousands of templates and easy editing",
       category: "Video Creation",
@@ -604,6 +614,16 @@ function Apps() {
       trialInfo: "Free Trial Available",
       image: "https://betteraibots.com/assets/lindy-logo.png",
       readMoreLink: "/learn/lindy-ai"
+    },
+    {
+      name: "Lusha",
+      description: "B2B contact data platform with verified emails, phone numbers, and company intelligence for sales teams",
+      category: "Sales & CRM",
+      features: ["Verified contact data", "Email finder", "Phone number lookup", "Company intelligence", "CRM integrations"],
+      link: "https://partnerstack.lusha.com/w61xn76pa3sr",
+      trialInfo: "Free Trial Available",
+      image: "https://betteraibots.com/lushaai.jpg",
+      readMoreLink: "/learn/lusha"
     },
     {
       name: "Miro",
@@ -654,6 +674,16 @@ function Apps() {
       trialInfo: "Free Trial Available",
       image: "https://betteraibots.com/assets/thordata-logo.png",
       readMoreLink: "/learn/thordata"
+    },
+    {
+      name: "Tidio AI",
+      description: "AI customer service platform with Lyro AI Agent, Live Chat, Help Desk, and automated flows to eliminate up to 90% of support questions",
+      category: "Customer Service & Support",
+      features: ["Lyro AI Agent", "Live Chat", "Help Desk", "Automated Flows", "67% resolution rate"],
+      link: "https://affiliate.tidio.com/BAIB",
+      trialInfo: "Free Trial Available",
+      image: "https://betteraibots.com/tidio2.jpg",
+      readMoreLink: "/learn/tidio-ai"
     },
     {
       name: "VEED",
