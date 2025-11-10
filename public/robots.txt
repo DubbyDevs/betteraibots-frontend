@@ -22,6 +22,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
+Disallow: /moderation
 
 # Allow important pages
 Allow: /ai-starter-guide.html
