@@ -1,7 +1,7 @@
 {
   "short_name": "BetterAiBots",
   "name": "BetterAiBots – Discover the Best Free AI Bots",
-  "description": "Directory of free AI bots. Find, share, and use the best free OpenAI-powered tools!",
+  "description": "Discover the best AI bots, ChatGPT tools, Claude assistants, and GPT-powered applications. Free curated directory of artificial intelligence tools for productivity, creativity, and automation.",
   "version": "2.0.0",
   "icons": [
     {
@@ -79,10 +79,22 @@
       ]
     },
     {
+      "name": "AI Apps Directory",
+      "short_name": "Apps",
+      "description": "Browse free, trial, and paid AI apps",
+      "url": "/apps",
+      "icons": [
+        {
+          "src": "logo192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
       "name": "Learn Articles",
       "short_name": "Learn",
-      "description": "Read educational articles",
-      "url": "/articles",
+      "description": "Read educational articles and guides",
+      "url": "/learn",
       "icons": [
         {
           "src": "logo192.png",

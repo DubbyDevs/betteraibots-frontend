@@ -1,6 +1,7 @@
 import { CATEGORY_SLUGS } from './constants';
 import React, { useState, useEffect } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
+import logo2x from './assets/betteraiglowlogo.png';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
 import tipJar from './assets/thebestfreeaibotsgpt.webp';
@@ -1359,9 +1360,12 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
       <Link to="/">
         <img 
           src={logo} 
+          srcSet={`${logo} 1x, ${logo2x} 2x`}
           className="header-logo" 
           alt="BetterAiBots Logo" 
           style={{ cursor: "pointer" }}
+          width="293"
+          height="48"
         />
       </Link>
       {!isMobile ? (
@@ -1407,8 +1411,12 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
       ) : null}
       {isMobile && (
         <div className="header-icons" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
-          <button className="header-mob-menu-icon" onClick={onMenuClick}>
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <button 
+            className="header-mob-menu-icon" 
+            onClick={onMenuClick}
+            aria-label="Open navigation menu"
+          >
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
               <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
               <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
               <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
@@ -2330,8 +2338,12 @@ function App() {
       boxShadow: '0 2px 12px #0bbfdb50',
     }}
   >
-    <button className="header-mob-menu-icon" onClick={() => setMenuOpen(true)}>
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <button 
+      className="header-mob-menu-icon" 
+      onClick={() => setMenuOpen(true)}
+      aria-label="Open navigation menu"
+    >
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
         <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
         <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
