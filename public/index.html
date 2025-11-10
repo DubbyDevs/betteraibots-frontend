@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 
     <!-- ✅ App Icon for iOS Home Screen -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -13,7 +13,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap&font-display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap&font-display=swap" rel="stylesheet" onerror="this.onerror=null; this.href=''; console.warn('Google Fonts failed to load, using system fonts');" />
 
     <!-- Viewport & Theme Colors -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -81,13 +81,16 @@
     </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J3TD7Y2P7M"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J3TD7Y2P7M" onerror="this.onerror=null;"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-J3TD7Y2P7M');
+      try {
+        gtag('js', new Date());
+        gtag('config', 'G-J3TD7Y2P7M');
+      } catch(e) {
+        // Silently fail if gtag is not available
+      }
       
       // Clear very old caches on page load to prevent white screens
       if ('caches' in window) {
@@ -144,6 +147,20 @@
     
     <!-- Error handling script -->
     <script>
+      // Suppress console errors from external services (503s, network failures)
+      const originalError = console.error;
+      console.error = function(...args) {
+        const errorMsg = args.join(' ');
+        // Suppress known external service errors that don't affect functionality
+        if (errorMsg.includes('fonts.googleapis.com') || 
+            errorMsg.includes('googletagmanager.com') ||
+            errorMsg.includes('Failed to load resource') ||
+            errorMsg.includes('503')) {
+          return; // Don't log these errors
+        }
+        originalError.apply(console, args);
+      };
+      
       // Hide loading screen when React app loads
       window.addEventListener('load', function() {
         setTimeout(function() {
@@ -156,6 +173,19 @@
       
       // Handle JavaScript errors
       window.addEventListener('error', function(e) {
+        // Suppress external resource loading errors
+        if (e.target && (e.target.tagName === 'LINK' || e.target.tagName === 'SCRIPT')) {
+          if (e.target.src && (e.target.src.includes('fonts.googleapis.com') || 
+                               e.target.src.includes('googletagmanager.com'))) {
+            e.preventDefault();
+            return false;
+          }
+        }
+        if (e.filename && (e.filename.includes('fonts.googleapis.com') || 
+                           e.filename.includes('googletagmanager.com'))) {
+          e.preventDefault();
+          return false;
+        }
         console.error('Global error:', e.error);
         const root = document.getElementById('root');
         if (root) {
