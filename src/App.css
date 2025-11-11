@@ -1605,6 +1605,20 @@ img[alt="preview"] {
   border: 2px solid #36ff95 !important;
 }
 
+/* Scrolling News Ticker Animation */
+@keyframes scroll-ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-container {
+  will-change: transform;
+}
+
 /* Category Bar Styles */
 .category-bar {
   background: linear-gradient(135deg, #172d3e 0%, #101c26 100%);

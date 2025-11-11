@@ -477,6 +477,14 @@ const PAID_APPS = [
 function Apps() {
   const [activeSection, setActiveSection] = useState('trial');
   const [shuffledPaidApps, setShuffledPaidApps] = useState([]);
+  
+  // Affiliate disclaimer messages for ticker
+  const tickerMessages = [
+    "💡 Some links on this page are affiliate partnerships. We may earn a commission when you sign up through our links, at no extra cost to you.",
+    "🔗 Affiliate partnerships help us keep BetterAiBots free. We only recommend tools we've tested and trust.",
+    "✨ All affiliate links are clearly marked. Your support helps us maintain this free directory of AI tools.",
+    "🎯 We may receive compensation for some links, but this never affects our honest reviews and recommendations."
+  ];
 
   // Shuffle function for arrays
   const shuffleArray = (array) => {
@@ -983,6 +991,36 @@ function Apps() {
         </script>
       </Helmet>
       
+      {/* Scrolling News Ticker */}
+      <div style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000,
+        background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
+        borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        padding: '12px 0',
+        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+      }}>
+        <div className="ticker-container" style={{
+          display: 'inline-block',
+          animation: 'scroll-ticker 60s linear infinite'
+        }}>
+          {[...tickerMessages, ...tickerMessages].map((message, index) => (
+            <span key={index} style={{
+              display: 'inline-block',
+              paddingRight: '80px',
+              color: '#36ff95',
+              fontSize: '0.9rem',
+              fontWeight: '500'
+            }}>
+              {message}
+            </span>
+          ))}
+        </div>
+      </div>
+      
       <div className="hero-section">
         <h1 className="hero-headline">AI Apps Directory</h1>
         <p className="hero-subheadline custom-hero-desc">
@@ -1053,26 +1091,6 @@ function Apps() {
           >
             💎 Paid AI Apps ({PAID_APPS.length})
           </button>
-        </div>
-
-        {/* Affiliate Disclaimer */}
-        <div style={{
-          textAlign: 'center',
-          marginTop: '20px',
-          marginBottom: '20px',
-          padding: '20px',
-          background: 'rgba(255, 255, 255, 0.02)',
-          borderRadius: '12px',
-          border: '1px solid rgba(255, 255, 255, 0.1)'
-        }}>
-          <p style={{
-            color: '#ffffff',
-            fontSize: '0.85rem',
-            margin: '0',
-            fontStyle: 'italic'
-          }}>
-            💡 Some links on this page are affiliate partnerships. We may earn a commission when you sign up through our links, at no extra cost to you.
-          </p>
         </div>
 
         {/* Section Content */}
@@ -1189,7 +1207,7 @@ function Apps() {
                 border: '1px solid rgba(139, 92, 246, 0.2)'
               }}>
                 <h2 style={{
-                  color: '#8b5cf6',
+                  color: '#a1a1aa',
                   fontSize: '2rem',
                   marginBottom: '16px'
                 }}>
@@ -2372,7 +2390,7 @@ function App() {
           />
         )}
       </div>
-      <Breadcrumbs />
+      {location.pathname !== '/apps' && <Breadcrumbs />}
       <HamburgerMenu open={menuOpen && isMobile} onClose={() => setMenuOpen(false)} />
       <Routes>
         <Route path="/" element={
