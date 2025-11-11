@@ -111,93 +111,121 @@
     <priority>0.4</priority>
   </url>
   
-  <!-- News Articles (if you have individual news pages) -->
+  <!-- News Articles -->
   <url>
-    <loc>https://betteraibots.com/news/ai-cybersecurity-autonomous-threat-defense-2025.html</loc>
+    <loc>https://betteraibots.com/news/ai-cybersecurity-autonomous-threat-defense-2025</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/anthropic-claude-35-sonnet-reasoning.html</loc>
+    <loc>https://betteraibots.com/news/anthropic-claude-35-sonnet-reasoning</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/openai-gpt5-revolutionary-multimodal-ai.html</loc>
+    <loc>https://betteraibots.com/news/openai-gpt5-revolutionary-multimodal-ai</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/google-gemini-pro-100-million-users.html</loc>
+    <loc>https://betteraibots.com/news/google-gemini-pro-100-million-users</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/meta-llama-3-open-source-ai.html</loc>
+    <loc>https://betteraibots.com/news/meta-llama-3-open-source-ai</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/landmark-legal-victory-ai-copyright-training.html</loc>
+    <loc>https://betteraibots.com/news/landmark-legal-victory-ai-copyright-training</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/generative-ai-apps-1-7-billion-downloads-2025.html</loc>
+    <loc>https://betteraibots.com/news/generative-ai-apps-1-7-billion-downloads-2025</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/microsoft-copilot-pro-productivity.html</loc>
+    <loc>https://betteraibots.com/news/microsoft-copilot-pro-productivity</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/n8n-revolution-business-automation-2025.html</loc>
+    <loc>https://betteraibots.com/news/n8n-revolution-business-automation-2025</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/trump-ai-action-plan-global-leadership.html</loc>
+    <loc>https://betteraibots.com/news/trump-ai-action-plan-global-leadership</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/china-global-ai-cooperation-organization.html</loc>
+    <loc>https://betteraibots.com/news/china-global-ai-cooperation-organization</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/ai-reshaping-employment-tech-layoffs-new-jobs-2025.html</loc>
+    <loc>https://betteraibots.com/news/ai-reshaping-employment-tech-layoffs-new-jobs-2025</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://betteraibots.com/news/anthropic-revokes-openai-claude-access-rivalry.html</loc>
+    <loc>https://betteraibots.com/news/anthropic-revokes-openai-claude-access-rivalry</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/news/nano-banana-game-changing-ai-image-editor</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/news/warmy-io-spam-folder-rebellion-email-deliverability</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/news/robot-uprising-ai-revolution-2025</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/news/gpt-5-dawn-ai-revolution-2025</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
