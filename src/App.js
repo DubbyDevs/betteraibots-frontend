@@ -738,7 +738,8 @@ function Apps() {
   const renderAppCard = (app, type) => (
     <div key={app.name} className="app-card" style={{
       background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)',
-      border: '1px solid rgba(54, 255, 149, 0.2)',
+      border: '2px solid #36ff95',
+      boxShadow: '0 0 20px rgba(54, 255, 149, 0.4), 0 0 40px rgba(54, 255, 149, 0.2), inset 0 0 20px rgba(54, 255, 149, 0.1)',
       borderRadius: '16px',
       padding: '24px',
       marginBottom: '20px',
@@ -769,7 +770,7 @@ function Apps() {
         <div style={{ flex: 1 }}>
           <h3 style={{
             margin: '0 0 8px 0',
-            fontSize: '1.3rem',
+            fontSize: '1.43rem',
             fontWeight: '600',
             color: '#36ff95',
             display: 'flex',
@@ -781,7 +782,7 @@ function Apps() {
               <span style={{
                 background: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
                 color: 'white',
-                fontSize: '0.7rem',
+                fontSize: '0.77rem',
                 padding: '2px 8px',
                 borderRadius: '12px',
                 fontWeight: '500'
@@ -789,25 +790,11 @@ function Apps() {
                 TRIAL
               </span>
             )}
-            {type === 'paid' && (
-              <span style={{
-                background: 'linear-gradient(135deg, #ffd700, #ffb347)',
-                color: '#1a2330',
-                fontSize: '0.7rem',
-                padding: '2px 8px',
-                borderRadius: '12px',
-                fontWeight: '500',
-                whiteSpace: 'nowrap',
-                display: 'inline-block'
-              }}>
-                {app.price}
-              </span>
-            )}
           </h3>
           <p style={{
             margin: '0 0 8px 0',
-            color: '#9ca3af',
-            fontSize: '0.9rem',
+            color: '#ffffff',
+            fontSize: '0.99rem',
             fontWeight: '500'
           }}>
             {app.category}
@@ -816,7 +803,7 @@ function Apps() {
             <p style={{
               margin: '0 0 8px 0',
               color: '#8b5cf6',
-              fontSize: '0.85rem',
+              fontSize: '0.935rem',
               fontWeight: '600'
             }}>
               {app.trialInfo}
@@ -850,7 +837,26 @@ function Apps() {
           fontSize: '0.9rem'
         }}>
           {app.features.map((feature, index) => (
-            <li key={index} style={{ marginBottom: '4px' }}>{feature}</li>
+            <li 
+              key={index} 
+              style={{ 
+                marginBottom: '4px',
+                transition: 'all 0.2s ease',
+                cursor: 'default'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.color = '#ffffff';
+                e.target.style.fontSize = '1.035rem';
+                e.target.style.fontWeight = '500';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = '#9ca3af';
+                e.target.style.fontSize = '0.9rem';
+                e.target.style.fontWeight = 'normal';
+              }}
+            >
+              {feature}
+            </li>
           ))}
         </ul>
       </div>
@@ -863,7 +869,7 @@ function Apps() {
       }}>
         <span style={{
           color: '#36ff95',
-          fontSize: '0.9rem',
+          fontSize: '0.99rem',
           fontWeight: '600'
         }}>
           Click to visit →
@@ -878,14 +884,14 @@ function Apps() {
               sessionStorage.setItem('articleFromPage', '/apps');
             }}
             style={{
-              color: '#8b5cf6',
+              color: '#ffffff',
               fontSize: '0.85rem',
               fontWeight: '600',
               textDecoration: 'none',
               padding: '4px 8px',
               borderRadius: '8px',
               background: 'rgba(139, 92, 246, 0.1)',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
+              border: '1px solid rgba(139, 92, 246, 0.5)',
               transition: 'all 0.2s ease'
             }}
             onMouseEnter={(e) => {
@@ -898,8 +904,8 @@ function Apps() {
             onMouseLeave={(e) => {
               e.target.style.background = 'rgba(139, 92, 246, 0.1)';
               e.target.style.transform = 'translateY(0)';
-              e.target.style.border = '1px solid rgba(255, 255, 255, 0.3)';
-              e.target.style.color = '#8b5cf6';
+              e.target.style.border = '1px solid rgba(139, 92, 246, 0.5)';
+              e.target.style.color = '#ffffff';
               e.target.style.boxShadow = 'none';
             }}
           >
@@ -1060,7 +1066,7 @@ function Apps() {
           border: '1px solid rgba(255, 255, 255, 0.1)'
         }}>
           <p style={{
-            color: '#8a8a8a',
+            color: '#ffffff',
             fontSize: '0.85rem',
             margin: '0',
             fontStyle: 'italic'
@@ -1187,7 +1193,7 @@ function Apps() {
                   fontSize: '2rem',
                   marginBottom: '16px'
                 }}>
-                  🎯 Free Premium AI App Trials
+                  🎯 Premium Apps with Free Trials
                 </h2>
                 <p style={{
                   color: '#d1efe7',

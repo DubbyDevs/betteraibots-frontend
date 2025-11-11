@@ -87,7 +87,54 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // For static assets (images, fonts) - use cache-first with network fallback
+  // For Google Fonts - use cache-first and suppress 503 errors
+  if (event.request.url.includes('fonts.googleapis.com') || 
+      event.request.url.includes('fonts.gstatic.com')) {
+    event.respondWith(
+      caches.match(event.request)
+        .then((cachedResponse) => {
+          if (cachedResponse) {
+            // Return cached version immediately, update in background
+            fetch(event.request)
+              .then((response) => {
+                if (response && response.status === 200) {
+                  const responseToCache = response.clone();
+                  caches.open(CACHE_NAME)
+                    .then((cache) => {
+                      cache.put(event.request, responseToCache);
+                    });
+                }
+              })
+              .catch(() => {
+                // Silently ignore Google Fonts network errors
+              });
+            return cachedResponse;
+          }
+          // Not in cache, try network but return empty response if it fails
+          return fetch(event.request)
+            .then((response) => {
+              if (response && response.status === 200) {
+                const responseToCache = response.clone();
+                caches.open(CACHE_NAME)
+                  .then((cache) => {
+                    cache.put(event.request, responseToCache);
+                  });
+              }
+              return response;
+            })
+            .catch(() => {
+              // Return empty CSS response if Google Fonts fails (browser uses fallback fonts)
+              return new Response('', { 
+                status: 200, 
+                headers: { 'Content-Type': 'text/css' } 
+              });
+            });
+        })
+    );
+    return;
+  }
+  
+  // For other static assets (images, etc.) - use cache-first with network fallback
   event.respondWith(
     caches.match(event.request)
       .then((cachedResponse) => {
