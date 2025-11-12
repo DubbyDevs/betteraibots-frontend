@@ -25,7 +25,7 @@
          <image:image>
        <image:loc>https://betteraibots.com/aistarterguidehero.webp</image:loc>
        <image:title>AI Starter Guide 2025</image:title>
-       <image:caption>Complete AI Starter Guide with ChatGPT, Claude & GPT Pricing</image:caption>
+       <image:caption>Complete AI Starter Guide with ChatGPT, Claude &amp; GPT Pricing</image:caption>
      </image:image>
   </url>
   
@@ -90,7 +90,7 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://betteraibots.com/og-image.png?v=3</image:loc>
-      <image:title>AI Apps Directory 2025 – Free, Trial & Paid AI Tools</image:title>
+      <image:title>AI Apps Directory 2025 – Free, Trial &amp; Paid AI Tools</image:title>
       <image:caption>Explore curated AI apps and tools: free applications, trial versions, and premium paid tools to enhance your workflow and boost productivity.</image:caption>
     </image:image>
   </url>
@@ -330,7 +330,7 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://betteraibots.com/thordata-logo.png?v=2</image:loc>
-      <image:title>ThorData - Proxy & Web Scraping Infrastructure</image:title>
+      <image:title>ThorData - Proxy &amp; Web Scraping Infrastructure</image:title>
       <image:caption>Discover how ThorData's enterprise-grade proxy and web scraping infrastructure helps businesses collect data at scale with 60M+ IPs, 120+ scraper APIs, and powerful tools for AI data collection.</image:caption>
     </image:image>
   </url>
