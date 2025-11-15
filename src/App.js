@@ -3343,6 +3343,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
             </li>
             {showPWAInstallButton && onPWAInstallClick && !isIOSMobile && (
               <li>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a
                   href="#"
                   onClick={(e) => {
@@ -3675,41 +3676,7 @@ function NewsArticle() {
         <meta property="og:url" content={`https://betteraibots.com/news/${article.slug}`} />
         <link rel="canonical" href={`https://betteraibots.com/news/${article.slug}`} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={(() => {
-          // Article-specific Open Graph images for news articles
-          const ogImageMap = {
-            "nano-banana-game-changing-ai-image-editor": "https://betteraibots.com/nanabananaguide.png?v=2",
-            "warmy-io-spam-folder-rebellion-email-deliverability": "https://betteraibots.com/warmyio.jpg?v=2",
-            "robot-uprising-ai-revolution-2025": "https://betteraibots.com/uprisingrobots.jpg?v=2",
-            "gpt-5-dawn-ai-revolution-2025": "https://betteraibots.com/gpt5updates.webp?v=2",
-            "n8n-revolution-business-automation-2025": "https://betteraibots.com/n8nforb2b.jpg?v=2",
-            "landmark-legal-victory-ai-copyright-training": "https://betteraibots.com/legalwinforai.png?v=2",
-            "trump-ai-action-plan-global-leadership": "https://betteraibots.com/trumpaiplan.png?v=2",
-            "china-global-ai-cooperation-organization": "https://betteraibots.com/chinaaiplans.png?v=2",
-            "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/openaigpt5announced.jpg?v=2",
-            "google-gemini-pro-100-million-users": "https://betteraibots.com/googlegemininews.jpg?v=2",
-            "meta-llama-3-open-source-ai": "https://betteraibots.com/llama3news.jpg?v=2",
-            "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg?v=2",
-            "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png?v=2",
-            "ai-reshaping-employment-tech-layoffs-new-jobs-2025": "https://betteraibots.com/aiemploymentjobs.jpg?v=2",
-            "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2",
-            "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
-            "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
-            "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
-            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
-            "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
-            "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
-            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
-            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2",
-            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2",
-            "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025": "https://betteraibots.com/solofoundersai.jpg?v=2"
-          };
-          // Prioritize article.image, then ogImageMap, then fallback to default
-          const articleImage = article.image ? (article.image.startsWith('http') ? article.image : `https://betteraibots.com${article.image}`) : null;
-          const imageUrl = articleImage || ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
-          console.log('Open Graph image URL:', imageUrl);
-          return imageUrl;
-        })()} />
+        <meta property="og:image" content={article.image ? (article.image.startsWith('http') ? article.image : `https://betteraibots.com${article.image}`) : "https://betteraibots.com/og-image.png?v=3"} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={article.title} />
@@ -3721,41 +3688,7 @@ function NewsArticle() {
         <meta name="twitter:site" content="@BetterAiBots" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.excerpt} />
-        <meta name="twitter:image" content={(() => {
-          // Article-specific Open Graph images for news articles
-          const ogImageMap = {
-            "nano-banana-game-changing-ai-image-editor": "https://betteraibots.com/nanabananaguide.png?v=2",
-            "warmy-io-spam-folder-rebellion-email-deliverability": "https://betteraibots.com/warmyio.jpg?v=2",
-            "robot-uprising-ai-revolution-2025": "https://betteraibots.com/uprisingrobots.jpg?v=2",
-            "gpt-5-dawn-ai-revolution-2025": "https://betteraibots.com/gpt5updates.webp?v=2",
-            "n8n-revolution-business-automation-2025": "https://betteraibots.com/n8nforb2b.jpg?v=2",
-            "landmark-legal-victory-ai-copyright-training": "https://betteraibots.com/legalwinforai.png?v=2",
-            "trump-ai-action-plan-global-leadership": "https://betteraibots.com/trumpaiplan.png?v=2",
-            "china-global-ai-cooperation-organization": "https://betteraibots.com/chinaaiplans.png?v=2",
-            "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/openaigpt5announced.jpg?v=2",
-            "google-gemini-pro-100-million-users": "https://betteraibots.com/googlegemininews.jpg?v=2",
-            "meta-llama-3-open-source-ai": "https://betteraibots.com/llama3news.jpg?v=2",
-            "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg?v=2",
-            "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png?v=2",
-            "ai-reshaping-employment-tech-layoffs-new-jobs-2025": "https://betteraibots.com/aiemploymentjobs.jpg?v=2",
-            "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2",
-            "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
-            "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
-            "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
-            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
-            "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
-            "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
-            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
-            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2",
-            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2",
-            "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025": "https://betteraibots.com/solofoundersai.jpg?v=2"
-          };
-          // Prioritize article.image, then ogImageMap, then fallback to default
-          const articleImage = article.image ? (article.image.startsWith('http') ? article.image : `https://betteraibots.com${article.image}`) : null;
-          const imageUrl = articleImage || ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
-          console.log('Twitter image URL:', imageUrl);
-          return imageUrl;
-        })()} />
+        <meta name="twitter:image" content={article.image ? (article.image.startsWith('http') ? article.image : `https://betteraibots.com${article.image}`) : "https://betteraibots.com/og-image.png?v=3"} />
         <meta name="article:published_time" content={article.date} />
         <meta name="article:author" content={article.author} />
         <meta name="article:section" content={article.category} />
@@ -3776,37 +3709,7 @@ function NewsArticle() {
             "@type": "NewsArticle",
             "headline": article.title,
             "description": article.excerpt,
-            "image": (() => {
-              // Article-specific Open Graph images for news articles
-              const ogImageMap = {
-                "robot-uprising-ai-revolution-2025": "https://betteraibots.com/uprisingrobots.jpg?v=2",
-                "gpt-5-dawn-ai-revolution-2025": "https://betteraibots.com/gpt5updates.webp?v=2",
-                "n8n-revolution-business-automation-2025": "https://betteraibots.com/n8nforb2b.jpg?v=2",
-                "landmark-legal-victory-ai-copyright-training": "https://betteraibots.com/legalwinforai.png?v=2",
-                "trump-ai-action-plan-global-leadership": "https://betteraibots.com/trumpaiplan.png?v=2",
-                "china-global-ai-cooperation-organization": "https://betteraibots.com/chinaaiplans.png?v=2",
-                "openai-gpt5-revolutionary-multimodal-ai": "https://betteraibots.com/openaigpt5announced.jpg?v=2",
-                "google-gemini-pro-100-million-users": "https://betteraibots.com/googlegemininews.jpg?v=2",
-                "meta-llama-3-open-source-ai": "https://betteraibots.com/llama3news.jpg?v=2",
-                "microsoft-copilot-pro-productivity": "https://betteraibots.com/mocrosoftcopilotaifreebots.jpg?v=2",
-                "anthropic-claude-35-sonnet-reasoning": "https://betteraibots.com/claudecode.png?v=2",
-                "ai-reshaping-employment-tech-layoffs-new-jobs-2025": "https://betteraibots.com/aiemploymentjobs.jpg?v=2",
-                "ai-cybersecurity-autonomous-threat-defense-2025": "https://betteraibots.com/aicybersecurity.jpg?v=2",
-                "anthropic-revokes-openai-claude-access-rivalry": "https://betteraibots.com/anthropicvsopenai.png?v=2",
-                "generative-ai-apps-1-7-billion-downloads-2025": "https://betteraibots.com/aiappdownloadssoar.png?v=2",
-                "world-complete-guide-identity-ipo-2025": "https://betteraibots.com/worldipo.png?v=2",
-            "alibaba-ai-revolution-53-billion-investment-2025": "https://betteraibots.com/alibabanews.jpg?v=2",
-            "ai-robotics-revolution-everything-you-own-2025": "https://betteraibots.com/AiRoboticsNews.jpg?v=2",
-            "sora-2-physics-reality-ai-video-revolution-2025": "https://betteraibots.com/sora3.png?v=2",
-            "ai-remote-jobs-home-office-gold-rush-2025": "https://betteraibots.com/airemotejobs.jpg?v=2",
-            "ai-virtual-assistant-how-to-automate-tasks-2025": "https://betteraibots.com/aivirtualassistanthowto.jpg?v=2",
-            "why-small-businesses-beat-enterprise-ai-tools-2025": "https://betteraibots.com/aismallbusinesstools.jpg?v=2",
-            "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025": "https://betteraibots.com/solofoundersai.jpg?v=2"
-              };
-              const imageUrl = ogImageMap[article.slug] || "https://betteraibots.com/og-image.png?v=3";
-              console.log('Structured data image URL:', imageUrl);
-              return imageUrl;
-            })(),
+            "image": article.image ? (article.image.startsWith('http') ? article.image : `https://betteraibots.com${article.image}`) : "https://betteraibots.com/og-image.png?v=3",
             "author": {
               "@type": "Organization",
               "name": article.author,

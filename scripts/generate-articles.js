@@ -1802,6 +1802,9 @@ const newsArticles = [
 ];
 
 function generateArticleHTML(article) {
+  // Ensure image URL is absolute
+  const ogImage = article.image ? (article.image.startsWith('http') ? article.image : `https://betteraibots.com${article.image}`) : "https://betteraibots.com/og-image.png?v=3";
+  
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1816,7 +1819,7 @@ function generateArticleHTML(article) {
     <meta property="og:type" content="article">
     <meta property="og:title" content="${article.title}">
     <meta property="og:description" content="${article.excerpt}">
-    <meta property="og:image" content="${article.image}">
+    <meta property="og:image" content="${ogImage}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
@@ -1824,7 +1827,7 @@ function generateArticleHTML(article) {
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${article.title}">
     <meta name="twitter:description" content="${article.excerpt}">
-    <meta name="twitter:image" content="${article.image}">
+    <meta name="twitter:image" content="${ogImage}">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -1833,7 +1836,7 @@ function generateArticleHTML(article) {
       "@type": "NewsArticle",
       "headline": "${article.title}",
       "description": "${article.excerpt}",
-      "image": "${article.image}",
+      "image": "${ogImage}",
       "author": {
         "@type": "Organization",
         "name": "${article.author}",
