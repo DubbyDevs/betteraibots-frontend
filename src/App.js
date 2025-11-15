@@ -4,7 +4,12 @@ import logo from './assets/betteraibotsglowlogo.webp';
 import logo2x from './assets/betteraiglowlogo.png';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
-import tipJar from './assets/thebestfreeaibotsgpt.webp';
+import betteraibotslive from './assets/betteraibotslive.webp';
+import betteraibotslive2 from './assets/betteraibotslive2.webp';
+import betteraibotslive3 from './assets/betteraibotslive3.webp';
+import betteraibotslive4 from './assets/betteraibotslive4.webp';
+import betteraibotslive5 from './assets/betteraibotslive5.webp';
+import betteraibotsunlock from './assets/betteraibotsunlock.webp';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -104,10 +109,10 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
   return (
     <nav className="nav-tabs-bar">
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
-      <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
+              <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
       <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
-      <Link to="/contact" className="nav-tab" tabIndex={0}>Contact Us</Link>
+      <Link to="/contact" className="nav-tab" tabIndex={0}>Contact</Link>
       {isHomePage && (
         <button 
           className="nav-tab eyeball-toggle-btn"
@@ -1369,7 +1374,7 @@ function HamburgerMenu({ open, onClose }) {
           </li>
 
           <li onClick={() => handleNavigation('/news')}>News</li>
-          <li onClick={() => handleNavigation('/contact')}>Contact Us</li>
+          <li onClick={() => handleNavigation('/contact')}>Contact</li>
         </ul>
       </div>
     </div>
@@ -1605,6 +1610,79 @@ function BotGrid({ bots, onOpenModal }) {
 
 // --- HOME PAGE ---
 function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryBar, toggleCategoryBar }) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageOpacity, setImageOpacity] = useState(1);
+  
+  const slideshowImages = [
+    betteraibotsunlock,
+    betteraibotslive,
+    betteraibotslive2,
+    betteraibotslive3,
+    betteraibotslive4,
+    betteraibotslive5
+  ];
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  useEffect(() => {
+    // Preload all images
+    slideshowImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [slideshowImages]);
+  
+  useEffect(() => {
+    // Ensure we start with the first image (betteraibotsunlock)
+    setCurrentImageIndex(0);
+    setImageOpacity(1);
+    
+    let intervalId = null;
+    let fadeTimeoutId = null;
+    
+    const transitionToNext = () => {
+      // Clear any existing fade timeout
+      if (fadeTimeoutId) {
+        clearTimeout(fadeTimeoutId);
+      }
+      
+      // Fade out over 1 second
+      setImageOpacity(0);
+      
+      // After fade out completes, change image and fade in
+      fadeTimeoutId = setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideshowImages.length);
+        setImageOpacity(1);
+      }, 1000); // Wait for fade out to complete (1 second)
+    };
+    
+    // Start the cycle: show image for 10 seconds, then transition
+    const timeout = setTimeout(() => {
+      transitionToNext();
+      
+      // Set up interval for subsequent transitions (every 12 seconds: 10s display + 2s transition)
+      intervalId = setInterval(() => {
+        transitionToNext();
+      }, 12000);
+    }, 10000); // First image shows for 10 seconds
+    
+    return () => {
+      clearTimeout(timeout);
+      if (intervalId) clearInterval(intervalId);
+      if (fadeTimeoutId) clearTimeout(fadeTimeoutId);
+    };
+  }, [slideshowImages.length]);
+  
   const filteredBots = botList.filter(bot =>
     bot.title.toLowerCase().includes(searchValue.toLowerCase()) ||
     bot.desc.toLowerCase().includes(searchValue.toLowerCase())
@@ -1613,16 +1691,16 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   return (
     <>
       <Helmet>
-        <title>BetterAiBots.com – Curated OpenAI GPT Bots Directory</title>
-        <meta name="description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
-        <meta name="keywords" content="AI bots, ChatGPT, OpenAI GPT, free AI tools, AI automation, productivity bots, BetterAiBots, artificial intelligence tools, GPT bots, AI workflow, automation tools, free bots" />
+        <title>BetterAiBots.com – Free AI App Directory & Tools Guide</title>
+        <meta name="description" content="BetterAiBots.com helps you navigate the overwhelming world of AI tools with clear guidance and honest insights. Browse free AI bots, premium tools with free trials, and learn how to use them effectively." />
+        <meta name="keywords" content="AI bots, ChatGPT, OpenAI GPT, free AI tools, AI automation, productivity bots, BetterAiBots, artificial intelligence tools, GPT bots, AI workflow, automation tools, free bots, AI app directory, AI tools guide" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://betteraibots.com/" />
         
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://betteraibots.com/" />
-        <meta property="og:title" content="BetterAiBots.com – Curated OpenAI GPT Bots Directory" />
-        <meta property="og:description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
+        <meta property="og:title" content="BetterAiBots.com – Free AI App Directory & Tools Guide" />
+        <meta property="og:description" content="BetterAiBots.com helps you navigate the overwhelming world of AI tools with clear guidance and honest insights. Browse free AI bots, premium tools with free trials, and learn how to use them effectively." />
         <meta property="og:image" content="https://betteraibots.com/og-image.png?v=3" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -1630,8 +1708,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://betteraibots.com/" />
-        <meta property="twitter:title" content="BetterAiBots.com – Curated OpenAI GPT Bots Directory" />
-        <meta property="twitter:description" content="Discover the best OpenAI GPT bots. Curated, categorized, and easy to install." />
+        <meta property="twitter:title" content="BetterAiBots.com – Free AI App Directory & Tools Guide" />
+        <meta property="twitter:description" content="BetterAiBots.com helps you navigate the overwhelming world of AI tools with clear guidance and honest insights. Browse free AI bots, premium tools with free trials, and learn how to use them effectively." />
         <meta property="twitter:image" content="https://betteraibots.com/og-image.png?v=3" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -1639,7 +1717,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             "@type": "WebSite",
             "name": "BetterAiBots.com",
             "url": "https://betteraibots.com/",
-            "description": "Curated directory of AI bots for productivity, health, creativity, and more.",
+            "description": "BetterAiBots.com helps you navigate the overwhelming world of AI tools with clear guidance and honest insights. Browse free AI bots, premium tools with free trials, and learn how to use them effectively.",
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://betteraibots.com/?search={search_term_string}",
@@ -1651,16 +1729,402 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       
       <CategoryBar showCategoryBar={showCategoryBar} toggleCategoryBar={toggleCategoryBar} />
       
+      {/* Scrolling Disclaimer Ticker */}
+      {(() => {
+        const homeTickerMessages = [
+          "🔴 This site includes affiliate links and does not provide financial, legal, or medical advice. Bots are provided \"as is\" for entertainment and education only. Use at your own risk.",
+          "Some content is AI-generated. BetterAiBots.com does not review, vet, or verify accuracy. Information may be incomplete, outdated, or biased. All trademarks and content belong to their respective owners."
+        ];
+        return (
+          <div style={{
+            position: 'sticky',
+            top: 0,
+            zIndex: 1000,
+            background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
+            borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            padding: '12px 0',
+            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+          }}>
+            <div className="ticker-container" style={{
+              display: 'inline-block',
+              animation: 'scroll-ticker 60s linear infinite'
+            }}>
+              {[...homeTickerMessages, ...homeTickerMessages].map((message, index) => (
+                <span key={index} style={{
+                  display: 'inline-block',
+                  paddingRight: '80px',
+                  color: '#36ff95',
+                  fontSize: '0.9rem',
+                  fontWeight: '500'
+                }}>
+                  {message}
+                </span>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
+      
       <div className="hero-section">
-        <h1 className="hero-headline">BetterAiBots: Discover & Share The Best AI Bots & Tools</h1>
+        <h1 className="hero-headline">Discover & Share The Best AI Bots & Tools</h1>
         <p className="hero-subheadline custom-hero-desc">
           Find AI Bots to help improve workflow and improve your skills!
         </p>
       </div>
-      <div className="site-disclaimer">
-  🔴 <strong>This site includes affiliate links and does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.</strong>
-</div>
+      
       <BotGrid bots={filteredBots} onOpenModal={onOpenModal} />
+      
+      {/* About Section */}
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "60px auto",
+          padding: isMobile ? "40px 20px" : "60px 40px",
+          textAlign: "center"
+        }}
+      >
+        <h2 style={{
+          color: "#36ff95",
+          fontSize: isMobile ? "1.8rem" : "2.2rem",
+          fontWeight: 700,
+          marginBottom: "20px",
+          fontFamily: "Inter, Arial, sans-serif"
+        }}>
+          Welcome to BetterAiBots
+        </h2>
+        <p style={{
+          color: "#d1efe7",
+          fontSize: isMobile ? "1rem" : "1.15rem",
+          lineHeight: "1.7",
+          marginBottom: "40px",
+          maxWidth: "800px",
+          marginLeft: "auto",
+          marginRight: "auto"
+        }}>
+          BetterAiBots.com helps you navigate the overwhelming world of AI tools with clear guidance and honest insights. We break down what each app does, how to use it effectively, and which tools are actually worth your time and money.
+        </p>
+        
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+          gap: isMobile ? "30px" : "40px",
+          marginTop: "40px",
+          textAlign: "left"
+        }}>
+          <div style={{
+            background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
+            borderRadius: "16px",
+            padding: "30px",
+            border: "1px solid rgba(54, 255, 149, 0.2)"
+          }}>
+            <h3 style={{
+              color: "#36ff95",
+              fontSize: "1.3rem",
+              fontWeight: 600,
+              marginBottom: "16px",
+              fontFamily: "Inter, Arial, sans-serif"
+            }}>
+              🆓 Free & Premium Tools
+            </h3>
+            <p style={{
+              color: "#d1efe7",
+              fontSize: "1rem",
+              lineHeight: "1.6",
+              margin: 0
+            }}>
+              Browse free AI bots you can try immediately, plus premium tools with free trials that usually don't require a credit card. Test them out, compare options, and find what actually fits your workflow — no pressure, no guesswork.
+            </p>
+          </div>
+          
+          <div style={{
+            background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
+            borderRadius: "16px",
+            padding: "30px",
+            border: "1px solid rgba(54, 255, 149, 0.2)"
+          }}>
+            <h3 style={{
+              color: "#36ff95",
+              fontSize: "1.3rem",
+              fontWeight: 600,
+              marginBottom: "16px",
+              fontFamily: "Inter, Arial, sans-serif"
+            }}>
+              📘 Guides & Learning
+            </h3>
+            <p style={{
+              color: "#d1efe7",
+              fontSize: "1rem",
+              lineHeight: "1.6",
+              margin: 0
+            }}>
+              Every tool on BetterAiBots comes with a clear, beginner-friendly user guide so you know exactly how to use it, what to expect, and what to avoid. Our learning paths help you level up fast—from exploring new AI tools to mastering advanced workflows—with quizzes to track your progress.
+            </p>
+          </div>
+          
+          <div style={{
+            background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
+            borderRadius: "16px",
+            padding: "30px",
+            border: "1px solid rgba(54, 255, 149, 0.2)"
+          }}>
+            <h3 style={{
+              color: "#36ff95",
+              fontSize: "1.3rem",
+              fontWeight: 600,
+              marginBottom: "16px",
+              fontFamily: "Inter, Arial, sans-serif"
+            }}>
+              📰 News & Updates
+            </h3>
+            <p style={{
+              color: "#d1efe7",
+              fontSize: "1rem",
+              lineHeight: "1.6",
+              margin: 0
+            }}>
+              AI changes fast — and we keep you ahead of it. Our News & Updates section breaks down major AI announcements, new AI tools, and big platform changes in simple, clear language so you always know what matters and why.
+            </p>
+          </div>
+          
+          <div style={{
+            background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
+            borderRadius: "16px",
+            padding: "30px",
+            border: "1px solid rgba(54, 255, 149, 0.2)"
+          }}>
+            <h3 style={{
+              color: "#36ff95",
+              fontSize: "1.3rem",
+              fontWeight: 600,
+              marginBottom: "16px",
+              fontFamily: "Inter, Arial, sans-serif"
+            }}>
+              🎯 Smart Testing
+            </h3>
+            <p style={{
+              color: "#d1efe7",
+              fontSize: "1rem",
+              lineHeight: "1.6",
+              margin: 0
+            }}>
+              Smart testing matters. We show you how to evaluate new AI tools, which workflows to experiment with, and how to identify genuine value versus marketing hype — long before you spend a dollar.
+            </p>
+          </div>
+        </div>
+        
+        <div style={{
+          marginTop: "50px"
+        }}>
+          <h3 style={{
+            color: "#36ff95",
+            fontSize: isMobile ? "1.5rem" : "1.8rem",
+            fontWeight: 700,
+            marginBottom: "30px",
+            textAlign: "center",
+            fontFamily: "Inter, Arial, sans-serif"
+          }}>
+            Visit our Channel
+          </h3>
+          
+          <div style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+            display: isMobile ? "block" : "flex",
+            alignItems: "flex-start",
+            gap: "30px"
+          }}>
+            <div style={{
+              flex: 1,
+              textAlign: isMobile ? "center" : "left"
+            }}>
+              <p style={{
+                color: "#d1efe7",
+                fontSize: isMobile ? "1rem" : "1.05rem",
+                lineHeight: "1.7",
+                marginBottom: "20px"
+              }}>
+                If you've ever wondered which AI tools are worth your time, how to actually use them, or how to stay ahead in a world changing by the week… you're in the right place.
+              </p>
+              <p style={{
+                color: "#d1efe7",
+                fontSize: isMobile ? "0.95rem" : "1rem",
+                lineHeight: "1.7",
+                marginBottom: "24px"
+              }}>
+                On our <a 
+                  href="https://www.youtube.com/@BetterAiBots" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    color: "#36ff95",
+                    textDecoration: "underline",
+                    fontWeight: 600
+                  }}
+                >YouTube channel</a>, we break down the newest AI tools, bots, and apps — from powerful paid platforms to the best free tools you can start using today. We test everything, explain how it works, and give you real results (not hype).
+              </p>
+            </div>
+            
+            <a
+              href="https://www.youtube.com/@BetterAiBots"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block",
+                cursor: "pointer",
+                maxWidth: isMobile ? "100%" : "420px",
+                width: isMobile ? "100%" : "420px",
+                flexShrink: 0,
+                marginBottom: isMobile ? "30px" : "0",
+                transition: "box-shadow 0.3s ease"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 6px 24px rgba(54, 255, 149, 0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
+              }}
+            >
+              <img
+                src={slideshowImages[currentImageIndex]}
+                alt="BetterAiBots"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)",
+                  transform: currentImageIndex === 0 ? "scale(1)" : "scale(1.02)",
+                  opacity: imageOpacity,
+                  transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                  display: "block"
+                }}
+                draggable={false}
+              />
+            </a>
+          </div>
+          
+          {/* Navigation Buttons */}
+          <div style={{
+            maxWidth: "1000px",
+            margin: isMobile ? "50px auto 0" : "90px auto 0",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: isMobile ? "15px" : "20px"
+          }}>
+            <Link
+              to="/apps"
+              style={{
+                display: "inline-block",
+                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
+                color: "#101c26",
+                padding: isMobile ? "14px 28px" : "16px 32px",
+                borderRadius: "8px",
+                textDecoration: "none",
+                fontWeight: 700,
+                fontSize: isMobile ? "1rem" : "1.1rem",
+                transition: "all 0.2s",
+                textAlign: "center",
+                minWidth: isMobile ? "140px" : "160px"
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = "translateY(-2px)";
+                e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = "none";
+              }}
+            >
+              View Apps
+            </Link>
+            
+            <Link
+              to="/learn"
+              style={{
+                display: "inline-block",
+                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
+                color: "#101c26",
+                padding: isMobile ? "14px 28px" : "16px 32px",
+                borderRadius: "8px",
+                textDecoration: "none",
+                fontWeight: 700,
+                fontSize: isMobile ? "1rem" : "1.1rem",
+                transition: "all 0.2s",
+                textAlign: "center",
+                minWidth: isMobile ? "140px" : "160px"
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = "translateY(-2px)";
+                e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = "none";
+              }}
+            >
+              Learn AI
+            </Link>
+            
+            <Link
+              to="/news"
+              style={{
+                display: "inline-block",
+                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
+                color: "#101c26",
+                padding: isMobile ? "14px 28px" : "16px 32px",
+                borderRadius: "8px",
+                textDecoration: "none",
+                fontWeight: 700,
+                fontSize: isMobile ? "1rem" : "1.1rem",
+                transition: "all 0.2s",
+                textAlign: "center",
+                minWidth: isMobile ? "140px" : "160px"
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = "translateY(-2px)";
+                e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = "none";
+              }}
+            >
+              Go To News
+            </Link>
+            
+            <a
+              href="https://www.youtube.com/@BetterAiBots"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
+                color: "#101c26",
+                padding: isMobile ? "14px 28px" : "16px 32px",
+                borderRadius: "8px",
+                textDecoration: "none",
+                fontWeight: 700,
+                fontSize: isMobile ? "1rem" : "1.1rem",
+                transition: "all 0.2s",
+                textAlign: "center",
+                minWidth: isMobile ? "140px" : "160px"
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = "translateY(-2px)";
+                e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = "none";
+              }}
+            >
+              Visit Channel
+            </a>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
@@ -1907,6 +2371,59 @@ function Legal() {
   );
 }
 
+// --- PRIVACY POLICY PAGE ---
+function Privacy() {
+  return (
+    <div className="hero-section" style={{ maxWidth: 900, margin: "auto" }}>
+      <Helmet>
+        <title>Privacy Policy – BetterAiBots.com</title>
+        <meta name="robots" content="noindex" />
+        <meta property="og:title" content="Privacy Policy – BetterAiBots.com" />
+        <meta property="og:description" content="Privacy policy and data handling practices for BetterAiBots.com." />
+        <meta property="og:image" content="https://betteraibots.com/og-image.png?v=3" />
+        <meta property="og:url" content="https://betteraibots.com/privacy" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <h1 className="hero-headline">Privacy Policy</h1>
+      <div style={{
+        textAlign: "left", margin: "30px auto", fontSize: "1.15rem", color: "#e9f7ee",
+        background: "#172d3e", borderRadius: 18, padding: "36px 28px", boxShadow: "0 2px 22px #09e26924"
+      }}>
+        <b>Last Updated:</b> {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        <br /><br />
+        <b>1. Data Collection:</b><br />
+        No login or account is required to use the Site. We only collect information you directly provide (such as bot submissions or contact forms). Some data may be stored locally in your browser.
+        <br /><br />
+        <b>2. Analytics:</b><br />
+        We use privacy-friendly analytics, which does not use cookies and only collects aggregate, anonymous site usage statistics. Basic analytics (page views, popular bots) are tracked anonymously for site improvement.
+        <br /><br />
+        <b>3. Data Usage & Sharing:</b><br />
+        <b>We do not sell, rent, or share user data with third parties.</b> We may disclose data if required by law or for abuse/investigation purposes.
+        <br /><br />
+        <b>4. User Responsibility:</b><br />
+        By submitting any content, you affirm it does not violate the rights or privacy of others or any law.
+        <br /><br />
+        <b>5. Third-Party Sites:</b><br />
+        Using any bot or external link is subject to the privacy policies of those providers. We are not responsible for their data practices.
+        <br /><br />
+        <b>6. Privacy Concerns:</b><br />
+        Use the contact form for privacy-related questions or concerns. Do not email us.
+        <br /><br />
+        <b>7. Cookies:</b><br />
+        We use basic analytics cookies to understand how visitors use our site. These cookies are anonymous and do not personally identify you. You can disable cookies in your browser settings, though this may affect site functionality.
+        <br /><br />
+        <b>8. Data Security:</b><br />
+        We implement reasonable security measures to protect your information. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
+        <br /><br />
+        <b>9. Your Rights:</b><br />
+        You have the right to request access to, correction of, or deletion of your personal information. To exercise these rights, please contact us through the contact form on this site.
+        <br /><br />
+        <b>10. Changes to This Policy:</b><br />
+        We may update this Privacy Policy from time to time. The "Last Updated" date at the top indicates when changes were made. Your continued use of the site after changes constitutes acceptance of the updated policy.
+      </div>
+    </div>
+  );
+}
 
 // --- MODERATION PAGE ---
 function Moderation({ approveBot, pendingBots, setPendingBots }) {
@@ -2171,7 +2688,7 @@ function DisclaimerBar() {
         fontWeight: 700,
         fontFamily: "Inter, Arial, sans-serif"
       }}>
-        The content on this page is generated by artificial intelligence (AI) and is provided for informational and entertainment purposes only. The information may be incomplete, outdated, or biased and should not be considered professional advice. BetterAiBots.com does not review, vet, or verify the accuracy of any articles or information posted. Always consult a qualified professional before making important decisions. Use at your own risk.
+        Some content is AI-generated. BetterAiBots.com does not review, vet, or verify accuracy. Information may be incomplete, outdated, or biased.
       </span>
       <br />
       <span style={{
@@ -2182,7 +2699,7 @@ function DisclaimerBar() {
         display: "block",
         marginTop: 8
       }}>
-        BetterAiBots is a directory for AI tools and bots. Some links may be affiliate partnerships. All trademarks and content belong to their respective owners.
+        All trademarks and content belong to their respective owners.
       </span>
     </div>
   );
@@ -2418,11 +2935,13 @@ function App() {
         <Route path="/intermediate-quiz" element={<IntermediateQuiz />} />
         <Route path="/advanced-quiz" element={<AdvancedQuiz />} />
         <Route path="/legal" element={<Legal />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="/moderation" element={<Moderation approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <DisclaimerBar />
+      <div style={{ marginTop: '60px' }}>
       <FooterWithWallets showPWAInstallButton={true} onPWAInstallClick={() => setShowPWAInstallPrompt(true)} />
+      </div>
       <PWAInstallPrompt isVisible={showPWAInstallPrompt} onClose={() => setShowPWAInstallPrompt(false)} />
       
       {/* Scroll to Top Button */}
@@ -2577,9 +3096,7 @@ function App() {
 
 // --- FOOTER WITH WALLETS ---
 function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) {
-  const [showTip, setShowTip] = React.useState(false);
-  const [btcCopied, setBtcCopied] = React.useState(false);
-  const [solCopied, setSolCopied] = React.useState(false);
+  const location = useLocation();
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
@@ -2596,23 +3113,6 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
   // Detect iOS mobile devices (iPhone/iPad)
   const isIOSMobile = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-  const BTC = "bc1qnswf7fyzkrwczkmlm9ann6rkmzcp0jd4jvzwxw";
-  const SOL = "GCowBrjFfoXctJTQxwNgUuhCvuzD9hE4tHgBLWL39UR8";
-
-  const handleCopyBTC = (e) => {
-    e?.preventDefault && e.preventDefault();
-    navigator.clipboard.writeText(BTC);
-    setBtcCopied(true);
-    setTimeout(() => setBtcCopied(false), 1200);
-  };
-
-  const handleCopySOL = (e) => {
-    e?.preventDefault && e.preventDefault();
-    navigator.clipboard.writeText(SOL);
-    setSolCopied(true);
-    setTimeout(() => setSolCopied(false), 1200);
-  };
-
   return (
     <footer
       style={{
@@ -2620,251 +3120,306 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
         background: "linear-gradient(90deg, #172d3e 0%, #18232f 100%)",
         color: "#b5ffdb",
         boxShadow: "0 -2px 24px #16ff6c16",
-        padding: "10px 10px 0px 10px",
+        padding: isMobile ? "5px 20px 1px 20px" : "5px 40px 1px 40px",
         fontSize: "1.01rem",
         position: "relative",
         fontFamily: "inherit",
-        userSelect: "none",
       }}
     >
-              <div
+      {/* Main Footer Content: Multi-column Layout */}
+      <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "18px",
-          width: "100%",
-          fontWeight: 600,
-          fontSize: "1.07rem",
-          padding: "10px 0 10px 0",
-          flexWrap: "wrap",
-          position: "relative"
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: isMobile ? "30px" : "40px",
+          padding: isMobile ? "10px 0" : "15px 0",
+          maxWidth: "1200px",
+          margin: "0 auto"
         }}
       >
-        <div
-          style={{
+        {/* Quick Links Column */}
+        <div style={{
+          order: isMobile ? 2 : 1
+        }}>
+          <h3 style={{
+            color: "#36ff95",
+            fontSize: "1.1rem",
+            fontWeight: 700,
+            marginBottom: "16px",
+            fontFamily: "Inter, Arial, sans-serif"
+          }}>
+            Quick Links
+          </h3>
+          <ul style={{
+            listStyle: "none",
+            padding: 0,
+            margin: 0,
             display: "flex",
-            alignItems: "center",
-            position: "relative",
-            zIndex: 22,
-            marginRight: 5,
-            cursor: "default",
-            padding: "10px 2px",
-            borderRadius: 16,
-            transition: "box-shadow 0.24s"
-          }}
-          onMouseEnter={() => setShowTip(true)}
-          onMouseLeave={() => setShowTip(false)}
-        >
-          {showTip && (
-            <div
-              style={{
-                position: "absolute",
-                bottom: "100%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                marginBottom: "-6px",
-                color: "#36ff95",
-                fontWeight: 200,
-                fontSize: "0.89rem",
-                whiteSpace: "nowrap",
-                pointerEvents: "none",
-                fontFamily: "Inter, Arial, sans-serif",
-                textShadow: "0 0 2px #16161680"
-              }}
-            >
-              Tip Jar
-            </div>
-          )}
-          {showTip && (
-            <div
-              style={{
-                position: "absolute",
-                right: "100%",
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "transparent",
-                padding: "32px 36px 32px 20px",
-                borderRadius: 0,
-                opacity: 1,
-                pointerEvents: "auto",
-                boxShadow: "none",
-                display: "flex",
-                flexDirection: "column",
-                gap: 18,
-                minWidth: 0,
-                zIndex: 99,
-                alignItems: "flex-end",
-                fontFamily: "monospace",
-                willChange: "transform, opacity"
-              }}
-            >
-              <WalletAddressHorizontal
-                address={BTC}
-                label="BTC"
-                copied={btcCopied}
-                handleCopy={handleCopyBTC}
-                copyText={btcCopied ? "Copied!" : ""}
-                copyColor="#FFD700"
-                showClipboard={true}
-                showLabel={true}
-              />
-              <WalletAddressHorizontal
-                address={SOL}
-                label="SOL"
-                copied={solCopied}
-                handleCopy={handleCopySOL}
-                copyText={solCopied ? "Arigato!" : ""}
-                copyColor="#FFD700"
-                showClipboard={true}
-                showLabel={true}
-              />
-            </div>
-          )}
-          <span style={{ display: "flex", alignItems: "center" }}>
+            flexDirection: "column",
+            gap: "10px"
+          }}>
+            {[
+              { to: "/", label: "Home" },
+              { to: "/apps", label: "Apps" },
+              { to: "/learn", label: "Learn" },
+              { to: "/news", label: "News" },
+              { to: "/contact", label: "Contact" }
+            ].filter((link) => link.to !== location.pathname).map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  style={{
+                    color: "#b5ffdb",
+                    textDecoration: "none",
+                    fontSize: "0.95rem",
+                    transition: "color 0.2s",
+                    display: "inline-block"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = "#36ff95";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = "#b5ffdb";
+                  }}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Resources Column */}
+        <div style={{
+          order: isMobile ? 3 : 2
+        }}>
+          <h3 style={{
+            color: "#36ff95",
+            fontSize: "1.1rem",
+            fontWeight: 700,
+            marginBottom: "16px",
+            fontFamily: "Inter, Arial, sans-serif"
+          }}>
+            Resources
+          </h3>
+          <ul style={{
+            listStyle: "none",
+            padding: 0,
+            margin: 0,
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px"
+          }}>
+            <li>
+              <Link
+                to="/legal"
+                style={{
+                  color: "#b5ffdb",
+                  textDecoration: "none",
+                  fontSize: "0.95rem",
+                  transition: "color 0.2s",
+                  display: "inline-block"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#36ff95";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "#b5ffdb";
+                }}
+              >
+                Legal & Terms
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/privacy"
+                style={{
+                  color: "#b5ffdb",
+                  textDecoration: "none",
+                  fontSize: "0.95rem",
+                  transition: "color 0.2s",
+                  display: "inline-block"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#36ff95";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "#b5ffdb";
+                }}
+              >
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@BetterAiBots"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#b5ffdb",
+                  textDecoration: "none",
+                  fontSize: "0.95rem",
+                  transition: "color 0.2s",
+                  display: "inline-block"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#36ff95";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "#b5ffdb";
+                }}
+              >
+                Channel
+              </a>
+            </li>
+            {showPWAInstallButton && onPWAInstallClick && !isIOSMobile && (
+              <li>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onPWAInstallClick();
+                  }}
+                  style={{
+                    color: "#b5ffdb",
+                    textDecoration: "none",
+                    fontSize: "0.95rem",
+                    transition: "color 0.2s",
+                    display: "inline-block",
+                    cursor: "pointer"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = "#36ff95";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = "#b5ffdb";
+                  }}
+                >
+                  Install App
+                </a>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        {/* About/Info Column */}
+        <div style={{
+          order: isMobile ? 1 : 3,
+          marginBottom: isMobile ? "20px" : "0"
+        }}>
+          <div style={{
+            marginBottom: "16px",
+            display: "flex",
+            alignItems: "center"
+          }}>
             <img
-              src={tipJar}
-              alt="Tip Jar"
+              src={logo}
+              alt="BetterAiBots Logo"
               style={{
-                height: 30,
+                height: "20px",
                 width: "auto",
-                borderRadius: 8,
-                background: "#18232f",
-                boxShadow: showTip
-                  ? "0 0 20px #36ff95cc, 0 2px 18px #16ff6c50"
-                  : "none",
-                transition: "box-shadow 0.24s"
+                background: "transparent",
+                display: "block"
               }}
               draggable={false}
             />
-          </span>
+          </div>
+          <p style={{
+            color: "#b5ffdb",
+            fontSize: "0.95rem",
+            lineHeight: "1.6",
+            margin: 0
+          }}>
+            BetterAiBots.com is a free AI app directory helping you discover the best tools, bots, and workflows. Explore, compare, and share powerful AI applications to boost productivity and simplify your life.
+          </p>
         </div>
-        <div
-          className="footer-logo-wrapper"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            cursor: "pointer",
-            marginLeft: "0",
-            marginRight: "7px"
-          }}
-        >
-          <img
-            src={logo}
-            alt="BetterAiBots Logo"
-            className="footer-main-logo"
-            style={{
-              height: 44,
-              width: "auto",
-              marginRight: 5,
-              background: "transparent",
-              display: "block",
-              boxShadow: showTip ? "none" : "0 0 0 transparent",
-              transition: "box-shadow 0.24s"
-            }}
-            draggable={false}
-          />
-        </div>
-
       </div>
-      
-      {showPWAInstallButton && onPWAInstallClick && !isIOSMobile && (
-        <div style={{ 
-          textAlign: "center", 
-          paddingBottom: "10px",
-          width: "100%",
-          display: "flex",
-          justifyContent: "center"
-        }}>
-          <button
-            onClick={onPWAInstallClick}
-            style={{
-              background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
-              color: "#101c26",
-              border: "none",
-              padding: "7px 14px",
-              borderRadius: "7px",
-              fontSize: "0.81rem",
-              fontWeight: "600",
-              cursor: "pointer",
-              transition: "all 0.2s",
-              fontFamily: "Inter, Arial, sans-serif",
-              display: "flex",
-              alignItems: "center",
-              gap: "5px"
-            }}
-            onMouseOver={(e) => e.target.style.transform = "translateY(-1px)"}
-            onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
-          >
-            📱 Install App
-          </button>
-        </div>
-      )}
+
+      {/* Bottom Bar: Copyright and Legal */}
       <div
         style={{
-          fontSize: "0.94rem",
+          fontSize: "0.9rem",
           color: "#b5ffdb",
           textAlign: "center",
           fontWeight: 500,
           letterSpacing: 0.05,
-          marginBottom: "-15px",
+          paddingTop: isMobile ? "5px" : "5px",
+          paddingBottom: isMobile ? "5px" : "5px",
+          borderTop: "1px solid rgba(54, 255, 149, 0.1)",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: isMobile ? "column" : "row",
           alignItems: "center",
           justifyContent: "center",
           flexWrap: "wrap",
-          gap: "12px"
+          gap: isMobile ? "8px" : "12px"
         }}
       >
         <span style={{ color: "#fff" }}>
           © {new Date().getFullYear()} BetterAiBots.com
         </span>
-        {!isMobile && <span style={{ color: "#b5ffdb" }}>|</span>}
-        <Link
-          to="/legal"
-          style={{
-            background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            textDecoration: "underline",
-            fontWeight: 700
-          }}
-        >
-          Legal, Terms & Privacy
-        </Link>
-        {!isMobile && <span style={{ color: "#b5ffdb" }}>|</span>}
-                        <div style={{
-                  display: "flex",
-                  alignItems: "center",
-                  minWidth: "140px",
-                  justifyContent: "center"
-                }}>
-                  <span style={{ color: "#fff" }}>
-                    Powered by{" "}
-                  </span>
-                              <a
-              href="https://Dubby.fun"
-              target="_blank"
-              rel="noopener noreferrer"
+        {!isMobile && (
+          <>
+            <span style={{ color: "#b5ffdb", opacity: 0.5 }}>|</span>
+            <Link
+              to="/legal"
               style={{
-                background: "linear-gradient(90deg, #36ff95, #ffd700)",
+                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                fontWeight: 700,
                 textDecoration: "none",
-                fontFamily: "Inter, Arial, sans-serif",
-                display: "inline",
-                verticalAlign: "baseline",
-                fontSize: "15.04px",
-                paddingLeft: "3px",
-                paddingTop: "2px"
+                fontWeight: 600,
+                fontSize: "0.9rem"
               }}
             >
-              {" "}DubbyDevs
-            </a>
-                </div>
+              Legal & Terms
+            </Link>
+            <span style={{ color: "#b5ffdb", opacity: 0.5 }}>|</span>
+            <Link
+              to="/privacy"
+              style={{
+                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                textDecoration: "none",
+                fontWeight: 600,
+                fontSize: "0.9rem"
+              }}
+            >
+              Privacy Policy
+            </Link>
+            <span style={{ color: "#b5ffdb", opacity: 0.5 }}>|</span>
+          </>
+        )}
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}>
+          <span style={{ color: "#fff", fontSize: "0.75rem" }}>
+            POWERED BY{" "}
+          </span>
+          <a
+            href="https://Dubby.fun"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              background: "linear-gradient(90deg, #36ff95, #ffd700)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              fontWeight: 700,
+              textDecoration: "none",
+              fontFamily: "Inter, Arial, sans-serif",
+              display: "inline",
+              fontSize: "0.9rem",
+              paddingLeft: "3px"
+            }}
+          >
+            DubbyDevs
+          </a>
+        </div>
       </div>
     </footer>
   );
