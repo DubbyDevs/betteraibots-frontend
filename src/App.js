@@ -1,5 +1,5 @@
 import { CATEGORY_SLUGS } from './constants';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
 import logo2x from './assets/betteraiglowlogo.png';
 import helperLogo from './assets/findthebestaibotshelper.png';
@@ -480,7 +480,17 @@ const PAID_APPS = [
 
 // --- APPS PAGE ---
 function Apps() {
-  const [activeSection, setActiveSection] = useState('trial');
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const sectionFromUrl = searchParams.get('section');
+  const [activeSection, setActiveSection] = useState(sectionFromUrl || 'trial');
+  
+  // Update activeSection when URL changes
+  useEffect(() => {
+    if (sectionFromUrl && ['free', 'trial', 'paid'].includes(sectionFromUrl)) {
+      setActiveSection(sectionFromUrl);
+    }
+  }, [sectionFromUrl]);
   const [shuffledPaidApps, setShuffledPaidApps] = useState([]);
   
   // Affiliate disclaimer messages for ticker
@@ -1614,14 +1624,42 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageOpacity, setImageOpacity] = useState(1);
   
-  const slideshowImages = [
+  // Randomize bot list while keeping affiliate ads in fixed middle positions
+  // This randomizes every time the Home component mounts (when someone visits the page)
+  const [randomizedBots] = useState(() => {
+    // Identify the 3 affiliate ads
+    const affiliateAds = botList.filter(bot => bot.isAffiliate === true);
+    // Get all non-affiliate bots (including the free "InVideo" app)
+    const regularBots = botList.filter(bot => bot.isAffiliate !== true);
+    
+    // Shuffle the regular bots using Fisher-Yates algorithm for better randomization
+    const shuffledRegularBots = [...regularBots];
+    for (let i = shuffledRegularBots.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledRegularBots[i], shuffledRegularBots[j]] = [shuffledRegularBots[j], shuffledRegularBots[i]];
+    }
+    
+    // Calculate total length and middle positions for affiliate ads
+    const totalLength = shuffledRegularBots.length + affiliateAds.length;
+    const middleStart = Math.floor((totalLength - affiliateAds.length) / 2);
+    
+    // Create the final array with affiliate ads in the middle
+    const result = [...shuffledRegularBots];
+    affiliateAds.forEach((ad, index) => {
+      result.splice(middleStart + index, 0, ad);
+    });
+    
+    return result;
+  });
+  
+  const slideshowImages = useMemo(() => [
     betteraibotsunlock,
     betteraibotslive,
     betteraibotslive2,
     betteraibotslive3,
     betteraibotslive4,
     betteraibotslive5
-  ];
+  ], []);
   
   useEffect(() => {
     const checkMobile = () => {
@@ -1683,7 +1721,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     };
   }, [slideshowImages.length]);
   
-  const filteredBots = botList.filter(bot =>
+  const filteredBots = randomizedBots.filter(bot =>
     bot.title.toLowerCase().includes(searchValue.toLowerCase()) ||
     bot.desc.toLowerCase().includes(searchValue.toLowerCase())
   );
@@ -2122,6 +2160,35 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             >
               Visit Channel
             </a>
+          </div>
+          
+          {/* Free Trials Link */}
+          <div style={{
+            width: "100%",
+            textAlign: "center",
+            marginTop: isMobile ? "25px" : "30px"
+          }}>
+            <Link
+              to="/apps?section=trial"
+              style={{
+                color: "#36ff95",
+                textDecoration: "none",
+                fontSize: isMobile ? "1rem" : "1.1rem",
+                fontWeight: 600,
+                transition: "all 0.2s",
+                display: "inline-block"
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.color = "#ffffff";
+                e.target.style.textDecoration = "underline";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = "#36ff95";
+                e.target.style.textDecoration = "none";
+              }}
+            >
+              Looking for free trials?
+            </Link>
           </div>
         </div>
       </div>
@@ -2644,6 +2711,7 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
 
 
 // --- Disclaimer Bar ---
+// eslint-disable-next-line no-unused-vars
 function DisclaimerBar() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -3231,6 +3299,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
               </Link>
             </li>
             <li>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <Link
                 to="/privacy"
                 style={{
@@ -3426,6 +3495,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
 }
 
 // --- Wallet Address Horizontal ---
+// eslint-disable-next-line no-unused-vars
 function WalletAddressHorizontal({
   label,
   address,
