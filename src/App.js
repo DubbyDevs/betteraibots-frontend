@@ -529,7 +529,7 @@ function Apps() {
       description: "AI-powered ad creative generator that creates high-converting ads in seconds",
       category: "Marketing & Advertising",
       features: ["AI ad generation", "Brand customization", "Performance tracking", "Multiple formats"],
-      link: "https://betteraibots.com/adcreative",
+      link: "https://free-trial.adcreative.ai/0dkpoiajb7o2",
       trialInfo: "Free Trial Available",
       image: "https://betteraibots.com/assets/adcreative-logo.png",
       readMoreLink: "/learn/adcreative-ai"

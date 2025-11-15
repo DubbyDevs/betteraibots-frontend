@@ -169,7 +169,7 @@ export const newsArticles = [
 
       <h2>10. AdCreative: Generate High-Converting Ads Instantly</h2>
 
-      <p>Creating effective ad creatives is time-consuming and requires design skills most solo founders don't have. <a href="https://betteraibots.com/adcreative" target="_blank" rel="noopener noreferrer" style="color: #36ff95; text-decoration: underline;">AdCreative</a> uses AI to generate high-converting ad creatives in seconds.</p>
+      <p>Creating effective ad creatives is time-consuming and requires design skills most solo founders don't have. <a href="https://free-trial.adcreative.ai/0dkpoiajb7o2" target="_blank" rel="noopener noreferrer" style="color: #36ff95; text-decoration: underline;">AdCreative</a> uses AI to generate high-converting ad creatives in seconds.</p>
 
       <p>AdCreative analyzes your brand, understands your target audience, and generates ad variations optimized for performance. The platform includes performance tracking, so you can see which creatives actually convert.</p>
 

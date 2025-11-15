@@ -2664,9 +2664,9 @@ const LearnLevelSelector = () => {
                        gap: "12px",
                        flexWrap: "wrap"
                      }}>
-                       <a
-                         href="https://betteraibots.com/adcreative"
-                         target="_blank"
+                      <a
+                        href="https://free-trial.adcreative.ai/0dkpoiajb7o2"
+                        target="_blank"
                          rel="noopener noreferrer"
                          style={{
                            background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
