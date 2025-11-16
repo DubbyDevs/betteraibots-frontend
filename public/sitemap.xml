@@ -16,55 +16,6 @@
     </image:image>
   </url>
   
-  <!-- AI Starter Guide -->
-  <url>
-    <loc>https://betteraibots.com/ai-starter-guide.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-         <image:image>
-       <image:loc>https://betteraibots.com/aistarterguidehero.webp</image:loc>
-       <image:title>AI Starter Guide 2025</image:title>
-       <image:caption>Complete AI Starter Guide with ChatGPT, Claude &amp; GPT Pricing</image:caption>
-     </image:image>
-  </url>
-  
-  <!-- AI Quiz -->
-  <url>
-    <loc>https://betteraibots.com/AI-Starter-Quiz.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Intermediate AI Quiz -->
-  <url>
-    <loc>https://betteraibots.com/intermediate-ai-quiz.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Advanced AI Guide -->
-  <url>
-    <loc>https://betteraibots.com/advanced-ai-guide.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aistarterguidehero.webp</image:loc>
-      <image:title>Advanced AI Guide 2025</image:title>
-      <image:caption>Enterprise-Level AI Implementation and Strategic Leadership Guide</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- Advanced AI Quiz -->
-  <url>
-    <loc>https://betteraibots.com/advanced-ai-quiz.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
   
   <!-- News Section -->
   <url>

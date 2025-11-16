@@ -384,7 +384,6 @@ const LearnLevelSelector = () => {
       </Helmet>
 
       <div style={{
-        minHeight: '100vh',
         background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
         padding: '20px'
       }}>

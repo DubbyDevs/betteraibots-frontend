@@ -108,49 +108,6 @@ const AIQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
     }
   };
 
-  const showCopiedMessage = (button) => {
-    // Create the "Copied!" message
-    const message = document.createElement('div');
-    message.textContent = 'Copied!';
-    message.style.cssText = `
-      position: absolute;
-      background: #36ff95;
-      color: #1a2330;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      z-index: 1000;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.3s ease;
-      white-space: nowrap;
-    `;
-    
-    // Position the message near the button
-    const buttonRect = button.getBoundingClientRect();
-    message.style.left = buttonRect.left + 'px';
-    message.style.top = (buttonRect.top - 40) + 'px';
-    
-    document.body.appendChild(message);
-    
-    // Animate in
-    setTimeout(() => {
-      message.style.opacity = '1';
-      message.style.transform = 'translateY(0)';
-    }, 10);
-    
-    // Animate out and remove
-    setTimeout(() => {
-      message.style.opacity = '0';
-      message.style.transform = 'translateY(-10px)';
-      setTimeout(() => {
-        document.body.removeChild(message);
-      }, 300);
-    }, 2000);
-  };
-
   const showShareFeedback = (platform) => {
     const message = document.createElement('div');
     message.textContent = `Shared to ${platform}!`;
