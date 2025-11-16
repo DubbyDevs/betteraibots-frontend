@@ -251,10 +251,6 @@ function News({ searchValue }) {
             <div className="featured-news-content">
               <h2 className="featured-news-title">{article.title}</h2>
               <p className="featured-news-excerpt">{article.excerpt}</p>
-              <div className="featured-news-meta">
-                <span className="news-author">By {article.author}</span>
-                <span className="news-date">{formatDate(article.date)}</span>
-              </div>
               <Link to={`/news/${article.slug}`} className="read-more-btn">Read Full Article</Link>
             </div>
           </article>

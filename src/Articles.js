@@ -1,5 +1,4 @@
-﻿// eslint-disable-next-line unicode-bom
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AIQuiz from "./components/AIQuiz";
