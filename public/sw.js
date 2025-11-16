@@ -1,6 +1,6 @@
 // Use timestamp-based cache version to force updates on each deployment
 const CACHE_VERSION = 'v2.0.0';
-const BUILD_TIMESTAMP = '2025-11-03T23-55-16Z';
+const BUILD_TIMESTAMP = '2025-11-16T00-54-42Z';
 const CACHE_NAME = `betteraibots-${CACHE_VERSION}-${BUILD_TIMESTAMP}`;
 
 const urlsToCache = [
