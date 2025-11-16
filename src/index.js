@@ -64,38 +64,57 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   });
 } else if (process.env.NODE_ENV === 'development') {
   // In development, aggressively clear all service workers and caches
-  window.addEventListener('load', () => {
+  // Run immediately, don't wait for load event
+  (async function clearServiceWorkersInDev() {
     if ('serviceWorker' in navigator) {
-      // Unregister all service workers
-      navigator.serviceWorker.getRegistrations().then((registrations) => {
+      try {
+        // Unregister all service workers immediately
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        console.log(`Found ${registrations.length} service worker(s) to unregister in development`);
+        
         for (let registration of registrations) {
-          registration.unregister().then((success) => {
-            if (success) {
-              console.log('Service worker unregistered in development mode');
-            }
-          });
+          const success = await registration.unregister();
+          if (success) {
+            console.log('Service worker unregistered:', registration.scope);
+          }
         }
-      });
-      
-      // Clear all caches
-      if ('caches' in window) {
-        caches.keys().then((cacheNames) => {
-          return Promise.all(
+        
+        // Clear all caches
+        if ('caches' in window) {
+          const cacheNames = await caches.keys();
+          console.log(`Found ${cacheNames.length} cache(s) to clear in development`);
+          
+          await Promise.all(
             cacheNames.map((cacheName) => {
               console.log('Deleting cache in development:', cacheName);
               return caches.delete(cacheName);
             })
           );
-        }).then(() => {
           console.log('All caches cleared in development mode');
+        }
+      } catch (error) {
+        console.error('Error clearing service workers in development:', error);
+      }
+    }
+  })();
+  
+  // Also clear on page load as backup
+  window.addEventListener('load', () => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => {
+          registration.unregister();
+        });
+      });
+      
+      if ('caches' in window) {
+        caches.keys().then((cacheNames) => {
+          return Promise.all(
+            cacheNames.map((cacheName) => caches.delete(cacheName))
+          );
         });
       }
     }
-    
-    // Clear localStorage and sessionStorage for this origin (optional - be careful)
-    // Uncomment if you want to clear storage on every dev load
-    // localStorage.clear();
-    // sessionStorage.clear();
   });
   
   // Also clear on page unload to ensure clean state

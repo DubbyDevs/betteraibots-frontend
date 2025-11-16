@@ -103,26 +103,13 @@ function AuthButtons() {
 
 // --- Nav Tabs Bar ---
 function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
-
   return (
     <nav className="nav-tabs-bar">
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
-              <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
+      <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
       <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact</Link>
-      {isHomePage && (
-        <button 
-          className="nav-tab eyeball-toggle-btn"
-          onClick={toggleCategoryBar}
-          tabIndex={0}
-          title={showCategoryBar ? 'Hide Categories' : 'Show Categories'}
-        >
-          👁️
-        </button>
-      )}
     </nav>
   );
 }
@@ -214,10 +201,6 @@ function News({ searchValue }) {
         <p className="hero-subheadline custom-hero-desc">
           Stay informed with the latest developments in AI bots, artificial intelligence, and emerging technologies.
         </p>
-      </div>
-      
-      <div className="site-disclaimer" style={{ padding: '0 20px', textAlign: 'center' }}>
-        🔴 <strong>This site includes affiliate links and does not provide financial, legal, or medical advice. News articles are for informational purposes only.</strong>
       </div>
 
       {/* Search Results Indicator */}
@@ -474,6 +457,14 @@ const PAID_APPS = [
   }
 ];
 
+// Affiliate disclaimer messages for ticker - used on both home and apps pages
+const tickerMessages = [
+  "💡 Some links on this page are affiliate partnerships. We may earn a commission when you sign up through our links, at no extra cost to you.",
+  "🔗 Affiliate partnerships help us keep BetterAiBots free. We only recommend tools we've tested and trust.",
+  "✨ All affiliate links are clearly marked. Your support helps us maintain this free directory of AI tools.",
+  "🎯 We may receive compensation for some links, but this never affects our honest reviews and recommendations."
+];
+
 // --- APPS PAGE ---
 function Apps() {
   const location = useLocation();
@@ -488,14 +479,6 @@ function Apps() {
     }
   }, [sectionFromUrl]);
   const [shuffledPaidApps, setShuffledPaidApps] = useState([]);
-  
-  // Affiliate disclaimer messages for ticker
-  const tickerMessages = [
-    "💡 Some links on this page are affiliate partnerships. We may earn a commission when you sign up through our links, at no extra cost to you.",
-    "🔗 Affiliate partnerships help us keep BetterAiBots free. We only recommend tools we've tested and trust.",
-    "✨ All affiliate links are clearly marked. Your support helps us maintain this free directory of AI tools.",
-    "🎯 We may receive compensation for some links, but this never affects our honest reviews and recommendations."
-  ];
 
   // Shuffle function for arrays
   const shuffleArray = (array) => {
@@ -1001,36 +984,6 @@ function Apps() {
         })}
         </script>
       </Helmet>
-      
-      {/* Scrolling News Ticker */}
-      <div style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000,
-        background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
-        borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
-        padding: '12px 0',
-        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
-      }}>
-        <div className="ticker-container" style={{
-          display: 'inline-block',
-          animation: 'scroll-ticker 60s linear infinite'
-        }}>
-          {[...tickerMessages, ...tickerMessages].map((message, index) => (
-            <span key={index} style={{
-              display: 'inline-block',
-              paddingRight: '80px',
-              color: '#36ff95',
-              fontSize: '0.9rem',
-              fontWeight: '500'
-            }}>
-              {message}
-            </span>
-          ))}
-        </div>
-      </div>
       
       <div className="hero-section">
         <h1 className="hero-headline">AI Apps Directory</h1>
@@ -1622,6 +1575,14 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     }
     return false;
   });
+  const [isTwoColumnLayout, setIsTwoColumnLayout] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      // 2-column layout is between 750px and 900px
+      return width > 750 && width <= 900;
+    }
+    return false;
+  });
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageOpacity, setImageOpacity] = useState(1);
   
@@ -1653,6 +1614,25 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     return result;
   });
   
+  // Filter out Invideo affiliate ad when in 2-column layout, then apply search filter
+  const filteredBots = useMemo(() => {
+    // First, filter out Invideo affiliate ad if in 2-column layout
+    let botsToFilter = randomizedBots;
+    if (isTwoColumnLayout) {
+      // Remove Invideo affiliate ad (title is "InVideo AI" and isAffiliate is true)
+      botsToFilter = randomizedBots.filter(bot => !(bot.isAffiliate && bot.title === "InVideo AI"));
+    }
+    
+    // Then apply search filter
+    if (searchValue.trim() === '') {
+      return botsToFilter;
+    }
+    return botsToFilter.filter(bot =>
+      bot.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+      bot.desc.toLowerCase().includes(searchValue.toLowerCase())
+    );
+  }, [randomizedBots, isTwoColumnLayout, searchValue]);
+  
   const slideshowImages = useMemo(() => [
     betteraibotsunlock,
     betteraibotslive,
@@ -1663,15 +1643,20 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   ], []);
   
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+    const checkLayout = () => {
+      if (typeof window !== 'undefined') {
+        const width = window.innerWidth;
+        setIsMobile(width <= 768);
+        // 2-column layout is between 750px and 900px
+        setIsTwoColumnLayout(width > 750 && width <= 900);
+      }
     };
     
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+    checkLayout();
+    window.addEventListener('resize', checkLayout);
+    return () => window.removeEventListener('resize', checkLayout);
   }, []);
+  
   
   useEffect(() => {
     // Preload all images
@@ -1721,11 +1706,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       if (fadeTimeoutId) clearTimeout(fadeTimeoutId);
     };
   }, [slideshowImages.length]);
-  
-  const filteredBots = randomizedBots.filter(bot =>
-    bot.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-    bot.desc.toLowerCase().includes(searchValue.toLowerCase())
-  );
 
   return (
     <>
@@ -1766,46 +1746,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         </script>
       </Helmet>
       
-      <CategoryBar showCategoryBar={showCategoryBar} toggleCategoryBar={toggleCategoryBar} />
-      
-      {/* Scrolling Disclaimer Ticker */}
-      {(() => {
-        const homeTickerMessages = [
-          "🔴 This site includes affiliate links and does not provide financial, legal, or medical advice. Bots are provided \"as is\" for entertainment and education only. Use at your own risk.",
-          "Some content is AI-generated. BetterAiBots.com does not review, vet, or verify accuracy. Information may be incomplete, outdated, or biased. All trademarks and content belong to their respective owners."
-        ];
-        return (
-          <div style={{
-            position: 'sticky',
-            top: 0,
-            zIndex: 1000,
-            background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
-            borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
-            overflow: 'hidden',
-            whiteSpace: 'nowrap',
-            padding: '12px 0',
-            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
-          }}>
-            <div className="ticker-container" style={{
-              display: 'inline-block',
-              animation: 'scroll-ticker 60s linear infinite'
-            }}>
-              {[...homeTickerMessages, ...homeTickerMessages].map((message, index) => (
-                <span key={index} style={{
-                  display: 'inline-block',
-                  paddingRight: '80px',
-                  color: '#36ff95',
-                  fontSize: '0.9rem',
-                  fontWeight: '500'
-                }}>
-                  {message}
-                </span>
-              ))}
-            </div>
-          </div>
-        );
-      })()}
-      
       <div className="hero-section">
         <h1 className="hero-headline">Discover & Share The Best AI Bots & Tools</h1>
         <p className="hero-subheadline custom-hero-desc">
@@ -1824,6 +1764,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           textAlign: "center"
         }}
       >
+        <h1 className="hero-headline" style={{ marginBottom: "30px" }}>Looking for more?</h1>
         <p className="hero-subheadline custom-hero-desc" style={{
           marginBottom: "40px",
           maxWidth: "800px",
@@ -2918,16 +2859,48 @@ function App() {
     <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
       <PlausibleAnalytics />
       <GoogleAnalytics />
-      <AppHeader
-        onOpenModal={handleOpenModal}
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        onMenuClick={() => setMenuOpen(v => !v)}
-        isMobile={isMobile}
-        onToggleAnimation={() => setAnimationPaused(v => !v)}
-        animationPaused={animationPaused}
-        onPWAInstallClick={() => setShowPWAInstallPrompt(true)}
-      />
+      {/* Scrolling Disclaimer Ticker - At the very top */}
+      {(location.pathname === '/' || location.pathname === '/apps' || location.pathname.startsWith('/learn') || location.pathname.startsWith('/news')) && (
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
+          borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          padding: '12px 0',
+          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+        }}>
+          <div className="ticker-container" style={{
+            display: 'inline-block',
+            animation: 'scroll-ticker 79.2s linear infinite'
+          }}>
+            {[...tickerMessages, ...tickerMessages].map((message, index) => (
+              <span key={index} style={{
+                display: 'inline-block',
+                paddingRight: '80px',
+                color: '#36ff95',
+                fontSize: '0.9rem',
+                fontWeight: '500'
+              }}>
+                {message}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+      <div>
+        <AppHeader
+          onOpenModal={handleOpenModal}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          onMenuClick={() => setMenuOpen(v => !v)}
+          isMobile={isMobile}
+          onToggleAnimation={() => setAnimationPaused(v => !v)}
+          animationPaused={animationPaused}
+          onPWAInstallClick={() => setShowPWAInstallPrompt(true)}
+        />
+      </div>
       {showStickyLogo && isMobile && (
   <div
     style={{

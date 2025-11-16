@@ -3,6 +3,29 @@ const CACHE_VERSION = 'v2.0.0';
 const BUILD_TIMESTAMP = '2025-11-16T04-41-23Z';
 const CACHE_NAME = `betteraibots-${CACHE_VERSION}-${BUILD_TIMESTAMP}`;
 
+// Only activate service worker for BetterAiBots domains
+const ALLOWED_ORIGINS = [
+  'betteraibots.com',
+  'www.betteraibots.com'
+];
+
+function isAllowedOrigin(url) {
+  try {
+    const urlObj = new URL(url);
+    // Allow localhost only if it's specifically for BetterAiBots testing
+    // Otherwise, only allow production domains
+    if (urlObj.hostname === 'localhost' || urlObj.hostname === '127.0.0.1') {
+      // Check if the path suggests it's BetterAiBots (has /sw.js from BetterAiBots)
+      return self.location.pathname.includes('bottify') || 
+             self.location.pathname.includes('betteraibots') ||
+             urlObj.pathname.includes('/sw.js');
+    }
+    return ALLOWED_ORIGINS.some(origin => urlObj.hostname === origin || urlObj.hostname.endsWith('.' + origin));
+  } catch (e) {
+    return false;
+  }
+}
+
 const urlsToCache = [
   '/',
   '/index.html',
@@ -40,6 +63,11 @@ self.addEventListener('install', (event) => {
 
 // Fetch event - network-first strategy for updates, cache-fallback for offline
 self.addEventListener('fetch', (event) => {
+  // Only handle requests for BetterAiBots domains
+  if (!isAllowedOrigin(event.request.url)) {
+    return; // Let browser handle requests for other origins
+  }
+  
   // Skip service worker file itself
   if (event.request.url.includes('/sw.js')) {
     return;
@@ -59,13 +87,34 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(event.request)
         .then((response) => {
-          // If network request succeeds, update cache and return response
+          // Only cache successful responses with valid content
           if (response && response.status === 200) {
-            const responseToCache = response.clone();
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
+            // For JavaScript files, validate they're not empty or corrupted
+            if (event.request.url.includes('/static/js/')) {
+              // Validate asynchronously but don't block the response
+              response.clone().text().then(text => {
+                // Check if the response is valid JavaScript (not empty, not an error page)
+                if (text && text.length > 100 && !text.includes('<!DOCTYPE') && !text.includes('Error')) {
+                  const responseToCache = response.clone();
+                  caches.open(CACHE_NAME)
+                    .then((cache) => {
+                      cache.put(event.request, responseToCache);
+                    });
+                } else {
+                  console.log('Invalid JavaScript response, not caching:', event.request.url);
+                }
+              }).catch(() => {
+                // If we can't validate, don't cache but still return the response
+                console.log('Could not validate JavaScript, not caching:', event.request.url);
               });
+            } else {
+              // For non-JS files, cache normally
+              const responseToCache = response.clone();
+              caches.open(CACHE_NAME)
+                .then((cache) => {
+                  cache.put(event.request, responseToCache);
+                });
+            }
           }
           return response;
         })
@@ -74,6 +123,24 @@ self.addEventListener('fetch', (event) => {
           return caches.match(event.request)
             .then((cachedResponse) => {
               if (cachedResponse) {
+                // For JavaScript, validate cached response before using it
+                if (event.request.url.includes('/static/js/')) {
+                  // Validate the cached response
+                  return cachedResponse.clone().text().then(text => {
+                    // If cached JS is invalid, don't use it - let it fail so browser can retry
+                    if (!text || text.length < 100 || text.includes('<!DOCTYPE') || text.includes('Error')) {
+                      console.log('Cached JavaScript is invalid, not using cache:', event.request.url);
+                      // Delete the bad cache entry
+                      caches.open(CACHE_NAME).then(cache => cache.delete(event.request));
+                      // Return network error to force browser retry
+                      return new Response('Invalid cached content', { status: 503 });
+                    }
+                    return cachedResponse;
+                  }).catch(() => {
+                    // If we can't validate, don't use cache
+                    return new Response('Could not validate cache', { status: 503 });
+                  });
+                }
                 return cachedResponse;
               }
               // If navigation fails and no cache, return offline page
