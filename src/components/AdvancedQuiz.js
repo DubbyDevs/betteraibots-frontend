@@ -291,30 +291,52 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
 
   if (isEmbedded) {
     return (
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        background: 'rgba(0, 0, 0, 0.9)',
-        zIndex: 1000,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '20px'
-      }}>
-        <div style={{
-          background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
-          borderRadius: '20px',
-          padding: '30px',
-          maxWidth: '900px',
+      <>
+        <style>{`
+          .quiz-scrollbar::-webkit-scrollbar {
+            width: 12px;
+          }
+          .quiz-scrollbar::-webkit-scrollbar-track {
+            background: #000000;
+            border-radius: 10px;
+          }
+          .quiz-scrollbar::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 10px;
+          }
+          .quiz-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #444444;
+          }
+        `}</style>
+        <div 
+          onClick={onClose}
+          style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
           width: '100%',
-          maxHeight: '90vh',
-          overflow: 'auto',
-          border: '2px solid #ffd700',
-          boxShadow: '0 0 30px rgba(255, 215, 0, 0.3)'
+          height: '100%',
+          background: 'rgba(0, 0, 0, 0.9)',
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px'
         }}>
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="quiz-scrollbar"
+            style={{
+            background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+            borderRadius: '20px',
+            padding: '30px',
+            maxWidth: '900px',
+            width: '100%',
+            maxHeight: '90vh',
+            overflow: 'auto',
+            border: '2px solid #ffd700',
+            boxShadow: '0 0 30px rgba(255, 215, 0, 0.3)'
+          }}>
           {/* Header */}
           <div style={{
             display: 'flex',
@@ -694,6 +716,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
           )}
         </div>
       </div>
+      </>
     );
   }
 
@@ -1125,52 +1148,6 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                     </svg>
                     SMS
                   </button>
-
-                  {/* Copy Link */}
-                  <button
-                    onClick={(e) => {
-                      const url = 'https://betteraibots.com/advanced-ai-quiz.html';
-                      navigator.clipboard.writeText(url).then(() => {
-                        showCopiedMessage(e.target);
-                      }).catch(() => {
-                        // Fallback for older browsers
-                        const textArea = document.createElement('textarea');
-                        textArea.value = url;
-                        document.body.appendChild(textArea);
-                        textArea.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(textArea);
-                        showCopiedMessage(e.target);
-                      });
-                    }}
-                    style={{
-                      background: '#ffd700',
-                      color: '#1a2330',
-                      border: 'none',
-                      padding: '12px 20px',
-                      borderRadius: '25px',
-                      fontSize: '0.9rem',
-                      fontWeight: 'bold',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'translateY(-2px)';
-                      e.target.style.boxShadow = '0 4px 12px rgba(255, 215, 0, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'translateY(0)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3.9 12c0-2.25 1.85-4.1 4.1-4.1h4V6.5h-4C5.01 6.5 3 8.51 3 11s2.01 4.5 4.5 4.5h4v-1.4h-4c-2.25 0-4.1-1.85-4.1-4.1zm5.6 1.4h5V10.6h-5v2.8zm7.5-7.5h-4v1.4h4c2.25 0 4.1 1.85 4.1 4.1s-1.85 4.1-4.1 4.1h-4v1.4h4c2.99 0 5-2.01 5-4.5s-2.01-4.5-5-4.5z"/>
-                    </svg>
-                    Copy Link
-                  </button>
                 </div>
               </div>
             </div>
@@ -1179,6 +1156,6 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
       </div>
     </>
   );
-};
+}
 
 export default AdvancedQuiz; 

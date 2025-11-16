@@ -2,9 +2,308 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
+// --- AI FOR DUMMIES GUIDE COMPONENT ---
+function AIForDummiesGuide({ onClose }) {
+  return (
+    <div 
+      onClick={onClose}
+      style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'rgba(0, 0, 0, 0.8)',
+      zIndex: 1000,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '20px'
+    }}>
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        style={{
+        background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+        border: '2px solid #36ff95',
+        borderRadius: '20px',
+        maxWidth: '900px',
+        maxHeight: '90vh',
+        width: '100%',
+        overflow: 'auto',
+        position: 'relative',
+        boxShadow: '0 20px 60px rgba(54, 255, 149, 0.3)'
+      }}
+      className="custom-scrollbar">
+        <style>{`
+          .custom-scrollbar::-webkit-scrollbar {
+            width: 12px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-track {
+            background: #000000;
+            border-radius: 10px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 10px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #444444;
+          }
+        `}</style>
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            background: 'none',
+            border: 'none',
+            color: '#36ff95',
+            fontSize: '24px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            zIndex: 10
+          }}
+        >
+          ✕
+        </button>
+
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '30px', paddingTop: '20px' }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '15px'
+          }}>
+            <img
+              src="/aifordummies.png"
+              alt="AI for Dummies"
+              style={{
+                width: '120px',
+                height: '120px',
+                maxWidth: '120px',
+                maxHeight: '120px',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 0 8px rgba(54, 255, 149, 0.6))'
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+          </div>
+          <h1 style={{
+            color: '#36ff95',
+            fontSize: '2.2rem',
+            fontWeight: 'bold',
+            marginBottom: '15px',
+            marginTop: '10px',
+            background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            AI for Dummies
+          </h1>
+          <p style={{
+            color: '#b2ffe0',
+            fontSize: '1.1rem',
+            marginBottom: '20px'
+          }}>
+            Your Super Simple Guide to Getting Started with Artificial Intelligence
+          </p>
+        </div>
+
+        {/* Content */}
+        <div style={{
+          padding: '0 30px 30px 30px',
+          color: '#d1efe7',
+          lineHeight: '1.8',
+          fontSize: '1rem'
+        }}>
+          <div style={{ marginBottom: '25px' }}>
+            <p style={{ marginBottom: '15px', fontSize: '1.1rem' }}>
+              <strong>Don't worry - you're not actually a dummy!</strong> Everyone starts somewhere, and if you're reading this, you're already taking the smart step of learning about AI. Think of this as your friendly neighbor explaining AI over coffee - no confusing tech jargon, no intimidating concepts, just simple explanations that anyone can understand. By the end of this guide, you'll know exactly what AI is, how to use it in your daily life, and why it's actually way less scary than you might think.
+            </p>
+            <p style={{ marginBottom: '15px' }}>
+              You've probably already used AI without even knowing it! When Netflix suggests a movie you might like, when your phone's camera recognizes faces, or when you ask Siri a question - that's all AI working behind the scenes. The good news? <strong>AI is designed to make your life easier, not more complicated</strong>. Let's explore this amazing technology together, one simple step at a time.
+            </p>
+          </div>
+
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>
+            What is AI? (Don't worry, it's simpler than you think!)
+          </h2>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>AI stands for Artificial Intelligence, but let's call it "smart computer helpers."</strong> Imagine if you had a really smart assistant who never gets tired, can read incredibly fast, and remembers everything. That's basically what AI is - computer programs that can think, learn, and help you with tasks that normally require human intelligence.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Think of AI like a really smart calculator, but for words and ideas instead of just numbers.</strong> Just like a calculator can instantly solve math problems you might struggle with, AI can instantly write emails, answer questions, or create pictures based on what you tell it. The difference is that instead of typing "2+2" and getting "4," you might type "write a birthday card message for my mom" and get a beautiful, personalized message.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>AI learns patterns from lots and lots of examples.</strong> Imagine you showed a computer millions of photos of cats and told it "these are cats." Eventually, it would get really good at recognizing cats in new photos. That's basically how AI works - it learns from tons of examples and then uses that knowledge to help you with new situations.
+          </p>
+          <p style={{ marginBottom: '25px' }}>
+            <strong>The most important thing to understand: AI is a tool, like a hammer or a microwave.</strong> It's not magic, it's not going to take over the world, and it's not trying to replace you. It's just a very useful tool that can help you get things done faster and easier. You're always in control of what you ask it to do.
+          </p>
+
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>
+            The most common AI tools you can start using today
+          </h2>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>ChatGPT is like having a conversation with a really smart friend.</strong> You can ask it questions, ask for help with writing, or even just chat about your day. It's completely free to try, and you don't need to download anything - just go to chat.openai.com and start typing. You can ask it things like "help me write an email to my boss about taking time off" or "explain why my car might be making a weird noise."
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Google's AI (called Gemini) works similarly to ChatGPT</strong> and you can find it at gemini.google.com. Some people prefer one over the other, like preferring Pepsi vs Coke - they both do similar things, just with slightly different styles. Google's version is really good if you want to search for current information or connect with other Google services you might already use.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Voice assistants like Siri, Alexa, and Google Assistant</strong> are AI tools you might already have! If you have an iPhone, just say "Hey Siri" and ask a question. If you have an Amazon Echo, say "Alexa" first. These are great starting points because talking feels more natural than typing for many people. You can ask them about the weather, set timers, play music, or ask simple questions.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>AI writing helpers like Grammarly</strong> check your writing and suggest improvements. If you ever write emails, social media posts, or any kind of text, these tools can help you sound more professional and catch spelling mistakes. Many of them work right inside your web browser or email program, so you don't have to learn anything new.
+          </p>
+          <p style={{ marginBottom: '25px' }}>
+            <strong>AI photo tools</strong> can help you edit pictures or even create new ones. Your phone's photo app probably already has some AI features - like automatically improving your photos or organizing them by the people in them. Apps like Canva use AI to help you design things like birthday invitations or social media posts without needing to be a graphic designer.
+          </p>
+
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>
+            How to have your first AI conversation (it's easier than texting!)
+          </h2>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Start with something simple and friendly.</strong> Instead of jumping into complex requests, try something like "Hi! Can you help me write a thank you note to my neighbor who brought me soup when I was sick?" This gives the AI context and a clear, simple task. Think of it like asking a helpful friend for advice.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Be specific about what you want.</strong> Instead of "help me cook," try "give me a simple recipe for chicken dinner that takes less than 30 minutes." The more details you provide, the better help you'll get. It's like the difference between asking someone "what should I wear?" versus "what should I wear to a casual outdoor wedding in June?"
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Don't worry about perfect grammar or sounding smart.</strong> AI understands normal, everyday language. You can type exactly how you would talk to a friend. "hey can you help me figure out what to say to my teenage daughter about curfew?" works just as well as a perfectly written formal request.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>If you don't like the first answer, just ask again differently.</strong> AI won't get offended or annoyed if you say "that's not quite what I meant, can you try again?" or "make it more casual" or "make it shorter." Think of it like having a conversation where you're clarifying what you need.
+          </p>
+          <p style={{ marginBottom: '25px' }}>
+            <strong>Remember that AI makes mistakes sometimes, just like humans do.</strong> If something doesn't sound right, trust your gut. AI is very helpful, but it's not perfect. Always double-check important information, especially things like medical advice, legal questions, or facts you plan to share with others.
+          </p>
+
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>
+            Simple everyday uses that will blow your mind
+          </h2>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Writing help for everyday tasks</strong> can save you so much time and stress. Ask AI to help you write emails to your doctor's office, responses to wedding invitations, birthday card messages, or even grocery lists organized by store sections. You can say "help me write a polite email declining my cousin's party invitation" and get a perfectly worded response in seconds.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Planning and organizing</strong> becomes so much easier with AI. Ask it to help you plan a menu for the week, create a packing list for vacation, organize your garage sale items by category, or even plan out your garden. You can say "I want to have a small dinner party for 6 people, help me plan the menu and shopping list" and get a complete plan.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Learning and explaining things</strong> is where AI really shines. If you've ever been confused by technology, recipes, instructions, or just about anything, AI can explain it in simple terms. Try "explain how WiFi works like I'm 10 years old" or "walk me through how to change the time on my car's clock step by step."
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Problem-solving for daily annoyances</strong> can make your life smoother. Ask things like "my houseplant's leaves are turning yellow, what might be wrong?" or "give me ideas for organizing my messy closet on a budget" or "how do I get red wine stains out of my carpet?" AI has been trained on millions of helpful tips and solutions.
+          </p>
+          <p style={{ marginBottom: '25px' }}>
+            <strong>Creative inspiration</strong> when you're stuck can be incredibly helpful. Whether you need gift ideas for a picky teenager, ways to use up leftover chicken, craft projects for a rainy day, or ideas for entertaining visiting grandchildren, AI can generate lists of suggestions you might never have thought of.
+          </p>
+
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>
+            What costs money and what's completely free
+          </h2>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Many AI tools are completely free to try</strong> and free versions often provide everything most people need. ChatGPT, Google's Gemini, and Microsoft's Copilot all have free versions that let you ask questions, get help with writing, and explore what AI can do. You don't need to pay anything to start learning and using these tools.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Free versions usually have some limits, but they're generous.</strong> You might be able to ask 20-30 questions per day for free, which is plenty for most people just starting out. It's like getting free samples at the grocery store - enough to try everything and see what you like before deciding if you want to buy more.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Paid versions typically cost around $20 per month</strong> and give you more questions, faster responses, and access to newer features. Think of it like the difference between basic cable and premium cable - the free version does most of what you need, but paying gets you extra convenience and features. Most beginners should start with free versions and only consider paying if they find themselves using AI a lot.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Your phone and computer probably already include some AI features for free.</strong> iPhone users have Siri, Android users have Google Assistant, and many email programs now include AI writing help. These built-in features are completely free and don't count against any daily limits since they're part of what you already own.
+          </p>
+          <p style={{ marginBottom: '25px' }}>
+            <strong>Be careful about apps that ask for payment upfront.</strong> Legitimate AI companies offer free trials or free versions. If an app wants your credit card information before you can try anything, that's often a red flag. Stick to well-known names like OpenAI (ChatGPT), Google (Gemini), Microsoft (Copilot), or Anthropic (Claude).
+          </p>
+
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>
+            Safety and privacy (staying smart while using smart tools)
+          </h2>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Never share personal information like passwords, Social Security numbers, or bank details</strong> with any AI tool. While AI companies work hard to protect your privacy, it's always better to be safe. Think of AI conversations like talking to a helpful stranger - you'd share your recipe questions but not your house key.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Be cautious about sharing private family information or sensitive details.</strong> While it's usually fine to ask for help with general relationship advice or parenting tips, avoid sharing specific names, addresses, or private family situations that you wouldn't want others to know about. Keep conversations general rather than specific.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Remember that AI tools learn from conversations, so avoid sharing anything confidential.</strong> If you're asking for help with work documents, remove any company-specific information first. Instead of "help me write an email about the Johnson account," try "help me write a professional email about a client account."
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>AI can make mistakes, especially with important facts, dates, or current events.</strong> Always double-check information that matters, like medical advice, legal guidance, financial tips, or facts you plan to share with others. Think of AI like getting advice from a smart friend - helpful, but you'd still verify important stuff with an expert.
+          </p>
+          <p style={{ marginBottom: '25px' }}>
+            <strong>Use AI as a starting point, not the final answer.</strong> AI is fantastic for brainstorming, getting started on projects, or overcoming writer's block. But for important decisions about health, money, legal issues, or relationships, always consult with real human experts who understand your specific situation.
+          </p>
+
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>
+            Common fears and why they're mostly overblown
+          </h2>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>"AI will steal my job"</strong> is probably the biggest worry people have, but for most people, AI is more like getting a powerful new tool than getting replaced. Think about how calculators didn't eliminate accountants - they just made them more efficient. AI will likely change how you work, but it's more likely to handle boring tasks so you can focus on interesting, creative, and people-focused work.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>"AI is too complicated for me to understand"</strong> is completely understandable but not true! You don't need to understand how your microwave works to heat up leftovers, and you don't need to understand how AI works to use it. If you can send text messages or use a search engine, you can use AI. The companies building these tools work very hard to make them simple and user-friendly.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>"AI will become too powerful and take over"</strong> is a fear often fueled by science fiction movies. In reality, current AI is more like a very sophisticated autocomplete tool than a thinking robot. It can't make decisions on its own, can't access your computer without permission, and can't do anything you don't specifically ask it to do. You're always in control.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>"AI will make people lazy or stupid"</strong> is like saying calculators make people bad at math. Tools change how we work, but they don't change our need to think, create, and solve problems. AI might help you write emails faster, but you still need to decide what to say and whether it sounds right. It's a productivity tool, not a replacement for your brain.
+          </p>
+          <p style={{ marginBottom: '25px' }}>
+            <strong>"I'm too old to learn this technology"</strong> is never true! Many of the most enthusiastic AI users are retirees who love having a patient, helpful assistant for everything from planning trips to helping with grandchildren's homework. Age brings wisdom and life experience that helps you ask better questions and spot when AI responses don't make sense.
+          </p>
+
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>
+            Your next steps (baby steps are perfectly fine!)
+          </h2>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Start with just one simple question today.</strong> Go to chat.openai.com or gemini.google.com and ask something easy like "give me three ideas for what to make for dinner tonight" or "help me write a short birthday text to my friend." Don't overthink it - just try one thing and see what happens.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Play around with different types of questions</strong> over the next week. Try asking for help with writing, ask it to explain something you're curious about, or ask for ideas to solve a small problem. The more you experiment, the more you'll discover what AI can help you with in your daily life.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Don't worry about learning everything at once.</strong> You don't need to become an AI expert overnight. Start with the basics, get comfortable with simple conversations, and gradually try new things as you feel ready. It's like learning to drive - you start in empty parking lots before hitting the highway.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>Share your experiences with friends and family.</strong> Many people are curious about AI but nervous about trying it. Once you've had some success with simple tasks, you can help others get started too. Teaching someone else is often the best way to solidify your own learning.
+          </p>
+          <p style={{ marginBottom: '25px' }}>
+            <strong>Remember that it's okay to take breaks or go slowly.</strong> Technology can feel overwhelming sometimes, and that's completely normal. Use AI when it feels helpful and ignore it when it doesn't. There's no pressure to use it for everything or to become a power user. Even using it occasionally for simple tasks can make your life a little easier.
+          </p>
+
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', marginTop: '30px', marginBottom: '15px' }}>
+            Conclusion
+          </h2>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>You've just learned that AI isn't scary, complicated, or threatening - it's actually a helpful tool that's designed to make your life easier.</strong> Like learning to use a smartphone or send emails, getting comfortable with AI just takes a little practice and patience. The most important thing to remember is that you're in control, you can start small, and there's no rush to become an expert.
+          </p>
+          <p style={{ marginBottom: '15px' }}>
+            <strong>The best part about AI is that it's patient, available 24/7, and never judges your questions.</strong> Whether you're asking for help with technology, cooking, writing, organizing, or just satisfying your curiosity about something, AI is like having a knowledgeable friend who's always ready to help. Start with simple questions, experiment when you feel ready, and don't worry about making mistakes.
+          </p>
+          <p style={{ marginBottom: '30px' }}>
+            <strong>Technology is supposed to serve you, not the other way around.</strong> Use AI when it's helpful, ignore it when it's not, and always trust your own judgment. You've successfully adapted to many technological changes throughout your life, and AI is just another tool that can make certain tasks easier and more enjoyable. Welcome to the world of AI - it's excited to meet you!
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const LearnLevelSelector = () => {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
+  const [showAIForDummiesGuide, setShowAIForDummiesGuide] = useState(false);
+  const [showAIStarterGuide, setShowAIStarterGuide] = useState(false);
+  const [showIntermediateGuide, setShowIntermediateGuide] = useState(false);
+  const [showAdvancedGuide, setShowAdvancedGuide] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -110,15 +409,6 @@ const LearnLevelSelector = () => {
             }}>
               Choose Your AI Learning Path
             </h1>
-            <p style={{
-              fontSize: '1.2rem',
-              color: '#9ca3af',
-              maxWidth: '600px',
-              margin: '0 auto',
-              lineHeight: '1.6'
-            }}>
-              Select your experience level and start your journey to AI mastery. Each path includes comprehensive guides, practical examples, and quizzes to test your knowledge.
-            </p>
           </div>
 
           {/* Level Cards */}
@@ -387,9 +677,10 @@ const LearnLevelSelector = () => {
               width: "100%"
             }}>
               {/* AI for Dummies Guide */}
-              <a 
-                href="/ai-for-dummies-guide.html"
+              <div 
+                onClick={() => setShowAIForDummiesGuide(true)}
                 style={{
+                  cursor: 'pointer',
                   display: "block",
                   textDecoration: "none",
                   color: "inherit",
@@ -446,12 +737,13 @@ const LearnLevelSelector = () => {
                     Super simple guide to getting started with AI
                   </p>
                 </div>
-              </a>
+              </div>
 
               {/* Beginner Guide */}
-              <a 
-                href="/ai-starter-guide.html"
+              <div 
+                onClick={() => navigate('/learn/beginner')}
                 style={{
+                  cursor: 'pointer',
                   display: "block",
                   textDecoration: "none",
                   color: "inherit",
@@ -508,12 +800,13 @@ const LearnLevelSelector = () => {
                     Master the fundamentals of AI
                   </p>
                 </div>
-              </a>
+              </div>
 
               {/* Intermediate Guide */}
-              <a 
-                href="/intermediate-ai-guide.html"
+              <div 
+                onClick={() => navigate('/learn/intermediate')}
                 style={{
+                  cursor: 'pointer',
                   display: "block",
                   textDecoration: "none",
                   color: "inherit",
@@ -570,12 +863,13 @@ const LearnLevelSelector = () => {
                     Dive deeper into AI applications
                   </p>
                 </div>
-              </a>
+              </div>
 
               {/* Advanced Guide */}
-              <a 
-                href="/advanced-ai-guide.html"
+              <div 
+                onClick={() => navigate('/learn/advanced')}
                 style={{
+                  cursor: 'pointer',
                   display: "block",
                   textDecoration: "none",
                   color: "inherit",
@@ -632,7 +926,7 @@ const LearnLevelSelector = () => {
                     Become an AI expert and earn Pro status
                   </p>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
 
@@ -3073,6 +3367,194 @@ const LearnLevelSelector = () => {
            </div>
         </div>
       </div>
+
+      {/* Guide Modals */}
+      {showAIForDummiesGuide && (
+        <AIForDummiesGuide onClose={() => setShowAIForDummiesGuide(false)} />
+      )}
+      {showAIStarterGuide && (
+        <div onClick={() => setShowAIStarterGuide(false)} style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.8)',
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px'
+        }}>
+          <div onClick={(e) => e.stopPropagation()} style={{
+            background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+            border: '2px solid #36ff95',
+            borderRadius: '20px',
+            maxWidth: '900px',
+            maxHeight: '90vh',
+            width: '100%',
+            overflow: 'auto',
+            position: 'relative',
+            boxShadow: '0 20px 60px rgba(54, 255, 149, 0.3)',
+            padding: '40px',
+            textAlign: 'center',
+            color: '#d1efe7'
+          }}
+          className="custom-scrollbar">
+            <button onClick={() => setShowAIStarterGuide(false)} style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              background: 'none',
+              border: 'none',
+              color: '#36ff95',
+              fontSize: '24px',
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}>✕</button>
+            <h1 style={{ color: '#36ff95', fontSize: '2rem', marginBottom: '20px' }}>Beginner Guide</h1>
+            <p style={{ marginBottom: '20px' }}>Click below to view the full beginner guide.</p>
+            <button onClick={() => {
+              setShowAIStarterGuide(false);
+              navigate('/learn/beginner');
+            }} style={{
+              background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+              color: '#101c26',
+              border: 'none',
+              borderRadius: '25px',
+              padding: '15px 40px',
+              fontSize: '1.2rem',
+              fontWeight: '700',
+              cursor: 'pointer',
+              marginTop: '20px'
+            }}>
+              View Beginner Guide
+            </button>
+          </div>
+        </div>
+      )}
+      {showIntermediateGuide && (
+        <div onClick={() => setShowIntermediateGuide(false)} style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.8)',
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px'
+        }}>
+          <div onClick={(e) => e.stopPropagation()} style={{
+            background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+            border: '2px solid #8b5cf6',
+            borderRadius: '20px',
+            maxWidth: '900px',
+            maxHeight: '90vh',
+            width: '100%',
+            overflow: 'auto',
+            position: 'relative',
+            boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)',
+            padding: '40px',
+            textAlign: 'center',
+            color: '#d1efe7'
+          }}
+          className="custom-scrollbar">
+            <button onClick={() => setShowIntermediateGuide(false)} style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              background: 'none',
+              border: 'none',
+              color: '#8b5cf6',
+              fontSize: '24px',
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}>✕</button>
+            <h1 style={{ color: '#8b5cf6', fontSize: '2rem', marginBottom: '20px' }}>Intermediate Guide</h1>
+            <p style={{ marginBottom: '20px' }}>Click below to view the full intermediate guide.</p>
+            <button onClick={() => {
+              setShowIntermediateGuide(false);
+              navigate('/learn/intermediate');
+            }} style={{
+              background: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+              color: '#ffffff',
+              border: 'none',
+              borderRadius: '25px',
+              padding: '15px 40px',
+              fontSize: '1.2rem',
+              fontWeight: '700',
+              cursor: 'pointer',
+              marginTop: '20px'
+            }}>
+              View Intermediate Guide
+            </button>
+          </div>
+        </div>
+      )}
+      {showAdvancedGuide && (
+        <div onClick={() => setShowAdvancedGuide(false)} style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.8)',
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px'
+        }}>
+          <div onClick={(e) => e.stopPropagation()} style={{
+            background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%)',
+            border: '2px solid #ffd700',
+            borderRadius: '20px',
+            maxWidth: '900px',
+            maxHeight: '90vh',
+            width: '100%',
+            overflow: 'auto',
+            position: 'relative',
+            boxShadow: '0 0 30px rgba(255, 215, 0, 0.3)',
+            padding: '40px',
+            textAlign: 'center',
+            color: '#ffffff'
+          }}
+          className="custom-scrollbar">
+            <button onClick={() => setShowAdvancedGuide(false)} style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              background: 'none',
+              border: 'none',
+              color: '#ffd700',
+              fontSize: '24px',
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}>✕</button>
+            <h1 style={{ color: '#ffd700', fontSize: '2rem', marginBottom: '20px' }}>Advanced Guide</h1>
+            <p style={{ marginBottom: '20px' }}>Click below to view the full advanced guide.</p>
+            <button onClick={() => {
+              setShowAdvancedGuide(false);
+              navigate('/learn/advanced');
+            }} style={{
+              background: 'linear-gradient(135deg, #ffd700, #ffb347)',
+              color: '#000000',
+              border: 'none',
+              borderRadius: '25px',
+              padding: '15px 40px',
+              fontSize: '1.2rem',
+              fontWeight: '700',
+              cursor: 'pointer',
+              marginTop: '20px'
+            }}>
+              View Advanced Guide
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

@@ -1620,7 +1620,12 @@ function BotGrid({ bots, onOpenModal }) {
 
 // --- HOME PAGE ---
 function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryBar, toggleCategoryBar }) {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 768;
+    }
+    return false;
+  });
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageOpacity, setImageOpacity] = useState(1);
   
@@ -1823,25 +1828,13 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           textAlign: "center"
         }}
       >
-        <h2 style={{
-          color: "#36ff95",
-          fontSize: isMobile ? "1.8rem" : "2.2rem",
-          fontWeight: 700,
-          marginBottom: "20px",
-          fontFamily: "Inter, Arial, sans-serif"
-        }}>
-          Welcome to BetterAiBots
-        </h2>
-        <p style={{
-          color: "#d1efe7",
-          fontSize: isMobile ? "1rem" : "1.15rem",
-          lineHeight: "1.7",
+        <p className="hero-subheadline custom-hero-desc" style={{
           marginBottom: "40px",
           maxWidth: "800px",
           marginLeft: "auto",
           marginRight: "auto"
         }}>
-          BetterAiBots.com helps you navigate the overwhelming world of AI tools with clear guidance and honest insights. We break down what each app does, how to use it effectively, and which tools are actually worth your time and money.
+          We're here to help you navigate the overwhelming world of AI tools with clear guidance and honest insights. We break down what each app does, how to use it effectively, and which tools are actually worth your time and money.
         </p>
         
         <div style={{
@@ -2781,7 +2774,12 @@ function App() {
   });
   const [searchValue, setSearchValue] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 900;
+    }
+    return false;
+  });
   const [showStickyLogo, setShowStickyLogo] = useState(false);
   const [animationPaused, setAnimationPaused] = useState(false);
   const [showCategoryBar, setShowCategoryBar] = useState(false);
