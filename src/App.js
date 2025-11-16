@@ -2266,13 +2266,56 @@ function Contact() {
 
 
 
+// --- 404 NOT FOUND PAGE ---
+function NotFound() {
+  return (
+    <div className="hero-section" style={{ maxWidth: 900, margin: "auto", textAlign: "center" }}>
+      <Helmet>
+        <title>Page Not Found – BetterAiBots.com</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="description" content="The page you're looking for doesn't exist." />
+      </Helmet>
+      <h1 className="hero-headline" style={{ fontSize: "4rem", marginBottom: "20px" }}>404</h1>
+      <h2 className="hero-subheadline" style={{ marginBottom: "30px" }}>
+        Page Not Found
+      </h2>
+      <p style={{ color: "#d1efe7", fontSize: "1.1rem", marginBottom: "40px" }}>
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <Link 
+        to="/" 
+        style={{
+          display: "inline-block",
+          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
+          color: "#1a2330",
+          padding: "14px 32px",
+          borderRadius: "8px",
+          textDecoration: "none",
+          fontWeight: 700,
+          fontSize: "1.1rem",
+          transition: "all 0.2s"
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = "translateY(-2px)";
+          e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.4)";
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = "translateY(0)";
+          e.target.style.boxShadow = "none";
+        }}
+      >
+        Go to Home Page
+      </Link>
+    </div>
+  );
+}
+
 // --- LEGAL PAGE ---
 function Legal() {
   return (
     <div className="hero-section" style={{ maxWidth: 900, margin: "auto" }}>
       <Helmet>
         <title>AI Bots & Tools Legal Terms – BetterAiBots.com</title>
-        <meta name="robots" content="noindex" />
         <meta property="og:title" content="AI Bots & Tools Legal Terms – BetterAiBots.com" />
         <meta property="og:description" content="Legal info, privacy policy, and terms of use for BetterAiBots.com." />
         <meta property="og:image" content="https://betteraibots.com/og-image.png?v=3" />
@@ -2374,7 +2417,6 @@ function Privacy() {
     <div className="hero-section" style={{ maxWidth: 900, margin: "auto" }}>
       <Helmet>
         <title>Privacy Policy – BetterAiBots.com</title>
-        <meta name="robots" content="noindex" />
         <meta property="og:title" content="Privacy Policy – BetterAiBots.com" />
         <meta property="og:description" content="Privacy policy and data handling practices for BetterAiBots.com." />
         <meta property="og:image" content="https://betteraibots.com/og-image.png?v=3" />
@@ -2972,7 +3014,7 @@ function App() {
         <Route path="/legal" element={<Legal />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/moderation" element={<Moderation approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <div style={{ marginTop: '60px' }}>
       <FooterWithWallets showPWAInstallButton={true} onPWAInstallClick={() => setShowPWAInstallPrompt(true)} />
