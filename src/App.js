@@ -21,8 +21,7 @@ import {
   useNavigate,
   useParams,
   useLocation,
-  Link,
-  Navigate
+  Link
 } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
@@ -4010,38 +4009,6 @@ function NewsArticle() {
         </div>
       </div>
     </>
-  );
-}
-
-// --- CATEGORY BAR COMPONENT ---
-function CategoryBar({ showCategoryBar, toggleCategoryBar }) {
-  if (!showCategoryBar) return null;
-  
-  return (
-    <div className="category-bar">
-      <div className="category-bar-container">
-        {CATEGORIES.map((cat) => {
-          const slug = CATEGORY_SLUGS[cat.name] || encodeURIComponent(cat.name);
-          return (
-            <Link
-              to={`/${slug}`}
-              className="category-bar-button"
-              key={cat.name}
-              tabIndex={0}
-            >
-              {cat.name}
-            </Link>
-          );
-        })}
-      </div>
-      <button 
-        className="category-bar-toggle"
-        onClick={toggleCategoryBar}
-        title="Hide category bar"
-      >
-        ×
-      </button>
-    </div>
   );
 }
 
