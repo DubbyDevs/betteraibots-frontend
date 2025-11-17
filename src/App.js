@@ -62,7 +62,14 @@ function PlausibleAnalytics() {
     script.src = "https://plausible.io/js/plausible.js";
     document.body.appendChild(script);
     return () => {
-      document.body.removeChild(script);
+      // Only remove if script still exists in DOM
+      if (script && script.parentNode) {
+        try {
+          document.body.removeChild(script);
+        } catch (e) {
+          // Script may have already been removed, ignore error
+        }
+      }
     };
   }, []);
   return null;
@@ -2945,11 +2952,14 @@ function App() {
     <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
       <PlausibleAnalytics />
       <GoogleAnalytics />
+      {/* Tiny spacer div to prevent ticker from collapsing */}
+      <div style={{ minHeight: '1px', width: '100%' }} />
       {/* Scrolling Disclaimer Ticker - At the very top, above everything, always running */}
       {(location.pathname === '/' || location.pathname === '/apps' || location.pathname.startsWith('/learn') || location.pathname.startsWith('/news')) && (
         <div style={{
           position: 'relative',
           width: '100%',
+          minHeight: '48px',
           background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
           borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
           overflow: 'hidden',
@@ -2957,11 +2967,14 @@ function App() {
           padding: '12px 0',
           boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
           zIndex: 1001,
-          display: 'block'
+          display: 'block',
+          flexShrink: 0
         }}>
           <div className="ticker-container" style={{
             display: 'inline-block',
-            animation: 'scroll-ticker 79.2s linear infinite'
+            animation: 'scroll-ticker 79.2s linear infinite',
+            minHeight: '24px',
+            lineHeight: '24px'
           }}>
             {[...tickerMessages, ...tickerMessages].map((message, index) => (
               <span key={index} style={{
@@ -2969,7 +2982,8 @@ function App() {
                 paddingRight: '80px',
                 color: '#36ff95',
                 fontSize: '0.9rem',
-                fontWeight: '500'
+                fontWeight: '500',
+                lineHeight: '24px'
               }}>
                 {message}
               </span>
