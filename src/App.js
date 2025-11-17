@@ -2952,45 +2952,56 @@ function App() {
     <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
       <PlausibleAnalytics />
       <GoogleAnalytics />
-      {/* Tiny spacer div to prevent ticker from collapsing */}
-      <div style={{ minHeight: '1px', width: '100%' }} />
       {/* Scrolling Disclaimer Ticker - At the very top, above everything, always running */}
-      {(location.pathname === '/' || location.pathname === '/apps' || location.pathname.startsWith('/learn') || location.pathname.startsWith('/news')) && (
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          minHeight: '48px',
-          background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
-          borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
-          overflow: 'hidden',
-          whiteSpace: 'nowrap',
-          padding: '12px 0',
-          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
-          zIndex: 1001,
-          display: 'block',
-          flexShrink: 0
-        }}>
-          <div className="ticker-container" style={{
-            display: 'inline-block',
-            animation: 'scroll-ticker 79.2s linear infinite',
-            minHeight: '24px',
-            lineHeight: '24px'
-          }}>
-            {[...tickerMessages, ...tickerMessages].map((message, index) => (
-              <span key={index} style={{
-                display: 'inline-block',
-                paddingRight: '80px',
-                color: '#36ff95',
-                fontSize: '0.9rem',
-                fontWeight: '500',
-                lineHeight: '24px'
-              }}>
-                {message}
-              </span>
-            ))}
+      <div style={{ width: '100%', margin: 0, padding: 0 }}>
+        {(() => {
+          const path = location?.pathname || window.location.pathname || '';
+          const shouldShow = path === '/' || path === '/apps' || path === '/contact' || path.startsWith('/learn') || path.startsWith('/news');
+          return shouldShow ? (
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              minHeight: '48px',
+              background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
+              borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
+              overflow: 'hidden',
+              whiteSpace: 'nowrap',
+              padding: '12px 0',
+              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+              zIndex: 10000,
+              display: 'block',
+              flexShrink: 0,
+              visibility: 'visible',
+              opacity: 1,
+              pointerEvents: 'none',
+              margin: 0,
+              top: 0,
+              left: 0
+            }}>
+            <div className="ticker-container" style={{
+              display: 'inline-block',
+              animation: 'scroll-ticker 79.2s linear infinite',
+              minHeight: '24px',
+              lineHeight: '24px',
+              pointerEvents: 'none'
+            }}>
+              {[...tickerMessages, ...tickerMessages].map((message, index) => (
+                <span key={index} style={{
+                  display: 'inline-block',
+                  paddingRight: '80px',
+                  color: '#36ff95',
+                  fontSize: '0.9rem',
+                  fontWeight: '500',
+                  lineHeight: '24px'
+                }}>
+                  {message}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        ) : null;
+        })()}
+      </div>
       <div>
         <AppHeader
           onOpenModal={handleOpenModal}
