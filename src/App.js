@@ -1333,6 +1333,13 @@ function HamburgerMenu({ open, onClose }) {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
 
+  // Reset dropdown to collapsed whenever menu opens
+  useEffect(() => {
+    if (open) {
+      setShowDropdown(false);
+    }
+  }, [open]);
+
   if (!open) return null;
 
   // Enhanced navigation function that ensures scroll to top
@@ -1393,7 +1400,7 @@ function HamburgerMenu({ open, onClose }) {
 
 
 // --- HEADER with AUTH BUTTONS ---
-function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile, onToggleAnimation, animationPaused, onPWAInstallClick }) {
+function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile, onToggleAnimation, animationPaused }) {
   return (
     <div className="header">
       <Link to="/">
@@ -1408,36 +1415,25 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
         />
       </Link>
       {!isMobile ? (
-        <div className="header-search">
+        <div className="header-search" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <input
             type="text"
             placeholder="Search BetterAiBots.com"
             value={searchValue}
             onChange={e => setSearchValue(e.target.value)}
           />
-                              <button 
-                      className="header-btn" 
-                      onClick={onPWAInstallClick}
-                      style={{
-                        background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
-                        color: "#101c26",
-                        border: "none",
-                        padding: "8px 16px",
-                        borderRadius: "8px",
-                        fontSize: "0.9rem",
-                        fontWeight: "600",
-                        cursor: "pointer",
-                        transition: "all 0.2s",
-                        fontFamily: "Inter, Arial, sans-serif",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "6px"
-                      }}
-                      onMouseOver={(e) => e.target.style.transform = "translateY(-1px)"}
-                      onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
-                    >
-                      Install App
-                    </button>
+          <button 
+            className="header-mob-menu-icon" 
+            onClick={onMenuClick}
+            aria-label="Open navigation menu"
+            style={{ marginLeft: 'auto' }}
+          >
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+              <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+              <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+            </svg>
+          </button>
           <span
             className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
             onClick={onToggleAnimation}
@@ -3011,7 +3007,6 @@ function App() {
           isMobile={isMobile}
           onToggleAnimation={() => setAnimationPaused(v => !v)}
           animationPaused={animationPaused}
-          onPWAInstallClick={() => setShowPWAInstallPrompt(true)}
         />
       </div>
       {showStickyLogo && isMobile && (
@@ -3056,7 +3051,7 @@ function App() {
         )}
       </div>
       {location.pathname !== '/apps' && <Breadcrumbs />}
-      <HamburgerMenu open={menuOpen && isMobile} onClose={() => setMenuOpen(false)} />
+      <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
       <Routes>
         <Route path="/" element={
           <Home
