@@ -1338,7 +1338,7 @@ function Apps() {
 }
 
 // --- Hamburger Menu (mobile) ---
-function HamburgerMenu({ open, onClose }) {
+function HamburgerMenu({ open, onClose, clickPosition, isMobile }) {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -1360,44 +1360,85 @@ function HamburgerMenu({ open, onClose }) {
     }, 50);
   };
 
+  // Calculate menu position based on click location (desktop) or center (mobile)
+  const getMenuStyle = () => {
+    if (isMobile || !clickPosition) {
+      // Mobile: keep centered
+      return { minWidth: 240 };
+    }
+    
+    // Desktop: position near click, but keep within viewport bounds
+    const menuWidth = 270;
+    const menuHeight = 400; // Approximate height
+    const padding = 20;
+    
+    let left = clickPosition.x;
+    let top = clickPosition.y + 10; // Small offset below click
+    
+    // Ensure menu stays within viewport
+    if (left + menuWidth > window.innerWidth) {
+      left = window.innerWidth - menuWidth - padding;
+    }
+    if (left < padding) {
+      left = padding;
+    }
+    
+    if (top + menuHeight > window.innerHeight) {
+      top = clickPosition.y - menuHeight - 10; // Show above click if not enough space below
+    }
+    if (top < padding) {
+      top = padding;
+    }
+    
+    return {
+      position: 'fixed',
+      left: `${left}px`,
+      top: `${top}px`,
+      minWidth: 240,
+      marginTop: 0, // Override CSS margin
+    };
+  };
+
   return (
     <div className="menu-overlay" onClick={onClose}>
       <div
         className="menu-dropdown-centered"
         onClick={(e) => e.stopPropagation()}
-        style={{ minWidth: 240 }}
+        style={getMenuStyle()}
       >
         <ul>
           <li onClick={() => handleNavigation('/')}>Home</li>
           <li onClick={() => handleNavigation('/apps')}>Apps</li>
           <li onClick={() => handleNavigation('/learn')}>Learn</li>
 
-          <li
-            onClick={() => setShowDropdown((prev) => !prev)}
-            style={{ position: 'relative', cursor: 'pointer' }}
-          >
-            <span>Categories {showDropdown ? '▴' : '▾'}</span>
-            <ul
-              className="nav-dropdown-list mobile"
-              style={{
-                display: showDropdown ? 'flex' : 'none',
-                position: 'static',
-                flexDirection: 'column',
-                gap: '10px',
-                paddingLeft: '10px'
-              }}
+          {isMobile && (
+            <li
+              onClick={() => setShowDropdown((prev) => !prev)}
+              style={{ position: 'relative', cursor: 'pointer' }}
             >
-              {CATEGORIES.map((cat) => (
-                <li
-                  key={cat.name}
-                  className="nav-dropdown-item"
-                  onClick={() => handleNavigation(`/${encodeURIComponent(cat.name)}`)}
-                >
-                  {cat.name}
-                </li>
-              ))}
-            </ul>
-          </li>
+              <span>Categories {showDropdown ? '▴' : '▾'}</span>
+              <ul
+                className="nav-dropdown-list mobile"
+                style={{
+                  display: showDropdown ? 'flex' : 'none',
+                  position: 'static',
+                  flexDirection: 'column',
+                  gap: '10px',
+                  paddingLeft: '10px'
+                }}
+              >
+                {CATEGORIES.map((cat) => (
+                  <li
+                    key={cat.name}
+                    className="nav-dropdown-item"
+                    onClick={() => handleNavigation(`/${encodeURIComponent(cat.name)}`)}
+                  >
+                    {cat.name}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          )}
 
           <li onClick={() => handleNavigation('/news')}>News</li>
           <li onClick={() => handleNavigation('/contact')}>Contact</li>
@@ -1433,7 +1474,12 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
           />
           <button 
             className="header-mob-menu-icon" 
-            onClick={onMenuClick}
+            onClick={(e) => {
+              // Pass event to onMenuClick if it accepts parameters
+              if (onMenuClick) {
+                onMenuClick(e);
+              }
+            }}
             aria-label="Open navigation menu"
             style={{ marginLeft: 'auto' }}
           >
@@ -1457,7 +1503,17 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
         <div className="header-icons" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <button 
             className="header-mob-menu-icon" 
-            onClick={onMenuClick}
+            onClick={(e) => {
+              // Capture mouse position for desktop positioning
+              if (typeof onMenuClick === 'function') {
+                // If onMenuClick accepts event, pass it; otherwise just call it
+                if (onMenuClick.length > 0) {
+                  onMenuClick(e);
+                } else {
+                  onMenuClick();
+                }
+              }
+            }}
             aria-label="Open navigation menu"
           >
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -2809,6 +2865,7 @@ function App() {
   });
   const [searchValue, setSearchValue] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuClickPosition, setMenuClickPosition] = useState(null);
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth <= 900;
@@ -3012,7 +3069,12 @@ function App() {
           onOpenModal={handleOpenModal}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
-          onMenuClick={() => setMenuOpen(v => !v)}
+          onMenuClick={(e) => {
+            if (e && e.clientX !== undefined) {
+              setMenuClickPosition({ x: e.clientX, y: e.clientY });
+            }
+            setMenuOpen(v => !v);
+          }}
           isMobile={isMobile}
           onToggleAnimation={() => setAnimationPaused(v => !v)}
           animationPaused={animationPaused}
@@ -3033,7 +3095,11 @@ function App() {
   >
     <button 
       className="header-mob-menu-icon" 
-      onClick={() => setMenuOpen(true)}
+      onClick={(e) => {
+        // Capture mouse position for desktop positioning
+        setMenuClickPosition({ x: e.clientX, y: e.clientY });
+        setMenuOpen(true);
+      }}
       aria-label="Open navigation menu"
     >
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -3060,7 +3126,15 @@ function App() {
         )}
       </div>
       {location.pathname !== '/apps' && <Breadcrumbs />}
-      <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <HamburgerMenu 
+        open={menuOpen} 
+        onClose={() => {
+          setMenuOpen(false);
+          setMenuClickPosition(null);
+        }}
+        clickPosition={menuClickPosition}
+        isMobile={isMobile}
+      />
       <Routes>
         <Route path="/" element={
           <Home
