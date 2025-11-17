@@ -470,6 +470,12 @@ function Apps() {
   const searchParams = new URLSearchParams(location.search);
   const sectionFromUrl = searchParams.get('section');
   const [activeSection, setActiveSection] = useState(sectionFromUrl || 'trial');
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 768;
+    }
+    return false;
+  });
   
   // Update activeSection when URL changes
   useEffect(() => {
@@ -477,7 +483,18 @@ function Apps() {
       setActiveSection(sectionFromUrl);
     }
   }, [sectionFromUrl]);
+  
+  // Handle window resize for mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
   const [shuffledPaidApps, setShuffledPaidApps] = useState([]);
+  const [expandedFeatures, setExpandedFeatures] = useState({});
 
   // Shuffle function for arrays
   const shuffleArray = (array) => {
@@ -487,6 +504,16 @@ function Apps() {
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+  };
+  
+  // Toggle feature expansion on mobile
+  const toggleFeature = (cardId, featureIndex) => {
+    if (!isMobile) return;
+    const key = `${cardId}-${featureIndex}`;
+    setExpandedFeatures(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
   };
 
   const freeApps = [
@@ -736,7 +763,9 @@ function Apps() {
     }
   }, [activeSection]);
 
-  const renderAppCard = (app, type) => (
+  const renderAppCard = (app, type) => {
+    const cardId = `${app.name}-${type}`;
+    return (
     <div key={app.name} className="app-card" style={{
       background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)',
       border: '2px solid #36ff95',
@@ -746,12 +775,12 @@ function Apps() {
       marginBottom: '20px',
       backdropFilter: 'blur(10px)',
       transition: 'all 0.3s ease',
-      cursor: 'pointer',
+      cursor: isMobile ? 'default' : 'pointer',
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
       minHeight: '400px'
-    }} onClick={() => window.open(app.link, '_blank')}>
+    }} onClick={!isMobile ? () => window.open(app.link, '_blank') : undefined}>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '16px' }}>
         <div style={{
           width: '60px',
@@ -837,28 +866,35 @@ function Apps() {
           color: '#9ca3af',
           fontSize: '0.9rem'
         }}>
-          {app.features.map((feature, index) => (
+          {app.features.map((feature, index) => {
+            const featureKey = `${cardId}-${index}`;
+            const isExpanded = expandedFeatures[featureKey];
+            return (
             <li 
               key={index} 
               style={{ 
                 marginBottom: '4px',
                 transition: 'all 0.2s ease',
-                cursor: 'default'
+                cursor: isMobile ? 'pointer' : 'default',
+                color: isMobile && isExpanded ? '#ffffff' : '#9ca3af',
+                fontSize: isMobile && isExpanded ? '1.035rem' : '0.9rem',
+                fontWeight: isMobile && isExpanded ? '500' : 'normal'
               }}
-              onMouseEnter={(e) => {
+              onClick={isMobile ? () => toggleFeature(cardId, index) : undefined}
+              onMouseEnter={!isMobile ? (e) => {
                 e.target.style.color = '#ffffff';
                 e.target.style.fontSize = '1.035rem';
                 e.target.style.fontWeight = '500';
-              }}
-              onMouseLeave={(e) => {
+              } : undefined}
+              onMouseLeave={!isMobile ? (e) => {
                 e.target.style.color = '#9ca3af';
                 e.target.style.fontSize = '0.9rem';
                 e.target.style.fontWeight = 'normal';
-              }}
+              } : undefined}
             >
               {feature}
             </li>
-          ))}
+          )})}
         </ul>
       </div>
       
@@ -868,11 +904,19 @@ function Apps() {
         justifyContent: 'space-between',
         marginTop: 'auto'
       }}>
-        <span style={{
-          color: '#36ff95',
-          fontSize: '0.99rem',
-          fontWeight: '600'
-        }}>
+        <span 
+          style={{
+            color: '#36ff95',
+            fontSize: '0.99rem',
+            fontWeight: '600',
+            cursor: isMobile ? 'pointer' : 'default',
+            userSelect: 'none'
+          }}
+          onClick={isMobile ? (e) => {
+            e.stopPropagation();
+            window.open(app.link, '_blank');
+          } : undefined}
+        >
           Click to visit →
         </span>
         {app.readMoreLink && (
@@ -915,7 +959,8 @@ function Apps() {
         )}
       </div>
     </div>
-  );
+    );
+  };
 
   return (
     <>
@@ -984,7 +1029,7 @@ function Apps() {
         </script>
       </Helmet>
       
-      <div className="hero-section">
+      <div className="hero-section" style={isMobile ? { padding: '0 20px' } : {}}>
         <h1 className="hero-headline">AI Apps Directory</h1>
         <p className="hero-subheadline custom-hero-desc">
           Discover the best AI applications: free tools, trial versions, and premium paid solutions
@@ -1745,7 +1790,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         </script>
       </Helmet>
       
-      <div className="hero-section">
+      <div className="hero-section" style={isMobile ? { padding: '0 20px' } : {}}>
         <h1 className="hero-headline">Discover & Share The Best AI Bots & Tools</h1>
         <p className="hero-subheadline custom-hero-desc">
           Find AI Bots to help improve workflow and improve your skills!
@@ -2900,7 +2945,7 @@ function App() {
     <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
       <PlausibleAnalytics />
       <GoogleAnalytics />
-      {/* Scrolling Disclaimer Ticker - At the very top */}
+      {/* Scrolling Disclaimer Ticker - At the very top, above everything, always running */}
       {(location.pathname === '/' || location.pathname === '/apps' || location.pathname.startsWith('/learn') || location.pathname.startsWith('/news')) && (
         <div style={{
           position: 'relative',
@@ -2910,7 +2955,9 @@ function App() {
           overflow: 'hidden',
           whiteSpace: 'nowrap',
           padding: '12px 0',
-          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+          zIndex: 1001,
+          display: 'block'
         }}>
           <div className="ticker-container" style={{
             display: 'inline-block',

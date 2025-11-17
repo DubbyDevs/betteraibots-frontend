@@ -6,10 +6,40 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 function ShareButtons({ url, title }) {
+  // Always use the article URL for sharing, never affiliate links
+  const getArticleUrl = () => {
+    return `${window.location.origin}/learn/${window.location.pathname.split('/').pop()}`;
+  };
+  const articleUrl = getArticleUrl();
+  
+  // Clean title for sharing - remove domain suffixes to prevent Twitter from detecting them as URLs
+  const cleanTitleForSharing = (text) => {
+    return text
+      .replace(/VEED\.io/gi, 'VEED')
+      .replace(/Reply\.io/gi, 'Reply AI')
+      .replace(/Apollo\.io/gi, 'Apollo')
+      .replace(/Capsule CRM/gi, 'Capsule')
+      .replace(/MRPeasy/gi, 'MRPeasy')
+      .replace(/Murf\.ai/gi, 'Murf AI')
+      .replace(/AiSDR/gi, 'AiSDR')
+      .replace(/Miro/gi, 'Miro')
+      .replace(/Lindy\.ai/gi, 'Lindy AI')
+      .replace(/Viral Launch/gi, 'Viral Launch')
+      .replace(/Alli AI/gi, 'Alli AI')
+      .replace(/AdCreative AI/gi, 'AdCreative')
+      .replace(/Flowith\.io/gi, 'Flowith')
+      .replace(/ScholarGPT/gi, 'ScholarGPT')
+      .replace(/Brevo/gi, 'Brevo')
+      // Generic patterns to catch any remaining .io, .ai, .com suffixes in product names
+      .replace(/(\w+)\.io/gi, '$1')
+      .replace(/(\w+)\.ai/gi, '$1 AI')
+      .replace(/(\w+)\.com/gi, '$1');
+  };
+  const cleanTitle = cleanTitleForSharing(title);
+  
   // Copy link handler with quick popup
   const handleCopy = () => {
     // Always copy the article URL, not affiliate links
-    const articleUrl = `${window.location.origin}/learn/${window.location.pathname.split('/').pop()}`;
     navigator.clipboard.writeText(articleUrl);
     
     // Create and show quick "Copied" popup
@@ -53,24 +83,24 @@ function ShareButtons({ url, title }) {
   return (
     <div style={{ display: "flex", gap: 16, marginBottom: 18 }}>
       {/* Twitter */}
-      <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title.replace('Apollo.io', 'Apollo') + ' ' + url)}`}
+      <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(cleanTitle + '\n\n' + articleUrl)}&url=${encodeURIComponent(articleUrl)}`}
         target="_blank" rel="noopener noreferrer" title="Share on Twitter"
         style={{ color: "#1da1f2", ...iconStyle }}>
         <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M22.46 5.93c-.8.36-1.66.62-2.56.73a4.5 4.5 0 0 0 1.97-2.49 9.1 9.1 0 0 1-2.86 1.1A4.52 4.52 0 0 0 16.16 4a4.52 4.52 0 0 0-4.5 4.5c0 .35.04.7.1 1.02A12.82 12.82 0 0 1 3.13 4.67a4.51 4.51 0 0 0-.61 2.28c0 1.57.8 2.96 2.03 3.77a4.5 4.5 0 0 1-2.04-.56v.05c0 2.19 1.56 4.03 3.64 4.45a4.53 4.53 0 0 1-2.03.08c.57 1.78 2.23 3.09 4.2 3.12A9.06 9.06 0 0 1 2 19.54a12.79 12.79 0 0 0 6.94 2.03c8.33 0 12.89-6.89 12.89-12.89 0-.2 0-.41-.01-.61.88-.64 1.65-1.44 2.26-2.35z"/></svg>
       </a>
       {/* Facebook */}
-      <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
+      <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`}
         target="_blank" rel="noopener noreferrer" title="Share on Facebook"
         style={{ color: "#4267B2", ...iconStyle }}>
         <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
       </a>
       {/* SMS */}
-      <a href={`sms:?body=${encodeURIComponent(title + ' ' + url)}`}
+      <a href={`sms:?body=${encodeURIComponent(cleanTitle + '\n\n' + articleUrl)}`}
         title="Share via SMS" style={{ color: "#25d366", ...iconStyle }}>
         <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4C2.897 2 2 2.897 2 4v14c0 1.103.897 2 2 2h14l4 4V4c0-1.103-.897-2-2-2zm0 15.172L18.828 16H4V4h16v13.172z"/></svg>
       </a>
       {/* Email */}
-      <a href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`}
+      <a href={`mailto:?subject=${encodeURIComponent(cleanTitle)}&body=${encodeURIComponent(cleanTitle + '\n\n' + articleUrl)}`}
         title="Share via Email" style={{ color: "#ea4335", ...iconStyle }}>
         <svg height={iconSize} width={iconSize} viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 7 8-7V20H4z"/></svg>
       </a>
@@ -161,10 +191,8 @@ export default function ArticlePage() {
   }
 
       const pageUrl = `${window.location.origin}/learn/${article.id}`;
-      const shareAffiliateMap = {
-        'apollo-io': 'https://get.apollo.io/BAIB'
-      };
-      const shareUrl = shareAffiliateMap[article.id] || pageUrl;
+      // Always use the article URL for sharing, not affiliate links
+      const shareUrl = pageUrl;
   const images = article.images || [];
 
   // Utility to highlight speakers in any strong/bold text
@@ -193,15 +221,7 @@ export default function ArticlePage() {
   };
 
   return (
-    <div style={{
-      maxWidth: 800,
-      margin: "0 auto",
-      padding: "0 12px",
-      fontSize: "1.08rem",
-      color: "#e9f7ee",
-      lineHeight: 1.8,
-      fontFamily: "inherit"
-    }}>
+    <>
       <Helmet>
         <title>{article.title} – BetterAiBots.com</title>
         <meta name="description" content={article.preview} />
@@ -408,25 +428,16 @@ export default function ArticlePage() {
           })}
         </script>
       </Helmet>
-      {/* Site Disclaimer */}
+      
       <div style={{
-        background: "rgba(255, 0, 0, 0.1)",
-        border: "1px solid rgba(255, 0, 0, 0.3)",
-        borderRadius: "8px",
-        padding: "12px 16px",
-        margin: "0 0 24px 0",
-        textAlign: "center"
+        maxWidth: 800,
+        margin: "0 auto",
+        padding: "0 12px",
+        fontSize: "1.08rem",
+        color: "#e9f7ee",
+        lineHeight: 1.8,
+        fontFamily: "inherit"
       }}>
-        <p style={{
-          color: "#ff6b6b",
-          fontSize: "0.9rem",
-          fontWeight: "600",
-          margin: 0,
-          lineHeight: 1.4
-        }}>
-          🔴 This site includes affiliate links and does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.
-        </p>
-      </div>
       <div style={{ display: "flex", gap: 16, marginBottom: 18, alignItems: "center" }}>
         <ShareButtons url={shareUrl} title={article.title} />
         {/* Open GPT Button for specific articles (top, small) */}
@@ -1439,6 +1450,7 @@ export default function ArticlePage() {
       <div style={{ display: "flex", justifyContent: "center", margin: "32px 0 0 0" }}>
         <ShareButtons url={shareUrl} title={article.title} />
       </div>
-    </div>
+      </div>
+    </>
   );
 }

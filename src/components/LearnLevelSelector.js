@@ -973,19 +973,24 @@ const LearnLevelSelector = () => {
                >
                  <div style={{
                    display: "flex",
-                   alignItems: "stretch"
+                   flexDirection: isMobile ? "column" : "row",
+                   alignItems: isMobile ? "stretch" : "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                     flex: isMobile ? "none" : "0 0 200px",
+                     width: isMobile ? "100%" : "auto",
+                     height: isMobile ? "auto" : "200px",
+                     minHeight: isMobile ? "200px" : "auto",
                      position: "relative",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)"
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
+                     borderTopLeftRadius: isMobile ? "14px" : "8px",
+                     borderTopRightRadius: isMobile ? "14px" : "8px"
                    }}>
                      <img
                        src="/veedreview.png"
@@ -994,7 +999,7 @@ const LearnLevelSelector = () => {
                          maxWidth: "95%",
                          maxHeight: "95%",
                          objectFit: "contain",
-                         transform: "scale(1.2)"
+                         transform: isMobile ? "scale(1)" : "scale(1.2)"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1145,19 +1150,24 @@ const LearnLevelSelector = () => {
                >
                  <div style={{
                    display: "flex",
-                   alignItems: "stretch"
+                   flexDirection: isMobile ? "column" : "row",
+                   alignItems: isMobile ? "stretch" : "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                     flex: isMobile ? "none" : "0 0 200px",
+                     width: isMobile ? "100%" : "auto",
+                     height: isMobile ? "auto" : "200px",
+                     minHeight: isMobile ? "200px" : "auto",
                      position: "relative",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)"
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
+                     borderTopLeftRadius: isMobile ? "14px" : "8px",
+                     borderTopRightRadius: isMobile ? "14px" : "8px"
                    }}>
                      <img
                        src="/replyio.png"
@@ -1316,19 +1326,24 @@ const LearnLevelSelector = () => {
                >
                  <div style={{
                    display: "flex",
-                   alignItems: "stretch"
+                   flexDirection: isMobile ? "column" : "row",
+                   alignItems: isMobile ? "stretch" : "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                     flex: isMobile ? "none" : "0 0 200px",
+                     width: isMobile ? "100%" : "auto",
+                     height: isMobile ? "auto" : "200px",
+                     minHeight: isMobile ? "200px" : "auto",
                      position: "relative",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)"
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
+                     borderTopLeftRadius: isMobile ? "14px" : "8px",
+                     borderTopRightRadius: isMobile ? "14px" : "8px"
                    }}>
                      <img
                        src="/aisdr.png"
@@ -1487,19 +1502,24 @@ const LearnLevelSelector = () => {
                >
                  <div style={{
                    display: "flex",
-                   alignItems: "stretch"
+                   flexDirection: isMobile ? "column" : "row",
+                   alignItems: isMobile ? "stretch" : "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                     flex: isMobile ? "none" : "0 0 200px",
+                     width: isMobile ? "100%" : "auto",
+                     height: isMobile ? "auto" : "200px",
+                     minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
-                     position: "relative"
+                     position: "relative",
+                     borderTopLeftRadius: isMobile ? "14px" : "8px",
+                     borderTopRightRadius: isMobile ? "14px" : "8px"
                    }}>
                      <img
                        src="/miro.png"
@@ -1658,19 +1678,24 @@ const LearnLevelSelector = () => {
                >
                                    <div style={{
                     display: "flex",
-                    alignItems: "stretch"
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                      flex: isMobile ? "none" : "0 0 200px",
+                      width: isMobile ? "100%" : "auto",
+                      height: isMobile ? "auto" : "200px",
+                      minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
+                      borderTopLeftRadius: isMobile ? "14px" : "8px",
+                      borderTopRightRadius: isMobile ? "14px" : "8px"
                     }}>
                                                                                         <img
                        src="/capsulecrm.png"
@@ -1829,19 +1854,24 @@ const LearnLevelSelector = () => {
                >
                  <div style={{
                    display: "flex",
-                   alignItems: "stretch"
+                   flexDirection: isMobile ? "column" : "row",
+                   alignItems: isMobile ? "stretch" : "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                     flex: isMobile ? "none" : "0 0 200px",
+                     width: isMobile ? "100%" : "auto",
+                     height: isMobile ? "auto" : "200px",
+                     minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
-                     position: "relative"
+                     position: "relative",
+                     borderTopLeftRadius: isMobile ? "14px" : "8px",
+                     borderTopRightRadius: isMobile ? "14px" : "8px"
                    }}>
                      <img
                        src="/mrpeasy.png"
@@ -2000,19 +2030,24 @@ const LearnLevelSelector = () => {
                >
                  <div style={{
                    display: "flex",
-                   alignItems: "stretch"
+                   flexDirection: isMobile ? "column" : "row",
+                   alignItems: isMobile ? "stretch" : "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                     flex: isMobile ? "none" : "0 0 200px",
+                     width: isMobile ? "100%" : "auto",
+                     height: isMobile ? "auto" : "200px",
+                     minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
-                     position: "relative"
+                     position: "relative",
+                     borderTopLeftRadius: isMobile ? "14px" : "8px",
+                     borderTopRightRadius: isMobile ? "14px" : "8px"
                    }}>
                      <img
                        src="/murfai.png"
@@ -2171,19 +2206,24 @@ const LearnLevelSelector = () => {
                >
                                    <div style={{
                     display: "flex",
-                    alignItems: "stretch"
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                      flex: isMobile ? "none" : "0 0 200px",
+                      width: isMobile ? "100%" : "auto",
+                      height: isMobile ? "auto" : "200px",
+                      minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
+                      borderTopLeftRadius: isMobile ? "14px" : "8px",
+                      borderTopRightRadius: isMobile ? "14px" : "8px"
                     }}>
                                                                                         <img
                           src="/lindy.png"
@@ -2342,19 +2382,24 @@ const LearnLevelSelector = () => {
                >
                                    <div style={{
                     display: "flex",
-                    alignItems: "stretch"
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                      flex: isMobile ? "none" : "0 0 200px",
+                      width: isMobile ? "100%" : "auto",
+                      height: isMobile ? "auto" : "200px",
+                      minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
+                      borderTopLeftRadius: isMobile ? "14px" : "8px",
+                      borderTopRightRadius: isMobile ? "14px" : "8px"
                     }}>
                                                                                         <img
                           src="/virallaunch.png"
@@ -2513,19 +2558,24 @@ const LearnLevelSelector = () => {
                >
                                    <div style={{
                     display: "flex",
-                    alignItems: "stretch"
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                      flex: isMobile ? "none" : "0 0 200px",
+                      width: isMobile ? "100%" : "auto",
+                      height: isMobile ? "auto" : "200px",
+                      minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
+                      borderTopLeftRadius: isMobile ? "14px" : "8px",
+                      borderTopRightRadius: isMobile ? "14px" : "8px"
                     }}>
                                                                                         <img
                           src={require("../assets/apolloailogo.webp")}
@@ -2684,19 +2734,24 @@ const LearnLevelSelector = () => {
                >
                  <div style={{
                    display: "flex",
-                   alignItems: "stretch"
+                   flexDirection: isMobile ? "column" : "row",
+                   alignItems: isMobile ? "stretch" : "stretch"
                  }}>
                    <div style={{
-                     flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                     flex: isMobile ? "none" : "0 0 200px",
+                     width: isMobile ? "100%" : "auto",
+                     height: isMobile ? "auto" : "200px",
+                     minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
-                     position: "relative"
+                     position: "relative",
+                     borderTopLeftRadius: isMobile ? "14px" : "8px",
+                     borderTopRightRadius: isMobile ? "14px" : "8px"
                    }}>
                      <img
                        src="/alliai.png"
@@ -2855,19 +2910,24 @@ const LearnLevelSelector = () => {
                >
                                    <div style={{
                     display: "flex",
-                    alignItems: "stretch"
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                      flex: isMobile ? "none" : "0 0 200px",
+                      width: isMobile ? "100%" : "auto",
+                      height: isMobile ? "auto" : "200px",
+                      minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
+                      borderTopLeftRadius: isMobile ? "14px" : "8px",
+                      borderTopRightRadius: isMobile ? "14px" : "8px"
                     }}>
                                                                                         <img
                            src={require("../assets/adcreativeaitrial.png")}
@@ -3026,19 +3086,24 @@ const LearnLevelSelector = () => {
                >
                                    <div style={{
                     display: "flex",
-                    alignItems: "stretch"
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                      flex: isMobile ? "none" : "0 0 200px",
+                      width: isMobile ? "100%" : "auto",
+                      height: isMobile ? "auto" : "200px",
+                      minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
+                      borderTopLeftRadius: isMobile ? "14px" : "8px",
+                      borderTopRightRadius: isMobile ? "14px" : "8px"
                     }}>
                                                                                                                                                                                 <img
                         src="/flowith.jpg"
@@ -3143,19 +3208,24 @@ const LearnLevelSelector = () => {
                 >
                   <div style={{
                     display: "flex",
-                    alignItems: "stretch"
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                      flex: isMobile ? "none" : "0 0 200px",
+                      width: isMobile ? "100%" : "auto",
+                      height: isMobile ? "auto" : "200px",
+                      minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
+                      borderTopLeftRadius: isMobile ? "14px" : "8px",
+                      borderTopRightRadius: isMobile ? "14px" : "8px"
                     }}>
                       <img
                         src="/scholargpt.jpg"
@@ -3260,19 +3330,24 @@ const LearnLevelSelector = () => {
                 >
                   <div style={{
                     display: "flex",
-                    alignItems: "stretch"
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "stretch"
                   }}>
                     <div style={{
-                      flex: isMobile ? "0 0 120px" : "0 0 200px",
-                     height: isMobile ? "120px" : "200px",
+                      flex: isMobile ? "none" : "0 0 200px",
+                      width: isMobile ? "100%" : "auto",
+                      height: isMobile ? "auto" : "200px",
+                      minHeight: isMobile ? "200px" : "auto",
                      display: "flex",
                      alignItems: "center",
                      justifyContent: "center",
                      backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: "8px",
-                     margin: "20px",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
                      border: "1px solid rgba(54, 255, 149, 0.2)",
                       position: "relative",
+                      borderTopLeftRadius: isMobile ? "14px" : "8px",
+                      borderTopRightRadius: isMobile ? "14px" : "8px"
                     }}>
                       <img
                         src="/brevologo.png"
