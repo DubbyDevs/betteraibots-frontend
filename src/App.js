@@ -349,7 +349,7 @@ const PAID_APPS = [
     price: "$20-$50/month",
     link: "https://n8n.partnerlinks.io/wjt1744jflsx",
     image: "https://betteraibots.com/assets/n8n-logo.png",
-    readMoreLink: "http://localhost:3000/news/n8n-revolution-business-automation-2025"
+    readMoreLink: "/news/n8n-revolution-business-automation-2025"
   },
   {
     name: "Viral Launch AI",
@@ -787,7 +787,13 @@ function Apps() {
       flexDirection: 'column',
       height: '100%',
       minHeight: '400px'
-    }} onClick={!isMobile ? () => window.open(app.link, '_blank') : undefined}>
+    }} onClick={!isMobile ? (e) => {
+      // Don't open affiliate link if clicking on "Read More" link
+      if (e.target.closest('a[href]')) {
+        return;
+      }
+      window.open(app.link, '_blank');
+    } : undefined}>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '16px' }}>
         <div style={{
           width: '60px',
@@ -932,6 +938,7 @@ function Apps() {
             state={{ from: '/apps' }}
             onClick={(e) => {
               e.stopPropagation();
+              e.nativeEvent.stopImmediatePropagation();
               // Store referrer in sessionStorage as backup
               sessionStorage.setItem('articleFromPage', '/apps');
             }}
@@ -944,7 +951,9 @@ function Apps() {
               borderRadius: '8px',
               background: 'rgba(139, 92, 246, 0.1)',
               border: '1px solid rgba(139, 92, 246, 0.5)',
-              transition: 'all 0.2s ease'
+              transition: 'all 0.2s ease',
+              position: 'relative',
+              zIndex: 10
             }}
             onMouseEnter={(e) => {
               e.target.style.background = 'rgba(54, 255, 149, 0.2)';
