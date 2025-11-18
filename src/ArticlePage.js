@@ -194,6 +194,146 @@ export default function ArticlePage() {
       // Always use the article URL for sharing, not affiliate links
       const shareUrl = pageUrl;
   const images = article.images || [];
+  // Prioritize article cover image (used for paid apps), fallback to images array
+  const primaryImage = article.cover || images[0];
+  // Get secondary images (all images except the first one, or all if using cover)
+  // When using cover, exclude the cover image from secondary images if it's also in the images array
+  const secondaryImages = article.cover 
+    ? images.filter(img => img !== article.cover && img !== images[0])
+    : images.slice(1);
+  
+  // Mapping of article IDs to their affiliate links
+  const affiliateLinks = {
+    "bebop-ai": "https://try.bebop.ai/o004cood3aod",
+    "pipes-ai": "https://try.pipes.ai/hmqj0m3am6un",
+    "runpod": "https://get.runpod.io/w3na2cm4xdjp",
+    "seosparkplug": "https://seosparkplug.com",
+    "brevo-complete-guide": "https://get.brevo.com/um9xszmf3nfd",
+    "aisdr-complete-guide": "https://partner.aisdr.com/5fxea2u5m85d",
+    "adcreative-ai": "https://free-trial.adcreative.ai/0dkpoiajb7o2",
+    "alli-ai": "https://try.alliai.com/0guepbqpqhsf",
+    "apollo-io": "https://get.apollo.io/BAIB",
+    "blackbox-ai": "https://blackboxai.partnerlinks.io/BAIB",
+    "capsule-crm-complete-guide": "https://capsulecrm.com/signup/?ref=betteraibots",
+    "flowith-io": "https://aff.flowith.io/52dtlja1b580",
+    "hume-ai": "https://try.hume.ai/BAIB",
+    "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
+    "lindy-ai": "https://try.lindy.ai/lhgvxfidor04",
+    "lusha": "https://partnerstack.lusha.com/w61xn76pa3sr",
+    "miro-complete-guide": "https://ps.miro-affiliate.com/gwnvu4zj3r8r",
+    "mrpeasy-complete-guide": "https://try.mrpeasy.com/m72w6bztymwh",
+    "murf-ai-complete-guide": "https://get.murf.ai/i5n7gfvz5cbw",
+    "reply-io-complete-guide": "https://get.reply.io/ub7edypmq2gj",
+    "thordata": "https://affiliate.thordata.com/BAIB",
+    "tidio-ai": "https://affiliate.tidio.com/BAIB",
+    "veed-complete-guide": "https://veed.cello.so/rwFO6zwGZh9",
+    "webydo": "https://partners.webydo.com/BAIB",
+    "wispr-flow-complete-guide": "https://wisprflow.ai/downloads?referral=KING16",
+    "catalister": "https://join.catalister.com/BAIB",
+    "castmagic": "https://get.castmagic.io/qdu0jfhfcurv",
+    "viral-launch": "https://affiliate.viral-launch.com/BAIB",
+    "anybiz": "https://anybiz.io/?fpr=ai4n56",
+    "megahr": "https://try.megahr.com/BAIB",
+    "airia": "https://try.airia.com/BAIB"
+  };
+  
+  const affiliateLink = affiliateLinks[article.id] || null;
+  
+  // Function to split content roughly in half for inserting secondary images
+  const splitContentForSecondaryImages = (content) => {
+    if (!content || secondaryImages.length === 0) {
+      return { firstHalf: content, secondHalf: '' };
+    }
+    
+    // Split by double newlines (paragraphs)
+    const paragraphs = content.split(/\n\n+/);
+    const midPoint = Math.floor(paragraphs.length / 2);
+    
+    // Try to find a heading near the midpoint for a cleaner split
+    let splitIndex = midPoint;
+    for (let i = midPoint; i < paragraphs.length && i < midPoint + 3; i++) {
+      if (paragraphs[i].trim().startsWith('##')) {
+        splitIndex = i;
+        break;
+      }
+    }
+    
+    const firstHalf = paragraphs.slice(0, splitIndex).join('\n\n');
+    const secondHalf = paragraphs.slice(splitIndex).join('\n\n');
+    
+    return { firstHalf, secondHalf };
+  };
+  
+  const { firstHalf, secondHalf } = splitContentForSecondaryImages(article.content);
+
+  // Shared markdown components for rendering article content
+  const markdownComponents = {
+    h2: ScholarGPTHeading,
+    h3: ({ node, children, ...props }) => {
+      const extractTextFromChildren = (children) => {
+        if (typeof children === 'string') {
+          return children;
+        }
+        if (Array.isArray(children)) {
+          return children.map(child => {
+            if (typeof child === 'string') {
+              return child;
+            }
+            if (child && typeof child === 'object' && child.props && child.props.children) {
+              return extractTextFromChildren(child.props.children);
+            }
+            return '';
+          }).join('');
+        }
+        if (children && typeof children === 'object' && children.props && children.props.children) {
+          return extractTextFromChildren(children.props.children);
+        }
+        return '';
+      };
+      const headingText = extractTextFromChildren(children);
+      const headingId = generateHeadingId(headingText);
+      return (
+        <h3 {...props} id={headingId} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
+      );
+    },
+    p: ({ children }) => <p>{children}</p>,
+    strong: ({ children, ...props }) => highlightSpeakers(children),
+    ul: ({ children, ...props }) => (
+      <ul style={{ paddingLeft: 20, margin: '16px 0' }}>{children}</ul>
+    ),
+    ol: ({ children, ...props }) => (
+      <ol style={{ paddingLeft: 20, margin: '16px 0' }}>{children}</ol>
+    ),
+    li: ({ children, ...props }) => (
+      <li style={{ marginBottom: 8, display: 'block' }}>{children}</li>
+    ),
+    img: () => null,
+    a: ({ href, children, ...props }) => {
+      if (href && href.startsWith('#')) {
+        return (
+          <a
+            href={href}
+            onClick={(e) => {
+              e.preventDefault();
+              const targetId = href.substring(1);
+              const targetElement = document.getElementById(targetId);
+              if (targetElement) {
+                targetElement.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }}
+            style={{ color: '#36ff95', textDecoration: 'underline', cursor: 'pointer' }}
+            {...props}
+          >
+            {children}
+          </a>
+        );
+      }
+      return <a href={href} style={{ color: '#36ff95', textDecoration: 'underline' }} {...props}>{children}</a>;
+    }
+  };
 
   // Utility to highlight speakers in any strong/bold text
   const highlightSpeakers = (children) => {
@@ -265,7 +405,7 @@ export default function ArticlePage() {
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2"
           };
-          return ogImageMap[article.id] || images[0] || article.cover;
+          return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="article" />
@@ -308,7 +448,7 @@ export default function ArticlePage() {
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2"
           };
-          return ogImageMap[article.id] || images[0] || article.cover;
+          return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
         <meta name="article:published_time" content={article.date} />
         <meta name="article:author" content="BetterAiBots" />
@@ -394,7 +534,7 @@ export default function ArticlePage() {
                 "megahr": "https://betteraibots.com/megahr.jpg?v=2",
                 "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2"
               };
-              return ogImageMap[article.id] || images[0] || article.cover;
+              return ogImageMap[article.id] || primaryImage || article.cover;
             })(),
             "author": {
               "@type": "Organization",
@@ -499,7 +639,7 @@ export default function ArticlePage() {
         })()}
       </div>
       {/* Top Image */}
-      {images[0] && (
+      {primaryImage && (
         article.id === "seosparkplug" ? (
           <a 
             href="https://seosparkplug.com" 
@@ -511,14 +651,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -542,14 +682,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -573,14 +713,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -604,14 +744,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -635,14 +775,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -666,14 +806,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -697,14 +837,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -728,14 +868,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -750,7 +890,7 @@ export default function ArticlePage() {
           </a>
         ) : article.id === "bebop-ai" ? (
           <a 
-            href="https://try.bebop.ai/BAIB" 
+            href="https://try.bebop.ai/o004cood3aod" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
@@ -759,14 +899,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -790,14 +930,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -821,14 +961,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -852,14 +992,14 @@ export default function ArticlePage() {
               textDecoration: "none"
             }}
           >
-            <img src={images[0]} alt="" style={{
-              width: "100%",
+            <img src={primaryImage} alt="" style={{
               maxWidth: "600px",
+              width: "auto",
               height: "auto",
               borderRadius: 16,
               margin: "0 0 24px 0",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               transition: "transform 0.2s ease, box-shadow 0.2s ease"
             }} 
             onMouseEnter={(e) => {
@@ -873,14 +1013,14 @@ export default function ArticlePage() {
             />
           </a>
         ) : (
-          <img src={images[0]} alt="" style={{
-            width: "200px",
-            height: "200px",
-            maxWidth: "100%",
+          <img src={primaryImage} alt="" style={{
+            maxWidth: "600px",
+            width: "auto",
+            height: "auto",
             borderRadius: 16,
             margin: "0 0 24px 0",
             display: "block",
-            objectFit: "cover"
+            objectFit: "contain"
           }} />
         )
       )}
@@ -905,9 +1045,10 @@ export default function ArticlePage() {
         maxWidth: 700
       }}>{article.preview}</p>
       {typeof article.content === "string" ? (
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
+        <>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
             h2: ScholarGPTHeading,
             h3: ({ node, children, ...props }) => {
               // Extract text content from children, handling both strings and React elements
@@ -1356,8 +1497,80 @@ export default function ArticlePage() {
             ),
           }}
         >
-          {article.content}
+          {secondaryImages.length > 0 ? firstHalf : article.content}
         </ReactMarkdown>
+        {secondaryImages.length > 0 && (
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '24px',
+            margin: '40px 0',
+            alignItems: 'center'
+          }}>
+            {secondaryImages.map((imgSrc, idx) => (
+              affiliateLink ? (
+                <a
+                  key={idx}
+                  href={affiliateLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'block',
+                    cursor: 'pointer',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <img 
+                    src={imgSrc} 
+                    alt="" 
+                    style={{
+                      width: "100%",
+                      maxWidth: "600px",
+                      height: "auto",
+                      borderRadius: 16,
+                      display: "block",
+                      objectFit: "cover",
+                      boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)",
+                      transition: "transform 0.2s ease, box-shadow 0.2s ease"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = "scale(1.02)";
+                      e.target.style.boxShadow = "0 6px 24px rgba(54, 255, 149, 0.3)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = "scale(1)";
+                      e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
+                    }}
+                  />
+                </a>
+              ) : (
+                <img 
+                  key={idx}
+                  src={imgSrc} 
+                  alt="" 
+                  style={{
+                    width: "100%",
+                    maxWidth: "600px",
+                    height: "auto",
+                    borderRadius: 16,
+                    display: "block",
+                    objectFit: "cover",
+                    boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)"
+                  }} 
+                />
+              )
+            ))}
+          </div>
+        )}
+        {secondaryImages.length > 0 && secondHalf && (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={markdownComponents}
+          >
+            {secondHalf}
+          </ReactMarkdown>
+        )}
+        </>
       ) : (
         article.content
       )}

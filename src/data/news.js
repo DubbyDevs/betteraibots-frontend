@@ -2016,6 +2016,12 @@ export const newsArticles = [
             <p><em>Join 35,000+ businesses already using Warmy.io</em></p>
         </div>
         
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="https://warmyio.partnerlinks.io/ffy5y6ll9374" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
+                <img src="/warmyai2.jpg" alt="Warmy.io Email Deliverability" style="max-width: 600px; width: 100%; height: auto; border-radius: 16px; display: block; margin: 0 auto; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 6px 24px rgba(54, 255, 149, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(54, 255, 149, 0.2)';" />
+            </a>
+        </div>
+        
         <h2>The "How to Not Mess This Up" Masterclass</h2>
         
         <p><strong>Alright, so you're convinced that email warm-up is the missing piece</strong> of your marketing puzzle (which it probably is), but like any powerful tool, Warmy.io works best when you understand the optimal way to wield it. Let me share the insider secrets that separate the email marketing heroes from the spam folder casualties.</p>

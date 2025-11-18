@@ -12,8 +12,37 @@ import cheatCoderImg from "./assets/cheatcoder.webp";
 import cheatCoderLogo from "./assets/cheatcoderlogo.webp";
 import apolloLogo from "./assets/apolloailogo.webp";
 import adcreativeaitrial from "./assets/adcreativeaitrial.png";
+import adcreativeai2 from "./assets/adcreativeai2.jpg";
+import brevo2 from "./assets/brevo2.jpg";
+import aisdr2 from "./assets/aisdr2.jpg";
+import apolloai2 from "./assets/apolloai2.jpg";
+import blackboxai2 from "./assets/blackboxai2.jpg";
+import capsuleai2 from "./assets/capsuleai2.jpg";
+import flowith2 from "./assets/flowith2.jpg";
+import hume2 from "./assets/hume2.jpg";
+import invideo2 from "./assets/invideo2.jpg";
+import lindyai from "./assets/lindyai.jpg";
+import lushaai from "./assets/lushaai.jpg";
+import miroai2 from "./assets/miroai2.jpg";
+import mrpeasy2ai from "./assets/mrpeasy2ai.jpg";
+import murf2 from "./assets/murf2.jpg";
+import replyio from "./assets/replyio.jpg";
+import thordata3 from "./assets/thordata3.jpg";
+import tidio2 from "./assets/tidio2.jpg";
+import veed2 from "./assets/veed2.jpg";
+import webydo2 from "./assets/webydo2.jpg";
+import wisprflow from "./assets/wisprflow.jpg";
+import bebop2 from "./assets/bebop2.jpg";
+import freeseotools from "./assets/freeseotools.jpg";
+import runpodai2 from "./assets/runpodai2.jpg";
+import alliai2 from "./assets/alliai2.jpg";
+import virallaunch2 from "./assets/virallaunch2.jpg";
+import castmagic2 from "./assets/castmagic2.jpg";
 import pipesai from "./assets/pipesai.webp";
 import anybiz from "./assets/anybiz.webp";
+import anybizio from "./assets/anybizio.jpg";
+import megahr from "./assets/megahr.webp";
+import megahr2 from "./assets/megahr2.jpg";
 import catalisterai from "./assets/catalisterai.webp";
 import castmagicai from "./assets/castmagicai.webp";
 import runpod from "./assets/runpod.webp";
@@ -23,6 +52,7 @@ import tidioai from "./assets/tidioai.webp";
 import humeai from "./assets/humeai.webp";
 import blackboxai from "./assets/blackboxai.webp";
 import airiaai from "./assets/airiaai.webp";
+import airiaai2 from "./assets/airiaai2.jpg";
 import bebopai from "./assets/bebopai.webp";
 
 const paintindetifierai = "/paintindetifierai.webp";
@@ -36,7 +66,7 @@ export const articles = [
     date: "October 2025",
     cover: "/veedreview.png",
     preview: "Need to edit videos fast without downloading bulky software? VEED.io is a browser-based video editor that's helping content creators, marketers, and businesses create professional videos in minutes.",
-    images: ["/veedreview.png"],
+    images: ["/veedreview.png", veed2],
     content: `
 ## What is [VEED.io](https://veed.cello.so/rwFO6zwGZh9)?
 
@@ -244,7 +274,7 @@ If you're creating videos for social media, marketing, or education and want to 
     date: "October 2025",
     cover: "/aisdr.png",
     preview: "Discover how AiSDR's AI-powered sales development platform is transforming how modern sales teams approach pipeline generation, with 10-minute response times and personalized outreach at scale.",
-    images: ["/aisdr.png"],
+    images: ["/aisdr.png", aisdr2],
     content: `
 Marcus had been a sales director for eight years. He'd seen his team grind through thousands of cold emails, watched talented SDRs burn out from the endless cycle of prospecting and follow-ups, and felt the constant pressure of quarterly quotas breathing down his neck. But last Tuesday changed everything.
 
@@ -363,7 +393,7 @@ Your competitors are already exploring AI sales solutions. The only question is:
     date: "October 2025",
     cover: "/replyio.png",
     preview: "Discover how Reply.io's AI-powered sales engagement platform is transforming outbound sales with multichannel automation, AI SDR agents, and built-in B2B database for over 3,000 companies worldwide.",
-    images: ["/replyio.png"],
+    images: ["/replyio.png", replyio],
     content: `
 Are you spending countless hours manually sending cold emails and following up with prospects? What if there was a way to automate your entire sales outreach process while actually improving your results? That's exactly what Reply.io promises to deliver.
 
@@ -1208,7 +1238,7 @@ Remember: The platform is only as good as how you use it. Invest time in learnin
     date: "September 2025",
     cover: "/miro.png",
     preview: "Discover how Miro's visual collaboration platform is revolutionizing team work with infinite canvas, real-time collaboration, and AI-powered features for over 100 million users worldwide.",
-    images: ["/miro.png"],
+    images: ["/miro.png", miroai2],
     content: `
 In today's distributed work environment, where teams are scattered across time zones and physical collaboration feels increasingly rare, the need for effective visual collaboration tools has never been more critical. Enter Miro—the innovation workspace that's revolutionizing how over 100 million users from around the world brainstorm, design, plan, and build the future together.
 
@@ -1965,7 +1995,7 @@ Visit Miro.com today and discover why teams around the world trust Miro as their
     date: "September 2025",
     cover: "/capsulecrm.png",
     preview: "Discover how Capsule CRM's intuitive design and powerful automation features help growing businesses manage customer relationships without the complexity of enterprise solutions.",
-    images: ["/capsulecrm.png"],
+    images: ["/capsulecrm.png", capsuleai2],
     content: `
 Sarah stared at her growing client list with a mix of excitement and dread. Her consulting business had tripled in the past year, but her current system of sticky notes, Excel spreadsheets, and scattered email threads was starting to crack under the pressure. She needed something that could grow with her business—powerful enough to handle complex sales processes but simple enough that she could actually use it without a computer science degree.
 
@@ -2203,7 +2233,7 @@ Ready to transform your customer relationship management? [Start your free trial
     date: "September 2025",
     cover: "/mrpeasy.png",
     preview: "Discover how MRPeasy's cloud-based ERP system helps small manufacturing businesses streamline production, manage inventory, and scale operations efficiently.",
-    images: ["/mrpeasy.png"],
+    images: ["/mrpeasy.png", mrpeasy2ai],
     content: `
 David stared at the chaos in his small manufacturing workshop with growing frustration. His team of 12 employees was producing quality custom furniture, but the business was drowning in paperwork, inventory confusion, and production delays. Orders were getting lost, materials were running out unexpectedly, and customers were growing impatient with delivery times. He knew he needed a proper system to manage his manufacturing operations, but enterprise ERP solutions like SAP or Oracle were far beyond his budget and complexity needs.
 
@@ -2447,7 +2477,7 @@ Ready to transform your manufacturing operations? [Start your free trial of MRPe
     date: "September 2025",
     cover: "/murfai.png",
     preview: "Discover how Murf.ai's AI voice generation platform transforms content creation with ultra-realistic voiceovers, voice cloning, and comprehensive customization tools for creators and businesses.",
-    images: ["/murfai.png"],
+    images: ["/murfai.png", murf2],
     content: `
 In an era where content creation demands are at an all-time high, the need for professional-quality audio has never been greater. Whether you're creating marketing videos, educational content, podcasts, or corporate presentations, the quality of your voiceover can make or break your project's impact. Enter Murf.ai—a groundbreaking AI voice generation platform that's transforming how creators, businesses, and individuals approach audio content production.
 
@@ -3171,7 +3201,7 @@ The future of content creation is here, and it speaks with the voice you choose.
     date: "August 2025",
     cover: "/brevologo.png",
     preview: "Discover how Brevo's AI-powered marketing platform helps businesses of all sizes connect with customers through email, SMS, WhatsApp, and automation workflows.",
-    images: ["/brevologo.png"],
+    images: ["/brevologo.png", brevo2],
     content: `
 # Brevo Complete App Spotlight: The Ultimate All-in-One Marketing Platform Guide
 
@@ -3538,7 +3568,7 @@ Start your journey today with Brevo's free plan, implement the strategies outlin
     date: "August 2025",
     cover: "/lindy.png",
     preview: "Discover how Lindy.ai's AI automation platform helps businesses create custom AI agents without coding, with 6,000+ integrations and 24/7 operation capabilities.",
-    images: ["/lindy.png"],
+    images: ["/lindy.png", lindyai],
     content: `
 **Table of Contents**
 - [What is Lindy.ai?](#what-is-lindyai)
@@ -3898,7 +3928,7 @@ Your competitors are either already using AI automation tools like Lindy.ai or t
     date: "August 2025",
     cover: "/virallaunch.png",
     preview: "Discover how Viral Launch's AI-powered platform has helped over 300,000 businesses drive $34 billion in Amazon sales with data-driven product research and optimization tools.",
-    images: ["/virallaunch.png"],
+    images: ["/virallaunch.png", virallaunch2],
     content: `
 # Viral Launch Review 2025: Complete Amazon Seller Tools Guide (14-Day Free Trial)
 
@@ -4345,7 +4375,7 @@ Because somewhere out there, your next winning product is waiting to be discover
     date: "August 2025",
     cover: apolloLogo,
     preview: "A tale of cold emails, warm responses, and the platform that changed everything. Discover how Apollo.io revolutionized sales prospecting with AI-powered intelligence.",
-    images: [apolloLogo],
+    images: [apolloLogo, apolloai2],
     content: `
 *A tale of cold emails, warm responses, and the platform that changed everything*
 
@@ -4941,7 +4971,7 @@ PaintR is an assistive AI tool and does not guarantee perfect color match under 
     date: "July 2025",
     cover: adcreativeaitrial,
     preview: "",
-    images: [adcreativeaitrial],
+    images: [adcreativeaitrial, adcreativeai2],
     content: `
 ## Discover how AdCreative.ai transforms marketing disasters into million-dollar success stories with AI-powered ad creation.
 
@@ -5104,7 +5134,7 @@ Your future self (and your conversion rates) will thank you. And who knows? You 
     date: "July 2025",
     cover: InVideoAvatar,
     preview: "InVideo AI is revolutionizing video content creation with cutting-edge artificial intelligence, enabling creators, marketers, and businesses to produce professional-quality videos in minutes without technical expertise.",
-    images: [invideofreetrialai],
+    images: [invideofreetrialai, invideo2],
     content: `
 ## 🎬 What is InVideo AI?
 
@@ -5290,7 +5320,7 @@ This review is based on extensive testing and user feedback. InVideo AI is a pow
     date: "July 2025",
     cover: "/flowith.jpg",
     preview: "Your Complete Guide to the Next-Generation AI Workspace That Goes Beyond Traditional Chatbots",
-    images: ["/flowith.jpg"],
+    images: ["/flowith.jpg", flowith2],
     content: `
 # Flowith.io: The Revolutionary AI Canvas That's Changing How We Work with Artificial Intelligence
 
@@ -5706,7 +5736,7 @@ Your next discovery is waiting. The only question is: how quickly do you want to
     date: "June 2025",
     cover: "/wispr.png",
     preview: "Tired of typing? We've all tried voice dictation tools that turn our carefully spoken words into absolute nonsense. But Wispr Flow promises something different: AI-powered dictation that actually works, in any app, without the usual headaches.",
-    images: ["/wispr.png"],
+    images: ["/wispr.png", wisprflow],
     content: `
 Tired of typing? We've all tried voice dictation tools that turn our carefully spoken words into absolute nonsense. But Wispr Flow promises something different: AI-powered dictation that actually works, in any app, without the usual headaches. Here's what you need to know.
 
@@ -6096,7 +6126,7 @@ To begin working with Cheat Coder, simply describe your programming challenge or
     date: "June 2025",
     cover: "/alliai.png",
     preview: "Discover how Alli AI's automated SEO platform helps agencies optimize thousands of pages instantly, with real-time deployment and universal CMS compatibility.",
-    images: ["/alliai.png"],
+    images: ["/alliai.png", alliai2],
     content: `
 **Table of Contents**
 - [What is Alli AI?](#what-is-alli-ai)
@@ -6554,7 +6584,7 @@ This article contains affiliate links to Alli AI. We may earn a commission when 
     date: "November 2025",
     cover: blackboxai,
     preview: "Discover how Blackbox.ai's AI-powered code assistant helps developers write code faster with real-time autocomplete, multi-language support, and intelligent suggestions that understand context.",
-    images: ["https://betteraibots.com/assets/blackbox-logo.png"],
+    images: ["https://betteraibots.com/assets/blackbox-logo.png", blackboxai2],
     content: `
 ## What is Blackbox.ai?
 
@@ -6687,7 +6717,7 @@ If you're looking to write code faster, reduce errors, and leverage AI-powered d
     date: "November 2025",
     cover: humeai,
     preview: "Discover how Hume AI's empathic AI platform understands human emotion and expression to create more natural, engaging interactions through emotion recognition, voice AI, and facial expression analysis.",
-    images: ["https://betteraibots.com/hume2.jpg?v=2"],
+    images: ["https://betteraibots.com/hume2.jpg?v=2", hume2],
     content: `
 ## What is Hume AI?
 
@@ -6847,7 +6877,7 @@ If you're building applications that interact with humans and want those interac
     date: "November 2025",
     cover: "https://betteraibots.com/lushaai.jpg",
     preview: "Discover how Lusha's B2B contact data platform helps sales teams find verified emails, phone numbers, and company intelligence with CRM integrations and accurate contact information.",
-    images: ["https://betteraibots.com/lushaai.jpg"],
+    images: ["https://betteraibots.com/lushaai.jpg", lushaai],
     content: `
 ## What is Lusha?
 
@@ -7002,7 +7032,7 @@ If you're spending too much time researching contacts or struggling with inaccur
     date: "November 2025",
     cover: thordata,
     preview: "Discover how ThorData's enterprise-grade proxy and web scraping infrastructure provides 60M+ IPs, 120+ scraper APIs, and powerful tools for AI data collection with 99.9% uptime.",
-    images: ["https://betteraibots.com/assets/thordata-logo.png"],
+    images: ["https://betteraibots.com/assets/thordata-logo.png", thordata3],
     content: `
 ## What is ThorData?
 
@@ -7158,7 +7188,7 @@ If you're spending too much time fighting with proxies, getting blocked, or buil
     date: "November 2025",
     cover: tidioai,
     preview: "Discover how Tidio AI's customer service platform uses Lyro AI Agent, Live Chat, Help Desk, and automated flows to eliminate up to 90% of support questions with a 67% resolution rate.",
-    images: ["https://betteraibots.com/tidio2.jpg"],
+    images: ["https://betteraibots.com/tidio2.jpg", tidio2],
     content: `
 ## What is Tidio AI?
 
@@ -7326,7 +7356,7 @@ If you're spending too much time on repetitive support questions or struggling t
     date: "November 2025",
     cover: webydoai,
     preview: "Discover how Webydo's professional web design platform lets you create pixel-perfect websites without coding, with built-in CMS, client management, and secure hosting.",
-    images: ["https://betteraibots.com/assets/webydo-logo.png"],
+    images: ["https://betteraibots.com/assets/webydo-logo.png", webydo2],
     content: `
 ## What is Webydo?
 
@@ -7488,7 +7518,7 @@ If you're a designer tired of waiting for developers or an agency wanting to str
     date: "November 2025",
     cover: runpod,
     preview: "Learn how RunPod's cloud GPU platform lets teams train, fine-tune, and deploy AI models with serverless inference, persistent pods, and enterprise-grade monitoring.",
-    images: ["https://betteraibots.com/assets/runpod-logo.png"],
+    images: ["https://betteraibots.com/assets/runpod-logo.png", runpodai2],
     content: `
 ## What is RunPod?
 
@@ -7561,7 +7591,7 @@ RunPod removes the infrastructure roadblocks that slow down AI projects. Whether
     date: "November 2025",
     cover: castmagicai,
     preview: "See how CastMagic repurposes podcasts, webinars, and calls into blogs, threads, emails, and clip ideas in minutes with AI-powered workflows.",
-    images: ["https://betteraibots.com/assets/castmagic-logo.png"],
+    images: ["https://betteraibots.com/assets/castmagic-logo.png", castmagic2],
     content: `
 ## What is CastMagic?
 
@@ -7633,7 +7663,7 @@ If long-form recordings keep piling up, CastMagic converts them into publish-rea
     date: "November 2025",
     cover: anybiz,
     preview: "Explore how AnyBiz deploys AI SDR agents to research, personalize, and follow up with prospects across every channel so your reps focus on closing.",
-    images: ["https://betteraibots.com/assets/anybiz-logo.png"],
+    images: ["https://betteraibots.com/assets/anybiz-logo.png", anybizio],
     content: `
 ## What is AnyBiz.io?
 
@@ -7700,12 +7730,160 @@ AnyBiz.io gives teams a ready-to-work AI SDR that never sleeps. If you need qual
     `
   },
   {
+    id: "megahr",
+    title: "Mega HR: AI-Powered Hiring Platform That Automates Recruitment with 78% Less Busy Work",
+    date: "November 2025",
+    cover: megahr,
+    preview: "Discover how Mega HR's AI-powered hiring platform automates job advertising, candidate screening, interview scheduling, and candidate nurturing to help teams hire faster with less manual work.",
+    images: [megahr, megahr2],
+    content: `
+## What is Mega HR?
+
+[Mega HR](https://try.megahr.com/BAIB) is an AI-powered hiring platform that automates the entire recruitment process from job posting to candidate onboarding. The platform uses AI to screen candidates, schedule interviews, and nurture prospects, reducing manual recruitment work by up to 78%.
+
+**[🚀 Try Mega HR Free - Start Hiring Smarter](https://try.megahr.com/BAIB)**
+
+## Key Features That Make Mega HR Powerful
+
+### AI-Powered Candidate Screening
+
+Mega HR's AI automatically screens and shortlists candidates based on job requirements:
+- **Resume parsing** – Extracts skills, experience, and qualifications automatically
+- **Skill matching** – Scores candidates against job requirements
+- **Automated shortlisting** – Identifies top candidates without manual review
+- **Bias reduction** – Focuses on qualifications rather than demographics
+
+### Intelligent Interview Scheduling
+
+The platform automates the entire interview coordination process:
+- **Calendar integration** – Syncs with Google Calendar, Outlook, and other systems
+- **Automated scheduling** – Sends interview invites and reminders
+- **Time zone handling** – Manages interviews across different locations
+- **Rescheduling automation** – Handles candidate requests automatically
+
+### Job Board Advertising
+
+Mega HR posts jobs across multiple platforms automatically:
+- **Multi-platform posting** – Distributes to Indeed, LinkedIn, Glassdoor, and more
+- **Job description optimization** – AI-enhanced descriptions for better visibility
+- **Application tracking** – Centralizes applications from all sources
+- **Performance analytics** – Shows which boards drive the best candidates
+
+### Candidate Nurturing
+
+The platform keeps candidates engaged throughout the hiring process:
+- **Automated follow-ups** – Sends personalized updates and reminders
+- **Status communication** – Keeps candidates informed at every stage
+- **Rejection handling** – Professional, automated rejection communications
+- **Talent pool building** – Maintains relationships with qualified candidates
+
+### AI-Powered Insights
+
+Mega HR provides actionable insights for better hiring decisions:
+- **Candidate scoring** – AI-powered ranking of applicants
+- **Hiring analytics** – Track time-to-hire, cost-per-hire, and quality metrics
+- **Pipeline visibility** – See where candidates are in the process
+- **Performance predictions** – Identify candidates likely to succeed
+
+## Who Should Use Mega HR?
+
+### Perfect For:
+✓ **Growing companies** hiring multiple roles regularly
+✓ **HR teams** overwhelmed by manual screening and scheduling
+✓ **Recruiters** managing high-volume hiring campaigns
+✓ **Startups** building their first hiring processes
+✓ **Agencies** managing recruitment for multiple clients
+
+### Maybe Not Ideal For:
+✗ Very small teams hiring infrequently
+✗ Companies with highly specialized, niche roles
+✗ Organizations requiring extensive custom workflows
+✗ Teams that prefer fully manual, hands-on processes
+
+## How Much Does Mega HR Cost?
+
+Mega HR offers flexible pricing based on hiring volume:
+
+### Starter Plan - $49/month
+- Up to 5 active job postings
+- AI screening and shortlisting
+- Basic interview scheduling
+- Single job board integration
+
+### Growth Plan - $99/month
+- Up to 15 active job postings
+- Advanced AI insights
+- Multi-platform job posting
+- Enhanced candidate nurturing
+- Priority support
+
+### Enterprise Plan - $149/month
+- Unlimited job postings
+- Custom integrations
+- Dedicated account manager
+- Advanced analytics and reporting
+- White-label options
+
+**Pricing:** Contact Mega HR for volume discounts and custom enterprise pricing
+
+## Getting Started with Mega HR
+
+1. **Sign Up**: Visit [Mega HR](https://try.megahr.com/BAIB) and create your account
+2. **Set Up Your Company**: Add company details, team members, and hiring preferences
+3. **Post Your First Job**: Use AI-assisted job description creation
+4. **Configure Automation**: Set up screening criteria and interview workflows
+5. **Start Hiring**: Let AI handle screening while you focus on final interviews
+
+## Real-World Results
+
+Companies using Mega HR report:
+- **78% reduction** in time spent on manual screening
+- **3x faster** time-to-hire for standard roles
+- **40% improvement** in candidate quality through better screening
+- **Hours saved daily** on scheduling and follow-ups
+
+## Pros and Cons
+
+### What HR Teams Love
+✓ Dramatically reduces manual screening work
+✓ Automated scheduling saves hours per week
+✓ Multi-platform job posting from one dashboard
+✓ AI insights help identify best candidates
+✓ Professional candidate communication
+
+### Common Concerns
+✗ Requires clear job requirements for best results
+✗ AI screening may need human review for complex roles
+✗ Learning curve for setting up automation workflows
+✗ Pricing can add up for high-volume hiring
+✗ Some customization may be needed for unique processes
+
+## Bottom Line
+
+Mega HR transforms recruitment from a time-consuming manual process into an efficient, AI-powered system. For companies hiring regularly, the platform eliminates the busy work that slows down hiring and lets teams focus on what matters: finding the right people.
+
+If you're spending too much time screening resumes, scheduling interviews, or managing candidate communications, Mega HR can automate these tasks and help you hire faster and smarter.
+
+**[🚀 Start Hiring with Mega HR Today](https://try.megahr.com/BAIB)**
+
+---
+
+### Disclaimers
+
+**Affiliate Disclosure:** BetterAiBots.com may receive compensation when you sign up for Mega HR through our link.
+
+**No Guarantees:** Hiring success depends on job market conditions, role requirements, and company culture fit.
+
+**User Responsibility:** Any decision to use Mega HR or similar tools should be based on your own analysis of your hiring needs, budget, and objectives.
+    `
+  },
+  {
     id: "catalister",
     title: "Catalister: AI-Powered Dropshipping and Product Sourcing Platform for Shopify Sellers",
     date: "November 2025",
     cover: catalisterai,
     preview: "See how Catalister blends AI sourcing, supplier vetting, and automated fulfillment to help Shopify stores launch profitable products faster.",
-    images: ["https://betteraibots.com/assets/catalister-logo.png"],
+    images: ["https://betteraibots.com/assets/catalister-logo.png", "/catalister2.jpg"],
     content: `
 ## What is Catalister?
 
@@ -7777,7 +7955,7 @@ Catalister gives modern dropshippers a data-driven operating system for discover
     date: "November 2025",
     cover: "/freeseoscore.jpg",
     preview: "Discover how SEOSparkPlug analyzes 25+ SEO factors in seconds, generates copy-ready code, optimizes social content, and tracks ROI so teams stop drowning in audit reports and finally ship fixes.",
-    images: ["/freeseoscore.jpg"],
+    images: ["/freeseoscore.jpg", freeseotools],
     content: `
 **Table of Contents**
 - [What is SEOSparkPlug?](#what-is-seosparkplug)
@@ -7942,7 +8120,7 @@ SEOSparkPlug turns SEO from a giant spreadsheet of problems into a production-re
     date: "November 2025",
     cover: airiaai,
     preview: "Discover how Airia accelerates agent development with rapid prototyping, secure data integrations, and intelligent operations for enterprise teams.",
-    images: ["https://betteraibots.com/assets/airia-logo.png"],
+    images: ["https://betteraibots.com/assets/airia-logo.png", airiaai2],
     content: `
 ## What is Airia?
 
@@ -8014,13 +8192,13 @@ Airia gives enterprises a safe, governed foundation for deploying AI agents acro
     date: "November 2025",
     cover: bebopai,
     preview: "Learn how Bebop.ai combines AI workflow builders, process intelligence, and analytics to automate repetitive operations for growing teams.",
-    images: ["https://betteraibots.com/assets/bebop-ai-logo.png"],
+    images: ["https://betteraibots.com/assets/bebop-ai-logo.png", bebop2],
     content: `
 ## What is Bebop.ai?
 
-[Bebop.ai](https://try.bebop.ai/BAIB) is an intelligent automation platform that helps teams map, automate, and monitor complex workflows. With visual builders, AI copilots, and advanced analytics, Bebop.ai eliminates manual busywork so operations teams can scale without headcount bloat.
+[Bebop.ai](https://try.bebop.ai/o004cood3aod) is an intelligent automation platform that helps teams map, automate, and monitor complex workflows. With visual builders, AI copilots, and advanced analytics, Bebop.ai eliminates manual busywork so operations teams can scale without headcount bloat.
 
-**[🚀 Book a Bebop.ai Demo](https://try.bebop.ai/BAIB)**
+**[🚀 Book a Bebop.ai Demo](https://try.bebop.ai/o004cood3aod)**
 
 ## Key Platform Components
 
@@ -8068,7 +8246,7 @@ Airia gives enterprises a safe, governed foundation for deploying AI agents acro
 
 Bebop.ai gives operators a single platform to document, automate, and continuously improve business processes—freeing teams from spreadsheet-driven chaos.
 
-**[🚀 Automate Your Next Workflow with Bebop.ai](https://try.bebop.ai/BAIB)**
+**[🚀 Automate Your Next Workflow with Bebop.ai](https://try.bebop.ai/o004cood3aod)**
 
 ---
 
@@ -8087,7 +8265,7 @@ Bebop.ai gives operators a single platform to document, automate, and continuous
     date: "November 2025",
     cover: pipesai,
     preview: "See how Pipes.ai verifies inbound leads, launches AI voice/SMS follow-ups, and connects the hottest prospects to your sales team in real time.",
-    images: ["https://betteraibots.com/assets/pipes-ai-logo.png"],
+    images: ["https://betteraibots.com/assets/pipes-ai-logo.png", "/pipesai.jpg"],
     content: `
 ## What is Pipes.ai?
 

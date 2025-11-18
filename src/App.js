@@ -465,7 +465,7 @@ const PAID_APPS = [
     category: "AI & Automation",
     features: ["AI workflow automation", "Intelligent process optimization", "Smart integrations", "Advanced analytics"],
     price: "Contact sales",
-    link: "https://try.bebop.ai/BAIB",
+    link: "https://try.bebop.ai/o004cood3aod",
     image: bebopai,
     readMoreLink: "/learn/bebop-ai"
   },
@@ -538,18 +538,7 @@ function Apps() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
-  const [shuffledPaidApps, setShuffledPaidApps] = useState([]);
   const [expandedFeatures, setExpandedFeatures] = useState({});
-
-  // Shuffle function for arrays
-  const shuffleArray = (array) => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  };
   
   // Toggle feature expansion on mobile
   const toggleFeature = (cardId, featureIndex) => {
@@ -801,12 +790,6 @@ function Apps() {
     }
   ];
 
-  // Shuffle paid apps whenever the paid section is accessed
-  useEffect(() => {
-    if (activeSection === 'paid' && PAID_APPS.length > 0) {
-      setShuffledPaidApps(shuffleArray(PAID_APPS));
-    }
-  }, [activeSection]);
 
   const renderAppCard = (app, type) => {
     const cardId = `${app.name}-${type}`;
@@ -1327,7 +1310,7 @@ function Apps() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
                 gap: '24px'
               }}>
-                {(shuffledPaidApps.length > 0 ? shuffledPaidApps : PAID_APPS).map(app => renderAppCard(app, 'paid'))}
+                {PAID_APPS.map(app => renderAppCard(app, 'paid'))}
               </div>
             </div>
           )}
