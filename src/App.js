@@ -1712,6 +1712,9 @@ function BotGrid({ bots, onOpenModal }) {
   );
 }
 
+// Learn images array - constant outside component
+const learnImages = [learnai, learnai2, learnai3, learnai4, learnai5, learnai6];
+
 // --- HOME PAGE ---
 function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryBar, toggleCategoryBar }) {
   const [isMobile, setIsMobile] = useState(() => {
@@ -1732,7 +1735,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   const [imageOpacity, setImageOpacity] = useState(1);
   
   // Learn image slideshow state
-  const learnImages = [learnai, learnai2, learnai3, learnai4, learnai5, learnai6];
   const [learnImageIndex, setLearnImageIndex] = useState(0);
   const [learnPrevIndex, setLearnPrevIndex] = useState(learnImages.length - 1);
   
@@ -1876,7 +1878,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     }, 7000);
     
     return () => clearInterval(intervalId);
-  }, [learnImages.length]);
+  }, [learnImages]);
 
   return (
     <>
@@ -1967,7 +1969,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         maxWidth: '900px',
         marginLeft: 'auto',
         marginRight: 'auto',
-        padding: isMobile ? '0 20px' : '0'
+        padding: isMobile ? '0 20px 10px 20px' : '0 0 10px 0'
       }}>
         Your AI Tools Directory Hub for AI Apps, GPTs, News and educational content.
       </h2>
