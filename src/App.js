@@ -11,6 +11,11 @@ import betteraibotslive5 from './assets/betteraibotslive5.webp';
 import betteraibotsunlock from './assets/betteraibotsunlock.webp';
 import welcometobaib from './assets/welcometobaib.jpg';
 import learnai from './assets/learnai.webp';
+import learnai2 from './assets/learnai2.webp';
+import learnai3 from './assets/learnai3.webp';
+import learnai4 from './assets/learnai4.webp';
+import learnai5 from './assets/learnai5.webp';
+import learnai6 from './assets/learnai6.webp';
 import ainews from './assets/ainews.webp';
 import aitoolsdirectory from './assets/aitoolsdirectory.webp';
 import freeaigpts from './assets/freeaigpts.webp';
@@ -103,7 +108,7 @@ function AuthButtons() {
 }
 
 // --- Nav Tabs Bar ---
-function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
+function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, animationPaused, onToggleAnimation }) {
   return (
     <nav className="nav-tabs-bar" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
       <Link 
@@ -126,6 +131,21 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
       <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact</Link>
+      <span
+        className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
+        onClick={onToggleAnimation}
+        style={{ 
+          cursor: 'pointer',
+          fontSize: '26px',
+          marginLeft: '10px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        title={animationPaused ? 'Resume background animation' : 'Pause background animation'}
+      >
+        ⭐
+      </span>
     </nav>
   );
 }
@@ -1711,6 +1731,11 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageOpacity, setImageOpacity] = useState(1);
   
+  // Learn image slideshow state
+  const learnImages = [learnai, learnai2, learnai3, learnai4, learnai5, learnai6];
+  const [learnImageIndex, setLearnImageIndex] = useState(0);
+  const [learnPrevIndex, setLearnPrevIndex] = useState(learnImages.length - 1);
+  
   // Randomize bot list while keeping affiliate ads in fixed middle positions
   // This randomizes every time the Home component mounts (when someone visits the page)
   const [randomizedBots] = useState(() => {
@@ -1832,6 +1857,26 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       if (fadeTimeoutId) clearTimeout(fadeTimeoutId);
     };
   }, [slideshowImages.length]);
+
+  // Learn image slideshow effect - smooth crossfade every 7 seconds
+  useEffect(() => {
+    // Preload all learn images
+    learnImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    // Rotate images every 7 seconds with cross-dissolve
+    const intervalId = setInterval(() => {
+      setLearnImageIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % learnImages.length;
+        setLearnPrevIndex(prevIndex);
+        return nextIndex;
+      });
+    }, 7000);
+    
+    return () => clearInterval(intervalId);
+  }, [learnImages.length]);
 
   return (
     <>
@@ -2017,19 +2062,49 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
-                <img 
-                  src={learnai} 
-                  alt="Learn" 
-                  style={{ 
-                    maxWidth: isMobile ? '180px' : '240px',
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    border: '2px solid #36ff95',
-                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
-                    marginBottom: '10px'
-                  }} 
-                />
+                <div style={{
+                  maxWidth: isMobile ? '180px' : '240px',
+                  width: '100%',
+                  borderRadius: '8px',
+                  border: '2px solid #36ff95',
+                  boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                  marginBottom: '10px',
+                  overflow: 'hidden',
+                  position: 'relative'
+                }}>
+                  <img 
+                    src={learnImages[learnPrevIndex]} 
+                    alt="Learn" 
+                    style={{ 
+                      maxWidth: isMobile ? '180px' : '240px',
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      opacity: learnImageIndex === learnPrevIndex ? 1 : 0,
+                      transition: 'opacity 1.5s ease-in-out',
+                      pointerEvents: 'none',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      zIndex: 1
+                    }} 
+                  />
+                  <img 
+                    src={learnImages[learnImageIndex]} 
+                    alt="Learn" 
+                    style={{ 
+                      maxWidth: isMobile ? '180px' : '240px',
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      opacity: learnImageIndex === learnPrevIndex ? 0 : 1,
+                      transition: 'opacity 1.5s ease-in-out',
+                      pointerEvents: 'none',
+                      position: 'relative',
+                      zIndex: 2
+                    }} 
+                  />
+                </div>
                 <span style={{
                   color: '#b5ffdb',
                   fontSize: isMobile ? '0.9rem' : '1rem',
@@ -3368,46 +3443,8 @@ function App() {
                 top: 0,
                 left: 0
               }}>
-              {/* Hamburger menu and star icon - pinned to top right */}
+              {/* Ticker text container */}
               <div style={{
-                position: 'absolute',
-                right: '20px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-                zIndex: 10001,
-                pointerEvents: 'auto'
-              }}>
-                <button 
-                  className="header-mob-menu-icon" 
-                  onClick={(e) => {
-                    if (e && e.clientX !== undefined) {
-                      setMenuClickPosition({ x: e.clientX, y: e.clientY });
-                    }
-                    setMenuOpen(v => !v);
-                  }}
-                  aria-label="Open navigation menu"
-                >
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                    <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-                    <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-                    <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-                  </svg>
-                </button>
-                <span
-                  className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
-                  onClick={() => setAnimationPaused(v => !v)}
-                  style={{ cursor: 'pointer' }}
-                  title={animationPaused ? 'Resume background animation' : 'Pause background animation'}
-                >
-                  ⭐
-                </span>
-              </div>
-              {/* Ticker text container - starts after buttons */}
-              <div style={{
-                paddingRight: '120px', // Reserve space for buttons on the right
                 overflow: 'hidden',
                 width: '100%'
               }}>
@@ -3452,6 +3489,8 @@ function App() {
               <NavTabsBar 
                 showCategoryBar={showCategoryBar} 
                 toggleCategoryBar={toggleCategoryBar}
+                animationPaused={animationPaused}
+                onToggleAnimation={() => setAnimationPaused(v => !v)}
               />
             </div>
           </div>
