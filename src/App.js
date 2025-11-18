@@ -1878,7 +1878,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     }, 7000);
     
     return () => clearInterval(intervalId);
-  }, [learnImages]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
