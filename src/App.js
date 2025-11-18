@@ -22,8 +22,14 @@ import ainews3 from './assets/ainews3.webp';
 import ainews4 from './assets/ainews4.webp';
 import ainews5 from './assets/ainews5.webp';
 import aitoolsdirectory from './assets/aitoolsdirectory.webp';
+import aitoolsdirectory2 from './assets/aitoolsdirectory2.webp';
+import aitoolsdirectory3 from './assets/aitoolsdirectory3.webp';
+import aitoolsdirectory4 from './assets/aitoolsdirectory4.webp';
 import freeaigpts from './assets/freeaigpts.webp';
 import baibshow2 from './assets/baibshow2.webp';
+import baibshow3 from './assets/baibshow3.webp';
+import baibshow4 from './assets/baibshow4.webp';
+import baibshow5 from './assets/baibshow5.webp';
 import pipesai from './assets/pipesai.webp';
 import anybiz from './assets/anybiz.webp';
 import catalisterai from './assets/catalisterai.webp';
@@ -1722,6 +1728,12 @@ const learnImages = [learnai, learnai2, learnai3, learnai4, learnai5, learnai6];
 // News images array - constant outside component
 const newsImages = [ainews, ainews2, ainews3, ainews4, ainews5];
 
+// Show images array - constant outside component (only first 2 images)
+const showImages = [baibshow2, baibshow3];
+
+// Apps images array - constant outside component
+const appsImages = [aitoolsdirectory, aitoolsdirectory2, aitoolsdirectory3, aitoolsdirectory4];
+
 // --- HOME PAGE ---
 function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryBar, toggleCategoryBar }) {
   const [isMobile, setIsMobile] = useState(() => {
@@ -1749,6 +1761,14 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   const [newsImageIndex, setNewsImageIndex] = useState(0);
   const [newsScrollPosition, setNewsScrollPosition] = useState(0);
   const [newsIsTransitioning, setNewsIsTransitioning] = useState(true);
+  
+  // Show image slideshow state - cross dissolve
+  const [showImageIndex, setShowImageIndex] = useState(0);
+  const [showPrevIndex, setShowPrevIndex] = useState(showImages.length - 1);
+  
+  // Apps image slideshow state - horizontal scroll left animation
+  const [appsScrollPosition, setAppsScrollPosition] = useState(0);
+  const [appsIsTransitioning, setAppsIsTransitioning] = useState(true);
   
   // Randomize bot list while keeping affiliate ads in fixed middle positions
   // This randomizes every time the Home component mounts (when someone visits the page)
@@ -1872,7 +1892,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     };
   }, [slideshowImages.length]);
 
-  // Learn image slideshow effect - smooth crossfade every 7 seconds
+  // Learn image slideshow effect - smooth crossfade every 10 seconds
   useEffect(() => {
     // Preload all learn images
     learnImages.forEach((src) => {
@@ -1880,20 +1900,20 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       img.src = src;
     });
 
-    // Rotate images every 7 seconds with cross-dissolve
+    // Rotate images every 10 seconds with cross-dissolve
     const intervalId = setInterval(() => {
       setLearnImageIndex((prevIndex) => {
         const nextIndex = (prevIndex + 1) % learnImages.length;
         setLearnPrevIndex(prevIndex);
         return nextIndex;
       });
-    }, 7000);
+    }, 10000);
     
     return () => clearInterval(intervalId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // News image slideshow effect - scroll up animation every 3 seconds, infinite loop
+  // News image slideshow effect - scroll up animation every 5.5 seconds, infinite loop
   useEffect(() => {
     // Preload all news images
     newsImages.forEach((src) => {
@@ -1903,7 +1923,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
 
     let scrollCounter = 0;
     
-    // Rotate images every 3 seconds with scroll-up animation
+    // Rotate images every 5.5 seconds with scroll-up animation
     const intervalId = setInterval(() => {
       scrollCounter++;
       const position = scrollCounter % (newsImages.length + 1);
@@ -1936,7 +1956,76 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       }
       
       setNewsImageIndex(position % newsImages.length);
-    }, 3000);
+    }, 5500);
+    
+    return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Apps image slideshow effect - horizontal scroll left every 7 seconds, infinite loop
+  useEffect(() => {
+    // Preload all apps images
+    appsImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    let scrollCounter = 0;
+    
+    // Rotate images every 7 seconds with horizontal scroll-left animation
+    const intervalId = setInterval(() => {
+      scrollCounter++;
+      const position = scrollCounter % (appsImages.length + 1);
+      
+      // If we've scrolled to the duplicate (last position), reset seamlessly
+      if (position === appsImages.length) {
+        // Scroll to duplicate with transition
+        setAppsIsTransitioning(true);
+        setAppsScrollPosition(position);
+        // Reset just before transition completes to eliminate jump
+        setTimeout(() => {
+          // Disable transition first
+          setAppsIsTransitioning(false);
+          // Use double requestAnimationFrame for smoother reset
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              setAppsScrollPosition(0);
+              scrollCounter = 0;
+              // Re-enable transition for next scroll
+              requestAnimationFrame(() => {
+                setAppsIsTransitioning(true);
+              });
+            });
+          });
+        }, 1450); // Reset slightly before transition completes to eliminate jump
+      } else {
+        // Normal scroll with transition
+        setAppsIsTransitioning(true);
+        setAppsScrollPosition(position);
+      }
+      
+    }, 7000);
+    
+    return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Show image slideshow effect - cross dissolve every 30 seconds (calm)
+  useEffect(() => {
+    // Preload show images
+    showImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    // Rotate between first two images every 30 seconds with cross-dissolve
+    const intervalId = setInterval(() => {
+      setShowImageIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % showImages.length;
+        setShowPrevIndex(prevIndex);
+        return nextIndex;
+      });
+    }, 30000); // 30 seconds - calm transition
     
     return () => clearInterval(intervalId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -2091,19 +2180,41 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
-                <img 
-                  src={aitoolsdirectory} 
-                  alt="Apps" 
-                  style={{ 
-                    maxWidth: isMobile ? '180px' : '240px',
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    border: '2px solid #36ff95',
-                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
-                    marginBottom: '10px'
-                  }} 
-                />
+                <div style={{
+                  maxWidth: isMobile ? '180px' : '240px',
+                  width: isMobile ? '180px' : '240px',
+                  borderRadius: '8px',
+                  border: '2px solid #36ff95',
+                  boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                  marginBottom: '10px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  height: isMobile ? '180px' : '240px'
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    transform: `translateX(-${appsScrollPosition * (100 / (appsImages.length + 1))}%)`,
+                    transition: appsIsTransitioning ? 'transform 1.5s ease-in-out' : 'none',
+                    height: '100%',
+                    width: `${(appsImages.length + 1) * 100}%`
+                  }}>
+                    {[...appsImages, appsImages[0]].map((imgSrc, idx) => (
+                      <img 
+                        key={idx}
+                        src={imgSrc} 
+                        alt="Apps" 
+                        style={{ 
+                          width: `${100 / (appsImages.length + 1)}%`,
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block',
+                          flexShrink: 0,
+                          pointerEvents: 'none'
+                        }} 
+                      />
+                    ))}
+                  </div>
+                </div>
                 <span style={{
                   color: '#b5ffdb',
                   fontSize: isMobile ? '0.9rem' : '1rem',
@@ -2193,7 +2304,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               >
                 <div style={{
                   maxWidth: isMobile ? '180px' : '240px',
-                  width: '100%',
+                  width: isMobile ? '180px' : '240px',
                   borderRadius: '8px',
                   border: '2px solid #36ff95',
                   boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
@@ -2203,9 +2314,10 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   height: isMobile ? '180px' : '240px'
                 }}>
                   <div style={{
-                    transform: `translateY(-${newsScrollPosition * 100}%)`,
-                    transition: newsIsTransitioning ? 'transform 1.5s ease-in-out' : 'none',
-                    height: '100%'
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transform: `translateY(-${newsScrollPosition * (isMobile ? 180 : 240)}px)`,
+                    transition: newsIsTransitioning ? 'transform 1.2s ease-in-out' : 'none'
                   }}>
                     {[...newsImages, newsImages[0]].map((imgSrc, idx) => (
                       <img 
@@ -2213,11 +2325,11 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                         src={imgSrc} 
                         alt="News" 
                         style={{ 
-                          maxWidth: isMobile ? '180px' : '240px',
                           width: '100%',
                           height: isMobile ? '180px' : '240px',
                           objectFit: 'cover',
                           display: 'block',
+                          flexShrink: 0,
                           pointerEvents: 'none'
                         }} 
                       />
@@ -2304,19 +2416,49 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
-                <img 
-                  src={baibshow2} 
-                  alt="Show" 
-                  style={{ 
-                    maxWidth: isMobile ? '180px' : '240px',
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    border: '2px solid #36ff95',
-                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
-                    marginBottom: '10px'
-                  }} 
-                />
+                <div style={{
+                  maxWidth: isMobile ? '180px' : '240px',
+                  width: '100%',
+                  borderRadius: '8px',
+                  border: '2px solid #36ff95',
+                  boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                  marginBottom: '10px',
+                  overflow: 'hidden',
+                  position: 'relative'
+                }}>
+                  <img 
+                    src={showImages[showPrevIndex]} 
+                    alt="Show" 
+                    style={{ 
+                      maxWidth: isMobile ? '180px' : '240px',
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      opacity: showImageIndex === showPrevIndex ? 1 : 0,
+                      transition: 'opacity 1.5s ease-in-out',
+                      pointerEvents: 'none',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      zIndex: 1
+                    }} 
+                  />
+                  <img 
+                    src={showImages[showImageIndex]} 
+                    alt="Show" 
+                    style={{ 
+                      maxWidth: isMobile ? '180px' : '240px',
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      opacity: showImageIndex === showPrevIndex ? 0 : 1,
+                      transition: 'opacity 1.5s ease-in-out',
+                      pointerEvents: 'none',
+                      position: 'relative',
+                      zIndex: 2
+                    }} 
+                  />
+                </div>
                 <span style={{
                   color: '#b5ffdb',
                   fontSize: isMobile ? '0.9rem' : '1rem',
