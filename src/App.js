@@ -17,6 +17,10 @@ import learnai4 from './assets/learnai4.webp';
 import learnai5 from './assets/learnai5.webp';
 import learnai6 from './assets/learnai6.webp';
 import ainews from './assets/ainews.webp';
+import ainews2 from './assets/ainews2.webp';
+import ainews3 from './assets/ainews3.webp';
+import ainews4 from './assets/ainews4.webp';
+import ainews5 from './assets/ainews5.webp';
 import aitoolsdirectory from './assets/aitoolsdirectory.webp';
 import freeaigpts from './assets/freeaigpts.webp';
 import baibshow2 from './assets/baibshow2.webp';
@@ -1715,6 +1719,9 @@ function BotGrid({ bots, onOpenModal }) {
 // Learn images array - constant outside component
 const learnImages = [learnai, learnai2, learnai3, learnai4, learnai5, learnai6];
 
+// News images array - constant outside component
+const newsImages = [ainews, ainews2, ainews3, ainews4, ainews5];
+
 // --- HOME PAGE ---
 function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryBar, toggleCategoryBar }) {
   const [isMobile, setIsMobile] = useState(() => {
@@ -1737,6 +1744,11 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   // Learn image slideshow state
   const [learnImageIndex, setLearnImageIndex] = useState(0);
   const [learnPrevIndex, setLearnPrevIndex] = useState(learnImages.length - 1);
+  
+  // News image slideshow state - scroll up animation
+  const [newsImageIndex, setNewsImageIndex] = useState(0);
+  const [newsScrollPosition, setNewsScrollPosition] = useState(0);
+  const [newsIsTransitioning, setNewsIsTransitioning] = useState(true);
   
   // Randomize bot list while keeping affiliate ads in fixed middle positions
   // This randomizes every time the Home component mounts (when someone visits the page)
@@ -1876,6 +1888,55 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         return nextIndex;
       });
     }, 7000);
+    
+    return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // News image slideshow effect - scroll up animation every 3 seconds, infinite loop
+  useEffect(() => {
+    // Preload all news images
+    newsImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    let scrollCounter = 0;
+    
+    // Rotate images every 3 seconds with scroll-up animation
+    const intervalId = setInterval(() => {
+      scrollCounter++;
+      const position = scrollCounter % (newsImages.length + 1);
+      
+      // If we've scrolled to the duplicate (last position), reset seamlessly
+      if (position === newsImages.length) {
+        // Scroll to duplicate with transition
+        setNewsIsTransitioning(true);
+        setNewsScrollPosition(position);
+        // Reset just before transition completes to eliminate jump
+        setTimeout(() => {
+          // Disable transition first
+          setNewsIsTransitioning(false);
+          // Use double requestAnimationFrame for smoother reset
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              setNewsScrollPosition(0);
+              scrollCounter = 0;
+              // Re-enable transition for next scroll
+              requestAnimationFrame(() => {
+                setNewsIsTransitioning(true);
+              });
+            });
+          });
+        }, 1450); // Reset slightly before transition completes to eliminate jump
+      } else {
+        // Normal scroll with transition
+        setNewsIsTransitioning(true);
+        setNewsScrollPosition(position);
+      }
+      
+      setNewsImageIndex(position % newsImages.length);
+    }, 3000);
     
     return () => clearInterval(intervalId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -2130,19 +2191,39 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
-                <img 
-                  src={ainews} 
-                  alt="News" 
-                  style={{ 
-                    maxWidth: isMobile ? '180px' : '240px',
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    border: '2px solid #36ff95',
-                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
-                    marginBottom: '10px'
-                  }} 
-                />
+                <div style={{
+                  maxWidth: isMobile ? '180px' : '240px',
+                  width: '100%',
+                  borderRadius: '8px',
+                  border: '2px solid #36ff95',
+                  boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                  marginBottom: '10px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  height: isMobile ? '180px' : '240px'
+                }}>
+                  <div style={{
+                    transform: `translateY(-${newsScrollPosition * 100}%)`,
+                    transition: newsIsTransitioning ? 'transform 1.5s ease-in-out' : 'none',
+                    height: '100%'
+                  }}>
+                    {[...newsImages, newsImages[0]].map((imgSrc, idx) => (
+                      <img 
+                        key={idx}
+                        src={imgSrc} 
+                        alt="News" 
+                        style={{ 
+                          maxWidth: isMobile ? '180px' : '240px',
+                          width: '100%',
+                          height: isMobile ? '180px' : '240px',
+                          objectFit: 'cover',
+                          display: 'block',
+                          pointerEvents: 'none'
+                        }} 
+                      />
+                    ))}
+                  </div>
+                </div>
                 <span style={{
                   color: '#b5ffdb',
                   fontSize: isMobile ? '0.9rem' : '1rem',
