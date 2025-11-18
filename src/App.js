@@ -28,8 +28,6 @@ import aitoolsdirectory4 from './assets/aitoolsdirectory4.webp';
 import freeaigpts from './assets/freeaigpts.webp';
 import baibshow2 from './assets/baibshow2.webp';
 import baibshow3 from './assets/baibshow3.webp';
-import baibshow4 from './assets/baibshow4.webp';
-import baibshow5 from './assets/baibshow5.webp';
 import pipesai from './assets/pipesai.webp';
 import anybiz from './assets/anybiz.webp';
 import catalisterai from './assets/catalisterai.webp';
@@ -1758,7 +1756,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   const [learnPrevIndex, setLearnPrevIndex] = useState(learnImages.length - 1);
   
   // News image slideshow state - scroll up animation
-  const [newsImageIndex, setNewsImageIndex] = useState(0);
   const [newsScrollPosition, setNewsScrollPosition] = useState(0);
   const [newsIsTransitioning, setNewsIsTransitioning] = useState(true);
   
@@ -1954,8 +1951,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         setNewsIsTransitioning(true);
         setNewsScrollPosition(position);
       }
-      
-      setNewsImageIndex(position % newsImages.length);
     }, 5500);
     
     return () => clearInterval(intervalId);
