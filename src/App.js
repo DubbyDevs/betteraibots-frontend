@@ -1,7 +1,6 @@
 import { CATEGORY_SLUGS } from './constants';
 import React, { useState, useEffect, useMemo } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
-import logo2x from './assets/betteraiglowlogo.png';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
 import betteraibotslive from './assets/betteraibotslive.webp';
