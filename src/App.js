@@ -3332,116 +3332,131 @@ function App() {
     <>
     <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
       <GoogleAnalytics />
-      {/* Scrolling Disclaimer Ticker - At the very top, above everything, always running */}
-      <div style={{ width: '100%', margin: 0, padding: 0 }}>
-        {(() => {
-          const path = location?.pathname || window.location.pathname || '';
-          const shouldShow = path === '/' || path === '/apps' || path === '/contact' || path.startsWith('/learn') || path.startsWith('/news');
-          return shouldShow ? (
-            <div style={{
-              position: 'relative',
-              width: '100%',
-              minHeight: '48px',
-              background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
-              borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
-              overflow: 'hidden',
-              whiteSpace: 'nowrap',
-              padding: '12px 0',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
-              zIndex: 10000,
-              display: 'block',
-              flexShrink: 0,
-              visibility: 'visible',
-              opacity: 1,
-              margin: 0,
-              top: 0,
-              left: 0
-            }}>
-            {/* Hamburger menu and star icon - pinned to top right */}
-            <div style={{
-              position: 'absolute',
-              right: '20px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              zIndex: 10001,
-              pointerEvents: 'auto'
-            }}>
-              <button 
-                className="header-mob-menu-icon" 
-                onClick={(e) => {
-                  if (e && e.clientX !== undefined) {
-                    setMenuClickPosition({ x: e.clientX, y: e.clientY });
-                  }
-                  setMenuOpen(v => !v);
-                }}
-                aria-label="Open navigation menu"
-              >
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                  <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-                  <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-                  <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-                </svg>
-              </button>
-              <span
-                className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
-                onClick={() => setAnimationPaused(v => !v)}
-                style={{ cursor: 'pointer' }}
-                title={animationPaused ? 'Resume background animation' : 'Pause background animation'}
-              >
-                ⭐
-              </span>
-            </div>
-            {/* Ticker text container - starts after buttons */}
-            <div style={{
-              paddingRight: '120px', // Reserve space for buttons on the right
-              overflow: 'hidden',
-              width: '100%'
-            }}>
-              <div className="ticker-container" style={{
-                display: 'inline-block',
-                animation: 'scroll-ticker 79.2s linear infinite',
-                minHeight: '24px',
-                lineHeight: '24px',
-                pointerEvents: 'none'
+      {/* Wrapper container for ticker and nav bar - ensures both stay visible */}
+      <div style={{
+        width: '100%',
+        margin: 0,
+        padding: 0,
+        position: 'relative',
+        zIndex: 10000,
+        display: 'block',
+        visibility: 'visible',
+        opacity: 1
+      }}>
+        {/* Scrolling Disclaimer Ticker - At the very top, above everything, always running */}
+        <div style={{ width: '100%', margin: 0, padding: 0 }}>
+          {(() => {
+            const path = location?.pathname || window.location.pathname || '';
+            const shouldShow = path === '/' || path === '/apps' || path === '/contact' || path.startsWith('/learn') || path.startsWith('/news');
+            return shouldShow ? (
+              <div style={{
+                position: 'relative',
+                width: '100%',
+                minHeight: '48px',
+                background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
+                borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+                padding: '12px 0',
+                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+                zIndex: 10000,
+                display: 'block',
+                flexShrink: 0,
+                visibility: 'visible',
+                opacity: 1,
+                margin: 0,
+                top: 0,
+                left: 0
               }}>
-              {[...tickerMessages, ...tickerMessages].map((message, index) => (
-                <span key={index} style={{
-                  display: 'inline-block',
-                  paddingRight: '80px',
-                  color: '#36ff95',
-                  fontSize: '0.9rem',
-                  fontWeight: '500',
-                  lineHeight: '24px'
-                }}>
-                  {message}
+              {/* Hamburger menu and star icon - pinned to top right */}
+              <div style={{
+                position: 'absolute',
+                right: '20px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                zIndex: 10001,
+                pointerEvents: 'auto'
+              }}>
+                <button 
+                  className="header-mob-menu-icon" 
+                  onClick={(e) => {
+                    if (e && e.clientX !== undefined) {
+                      setMenuClickPosition({ x: e.clientX, y: e.clientY });
+                    }
+                    setMenuOpen(v => !v);
+                  }}
+                  aria-label="Open navigation menu"
+                >
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                    <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+                    <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+                    <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+                  </svg>
+                </button>
+                <span
+                  className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
+                  onClick={() => setAnimationPaused(v => !v)}
+                  style={{ cursor: 'pointer' }}
+                  title={animationPaused ? 'Resume background animation' : 'Pause background animation'}
+                >
+                  ⭐
                 </span>
-              ))}
+              </div>
+              {/* Ticker text container - starts after buttons */}
+              <div style={{
+                paddingRight: '120px', // Reserve space for buttons on the right
+                overflow: 'hidden',
+                width: '100%'
+              }}>
+                <div className="ticker-container" style={{
+                  display: 'inline-block',
+                  animation: 'scroll-ticker 79.2s linear infinite',
+                  minHeight: '24px',
+                  lineHeight: '24px',
+                  pointerEvents: 'none'
+                }}>
+                {[...tickerMessages, ...tickerMessages].map((message, index) => (
+                  <span key={index} style={{
+                    display: 'inline-block',
+                    paddingRight: '80px',
+                    color: '#36ff95',
+                    fontSize: '0.9rem',
+                    fontWeight: '500',
+                    lineHeight: '24px'
+                  }}>
+                    {message}
+                  </span>
+                ))}
+                </div>
               </div>
             </div>
-          </div>
-        ) : null;
-        })()}
-      </div>
-      {/* NavTabsBar - Desktop only, right below ticker */}
-      {!isMobile && (
-        <div style={{
-          background: "linear-gradient(135deg, #101c26 0%, #172d3e 100%)",
-          zIndex: 10001,
-          position: 'sticky',
-          top: 0,
-          width: '100%'
-        }}>
-          <div style={{ position: 'relative', zIndex: 10002, width: '100%' }}>
-            <NavTabsBar 
-              showCategoryBar={showCategoryBar} 
-              toggleCategoryBar={toggleCategoryBar}
-            />
-          </div>
+          ) : null;
+          })()}
         </div>
-      )}
+        {/* NavTabsBar - Desktop only, right below ticker */}
+        {!isMobile && (
+          <div style={{
+            background: "linear-gradient(135deg, #101c26 0%, #172d3e 100%)",
+            zIndex: 10001,
+            position: 'sticky',
+            top: 0,
+            width: '100%',
+            display: 'block',
+            visibility: 'visible',
+            opacity: 1
+          }}>
+            <div style={{ position: 'relative', zIndex: 10002, width: '100%' }}>
+              <NavTabsBar 
+                showCategoryBar={showCategoryBar} 
+                toggleCategoryBar={toggleCategoryBar}
+              />
+            </div>
+          </div>
+        )}
+      </div>
       {/* Mobile header */}
       {isMobile && (
         <div>
