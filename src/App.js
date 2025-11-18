@@ -10,6 +10,24 @@ import betteraibotslive3 from './assets/betteraibotslive3.webp';
 import betteraibotslive4 from './assets/betteraibotslive4.webp';
 import betteraibotslive5 from './assets/betteraibotslive5.webp';
 import betteraibotsunlock from './assets/betteraibotsunlock.webp';
+import welcometobaib from './assets/welcometobaib.jpg';
+import learnai from './assets/learnai.webp';
+import ainews from './assets/ainews.webp';
+import aitoolsdirectory from './assets/aitoolsdirectory.webp';
+import freeaigpts from './assets/freeaigpts.webp';
+import baibshow2 from './assets/baibshow2.webp';
+import pipesai from './assets/pipesai.webp';
+import anybiz from './assets/anybiz.webp';
+import catalisterai from './assets/catalisterai.webp';
+import castmagicai from './assets/castmagicai.webp';
+import runpod from './assets/runpod.webp';
+import thordata from './assets/thordata.webp';
+import webydoai from './assets/webydoai.webp';
+import tidioai from './assets/tidioai.webp';
+import humeai from './assets/humeai.webp';
+import blackboxai from './assets/blackboxai.webp';
+import airiaai from './assets/airiaai.webp';
+import bebopai from './assets/bebopai.webp';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -26,7 +44,6 @@ import {
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import GoogleAnalytics from "./GoogleAnalytics";
-import PWAInstallPrompt from './components/PWAInstallPrompt';
 import Breadcrumbs from './components/Breadcrumbs';
 import { bots } from './data/bots';
 import { newsArticles } from './data/news';
@@ -53,27 +70,6 @@ const CATEGORIES = [
 ];
 
 
-// --- Plausible Analytics snippet ---
-function PlausibleAnalytics() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.setAttribute("defer", "");
-    script.setAttribute("data-domain", "betteraibots.com");
-    script.src = "https://plausible.io/js/plausible.js";
-    document.body.appendChild(script);
-    return () => {
-      // Only remove if script still exists in DOM
-      if (script && script.parentNode) {
-        try {
-          document.body.removeChild(script);
-        } catch (e) {
-          // Script may have already been removed, ignore error
-        }
-      }
-    };
-  }, []);
-  return null;
-}
 
 
 
@@ -110,7 +106,22 @@ function AuthButtons() {
 // --- Nav Tabs Bar ---
 function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
   return (
-    <nav className="nav-tabs-bar">
+    <nav className="nav-tabs-bar" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+      <Link 
+        to="/" 
+        style={{
+          position: 'absolute',
+          left: '20px',
+          fontSize: '0.7rem',
+          fontWeight: 700,
+          fontFamily: 'inherit',
+          zIndex: 1,
+          textDecoration: 'none'
+        }}
+      >
+        <span style={{ color: '#ffffff', textShadow: '0 0 10px rgba(255, 255, 255, 0.3)' }}>BetterAi</span>
+        <span style={{ color: '#36ff95', textShadow: '0 0 10px rgba(54, 255, 149, 0.5)' }}>Bots</span>
+      </Link>
       <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
       <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
       <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
@@ -378,7 +389,7 @@ const PAID_APPS = [
     features: ["On-demand GPUs", "Serverless AI workloads", "Instant scaling", "Global deployment"],
     price: "Pay per use",
     link: "https://get.runpod.io/w3na2cm4xdjp",
-    image: "https://betteraibots.com/assets/runpod-logo.png",
+    image: runpod,
     readMoreLink: "/learn/runpod"
   },
   {
@@ -388,7 +399,7 @@ const PAID_APPS = [
     features: ["AI-powered voice and SMS", "Lead verification and filtering", "Automated follow-ups", "Real-time analytics"],
     price: "Contact sales",
     link: "https://try.pipes.ai/hmqj0m3am6un",
-    image: "https://betteraibots.com/assets/pipes-ai-logo.png",
+    image: pipesai,
     readMoreLink: "/learn/pipes-ai"
   },
   {
@@ -398,7 +409,7 @@ const PAID_APPS = [
     features: ["AI transcription", "Content repurposing", "Multi-brand CMS", "Brand voice training"],
     price: "From $19/month",
     link: "https://get.castmagic.io/qdu0jfhfcurv",
-    image: "https://betteraibots.com/assets/castmagic-logo.png",
+    image: castmagicai,
     readMoreLink: "/learn/castmagic"
   },
   {
@@ -408,7 +419,7 @@ const PAID_APPS = [
     features: ["AI sales agents", "Email automation", "LinkedIn outreach", "Phone call automation"],
     price: "Contact sales",
     link: "https://anybiz.io/?fpr=ai4n56",
-    image: "https://betteraibots.com/assets/anybiz-logo.png",
+    image: anybiz,
     readMoreLink: "/learn/anybiz"
   },
   {
@@ -428,7 +439,7 @@ const PAID_APPS = [
     features: ["AI workflow automation", "Intelligent process optimization", "Smart integrations", "Advanced analytics"],
     price: "Contact sales",
     link: "https://try.bebop.ai/BAIB",
-    image: "https://betteraibots.com/assets/bebop-ai-logo.png",
+    image: bebopai,
     readMoreLink: "/learn/bebop-ai"
   },
   {
@@ -438,7 +449,7 @@ const PAID_APPS = [
     features: ["Shopify integration", "AI product sourcing", "Automated order fulfillment", "Inventory management"],
     price: "From $29/month",
     link: "https://join.catalister.com/BAIB",
-    image: "https://betteraibots.com/assets/catalister-logo.png",
+    image: catalisterai,
     readMoreLink: "/learn/catalister"
   },
   {
@@ -458,7 +469,7 @@ const PAID_APPS = [
     features: ["Rapid agent prototyping", "Data integration", "Intelligent AI operations", "Security & governance"],
     price: "Contact sales",
     link: "https://try.airia.com/BAIB",
-    image: "https://betteraibots.com/assets/airia-logo.png",
+    image: airiaai,
     readMoreLink: "/learn/airia"
   }
 ];
@@ -588,7 +599,7 @@ function Apps() {
       features: ["AI code completion", "Multi-language support", "Context-aware suggestions", "Real-time autocomplete"],
       link: "https://blackboxai.partnerlinks.io/BAIB",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/assets/blackbox-logo.png",
+      image: blackboxai,
       readMoreLink: "/learn/blackbox-ai"
     },
     {
@@ -628,7 +639,7 @@ function Apps() {
       features: ["Emotion recognition", "Voice AI", "Facial expression analysis", "Empathic AI models", "Real-time emotion detection"],
       link: "https://try.hume.ai/BAIB",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/assets/hume-ai-logo.png",
+      image: humeai,
       readMoreLink: "/learn/hume-ai"
     },
     {
@@ -708,7 +719,7 @@ function Apps() {
       features: ["60M+ residential IPs", "120+ scraper APIs", "99.9% uptime", "Free trial available"],
       link: "https://affiliate.thordata.com/BAIB",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/assets/thordata-logo.png",
+      image: thordata,
       readMoreLink: "/learn/thordata"
     },
     {
@@ -718,7 +729,7 @@ function Apps() {
       features: ["Lyro AI Agent", "Live Chat", "Help Desk", "Automated Flows", "67% resolution rate"],
       link: "https://affiliate.tidio.com/BAIB",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/tidio2.jpg",
+      image: tidioai,
       readMoreLink: "/learn/tidio-ai"
     },
     {
@@ -748,7 +759,7 @@ function Apps() {
       features: ["No-code design", "Built-in CMS", "Client management", "Secure hosting"],
       link: "https://partners.webydo.com/BAIB",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/assets/webydo-logo.png",
+      image: webydoai,
       readMoreLink: "/learn/webydo"
     },
     {
@@ -1453,25 +1464,8 @@ function HamburgerMenu({ open, onClose, clickPosition, isMobile }) {
 function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile, onToggleAnimation, animationPaused }) {
   return (
     <div className="header">
-      <Link to="/">
-        <img 
-          src={logo} 
-          srcSet={`${logo} 1x, ${logo2x} 2x`}
-          className="header-logo" 
-          alt="BetterAiBots Logo" 
-          style={{ cursor: "pointer" }}
-          width="293"
-          height="48"
-        />
-      </Link>
       {!isMobile ? (
         <div className="header-search" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <input
-            type="text"
-            placeholder="Search BetterAiBots.com"
-            value={searchValue}
-            onChange={e => setSearchValue(e.target.value)}
-          />
           <button 
             className="header-mob-menu-icon" 
             onClick={(e) => {
@@ -1636,7 +1630,17 @@ function BotGrid({ bots, onOpenModal }) {
                   src={bot.image}
                   alt={bot.title}
                   style={{ width: '100%', borderRadius: 18 }}
-                  onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
+                  loading="lazy"
+                  onError={e => { 
+                    e.target.onerror = null; 
+                    e.target.src = placeholderImg; 
+                  }}
+                  onLoad={(e) => {
+                    // Ensure image is visible after loading
+                    if (e.target.complete && e.target.naturalHeight === 0) {
+                      e.target.src = placeholderImg;
+                    }
+                  }}
                 />
               )}
             </a>
@@ -1660,7 +1664,17 @@ function BotGrid({ bots, onOpenModal }) {
                     src={bot.image}
                     alt={bot.title}
                     className="bot-image"
-                    onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
+                    loading="lazy"
+                    onError={e => { 
+                      e.target.onerror = null; 
+                      e.target.src = placeholderImg; 
+                    }}
+                    onLoad={(e) => {
+                      // Ensure image is visible after loading
+                      if (e.target.complete && e.target.naturalHeight === 0) {
+                        e.target.src = placeholderImg;
+                      }
+                    }}
                   />
                 )}
                 <div className="bot-title">{bot.title}</div>
@@ -1751,7 +1765,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     betteraibotslive2,
     betteraibotslive3,
     betteraibotslive4,
-    betteraibotslive5
+    betteraibotslive5,
+    welcometobaib
   ], []);
   
   useEffect(() => {
@@ -1858,11 +1873,317 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         </script>
       </Helmet>
       
-      <div className="hero-section" style={isMobile ? { padding: '0 20px' } : {}}>
-        <h1 className="hero-headline">Discover & Share The Best AI Bots & Tools</h1>
-        <p className="hero-subheadline custom-hero-desc">
-          Find AI Bots to help improve workflow and improve your skills!
-        </p>
+      <h1 style={{
+        textAlign: 'center',
+        fontSize: isMobile ? '2rem' : '3rem',
+        fontWeight: 700,
+        marginTop: '40px',
+        marginBottom: '20px',
+        fontFamily: 'inherit'
+      }}>
+        <span style={{ color: '#ffffff', textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>BetterAi</span>
+        <span style={{ color: '#36ff95', textShadow: '0 0 20px rgba(54, 255, 149, 0.5)' }}>Bots</span>
+      </h1>
+      
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        width: '100%',
+        marginTop: '0',
+        marginBottom: '20px',
+        padding: '20px'
+      }}>
+        <div style={{
+          position: 'relative',
+          maxWidth: '600px',
+          width: '100%',
+          padding: '8px',
+          background: 'linear-gradient(135deg, #36ff95, #0bbfdb, #36ff95)',
+          borderRadius: '12px',
+          boxShadow: '0 0 30px rgba(54, 255, 149, 0.5), 0 0 60px rgba(11, 191, 219, 0.3)',
+        }}>
+          <img 
+            src={welcometobaib} 
+            alt="Welcome to BAIB" 
+            style={{ 
+              maxWidth: '100%', 
+              width: '100%', 
+              height: 'auto',
+              display: 'block',
+              borderRadius: '8px'
+            }} 
+          />
+        </div>
+      </div>
+      
+      <h2 className="hero-subheadline custom-hero-desc" style={{
+        textAlign: 'center',
+        marginBottom: '10px',
+        maxWidth: '900px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        padding: isMobile ? '0 20px' : '0'
+      }}>
+        Your AI Tools Directory Hub for AI Apps, GPTs, News and educational content.
+      </h2>
+      
+      <h3 style={{
+        color: '#b5ffdb',
+        fontSize: isMobile ? '0.95rem' : '1rem',
+        lineHeight: '1.6',
+        textAlign: 'center',
+        fontWeight: 400,
+        marginTop: '0',
+        marginBottom: '40px',
+        maxWidth: '900px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        padding: isMobile ? '0 20px' : '0'
+      }}>
+        BetterAiBots.com is your comprehensive resource for navigating the world of AI tools. We help you discover the best AI applications, GPTs, and educational content to enhance your productivity and skills.
+        <br /><br />
+        Explore our <strong style={{ color: '#36ff95' }}>Apps</strong> directory to find free and premium AI tools, browse our <strong style={{ color: '#36ff95' }}>GPT Discovery Hub</strong> for custom GPTs, stay updated with the latest <strong style={{ color: '#36ff95' }}>News</strong> in the AI world, and enhance your knowledge through our <strong style={{ color: '#36ff95' }}>Learn</strong> section with beginner, intermediate, and advanced guides.
+      </h3>
+      
+      {/* Choose Your Path Section */}
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        marginBottom: '40px',
+        padding: isMobile ? '0 20px' : '0'
+      }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: isMobile ? '20px' : '30px',
+          width: '100%',
+          maxWidth: '1000px'
+        }}>
+          {/* Top Row - 3 items */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: isMobile ? '15px' : '30px',
+            width: '100%',
+            flexWrap: 'wrap'
+          }}>
+            <Link to="/apps" style={{ textDecoration: 'none' }}>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                cursor: 'pointer',
+                transition: 'transform 0.2s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img 
+                  src={aitoolsdirectory} 
+                  alt="Apps" 
+                  style={{ 
+                    maxWidth: isMobile ? '180px' : '240px',
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    border: '2px solid #36ff95',
+                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                    marginBottom: '10px'
+                  }} 
+                />
+                <span style={{
+                  color: '#b5ffdb',
+                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  fontWeight: 600,
+                  textAlign: 'center',
+                  marginTop: '8px'
+                }}>
+                  Apps
+                </span>
+              </div>
+            </Link>
+            <Link to="/learn" style={{ textDecoration: 'none' }}>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                cursor: 'pointer',
+                transition: 'transform 0.2s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img 
+                  src={learnai} 
+                  alt="Learn" 
+                  style={{ 
+                    maxWidth: isMobile ? '180px' : '240px',
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    border: '2px solid #36ff95',
+                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                    marginBottom: '10px'
+                  }} 
+                />
+                <span style={{
+                  color: '#b5ffdb',
+                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  fontWeight: 600,
+                  textAlign: 'center',
+                  marginTop: '8px'
+                }}>
+                  Learn
+                </span>
+              </div>
+            </Link>
+            <Link to="/news" style={{ textDecoration: 'none' }}>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                cursor: 'pointer',
+                transition: 'transform 0.2s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img 
+                  src={ainews} 
+                  alt="News" 
+                  style={{ 
+                    maxWidth: isMobile ? '180px' : '240px',
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    border: '2px solid #36ff95',
+                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                    marginBottom: '10px'
+                  }} 
+                />
+                <span style={{
+                  color: '#b5ffdb',
+                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  fontWeight: 600,
+                  textAlign: 'center',
+                  marginTop: '8px'
+                }}>
+                  News
+                </span>
+              </div>
+            </Link>
+          </div>
+          
+          {/* Bottom Row - 2 items */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: isMobile ? '15px' : '30px',
+            width: '100%'
+          }}>
+            <div 
+              style={{ textDecoration: 'none', cursor: 'pointer' }}
+              onClick={() => {
+                const heroSection = document.querySelector('.hero-section');
+                if (heroSection) {
+                  heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+            >
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                cursor: 'pointer',
+                transition: 'transform 0.2s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img 
+                  src={freeaigpts} 
+                  alt="GPTs" 
+                  style={{ 
+                    maxWidth: isMobile ? '180px' : '240px',
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    border: '2px solid #36ff95',
+                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                    marginBottom: '10px'
+                  }} 
+                />
+                <span style={{
+                  color: '#b5ffdb',
+                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  fontWeight: 600,
+                  textAlign: 'center',
+                  marginTop: '8px'
+                }}>
+                  GPTs
+                </span>
+              </div>
+            </div>
+            <a 
+              href="https://www.youtube.com/@BetterAiBots" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                cursor: 'pointer',
+                transition: 'transform 0.2s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img 
+                  src={baibshow2} 
+                  alt="Show" 
+                  style={{ 
+                    maxWidth: isMobile ? '180px' : '240px',
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    border: '2px solid #36ff95',
+                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                    marginBottom: '10px'
+                  }} 
+                />
+                <span style={{
+                  color: '#b5ffdb',
+                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  fontWeight: 600,
+                  textAlign: 'center',
+                  marginTop: '8px'
+                }}>
+                  Show
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div className="hero-section" style={isMobile ? { padding: '0 20px' } : { padding: '60px 0 0 0' }}>
+        <h1 className="hero-headline" style={{ marginBottom: "30px" }}>GPT Discovery Hub</h1>
+        <h2 className="hero-subheadline custom-hero-desc" style={{
+          marginBottom: "40px",
+          maxWidth: "800px",
+          marginLeft: "auto",
+          marginRight: "auto"
+        }}>
+          Find Free AI GPTs to help you improve your workflow and improve your skills!
+        </h2>
       </div>
       
       <BotGrid bots={filteredBots} onOpenModal={onOpenModal} />
@@ -1995,7 +2316,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         </div>
         
         <div style={{
-          marginTop: "50px"
+          marginTop: isMobile ? "50px" : "80px"
         }}>
           <h3 style={{
             color: "#36ff95",
@@ -2493,7 +2814,7 @@ function Legal() {
       }}>
         <b>1. Data Collection:</b> No login or account is required to use the Site. We only collect information you directly provide (such as bot submissions or contact forms). Some data may be stored locally in your browser.
         <br /><br />
-        <b>2. Analytics:</b> We use privacy-friendly Plausible Analytics, which does not use cookies and only collects aggregate, anonymous site usage statistics.
+        <b>2. Analytics:</b> We use Google Analytics to collect aggregate, anonymous site usage statistics.
         <br /><br />
         <b>3. Data Usage & Sharing:</b> We do not sell, rent, or share user data with third parties. We may disclose data if required by law or for abuse/investigation purposes.
         <br /><br />
@@ -2876,7 +3197,6 @@ function App() {
   const [animationPaused, setAnimationPaused] = useState(false);
   const [showCategoryBar, setShowCategoryBar] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [showPWAInstallPrompt, setShowPWAInstallPrompt] = useState(false);
   const [form, setForm] = useState({
     gptName: "",
     gptDesc: "",
@@ -3012,7 +3332,6 @@ function App() {
   return (
     <>
     <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
-      <PlausibleAnalytics />
       <GoogleAnalytics />
       {/* Scrolling Disclaimer Ticker - At the very top, above everything, always running */}
       <div style={{ width: '100%', margin: 0, padding: 0 }}>
@@ -3035,18 +3354,60 @@ function App() {
               flexShrink: 0,
               visibility: 'visible',
               opacity: 1,
-              pointerEvents: 'none',
               margin: 0,
               top: 0,
               left: 0
             }}>
-            <div className="ticker-container" style={{
-              display: 'inline-block',
-              animation: 'scroll-ticker 79.2s linear infinite',
-              minHeight: '24px',
-              lineHeight: '24px',
-              pointerEvents: 'none'
+            {/* Hamburger menu and star icon - pinned to top right */}
+            <div style={{
+              position: 'absolute',
+              right: '20px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              zIndex: 10001,
+              pointerEvents: 'auto'
             }}>
+              <button 
+                className="header-mob-menu-icon" 
+                onClick={(e) => {
+                  if (e && e.clientX !== undefined) {
+                    setMenuClickPosition({ x: e.clientX, y: e.clientY });
+                  }
+                  setMenuOpen(v => !v);
+                }}
+                aria-label="Open navigation menu"
+              >
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                  <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+                  <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+                  <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+                </svg>
+              </button>
+              <span
+                className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
+                onClick={() => setAnimationPaused(v => !v)}
+                style={{ cursor: 'pointer' }}
+                title={animationPaused ? 'Resume background animation' : 'Pause background animation'}
+              >
+                ⭐
+              </span>
+            </div>
+            {/* Ticker text container - starts after buttons */}
+            <div style={{
+              paddingRight: '120px', // Reserve space for buttons on the right
+              overflow: 'hidden',
+              width: '100%'
+            }}>
+              <div className="ticker-container" style={{
+                display: 'inline-block',
+                animation: 'scroll-ticker 79.2s linear infinite',
+                minHeight: '24px',
+                lineHeight: '24px',
+                pointerEvents: 'none'
+              }}>
               {[...tickerMessages, ...tickerMessages].map((message, index) => (
                 <span key={index} style={{
                   display: 'inline-block',
@@ -3059,27 +3420,48 @@ function App() {
                   {message}
                 </span>
               ))}
+              </div>
             </div>
           </div>
         ) : null;
         })()}
       </div>
-      <div>
-        <AppHeader
-          onOpenModal={handleOpenModal}
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          onMenuClick={(e) => {
-            if (e && e.clientX !== undefined) {
-              setMenuClickPosition({ x: e.clientX, y: e.clientY });
-            }
-            setMenuOpen(v => !v);
-          }}
-          isMobile={isMobile}
-          onToggleAnimation={() => setAnimationPaused(v => !v)}
-          animationPaused={animationPaused}
-        />
-      </div>
+      {/* NavTabsBar - Desktop only, right below ticker */}
+      {!isMobile && (
+        <div style={{
+          background: "linear-gradient(135deg, #101c26 0%, #172d3e 100%)",
+          zIndex: 10001,
+          position: 'sticky',
+          top: 0,
+          width: '100%'
+        }}>
+          <div style={{ position: 'relative', zIndex: 10002, width: '100%' }}>
+            <NavTabsBar 
+              showCategoryBar={showCategoryBar} 
+              toggleCategoryBar={toggleCategoryBar}
+            />
+          </div>
+        </div>
+      )}
+      {/* Mobile header */}
+      {isMobile && (
+        <div>
+          <AppHeader
+            onOpenModal={handleOpenModal}
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            onMenuClick={(e) => {
+              if (e && e.clientX !== undefined) {
+                setMenuClickPosition({ x: e.clientX, y: e.clientY });
+              }
+              setMenuOpen(v => !v);
+            }}
+            isMobile={isMobile}
+            onToggleAnimation={() => setAnimationPaused(v => !v)}
+            animationPaused={animationPaused}
+          />
+        </div>
+      )}
       {showStickyLogo && isMobile && (
   <div
     style={{
@@ -3112,20 +3494,7 @@ function App() {
 
 
       )}
-      <div style={{
-        position: "sticky",
-        top: 0,
-        background: "linear-gradient(135deg, #101c26 0%, #172d3e 100%)",
-        zIndex: 100,
-      }}>
-        {!isMobile && (
-          <NavTabsBar 
-            showCategoryBar={showCategoryBar} 
-            toggleCategoryBar={toggleCategoryBar}
-          />
-        )}
-      </div>
-      {location.pathname !== '/apps' && <Breadcrumbs />}
+      <Breadcrumbs />
       <HamburgerMenu 
         open={menuOpen} 
         onClose={() => {
@@ -3166,9 +3535,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <div style={{ marginTop: '60px' }}>
-      <FooterWithWallets showPWAInstallButton={true} onPWAInstallClick={() => setShowPWAInstallPrompt(true)} />
+      <FooterWithWallets showPWAInstallButton={false} />
       </div>
-      <PWAInstallPrompt isVisible={showPWAInstallPrompt} onClose={() => setShowPWAInstallPrompt(false)} />
       
       {/* Scroll to Top Button */}
       <button

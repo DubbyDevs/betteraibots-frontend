@@ -12,6 +12,18 @@ import cheatCoderImg from "./assets/cheatcoder.webp";
 import cheatCoderLogo from "./assets/cheatcoderlogo.webp";
 import apolloLogo from "./assets/apolloailogo.webp";
 import adcreativeaitrial from "./assets/adcreativeaitrial.png";
+import pipesai from "./assets/pipesai.webp";
+import anybiz from "./assets/anybiz.webp";
+import catalisterai from "./assets/catalisterai.webp";
+import castmagicai from "./assets/castmagicai.webp";
+import runpod from "./assets/runpod.webp";
+import thordata from "./assets/thordata.webp";
+import webydoai from "./assets/webydoai.webp";
+import tidioai from "./assets/tidioai.webp";
+import humeai from "./assets/humeai.webp";
+import blackboxai from "./assets/blackboxai.webp";
+import airiaai from "./assets/airiaai.webp";
+import bebopai from "./assets/bebopai.webp";
 
 const paintindetifierai = "/paintindetifierai.webp";
 
@@ -6540,7 +6552,7 @@ This article contains affiliate links to Alli AI. We may earn a commission when 
     id: "blackbox-ai",
     title: "Blackbox.ai: The AI Code Assistant That's Revolutionizing Development",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/blackbox-logo.png",
+    cover: blackboxai,
     preview: "Discover how Blackbox.ai's AI-powered code assistant helps developers write code faster with real-time autocomplete, multi-language support, and intelligent suggestions that understand context.",
     images: ["https://betteraibots.com/assets/blackbox-logo.png"],
     content: `
@@ -6673,7 +6685,7 @@ If you're looking to write code faster, reduce errors, and leverage AI-powered d
     id: "hume-ai",
     title: "Hume AI: The Empathic AI Platform Transforming Human-Computer Interaction",
     date: "November 2025",
-    cover: "https://betteraibots.com/hume2.jpg?v=2",
+    cover: humeai,
     preview: "Discover how Hume AI's empathic AI platform understands human emotion and expression to create more natural, engaging interactions through emotion recognition, voice AI, and facial expression analysis.",
     images: ["https://betteraibots.com/hume2.jpg?v=2"],
     content: `
@@ -6988,7 +7000,7 @@ If you're spending too much time researching contacts or struggling with inaccur
     id: "thordata",
     title: "ThorData: Enterprise-Grade Proxy and Web Scraping Infrastructure for AI Data Collection",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/thordata-logo.png",
+    cover: thordata,
     preview: "Discover how ThorData's enterprise-grade proxy and web scraping infrastructure provides 60M+ IPs, 120+ scraper APIs, and powerful tools for AI data collection with 99.9% uptime.",
     images: ["https://betteraibots.com/assets/thordata-logo.png"],
     content: `
@@ -7144,7 +7156,7 @@ If you're spending too much time fighting with proxies, getting blocked, or buil
     id: "tidio-ai",
     title: "Tidio AI: The Customer Service Platform Eliminating 90% of Support Questions",
     date: "November 2025",
-    cover: "https://betteraibots.com/tidio2.jpg",
+    cover: tidioai,
     preview: "Discover how Tidio AI's customer service platform uses Lyro AI Agent, Live Chat, Help Desk, and automated flows to eliminate up to 90% of support questions with a 67% resolution rate.",
     images: ["https://betteraibots.com/tidio2.jpg"],
     content: `
@@ -7312,7 +7324,7 @@ If you're spending too much time on repetitive support questions or struggling t
     id: "webydo",
     title: "Webydo: Professional Web Design Platform for Pixel-Perfect Websites Without Coding",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/webydo-logo.png",
+    cover: webydoai,
     preview: "Discover how Webydo's professional web design platform lets you create pixel-perfect websites without coding, with built-in CMS, client management, and secure hosting.",
     images: ["https://betteraibots.com/assets/webydo-logo.png"],
     content: `
@@ -7474,7 +7486,7 @@ If you're a designer tired of waiting for developers or an agency wanting to str
     id: "runpod",
     title: "RunPod: Deploy Any AI Model on On-Demand GPUs Without Managing Infrastructure",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/runpod-logo.png",
+    cover: runpod,
     preview: "Learn how RunPod's cloud GPU platform lets teams train, fine-tune, and deploy AI models with serverless inference, persistent pods, and enterprise-grade monitoring.",
     images: ["https://betteraibots.com/assets/runpod-logo.png"],
     content: `
@@ -7547,7 +7559,7 @@ RunPod removes the infrastructure roadblocks that slow down AI projects. Whether
     id: "castmagic",
     title: "CastMagic: Turn Long-Form Audio and Video into 100+ Content Assets Automatically",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/castmagic-logo.png",
+    cover: castmagicai,
     preview: "See how CastMagic repurposes podcasts, webinars, and calls into blogs, threads, emails, and clip ideas in minutes with AI-powered workflows.",
     images: ["https://betteraibots.com/assets/castmagic-logo.png"],
     content: `
@@ -7619,7 +7631,7 @@ If long-form recordings keep piling up, CastMagic converts them into publish-rea
     id: "anybiz",
     title: "AnyBiz.io: AI Sales Agents That Book Meetings Through Email, LinkedIn, and Phone",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/anybiz-logo.png",
+    cover: anybiz,
     preview: "Explore how AnyBiz deploys AI SDR agents to research, personalize, and follow up with prospects across every channel so your reps focus on closing.",
     images: ["https://betteraibots.com/assets/anybiz-logo.png"],
     content: `
@@ -7691,7 +7703,7 @@ AnyBiz.io gives teams a ready-to-work AI SDR that never sleeps. If you need qual
     id: "catalister",
     title: "Catalister: AI-Powered Dropshipping and Product Sourcing Platform for Shopify Sellers",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/catalister-logo.png",
+    cover: catalisterai,
     preview: "See how Catalister blends AI sourcing, supplier vetting, and automated fulfillment to help Shopify stores launch profitable products faster.",
     images: ["https://betteraibots.com/assets/catalister-logo.png"],
     content: `
@@ -7928,7 +7940,7 @@ SEOSparkPlug turns SEO from a giant spreadsheet of problems into a production-re
     id: "airia",
     title: "Airia: Enterprise AI Orchestration Platform for Building and Governing AI Agents",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/airia-logo.png",
+    cover: airiaai,
     preview: "Discover how Airia accelerates agent development with rapid prototyping, secure data integrations, and intelligent operations for enterprise teams.",
     images: ["https://betteraibots.com/assets/airia-logo.png"],
     content: `
@@ -8000,7 +8012,7 @@ Airia gives enterprises a safe, governed foundation for deploying AI agents acro
     id: "bebop-ai",
     title: "Bebop.ai: Intelligent Automation Platform for Streamlining Complex Workflows",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/bebop-ai-logo.png",
+    cover: bebopai,
     preview: "Learn how Bebop.ai combines AI workflow builders, process intelligence, and analytics to automate repetitive operations for growing teams.",
     images: ["https://betteraibots.com/assets/bebop-ai-logo.png"],
     content: `
@@ -8073,7 +8085,7 @@ Bebop.ai gives operators a single platform to document, automate, and continuous
     id: "pipes-ai",
     title: "Pipes.ai: Turn Web Leads into Live Conversations with AI-Driven Outreach",
     date: "November 2025",
-    cover: "https://betteraibots.com/assets/pipes-ai-logo.png",
+    cover: pipesai,
     preview: "See how Pipes.ai verifies inbound leads, launches AI voice/SMS follow-ups, and connects the hottest prospects to your sales team in real time.",
     images: ["https://betteraibots.com/assets/pipes-ai-logo.png"],
     content: `

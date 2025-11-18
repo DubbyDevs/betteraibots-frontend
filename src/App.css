@@ -825,17 +825,19 @@ img[alt="preview"] {
   border-bottom: 1px solid #36ff95;
   padding: 0;
   margin: 0;
-  position: sticky;
+  position: relative;
   top: 0;
-  z-index: 100;
+  z-index: 10002;
   box-shadow: 0 2px 20px #16ff6c20;
+  width: 100%;
+  min-height: 63px;
 }
 @media (min-width: 900px) {
   .nav-tabs-bar {
-    position: sticky;
+    position: relative;
     top: 0;
     background: linear-gradient(135deg, #101c26 0%, #172d3e 100%); /* MATCHES body! */
-    z-index: 1002;
+    z-index: 10002;
   }
 }
 
