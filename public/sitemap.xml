@@ -54,6 +54,19 @@
     <priority>0.6</priority>
   </url>
   
+  <!-- Podcast Page -->
+  <url>
+    <loc>https://betteraibots.com/Podcast</loc>
+    <lastmod>2025-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/og-image.png?v=3</image:loc>
+      <image:title>BetterAiBots Podcast</image:title>
+      <image:caption>BetterAiBots Podcast - AI tools, news, and educational content</image:caption>
+    </image:image>
+  </url>
+  
   <!-- Legal Page -->
   <url>
     <loc>https://betteraibots.com/legal</loc>
@@ -63,6 +76,18 @@
   </url>
   
   <!-- News Articles -->
+  <!-- AI Chip Wars - Featured Article -->
+  <url>
+    <loc>https://betteraibots.com/news/ai-chip-wars-heat-up-nvidia-challenger-unexpected-source</loc>
+    <lastmod>2025-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/aichipwars.jpg</image:loc>
+      <image:title>The AI Chip Wars Heat Up: NVIDIA's New Challenger from an Unexpected Source</image:title>
+      <image:caption>The semiconductor industry is experiencing its most dramatic power shift in decades, and the battlefield is artificial intelligence. NVIDIA's near-monopoly is cracking, and the challengers emerging aren't just competitors—they're revolutionaries threatening to reshape the entire AI landscape.</image:caption>
+    </image:image>
+  </url>
   <url>
     <loc>https://betteraibots.com/news/ai-cybersecurity-autonomous-threat-defense-2025</loc>
     <lastmod>2025-01-01</lastmod>

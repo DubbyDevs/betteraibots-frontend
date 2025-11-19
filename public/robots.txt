@@ -28,3 +28,4 @@ Disallow: /moderation
 Allow: /apps
 Allow: /news/
 Allow: /learn
+Allow: /Podcast
