@@ -18,6 +18,8 @@ function Podcast() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoCurrentTime, setVideoCurrentTime] = useState(null);
   const [showComingSoon, setShowComingSoon] = useState(false);
+  const [comingSoonIndex, setComingSoonIndex] = useState(null);
+  const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const playerRefs = useRef({});
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -71,24 +73,25 @@ function Podcast() {
   const duplicatedImages = [...livesliderImages, ...livesliderImages];
 
   // YouTube videos - replace with your actual video IDs
+  // Order: Video 3 (left, coming soon) -> Video 2 (middle) -> Video 1 (right, welcome podcast)
   const youtubeVideos = useMemo(() => [
     {
-      id: 'StFLNRmH7XQ',
-      title: 'Welcome to BetterAiBots Podcast',
-      description: 'Introduction to our podcast channel and what to expect',
-      thumbnail: baiblive3
+      id: 'tFNJJsNHjzU',
+      title: 'Coming Soon: AI Companions',
+      description: 'In this episode, we dive into the uncomfortable reality of AI companions: why millions are choosing digital intimacy over human connection, what this reveals about our loneliness epidemic, and the psychological truths we\'re being forced to confront.',
+      thumbnail: baiblive6
     },
     {
       id: 'PbanVBegAlk',
       title: 'Latest Episode: AI Tools Discussion',
-      description: 'Exploring the latest AI tools and their applications',
+      description: 'In this episode, we break down 10 game-changing AI tools that transform how solo entrepreneurs operate. From customer service to sales, operations to marketing—learn how to build your own AI productivity stack and become a true one-person powerhouse.',
       thumbnail: betteraibotsliveEp155Copy55
     },
     {
-      id: 'tFNJJsNHjzU',
-      title: 'BAIB Live Studio Session',
-      description: 'Behind-the-scenes look at our live show production and guest interviews',
-      thumbnail: baibliveMain
+      id: 'StFLNRmH7XQ',
+      title: 'Welcome to BetterAiBots Podcast',
+      description: 'In this episode, we\'re pulling back the curtain on BetterAIBots.com itself: what it is, how it works, and why we built it specifically for people who want to stay ahead in the AI revolution.',
+      thumbnail: baiblive3
     },
     {
       id: 'JiF-eCQc_SM',
@@ -181,82 +184,37 @@ function Podcast() {
     }
   };
 
+  // Initialize YouTube API players for embedded videos to enable pause/getCurrentTime functionality
   useEffect(() => {
-    // Only initialize if playingVideoIndex is explicitly set (not null) and YouTube API is ready
-    // Allow videos 1 and 2 (indices 0, 1) to play, block video 3 (index 2)
-    if (playingVideoIndex !== null && playingVideoIndex !== undefined && (playingVideoIndex === 0 || playingVideoIndex === 1) && window.YT && window.YT.Player) {
+    if (playingVideoIndex !== null && playingVideoIndex !== undefined && (playingVideoIndex === 1 || playingVideoIndex === 2) && window.YT && window.YT.Player) {
       const video = youtubeVideos[playingVideoIndex];
-      if (!video) return; // Safety check
+      if (!video) return;
       
       const videoId = getVideoId(video);
-      if (!videoId) return; // Safety check
+      if (!videoId) return;
       
       const playerId = `youtube-player-${playingVideoIndex}`;
-      const startTime = video.startTime || 0;
       const currentIndex = playingVideoIndex;
-      
-      // Capture the ref object at the start of the effect to avoid accessing it in cleanup
       const refsObject = playerRefs.current;
-      
-      // Clean up ALL previous players before creating a new one
-      // Use setTimeout to ensure cleanup happens after React's DOM updates
-      setTimeout(() => {
-        Object.keys(refsObject).forEach((key) => {
-          const player = refsObject[key];
-          if (player && key !== String(currentIndex)) {
-            const elementId = `youtube-player-${key}`;
-            // Check if element exists before trying to clean up
-            const element = document.getElementById(elementId);
-            if (element && document.body.contains(element)) {
-              safeDestroyPlayer(player, elementId);
-            } else if (typeof player.stopVideo === 'function') {
-              // If element doesn't exist, just stop the video
-              try {
-                player.stopVideo();
-              } catch (e) {
-                // Ignore errors
-              }
-            }
-            refsObject[key] = null;
-          }
-        });
-        
-        // Clean up the current player if it exists
-        if (refsObject[currentIndex]) {
-          const element = document.getElementById(playerId);
-          if (element && document.body.contains(element)) {
-            safeDestroyPlayer(refsObject[currentIndex], playerId);
-          } else if (refsObject[currentIndex] && typeof refsObject[currentIndex].stopVideo === 'function') {
-            try {
-              refsObject[currentIndex].stopVideo();
-            } catch (e) {
-              // Ignore errors
-            }
-          }
-          refsObject[currentIndex] = null;
-        }
-      }, 0);
       
       // Small delay to ensure DOM is ready
       const timeoutId = setTimeout(() => {
         const element = document.getElementById(playerId);
         if (element && !refsObject[currentIndex]) {
           try {
+            // Replace the iframe with a YouTube API player
+            element.innerHTML = ''; // Clear the iframe
             refsObject[currentIndex] = new window.YT.Player(playerId, {
               videoId: videoId,
               playerVars: {
-                autoplay: 1, // Only autoplays when user explicitly clicks to play
+                autoplay: 1,
                 rel: 0,
                 enablejsapi: 1,
-                start: startTime,
+                start: video.startTime || 0,
               },
               events: {
                 onReady: (event) => {
-                  onPlayerReady(event, currentIndex);
-                  // If there's a start time, seek to it
-                  if (startTime > 0) {
-                    event.target.seekTo(startTime, true);
-                  }
+                  // Player is ready
                 },
               },
             });
@@ -264,47 +222,21 @@ function Podcast() {
             console.error('Error creating YouTube player:', e);
           }
         }
-      }, 200);
+      }, 300);
 
       return () => {
         clearTimeout(timeoutId);
-        // Clean up when switching away from this video
-        // Use captured values from the effect to avoid stale closures
-        const playerToCleanup = refsObject[currentIndex];
-        const elementIdToCheck = playerId;
-        const indexToCleanup = currentIndex;
-        
-        if (playerToCleanup) {
-          // Check if element still exists in DOM before trying to clean up
+        // Clean up player
+        if (refsObject[currentIndex]) {
           try {
-            const element = document.getElementById(elementIdToCheck);
-            if (element && document.body.contains(element)) {
-              // Check if player's iframe is still in the element
-              const iframe = playerToCleanup.getIframe ? playerToCleanup.getIframe() : null;
-              if (iframe && element.contains(iframe)) {
-                safeDestroyPlayer(playerToCleanup, elementIdToCheck);
-              } else if (typeof playerToCleanup.stopVideo === 'function') {
-                // If iframe is not in element, just stop the video
-                try {
-                  playerToCleanup.stopVideo();
-                } catch (e) {
-                  // Ignore errors
-                }
-              }
-            } else if (typeof playerToCleanup.stopVideo === 'function') {
-              // Element doesn't exist, just stop the video
-              try {
-                playerToCleanup.stopVideo();
-              } catch (e) {
-                // Ignore errors
-              }
+            const player = refsObject[currentIndex];
+            if (typeof player.stopVideo === 'function') {
+              player.stopVideo();
             }
-          } catch (err) {
-            // Silently handle any cleanup errors
-            console.warn('Player cleanup warning:', err);
+          } catch (e) {
+            // Ignore cleanup errors
           }
-          // Clear the ref using the captured ref object
-          refsObject[indexToCleanup] = null;
+          refsObject[currentIndex] = null;
         }
       };
     }
@@ -347,7 +279,7 @@ function Podcast() {
     }
   };
 
-  // Handle welcome image click - toggle play/pause for first video
+  // Handle welcome image click - toggle play/pause for Video 1 (welcome podcast, now at index 2, far right)
   const handleWelcomeImageClick = () => {
     // Scroll to video section
     const videoSection = document.getElementById('video-section');
@@ -355,38 +287,31 @@ function Podcast() {
       videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     
-    // Toggle first video play/pause
-    if (playingVideoIndex === 0) {
-      // First video is playing, pause it and hide the player
-      const player = playerRefs.current[0];
-      if (player && typeof player.pauseVideo === 'function') {
-        try {
-          player.pauseVideo();
-        } catch (e) {
-          // Ignore errors
-        }
-      }
-      // Set to null to hide the embedded player and show thumbnail
+    // Toggle Video 1 (welcome podcast, index 2, far right) play/pause
+    if (playingVideoIndex === 2) {
+      // Video 1 is playing, hide it
       setPlayingVideoIndex(null);
     } else {
-      // First video is not playing, start it
+      // Video 1 is not playing, start it
       setTimeout(() => {
-        setPlayingVideoIndex(0);
+        setPlayingVideoIndex(2);
       }, 300); // Small delay to ensure scroll has started
     }
   };
 
-  // Handle video click - show coming soon for video 3, allow videos 1 and 2 to play
+  // Handle video click - show coming soon for Video 3 (index 0, left), allow Video 2 and Video 1 to play
   const handleVideoClick = (index) => {
-    // Video 3 (index 2) shows coming soon
-    if (index === 2) {
+    // Video 3 (index 0, left) shows coming soon
+    if (index === 0) {
+      setComingSoonIndex(index);
       setShowComingSoon(true);
       setTimeout(() => {
         setShowComingSoon(false);
+        setComingSoonIndex(null);
       }, 2000); // Show for 2 seconds
       return; // Don't set playingVideoIndex for this video
     }
-    // Videos 1 and 2 (indices 0, 1) are playable
+    // Video 2 (index 1, middle) and Video 1 (index 2, right, welcome podcast) are playable
     setPlayingVideoIndex(index);
   };
 
@@ -536,6 +461,7 @@ function Podcast() {
             margin-top: 40px;
           }
           .video-card {
+            position: relative;
             background: linear-gradient(135deg, rgba(16, 28, 38, 0.9) 0%, rgba(23, 45, 62, 0.9) 100%);
             border-radius: 16px;
             overflow: hidden;
@@ -601,11 +527,42 @@ function Podcast() {
             margin-bottom: 10px;
             line-height: 1.4;
           }
-          .video-description {
+          .video-description-wrapper {
+            line-height: 1.5;
             font-size: 0.95rem;
             color: #b0b0b0;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            margin-bottom: 0;
+          }
+          .video-description {
+            display: inline;
+          }
+          .video-description.collapsed {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: '';
+            word-break: break-word;
+          }
+          .read-more-link {
+            color: #36ff95;
+            cursor: pointer;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: color 0.2s;
+            margin-left: 4px;
+            display: inline;
+            white-space: nowrap;
+          }
+          .read-more-link:hover {
+            color: #0bbfdb;
+            text-decoration: underline;
+          }
+          .video-expand-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
           }
           .video-expand-button {
             display: inline-flex;
@@ -754,17 +711,17 @@ function Podcast() {
             }
           }
           .coming-soon-flash {
-            position: fixed;
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             background: linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%);
             color: #000;
-            padding: 30px 60px;
-            border-radius: 16px;
-            font-size: 2rem;
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 1.5rem;
             font-weight: 700;
-            z-index: 10000;
+            z-index: 1000;
             box-shadow: 0 10px 50px rgba(54, 255, 149, 0.5), 0 0 100px rgba(11, 191, 219, 0.4);
             animation: flashFadeIn 0.3s ease-out, flashFadeOut 0.3s ease-in 1.7s;
             pointer-events: none;
@@ -795,11 +752,6 @@ function Podcast() {
       </Helmet>
       
       {/* Coming Soon Flash */}
-      {showComingSoon && (
-        <div className="coming-soon-flash">
-          Coming Soon
-        </div>
-      )}
       
       {/* Liveslider Carousel */}
       <div className="liveslider-carousel">
@@ -883,8 +835,9 @@ function Podcast() {
             const videoId = getVideoId(video);
             const thumbnail = getThumbnail(video);
             // Only the video at the playing index should be playing
-            // Videos 1 and 2 (indices 0, 1) are playable, video 3 (index 2) shows coming soon
-            const isPlaying = playingVideoIndex === index && (index === 0 || index === 1);
+            // Video 2 (index 1, middle) and Video 1 (index 2, right, welcome podcast) are playable
+            // Video 3 (index 0, left) shows coming soon
+            const isPlaying = playingVideoIndex === index && (index === 1 || index === 2);
             
             return (
               <div
@@ -913,21 +866,62 @@ function Podcast() {
                       />
                     )}
                     <div className="video-play-overlay"></div>
+                    {showComingSoon && comingSoonIndex === index && (
+                      <div className="coming-soon-flash">
+                        Coming Soon
+                      </div>
+                    )}
                   </div>
                 )}
                 <div className="video-info">
                   <div className="video-title">{video.title}</div>
-                  <div className="video-description">{video.description}</div>
-                  {isPlaying && (index === 0 || index === 1) && (
-                    <button
-                      className="video-expand-button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleExpand(video, index);
-                      }}
-                    >
-                      <span>⛶</span> Expand
-                    </button>
+                  {!isPlaying && (
+                    <div className={`video-description-wrapper ${expandedDescriptions[index] ? 'expanded' : ''}`}>
+                      <div className={`video-description ${!expandedDescriptions[index] ? 'collapsed' : ''}`}>
+                        {video.description}
+                      </div>
+                      {video.description && video.description.length > 100 && !expandedDescriptions[index] && (
+                        <a
+                          className="read-more-link"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedDescriptions(prev => ({
+                              ...prev,
+                              [index]: !prev[index]
+                            }));
+                          }}
+                        >
+                          Read more
+                        </a>
+                      )}
+                      {video.description && video.description.length > 100 && expandedDescriptions[index] && (
+                        <a
+                          className="read-more-link"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedDescriptions(prev => ({
+                              ...prev,
+                              [index]: !prev[index]
+                            }));
+                          }}
+                        >
+                          Read less
+                        </a>
+                      )}
+                    </div>
+                  )}
+                  {isPlaying && (index === 1 || index === 2) && (
+                    <div className="video-expand-container">
+                      <button
+                        className="video-expand-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleExpand(video, index);
+                        }}
+                      >
+                        <span>⛶</span> Expand
+                      </button>
+                    </div>
                   )}
                 </div>
               </div>
