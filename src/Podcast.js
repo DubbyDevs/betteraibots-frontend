@@ -324,7 +324,7 @@ function Podcast() {
         <meta property="og:url" content="https://betteraibots.com/Podcast" />
         <meta property="og:title" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
         <meta property="og:description" content="Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions and stay ahead of the AI revolution." />
-        <meta property="og:image" content="https://betteraibots.com/betteraibotslive.webp" />
+        <meta property="og:image" content="https://betteraibots.com/podcastimage.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
@@ -335,7 +335,7 @@ function Podcast() {
         <meta name="twitter:url" content="https://betteraibots.com/Podcast" />
         <meta name="twitter:title" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
         <meta name="twitter:description" content="Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions." />
-        <meta name="twitter:image" content="https://betteraibots.com/betteraibotslive.webp" />
+        <meta name="twitter:image" content="https://betteraibots.com/podcastimage.png" />
         <meta name="twitter:image:alt" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
         
         {/* Structured Data for VideoObject */}
