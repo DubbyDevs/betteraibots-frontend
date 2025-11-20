@@ -17,6 +17,7 @@ function Podcast() {
   const [playingVideoIndex, setPlayingVideoIndex] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoCurrentTime, setVideoCurrentTime] = useState(null);
+  const [showComingSoon, setShowComingSoon] = useState(false);
   const iframeRefs = useRef({});
   const playerRefs = useRef({});
   const [isMobile, setIsMobile] = useState(() => {
@@ -199,7 +200,8 @@ function Podcast() {
 
   useEffect(() => {
     // Only initialize if playingVideoIndex is explicitly set (not null) and YouTube API is ready
-    if (playingVideoIndex !== null && playingVideoIndex !== undefined && window.YT && window.YT.Player) {
+    // Block top 3 videos (indices 0, 1, 2) from playing - only allow bottom video (index 3+)
+    if (playingVideoIndex !== null && playingVideoIndex !== undefined && playingVideoIndex >= 3 && window.YT && window.YT.Player) {
       const video = youtubeVideos[playingVideoIndex];
       if (!video) return; // Safety check
       
@@ -332,7 +334,7 @@ function Podcast() {
     }
   };
 
-  // Handle welcome image click - toggle play/pause for first video
+  // Handle welcome image click - show coming soon for top videos
   const handleWelcomeImageClick = () => {
     // Scroll to video section
     const videoSection = document.getElementById('video-section');
@@ -340,25 +342,25 @@ function Podcast() {
       videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     
-    // Toggle first video play/pause
-    if (playingVideoIndex === 0) {
-      // First video is playing, pause it and hide the player
-      const player = playerRefs.current[0];
-      if (player && typeof player.pauseVideo === 'function') {
-        try {
-          player.pauseVideo();
-        } catch (e) {
-          // Ignore errors
-        }
-      }
-      // Set to null to hide the embedded player and show thumbnail
-      setPlayingVideoIndex(null);
-    } else {
-      // First video is not playing, start it
+    // Show coming soon flash for top videos (index 0)
+    setShowComingSoon(true);
+    setTimeout(() => {
+      setShowComingSoon(false);
+    }, 2000); // Show for 2 seconds
+  };
+
+  // Handle video click - show coming soon for top 3, allow bottom video
+  const handleVideoClick = (index) => {
+    // Top 3 videos (indices 0, 1, 2) show coming soon
+    if (index < 3) {
+      setShowComingSoon(true);
       setTimeout(() => {
-        setPlayingVideoIndex(0);
-      }, 300); // Small delay to ensure scroll has started
+        setShowComingSoon(false);
+      }, 2000); // Show for 2 seconds
+      return; // Don't set playingVideoIndex for top 3 videos
     }
+    // Bottom video (index 3+) is playable
+    setPlayingVideoIndex(index);
   };
 
   // Initialize YouTube player
@@ -369,8 +371,74 @@ function Podcast() {
   return (
     <>
       <Helmet>
-        <title>Podcast - BetterAiBots</title>
-        <meta name="description" content="BetterAiBots Podcast - AI tools, news, and educational content" />
+        <title>BetterAiBots Podcast - AI Tools, News &amp; Educational Content | Watch Live</title>
+        <meta name="description" content="Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions and stay ahead of the AI revolution. Free AI resources and tutorials." />
+        <meta name="keywords" content="AI podcast, AI tools podcast, artificial intelligence news, AI education, AI tutorials, BetterAiBots podcast, AI live show, AI expert interviews, AI tools review, AI news 2025" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <link rel="canonical" href="https://betteraibots.com/Podcast" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://betteraibots.com/Podcast" />
+        <meta property="og:title" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
+        <meta property="og:description" content="Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions and stay ahead of the AI revolution." />
+        <meta property="og:image" content="https://betteraibots.com/betteraibotslive.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
+        <meta property="og:site_name" content="BetterAiBots" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://betteraibots.com/Podcast" />
+        <meta name="twitter:title" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
+        <meta name="twitter:description" content="Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions." />
+        <meta name="twitter:image" content="https://betteraibots.com/betteraibotslive.webp" />
+        <meta name="twitter:image:alt" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
+        
+        {/* Structured Data for VideoObject */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": "BetterAiBots Podcast",
+            "description": "Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions and stay ahead of the AI revolution.",
+            "thumbnailUrl": "https://betteraibots.com/betteraibotslive.webp",
+            "uploadDate": "2025-11-20",
+            "contentUrl": "https://betteraibots.com/Podcast",
+            "embedUrl": "https://betteraibots.com/Podcast",
+            "publisher": {
+              "@type": "Organization",
+              "name": "BetterAiBots",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://betteraibots.com/betteraibotsglowlogo8.png"
+              }
+            }
+          })}
+        </script>
+        
+        {/* Breadcrumb Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://betteraibots.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Podcast",
+                "item": "https://betteraibots.com/Podcast"
+              }
+            ]
+          })}
+        </script>
         <style>{`
           @keyframes scrollCarousel {
             0% {
@@ -658,8 +726,53 @@ function Podcast() {
               gap: 20px;
             }
           }
+          .coming-soon-flash {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%);
+            color: #000;
+            padding: 30px 60px;
+            border-radius: 16px;
+            font-size: 2rem;
+            font-weight: 700;
+            z-index: 10000;
+            box-shadow: 0 10px 50px rgba(54, 255, 149, 0.5), 0 0 100px rgba(11, 191, 219, 0.4);
+            animation: flashFadeIn 0.3s ease-out, flashFadeOut 0.3s ease-in 1.7s;
+            pointer-events: none;
+            text-align: center;
+            letter-spacing: 1px;
+          }
+          @keyframes flashFadeIn {
+            from {
+              opacity: 0;
+              transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+              opacity: 1;
+              transform: translate(-50%, -50%) scale(1);
+            }
+          }
+          @keyframes flashFadeOut {
+            from {
+              opacity: 1;
+              transform: translate(-50%, -50%) scale(1);
+            }
+            to {
+              opacity: 0;
+              transform: translate(-50%, -50%) scale(0.8);
+            }
+          }
         `}</style>
       </Helmet>
+      
+      {/* Coming Soon Flash */}
+      {showComingSoon && (
+        <div className="coming-soon-flash">
+          Coming Soon
+        </div>
+      )}
       
       {/* Liveslider Carousel */}
       <div className="liveslider-carousel">
@@ -743,7 +856,8 @@ function Podcast() {
             const videoId = getVideoId(video);
             const thumbnail = getThumbnail(video);
             // Only the video at the playing index should be playing
-            const isPlaying = playingVideoIndex === index;
+            // Top 3 videos (indices 0, 1, 2) are disabled - show coming soon instead
+            const isPlaying = playingVideoIndex === index && index >= 3;
             
             return (
               <div
@@ -760,7 +874,7 @@ function Podcast() {
                 ) : (
                   <div 
                     className="video-thumbnail"
-                    onClick={() => setPlayingVideoIndex(index)}
+                    onClick={() => handleVideoClick(index)}
                   >
                     {thumbnail && (
                       <img
@@ -777,7 +891,7 @@ function Podcast() {
                 <div className="video-info">
                   <div className="video-title">{video.title}</div>
                   <div className="video-description">{video.description}</div>
-                  {isPlaying && (
+                  {isPlaying && index >= 3 && (
                     <button
                       className="video-expand-button"
                       onClick={(e) => {

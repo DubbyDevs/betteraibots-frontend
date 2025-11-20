@@ -57,13 +57,13 @@
   <!-- Podcast Page -->
   <url>
     <loc>https://betteraibots.com/Podcast</loc>
-    <lastmod>2025-11-15</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
     <image:image>
-      <image:loc>https://betteraibots.com/og-image.png?v=3</image:loc>
-      <image:title>BetterAiBots Podcast</image:title>
-      <image:caption>BetterAiBots Podcast - AI tools, news, and educational content</image:caption>
+      <image:loc>https://betteraibots.com/betteraibotslive.webp</image:loc>
+      <image:title>BetterAiBots Podcast - AI Tools, News &amp; Educational Content</image:title>
+      <image:caption>Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions and stay ahead of the AI revolution.</image:caption>
     </image:image>
   </url>
   
