@@ -147,7 +147,7 @@ function Podcast() {
   }, []);
 
 
-  // Initialize YouTube API players for embedded videos to enable pause/getCurrentTime functionality
+  // Initialize YouTube API players for embedded iframes to enable getCurrentTime for expand functionality
   useEffect(() => {
     if (playingVideoIndex !== null && playingVideoIndex !== undefined && (playingVideoIndex === 1 || playingVideoIndex === 2)) {
       const video = youtubeVideos[playingVideoIndex];
@@ -166,18 +166,11 @@ function Podcast() {
       const initPlayer = () => {
         if (window.YT && window.YT.Player) {
           timeoutId = setTimeout(() => {
-            const element = document.getElementById(playerId);
-            if (element && !refsObject[currentIndex]) {
+            const iframe = document.getElementById(playerId);
+            if (iframe && iframe.tagName === 'IFRAME' && !refsObject[currentIndex]) {
               try {
-                // Create YouTube API player
-                refsObject[currentIndex] = new window.YT.Player(playerId, {
-                  videoId: videoId,
-                  playerVars: {
-                    autoplay: 1,
-                    rel: 0,
-                    enablejsapi: 1,
-                    start: video.startTime || 0,
-                  },
+                // Create YouTube API player from existing iframe
+                refsObject[currentIndex] = new window.YT.Player(iframe, {
                   events: {
                     onReady: (event) => {
                       // Player is ready
@@ -185,10 +178,10 @@ function Podcast() {
                   },
                 });
               } catch (e) {
-                console.error('Error creating YouTube player:', e);
+                console.error('Error creating YouTube player from iframe:', e);
               }
             }
-          }, 500);
+          }, 1000); // Give iframe time to load
         }
       };
 
@@ -211,8 +204,8 @@ function Podcast() {
         if (refsObject[currentIndex]) {
           try {
             const player = refsObject[currentIndex];
-            if (typeof player.stopVideo === 'function') {
-              player.stopVideo();
+            if (typeof player.destroy === 'function') {
+              player.destroy();
             }
           } catch (e) {
             // Ignore cleanup errors
@@ -244,20 +237,26 @@ function Podcast() {
 
   // Handle expand button click
   const handleExpand = (video, index) => {
+    // Try to get current time from YouTube API player if available
     const player = playerRefs.current[index];
-    if (player) {
+    let currentTime = 0;
+    
+    if (player && typeof player.getCurrentTime === 'function') {
       try {
-        const currentTime = player.getCurrentTime();
-        player.pauseVideo();
-        setVideoCurrentTime(currentTime);
-        setSelectedVideo({ ...video, startTime: currentTime });
+        currentTime = player.getCurrentTime();
+        if (typeof player.pauseVideo === 'function') {
+          player.pauseVideo();
+        }
       } catch (e) {
-        // Fallback if API not available
-        setSelectedVideo({ ...video, startTime: videoCurrentTime || 0 });
+        // Fallback to stored time
+        currentTime = videoCurrentTime || 0;
       }
     } else {
-      setSelectedVideo({ ...video, startTime: videoCurrentTime || 0 });
+      currentTime = videoCurrentTime || 0;
     }
+    
+    setVideoCurrentTime(currentTime);
+    setSelectedVideo({ ...video, startTime: currentTime });
   };
 
   // Handle welcome image click - toggle play/pause for Video 1 (welcome podcast, now at index 2, far right)
@@ -827,10 +826,14 @@ function Podcast() {
               >
                 {isPlaying ? (
                   <div className="video-embed-inline">
-                    <div
+                    <iframe
                       id={`youtube-player-${index}`}
-                      style={{ width: '100%', height: '100%' }}
-                    ></div>
+                      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1${video.startTime ? `&start=${Math.floor(video.startTime)}` : ''}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      style={{ width: '100%', height: '100%', border: 'none', position: 'absolute', top: 0, left: 0 }}
+                    ></iframe>
                   </div>
                 ) : (
                   <div 
@@ -1023,14 +1026,13 @@ function Podcast() {
               ×
             </button>
             <div className="video-embed">
-              {getVideoId(selectedVideo) && (
-                <iframe
-                  src={`https://www.youtube.com/embed/${getVideoId(selectedVideo)}?autoplay=1&rel=0${selectedVideo.startTime ? `&start=${Math.floor(selectedVideo.startTime)}` : videoCurrentTime ? `&start=${Math.floor(videoCurrentTime)}` : ''}`}
-                  title={selectedVideo.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              )}
+              <iframe
+                src={`https://www.youtube.com/embed/${getVideoId(selectedVideo) || ''}?autoplay=1&rel=0${selectedVideo.startTime ? `&start=${Math.floor(selectedVideo.startTime)}` : videoCurrentTime ? `&start=${Math.floor(videoCurrentTime)}` : ''}`}
+                title={selectedVideo.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ width: '100%', height: '100%', border: 'none' }}
+              ></iframe>
             </div>
           </div>
         </div>
