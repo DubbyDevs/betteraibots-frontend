@@ -10,9 +10,7 @@ import baiblive6 from './assets/liveslider/baiblive6.jpg';
 import baiblive7 from './assets/liveslider/baiblive7.jpg';
 import baiblive8 from './assets/liveslider/baiblive8.jpg';
 import baiblive9 from './assets/liveslider/baiblive9.jpg';
-import aigoldrush from './assets/aigoldrush.webp';
 import baibliveMain from './assets/baiblive.jpg';
-import baibliveshow2 from './assets/baibliveshow2.jpg';
 import betteraibotsliveEp155Copy55 from './assets/betteraibotslive ep155 copy55.jpg';
 
 function Podcast() {
