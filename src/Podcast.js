@@ -167,42 +167,15 @@ function Podcast() {
         return;
       }
       
-      // Check if player has an iframe and if it's still in the element
+      // Don't call player.destroy() as it conflicts with React's DOM cleanup
+      // Just clear the element's innerHTML and let React handle the DOM removal
+      // This prevents "removeChild" errors when React unmounts the component
       try {
-        const iframe = player.getIframe ? player.getIframe() : null;
-        if (iframe && iframe.parentNode && element.contains(iframe)) {
-          // Iframe exists and is still in element - safe to destroy
-          try {
-            player.destroy();
-          } catch (destroyErr) {
-            // If destroy fails, just clear the element content
-            try {
-              if (element && element.parentNode) {
-                element.innerHTML = '';
-              }
-            } catch (e) {
-              // Ignore all errors - React will handle cleanup
-            }
-          }
-        } else {
-          // Iframe doesn't exist or has been moved - just clear element
-          try {
-            if (element && element.parentNode) {
-              element.innerHTML = '';
-            }
-          } catch (e) {
-            // Ignore - React will handle it
-          }
+        if (element && element.parentNode) {
+          element.innerHTML = '';
         }
-      } catch (iframeErr) {
-        // Can't access iframe - just clear element
-        try {
-          if (element && element.parentNode) {
-            element.innerHTML = '';
-          }
-        } catch (e) {
-          // Ignore all errors
-        }
+      } catch (e) {
+        // Ignore all errors - React will handle cleanup
       }
     } catch (err) {
       // Silently swallow all errors - React will handle DOM cleanup
