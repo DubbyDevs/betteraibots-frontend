@@ -37,13 +37,13 @@
     X-XSS-Protection = "1; mode=block"
     
     # Control browser features and APIs
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(self https://www.youtube.com https://youtube.com), gyroscope=(self https://www.youtube.com https://youtube.com), accelerometer=(self https://www.youtube.com https://youtube.com)"
     
     # Prevent browsers from detecting the MIME type
     X-Download-Options = "noopen"
     
     # Content Security Policy (moved from meta tag to HTTP header for better security)
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://plausible.io https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://betteraibots.com https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://plausible.io https://*.auth0.com https://*.auth0.com/*; frame-src 'self' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://plausible.io https://www.google.com https://www.gstatic.com https://www.recaptcha.net https://www.youtube.com https://youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://betteraibots.com https://www.google-analytics.com https://www.googletagmanager.com https://i.ytimg.com https://img.youtube.com; connect-src 'self' https://www.google-analytics.com https://plausible.io https://*.auth0.com https://*.auth0.com/* https://www.youtube.com https://youtube.com; frame-src 'self' https://www.google.com https://www.gstatic.com https://www.recaptcha.net https://www.youtube.com https://youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"
     
     # Light caching for better user experience
     Cache-Control = "public, max-age=300, must-revalidate"
