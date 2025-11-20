@@ -1748,9 +1748,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   const [newsScrollPosition, setNewsScrollPosition] = useState(0);
   const [newsIsTransitioning, setNewsIsTransitioning] = useState(true);
   
-  // GPTs image slideshow state - scroll down animation
-  const [gptsScrollPosition, setGptsScrollPosition] = useState(0);
-  const [gptsIsTransitioning, setGptsIsTransitioning] = useState(true);
+  // GPTs image slideshow state - removed (GPTs is now static)
   
   // Show image slideshow state - cross dissolve
   const [showImageIndex, setShowImageIndex] = useState(0);
@@ -1952,52 +1950,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // GPTs image slideshow effect - scroll down animation every 15 seconds, infinite loop
-  useEffect(() => {
-    // Preload all GPTs images
-    gptsImages.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-
-    let scrollCounter = 0;
-    
-    // Rotate images every 15 seconds with scroll-down animation
-    const intervalId = setInterval(() => {
-      scrollCounter++;
-      const position = scrollCounter % (gptsImages.length + 1);
-      
-      // If we've scrolled to the duplicate (last position), reset seamlessly
-      if (position === gptsImages.length) {
-        // Scroll to duplicate with transition
-        setGptsIsTransitioning(true);
-        setGptsScrollPosition(position);
-        // Reset just before transition completes to eliminate jump
-        setTimeout(() => {
-          // Disable transition first
-          setGptsIsTransitioning(false);
-          // Use double requestAnimationFrame for smoother reset
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              setGptsScrollPosition(0);
-              scrollCounter = 0;
-              // Re-enable transition for next scroll
-              requestAnimationFrame(() => {
-                setGptsIsTransitioning(true);
-              });
-            });
-          });
-        }, 1450); // Reset slightly before transition completes to eliminate jump
-      } else {
-        // Normal scroll with transition
-        setGptsIsTransitioning(true);
-        setGptsScrollPosition(position);
-      }
-    }, 15000);
-    
-    return () => clearInterval(intervalId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // GPTs image slideshow effect - removed (GPTs is now static)
 
   // Apps image slideshow effect - horizontal scroll left every 7 seconds, infinite loop
   useEffect(() => {
