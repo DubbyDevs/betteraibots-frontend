@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import welcometobaibpod from './assets/welcometobaibpod.jpg';
 import baiblive from './assets/liveslider/baiblive.jpg';
@@ -71,7 +71,7 @@ function Podcast() {
   const duplicatedImages = [...livesliderImages, ...livesliderImages];
 
   // YouTube videos - replace with your actual video IDs
-  const youtubeVideos = [
+  const youtubeVideos = useMemo(() => [
     {
       id: 'StFLNRmH7XQ',
       title: 'Welcome to BetterAiBots Podcast',
@@ -111,7 +111,7 @@ function Podcast() {
       title: 'Product Reviews',
       description: 'Honest reviews of the latest AI products'
     },
-  ];
+  ], [baiblive3, aigoldrush, baibliveMain]);
 
   // Bottom video removed - no longer needed
 
@@ -298,6 +298,8 @@ function Podcast() {
         const playerToCleanup = playerRefs.current[currentIndex];
         const elementIdToCheck = playerId;
         const indexToCleanup = currentIndex;
+        // Capture the ref object to avoid accessing it in cleanup
+        const refsObject = playerRefs.current;
         
         if (playerToCleanup) {
           // Check if element still exists in DOM before trying to clean up
@@ -328,8 +330,8 @@ function Podcast() {
             // Silently handle any cleanup errors
             console.warn('Player cleanup warning:', err);
           }
-          // Clear the ref regardless
-          playerRefs.current[indexToCleanup] = null;
+          // Clear the ref using the captured ref object
+          refsObject[indexToCleanup] = null;
         }
       };
     }
