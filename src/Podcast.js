@@ -10,7 +10,6 @@ import baiblive6 from './assets/liveslider/baiblive6.jpg';
 import baiblive7 from './assets/liveslider/baiblive7.jpg';
 import baiblive8 from './assets/liveslider/baiblive8.jpg';
 import baiblive9 from './assets/liveslider/baiblive9.jpg';
-import baibliveMain from './assets/baiblive.jpg';
 import betteraibotsliveEp155Copy55 from './assets/betteraibotslive ep155 copy55.jpg';
 
 function Podcast() {
@@ -147,42 +146,6 @@ function Podcast() {
     }
   }, []);
 
-  // Initialize YouTube player when video starts playing (only when explicitly set by user)
-  const safeDestroyPlayer = (player, elementId) => {
-    if (!player) return;
-    
-    // Always try to stop the video first (safest operation)
-    if (typeof player.stopVideo === 'function') {
-      try {
-        player.stopVideo();
-      } catch (e) {
-        // Ignore stop errors - video might already be stopped
-      }
-    }
-    
-    // Only try to destroy if we can safely verify the DOM structure
-    try {
-      const element = elementId ? document.getElementById(elementId) : null;
-      if (!element || !document.body.contains(element)) {
-        // Element doesn't exist or has been removed by React - just return
-        return;
-      }
-      
-      // Don't call player.destroy() as it conflicts with React's DOM cleanup
-      // Just clear the element's innerHTML and let React handle the DOM removal
-      // This prevents "removeChild" errors when React unmounts the component
-      try {
-        if (element && element.parentNode) {
-          element.innerHTML = '';
-        }
-      } catch (e) {
-        // Ignore all errors - React will handle cleanup
-      }
-    } catch (err) {
-      // Silently swallow all errors - React will handle DOM cleanup
-      // This prevents the "removeChild" error from crashing the app
-    }
-  };
 
   // Initialize YouTube API players for embedded videos to enable pause/getCurrentTime functionality
   useEffect(() => {
@@ -315,10 +278,6 @@ function Podcast() {
     setPlayingVideoIndex(index);
   };
 
-  // Initialize YouTube player
-  const onPlayerReady = (event, index) => {
-    playerRefs.current[index] = event.target;
-  };
 
   return (
     <>
@@ -553,6 +512,10 @@ function Podcast() {
             margin-left: 4px;
             display: inline;
             white-space: nowrap;
+            background: none;
+            border: none;
+            padding: 0;
+            font-family: inherit;
           }
           .read-more-link:hover {
             color: #0bbfdb;
@@ -881,7 +844,7 @@ function Podcast() {
                         {video.description}
                       </div>
                       {video.description && video.description.length > 100 && !expandedDescriptions[index] && (
-                        <a
+                        <button
                           className="read-more-link"
                           onClick={(e) => {
                             e.stopPropagation();
@@ -892,10 +855,10 @@ function Podcast() {
                           }}
                         >
                           Read more
-                        </a>
+                        </button>
                       )}
                       {video.description && video.description.length > 100 && expandedDescriptions[index] && (
-                        <a
+                        <button
                           className="read-more-link"
                           onClick={(e) => {
                             e.stopPropagation();
@@ -906,7 +869,7 @@ function Podcast() {
                           }}
                         >
                           Read less
-                        </a>
+                        </button>
                       )}
                     </div>
                   )}
