@@ -12,6 +12,8 @@ import baiblive8 from './assets/liveslider/baiblive8.jpg';
 import baiblive9 from './assets/liveslider/baiblive9.jpg';
 import aigoldrush from './assets/aigoldrush.webp';
 import baibliveMain from './assets/baiblive.jpg';
+import baibliveshow2 from './assets/baibliveshow2.jpg';
+import betteraibotsliveEp155Copy55 from './assets/betteraibotslive ep155 copy55.jpg';
 
 function Podcast() {
   const [playingVideoIndex, setPlayingVideoIndex] = useState(null);
@@ -79,11 +81,10 @@ function Podcast() {
       thumbnail: baiblive3
     },
     {
-      id: 'iJi5a2c32n4',
-      startTime: 665, // Start at 665 seconds
+      id: 'PbanVBegAlk',
       title: 'Latest Episode: AI Tools Discussion',
       description: 'Exploring the latest AI tools and their applications',
-      thumbnail: aigoldrush
+      thumbnail: betteraibotsliveEp155Copy55
     },
     {
       id: 'tFNJJsNHjzU',
@@ -211,8 +212,8 @@ function Podcast() {
 
   useEffect(() => {
     // Only initialize if playingVideoIndex is explicitly set (not null) and YouTube API is ready
-    // Allow video 1 (index 0) to play, block videos 2 and 3 (indices 1, 2)
-    if (playingVideoIndex !== null && playingVideoIndex !== undefined && playingVideoIndex === 0 && window.YT && window.YT.Player) {
+    // Allow videos 1 and 2 (indices 0, 1) to play, block video 3 (index 2)
+    if (playingVideoIndex !== null && playingVideoIndex !== undefined && (playingVideoIndex === 0 || playingVideoIndex === 1) && window.YT && window.YT.Player) {
       const video = youtubeVideos[playingVideoIndex];
       if (!video) return; // Safety check
       
@@ -404,17 +405,17 @@ function Podcast() {
     }
   };
 
-  // Handle video click - show coming soon for top 2, allow video 1 and bottom video
+  // Handle video click - show coming soon for video 3, allow videos 1 and 2 to play
   const handleVideoClick = (index) => {
-    // Videos 2 and 3 (indices 1, 2) show coming soon
-    if (index === 1 || index === 2) {
+    // Video 3 (index 2) shows coming soon
+    if (index === 2) {
       setShowComingSoon(true);
       setTimeout(() => {
         setShowComingSoon(false);
       }, 2000); // Show for 2 seconds
-      return; // Don't set playingVideoIndex for these videos
+      return; // Don't set playingVideoIndex for this video
     }
-    // Video 1 (index 0) and bottom video (index 3+) are playable
+    // Videos 1 and 2 (indices 0, 1) are playable
     setPlayingVideoIndex(index);
   };
 
@@ -911,8 +912,8 @@ function Podcast() {
             const videoId = getVideoId(video);
             const thumbnail = getThumbnail(video);
             // Only the video at the playing index should be playing
-            // Video 1 (index 0) is playable, videos 2 and 3 (indices 1, 2) show coming soon
-            const isPlaying = playingVideoIndex === index && index === 0;
+            // Videos 1 and 2 (indices 0, 1) are playable, video 3 (index 2) shows coming soon
+            const isPlaying = playingVideoIndex === index && (index === 0 || index === 1);
             
             return (
               <div
@@ -946,7 +947,7 @@ function Podcast() {
                 <div className="video-info">
                   <div className="video-title">{video.title}</div>
                   <div className="video-description">{video.description}</div>
-                  {isPlaying && index === 0 && (
+                  {isPlaying && (index === 0 || index === 1) && (
                     <button
                       className="video-expand-button"
                       onClick={(e) => {
