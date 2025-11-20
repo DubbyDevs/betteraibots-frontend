@@ -111,7 +111,7 @@ function Podcast() {
       title: 'Product Reviews',
       description: 'Honest reviews of the latest AI products'
     },
-  ], [baiblive3, aigoldrush, baibliveMain]);
+  ], []);
 
   // Bottom video removed - no longer needed
 
@@ -223,11 +223,14 @@ function Podcast() {
       const startTime = video.startTime || 0;
       const currentIndex = playingVideoIndex;
       
+      // Capture the ref object at the start of the effect to avoid accessing it in cleanup
+      const refsObject = playerRefs.current;
+      
       // Clean up ALL previous players before creating a new one
       // Use setTimeout to ensure cleanup happens after React's DOM updates
       setTimeout(() => {
-        Object.keys(playerRefs.current).forEach((key) => {
-          const player = playerRefs.current[key];
+        Object.keys(refsObject).forEach((key) => {
+          const player = refsObject[key];
           if (player && key !== String(currentIndex)) {
             const elementId = `youtube-player-${key}`;
             // Check if element exists before trying to clean up
@@ -242,32 +245,32 @@ function Podcast() {
                 // Ignore errors
               }
             }
-            playerRefs.current[key] = null;
+            refsObject[key] = null;
           }
         });
         
         // Clean up the current player if it exists
-        if (playerRefs.current[currentIndex]) {
+        if (refsObject[currentIndex]) {
           const element = document.getElementById(playerId);
           if (element && document.body.contains(element)) {
-            safeDestroyPlayer(playerRefs.current[currentIndex], playerId);
-          } else if (playerRefs.current[currentIndex] && typeof playerRefs.current[currentIndex].stopVideo === 'function') {
+            safeDestroyPlayer(refsObject[currentIndex], playerId);
+          } else if (refsObject[currentIndex] && typeof refsObject[currentIndex].stopVideo === 'function') {
             try {
-              playerRefs.current[currentIndex].stopVideo();
+              refsObject[currentIndex].stopVideo();
             } catch (e) {
               // Ignore errors
             }
           }
-          playerRefs.current[currentIndex] = null;
+          refsObject[currentIndex] = null;
         }
       }, 0);
       
       // Small delay to ensure DOM is ready
       const timeoutId = setTimeout(() => {
         const element = document.getElementById(playerId);
-        if (element && !playerRefs.current[currentIndex]) {
+        if (element && !refsObject[currentIndex]) {
           try {
-            playerRefs.current[currentIndex] = new window.YT.Player(playerId, {
+            refsObject[currentIndex] = new window.YT.Player(playerId, {
               videoId: videoId,
               playerVars: {
                 autoplay: 1, // Only autoplays when user explicitly clicks to play
@@ -294,12 +297,10 @@ function Podcast() {
       return () => {
         clearTimeout(timeoutId);
         // Clean up when switching away from this video
-        // Capture values at the time of effect to avoid stale closures
-        const playerToCleanup = playerRefs.current[currentIndex];
+        // Use captured values from the effect to avoid stale closures
+        const playerToCleanup = refsObject[currentIndex];
         const elementIdToCheck = playerId;
         const indexToCleanup = currentIndex;
-        // Capture the ref object to avoid accessing it in cleanup
-        const refsObject = playerRefs.current;
         
         if (playerToCleanup) {
           // Check if element still exists in DOM before trying to clean up
