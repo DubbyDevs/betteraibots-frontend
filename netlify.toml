@@ -37,7 +37,7 @@
     X-XSS-Protection = "1; mode=block"
     
     # Control browser features and APIs
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(self https://www.youtube.com https://youtube.com), gyroscope=(self https://www.youtube.com https://youtube.com), accelerometer=(self https://www.youtube.com https://youtube.com)"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(self \"https://www.youtube.com\" \"https://youtube.com\"), gyroscope=(self \"https://www.youtube.com\" \"https://youtube.com\"), accelerometer=(self \"https://www.youtube.com\" \"https://youtube.com\")"
     
     # Prevent browsers from detecting the MIME type
     X-Download-Options = "noopen"

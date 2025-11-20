@@ -261,12 +261,6 @@ function Podcast() {
 
   // Handle welcome image click - toggle play/pause for Video 1 (welcome podcast, now at index 2, far right)
   const handleWelcomeImageClick = () => {
-    // Scroll to video section
-    const videoSection = document.getElementById('video-section');
-    if (videoSection) {
-      videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    
     // Toggle Video 1 (welcome podcast, index 2, far right) play/pause
     if (playingVideoIndex === 2) {
       // Video 1 is playing, hide it
@@ -275,7 +269,27 @@ function Podcast() {
       // Video 1 is not playing, start it
       setTimeout(() => {
         setPlayingVideoIndex(2);
-      }, 300); // Small delay to ensure scroll has started
+        
+        // Scroll behavior differs for mobile vs desktop
+        if (isMobile) {
+          // On mobile: scroll to the specific video card (Video 1, index 2)
+          const videoCard = document.getElementById(`video-card-2`);
+          if (videoCard) {
+            videoCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        } else {
+          // On desktop: scroll to video section with 15px padding at top
+          const videoSection = document.getElementById('video-section');
+          if (videoSection) {
+            const elementPosition = videoSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - 15;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      }, 300); // Small delay to ensure state update
     }
   };
 
@@ -822,6 +836,7 @@ function Podcast() {
             return (
               <div
                 key={index}
+                id={`video-card-${index}`}
                 className="video-card"
               >
                 {isPlaying ? (
