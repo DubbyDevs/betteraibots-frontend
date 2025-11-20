@@ -149,7 +149,7 @@ function Podcast() {
 
   // Initialize YouTube API players for embedded videos to enable pause/getCurrentTime functionality
   useEffect(() => {
-    if (playingVideoIndex !== null && playingVideoIndex !== undefined && (playingVideoIndex === 1 || playingVideoIndex === 2) && window.YT && window.YT.Player) {
+    if (playingVideoIndex !== null && playingVideoIndex !== undefined && (playingVideoIndex === 1 || playingVideoIndex === 2)) {
       const video = youtubeVideos[playingVideoIndex];
       if (!video) return;
       
@@ -160,35 +160,53 @@ function Podcast() {
       const currentIndex = playingVideoIndex;
       const refsObject = playerRefs.current;
       
-      // Small delay to ensure DOM is ready
-      const timeoutId = setTimeout(() => {
-        const element = document.getElementById(playerId);
-        if (element && !refsObject[currentIndex]) {
-          try {
-            // Replace the iframe with a YouTube API player
-            element.innerHTML = ''; // Clear the iframe
-            refsObject[currentIndex] = new window.YT.Player(playerId, {
-              videoId: videoId,
-              playerVars: {
-                autoplay: 1,
-                rel: 0,
-                enablejsapi: 1,
-                start: video.startTime || 0,
-              },
-              events: {
-                onReady: (event) => {
-                  // Player is ready
-                },
-              },
-            });
-          } catch (e) {
-            console.error('Error creating YouTube player:', e);
-          }
+      let timeoutId;
+      let checkInterval;
+      
+      const initPlayer = () => {
+        if (window.YT && window.YT.Player) {
+          timeoutId = setTimeout(() => {
+            const element = document.getElementById(playerId);
+            if (element && !refsObject[currentIndex]) {
+              try {
+                // Create YouTube API player
+                refsObject[currentIndex] = new window.YT.Player(playerId, {
+                  videoId: videoId,
+                  playerVars: {
+                    autoplay: 1,
+                    rel: 0,
+                    enablejsapi: 1,
+                    start: video.startTime || 0,
+                  },
+                  events: {
+                    onReady: (event) => {
+                      // Player is ready
+                    },
+                  },
+                });
+              } catch (e) {
+                console.error('Error creating YouTube player:', e);
+              }
+            }
+          }, 500);
         }
-      }, 300);
+      };
+
+      if (window.YT && window.YT.Player) {
+        initPlayer();
+      } else {
+        // Wait for YouTube API to load
+        checkInterval = setInterval(() => {
+          if (window.YT && window.YT.Player) {
+            clearInterval(checkInterval);
+            initPlayer();
+          }
+        }, 100);
+      }
 
       return () => {
-        clearTimeout(timeoutId);
+        if (timeoutId) clearTimeout(timeoutId);
+        if (checkInterval) clearInterval(checkInterval);
         // Clean up player
         if (refsObject[currentIndex]) {
           try {
@@ -1005,12 +1023,14 @@ function Podcast() {
               ×
             </button>
             <div className="video-embed">
-              <iframe
-                src={`https://www.youtube.com/embed/${getVideoId(selectedVideo)}?autoplay=1&rel=0${selectedVideo.startTime ? `&start=${Math.floor(selectedVideo.startTime)}` : videoCurrentTime ? `&start=${Math.floor(videoCurrentTime)}` : ''}`}
-                title={selectedVideo.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              {getVideoId(selectedVideo) && (
+                <iframe
+                  src={`https://www.youtube.com/embed/${getVideoId(selectedVideo)}?autoplay=1&rel=0${selectedVideo.startTime ? `&start=${Math.floor(selectedVideo.startTime)}` : videoCurrentTime ? `&start=${Math.floor(videoCurrentTime)}` : ''}`}
+                  title={selectedVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              )}
             </div>
           </div>
         </div>
