@@ -25,8 +25,8 @@ const Breadcrumbs = () => {
     sessionStorage.removeItem('articleFromPage');
   }
 
-  // Don't show breadcrumbs on home page
-  if (pathSegments.length === 0) {
+  // Don't show breadcrumbs on home page or podcast page
+  if (pathSegments.length === 0 || location.pathname.toLowerCase().includes('/podcast')) {
     return null;
   }
 

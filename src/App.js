@@ -26,6 +26,7 @@ import aitoolsdirectory2 from './assets/aitoolsdirectory2.webp';
 import aitoolsdirectory3 from './assets/aitoolsdirectory3.webp';
 import aitoolsdirectory4 from './assets/aitoolsdirectory4.webp';
 import freeaigpts from './assets/freeaigpts.webp';
+import freeaigpts2 from './assets/freeaigpts2.webp';
 import baibshow2 from './assets/baibshow2.webp';
 import baibshow3 from './assets/baibshow3.webp';
 import pipesai from './assets/pipesai.webp';
@@ -139,6 +140,7 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
       <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
       <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
+      <Link to="/Podcast" className="nav-tab" tabIndex={0}>Watch</Link>
       <Link to="/contact" className="nav-tab" tabIndex={0}>Contact</Link>
       <span
         className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
@@ -1713,6 +1715,9 @@ const newsImages = [ainews, ainews2, ainews3, ainews4, ainews5];
 // Show images array - constant outside component (only first 2 images)
 const showImages = [baibshow2, baibshow3];
 
+// GPTs images array - constant outside component
+const gptsImages = [freeaigpts, freeaigpts2];
+
 // Apps images array - constant outside component
 const appsImages = [aitoolsdirectory, aitoolsdirectory2, aitoolsdirectory3, aitoolsdirectory4];
 
@@ -1742,6 +1747,10 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   // News image slideshow state - scroll up animation
   const [newsScrollPosition, setNewsScrollPosition] = useState(0);
   const [newsIsTransitioning, setNewsIsTransitioning] = useState(true);
+  
+  // GPTs image slideshow state - scroll down animation
+  const [gptsScrollPosition, setGptsScrollPosition] = useState(0);
+  const [gptsIsTransitioning, setGptsIsTransitioning] = useState(true);
   
   // Show image slideshow state - cross dissolve
   const [showImageIndex, setShowImageIndex] = useState(0);
@@ -1894,7 +1903,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // News image slideshow effect - scroll up animation every 5.5 seconds, infinite loop
+  // News image slideshow effect - scroll up animation every 4 seconds, infinite loop
   useEffect(() => {
     // Preload all news images
     newsImages.forEach((src) => {
@@ -1903,14 +1912,16 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     });
 
     let scrollCounter = 0;
+    // Since we're scrolling 50% each time, we need double the positions to complete a full cycle
+    const totalPositions = newsImages.length * 2;
     
-    // Rotate images every 5.5 seconds with scroll-up animation
+    // Rotate images every 3 seconds with scroll-up animation
     const intervalId = setInterval(() => {
       scrollCounter++;
-      const position = scrollCounter % (newsImages.length + 1);
+      const position = scrollCounter % (totalPositions + 1);
       
       // If we've scrolled to the duplicate (last position), reset seamlessly
-      if (position === newsImages.length) {
+      if (position === totalPositions) {
         // Scroll to duplicate with transition
         setNewsIsTransitioning(true);
         setNewsScrollPosition(position);
@@ -1935,7 +1946,54 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         setNewsIsTransitioning(true);
         setNewsScrollPosition(position);
       }
-    }, 5500);
+    }, 3000);
+    
+    return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // GPTs image slideshow effect - scroll down animation every 15 seconds, infinite loop
+  useEffect(() => {
+    // Preload all GPTs images
+    gptsImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    let scrollCounter = 0;
+    
+    // Rotate images every 15 seconds with scroll-down animation
+    const intervalId = setInterval(() => {
+      scrollCounter++;
+      const position = scrollCounter % (gptsImages.length + 1);
+      
+      // If we've scrolled to the duplicate (last position), reset seamlessly
+      if (position === gptsImages.length) {
+        // Scroll to duplicate with transition
+        setGptsIsTransitioning(true);
+        setGptsScrollPosition(position);
+        // Reset just before transition completes to eliminate jump
+        setTimeout(() => {
+          // Disable transition first
+          setGptsIsTransitioning(false);
+          // Use double requestAnimationFrame for smoother reset
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              setGptsScrollPosition(0);
+              scrollCounter = 0;
+              // Re-enable transition for next scroll
+              requestAnimationFrame(() => {
+                setGptsIsTransitioning(true);
+              });
+            });
+          });
+        }, 1450); // Reset slightly before transition completes to eliminate jump
+      } else {
+        // Normal scroll with transition
+        setGptsIsTransitioning(true);
+        setGptsScrollPosition(position);
+      }
+    }, 15000);
     
     return () => clearInterval(intervalId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1989,7 +2047,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Show image slideshow effect - cross dissolve every 30 seconds (calm)
+  // Show image slideshow effect - cross dissolve every 24 seconds (calm)
   useEffect(() => {
     // Preload show images
     showImages.forEach((src) => {
@@ -1997,14 +2055,14 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       img.src = src;
     });
 
-    // Rotate between first two images every 30 seconds with cross-dissolve
+    // Rotate between first two images every 24 seconds with cross-dissolve
     const intervalId = setInterval(() => {
       setShowImageIndex((prevIndex) => {
         const nextIndex = (prevIndex + 1) % showImages.length;
         setShowPrevIndex(prevIndex);
         return nextIndex;
       });
-    }, 30000); // 30 seconds - calm transition
+    }, 24000); // 24 seconds - calm transition
     
     return () => clearInterval(intervalId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -2135,7 +2193,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: isMobile ? '20px' : '30px',
+          gap: isMobile ? '25px' : '35px',
           width: '100%',
           maxWidth: '1000px'
         }}>
@@ -2144,7 +2202,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: isMobile ? '15px' : '30px',
+            gap: isMobile ? '20px' : '35px',
             width: '100%',
             flexWrap: 'wrap'
           }}>
@@ -2202,6 +2260,15 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   marginTop: '8px'
                 }}>
                   Apps
+                </span>
+                <span style={{
+                  color: '#a0d4c0',
+                  fontSize: isMobile ? '0.7rem' : '0.75rem',
+                  textAlign: 'center',
+                  marginTop: '4px',
+                  opacity: 0.8
+                }}>
+                  Free & premium AI tools
                 </span>
               </div>
             </Link>
@@ -2268,6 +2335,15 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 }}>
                   Learn
                 </span>
+                <span style={{
+                  color: '#a0d4c0',
+                  fontSize: isMobile ? '0.7rem' : '0.75rem',
+                  textAlign: 'center',
+                  marginTop: '4px',
+                  opacity: 0.8
+                }}>
+                  Beginner to advanced guides
+                </span>
               </div>
             </Link>
             <Link to="/news" style={{ textDecoration: 'none' }}>
@@ -2295,7 +2371,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   <div style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    transform: `translateY(-${newsScrollPosition * (isMobile ? 180 : 240)}px)`,
+                    transform: `translateY(-${newsScrollPosition * (isMobile ? 90 : 120)}px)`,
                     transition: newsIsTransitioning ? 'transform 1.2s ease-in-out' : 'none'
                   }}>
                     {[...newsImages, newsImages[0]].map((imgSrc, idx) => (
@@ -2324,6 +2400,15 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 }}>
                   News
                 </span>
+                <span style={{
+                  color: '#a0d4c0',
+                  fontSize: isMobile ? '0.7rem' : '0.75rem',
+                  textAlign: 'center',
+                  marginTop: '4px',
+                  opacity: 0.8
+                }}>
+                  Latest AI updates & trends
+                </span>
               </div>
             </Link>
           </div>
@@ -2333,7 +2418,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: isMobile ? '15px' : '30px',
+            gap: isMobile ? '20px' : '35px',
             width: '100%'
           }}>
             <div 
@@ -2355,19 +2440,28 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
-                <img 
-                  src={freeaigpts} 
-                  alt="GPTs" 
-                  style={{ 
-                    maxWidth: isMobile ? '180px' : '240px',
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    border: '2px solid #36ff95',
-                    boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
-                    marginBottom: '10px'
-                  }} 
-                />
+                <div style={{
+                  maxWidth: isMobile ? '180px' : '240px',
+                  width: '100%',
+                  borderRadius: '8px',
+                  border: '2px solid #36ff95',
+                  boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
+                  marginBottom: '10px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  height: isMobile ? '180px' : '240px'
+                }}>
+                  <img 
+                    src={gptsImages[0]} 
+                    alt="GPTs" 
+                    style={{ 
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
+                </div>
                 <span style={{
                   color: '#b5ffdb',
                   fontSize: isMobile ? '0.9rem' : '1rem',
@@ -2377,12 +2471,19 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 }}>
                   GPTs
                 </span>
+                <span style={{
+                  color: '#a0d4c0',
+                  fontSize: isMobile ? '0.7rem' : '0.75rem',
+                  textAlign: 'center',
+                  marginTop: '4px',
+                  opacity: 0.8
+                }}>
+                  Discover custom AI assistants
+                </span>
               </div>
             </div>
-            <a 
-              href="https://www.youtube.com/@BetterAiBots" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <Link 
+              to="/Podcast"
               style={{ textDecoration: 'none' }}
             >
               <div style={{
@@ -2447,8 +2548,17 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 }}>
                   Show
                 </span>
+                <span style={{
+                  color: '#a0d4c0',
+                  fontSize: isMobile ? '0.7rem' : '0.75rem',
+                  textAlign: 'center',
+                  marginTop: '4px',
+                  opacity: 0.8
+                }}>
+                  Watch our podcast episodes
+                </span>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -2493,105 +2603,165 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           marginTop: "40px",
           textAlign: "left"
         }}>
-          <div style={{
-            background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
-            borderRadius: "16px",
-            padding: "30px",
-            border: "1px solid rgba(54, 255, 149, 0.2)"
-          }}>
-            <h3 style={{
-              color: "#36ff95",
-              fontSize: "1.3rem",
-              fontWeight: 600,
-              marginBottom: "16px",
-              fontFamily: "Inter, Arial, sans-serif"
-            }}>
-              🆓 Free & Premium Tools
-            </h3>
-            <p style={{
-              color: "#d1efe7",
-              fontSize: "1rem",
-              lineHeight: "1.6",
-              margin: 0
-            }}>
-              Browse free AI bots you can try immediately, plus premium tools with free trials that usually don't require a credit card. Test them out, compare options, and find what actually fits your workflow — no pressure, no guesswork.
-            </p>
-          </div>
+          <Link to="/apps" style={{ textDecoration: 'none' }}>
+            <div style={{
+              background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
+              borderRadius: "16px",
+              padding: "30px",
+              border: "1px solid rgba(54, 255, 149, 0.2)",
+              cursor: "pointer",
+              transition: "all 0.3s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+            >
+              <h3 style={{
+                color: "#36ff95",
+                fontSize: "1.3rem",
+                fontWeight: 600,
+                marginBottom: "16px",
+                fontFamily: "Inter, Arial, sans-serif"
+              }}>
+                🆓 Free & Premium Tools
+              </h3>
+              <p style={{
+                color: "#d1efe7",
+                fontSize: "1rem",
+                lineHeight: "1.6",
+                margin: 0
+              }}>
+                Browse free AI bots you can try immediately, plus premium tools with free trials that usually don't require a credit card. Test them out, compare options, and find what actually fits your workflow — no pressure, no guesswork.
+              </p>
+            </div>
+          </Link>
           
-          <div style={{
-            background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
-            borderRadius: "16px",
-            padding: "30px",
-            border: "1px solid rgba(54, 255, 149, 0.2)"
-          }}>
-            <h3 style={{
-              color: "#36ff95",
-              fontSize: "1.3rem",
-              fontWeight: 600,
-              marginBottom: "16px",
-              fontFamily: "Inter, Arial, sans-serif"
-            }}>
-              📘 Guides & Learning
-            </h3>
-            <p style={{
-              color: "#d1efe7",
-              fontSize: "1rem",
-              lineHeight: "1.6",
-              margin: 0
-            }}>
-              Every tool on BetterAiBots comes with a clear, beginner-friendly user guide so you know exactly how to use it, what to expect, and what to avoid. Our learning paths help you level up fast—from exploring new AI tools to mastering advanced workflows—with quizzes to track your progress.
-            </p>
-          </div>
+          <Link to="/learn" style={{ textDecoration: 'none' }}>
+            <div style={{
+              background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
+              borderRadius: "16px",
+              padding: "30px",
+              border: "1px solid rgba(54, 255, 149, 0.2)",
+              cursor: "pointer",
+              transition: "all 0.3s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+            >
+              <h3 style={{
+                color: "#36ff95",
+                fontSize: "1.3rem",
+                fontWeight: 600,
+                marginBottom: "16px",
+                fontFamily: "Inter, Arial, sans-serif"
+              }}>
+                📘 Guides & Learning
+              </h3>
+              <p style={{
+                color: "#d1efe7",
+                fontSize: "1rem",
+                lineHeight: "1.6",
+                margin: 0
+              }}>
+                Every tool on BetterAiBots comes with a clear, beginner-friendly user guide so you know exactly how to use it, what to expect, and what to avoid. Our learning paths help you level up fast—from exploring new AI tools to mastering advanced workflows—with quizzes to track your progress.
+              </p>
+            </div>
+          </Link>
           
-          <div style={{
-            background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
-            borderRadius: "16px",
-            padding: "30px",
-            border: "1px solid rgba(54, 255, 149, 0.2)"
-          }}>
-            <h3 style={{
-              color: "#36ff95",
-              fontSize: "1.3rem",
-              fontWeight: 600,
-              marginBottom: "16px",
-              fontFamily: "Inter, Arial, sans-serif"
-            }}>
-              📰 News & Updates
-            </h3>
-            <p style={{
-              color: "#d1efe7",
-              fontSize: "1rem",
-              lineHeight: "1.6",
-              margin: 0
-            }}>
-              AI changes fast — and we keep you ahead of it. Our News & Updates section breaks down major AI announcements, new AI tools, and big platform changes in simple, clear language so you always know what matters and why.
-            </p>
-          </div>
+          <Link to="/news" style={{ textDecoration: 'none' }}>
+            <div style={{
+              background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
+              borderRadius: "16px",
+              padding: "30px",
+              border: "1px solid rgba(54, 255, 149, 0.2)",
+              cursor: "pointer",
+              transition: "all 0.3s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+            >
+              <h3 style={{
+                color: "#36ff95",
+                fontSize: "1.3rem",
+                fontWeight: 600,
+                marginBottom: "16px",
+                fontFamily: "Inter, Arial, sans-serif"
+              }}>
+                📰 News & Updates
+              </h3>
+              <p style={{
+                color: "#d1efe7",
+                fontSize: "1rem",
+                lineHeight: "1.6",
+                margin: 0
+              }}>
+                AI changes fast — and we keep you ahead of it. Our News & Updates section breaks down major AI announcements, new AI tools, and big platform changes in simple, clear language so you always know what matters and why.
+              </p>
+            </div>
+          </Link>
           
-          <div style={{
-            background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
-            borderRadius: "16px",
-            padding: "30px",
-            border: "1px solid rgba(54, 255, 149, 0.2)"
-          }}>
-            <h3 style={{
-              color: "#36ff95",
-              fontSize: "1.3rem",
-              fontWeight: 600,
-              marginBottom: "16px",
-              fontFamily: "Inter, Arial, sans-serif"
-            }}>
-              🎯 Smart Testing
-            </h3>
-            <p style={{
-              color: "#d1efe7",
-              fontSize: "1rem",
-              lineHeight: "1.6",
-              margin: 0
-            }}>
-              Smart testing matters. We show you how to evaluate new AI tools, which workflows to experiment with, and how to identify genuine value versus marketing hype — long before you spend a dollar.
-            </p>
-          </div>
+          <Link to="/Podcast" style={{ textDecoration: 'none' }}>
+            <div style={{
+              background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
+              borderRadius: "16px",
+              padding: "30px",
+              border: "1px solid rgba(54, 255, 149, 0.2)",
+              cursor: "pointer",
+              transition: "all 0.3s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+            >
+              <h3 style={{
+                color: "#36ff95",
+                fontSize: "1.3rem",
+                fontWeight: 600,
+                marginBottom: "16px",
+                fontFamily: "Inter, Arial, sans-serif"
+              }}>
+                🎯 Smart Testing
+              </h3>
+              <p style={{
+                color: "#d1efe7",
+                fontSize: "1rem",
+                lineHeight: "1.6",
+                margin: 0
+              }}>
+                Smart testing matters. We show you how to evaluate new AI tools, which workflows to experiment with, and how to identify genuine value versus marketing hype — long before you spend a dollar.
+              </p>
+            </div>
+          </Link>
         </div>
         
         <div style={{
@@ -3627,7 +3797,8 @@ function App() {
         <div style={{ width: '100%', margin: 0, padding: 0 }}>
           {(() => {
             const path = location?.pathname || window.location.pathname || '';
-            const shouldShow = path === '/' || path === '/apps' || path === '/contact' || path.startsWith('/learn') || path.startsWith('/news');
+            const pathLower = path.toLowerCase();
+            const shouldShow = path === '/' || path === '/apps' || path === '/contact' || pathLower === '/podcast' || path.startsWith('/learn') || path.startsWith('/news');
             return shouldShow ? (
               <div style={{
                 position: 'relative',
@@ -4015,8 +4186,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
               { to: "/", label: "Home" },
               { to: "/apps", label: "Apps" },
               { to: "/learn", label: "Learn" },
-              { to: "/news", label: "News" },
-              { to: "/contact", label: "Contact" }
+              { to: "/news", label: "News" }
             ].filter((link) => link.to !== location.pathname).map((link) => (
               <li key={link.to}>
                 <Link
@@ -4102,6 +4272,26 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
                 }}
               >
                 Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                style={{
+                  color: "#b5ffdb",
+                  textDecoration: "none",
+                  fontSize: "0.95rem",
+                  transition: "color 0.2s",
+                  display: "inline-block"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#36ff95";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "#b5ffdb";
+                }}
+              >
+                Contact
               </Link>
             </li>
             <li>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 
 const AIQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
@@ -104,7 +106,65 @@ const AIQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
     } else {
       // Store in localStorage for persistence
       localStorage.setItem('aiLevel', 'intermediate');
-      alert('🚀 Welcome to Intermediate AI! Advanced features unlocked!');
+      
+      // Show mini celebration
+      const celebration = document.createElement('div');
+      celebration.innerHTML = `
+        <div style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.85);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          animation: fadeIn 0.3s ease-in;
+        ">
+          <div style="
+            background: linear-gradient(135deg, #36ff95 0%, #0bbfdb 50%, #36ff95 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(54, 255, 149, 0.6);
+            max-width: 350px;
+            margin: 20px;
+          ">
+            <div style="font-size: 40px; margin-bottom: 15px;">🎉</div>
+            <h2 style="color: #1a2330; font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">
+              Level Up!
+            </h2>
+            <p style="color: #1a2330; font-size: 1.1rem; margin-bottom: 15px; font-weight: 600;">
+              Welcome to Intermediate Level
+            </p>
+            <p style="color: #1a2330; font-size: 0.95rem;">
+              You're ready for more advanced AI concepts!
+            </p>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(celebration);
+      
+      // Add fadeIn animation if not already in styles
+      if (!document.getElementById('quiz-celebration-styles')) {
+        const style = document.createElement('style');
+        style.id = 'quiz-celebration-styles';
+        style.textContent = `
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+      
+      // Navigate after celebration (2 seconds)
+      setTimeout(() => {
+        document.body.removeChild(celebration);
+        navigate('/learn/intermediate');
+      }, 2000);
     }
   };
 

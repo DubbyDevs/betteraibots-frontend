@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 
 const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
@@ -157,7 +159,65 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
       // Store in localStorage for persistence
       localStorage.setItem('aiLevel', 'pro');
       localStorage.setItem('proStatus', 'true');
-      alert('👑 Congratulations! You are now a Pro! Welcome to the elite AI community!');
+      
+      // Show celebration message
+      const celebration = document.createElement('div');
+      celebration.innerHTML = `
+        <div style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          animation: fadeIn 0.5s ease-in;
+        ">
+          <div style="
+            background: linear-gradient(135deg, #ffd700 0%, #ffb347 50%, #ffd700 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+            max-width: 400px;
+            margin: 20px;
+          ">
+            <div style="font-size: 48px; margin-bottom: 20px;">👑</div>
+            <h2 style="color: #1a2330; font-size: 2rem; font-weight: bold; margin-bottom: 10px;">
+              PRO STATUS UNLOCKED!
+            </h2>
+            <p style="color: #1a2330; font-size: 1.2rem; margin-bottom: 20px; font-weight: 600;">
+              Welcome to the Elite AI Community
+            </p>
+            <p style="color: #1a2330; font-size: 1rem;">
+              You now have access to advanced content and exclusive features!
+            </p>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(celebration);
+      
+      // Add fadeIn animation if not already in styles
+      if (!document.getElementById('pro-celebration-styles')) {
+        const style = document.createElement('style');
+        style.id = 'pro-celebration-styles';
+        style.textContent = `
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+      
+      // Navigate after celebration (3 seconds)
+      setTimeout(() => {
+        document.body.removeChild(celebration);
+        navigate('/learn/advanced');
+      }, 3000);
     }
   };
 
