@@ -57,6 +57,9 @@ import plesk1 from './assets/plesk1.jpg';
 import surecam1 from './assets/surecam1.jpg';
 import diginius1 from './assets/diginius1.jpg';
 import seosparkplug1 from './assets/seosparkplug1.jpg';
+import smartli1 from './assets/smartli1.jpg';
+import consensus1 from './assets/consensus1.jpg';
+import browseai1 from './assets/browseai1.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -688,6 +691,16 @@ function Apps() {
       readMoreLink: "/learn/brevo-complete-guide"
     },
     {
+      name: "Browse AI",
+      description: "AI-powered web scraping and monitoring platform that extracts data from any website with no coding required",
+      category: "Data Extraction & Web Scraping",
+      features: ["No-code web scraping", "Website monitoring", "API generation", "7,000+ integrations"],
+      link: "https://partners.browse.ai/BAIB",
+      trialInfo: "Free trial available",
+      image: browseai1,
+      readMoreLink: "/learn/browse-ai"
+    },
+    {
       name: "Capsule CRM",
       description: "Simple CRM for small businesses to manage contacts, sales pipeline, and customer relationships",
       category: "Sales & CRM",
@@ -696,6 +709,16 @@ function Apps() {
       trialInfo: "14-day free trial",
       image: "/capsulecrm.png",
       readMoreLink: "/learn/capsule-crm-complete-guide"
+    },
+    {
+      name: "Consensus",
+      description: "AI-powered research tool that finds and synthesizes evidence from scientific papers and academic literature",
+      category: "Research & Education",
+      features: ["AI research synthesis", "Academic paper search", "Evidence-based answers", "Citation management"],
+      link: "https://get.consensus.app/BAIB",
+      trialInfo: "Free trial available",
+      image: consensus1,
+      readMoreLink: "/learn/consensus"
     },
     {
       name: "Flowith.io",
@@ -796,6 +819,16 @@ function Apps() {
       trialInfo: "14-day free trial",
       image: "/replyio.png",
       readMoreLink: "/learn/reply-io-complete-guide"
+    },
+    {
+      name: "Smartli",
+      description: "AI-powered content creation platform with product description generator, blog writer, ads writer, and image editing tools",
+      category: "Content Creation & E-commerce",
+      features: ["AI product descriptions", "AI blog writer", "AI ads writer", "Background remover", "Watermark remover"],
+      link: "https://smartli.partnerlinks.io/BAIB",
+      trialInfo: "7-day free trial",
+      image: smartli1,
+      readMoreLink: "/learn/smartli"
     },
     {
       name: "ThorData",

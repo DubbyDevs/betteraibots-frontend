@@ -100,7 +100,7 @@ function Podcast() {
     },
     {
       id: 'PbanVBegAlk',
-      title: 'Latest Episode: AI Tools Discussion',
+      title: '10 AI Tools to give YOU leverage to run EVERYTHING ALONE!',
       description: 'In this episode, we break down 10 game-changing AI tools that transform how solo entrepreneurs operate. From customer service to sales, operations to marketing—learn how to build your own AI productivity stack and become a true one-person powerhouse.',
       thumbnail: betteraibotsliveEp155Copy55
     },

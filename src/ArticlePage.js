@@ -231,6 +231,9 @@ export default function ArticlePage() {
     "plesk": "https://try.plesk.com/BAIB",
     "surecam": "https://join.surecam.com/BAIB",
     "diginius": "https://get.diginius.com/rvao67pwqqux",
+    "smartli": "https://smartli.partnerlinks.io/BAIB",
+    "consensus": "https://get.consensus.app/BAIB",
+    "browse-ai": "https://partners.browse.ai/BAIB",
     "blackbox-ai": "https://blackboxai.partnerlinks.io/BAIB",
     "capsule-crm-complete-guide": "https://capsulecrm.com/signup/?ref=betteraibots",
     "flowith-io": "https://aff.flowith.io/52dtlja1b580",
@@ -389,6 +392,9 @@ export default function ArticlePage() {
     'plesk',
     'surecam',
     'diginius',
+    'smartli',
+    'consensus',
+    'browse-ai',
     'blackbox-ai',
     'brevo-complete-guide',
     'capsule-crm-complete-guide',
@@ -640,6 +646,9 @@ export default function ArticlePage() {
             "plesk": "https://betteraibots.com/assets/plesk1.jpg",
             "surecam": "https://betteraibots.com/assets/surecam1.jpg",
             "diginius": "https://betteraibots.com/assets/diginius1.jpg",
+            "smartli": "https://betteraibots.com/assets/smartli1.jpg",
+            "consensus": "https://betteraibots.com/assets/consensus1.jpg",
+            "browse-ai": "https://betteraibots.com/assets/browseai1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -689,6 +698,9 @@ export default function ArticlePage() {
             "plesk": "https://betteraibots.com/assets/plesk1.jpg",
             "surecam": "https://betteraibots.com/assets/surecam1.jpg",
             "diginius": "https://betteraibots.com/assets/diginius1.jpg",
+            "smartli": "https://betteraibots.com/assets/smartli1.jpg",
+            "consensus": "https://betteraibots.com/assets/consensus1.jpg",
+            "browse-ai": "https://betteraibots.com/assets/browseai1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -757,7 +769,10 @@ export default function ArticlePage() {
             "vida-ai-agent-os": "Vida, Vida AI Agent OS, AI phone agents, AI agent operating system, omnichannel AI agents, AI phone calls, AI voice agents, AI customer service, AI workflow automation, enterprise AI agents, BetterAiBots",
             "plesk": "Plesk, web hosting control panel, server management, website administration, WordPress Toolkit, hosting control panel, server administration, domain management, hosting platform, BetterAiBots",
             "surecam": "SureCam, fleet dash cam, fleet safety, GPS tracking, video telematics, driver coaching, fleet management, dash camera, vehicle tracking, fleet protection, BetterAiBots",
-            "diginius": "Diginius, PPC management, lead intelligence, B2B leads, intent leads, multi-channel reporting, Google Ads, Microsoft Ads, Facebook advertising, LinkedIn advertising, SEO monitoring, BetterAiBots"
+            "diginius": "Diginius, PPC management, lead intelligence, B2B leads, intent leads, multi-channel reporting, Google Ads, Microsoft Ads, Facebook advertising, LinkedIn advertising, SEO monitoring, BetterAiBots",
+            "smartli": "Smartli, AI content creation, product description generator, AI blog writer, AI ads writer, background remover, watermark remover, photo enhancer, UGC video generator, e-commerce content, BetterAiBots",
+            "consensus": "Consensus, AI research tool, scientific papers, academic research, evidence-based answers, research synthesis, peer-reviewed sources, citation management, literature review, academic search, BetterAiBots",
+            "browse-ai": "Browse AI, web scraping, data extraction, website monitoring, no-code scraping, web scraper, data extraction tool, website to API, website to spreadsheet, bot evasion, CAPTCHA handling, web data extraction, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -1424,6 +1439,81 @@ export default function ArticlePage() {
                   </div>
                 );
               }
+              if (src && (src.includes('smartli2') || src.includes('smartli'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://smartli.partnerlinks.io/BAIB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
+              if (src && (src.includes('consensus2') || src.includes('consensus'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://get.consensus.app/BAIB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
+              if (src && (src.includes('browseai2') || src.includes('browseai'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://partners.browse.ai/BAIB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
               // Default image rendering
               return (
                 <img
@@ -1784,7 +1874,7 @@ export default function ArticlePage() {
               // Handle image links (affiliate links that contain images from markdown)
               // ReactMarkdown renders [![alt](img)](link) as <a><img /></a>
               // Check if this is an affiliate link and if children contains an img element
-              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io') || href.includes('try.plesk.com') || href.includes('join.surecam.com') || href.includes('get.diginius.com'))) {
+              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io') || href.includes('try.plesk.com') || href.includes('join.surecam.com') || href.includes('get.diginius.com') || href.includes('smartli.partnerlinks.io'))) {
                 try {
                   // Check if children contains an image element - use simple, safe checking
                   let hasImage = false;

@@ -648,5 +648,42 @@
       <image:caption>Diginius Insight consolidates all your PPC data from Google, Microsoft, Facebook, LinkedIn, and more into one platform. Get B2B lead intelligence, intent leads, SEO monitoring, and multi-channel reporting to drive more leads, higher conversions, and better results.</image:caption>
     </image:image>
   </url>
+
+  <!-- Smartli Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/smartli</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/smartli1.jpg</image:loc>
+      <image:title>Smartli: AI-Powered Content Creation Platform for E-commerce and Marketing</image:title>
+      <image:caption>Smartli is an all-in-one AI content creation platform that helps you generate product descriptions, blog posts, ad copy, and edit images. Create SEO-optimized content in seconds with AI-powered tools designed for e-commerce and marketing.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/consensus</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/consensus1.jpg</image:loc>
+      <image:title>Consensus: AI-Powered Research Tool That Finds Evidence from Scientific Papers</image:title>
+      <image:caption>Consensus is an AI-powered research tool that helps you find and synthesize evidence from scientific papers and academic literature. Get evidence-based answers to research questions with citations from peer-reviewed studies.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/browse-ai</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/browseai1.jpg</image:loc>
+      <image:title>Browse AI: AI-Powered Web Scraping and Monitoring Platform for Data Extraction</image:title>
+      <image:caption>Browse AI is the leading AI-powered web scraping and monitoring platform that helps you extract data from any website with no coding required. Monitor websites for changes, turn websites into APIs, and integrate with 7,000+ apps.</image:caption>
+    </image:image>
+  </url>
   
 </urlset> 
