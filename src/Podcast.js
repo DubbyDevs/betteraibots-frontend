@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import welcometobaibpod from './assets/welcometobaibpod.jpg';
 import baiblive from './assets/liveslider/baiblive.jpg';
 import baiblive2 from './assets/liveslider/baiblive2.jpg';
@@ -10,6 +11,7 @@ import baiblive6 from './assets/liveslider/baiblive6.jpg';
 import baiblive7 from './assets/liveslider/baiblive7.jpg';
 import baiblive8 from './assets/liveslider/baiblive8.jpg';
 import baiblive9 from './assets/liveslider/baiblive9.jpg';
+import baibview from './assets/baibview.mp4';
 import betteraibotsliveEp155Copy55 from './assets/betteraibotslive ep155 copy55.jpg';
 
 function Podcast() {
@@ -19,7 +21,25 @@ function Podcast() {
   const [showComingSoon, setShowComingSoon] = useState(false);
   const [comingSoonIndex, setComingSoonIndex] = useState(null);
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
+  const [showLinksDropdown, setShowLinksDropdown] = useState({});
+  const [showInfoDropdown, setShowInfoDropdown] = useState({});
+  const [showModalLinksDropdown, setShowModalLinksDropdown] = useState(false);
+  const [showModalInfoDropdown, setShowModalInfoDropdown] = useState(false);
   const playerRefs = useRef({});
+
+  // Affiliate links for AI Tools Discussion video (index 1)
+  const aiToolsLinks = [
+    { name: 'Tidio AI', url: 'https://affiliate.tidio.com/BAIB' },
+    { name: 'Lusha', url: 'https://partnerstack.lusha.com/w61xn76pa3sr' },
+    { name: 'Apollo AI', url: 'https://get.apollo.io/BAIB' },
+    { name: 'Brevo', url: 'https://get.brevo.com/um9xszmf3nfd' },
+    { name: 'Capsule CRM', url: 'https://get.capsulenow.io/6894ebdizsds' },
+    { name: 'Flowith.io', url: 'https://aff.flowith.io/52dtlja1b580' },
+    { name: 'Lindy', url: 'https://try.lindy.ai/lhgvxfidor04' },
+    { name: 'Miro', url: 'https://ps.miro-affiliate.com/gwnvu4zj3r8r' },
+    { name: 'Reply.io', url: 'https://get.reply.io/ub7edypmq2gj' },
+    { name: 'AdCreative', url: 'https://free-trial.adcreative.ai/0dkpoiajb7o2' }
+  ];
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth <= 768;
@@ -46,7 +66,7 @@ function Podcast() {
     baiblive2,
     baiblive4,
     baiblive5,
-    baiblive7,
+    baibview,
     baiblive8,
     baiblive9
   ];
@@ -75,8 +95,8 @@ function Podcast() {
   // Order: Video 3 (left, coming soon) -> Video 2 (middle) -> Video 1 (right, welcome podcast)
   const youtubeVideos = useMemo(() => [
     {
-      id: 'tFNJJsNHjzU',
-      title: 'Coming Soon: AI Companions',
+      id: 'O9xN3anQKbM',
+      title: 'AI Companions - Why 20 Million People Are Choosing Digital Love',
       description: 'In this episode, we dive into the uncomfortable reality of AI companions: why millions are choosing digital intimacy over human connection, what this reveals about our loneliness epidemic, and the psychological truths we\'re being forced to confront.',
       thumbnail: baiblive6
     },
@@ -149,7 +169,7 @@ function Podcast() {
 
   // Initialize YouTube API players for embedded iframes to enable getCurrentTime for expand functionality
   useEffect(() => {
-    if (playingVideoIndex !== null && playingVideoIndex !== undefined && (playingVideoIndex === 1 || playingVideoIndex === 2)) {
+    if (playingVideoIndex !== null && playingVideoIndex !== undefined && playingVideoIndex < 3) {
       const video = youtubeVideos[playingVideoIndex];
       if (!video) return;
       
@@ -256,7 +276,10 @@ function Podcast() {
     }
     
     setVideoCurrentTime(currentTime);
-    setSelectedVideo({ ...video, startTime: currentTime });
+    setSelectedVideo({ ...video, startTime: currentTime, originalIndex: index });
+    // Reset modal dropdowns when opening
+    setShowModalLinksDropdown(false);
+    setShowModalInfoDropdown(false);
   };
 
   // Handle welcome image click - toggle play/pause for Video 1 (welcome podcast, now at index 2, far right)
@@ -293,19 +316,8 @@ function Podcast() {
     }
   };
 
-  // Handle video click - show coming soon for Video 3 (index 0, left), allow Video 2 and Video 1 to play
+  // Handle video click - all videos are playable
   const handleVideoClick = (index) => {
-    // Video 3 (index 0, left) shows coming soon
-    if (index === 0) {
-      setComingSoonIndex(index);
-      setShowComingSoon(true);
-      setTimeout(() => {
-        setShowComingSoon(false);
-        setComingSoonIndex(null);
-      }, 2000); // Show for 2 seconds
-      return; // Don't set playingVideoIndex for this video
-    }
-    // Video 2 (index 1, middle) and Video 1 (index 2, right, welcome podcast) are playable
     setPlayingVideoIndex(index);
   };
 
@@ -454,7 +466,7 @@ function Podcast() {
             position: relative;
             background: linear-gradient(135deg, rgba(16, 28, 38, 0.9) 0%, rgba(23, 45, 62, 0.9) 100%);
             border-radius: 16px;
-            overflow: hidden;
+            overflow: visible;
             transition: box-shadow 0.3s ease;
             border: 1px solid rgba(54, 255, 149, 0.2);
             cursor: pointer;
@@ -509,6 +521,8 @@ function Podcast() {
           }
           .video-info {
             padding: 20px;
+            position: relative;
+            z-index: 2;
           }
           .video-title {
             font-size: 1.2rem;
@@ -557,6 +571,7 @@ function Podcast() {
             justify-content: center;
             align-items: center;
             min-height: 60px;
+            position: relative;
           }
           .video-expand-button {
             display: inline-flex;
@@ -584,6 +599,7 @@ function Podcast() {
             background: #000;
             overflow: hidden;
             border-radius: 12px;
+            z-index: 1;
           }
           .video-embed-inline > div {
             position: absolute;
@@ -742,6 +758,17 @@ function Podcast() {
               transform: translate(-50%, -50%) scale(0.8);
             }
           }
+          @keyframes kenBurnsZoom {
+            0% {
+              transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+              transform: translate(-50%, -50%) scale(1.1);
+            }
+          }
+          .studio-image-container img {
+            will-change: transform;
+          }
         `}</style>
       </Helmet>
       
@@ -830,8 +857,7 @@ function Podcast() {
             const thumbnail = getThumbnail(video);
             // Only the video at the playing index should be playing
             // Video 2 (index 1, middle) and Video 1 (index 2, right, welcome podcast) are playable
-            // Video 3 (index 0, left) shows coming soon
-            const isPlaying = playingVideoIndex === index && (index === 1 || index === 2);
+            const isPlaying = playingVideoIndex === index;
             
             return (
               <div
@@ -865,15 +891,12 @@ function Podcast() {
                       />
                     )}
                     <div className="video-play-overlay"></div>
-                    {showComingSoon && comingSoonIndex === index && (
-                      <div className="coming-soon-flash">
-                        Coming Soon
-                      </div>
-                    )}
                   </div>
                 )}
                 <div className="video-info">
-                  <div className="video-title">{video.title}</div>
+                  <div className="video-title" style={{
+                    textAlign: isPlaying ? 'center' : 'left'
+                  }}>{video.title}</div>
                   {!isPlaying && (
                     <div className={`video-description-wrapper ${expandedDescriptions[index] ? 'expanded' : ''}`}>
                       <div className={`video-description ${!expandedDescriptions[index] ? 'collapsed' : ''}`}>
@@ -909,8 +932,138 @@ function Podcast() {
                       )}
                     </div>
                   )}
-                  {isPlaying && (index === 1 || index === 2) && (
-                    <div className="video-expand-container">
+                  {isPlaying && (
+                    <div className="video-expand-container" style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '15px',
+                      flexWrap: 'wrap'
+                    }}>
+                      {index === 1 && (
+                        <>
+                          <button
+                            className="video-link-button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowLinksDropdown(prev => ({
+                                ...prev,
+                                [index]: !prev[index]
+                              }));
+                              if (showInfoDropdown[index]) {
+                                setShowInfoDropdown(prev => ({
+                                  ...prev,
+                                  [index]: false
+                                }));
+                              }
+                            }}
+                            style={{
+                              background: 'transparent',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              color: '#36ff95',
+                              padding: '8px 16px',
+                              borderRadius: '6px',
+                              cursor: 'pointer',
+                              fontSize: '14px',
+                              fontFamily: 'inherit',
+                              transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                              e.target.style.borderColor = '#36ff95';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.target.style.background = 'transparent';
+                              e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                            }}
+                          >
+                            Links
+                          </button>
+                          {showLinksDropdown[index] && (
+                            <div style={{
+                              position: 'absolute',
+                              top: '100%',
+                              left: '50%',
+                              transform: 'translateX(-50%)',
+                              marginTop: '10px',
+                              background: 'rgba(16, 28, 38, 0.95)',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              borderRadius: '8px',
+                              padding: '15px',
+                              minWidth: '200px',
+                              maxWidth: '300px',
+                              maxHeight: '400px',
+                              overflowY: 'auto',
+                              zIndex: 1000,
+                              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+                            }}>
+                              <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                marginBottom: '10px',
+                                paddingBottom: '10px',
+                                borderBottom: '1px solid rgba(54, 255, 149, 0.2)'
+                              }}>
+                                <h3 style={{ margin: 0, color: '#36ff95', fontSize: '16px' }}>Tools Mentioned</h3>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setShowLinksDropdown(prev => ({
+                                      ...prev,
+                                      [index]: false
+                                    }));
+                                  }}
+                                  style={{
+                                    background: 'transparent',
+                                    border: 'none',
+                                    color: '#36ff95',
+                                    cursor: 'pointer',
+                                    fontSize: '18px',
+                                    padding: '0',
+                                    width: '24px',
+                                    height: '24px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                  }}
+                                >
+                                  ×
+                                </button>
+                              </div>
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                {aiToolsLinks.map((link, linkIndex) => (
+                                  <a
+                                    key={linkIndex}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    style={{
+                                      color: '#d1efe7',
+                                      textDecoration: 'none',
+                                      padding: '8px 12px',
+                                      borderRadius: '6px',
+                                      transition: 'all 0.2s ease',
+                                      display: 'block'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                                      e.target.style.color = '#36ff95';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.target.style.background = 'transparent';
+                                      e.target.style.color = '#d1efe7';
+                                    }}
+                                  >
+                                    {link.name}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </>
+                      )}
                       <button
                         className="video-expand-button"
                         onClick={(e) => {
@@ -920,6 +1073,107 @@ function Podcast() {
                       >
                         <span>⛶</span> Expand
                       </button>
+                      {index === 1 && (
+                        <>
+                          <button
+                            className="video-link-button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowInfoDropdown(prev => ({
+                                ...prev,
+                                [index]: !prev[index]
+                              }));
+                              if (showLinksDropdown[index]) {
+                                setShowLinksDropdown(prev => ({
+                                  ...prev,
+                                  [index]: false
+                                }));
+                              }
+                            }}
+                            style={{
+                              background: 'transparent',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              color: '#36ff95',
+                              padding: '8px 16px',
+                              borderRadius: '6px',
+                              cursor: 'pointer',
+                              fontSize: '14px',
+                              fontFamily: 'inherit',
+                              transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                              e.target.style.borderColor = '#36ff95';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.target.style.background = 'transparent';
+                              e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                            }}
+                          >
+                            Info
+                          </button>
+                          {showInfoDropdown[index] && (
+                            <div style={{
+                              position: 'absolute',
+                              top: '100%',
+                              left: '50%',
+                              transform: 'translateX(-50%)',
+                              marginTop: '10px',
+                              background: 'rgba(16, 28, 38, 0.95)',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              borderRadius: '8px',
+                              padding: '15px',
+                              minWidth: '250px',
+                              maxWidth: '400px',
+                              zIndex: 1000,
+                              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+                            }}>
+                              <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                marginBottom: '10px',
+                                paddingBottom: '10px',
+                                borderBottom: '1px solid rgba(54, 255, 149, 0.2)'
+                              }}>
+                                <h3 style={{ margin: 0, color: '#36ff95', fontSize: '16px' }}>About This Episode</h3>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setShowInfoDropdown(prev => ({
+                                      ...prev,
+                                      [index]: false
+                                    }));
+                                  }}
+                                  style={{
+                                    background: 'transparent',
+                                    border: 'none',
+                                    color: '#36ff95',
+                                    cursor: 'pointer',
+                                    fontSize: '18px',
+                                    padding: '0',
+                                    width: '24px',
+                                    height: '24px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                  }}
+                                >
+                                  ×
+                                </button>
+                              </div>
+                              <p style={{
+                                margin: 0,
+                                color: '#d1efe7',
+                                lineHeight: '1.6',
+                                fontSize: '14px'
+                              }}>
+                                {video.description}
+                              </p>
+                            </div>
+                          )}
+                        </>
+                      )}
                     </div>
                   )}
                 </div>
@@ -945,6 +1199,8 @@ function Podcast() {
             style={{
               flex: '1 1 50%',
               maxWidth: '420px',
+              width: '100%',
+              aspectRatio: '16 / 9',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
@@ -953,30 +1209,85 @@ function Podcast() {
               padding: '8px',
               background: 'linear-gradient(135deg, rgba(16, 28, 38, 0.9) 0%, rgba(23, 45, 62, 0.9) 100%)',
               border: '1px solid rgba(54, 255, 149, 0.5)',
-              boxShadow: '0 10px 40px rgba(54, 255, 149, 0.3), 0 0 60px rgba(11, 191, 219, 0.2)'
+              boxShadow: '0 10px 40px rgba(54, 255, 149, 0.3), 0 0 60px rgba(11, 191, 219, 0.2)',
+              overflow: 'hidden'
             }}
           >
-            {bottomSliderImages.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`BAIB Live ${index + 1}`}
-                style={{
-                  maxWidth: '100%',
-                  width: '100%',
-                  height: 'auto',
-                  display: 'block',
-                  objectFit: 'contain',
-                  position: index === leftImageIndex ? 'relative' : 'absolute',
-                  top: 0,
-                  left: 0,
-                  opacity: index === leftImageIndex ? 1 : 0,
-                  transition: 'opacity 1s ease-in-out',
-                  pointerEvents: 'none',
-                  borderRadius: '8px'
-                }}
-              />
-            ))}
+            {bottomSliderImages.map((media, index) => {
+              const mediaSrc = typeof media === 'string' ? media : (media?.default || media);
+              const isVideo = media === baibview || (typeof mediaSrc === 'string' && (mediaSrc.includes('.mp4') || mediaSrc.includes('.webm') || mediaSrc.includes('.mov')));
+              
+              return isVideo ? (
+                <video
+                  key={index}
+                  ref={(el) => {
+                    if (el) {
+                      if (index === leftImageIndex) {
+                        // Play video when it becomes active
+                        el.currentTime = 0;
+                        el.play().catch(() => {}); // Ignore autoplay errors
+                      } else {
+                        // Reset video when it's not active
+                        el.pause();
+                        el.currentTime = 0;
+                      }
+                    }
+                  }}
+                  src={mediaSrc}
+                  alt={`BAIB Live ${index + 1}`}
+                  muted
+                  playsInline
+                  onEnded={() => {
+                    // Advance to next slide when video ends
+                    setLeftImageIndex((prevIndex) => (prevIndex + 1) % bottomSliderImages.length);
+                  }}
+                  style={{
+                    maxWidth: '100%',
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    objectFit: 'contain',
+                    position: index === leftImageIndex ? 'relative' : 'absolute',
+                    top: 0,
+                    left: 0,
+                    opacity: index === leftImageIndex ? 1 : 0,
+                    transition: 'opacity 1s ease-in-out',
+                    pointerEvents: 'none',
+                    borderRadius: '8px'
+                  }}
+                />
+              ) : (
+                <img
+                  key={`img-${index}`}
+                  src={mediaSrc}
+                  alt={`BAIB Live ${index + 1}`}
+                  ref={(el) => {
+                    if (el && index === leftImageIndex) {
+                      // Reset and start animation for active image only
+                      el.style.animation = 'none';
+                      el.style.transform = 'translate(-50%, -50%) scale(1)';
+                      void el.offsetHeight; // Trigger reflow
+                      el.style.animation = 'kenBurnsZoom 30s linear forwards';
+                    }
+                  }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'block',
+                    objectFit: 'cover',
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%) scale(1)',
+                    transformOrigin: 'center center',
+                    opacity: index === leftImageIndex ? 1 : 0,
+                    transition: 'opacity 1s ease-in-out',
+                    pointerEvents: 'none',
+                    borderRadius: '8px'
+                  }}
+                />
+              );
+            })}
           </div>
           <div 
             className="studio-image-container"
@@ -1027,7 +1338,12 @@ function Podcast() {
       {selectedVideo && (
         <div
           className="video-modal"
-          onClick={() => setSelectedVideo(null)}
+          onClick={() => {
+            setSelectedVideo(null);
+            setVideoCurrentTime(null);
+            setShowModalLinksDropdown(false);
+            setShowModalInfoDropdown(false);
+          }}
         >
           <div
             className="video-modal-content"
@@ -1035,7 +1351,12 @@ function Podcast() {
           >
             <button
               className="video-modal-close"
-              onClick={() => setSelectedVideo(null)}
+              onClick={() => {
+                setSelectedVideo(null);
+                setVideoCurrentTime(null);
+                setShowModalLinksDropdown(false);
+                setShowModalInfoDropdown(false);
+              }}
               aria-label="Close video"
             >
               ×
@@ -1049,6 +1370,253 @@ function Podcast() {
                 style={{ width: '100%', height: '100%', border: 'none' }}
               ></iframe>
             </div>
+            {selectedVideo.originalIndex === 1 && (
+              <div style={{
+                position: 'absolute',
+                bottom: '60px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                display: 'flex',
+                gap: '15px',
+                alignItems: 'center',
+                zIndex: 1002
+              }}>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowModalLinksDropdown(!showModalLinksDropdown);
+                    if (showModalInfoDropdown) {
+                      setShowModalInfoDropdown(false);
+                    }
+                  }}
+                  style={{
+                    background: 'rgba(16, 28, 38, 0.9)',
+                    border: '1px solid rgba(54, 255, 149, 0.5)',
+                    color: '#36ff95',
+                    padding: '8px 16px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontFamily: 'inherit',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(54, 255, 149, 0.2)';
+                    e.target.style.borderColor = '#36ff95';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(16, 28, 38, 0.9)';
+                    e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                  }}
+                >
+                  Links
+                </button>
+                {showModalLinksDropdown && (
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '100%',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    marginBottom: '10px',
+                    background: 'rgba(16, 28, 38, 0.95)',
+                    border: '1px solid rgba(54, 255, 149, 0.5)',
+                    borderRadius: '8px',
+                    padding: '15px',
+                    minWidth: '200px',
+                    maxWidth: '300px',
+                    maxHeight: '400px',
+                    overflowY: 'auto',
+                    zIndex: 1003,
+                    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                  >
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '10px',
+                      paddingBottom: '10px',
+                      borderBottom: '1px solid rgba(54, 255, 149, 0.2)'
+                    }}>
+                      <h3 style={{ margin: 0, color: '#36ff95', fontSize: '16px' }}>Tools Mentioned</h3>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setShowModalLinksDropdown(false);
+                        }}
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          color: '#36ff95',
+                          cursor: 'pointer',
+                          fontSize: '18px',
+                          padding: '0',
+                          width: '24px',
+                          height: '24px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        ×
+                      </button>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      {aiToolsLinks.map((link, linkIndex) => (
+                        <a
+                          key={linkIndex}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            color: '#d1efe7',
+                            textDecoration: 'none',
+                            padding: '8px 12px',
+                            borderRadius: '6px',
+                            transition: 'all 0.2s ease',
+                            display: 'block'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                            e.target.style.color = '#36ff95';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.background = 'transparent';
+                            e.target.style.color = '#d1efe7';
+                          }}
+                        >
+                          {link.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowModalInfoDropdown(!showModalInfoDropdown);
+                    if (showModalLinksDropdown) {
+                      setShowModalLinksDropdown(false);
+                    }
+                  }}
+                  style={{
+                    background: 'rgba(16, 28, 38, 0.9)',
+                    border: '1px solid rgba(54, 255, 149, 0.5)',
+                    color: '#36ff95',
+                    padding: '8px 16px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontFamily: 'inherit',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(54, 255, 149, 0.2)';
+                    e.target.style.borderColor = '#36ff95';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(16, 28, 38, 0.9)';
+                    e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                  }}
+                >
+                  Info
+                </button>
+                {showModalInfoDropdown && (
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '100%',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    marginBottom: '10px',
+                    background: 'rgba(16, 28, 38, 0.95)',
+                    border: '1px solid rgba(54, 255, 149, 0.5)',
+                    borderRadius: '8px',
+                    padding: '15px',
+                    minWidth: '250px',
+                    maxWidth: '400px',
+                    zIndex: 1003,
+                    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                  >
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '10px',
+                      paddingBottom: '10px',
+                      borderBottom: '1px solid rgba(54, 255, 149, 0.2)'
+                    }}>
+                      <h3 style={{ margin: 0, color: '#36ff95', fontSize: '16px' }}>About This Episode</h3>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setShowModalInfoDropdown(false);
+                        }}
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          color: '#36ff95',
+                          cursor: 'pointer',
+                          fontSize: '18px',
+                          padding: '0',
+                          width: '24px',
+                          height: '24px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        ×
+                      </button>
+                    </div>
+                    <p style={{
+                      margin: 0,
+                      color: '#d1efe7',
+                      lineHeight: '1.6',
+                      fontSize: '14px'
+                    }}>
+                      {selectedVideo.description}
+                    </p>
+                  </div>
+                )}
+                <Link
+                  to="/news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedVideo(null);
+                    setVideoCurrentTime(null);
+                    setShowModalLinksDropdown(false);
+                    setShowModalInfoDropdown(false);
+                  }}
+                  style={{
+                    background: 'rgba(16, 28, 38, 0.9)',
+                    border: '1px solid rgba(54, 255, 149, 0.5)',
+                    color: '#36ff95',
+                    padding: '8px 16px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontFamily: 'inherit',
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none',
+                    display: 'inline-block'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(54, 255, 149, 0.2)';
+                    e.target.style.borderColor = '#36ff95';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(16, 28, 38, 0.9)';
+                    e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                  }}
+                >
+                  Full Article
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       )}
