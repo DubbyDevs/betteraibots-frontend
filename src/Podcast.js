@@ -399,7 +399,7 @@ function Podcast() {
               transform: translateX(0);
             }
             100% {
-              transform: translateX(calc(-210px * 9 - 20px * 8));
+              transform: translateX(calc(-50%));
             }
           }
           .liveslider-carousel {
@@ -481,6 +481,7 @@ function Podcast() {
             padding-top: 56.25%;
             background: #000;
             overflow: hidden;
+            border-radius: 12px;
           }
           .video-thumbnail img {
             position: absolute;
@@ -489,6 +490,7 @@ function Podcast() {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 12px;
           }
           .video-play-overlay {
             position: absolute;

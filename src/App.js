@@ -4651,6 +4651,7 @@ function NewsArticle() {
         <meta name="article:section" content={article.category} />
         <meta name="article:tag" content={(() => {
           const tagMap = {
+            "the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily": "AI, Artificial Intelligence, AI Companions, Chatbots, AI Relationships, Character.AI, Replika, AI Romance, Digital Intimacy, AI Psychology, Human-AI Interaction, AI Society, BetterAiBots",
             "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
             "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots",
             "ai-virtual-assistant-how-to-automate-tasks-2025": "AI, Artificial Intelligence, AI Virtual Assistant, Task Automation, AI Productivity, Business Automation, Personal Automation, AI Tools, BetterAiBots",

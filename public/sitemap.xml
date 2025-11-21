@@ -76,10 +76,23 @@
   </url>
   
   <!-- News Articles -->
+  <!-- The Rise of AI Companions - Featured Article -->
+  <url>
+    <loc>https://betteraibots.com/news/the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/lookinforailove.jpg</image:loc>
+      <image:title>The Rise of AI Companions: Why Millions Are Talking to ChatBots Daily</image:title>
+      <image:caption>Let's address the elephant in the room immediately: millions of people are having deep, meaningful, and yes—romantic and sexual conversations with AI chatbots right now. Not someday. Not in some dystopian future. Right now, while you're reading this.</image:caption>
+    </image:image>
+  </url>
+  
   <!-- AI Chip Wars - Featured Article -->
   <url>
     <loc>https://betteraibots.com/news/ai-chip-wars-heat-up-nvidia-challenger-unexpected-source</loc>
-    <lastmod>2025-11-15</lastmod>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
