@@ -18,8 +18,6 @@ function Podcast() {
   const [playingVideoIndex, setPlayingVideoIndex] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoCurrentTime, setVideoCurrentTime] = useState(null);
-  const [showComingSoon, setShowComingSoon] = useState(false);
-  const [comingSoonIndex, setComingSoonIndex] = useState(null);
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [showLinksDropdown, setShowLinksDropdown] = useState({});
   const [showInfoDropdown, setShowInfoDropdown] = useState({});
