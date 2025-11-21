@@ -570,5 +570,18 @@
       <image:caption>Discover how Tidio AI's Lyro AI Agent eliminates up to 90% of support questions with the highest resolution rate in the industry. Complete user guide and cheatsheet for maximizing customer service automation.</image:caption>
     </image:image>
   </url>
+
+  <!-- Atria Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/atria</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/atria1.jpg</image:loc>
+      <image:title>Atria: The AI Ad Engine That Transforms Your Marketing Workflow</image:title>
+      <image:caption>Discover how Atria's all-in-one AI ad platform combines analytics, research, creation, and inspiration to help marketers create winning ads faster and scale revenue growth. Complete user guide with 7-day free trial.</image:caption>
+    </image:image>
+  </url>
   
 </urlset> 

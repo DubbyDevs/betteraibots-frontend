@@ -43,10 +43,14 @@ import airiaai from './assets/airiaai.webp';
 import bebopai from './assets/bebopai.webp';
 import adcreativeaitrial from './assets/adcreativeaitrial.png';
 import apolloLogo from './assets/apolloailogo.webp';
+import atria1 from './assets/atria1.jpg';
 import InVideoAvatar from './assets/InVideoAvatar.webp';
 import megahr from './assets/megahr.webp';
 import n8nicon from './assets/n8nicon.jpg';
 import warmyicon from './assets/warmyicon.jpg';
+import chatgptai from './assets/chatgptai.jpg';
+import claudeailogo from './assets/claudeailogo.jpg';
+import geminiai from './assets/geminiai.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -566,7 +570,7 @@ function Apps() {
       category: "Chat & Writing",
       features: ["Unlimited GPT-4o mini", "Web browsing", "File uploads", "Mobile app"],
       link: "https://chat.openai.com",
-      image: "https://betteraibots.com/assets/chatgpt-logo.png"
+      image: chatgptai
     },
     {
       name: "Claude",
@@ -574,7 +578,7 @@ function Apps() {
       category: "Writing & Analysis",
       features: ["200K token context", "Superior writing", "File analysis", "Web search"],
       link: "https://claude.ai",
-      image: "https://betteraibots.com/assets/claude-logo.png"
+      image: claudeailogo
     },
     {
       name: "Google Gemini",
@@ -582,7 +586,7 @@ function Apps() {
       category: "Multimodal AI",
       features: ["Image analysis", "Code generation", "Creative writing", "Google integration"],
       link: "https://gemini.google.com",
-      image: "https://betteraibots.com/assets/gemini-logo.png"
+      image: geminiai
     }
   ];
 
@@ -616,6 +620,16 @@ function Apps() {
       trialInfo: "Pro plans from $49/month",
       image: apolloLogo,
       readMoreLink: "/learn/apollo-io"
+    },
+    {
+      name: "Atria",
+      description: "The AI ad engine that grows your revenue with analytics, research, creation, and inspiration tools all in one platform",
+      category: "Marketing & Advertising",
+      features: ["AI ad analytics", "25M+ ad library", "AI ad creation", "Competitor research", "Asset management"],
+      link: "https://affiliates.tryatria.com/BAIB",
+      trialInfo: "7-Day Free Trial",
+      image: atria1,
+      readMoreLink: "/learn/atria"
     },
     {
       name: "Blackbox.ai",

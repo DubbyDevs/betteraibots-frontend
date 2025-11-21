@@ -115,6 +115,18 @@ function ShareButtons({ url, title }) {
 export default function ArticlePage() {
   const { id } = useParams();
   const location = useLocation();
+  
+  // Safety check for articles array
+  if (!articles || !Array.isArray(articles)) {
+    console.error('Articles array is not properly loaded');
+    return (
+      <div style={{ padding: 40, textAlign: "center" }}>
+        <h2>Error Loading Articles</h2>
+        <p>Please refresh the page or contact support if the issue persists.</p>
+      </div>
+    );
+  }
+  
   const article = articles.find(a => a.id === id);
   const fromPage = location.state?.from || (location.pathname.startsWith('/learn') ? '/learn' : '/');
 
@@ -213,6 +225,7 @@ export default function ArticlePage() {
     "adcreative-ai": "https://free-trial.adcreative.ai/0dkpoiajb7o2",
     "alli-ai": "https://try.alliai.com/0guepbqpqhsf",
     "apollo-io": "https://get.apollo.io/BAIB",
+    "atria": "https://affiliates.tryatria.com/BAIB",
     "blackbox-ai": "https://blackboxai.partnerlinks.io/BAIB",
     "capsule-crm-complete-guide": "https://capsulecrm.com/signup/?ref=betteraibots",
     "flowith-io": "https://aff.flowith.io/52dtlja1b580",
@@ -365,6 +378,7 @@ export default function ArticlePage() {
     'adcreative-ai',
     'alli-ai',
     'apollo-io',
+    'atria',
     'blackbox-ai',
     'brevo-complete-guide',
     'capsule-crm-complete-guide',
@@ -610,6 +624,7 @@ export default function ArticlePage() {
             "lindy-ai": "https://betteraibots.com/lindy.png",
             "viral-launch": "https://betteraibots.com/virallaunch.png",
             "apollo-io": "https://betteraibots.com/apollo.png",
+            "atria": "https://betteraibots.com/assets/atria1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -653,6 +668,7 @@ export default function ArticlePage() {
             "lindy-ai": "https://betteraibots.com/lindy.png",
             "viral-launch": "https://betteraibots.com/virallaunch.png",
             "apollo-io": "https://betteraibots.com/apollo.png",
+            "atria": "https://betteraibots.com/assets/atria1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -715,7 +731,8 @@ export default function ArticlePage() {
             "bebop-ai": "Bebop.ai, workflow automation, process optimization, AI automation, business automation, workflow management, intelligent automation, BetterAiBots",
             "lusha": "Lusha, B2B contact data, email finder, phone number lookup, sales intelligence, lead generation, CRM integration, verified contacts, sales prospecting, BetterAiBots",
             "hume-ai": "Hume AI, empathic AI, emotion recognition, voice AI, facial expression analysis, emotional intelligence, AI interactions, emotion detection, empathic computing, BetterAiBots",
-            "tidio-ai": "Tidio AI, Lyro AI Agent, customer service automation, live chat, help desk, AI chatbot, customer support, automated support, customer service platform, BetterAiBots"
+            "tidio-ai": "Tidio AI, Lyro AI Agent, customer service automation, live chat, help desk, AI chatbot, customer support, automated support, customer service platform, BetterAiBots",
+            "atria": "Atria, AI ad platform, ad analytics, ad creation, ad research, marketing automation, AI marketing tools, ad campaign management, 25M ad library, AI ad strategist, marketing workflow, ad asset management, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -742,6 +759,7 @@ export default function ArticlePage() {
                 "lindy-ai": "https://betteraibots.com/lindy.png",
                 "viral-launch": "https://betteraibots.com/virallaunch.png",
                 "apollo-io": "https://betteraibots.com/apollo.png",
+                "atria": "https://betteraibots.com/assets/atria1.jpg",
                 "adcreative-ai": "https://betteraibots.com/adcreative.png",
                 "flowith-io": "https://betteraibots.com/flowith.jpg",
                 "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -1253,9 +1271,26 @@ export default function ArticlePage() {
             li: ({ children, ...props }) => (
               <li style={{ marginBottom: 8, display: 'block' }}>{children}</li>
             ),
-            img: () => null, // Prevent user-submitted inline images
+            img: ({ src, alt, ...props }) => {
+              // Allow images that are part of article content (not user-submitted)
+              return (
+                <img
+                  src={src}
+                  alt={alt || ''}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                    margin: '30px 0',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    display: 'block'
+                  }}
+                  {...props}
+                />
+              );
+            },
             a: ({ href, children, ...props }) => {
-              // Handle anchor links for TOC
+              // Handle anchor links for TOC first
               if (href && href.startsWith('#')) {
                 return (
                   <a
@@ -1593,6 +1628,47 @@ export default function ArticlePage() {
                     {children}
                   </button>
                 );
+              }
+              // Handle image links (affiliate links that contain images from markdown)
+              // ReactMarkdown renders [![alt](img)](link) as <a><img /></a>
+              // Check if this is an affiliate link and if children contains an img element
+              if (href && href.includes('affiliates.tryatria.com')) {
+                try {
+                  // Simple check: if children is an object (not a string), it might be an image
+                  // ReactMarkdown passes img as a React element, not as a string
+                  let isImageLink = false;
+                  if (children) {
+                    if (typeof children === 'object' && !Array.isArray(children)) {
+                      isImageLink = children.type === 'img';
+                    } else if (Array.isArray(children) && children.length === 1) {
+                      const firstChild = children[0];
+                      if (firstChild && typeof firstChild === 'object') {
+                        isImageLink = firstChild.type === 'img';
+                      }
+                    }
+                  }
+                  
+                  if (isImageLink) {
+                    return (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'block',
+                          textAlign: 'center',
+                          margin: '30px 0',
+                          cursor: 'pointer'
+                        }}
+                        {...props}
+                      >
+                        {children}
+                      </a>
+                    );
+                  }
+                } catch (e) {
+                  // If check fails, fall through to default link styling
+                }
               }
               // Default link styling
               return (
