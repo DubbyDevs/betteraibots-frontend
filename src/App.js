@@ -41,6 +41,12 @@ import humeai from './assets/humeai.webp';
 import blackboxai from './assets/blackboxai.webp';
 import airiaai from './assets/airiaai.webp';
 import bebopai from './assets/bebopai.webp';
+import adcreativeaitrial from './assets/adcreativeaitrial.png';
+import apolloLogo from './assets/apolloailogo.webp';
+import InVideoAvatar from './assets/InVideoAvatar.webp';
+import megahr from './assets/megahr.webp';
+import n8nicon from './assets/n8nicon.jpg';
+import warmyicon from './assets/warmyicon.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -389,7 +395,7 @@ const PAID_APPS = [
     features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
     price: "$20-$50/month",
     link: "https://n8n.partnerlinks.io/wjt1744jflsx",
-    image: "https://betteraibots.com/assets/n8n-logo.png",
+    image: n8nicon,
     readMoreLink: "/news/n8n-revolution-business-automation-2025"
   },
   {
@@ -399,7 +405,7 @@ const PAID_APPS = [
     features: ["Product discovery", "Market intelligence", "Keyword research", "Listing optimization"],
     price: "$48-$199/month",
     link: "https://affiliate.viral-launch.com/BAIB",
-    image: "https://betteraibots.com/assets/viral-launch-logo.png",
+    image: "/virallaunch.png",
     readMoreLink: "/learn/viral-launch"
   },
   {
@@ -409,7 +415,7 @@ const PAID_APPS = [
     features: ["AI prospecting", "Personalized emails", "LinkedIn automation", "HubSpot integration"],
     price: "$900/month",
     link: "https://partner.aisdr.com/5fxea2u5m85d",
-    image: "https://betteraibots.com/assets/aisdr-logo.png",
+    image: "/aisdr.png",
     readMoreLink: "/learn/aisdr-complete-guide"
   },
   {
@@ -459,7 +465,7 @@ const PAID_APPS = [
     features: ["AI screening & shortlisting", "Interview scheduling", "AI-powered insights", "Job board advertising"],
     price: "$49-$149/month",
     link: "https://try.megahr.com/BAIB",
-    image: "https://betteraibots.com/assets/megahr-logo.png",
+    image: megahr,
     readMoreLink: "/learn/megahr"
   },
   {
@@ -489,7 +495,7 @@ const PAID_APPS = [
     features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
     price: "Contact sales",
     link: "https://seosparkplug.com",
-    image: "https://betteraibots.com/assets/seosparkplug-logo.png",
+    image: "https://betteraibots.com/freeseoscore.jpg?v=2",
     readMoreLink: "/learn/seosparkplug"
   },
   {
@@ -588,7 +594,7 @@ function Apps() {
       features: ["AI ad generation", "Brand customization", "Performance tracking", "Multiple formats"],
       link: "https://free-trial.adcreative.ai/0dkpoiajb7o2",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/assets/adcreative-logo.png",
+      image: adcreativeaitrial,
       readMoreLink: "/learn/adcreative-ai"
     },
     {
@@ -598,7 +604,7 @@ function Apps() {
       features: ["On-page optimization", "Real-time deployment", "No coding required", "Works with any CMS"],
       link: "https://try.alliai.com/0guepbqpqhsf",
       trialInfo: "10-Day Free Trial",
-      image: "https://betteraibots.com/assets/alli-ai-logo.png",
+      image: "https://betteraibots.com/alliai.png",
       readMoreLink: "/learn/alli-ai"
     },
     {
@@ -608,7 +614,7 @@ function Apps() {
       features: ["Contact database", "AI-powered prospecting", "Email automation", "Sales intelligence"],
       link: "https://get.apollo.io/BAIB",
       trialInfo: "Pro plans from $49/month",
-      image: "https://betteraibots.com/assets/apollo-logo.png",
+      image: apolloLogo,
       readMoreLink: "/learn/apollo-io"
     },
     {
@@ -628,7 +634,7 @@ function Apps() {
       features: ["Smart segmentation", "Send time optimization", "Automation workflows", "150+ integrations"],
       link: "https://get.brevo.com/um9xszmf3nfd",
       trialInfo: "Free plan available",
-      image: "https://betteraibots.com/assets/brevo-logo.png",
+      image: "/brevologo.png",
       readMoreLink: "/learn/brevo-complete-guide"
     },
     {
@@ -638,7 +644,7 @@ function Apps() {
       features: ["Contact management", "Email marketing", "Project management", "Workflow automation"],
       link: "https://get.capsulenow.io/6894ebdizsds",
       trialInfo: "14-day free trial",
-      image: "https://betteraibots.com/assets/capsule-crm-logo.png",
+      image: "/capsulecrm.png",
       readMoreLink: "/learn/capsule-crm-complete-guide"
     },
     {
@@ -648,7 +654,7 @@ function Apps() {
       features: ["AI process automation", "No-code workflows", "Integration capabilities", "Analytics dashboard"],
       link: "https://aff.flowith.io/52dtlja1b580",
       trialInfo: "Free trial available",
-      image: "https://betteraibots.com/assets/flowith-logo.png",
+      image: "/flowith.jpg",
       readMoreLink: "/learn/flowith-io"
     },
     {
@@ -668,7 +674,7 @@ function Apps() {
       features: ["AI video generation", "5000+ templates", "Text-to-video", "Easy editing"],
       link: "https://betteraibots.com/invideo",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/assets/invideo-logo.png",
+      image: InVideoAvatar,
       readMoreLink: "/learn/invideo-ai"
     },
     {
@@ -678,7 +684,7 @@ function Apps() {
       features: ["Task management", "Smart scheduling", "Email organization", "Meeting assistance"],
       link: "https://try.lindy.ai/lhgvxfidor04",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/assets/lindy-logo.png",
+      image: "/lindy.png",
       readMoreLink: "/learn/lindy-ai"
     },
     {
@@ -688,7 +694,7 @@ function Apps() {
       features: ["Verified contact data", "Email finder", "Phone number lookup", "Company intelligence", "CRM integrations"],
       link: "https://partnerstack.lusha.com/w61xn76pa3sr",
       trialInfo: "Free Trial Available",
-      image: "https://betteraibots.com/lushaai.jpg",
+      image: "/lusha1.jpg",
       readMoreLink: "/learn/lusha"
     },
     {
@@ -698,7 +704,7 @@ function Apps() {
       features: ["AI-powered canvas", "160+ integrations", "Real-time collaboration", "Templates & workflows"],
       link: "https://ps.miro-affiliate.com/gwnvu4zj3r8r",
       trialInfo: "Free plan available",
-      image: "https://betteraibots.com/assets/miro-logo.png",
+      image: "/miro.png",
       readMoreLink: "/learn/miro-complete-guide"
     },
     {
@@ -708,7 +714,7 @@ function Apps() {
       features: ["Production planning", "Inventory management", "CRM integration", "Real-time reporting"],
       link: "https://try.mrpeasy.com/m72w6bztymwh",
       trialInfo: "14-Day Free Trial",
-      image: "https://betteraibots.com/assets/mrpeasy-logo.png",
+      image: "/mrpeasy.png",
       readMoreLink: "/learn/mrpeasy-complete-guide"
     },
     {
@@ -718,7 +724,7 @@ function Apps() {
       features: ["Voice cloning", "AI dubbing", "Voice changer", "200+ voices"],
       link: "https://get.murf.ai/i5n7gfvz5cbw",
       trialInfo: "Free trial available",
-      image: "https://betteraibots.com/assets/murf-ai-logo.png",
+      image: "/murfai.png",
       readMoreLink: "/learn/murf-ai-complete-guide"
     },
     {
@@ -728,7 +734,7 @@ function Apps() {
       features: ["AI SDR agents", "Multichannel sequences", "Email automation", "LinkedIn automation", "Meeting scheduler"],
       link: "https://get.reply.io/ub7edypmq2gj",
       trialInfo: "14-day free trial",
-      image: "https://betteraibots.com/assets/reply-logo.png",
+      image: "/replyio.png",
       readMoreLink: "/learn/reply-io-complete-guide"
     },
     {
@@ -758,7 +764,7 @@ function Apps() {
       features: ["AI video editing", "Auto-subtitles", "Background removal", "Collaboration tools"],
       link: "https://veed.cello.so/rwFO6zwGZh9",
       trialInfo: "Free plan available",
-      image: "https://betteraibots.com/assets/veed-logo.png",
+      image: "/veedreview.png",
       readMoreLink: "/learn/veed-complete-guide"
     },
     {
@@ -768,7 +774,7 @@ function Apps() {
       features: ["AI-driven automation", "Email deliverability optimization", "Spam folder avoidance", "Real-time insights"],
       link: "https://warmyio.partnerlinks.io/ffy5y6ll9374",
       trialInfo: "7-Day Free Trial",
-      image: "https://betteraibots.com/assets/warmy-logo.png",
+      image: warmyicon,
       readMoreLink: "/news/warmy-io-spam-folder-rebellion-email-deliverability"
     },
     {
@@ -823,16 +829,39 @@ function Apps() {
           width: '60px',
           height: '60px',
           borderRadius: '12px',
-          background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+          background: 'rgba(255, 255, 255, 0.05)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           flexShrink: 0,
-          fontSize: '24px',
-          fontWeight: 'bold',
-          color: '#1a2330'
+          overflow: 'hidden',
+          border: '1px solid rgba(54, 255, 149, 0.2)'
         }}>
-          {app.name.charAt(0)}
+          {app.image ? (
+            <img 
+              src={app.image} 
+              alt={app.name}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                padding: '8px'
+              }}
+              onError={(e) => {
+                // Fallback to letter if image fails to load
+                e.target.style.display = 'none';
+                e.target.parentElement.innerHTML = `<span style="font-size: 24px; font-weight: bold; color: #36ff95;">${app.name.charAt(0)}</span>`;
+              }}
+            />
+          ) : (
+            <span style={{
+              fontSize: '24px',
+              fontWeight: 'bold',
+              color: '#36ff95'
+            }}>
+              {app.name.charAt(0)}
+            </span>
+          )}
         </div>
         <div style={{ flex: 1 }}>
           <h3 style={{

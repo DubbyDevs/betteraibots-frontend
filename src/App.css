@@ -2335,6 +2335,23 @@ img[alt="preview"] {
   color: #e9f7ee;
 }
 
+.article-content h1 {
+  color: #36ff95;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  text-shadow: 0 0 8px #36ff9540;
+}
+
+.article-content h2 {
+  color: #36ff95;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 40px 0 20px 0;
+  text-shadow: 0 0 6px #36ff9540;
+}
+
 .article-content h3 {
   color: #36ff95;
   font-size: 1.6rem;

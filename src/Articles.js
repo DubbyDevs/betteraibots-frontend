@@ -6875,9 +6875,9 @@ If you're building applications that interact with humans and want those interac
     id: "lusha",
     title: "Lusha: The B2B Contact Data Platform Powering Sales Teams Worldwide",
     date: "November 2025",
-    cover: "https://betteraibots.com/lushaai.jpg",
+    cover: "/lusha1.jpg",
     preview: "Discover how Lusha's B2B contact data platform helps sales teams find verified emails, phone numbers, and company intelligence with CRM integrations and accurate contact information.",
-    images: ["https://betteraibots.com/lushaai.jpg", lushaai],
+    images: ["/lusha1.jpg", lushaai],
     content: `
 ## What is Lusha?
 
