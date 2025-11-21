@@ -51,6 +51,7 @@ import warmyicon from './assets/warmyicon.jpg';
 import chatgptai from './assets/chatgptai.jpg';
 import claudeailogo from './assets/claudeailogo.jpg';
 import geminiai from './assets/geminiai.jpg';
+import recomaze1 from './assets/recomaze1.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -740,6 +741,16 @@ function Apps() {
       trialInfo: "Free trial available",
       image: "/murfai.png",
       readMoreLink: "/learn/murf-ai-complete-guide"
+    },
+    {
+      name: "Recomaze",
+      description: "AI-powered e-commerce platform that turns your store into an AI sales agent with discoverability, concierge, and conversion optimization",
+      category: "E-commerce & Sales",
+      features: ["AI discoverability", "AI concierge", "Agentic sales flows", "Cart uplift", "Conversion memory"],
+      link: "https://affiliate.recomaze.ai/BAIB",
+      trialInfo: "7-Day Free Trial",
+      image: recomaze1,
+      readMoreLink: "/learn/recomaze"
     },
     {
       name: "Reply.io",

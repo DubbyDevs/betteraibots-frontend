@@ -226,6 +226,7 @@ export default function ArticlePage() {
     "alli-ai": "https://try.alliai.com/0guepbqpqhsf",
     "apollo-io": "https://get.apollo.io/BAIB",
     "atria": "https://affiliates.tryatria.com/BAIB",
+    "recomaze": "https://affiliate.recomaze.ai/BAIB",
     "blackbox-ai": "https://blackboxai.partnerlinks.io/BAIB",
     "capsule-crm-complete-guide": "https://capsulecrm.com/signup/?ref=betteraibots",
     "flowith-io": "https://aff.flowith.io/52dtlja1b580",
@@ -379,6 +380,7 @@ export default function ArticlePage() {
     'alli-ai',
     'apollo-io',
     'atria',
+    'recomaze',
     'blackbox-ai',
     'brevo-complete-guide',
     'capsule-crm-complete-guide',
@@ -625,6 +627,7 @@ export default function ArticlePage() {
             "viral-launch": "https://betteraibots.com/virallaunch.png",
             "apollo-io": "https://betteraibots.com/apollo.png",
             "atria": "https://betteraibots.com/assets/atria1.jpg",
+            "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -669,6 +672,7 @@ export default function ArticlePage() {
             "viral-launch": "https://betteraibots.com/virallaunch.png",
             "apollo-io": "https://betteraibots.com/apollo.png",
             "atria": "https://betteraibots.com/assets/atria1.jpg",
+            "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -732,7 +736,8 @@ export default function ArticlePage() {
             "lusha": "Lusha, B2B contact data, email finder, phone number lookup, sales intelligence, lead generation, CRM integration, verified contacts, sales prospecting, BetterAiBots",
             "hume-ai": "Hume AI, empathic AI, emotion recognition, voice AI, facial expression analysis, emotional intelligence, AI interactions, emotion detection, empathic computing, BetterAiBots",
             "tidio-ai": "Tidio AI, Lyro AI Agent, customer service automation, live chat, help desk, AI chatbot, customer support, automated support, customer service platform, BetterAiBots",
-            "atria": "Atria, AI ad platform, ad analytics, ad creation, ad research, marketing automation, AI marketing tools, ad campaign management, 25M ad library, AI ad strategist, marketing workflow, ad asset management, BetterAiBots"
+            "atria": "Atria, AI ad platform, ad analytics, ad creation, ad research, marketing automation, AI marketing tools, ad campaign management, 25M ad library, AI ad strategist, marketing workflow, ad asset management, BetterAiBots",
+            "recomaze": "Recomaze, AI e-commerce, AI sales agent, AI discoverability, AI concierge, e-commerce AI, conversion optimization, cart uplift, AI recommendations, cookieless personalization, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -1273,6 +1278,33 @@ export default function ArticlePage() {
             ),
             img: ({ src, alt, ...props }) => {
               // Allow images that are part of article content (not user-submitted)
+              // Wrap Recomaze images in affiliate links
+              if (src && (src.includes('recomaze2') || src.includes('recomaze3'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://affiliate.recomaze.ai/BAIB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
+              // Default image rendering
               return (
                 <img
                   src={src}
@@ -1632,23 +1664,24 @@ export default function ArticlePage() {
               // Handle image links (affiliate links that contain images from markdown)
               // ReactMarkdown renders [![alt](img)](link) as <a><img /></a>
               // Check if this is an affiliate link and if children contains an img element
-              if (href && href.includes('affiliates.tryatria.com')) {
+              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai'))) {
                 try {
-                  // Simple check: if children is an object (not a string), it might be an image
-                  // ReactMarkdown passes img as a React element, not as a string
-                  let isImageLink = false;
+                  // Check if children contains an image element - use simple, safe checking
+                  let hasImage = false;
                   if (children) {
-                    if (typeof children === 'object' && !Array.isArray(children)) {
-                      isImageLink = children.type === 'img';
-                    } else if (Array.isArray(children) && children.length === 1) {
-                      const firstChild = children[0];
-                      if (firstChild && typeof firstChild === 'object') {
-                        isImageLink = firstChild.type === 'img';
-                      }
+                    // Handle single child that is an img
+                    if (typeof children === 'object' && !Array.isArray(children) && children.type === 'img') {
+                      hasImage = true;
+                    }
+                    // Handle array of children - check if any is an img
+                    else if (Array.isArray(children)) {
+                      hasImage = children.some(child => 
+                        child && typeof child === 'object' && !Array.isArray(child) && child.type === 'img'
+                      );
                     }
                   }
                   
-                  if (isImageLink) {
+                  if (hasImage) {
                     return (
                       <a
                         href={href}
@@ -1668,6 +1701,7 @@ export default function ArticlePage() {
                   }
                 } catch (e) {
                   // If check fails, fall through to default link styling
+                  console.error("Error checking for image in link children:", e);
                 }
               }
               // Default link styling
