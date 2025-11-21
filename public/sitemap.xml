@@ -596,5 +596,18 @@
       <image:caption>Discover how Recomaze's AI-powered e-commerce platform transforms your store into an intelligent sales agent with AI discoverability, concierge services, and conversion optimization that turns traffic into revenue.</image:caption>
     </image:image>
   </url>
+
+  <!-- Vida AI Agent OS Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/vida-ai-agent-os</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/vida1.jpg</image:loc>
+      <image:title>Vida AI Agent OS: Deploy AI Phone Agents at Scale for Your Business</image:title>
+      <image:caption>Vida is the AI Agent Operating System that helps enterprises deploy omnichannel AI agents that call, text, email, chat, and manage business workflows. Learn how to build, deploy, and manage AI phone agents with no code required.</image:caption>
+    </image:image>
+  </url>
   
 </urlset> 

@@ -227,6 +227,7 @@ export default function ArticlePage() {
     "apollo-io": "https://get.apollo.io/BAIB",
     "atria": "https://affiliates.tryatria.com/BAIB",
     "recomaze": "https://affiliate.recomaze.ai/BAIB",
+    "vida-ai-agent-os": "https://try.vida.io/BAIB",
     "blackbox-ai": "https://blackboxai.partnerlinks.io/BAIB",
     "capsule-crm-complete-guide": "https://capsulecrm.com/signup/?ref=betteraibots",
     "flowith-io": "https://aff.flowith.io/52dtlja1b580",
@@ -381,6 +382,7 @@ export default function ArticlePage() {
     'apollo-io',
     'atria',
     'recomaze',
+    'vida-ai-agent-os',
     'blackbox-ai',
     'brevo-complete-guide',
     'capsule-crm-complete-guide',
@@ -628,6 +630,7 @@ export default function ArticlePage() {
             "apollo-io": "https://betteraibots.com/apollo.png",
             "atria": "https://betteraibots.com/assets/atria1.jpg",
             "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
+            "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -673,6 +676,7 @@ export default function ArticlePage() {
             "apollo-io": "https://betteraibots.com/apollo.png",
             "atria": "https://betteraibots.com/assets/atria1.jpg",
             "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
+            "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -737,7 +741,8 @@ export default function ArticlePage() {
             "hume-ai": "Hume AI, empathic AI, emotion recognition, voice AI, facial expression analysis, emotional intelligence, AI interactions, emotion detection, empathic computing, BetterAiBots",
             "tidio-ai": "Tidio AI, Lyro AI Agent, customer service automation, live chat, help desk, AI chatbot, customer support, automated support, customer service platform, BetterAiBots",
             "atria": "Atria, AI ad platform, ad analytics, ad creation, ad research, marketing automation, AI marketing tools, ad campaign management, 25M ad library, AI ad strategist, marketing workflow, ad asset management, BetterAiBots",
-            "recomaze": "Recomaze, AI e-commerce, AI sales agent, AI discoverability, AI concierge, e-commerce AI, conversion optimization, cart uplift, AI recommendations, cookieless personalization, BetterAiBots"
+            "recomaze": "Recomaze, AI e-commerce, AI sales agent, AI discoverability, AI concierge, e-commerce AI, conversion optimization, cart uplift, AI recommendations, cookieless personalization, BetterAiBots",
+            "vida-ai-agent-os": "Vida, Vida AI Agent OS, AI phone agents, AI agent operating system, omnichannel AI agents, AI phone calls, AI voice agents, AI customer service, AI workflow automation, enterprise AI agents, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -1278,12 +1283,37 @@ export default function ArticlePage() {
             ),
             img: ({ src, alt, ...props }) => {
               // Allow images that are part of article content (not user-submitted)
-              // Wrap Recomaze images in affiliate links
+              // Wrap Recomaze and Vida images in affiliate links
               if (src && (src.includes('recomaze2') || src.includes('recomaze3'))) {
                 return (
                   <div style={{ textAlign: 'center', margin: '30px 0' }}>
                     <a
                       href="https://affiliate.recomaze.ai/BAIB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
+              if (src && (src.includes('vidaai2') || src.includes('vida2'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://try.vida.io/BAIB"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ display: 'inline-block', cursor: 'pointer' }}
@@ -1664,7 +1694,7 @@ export default function ArticlePage() {
               // Handle image links (affiliate links that contain images from markdown)
               // ReactMarkdown renders [![alt](img)](link) as <a><img /></a>
               // Check if this is an affiliate link and if children contains an img element
-              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai'))) {
+              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io'))) {
                 try {
                   // Check if children contains an image element - use simple, safe checking
                   let hasImage = false;

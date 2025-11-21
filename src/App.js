@@ -52,6 +52,8 @@ import chatgptai from './assets/chatgptai.jpg';
 import claudeailogo from './assets/claudeailogo.jpg';
 import geminiai from './assets/geminiai.jpg';
 import recomaze1 from './assets/recomaze1.jpg';
+import vida1 from './assets/vida1.jpg';
+import vidaai2 from './assets/vidaai2.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -791,6 +793,16 @@ function Apps() {
       trialInfo: "Free plan available",
       image: "/veedreview.png",
       readMoreLink: "/learn/veed-complete-guide"
+    },
+    {
+      name: "Vida",
+      description: "AI Agent Operating System for deploying omnichannel AI agents that call, text, email, chat, and manage business workflows",
+      category: "AI & Automation",
+      features: ["AI phone agents", "Omnichannel communication", "No-code agent builder", "Enterprise scalability"],
+      link: "https://try.vida.io/BAIB",
+      trialInfo: "Free Trial Available",
+      image: vida1,
+      readMoreLink: "/learn/vida-ai-agent-os"
     },
     {
       name: "Warmy",
