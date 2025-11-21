@@ -228,6 +228,9 @@ export default function ArticlePage() {
     "atria": "https://affiliates.tryatria.com/BAIB",
     "recomaze": "https://affiliate.recomaze.ai/BAIB",
     "vida-ai-agent-os": "https://try.vida.io/BAIB",
+    "plesk": "https://try.plesk.com/BAIB",
+    "surecam": "https://join.surecam.com/BAIB",
+    "diginius": "https://get.diginius.com/rvao67pwqqux",
     "blackbox-ai": "https://blackboxai.partnerlinks.io/BAIB",
     "capsule-crm-complete-guide": "https://capsulecrm.com/signup/?ref=betteraibots",
     "flowith-io": "https://aff.flowith.io/52dtlja1b580",
@@ -383,6 +386,9 @@ export default function ArticlePage() {
     'atria',
     'recomaze',
     'vida-ai-agent-os',
+    'plesk',
+    'surecam',
+    'diginius',
     'blackbox-ai',
     'brevo-complete-guide',
     'capsule-crm-complete-guide',
@@ -631,6 +637,9 @@ export default function ArticlePage() {
             "atria": "https://betteraibots.com/assets/atria1.jpg",
             "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
             "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
+            "plesk": "https://betteraibots.com/assets/plesk1.jpg",
+            "surecam": "https://betteraibots.com/assets/surecam1.jpg",
+            "diginius": "https://betteraibots.com/assets/diginius1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -639,7 +648,7 @@ export default function ArticlePage() {
             "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
             "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
             "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
-            "seosparkplug": "https://betteraibots.com/freeseoscore.jpg?v=2",
+            "seosparkplug": "https://betteraibots.com/assets/seosparkplug1.jpg",
             "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
             "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
             "runpod": "https://betteraibots.com/runpod.jpg?v=2",
@@ -677,6 +686,9 @@ export default function ArticlePage() {
             "atria": "https://betteraibots.com/assets/atria1.jpg",
             "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
             "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
+            "plesk": "https://betteraibots.com/assets/plesk1.jpg",
+            "surecam": "https://betteraibots.com/assets/surecam1.jpg",
+            "diginius": "https://betteraibots.com/assets/diginius1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
@@ -685,7 +697,7 @@ export default function ArticlePage() {
             "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
             "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
             "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
-            "seosparkplug": "https://betteraibots.com/freeseoscore.jpg?v=2",
+            "seosparkplug": "https://betteraibots.com/assets/seosparkplug1.jpg",
             "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
             "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
             "runpod": "https://betteraibots.com/runpod.jpg?v=2",
@@ -742,7 +754,10 @@ export default function ArticlePage() {
             "tidio-ai": "Tidio AI, Lyro AI Agent, customer service automation, live chat, help desk, AI chatbot, customer support, automated support, customer service platform, BetterAiBots",
             "atria": "Atria, AI ad platform, ad analytics, ad creation, ad research, marketing automation, AI marketing tools, ad campaign management, 25M ad library, AI ad strategist, marketing workflow, ad asset management, BetterAiBots",
             "recomaze": "Recomaze, AI e-commerce, AI sales agent, AI discoverability, AI concierge, e-commerce AI, conversion optimization, cart uplift, AI recommendations, cookieless personalization, BetterAiBots",
-            "vida-ai-agent-os": "Vida, Vida AI Agent OS, AI phone agents, AI agent operating system, omnichannel AI agents, AI phone calls, AI voice agents, AI customer service, AI workflow automation, enterprise AI agents, BetterAiBots"
+            "vida-ai-agent-os": "Vida, Vida AI Agent OS, AI phone agents, AI agent operating system, omnichannel AI agents, AI phone calls, AI voice agents, AI customer service, AI workflow automation, enterprise AI agents, BetterAiBots",
+            "plesk": "Plesk, web hosting control panel, server management, website administration, WordPress Toolkit, hosting control panel, server administration, domain management, hosting platform, BetterAiBots",
+            "surecam": "SureCam, fleet dash cam, fleet safety, GPS tracking, video telematics, driver coaching, fleet management, dash camera, vehicle tracking, fleet protection, BetterAiBots",
+            "diginius": "Diginius, PPC management, lead intelligence, B2B leads, intent leads, multi-channel reporting, Google Ads, Microsoft Ads, Facebook advertising, LinkedIn advertising, SEO monitoring, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -778,7 +793,7 @@ export default function ArticlePage() {
                 "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
                 "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
                 "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
-                "seosparkplug": "https://betteraibots.com/freeseoscore.jpg?v=2",
+                "seosparkplug": "https://betteraibots.com/assets/seosparkplug1.jpg",
                 "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
                 "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
                 "runpod": "https://betteraibots.com/runpod.jpg?v=2",
@@ -1334,6 +1349,81 @@ export default function ArticlePage() {
                   </div>
                 );
               }
+              if (src && (src.includes('plesk2') || src.includes('plesk'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://try.plesk.com/BAIB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
+              if (src && (src.includes('surecam2') || src.includes('surecam'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://join.surecam.com/BAIB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
+              if (src && (src.includes('diginius2') || src.includes('diginius'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://get.diginius.com/rvao67pwqqux"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
               // Default image rendering
               return (
                 <img
@@ -1694,7 +1784,7 @@ export default function ArticlePage() {
               // Handle image links (affiliate links that contain images from markdown)
               // ReactMarkdown renders [![alt](img)](link) as <a><img /></a>
               // Check if this is an affiliate link and if children contains an img element
-              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io'))) {
+              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io') || href.includes('try.plesk.com') || href.includes('join.surecam.com') || href.includes('get.diginius.com'))) {
                 try {
                   // Check if children contains an image element - use simple, safe checking
                   let hasImage = false;

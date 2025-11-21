@@ -280,21 +280,21 @@ function Podcast() {
     setShowModalInfoDropdown(false);
   };
 
-  // Handle welcome image click - toggle play/pause for Video 1 (welcome podcast, now at index 2, far right)
+  // Handle welcome image click - toggle play/pause for Video 2 (Latest Episode: AI Tools Discussion, index 1, middle)
   const handleWelcomeImageClick = () => {
-    // Toggle Video 1 (welcome podcast, index 2, far right) play/pause
-    if (playingVideoIndex === 2) {
-      // Video 1 is playing, hide it
+    // Toggle Video 2 (Latest Episode: AI Tools Discussion, index 1, middle) play/pause
+    if (playingVideoIndex === 1) {
+      // Video 2 is playing, hide it
       setPlayingVideoIndex(null);
     } else {
-      // Video 1 is not playing, start it
+      // Video 2 is not playing, start it
       setTimeout(() => {
-        setPlayingVideoIndex(2);
+        setPlayingVideoIndex(1);
         
         // Scroll behavior differs for mobile vs desktop
         if (isMobile) {
-          // On mobile: scroll to the specific video card (Video 1, index 2)
-          const videoCard = document.getElementById(`video-card-2`);
+          // On mobile: scroll to the specific video card (Video 2, index 1)
+          const videoCard = document.getElementById(`video-card-1`);
           if (videoCard) {
             videoCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }

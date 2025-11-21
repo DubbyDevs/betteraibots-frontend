@@ -54,6 +54,13 @@ import geminiai from './assets/geminiai.jpg';
 import recomaze1 from './assets/recomaze1.jpg';
 import vida1 from './assets/vida1.jpg';
 import vidaai2 from './assets/vidaai2.jpg';
+import plesk1 from './assets/plesk1.jpg';
+import plesk2 from './assets/plesk2.jpg';
+import surecam1 from './assets/surecam1.jpg';
+import surecam2 from './assets/surecam2.jpg';
+import diginius1 from './assets/diginius1.jpg';
+import diginius2 from './assets/diginius2.jpg';
+import seosparkplug1 from './assets/seosparkplug1.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -502,7 +509,7 @@ const PAID_APPS = [
     features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
     price: "Contact sales",
     link: "https://seosparkplug.com",
-    image: "https://betteraibots.com/freeseoscore.jpg?v=2",
+    image: seosparkplug1,
     readMoreLink: "/learn/seosparkplug"
   },
   {
@@ -514,6 +521,36 @@ const PAID_APPS = [
     link: "https://try.airia.com/BAIB",
     image: airiaai,
     readMoreLink: "/learn/airia"
+  },
+  {
+    name: "Plesk",
+    description: "Web hosting control panel and server management platform for managing websites, domains, and server infrastructure",
+    category: "Web Hosting & Server Management",
+    features: ["Website management", "Server administration", "WordPress Toolkit", "Multi-domain hosting"],
+    price: "From €6.60/month",
+    link: "https://try.plesk.com/BAIB",
+    image: plesk1,
+    readMoreLink: "/learn/plesk"
+  },
+  {
+    name: "SureCam",
+    description: "AI-powered fleet dash cam system with GPS tracking, live video streaming, and driver coaching to protect your fleet and reduce costs",
+    category: "Fleet Management & Safety",
+    features: ["AI-powered dash cams", "GPS tracking", "Live video streaming", "Driver safety scores"],
+    price: "Contact sales",
+    link: "https://join.surecam.com/BAIB",
+    image: surecam1,
+    readMoreLink: "/learn/surecam"
+  },
+  {
+    name: "Diginius",
+    description: "All-in-one PPC management and lead intelligence platform that consolidates data from Google, Microsoft, Facebook, LinkedIn, and more",
+    category: "Marketing & PPC Management",
+    features: ["Multi-channel reporting", "B2B lead intelligence", "Intent leads", "SEO monitoring"],
+    price: "From $75/month",
+    link: "https://get.diginius.com/rvao67pwqqux",
+    image: diginius1,
+    readMoreLink: "/learn/diginius"
   }
 ];
 
