@@ -60,6 +60,7 @@ import seosparkplug1 from './assets/seosparkplug1.jpg';
 import smartli1 from './assets/smartli1.jpg';
 import consensus1 from './assets/consensus1.jpg';
 import browseai1 from './assets/browseai1.jpg';
+import vidpreview from './assets/vidpreview.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -2852,7 +2853,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         <div style={{
           marginTop: isMobile ? "50px" : "80px"
         }}>
-          <h3 style={{
+          <h2 style={{
             color: "#36ff95",
             fontSize: isMobile ? "1.5rem" : "1.8rem",
             fontWeight: 700,
@@ -2861,7 +2862,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             fontFamily: "Inter, Arial, sans-serif"
           }}>
             Visit our Channel
-          </h3>
+          </h2>
           
           <div style={{
             maxWidth: "1000px",
@@ -2901,10 +2902,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               </p>
             </div>
             
-            <a
-              href="https://www.youtube.com/@BetterAiBots"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/Podcast"
               style={{
                 display: "block",
                 cursor: "pointer",
@@ -2936,7 +2935,45 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 }}
                 draggable={false}
               />
-            </a>
+            </Link>
+          </div>
+          
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: isMobile ? "15px" : "20px",
+            marginBottom: isMobile ? "10px" : "15px"
+          }}>
+            <Link
+              to="/Podcast"
+              style={{
+                display: "block",
+                cursor: "pointer",
+                maxWidth: isMobile ? "100%" : "420px",
+                width: isMobile ? "100%" : "420px",
+                transition: "box-shadow 0.3s ease"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 6px 24px rgba(54, 255, 149, 0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
+              }}
+            >
+              <img
+                src={vidpreview}
+                alt="BetterAiBots Video Preview"
+                style={{
+                  width: "100%",
+                  maxWidth: "100%",
+                  height: "auto",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)",
+                  display: "block"
+                }}
+              />
+            </Link>
           </div>
           
           {/* Navigation Buttons */}
@@ -4271,7 +4308,8 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
               { to: "/", label: "Home" },
               { to: "/apps", label: "Apps" },
               { to: "/learn", label: "Learn" },
-              { to: "/news", label: "News" }
+              { to: "/news", label: "News" },
+              { to: "/Podcast", label: "Watch" }
             ].filter((link) => link.to !== location.pathname).map((link) => (
               <li key={link.to}>
                 <Link

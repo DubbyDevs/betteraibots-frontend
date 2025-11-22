@@ -1590,6 +1590,16 @@ export const newsArticles = [
     content: `
       <h1>The Home Office Gold Rush: 10 Ways AI Is Printing Money While You're Still in Your Pajamas</h1>
 
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
+        <iframe 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+          src="https://www.youtube.com/embed/tvU6VpFxl0c" 
+          title="The Home Office Gold Rush" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
       <p>Right now, while you're reading this, thousands of people are using artificial intelligence to generate real income from their kitchen tables. Not "maybe someday" money. Not "build it and hope" passive income schemes. We're talking actual cash flowing into bank accounts—today, this week, this month.</p>
 
       <p>The difference between now and every other "work from home" gold rush? AI doesn't just help you work faster. It multiplies what one person can do by a factor of ten. Maybe a hundred. You're not competing with other freelancers anymore—you're competing with people who have AI superpowers.</p>
