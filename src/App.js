@@ -183,12 +183,10 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
 
 // --- NEWS PAGE ---
 function News({ searchValue }) {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 825);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1150);
   
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 825);
       setIsSmallScreen(window.innerWidth < 1150);
     };
     window.addEventListener('resize', handleResize);
