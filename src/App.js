@@ -640,12 +640,14 @@ const PAID_APPS = [
   }
 ];
 
-// Affiliate disclaimer messages for ticker - used on both home and apps pages
+// Comprehensive disclaimer messages for ticker - covers all liabilities
 const tickerMessages = [
-  "💡 Some links on this page are affiliate partnerships. We may earn a commission when you sign up through our links, at no extra cost to you.",
-  "🔗 Affiliate partnerships help us keep BetterAiBots free. We only recommend tools we've tested and trust.",
-  "✨ All affiliate links are clearly marked. Your support helps us maintain this free directory of AI tools.",
-  "🎯 We may receive compensation for some links, but this never affects our honest reviews and recommendations."
+  "⚠️ DISCLAIMER: BetterAiBots.com is an independent directory. Some content is AI-generated and may contain errors, inaccuracies, or outdated information. We do not review, vet, or verify all content accuracy.",
+  "🔗 AFFILIATE DISCLOSURE: Assume all apps, tools, and services listed on BetterAiBots.com may have affiliate partnerships. We may earn commissions at no extra cost to you. This never affects our recommendations.",
+  "🤖 AI-generated content, AI characters, and third-party tools are provided 'as is' without warranties. Use at your own risk. Always verify information independently.",
+  "📝 Information may be incomplete, outdated, biased, or contain mistakes. BetterAiBots.com is not responsible for any errors, omissions, or outcomes from using listed tools or content.",
+  "⚖️ BetterAiBots.com provides no financial, legal, medical, or professional advice. Consult qualified professionals for important decisions. We are not liable for any damages or losses.",
+  "🔍 We do not own, operate, or control any AI tools, GPTs, or services listed. All trademarks and content belong to their respective owners. Use third-party services at your own risk."
 ];
 
 // --- APPS PAGE ---
@@ -3990,7 +3992,7 @@ function App() {
                 }}>
                   <div className="ticker-container" style={{
                     display: 'inline-block',
-                    animation: 'scroll-ticker 79.2s linear infinite',
+                    animation: 'scroll-ticker 176s linear infinite',
                     minHeight: '24px',
                     lineHeight: '24px',
                     pointerEvents: 'none'

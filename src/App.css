@@ -2190,7 +2190,7 @@ img[alt="preview"] {
 }
 
 /* Mobile Responsive */
-@media (max-width: 900px) {
+@media (max-width: 1260px) {
   .featured-news-article {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -2200,7 +2200,9 @@ img[alt="preview"] {
   .featured-news-title {
     font-size: 1.8rem;
   }
-  
+}
+
+@media (max-width: 900px) {
   .newsletter-signup {
     padding: 40px 30px;
   }

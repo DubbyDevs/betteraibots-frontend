@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 // --- AI FOR DUMMIES GUIDE COMPONENT ---
@@ -299,6 +299,8 @@ function AIForDummiesGuide({ onClose }) {
 
 const LearnLevelSelector = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isLearnRootPage = location.pathname === '/learn';
   const [isMobile, setIsMobile] = useState(false);
   const [showAIForDummiesGuide, setShowAIForDummiesGuide] = useState(false);
   const [showAIStarterGuide, setShowAIStarterGuide] = useState(false);
@@ -3084,6 +3086,7 @@ const LearnLevelSelector = () => {
                </div>
 
                 {/* Flowith Card */}
+               {!isLearnRootPage && (
                <div style={{
                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                  border: "2px solid #36ff95",
@@ -3204,8 +3207,10 @@ const LearnLevelSelector = () => {
                     </div>
                   </div>
                 </div>
+                )}
 
                                 {/* ScholarGPT Card */}
+                {!isLearnRootPage && (
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
@@ -3326,8 +3331,10 @@ const LearnLevelSelector = () => {
                     </div>
                   </div>
                 </div>
+                )}
 
                 {/* Brevo Card */}
+                {!isLearnRootPage && (
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
@@ -3448,6 +3455,7 @@ const LearnLevelSelector = () => {
                     </div>
                   </div>
                 </div>
+                )}
               </div>
            </div>
         </div>

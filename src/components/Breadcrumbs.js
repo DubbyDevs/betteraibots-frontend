@@ -30,6 +30,11 @@ const Breadcrumbs = () => {
     return null;
   }
 
+  // Helper function for consistent capitalization
+  const toTitleCase = (str) => {
+    return str.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  };
+
   const generateBreadcrumbItems = () => {
     const items = [];
     let currentPath = '';
@@ -48,29 +53,59 @@ const Breadcrumbs = () => {
         path: '/apps',
         isActive: false
       });
-      // Skip "learn" segment and go directly to article name
-      const articleSegment = pathSegments[1];
-      const decodedArticle = decodeURIComponent(articleSegment);
-      const friendlyName = decodedArticle.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-      items.push({
-        name: friendlyName,
-        path: location.pathname, // Keep current path for article name (non-clickable)
-        isActive: true
-      });
+      
+      // Handle both 2-segment (/learn/article-name) and 3-segment (/learn/level/article-name) routes
+      if (pathSegments.length === 2) {
+        // Direct article route: /learn/article-name
+        const articleSegment = pathSegments[1];
+        const decodedArticle = decodeURIComponent(articleSegment);
+        const friendlyName = toTitleCase(decodedArticle);
+        items.push({
+          name: friendlyName,
+          path: location.pathname,
+          isActive: true
+        });
+      } else if (pathSegments.length === 3) {
+        // Level route: /learn/level/article-name
+        const levelSegment = pathSegments[1];
+        const articleSegment = pathSegments[2];
+        const decodedLevel = decodeURIComponent(levelSegment);
+        const decodedArticle = decodeURIComponent(articleSegment);
+        
+        // Add level breadcrumb
+        if (['beginner', 'intermediate', 'advanced'].includes(levelSegment.toLowerCase())) {
+          const levelName = decodedLevel.charAt(0).toUpperCase() + decodedLevel.slice(1);
+          items.push({
+            name: levelName,
+            path: `/learn/${levelSegment}`,
+            isActive: false
+          });
+        }
+        
+        // Add article breadcrumb
+        const friendlyName = toTitleCase(decodedArticle);
+        items.push({
+          name: friendlyName,
+          path: location.pathname,
+          isActive: true
+        });
+      }
+      
       return items;
     }
 
     pathSegments.forEach((segment, index) => {
       currentPath += `/${segment}`;
       
-      // Decode URL-encoded segments
+      // Decode URL-encoded segments and normalize case
       const decodedSegment = decodeURIComponent(segment);
+      const lowerSegment = segment.toLowerCase();
       
       // Generate friendly names for different route types
       let friendlyName = decodedSegment;
       
       // Handle category pages
-      if (index === 0 && ['productivity', 'education', 'lifestyle', 'music', 'wellness', 'creative', 'wizardry'].includes(segment)) {
+      if (index === 0 && ['productivity', 'education', 'lifestyle', 'music', 'wellness', 'creative', 'wizardry'].includes(lowerSegment)) {
         const categoryMap = {
           'wellness': 'Health & Wellness',
           'creative': 'Creative Tools',
@@ -80,39 +115,56 @@ const Breadcrumbs = () => {
           'lifestyle': 'Lifestyle',
           'music': 'Music'
         };
-        friendlyName = categoryMap[segment] || decodedSegment;
+        friendlyName = categoryMap[lowerSegment] || decodedSegment;
+      }
+      
+      // Handle apps
+      if (lowerSegment === 'apps') {
+        friendlyName = 'Apps';
       }
       
       // Handle learn
-      if (pathSegments[0] === 'learn' && index === 0) {
+      if (pathSegments[0].toLowerCase() === 'learn' && index === 0) {
         friendlyName = 'Learn';
       }
       
-      // Handle learn article pages
-      if (pathSegments[0] === 'learn' && index === 1) {
-        // Handle learning levels
-        if (['beginner', 'intermediate', 'advanced'].includes(segment)) {
+      // Handle learn level pages (beginner, intermediate, advanced)
+      if (pathSegments[0].toLowerCase() === 'learn' && index === 1) {
+        if (['beginner', 'intermediate', 'advanced'].includes(lowerSegment)) {
           friendlyName = decodedSegment.charAt(0).toUpperCase() + decodedSegment.slice(1);
-        } else {
-          // For article pages, we'll get the title from the URL or use a generic name
-          friendlyName = decodedSegment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        }
+      }
+      
+      // Handle learn article pages (both /learn/article and /learn/level/article)
+      if (pathSegments[0].toLowerCase() === 'learn') {
+        // For 2-segment routes: /learn/article-name (index 1 is article)
+        if (pathSegments.length === 2 && index === 1) {
+          friendlyName = toTitleCase(decodedSegment);
+        }
+        // For 3-segment routes: /learn/level/article-name (index 2 is article)
+        if (pathSegments.length === 3 && index === 2) {
+          friendlyName = toTitleCase(decodedSegment);
         }
       }
       
       // Handle news
-      if (pathSegments[0] === 'news' && index === 1) {
-        // For news pages, we'll get the title from the URL or use a generic name
-        friendlyName = decodedSegment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      if (pathSegments[0].toLowerCase() === 'news' && index === 1) {
+        friendlyName = toTitleCase(decodedSegment);
       }
       
       // Handle contact
-      if (segment === 'contact') {
+      if (lowerSegment === 'contact') {
         friendlyName = 'Contact Us';
       }
       
       // Handle legal
-      if (segment === 'legal') {
+      if (lowerSegment === 'legal') {
         friendlyName = 'Legal';
+      }
+      
+      // Handle privacy
+      if (lowerSegment === 'privacy') {
+        friendlyName = 'Privacy Policy';
       }
 
       items.push({
