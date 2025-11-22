@@ -2482,6 +2482,16 @@ export const newsArticles = [
     category: "Email Marketing",
     content: `
         <h1>The Spam Folder Rebellion: How Warmy.io Became the Underground Hero Every Email Marketer Secretly Needs</h1>
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
+          <iframe 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+            src="https://www.youtube.com/embed/ytCyZ3LeXJ4" 
+            title="The Spam Folder Rebellion" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
         
         <p>Imagine you're hosting the most epic party of your life – you've got the perfect venue, incredible music, gourmet food, and guest list full of VIPs. But there's one tiny problem: your invitations keep getting delivered to people's junk mail, buried under offers for miracle weight loss pills and messages from Nigerian princes. <strong>Welcome to the email marketer's nightmare</strong>, where your brilliant campaigns become digital tumbleweeds bouncing through the wasteland of spam folders, never to be seen by human eyes.</p>
         
