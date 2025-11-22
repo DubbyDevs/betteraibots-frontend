@@ -1,6 +1,7 @@
 import { CATEGORY_SLUGS } from './constants';
 import React, { useState, useEffect, useMemo } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
+import betteraiglowlogo from './assets/betteraiglowlogo.png';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
 import betteraibotslive from './assets/betteraibotslive.webp';
@@ -184,10 +185,12 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
 // --- NEWS PAGE ---
 function News({ searchValue }) {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1150);
+  const [isNarrowScreen, setIsNarrowScreen] = useState(window.innerWidth < 900);
   
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 1150);
+      setIsNarrowScreen(window.innerWidth < 900);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -320,13 +323,15 @@ function News({ searchValue }) {
                       background: "linear-gradient(135deg, #0bbfdb 0%, #36ff95 100%)",
                       display: "inline-flex",
                       alignItems: "center",
-                      gap: "8px"
+                      gap: isNarrowScreen ? "0" : "8px"
                     }}
                   >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "4px" }}>
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                    Watch Video
+                    {!isNarrowScreen && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "4px" }}>
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    )}
+                    {isNarrowScreen ? "Watch" : "Watch Video"}
                   </Link>
                 )}
               </div>
@@ -362,9 +367,20 @@ function News({ searchValue }) {
                     <h3 className="news-card-title">{article.title}</h3>
                   </Link>
                   <p className="news-card-excerpt">{article.excerpt}</p>
-                  <div className="news-card-bottom-section">
-                    <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
+                  <div className="news-card-bottom-section" style={{ 
+                    display: "grid", 
+                    gridTemplateColumns: "1fr auto 1fr",
+                    alignItems: "center",
+                    width: "100%",
+                    gap: "8px"
+                  }}>
+                    <div style={{ display: "flex", justifyContent: "flex-start" }}>
+                      <span className="news-date">{formatDate(article.date)}</span>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
                       <Link to={`/news/${article.slug}`} className="read-more-btn-small">Read Full Article</Link>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "flex-end" }}>
                       {articleHasVideo(article.slug) && (
                         <Link 
                           to={`/news/${article.slug}#play-video`} 
@@ -373,21 +389,20 @@ function News({ searchValue }) {
                             background: "linear-gradient(135deg, #0bbfdb 0%, #36ff95 100%)",
                             display: "inline-flex",
                             alignItems: "center",
-                            gap: "6px",
-                            padding: "8px 14px",
-                            fontSize: "0.85rem"
+                            justifyContent: "center",
+                            gap: isNarrowScreen ? "0" : "6px",
+                            padding: isNarrowScreen ? "8px" : "8px 14px",
+                            fontSize: "0.85rem",
+                            minWidth: isNarrowScreen ? "36px" : "auto"
                           }}
                           title="Watch Video"
                         >
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M8 5v14l11-7z"/>
                           </svg>
-                          Watch
+                          {!isNarrowScreen && "Watch"}
                         </Link>
                       )}
-                    </div>
-                    <div className="news-card-meta-right">
-                      <span className="news-date">{formatDate(article.date)}</span>
                     </div>
                   </div>
                 </div>
@@ -431,13 +446,15 @@ function News({ searchValue }) {
                           background: "linear-gradient(135deg, #0bbfdb 0%, #36ff95 100%)",
                           display: "inline-flex",
                           alignItems: "center",
-                          gap: "8px"
+                          gap: isNarrowScreen ? "0" : "8px"
                         }}
                       >
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "4px" }}>
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                        Watch Video
+                        {!isNarrowScreen && (
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "4px" }}>
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
+                        )}
+                        {isNarrowScreen ? "Watch" : "Watch Video"}
                       </Link>
                     )}
                   </div>
@@ -981,7 +998,7 @@ function Apps() {
       border: '2px solid #36ff95',
       boxShadow: '0 0 20px rgba(54, 255, 149, 0.4), 0 0 40px rgba(54, 255, 149, 0.2), inset 0 0 20px rgba(54, 255, 149, 0.1)',
       borderRadius: '16px',
-      padding: '24px',
+      padding: isMobile ? '16px' : '24px',
       marginBottom: '20px',
       backdropFilter: 'blur(10px)',
       transition: 'all 0.3s ease',
@@ -989,7 +1006,10 @@ function Apps() {
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
-      minHeight: '400px'
+      minHeight: isMobile ? 'auto' : '400px',
+      width: '100%',
+      maxWidth: isMobile ? 'calc(100vw - 40px)' : '100%',
+      boxSizing: 'border-box'
     }} onClick={!isMobile ? (e) => {
       // Don't open affiliate link if clicking on "Read More" link
       if (e.target.closest('a[href]')) {
@@ -1278,7 +1298,13 @@ function Apps() {
         </p>
       </div>
       
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+      <div style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto', 
+        padding: isMobile ? '0 10px' : '0 20px',
+        width: '100%',
+        boxSizing: 'border-box'
+      }}>
         {/* Section Navigation */}
         <div style={{
           display: 'flex',
@@ -1374,8 +1400,12 @@ function Apps() {
               </div>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-                gap: '24px'
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: isMobile ? '20px' : '24px',
+                width: '100%',
+                maxWidth: '100%',
+                boxSizing: 'border-box',
+                justifyItems: 'center'
               }}>
                 {freeApps.map(app => renderAppCard(app, 'free'))}
               </div>
@@ -1475,8 +1505,12 @@ function Apps() {
               </div>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-                gap: '24px'
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: isMobile ? '20px' : '24px',
+                width: '100%',
+                maxWidth: '100%',
+                boxSizing: 'border-box',
+                justifyItems: 'center'
               }}>
                 {trialApps.map(app => renderAppCard(app, 'trial'))}
               </div>
@@ -1512,8 +1546,12 @@ function Apps() {
               </div>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-                gap: '24px'
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: isMobile ? '20px' : '24px',
+                width: '100%',
+                maxWidth: '100%',
+                boxSizing: 'border-box',
+                justifyItems: 'center'
               }}>
                 {PAID_APPS.map(app => renderAppCard(app, 'paid'))}
               </div>
@@ -1566,14 +1604,6 @@ function Apps() {
 // --- Hamburger Menu (mobile) ---
 function HamburgerMenu({ open, onClose, clickPosition, isMobile }) {
   const navigate = useNavigate();
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  // Reset dropdown to collapsed whenever menu opens
-  useEffect(() => {
-    if (open) {
-      setShowDropdown(false);
-    }
-  }, [open]);
 
   if (!open) return null;
 
@@ -1636,36 +1666,6 @@ function HamburgerMenu({ open, onClose, clickPosition, isMobile }) {
           <li onClick={() => handleNavigation('/')}>Home</li>
           <li onClick={() => handleNavigation('/apps')}>Apps</li>
           <li onClick={() => handleNavigation('/learn')}>Learn</li>
-
-          {isMobile && (
-            <li
-              onClick={() => setShowDropdown((prev) => !prev)}
-              style={{ position: 'relative', cursor: 'pointer' }}
-            >
-              <span>Categories {showDropdown ? '▴' : '▾'}</span>
-              <ul
-                className="nav-dropdown-list mobile"
-                style={{
-                  display: showDropdown ? 'flex' : 'none',
-                  position: 'static',
-                  flexDirection: 'column',
-                  gap: '10px',
-                  paddingLeft: '10px'
-                }}
-              >
-                {CATEGORIES.map((cat) => (
-                  <li
-                    key={cat.name}
-                    className="nav-dropdown-item"
-                    onClick={() => handleNavigation(`/${encodeURIComponent(cat.name)}`)}
-                  >
-                    {cat.name}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          )}
-
           <li onClick={() => handleNavigation('/news')}>News</li>
           <li onClick={() => handleNavigation('/contact')}>Contact</li>
         </ul>
@@ -2596,15 +2596,14 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
                 <div style={{
-                  maxWidth: isMobile ? '180px' : '240px',
-                  width: '100%',
+                  width: isMobile ? '160px' : '240px',
                   borderRadius: '8px',
                   border: '2px solid #36ff95',
                   boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
                   marginBottom: '10px',
                   overflow: 'hidden',
                   position: 'relative',
-                  height: isMobile ? '180px' : '240px'
+                  height: isMobile ? '160px' : '240px'
                 }}>
                   <img 
                     src={gptsImages[0]} 
@@ -2652,22 +2651,22 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
                 <div style={{
-                  maxWidth: isMobile ? '180px' : '240px',
-                  width: '100%',
+                  width: isMobile ? '160px' : '240px',
                   borderRadius: '8px',
                   border: '2px solid #36ff95',
                   boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
                   marginBottom: '10px',
                   overflow: 'hidden',
-                  position: 'relative'
+                  position: 'relative',
+                  height: isMobile ? '160px' : '240px'
                 }}>
                   <img 
                     src={showImages[showPrevIndex]} 
                     alt="Show" 
                     style={{ 
-                      maxWidth: isMobile ? '180px' : '240px',
                       width: '100%',
-                      height: 'auto',
+                      height: '100%',
+                      objectFit: 'cover',
                       display: 'block',
                       opacity: showImageIndex === showPrevIndex ? 1 : 0,
                       transition: 'opacity 1.5s ease-in-out',
@@ -2682,14 +2681,16 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                     src={showImages[showImageIndex]} 
                     alt="Show" 
                     style={{ 
-                      maxWidth: isMobile ? '180px' : '240px',
                       width: '100%',
-                      height: 'auto',
+                      height: '100%',
+                      objectFit: 'cover',
                       display: 'block',
                       opacity: showImageIndex === showPrevIndex ? 0 : 1,
                       transition: 'opacity 1.5s ease-in-out',
                       pointerEvents: 'none',
-                      position: 'relative',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
                       zIndex: 2
                     }} 
                   />
@@ -3982,34 +3983,34 @@ function App() {
                 top: 0,
                 left: 0
               }}>
-              {/* Ticker text container */}
-              <div style={{
-                overflow: 'hidden',
-                width: '100%'
-              }}>
-                <div className="ticker-container" style={{
-                  display: 'inline-block',
-                  animation: 'scroll-ticker 79.2s linear infinite',
-                  minHeight: '24px',
-                  lineHeight: '24px',
-                  pointerEvents: 'none'
+                {/* Ticker text container */}
+                <div style={{
+                  overflow: 'hidden',
+                  width: '100%'
                 }}>
-                {[...tickerMessages, ...tickerMessages].map((message, index) => (
-                  <span key={index} style={{
+                  <div className="ticker-container" style={{
                     display: 'inline-block',
-                    paddingRight: '80px',
-                    color: '#36ff95',
-                    fontSize: '0.9rem',
-                    fontWeight: '500',
-                    lineHeight: '24px'
+                    animation: 'scroll-ticker 79.2s linear infinite',
+                    minHeight: '24px',
+                    lineHeight: '24px',
+                    pointerEvents: 'none'
                   }}>
-                    {message}
-                  </span>
-                ))}
+                  {[...tickerMessages, ...tickerMessages].map((message, index) => (
+                    <span key={index} style={{
+                      display: 'inline-block',
+                      paddingRight: '80px',
+                      color: '#36ff95',
+                      fontSize: '0.9rem',
+                      fontWeight: '500',
+                      lineHeight: '24px'
+                    }}>
+                      {message}
+                    </span>
+                  ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : null;
+            ) : null;
           })()}
         </div>
         {/* NavTabsBar - Desktop only, right below ticker */}
@@ -4035,6 +4036,8 @@ function App() {
           </div>
         )}
       </div>
+      {/* Breadcrumbs - On mobile, pinned right under the scrolling disclaimer ticker */}
+      {isMobile && <Breadcrumbs />}
       {/* Mobile header */}
       {isMobile && (
         <div>
@@ -4054,39 +4057,8 @@ function App() {
           />
         </div>
       )}
-      {showStickyLogo && isMobile && (
-  <div
-    style={{
-      position: 'fixed',
-      top: 12,
-      right: 12,
-      zIndex: 1002,
-      background: 'rgba(16,28,38,0.95)',
-      borderRadius: 12,
-      padding: 6,
-      boxShadow: '0 2px 12px #0bbfdb50',
-    }}
-  >
-    <button 
-      className="header-mob-menu-icon" 
-      onClick={(e) => {
-        // Capture mouse position for desktop positioning
-        setMenuClickPosition({ x: e.clientX, y: e.clientY });
-        setMenuOpen(true);
-      }}
-      aria-label="Open navigation menu"
-    >
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-        <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-        <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-      </svg>
-    </button>
-  </div>
-
-
-      )}
-      <Breadcrumbs />
+      {/* Breadcrumbs - Desktop only (mobile shows above header) */}
+      {!isMobile && <Breadcrumbs />}
       <HamburgerMenu 
         open={menuOpen} 
         onClose={() => {

@@ -385,12 +385,19 @@ const LearnLevelSelector = () => {
 
       <div style={{
         background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
-        padding: '20px'
+        padding: '20px',
+        paddingBottom: '60px',
+        minHeight: 'calc(100vh - 150px)'
       }}>
         <div style={{
           maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '40px 20px'
+          marginTop: '0',
+          marginRight: 'auto',
+          marginBottom: '0',
+          marginLeft: 'auto',
+          padding: '40px 20px',
+          paddingBottom: '60px',
+          boxSizing: 'border-box'
         }}>
           {/* Header */}
           <div style={{
@@ -458,8 +465,7 @@ const LearnLevelSelector = () => {
                    display: 'flex',
                    alignItems: 'center',
                    justifyContent: 'center',
-                   marginBottom: isMobile ? '15px' : '20px',
-                   margin: '0 auto 15px auto'
+                   margin: `0 auto ${isMobile ? '15px' : '20px'} auto`
                  }}>
                   <img 
                     src={level.id === 'beginner' ? '/beginnerbadge.webp' : level.id === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
@@ -646,8 +652,8 @@ const LearnLevelSelector = () => {
 
           {/* GUIDES SECTION */}
           <div style={{
-            marginTop: 40,
-            marginBottom: 40,
+            marginTop: isMobile ? "20px" : "40px",
+            marginBottom: isMobile ? "20px" : "40px",
             width: "100%",
             display: "flex",
             flexDirection: "column",
@@ -656,9 +662,9 @@ const LearnLevelSelector = () => {
             <h2 style={{ 
               textAlign: "center", 
               color: "#36ff95", 
-              fontSize: "1.4rem", 
+              fontSize: isMobile ? "1.2rem" : "1.4rem", 
               fontWeight: 600, 
-              marginBottom: 30,
+              marginBottom: isMobile ? "15px" : "30px",
               textShadow: "0 0 8px #36ff9544"
             }}>
               Guides
@@ -667,13 +673,14 @@ const LearnLevelSelector = () => {
             <div style={{
               display: "grid",
               gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
-              gap: isMobile ? "15px" : "20px",
-              maxWidth: isMobile ? "600px" : "1200px",
+              gap: isMobile ? "10px" : "20px",
+              maxWidth: isMobile ? "100%" : "1200px",
               margin: "0 auto",
-              padding: isMobile ? "0 15px" : "0 40px",
+              padding: isMobile ? "0 12px" : "0 40px",
               justifyItems: "center",
               alignItems: "start",
-              width: "100%"
+              width: "100%",
+              boxSizing: "border-box"
             }}>
               {/* AI for Dummies Guide */}
               <div 
@@ -693,7 +700,7 @@ const LearnLevelSelector = () => {
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
                   borderRadius: "16px",
-                  padding: isMobile ? "15px" : "20px",
+                  padding: isMobile ? "10px" : "20px",
                   textAlign: "center",
                   boxShadow: "0 0 20px #36ff9544",
                   height: "100%",
@@ -701,18 +708,19 @@ const LearnLevelSelector = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  minHeight: isMobile ? "280px" : "320px",
+                  minHeight: isMobile ? "160px" : "320px",
+                  maxHeight: isMobile ? "160px" : "none",
                   width: "100%"
                 }}>
                   <img
                     src="/aifordummies.png"
                     alt="AI for Dummies Guide"
                     style={{
-                      width: isMobile ? "120px" : "160px",
-                      height: isMobile ? "120px" : "160px",
+                      width: isMobile ? "70px" : "160px",
+                      height: isMobile ? "70px" : "160px",
                       objectFit: "contain",
                       borderRadius: "12px",
-                      marginBottom: "15px"
+                      marginBottom: isMobile ? "8px" : "15px"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -720,7 +728,7 @@ const LearnLevelSelector = () => {
                   />
                   <h3 style={{
                     color: "#36ff95",
-                    fontSize: isMobile ? "1rem" : "1.1rem",
+                    fontSize: isMobile ? "0.85rem" : "1.1rem",
                     fontWeight: 600,
                     margin: "0",
                     textShadow: "0 0 8px #36ff9544"
@@ -729,8 +737,8 @@ const LearnLevelSelector = () => {
                   </h3>
                   <p style={{
                     color: "#b2ffe0",
-                    fontSize: isMobile ? "0.85rem" : "0.9rem",
-                    margin: "8px 0 0 0",
+                    fontSize: isMobile ? "0.7rem" : "0.9rem",
+                    margin: isMobile ? "4px 0 0 0" : "8px 0 0 0",
                     lineHeight: "1.4"
                   }}>
                     Super simple guide to getting started with AI
@@ -756,7 +764,7 @@ const LearnLevelSelector = () => {
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
                   borderRadius: "16px",
-                  padding: isMobile ? "15px" : "20px",
+                  padding: isMobile ? "10px" : "20px",
                   textAlign: "center",
                   boxShadow: "0 0 20px #36ff9544",
                   height: "100%",
@@ -764,18 +772,19 @@ const LearnLevelSelector = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  minHeight: isMobile ? "280px" : "320px",
+                  minHeight: isMobile ? "160px" : "320px",
+                  maxHeight: isMobile ? "160px" : "none",
                   width: "100%"
                 }}>
                   <img
                     src="/begguide.png"
                     alt="Beginner AI Guide"
                     style={{
-                      width: isMobile ? "120px" : "160px",
-                      height: isMobile ? "120px" : "160px",
+                      width: isMobile ? "70px" : "160px",
+                      height: isMobile ? "70px" : "160px",
                       objectFit: "contain",
                       borderRadius: "12px",
-                      marginBottom: "15px"
+                      marginBottom: isMobile ? "8px" : "15px"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -783,7 +792,7 @@ const LearnLevelSelector = () => {
                   />
                   <h3 style={{
                     color: "#36ff95",
-                    fontSize: isMobile ? "1rem" : "1.1rem",
+                    fontSize: isMobile ? "0.85rem" : "1.1rem",
                     fontWeight: 600,
                     margin: "0",
                     textShadow: "0 0 8px #36ff9544"
@@ -792,8 +801,8 @@ const LearnLevelSelector = () => {
                   </h3>
                   <p style={{
                     color: "#b2ffe0",
-                    fontSize: isMobile ? "0.85rem" : "0.9rem",
-                    margin: "8px 0 0 0",
+                    fontSize: isMobile ? "0.7rem" : "0.9rem",
+                    margin: isMobile ? "4px 0 0 0" : "8px 0 0 0",
                     lineHeight: "1.4"
                   }}>
                     Master the fundamentals of AI
@@ -819,7 +828,7 @@ const LearnLevelSelector = () => {
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
                   borderRadius: "16px",
-                  padding: isMobile ? "15px" : "20px",
+                  padding: isMobile ? "10px" : "20px",
                   textAlign: "center",
                   boxShadow: "0 0 20px #36ff9544",
                   height: "100%",
@@ -827,18 +836,19 @@ const LearnLevelSelector = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  minHeight: isMobile ? "280px" : "320px",
+                  minHeight: isMobile ? "160px" : "320px",
+                  maxHeight: isMobile ? "160px" : "none",
                   width: "100%"
                 }}>
                   <img
                     src="/intguide.png"
                     alt="Intermediate AI Guide"
                     style={{
-                      width: isMobile ? "120px" : "160px",
-                      height: isMobile ? "120px" : "160px",
+                      width: isMobile ? "70px" : "160px",
+                      height: isMobile ? "70px" : "160px",
                       objectFit: "contain",
                       borderRadius: "12px",
-                      marginBottom: "15px"
+                      marginBottom: isMobile ? "8px" : "15px"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -846,7 +856,7 @@ const LearnLevelSelector = () => {
                   />
                   <h3 style={{
                     color: "#36ff95",
-                    fontSize: isMobile ? "1rem" : "1.1rem",
+                    fontSize: isMobile ? "0.85rem" : "1.1rem",
                     fontWeight: 600,
                     margin: "0",
                     textShadow: "0 0 8px #36ff9544"
@@ -855,8 +865,8 @@ const LearnLevelSelector = () => {
                   </h3>
                   <p style={{
                     color: "#b2ffe0",
-                    fontSize: isMobile ? "0.85rem" : "0.9rem",
-                    margin: "8px 0 0 0",
+                    fontSize: isMobile ? "0.7rem" : "0.9rem",
+                    margin: isMobile ? "4px 0 0 0" : "8px 0 0 0",
                     lineHeight: "1.4"
                   }}>
                     Dive deeper into AI applications
@@ -882,7 +892,7 @@ const LearnLevelSelector = () => {
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
                   borderRadius: "16px",
-                  padding: isMobile ? "15px" : "20px",
+                  padding: isMobile ? "10px" : "20px",
                   textAlign: "center",
                   boxShadow: "0 0 20px #36ff9544",
                   height: "100%",
@@ -890,18 +900,19 @@ const LearnLevelSelector = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  minHeight: isMobile ? "280px" : "320px",
+                  minHeight: isMobile ? "160px" : "320px",
+                  maxHeight: isMobile ? "160px" : "none",
                   width: "100%"
                 }}>
                   <img
                     src="/advguide.png"
                     alt="Advanced AI Guide"
                     style={{
-                      width: isMobile ? "120px" : "160px",
-                      height: isMobile ? "120px" : "160px",
+                      width: isMobile ? "70px" : "160px",
+                      height: isMobile ? "70px" : "160px",
                       objectFit: "contain",
                       borderRadius: "12px",
-                      marginBottom: "15px"
+                      marginBottom: isMobile ? "8px" : "15px"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -909,7 +920,7 @@ const LearnLevelSelector = () => {
                   />
                   <h3 style={{
                     color: "#36ff95",
-                    fontSize: isMobile ? "1rem" : "1.1rem",
+                    fontSize: isMobile ? "0.85rem" : "1.1rem",
                     fontWeight: 600,
                     margin: "0",
                     textShadow: "0 0 8px #36ff9544"
@@ -918,8 +929,8 @@ const LearnLevelSelector = () => {
                   </h3>
                   <p style={{
                     color: "#b2ffe0",
-                    fontSize: isMobile ? "0.85rem" : "0.9rem",
-                    margin: "8px 0 0 0",
+                    fontSize: isMobile ? "0.7rem" : "0.9rem",
+                    margin: isMobile ? "4px 0 0 0" : "8px 0 0 0",
                     lineHeight: "1.4"
                   }}>
                     Become an AI expert and earn Pro status

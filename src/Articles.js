@@ -13332,7 +13332,13 @@ export default function Articles({ level = "beginner" }) {
           </script>
         </Helmet>
       
-      <div className="hero-section" style={{ maxWidth: 1100, margin: "40px auto 18px auto", padding: "0 12px" }}>
+      <div className="hero-section" style={{ 
+        maxWidth: 1100, 
+        margin: "40px auto 18px auto", 
+        padding: isMobile ? "0 16px" : "0 12px",
+        width: "100%",
+        boxSizing: "border-box"
+      }}>
       <h1 className="hero-headline" style={{ marginBottom: 10 }}>{level.charAt(0).toUpperCase() + level.slice(1)} AI Learning</h1>
       <p className="hero-subheadline custom-hero-desc" style={{ marginBottom: 14 }}>
         {level === 'beginner' && 'Master the fundamentals of AI with our comprehensive beginner guide and quiz.'}
@@ -13387,9 +13393,11 @@ export default function Articles({ level = "beginner" }) {
         display: "grid",
         gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
         gap: isMobile ? "16px" : "20px",
-        maxWidth: "800px",
+        maxWidth: isMobile ? "100%" : "800px",
         margin: "0 auto 40px auto",
-        padding: isMobile ? "0 16px" : "0 20px"
+        padding: isMobile ? "0 16px" : "0 20px",
+        width: "100%",
+        boxSizing: "border-box"
       }}>
         {/* AI Guide */}
         <div 
@@ -13407,7 +13415,7 @@ export default function Articles({ level = "beginner" }) {
             background: "linear-gradient(135deg, #1a2330 0%, #0f1419 100%)",
             border: level === 'beginner' ? "2px solid #36ff95" : level === 'intermediate' ? "2px solid #8b5cf6" : "2px solid #ffd700",
             borderRadius: "16px",
-            padding: "20px",
+            padding: isMobile ? "16px" : "20px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -13416,7 +13424,10 @@ export default function Articles({ level = "beginner" }) {
             cursor: "pointer",
             transition: "all 0.3s ease",
             boxShadow: level === 'beginner' ? "0 4px 20px rgba(54, 255, 149, 0.2)" : level === 'intermediate' ? "0 4px 20px rgba(139, 92, 246, 0.2)" : "0 4px 20px rgba(255, 215, 0, 0.2)",
-            position: "relative"
+            position: "relative",
+            width: "100%",
+            maxWidth: "100%",
+            boxSizing: "border-box"
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "translateY(-4px)";
@@ -13495,7 +13506,7 @@ export default function Articles({ level = "beginner" }) {
                    background: "linear-gradient(135deg, #1a2330 0%, #0f1419 100%)",
                    border: "2px solid #36ff95",
                    borderRadius: "16px",
-                   padding: "20px",
+                   padding: isMobile ? "16px" : "20px",
                    display: "flex",
                    flexDirection: "column",
                    justifyContent: "center",
@@ -13504,7 +13515,10 @@ export default function Articles({ level = "beginner" }) {
                    cursor: "pointer",
                    transition: "all 0.3s ease",
                    boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)",
-                   position: "relative"
+                   position: "relative",
+                   width: "100%",
+                   maxWidth: "100%",
+                   boxSizing: "border-box"
                  }}
                  onMouseEnter={(e) => {
                    e.currentTarget.style.transform = "translateY(-4px)";
@@ -13584,9 +13598,12 @@ export default function Articles({ level = "beginner" }) {
         marginTop: 40,
         marginBottom: 40,
         width: "100%",
+        maxWidth: "100%",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
+        padding: isMobile ? "0 16px" : "0 20px",
+        boxSizing: "border-box"
       }}>
         <h2 style={{ 
           textAlign: "center", 
@@ -13602,13 +13619,14 @@ export default function Articles({ level = "beginner" }) {
         <div style={{
           display: "grid",
           gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
-          gap: isMobile ? "15px" : "20px",
-          maxWidth: isMobile ? "600px" : "1200px",
+          gap: isMobile ? "12px" : "20px",
+          maxWidth: isMobile ? "calc(100% - 32px)" : "1200px",
           margin: "0 auto",
-          padding: isMobile ? "0 15px" : "0 40px",
+          padding: isMobile ? "0" : "0 40px",
           justifyItems: "center",
           alignItems: "start",
-          width: "100%"
+          width: "100%",
+          boxSizing: "border-box"
         }}>
           {/* AI for Dummies Guide */}
           <div
@@ -13628,7 +13646,7 @@ export default function Articles({ level = "beginner" }) {
               background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
               border: "2px solid #36ff95",
               borderRadius: "16px",
-              padding: isMobile ? "15px" : "20px",
+              padding: isMobile ? "12px" : "20px",
               textAlign: "center",
               boxShadow: "0 0 20px #36ff9544",
               height: "100%",
@@ -13636,8 +13654,10 @@ export default function Articles({ level = "beginner" }) {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              minHeight: isMobile ? "280px" : "320px",
-              width: "100%"
+              minHeight: isMobile ? "240px" : "320px",
+              width: "100%",
+              maxWidth: "100%",
+              boxSizing: "border-box"
             }}>
               <img
                 src="/aifordummies.png"
@@ -13691,7 +13711,7 @@ export default function Articles({ level = "beginner" }) {
               background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
               border: "2px solid #36ff95",
               borderRadius: "16px",
-              padding: isMobile ? "15px" : "20px",
+              padding: isMobile ? "12px" : "20px",
               textAlign: "center",
               boxShadow: "0 0 20px #36ff9544",
               height: "100%",
@@ -13699,8 +13719,10 @@ export default function Articles({ level = "beginner" }) {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              minHeight: isMobile ? "280px" : "320px",
-              width: "100%"
+              minHeight: isMobile ? "240px" : "320px",
+              width: "100%",
+              maxWidth: "100%",
+              boxSizing: "border-box"
             }}>
               <img
                 src="/begguide.png"
@@ -13754,7 +13776,7 @@ export default function Articles({ level = "beginner" }) {
               background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
               border: "2px solid #36ff95",
               borderRadius: "16px",
-              padding: isMobile ? "15px" : "20px",
+              padding: isMobile ? "12px" : "20px",
               textAlign: "center",
               boxShadow: "0 0 20px #36ff9544",
               height: "100%",
@@ -13762,8 +13784,10 @@ export default function Articles({ level = "beginner" }) {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              minHeight: isMobile ? "280px" : "320px",
-              width: "100%"
+              minHeight: isMobile ? "240px" : "320px",
+              width: "100%",
+              maxWidth: "100%",
+              boxSizing: "border-box"
             }}>
               <img
                 src="/intguide.png"
@@ -13817,7 +13841,7 @@ export default function Articles({ level = "beginner" }) {
               background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
               border: "2px solid #36ff95",
               borderRadius: "16px",
-              padding: isMobile ? "15px" : "20px",
+              padding: isMobile ? "12px" : "20px",
               textAlign: "center",
               boxShadow: "0 0 20px #36ff9544",
               height: "100%",
@@ -13825,8 +13849,10 @@ export default function Articles({ level = "beginner" }) {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              minHeight: isMobile ? "280px" : "320px",
-              width: "100%"
+              minHeight: isMobile ? "240px" : "320px",
+              width: "100%",
+              maxWidth: "100%",
+              boxSizing: "border-box"
             }}>
               <img
                 src="/advguide.png"
@@ -13864,17 +13890,23 @@ export default function Articles({ level = "beginner" }) {
         </div>
       </div>
 
-      <h2 style={{ 
-        textAlign: "center", 
-        color: "#36ff95", 
-        fontSize: "1.4rem", 
-        fontWeight: 600, 
-        marginTop: 30,
-        marginBottom: 20,
-        textShadow: "0 0 8px #36ff9544"
+      <div style={{
+        width: "100%",
+        maxWidth: "100%",
+        padding: isMobile ? "0 16px" : "0 20px",
+        boxSizing: "border-box"
       }}>
-        App Spotlight
-      </h2>
+        <h2 style={{ 
+          textAlign: "center", 
+          color: "#36ff95", 
+          fontSize: "1.4rem", 
+          fontWeight: 600, 
+          marginTop: 30,
+          marginBottom: 20,
+          textShadow: "0 0 8px #36ff9544"
+        }}>
+          App Spotlight
+        </h2>
 
      {/* FEATURED ARTICLE (FULL WIDTH, MOBILE-RESPONSIVE) */}
 <article className="feature-article">
@@ -13911,7 +13943,7 @@ export default function Articles({ level = "beginner" }) {
     <ArticleCard article={article} level={level} key={article.id} />
   ))}
 </div>
-
+      </div>
 
                  {showAIForDummiesGuide && (
              <AIForDummiesGuide onClose={() => setShowAIForDummiesGuide(false)} />
