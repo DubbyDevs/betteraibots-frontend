@@ -184,6 +184,16 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
 // --- NEWS PAGE ---
 function News({ searchValue }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 825);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1150);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 825);
+      setIsSmallScreen(window.innerWidth < 1150);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   // Helper function to check if an article has a video
   const articleHasVideo = (articleSlug) => {
@@ -226,14 +236,14 @@ function News({ searchValue }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     
-    if (isMobile) {
-      // Show only month and day on mobile
-      return date.toLocaleDateString('en-US', { 
-        month: 'short', 
-        day: 'numeric' 
-      });
+    if (isSmallScreen) {
+      // Show numbered date format (MM-DD-YY) for screens < 1150px
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const year = String(date.getFullYear()).slice(-2);
+      return `${month}-${day}-${year}`;
     } else {
-      // Show full date on desktop
+      // Show full date on larger screens
       return date.toLocaleDateString('en-US', { 
         year: 'numeric', 
         month: 'long', 
@@ -241,16 +251,6 @@ function News({ searchValue }) {
       });
     }
   };
-
-  // Handle window resize
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 825);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   // Filter news articles based on search value (ensure no duplicates)
   const filteredNewsArticles = newsArticles.filter(article => {
@@ -3932,7 +3932,7 @@ function App() {
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
     }
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   const toggleCategoryBar = () => {
     setShowCategoryBar(!showCategoryBar);
