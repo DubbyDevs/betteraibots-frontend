@@ -184,6 +184,17 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
 // --- NEWS PAGE ---
 function News({ searchValue }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 825);
+  
+  // Helper function to check if an article has a video
+  const articleHasVideo = (articleSlug) => {
+    const articlesWithVideos = [
+      "the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily",
+      "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025",
+      "ai-remote-jobs-home-office-gold-rush-2025",
+      "warmy-io-spam-folder-rebellion-email-deliverability"
+    ];
+    return articlesWithVideos.includes(articleSlug);
+  };
 
   // Rotating image component for GPT-5 article
   const RotatingGPT5Image = ({ alt, className, style }) => {
@@ -301,7 +312,26 @@ function News({ searchValue }) {
             <div className="featured-news-content">
               <h2 className="featured-news-title">{article.title}</h2>
               <p className="featured-news-excerpt">{article.excerpt}</p>
-              <Link to={`/news/${article.slug}`} className="read-more-btn">Read Full Article</Link>
+              <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap" }}>
+                <Link to={`/news/${article.slug}`} className="read-more-btn">Read Full Article</Link>
+                {articleHasVideo(article.slug) && (
+                  <Link 
+                    to={`/news/${article.slug}#play-video`} 
+                    className="read-more-btn"
+                    style={{
+                      background: "linear-gradient(135deg, #0bbfdb 0%, #36ff95 100%)",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "8px"
+                    }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "4px" }}>
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Watch Video
+                  </Link>
+                )}
+              </div>
             </div>
           </article>
         ))}
@@ -335,7 +365,29 @@ function News({ searchValue }) {
                   </Link>
                   <p className="news-card-excerpt">{article.excerpt}</p>
                   <div className="news-card-bottom-section">
-                    <Link to={`/news/${article.slug}`} className="read-more-btn-small">Read Full Article</Link>
+                    <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
+                      <Link to={`/news/${article.slug}`} className="read-more-btn-small">Read Full Article</Link>
+                      {articleHasVideo(article.slug) && (
+                        <Link 
+                          to={`/news/${article.slug}#play-video`} 
+                          className="read-more-btn-small"
+                          style={{
+                            background: "linear-gradient(135deg, #0bbfdb 0%, #36ff95 100%)",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "6px",
+                            padding: "8px 14px",
+                            fontSize: "0.85rem"
+                          }}
+                          title="Watch Video"
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
+                          Watch
+                        </Link>
+                      )}
+                    </div>
                     <div className="news-card-meta-right">
                       <span className="news-date">{formatDate(article.date)}</span>
                     </div>
@@ -371,7 +423,26 @@ function News({ searchValue }) {
                     <span className="news-author">By {lastArticle.author}</span>
                     <span className="news-date">{formatDate(lastArticle.date)}</span>
                   </div>
-                  <Link to={`/news/${lastArticle.slug}`} className="read-more-btn">Read Full Article</Link>
+                  <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap" }}>
+                    <Link to={`/news/${lastArticle.slug}`} className="read-more-btn">Read Full Article</Link>
+                    {articleHasVideo(lastArticle.slug) && (
+                      <Link 
+                        to={`/news/${lastArticle.slug}#play-video`} 
+                        className="read-more-btn"
+                        style={{
+                          background: "linear-gradient(135deg, #0bbfdb 0%, #36ff95 100%)",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "8px"
+                        }}
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "4px" }}>
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        Watch Video
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </article>
             );
@@ -3851,44 +3922,16 @@ function App() {
   }
 
     const location = useLocation();
+  // Reset scroll position to top on route change (but not if we have #play-video hash)
   useEffect(() => {
-    const scrollToTop = () => {
-      if (window.scrollTo) {
-        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      }
-      if (document.documentElement) {
-        document.documentElement.scrollTop = 0;
-      }
-      if (document.body) {
-        document.body.scrollTop = 0;
-      }
-      setTimeout(() => {
-        if (window.pageYOffset > 0) {
-          window.scrollTo(0, 0);
-        }
-      }, 50);
-    };
-    scrollToTop();
-    const timer = setTimeout(scrollToTop, 100);
-    const fallbackTimer = setTimeout(scrollToTop, 300);
-    const finalCheck = setTimeout(() => {
-      if (window.pageYOffset > 0) {
-        window.scrollTo(0, 0);
-      }
-    }, 500);
-    const mobileCheck = setTimeout(() => {
-      if (window.pageYOffset > 0 || document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) {
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-      }
-    }, 800);
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(fallbackTimer);
-      clearTimeout(finalCheck);
-      clearTimeout(mobileCheck);
-    };
+    // Only reset scroll if there's no #play-video hash
+    // Pages with videos will handle their own scrolling
+    if (location.hash !== '#play-video') {
+      // Set scroll position to top immediately on mount/route change
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
   }, [location.pathname]);
 
   const toggleCategoryBar = () => {
@@ -4719,7 +4762,32 @@ function ClipboardBtn({ address, copied, handleCopy }) {
 // --- INDIVIDUAL NEWS ARTICLE PAGE ---
 function NewsArticle() {
   const { slug } = useParams();
+  const location = useLocation();
   console.log('NewsArticle component rendered with slug:', slug);
+  
+  // Auto-scroll to and play video if #play-video hash is present
+  useEffect(() => {
+    if (location.hash === '#play-video') {
+      // First ensure we're at the top, then scroll to video after content loads
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      
+      // Wait for content to render, then find and scroll to video
+      setTimeout(() => {
+        const videoIframe = document.querySelector('iframe[src*="youtube.com/embed"]');
+        if (videoIframe) {
+          videoIframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Try to autoplay the video by updating the src with autoplay parameter
+          const currentSrc = videoIframe.getAttribute('src');
+          if (currentSrc && !currentSrc.includes('autoplay=1')) {
+            const separator = currentSrc.includes('?') ? '&' : '?';
+            videoIframe.setAttribute('src', `${currentSrc}${separator}autoplay=1`);
+          }
+        }
+      }, 600);
+    }
+  }, [location.hash, slug]);
   
   // Rotating image component for GPT-5 article
   const RotatingGPT5Image = ({ alt, className, style }) => {
