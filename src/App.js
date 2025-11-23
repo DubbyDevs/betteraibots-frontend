@@ -1,7 +1,6 @@
 import { CATEGORY_SLUGS } from './constants';
 import React, { useState, useEffect, useMemo } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
-import betteraiglowlogo from './assets/betteraiglowlogo.png';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
 import betteraibotslive from './assets/betteraibotslive.webp';
@@ -61,7 +60,6 @@ import seosparkplug1 from './assets/seosparkplug1.jpg';
 import smartli1 from './assets/smartli1.jpg';
 import consensus1 from './assets/consensus1.jpg';
 import browseai1 from './assets/browseai1.jpg';
-import vidpreview from './assets/vidpreview.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -1020,18 +1018,40 @@ function Apps() {
       window.open(app.link, '_blank');
     } : undefined}>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '16px' }}>
-        <div style={{
-          width: '60px',
-          height: '60px',
-          borderRadius: '12px',
-          background: 'rgba(255, 255, 255, 0.05)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexShrink: 0,
-          overflow: 'hidden',
-          border: '1px solid rgba(54, 255, 149, 0.2)'
-        }}>
+        <div 
+          style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '12px',
+            background: 'rgba(255, 255, 255, 0.05)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            overflow: 'hidden',
+            border: '1px solid rgba(54, 255, 149, 0.2)',
+            transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+            cursor: 'pointer'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.4)';
+            e.currentTarget.style.boxShadow = '0 0 8px rgba(54, 255, 149, 0.25)';
+            const img = e.currentTarget.querySelector('img');
+            if (img) {
+              img.style.transform = 'scale(1.2)';
+              img.style.padding = '4px';
+            }
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.2)';
+            e.currentTarget.style.boxShadow = 'none';
+            const img = e.currentTarget.querySelector('img');
+            if (img) {
+              img.style.transform = 'scale(1)';
+              img.style.padding = '8px';
+            }
+          }}
+        >
           {app.image ? (
             <img 
               src={app.image} 
@@ -1039,8 +1059,9 @@ function Apps() {
               style={{
                 width: '100%',
                 height: '100%',
-                objectFit: 'contain',
-                padding: '8px'
+                objectFit: 'cover',
+                padding: '8px',
+                transition: 'transform 0.3s ease, padding 0.3s ease'
               }}
               onError={(e) => {
                 // Fallback to letter if image fails to load
@@ -1669,6 +1690,7 @@ function HamburgerMenu({ open, onClose, clickPosition, isMobile }) {
           <li onClick={() => handleNavigation('/apps')}>Apps</li>
           <li onClick={() => handleNavigation('/learn')}>Learn</li>
           <li onClick={() => handleNavigation('/news')}>News</li>
+          <li onClick={() => handleNavigation('/Podcast')}>Watch</li>
           <li onClick={() => handleNavigation('/contact')}>Contact</li>
         </ul>
       </div>
@@ -3010,44 +3032,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             </Link>
           </div>
           
-          <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: isMobile ? "15px" : "20px",
-            marginBottom: isMobile ? "10px" : "15px"
-          }}>
-            <Link
-              to="/Podcast"
-              style={{
-                display: "block",
-                cursor: "pointer",
-                maxWidth: isMobile ? "100%" : "420px",
-                width: isMobile ? "100%" : "420px",
-                transition: "box-shadow 0.3s ease"
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 6px 24px rgba(54, 255, 149, 0.3)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
-              }}
-            >
-              <img
-                src={vidpreview}
-                alt="BetterAiBots Video Preview"
-                style={{
-                  width: "100%",
-                  maxWidth: "100%",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)",
-                  display: "block"
-                }}
-              />
-            </Link>
-          </div>
-          
           {/* Navigation Buttons */}
           <div style={{
             maxWidth: "1000px",
@@ -3836,7 +3820,6 @@ function App() {
     }
     return false;
   });
-  const [showStickyLogo, setShowStickyLogo] = useState(false);
   const [animationPaused, setAnimationPaused] = useState(false);
   const [showCategoryBar, setShowCategoryBar] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -3859,15 +3842,6 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  function onScroll() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    setShowStickyLogo(scrollTop > 100);
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
 
 
