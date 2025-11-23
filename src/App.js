@@ -233,7 +233,44 @@ function News({ searchValue }) {
 
   // Function to format date based on screen size
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
+    if (!dateString) return 'Date unavailable';
+    
+    let date;
+    
+    // Try to parse the date string - handle common formats
+    // Format: MM-DD-YYYY or MM-DD-YY
+    if (dateString.includes('-')) {
+      const parts = dateString.split('-');
+      if (parts.length === 3) {
+        let month = parseInt(parts[0], 10) - 1; // Month is 0-indexed
+        let day = parseInt(parts[1], 10);
+        let year = parseInt(parts[2], 10);
+        
+        // Handle 2-digit years (assume 2000s)
+        if (year < 100) {
+          year = year + 2000;
+        }
+        
+        // Validate the date components
+        if (!isNaN(month) && !isNaN(day) && !isNaN(year) && 
+            month >= 0 && month <= 11 && 
+            day >= 1 && day <= 31 && 
+            year >= 2000 && year <= 2100) {
+          date = new Date(year, month, day);
+        }
+      }
+    }
+    
+    // If parsing failed, try standard Date constructor
+    if (!date || isNaN(date.getTime())) {
+      date = new Date(dateString);
+    }
+    
+    // Check if date is valid
+    if (isNaN(date.getTime())) {
+      // If date is still invalid, return the original string or a fallback
+      return dateString || 'Date unavailable';
+    }
     
     if (isSmallScreen) {
       // Show numbered date format (MM-DD-YY) for screens < 1150px
@@ -243,11 +280,19 @@ function News({ searchValue }) {
       return `${month}-${day}-${year}`;
     } else {
       // Show full date on larger screens
-      return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      });
+      try {
+        return date.toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        });
+      } catch (e) {
+        // Fallback if toLocaleDateString fails on some devices
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${month}-${day}-${year}`;
+      }
     }
   };
 

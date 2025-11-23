@@ -34,7 +34,6 @@ import webydo2 from "./assets/webydo2.jpg";
 import wisprflow from "./assets/wisprflow.jpg";
 import bebop2 from "./assets/bebop2.jpg";
 import freeseotools from "./assets/freeseotools.jpg";
-import runpodai2 from "./assets/runpodai2.jpg";
 import alliai2 from "./assets/alliai2.jpg";
 import virallaunch2 from "./assets/virallaunch2.jpg";
 import castmagic2 from "./assets/castmagic2.jpg";
