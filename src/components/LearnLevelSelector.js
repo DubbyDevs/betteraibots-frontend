@@ -322,10 +322,8 @@ const LearnLevelSelector = () => {
   }, []);
 
   // iPhone breakpoint helpers
-  const is320px = screenWidth >= 320 && screenWidth < 360;
   const is360px = screenWidth >= 360 && screenWidth < 390;
   const is390px = screenWidth >= 390 && screenWidth < 430;
-  const is430pxPlus = screenWidth >= 430;
   const isVerySmall = screenWidth < 360; // 320px devices
 
   const levels = [

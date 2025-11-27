@@ -61,7 +61,6 @@ import smartli1 from './assets/smartli1.jpg';
 import consensus1 from './assets/consensus1.jpg';
 import browseai1 from './assets/browseai1.jpg';
 import musebrand from './assets/musebrand.jpg';
-import museithowto from './assets/museithowto.jpeg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
