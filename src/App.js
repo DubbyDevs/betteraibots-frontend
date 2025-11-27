@@ -60,6 +60,8 @@ import seosparkplug1 from './assets/seosparkplug1.jpg';
 import smartli1 from './assets/smartli1.jpg';
 import consensus1 from './assets/consensus1.jpg';
 import browseai1 from './assets/browseai1.jpg';
+import musebrand from './assets/musebrand.jpg';
+import museithowto from './assets/museithowto.jpeg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -931,6 +933,16 @@ function Apps() {
       trialInfo: "Free trial available",
       image: "/murfai.png",
       readMoreLink: "/learn/murf-ai-complete-guide"
+    },
+    {
+      name: "Museit.art",
+      description: "AI-powered art creation platform that turns your imagination into beautiful artwork. Turn the noise into art with guided creativity and mindfulness-focused design.",
+      category: "Creative & Design",
+      features: ["AI art generation", "Mindfulness-focused creation", "Gallery-ready quality", "No technical skills required", "Creative inspiration"],
+      link: "https://Museit.art",
+      trialInfo: "Free trial available",
+      image: musebrand,
+      readMoreLink: "/learn/museit-art-complete-guide"
     },
     {
       name: "Recomaze",

@@ -302,6 +302,7 @@ const LearnLevelSelector = () => {
   const location = useLocation();
   const isLearnRootPage = location.pathname === '/learn';
   const [isMobile, setIsMobile] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1920);
   const [showAIForDummiesGuide, setShowAIForDummiesGuide] = useState(false);
   const [showAIStarterGuide, setShowAIStarterGuide] = useState(false);
   const [showIntermediateGuide, setShowIntermediateGuide] = useState(false);
@@ -309,7 +310,9 @@ const LearnLevelSelector = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 1030);
+      const width = window.innerWidth;
+      setIsMobile(width <= 1030);
+      setScreenWidth(width);
     };
     
     checkMobile();
@@ -317,6 +320,13 @@ const LearnLevelSelector = () => {
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // iPhone breakpoint helpers
+  const is320px = screenWidth >= 320 && screenWidth < 360;
+  const is360px = screenWidth >= 360 && screenWidth < 390;
+  const is390px = screenWidth >= 390 && screenWidth < 430;
+  const is430pxPlus = screenWidth >= 430;
+  const isVerySmall = screenWidth < 360; // 320px devices
 
   const levels = [
     {
@@ -387,9 +397,13 @@ const LearnLevelSelector = () => {
 
       <div style={{
         background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
-        padding: '20px',
-        paddingBottom: '60px',
-        minHeight: 'calc(100vh - 150px)'
+        padding: isVerySmall ? '12px 8px' : (is360px ? '14px 10px' : (is390px ? '16px 12px' : (isMobile ? '16px 12px' : '20px'))),
+        paddingBottom: isVerySmall ? '40px' : (is360px ? '45px' : (isMobile ? '50px' : '60px')),
+        minHeight: 'calc(100vh - 150px)',
+        width: '100%',
+        maxWidth: '100vw',
+        boxSizing: 'border-box',
+        overflowX: 'hidden'
       }}>
         <div style={{
           maxWidth: '1200px',
@@ -397,23 +411,26 @@ const LearnLevelSelector = () => {
           marginRight: 'auto',
           marginBottom: '0',
           marginLeft: 'auto',
-          padding: '40px 20px',
-          paddingBottom: '60px',
-          boxSizing: 'border-box'
+          padding: isVerySmall ? '20px 8px' : (is360px ? '25px 10px' : (is390px ? '30px 12px' : (isMobile ? '30px 12px' : '40px 20px'))),
+          paddingBottom: isVerySmall ? '40px' : (is360px ? '45px' : (isMobile ? '50px' : '60px')),
+          boxSizing: 'border-box',
+          width: '100%'
         }}>
           {/* Header */}
           <div style={{
             textAlign: 'center',
-            marginBottom: '60px'
+            marginBottom: isVerySmall ? '30px' : (is360px ? '35px' : (is390px ? '40px' : (isMobile ? '45px' : '60px')))
           }}>
             <h1 style={{
-              fontSize: '3rem',
+              fontSize: isVerySmall ? '1.5rem' : (is360px ? '1.75rem' : (is390px ? '2rem' : (isMobile ? '2.25rem' : '3rem'))),
               fontWeight: '800',
-              marginBottom: '20px',
+              marginBottom: isVerySmall ? '12px' : (is360px ? '14px' : (is390px ? '16px' : '20px')),
               background: 'linear-gradient(45deg, #36ff95, #0bbfdb)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              backgroundClip: 'text',
+              lineHeight: '1.2',
+              padding: isVerySmall ? '0 4px' : '0'
             }}>
               Choose Your AI Learning Path
             </h1>
@@ -422,12 +439,15 @@ const LearnLevelSelector = () => {
           {/* Level Cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: isMobile ? '20px' : '30px',
-            marginBottom: '40px',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+            gap: isVerySmall ? '8px' : (is360px ? '10px' : (is390px ? '12px' : (isMobile ? '12px' : '20px'))),
+            marginBottom: isVerySmall ? '30px' : (is360px ? '32px' : (isMobile ? '35px' : '40px')),
             justifyContent: 'center',
-            maxWidth: isMobile ? '100%' : 'none',
-            padding: isMobile ? '0 8px' : '0'
+            maxWidth: isMobile ? '100%' : '1200px',
+            margin: '0 auto',
+            padding: isVerySmall ? '0 8px' : (is360px ? '0 10px' : (is390px ? '0 12px' : (isMobile ? '0 12px' : '0'))),
+            width: '100%',
+            boxSizing: 'border-box'
           }}>
             {levels.map((level) => (
               <div
@@ -437,15 +457,19 @@ const LearnLevelSelector = () => {
                   background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)',
                   border: `2px solid ${level.color}40`,
                   borderRadius: '20px',
-                  padding: isMobile ? '20px' : '30px',
+                  padding: isVerySmall ? '12px' : (is360px ? '14px' : (is390px ? '16px' : (isMobile ? '16px' : '20px'))),
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   position: 'relative',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
-                  height: '100%',
-                  minHeight: isMobile ? '400px' : '500px'
+                  aspectRatio: '1 / 1',
+                  maxWidth: '370px',
+                  maxHeight: '370px',
+                  width: '100%',
+                  height: 'auto',
+                  margin: '0 auto'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-5px)';
@@ -458,121 +482,101 @@ const LearnLevelSelector = () => {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                {/* Content Container */}
-                <div style={{ flex: '1' }}>
-                                  {/* Badge */}
-                                 <div style={{
-                   width: isMobile ? '100px' : '125px',
-                   height: isMobile ? '100px' : '125px',
-                   display: 'flex',
-                   alignItems: 'center',
-                   justifyContent: 'center',
-                   margin: `0 auto ${isMobile ? '15px' : '20px'} auto`
-                 }}>
-                  <img 
-                    src={level.id === 'beginner' ? '/beginnerbadge.webp' : level.id === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
-                    alt={`${level.title} badge`}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'contain'
-                    }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                </div>
+                {/* Content Container - Flex to fill space */}
+                <div style={{ 
+                  flex: '1', 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  width: '100%',
+                  overflow: 'hidden'
+                }}>
+                  {/* Badge - Responsive with locked aspect ratio */}
+                  <div style={{
+                    width: isVerySmall ? '30%' : (is360px ? '32%' : (is390px ? '35%' : (isMobile ? '35%' : '40%'))),
+                    aspectRatio: '1 / 1',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: isVerySmall ? '8px' : (is360px ? '10px' : (is390px ? '12px' : (isMobile ? '12px' : '15px'))),
+                    flexShrink: 0
+                  }}>
+                    <img 
+                      src={level.id === 'beginner' ? '/beginnerbadge.webp' : level.id === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
+                      alt={`${level.title} badge`}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain',
+                        aspectRatio: '1 / 1'
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  </div>
 
                   {/* Title and Difficulty */}
                   <div style={{
                     textAlign: 'center',
-                    marginBottom: isMobile ? '20px' : '25px'
+                    marginBottom: isVerySmall ? '6px' : (is360px ? '8px' : (is390px ? '10px' : (isMobile ? '10px' : '12px'))),
+                    width: '100%'
                   }}>
                     <h2 style={{
-                      fontSize: '2rem',
+                      fontSize: isVerySmall ? '0.9rem' : (is360px ? '1rem' : (is390px ? '1.1rem' : (isMobile ? '1.2rem' : '1.4rem'))),
                       fontWeight: '700',
-                      margin: '0 0 10px 0',
-                      color: level.color
+                      margin: '0 0 4px 0',
+                      color: level.color,
+                      lineHeight: '1.2'
                     }}>
                       {level.title}
                     </h2>
                     <span style={{
                       background: level.gradient,
                       color: level.id === 'advanced' ? '#1a2330' : 'white',
-                      padding: '6px 16px',
+                      padding: isVerySmall ? '3px 8px' : (is360px ? '4px 10px' : (is390px ? '4px 12px' : (isMobile ? '5px 14px' : '6px 16px'))),
                       borderRadius: '20px',
-                      fontSize: '0.9rem',
-                      fontWeight: '600'
+                      fontSize: isVerySmall ? '0.65rem' : (is360px ? '0.7rem' : (is390px ? '0.75rem' : (isMobile ? '0.8rem' : '0.9rem'))),
+                      fontWeight: '600',
+                      display: 'inline-block'
                     }}>
                       {level.difficulty}
                     </span>
                   </div>
 
-                  {/* Description */}
+                  {/* Description - Scales down on small screens */}
                   <p style={{
                     color: '#9ca3af',
-                    fontSize: isMobile ? '1rem' : '1.1rem',
-                    lineHeight: '1.6',
-                    marginBottom: isMobile ? '20px' : '25px',
-                    textAlign: 'center'
+                    fontSize: isVerySmall ? '0.7rem' : (is360px ? '0.75rem' : (is390px ? '0.8rem' : (isMobile ? '0.85rem' : '0.95rem'))),
+                    lineHeight: '1.4',
+                    marginBottom: isVerySmall ? '6px' : (is360px ? '8px' : (is390px ? '10px' : (isMobile ? '10px' : '12px'))),
+                    textAlign: 'center',
+                    padding: '0 4px',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical'
                   }}>
                     {level.description}
                   </p>
-
-                  {/* Features */}
-                  <div style={{
-                    marginBottom: isMobile ? '20px' : '25px'
-                  }}>
-                    <h3 style={{
-                      color: '#d1efe7',
-                      fontSize: '1.1rem',
-                      marginBottom: '15px',
-                      fontWeight: '600'
-                    }}>
-                      What you'll learn:
-                    </h3>
-                    <ul style={{
-                      listStyle: 'none',
-                      padding: 0,
-                      margin: 0
-                    }}>
-                      {level.features.map((feature, index) => (
-                        <li key={index} style={{
-                          color: '#9ca3af',
-                          fontSize: '0.95rem',
-                          marginBottom: '8px',
-                          paddingLeft: '20px',
-                          position: 'relative'
-                        }}>
-                          <span style={{
-                            position: 'absolute',
-                            left: 0,
-                            top: '2px',
-                            color: level.color,
-                            fontSize: '0.8rem'
-                          }}>
-                            ✓
-                          </span>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </div>
 
-                {/* CTA Button - Pinned to Bottom */}
+                {/* CTA Button - Scales with card */}
                 <button style={{
                   width: '100%',
                   background: level.gradient,
                   color: level.id === 'advanced' ? '#1a2330' : 'white',
                   border: 'none',
-                  padding: '15px 30px',
+                  padding: isVerySmall ? '8px 12px' : (is360px ? '9px 14px' : (is390px ? '10px 16px' : (isMobile ? '10px 18px' : '12px 24px'))),
                   borderRadius: '12px',
-                  fontSize: '1.1rem',
+                  fontSize: isVerySmall ? '0.75rem' : (is360px ? '0.8rem' : (is390px ? '0.85rem' : (isMobile ? '0.9rem' : '1rem'))),
                   fontWeight: '600',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  marginTop: 'auto'
+                  marginTop: 'auto',
+                  flexShrink: 0
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = 'translateY(-2px)';
@@ -592,10 +596,13 @@ const LearnLevelSelector = () => {
           {/* Footer Info */}
           <div style={{
             textAlign: 'center',
-            padding: '30px',
+            padding: isVerySmall ? '20px 12px' : (is360px ? '22px 14px' : (is390px ? '25px 16px' : '30px')),
             background: 'rgba(255, 255, 255, 0.05)',
             borderRadius: '15px',
-            border: '1px solid rgba(54, 255, 149, 0.2)'
+            border: '1px solid rgba(54, 255, 149, 0.2)',
+            marginBottom: isVerySmall ? '25px' : (is360px ? '22px' : (isMobile ? '20px' : '0')),
+            width: '100%',
+            boxSizing: 'border-box'
           }}>
             <h3 style={{
               color: '#36ff95',
@@ -654,33 +661,41 @@ const LearnLevelSelector = () => {
 
           {/* GUIDES SECTION */}
           <div style={{
-            marginTop: isMobile ? "20px" : "40px",
+            marginTop: isVerySmall ? "30px" : (is360px ? "25px" : (isMobile ? "30px" : "40px")),
             marginBottom: isMobile ? "20px" : "40px",
             width: "100%",
             display: "flex",
             flexDirection: "column",
-            alignItems: "center"
+            alignItems: "center",
+            padding: isVerySmall ? "0 8px" : (is360px ? "0 10px" : (is390px ? "0 12px" : "0")),
+            boxSizing: "border-box",
+            position: "relative",
+            zIndex: 1
           }}>
             <h2 style={{ 
               textAlign: "center", 
               color: "#36ff95", 
-              fontSize: isMobile ? "1.2rem" : "1.4rem", 
+              fontSize: isVerySmall ? "1.1rem" : (is360px ? "1.15rem" : (isMobile ? "1.2rem" : "1.4rem")), 
               fontWeight: 600, 
-              marginBottom: isMobile ? "15px" : "30px",
-              textShadow: "0 0 8px #36ff9544"
+              marginTop: isVerySmall ? "8px" : (is360px ? "6px" : "0"),
+              marginBottom: isVerySmall ? "12px" : (isMobile ? "15px" : "30px"),
+              textShadow: "0 0 8px #36ff9544",
+              width: "100%",
+              position: "relative",
+              zIndex: 2
             }}>
               Guides
             </h2>
             
             <div style={{
               display: "grid",
-              gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
-              gap: isMobile ? "10px" : "20px",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(4, 1fr)",
+              gap: isVerySmall ? "8px" : (is360px ? "10px" : (is390px ? "12px" : (isMobile ? "12px" : "16px"))),
               maxWidth: isMobile ? "100%" : "1200px",
               margin: "0 auto",
-              padding: isMobile ? "0 12px" : "0 40px",
-              justifyItems: "center",
-              alignItems: "start",
+              padding: isVerySmall ? "0 4px" : (is360px ? "0 6px" : (is390px ? "0 8px" : (isMobile ? "0 8px" : "0 40px"))),
+              justifyItems: "stretch",
+              alignItems: "stretch",
               width: "100%",
               boxSizing: "border-box"
             }}>
@@ -693,58 +708,75 @@ const LearnLevelSelector = () => {
                   textDecoration: "none",
                   color: "inherit",
                   transition: "transform 0.2s ease-in-out",
-                  width: "100%"
+                  width: "100%",
+                  height: "100%"
                 }}
-                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
-                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+                onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
               >
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
                   borderRadius: "16px",
-                  padding: isMobile ? "10px" : "20px",
+                  padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                   textAlign: "center",
                   boxShadow: "0 0 20px #36ff9544",
-                  height: "100%",
+                  height: isMobile ? "auto" : "100%",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
-                  minHeight: isMobile ? "160px" : "320px",
-                  maxHeight: isMobile ? "160px" : "none",
-                  width: "100%"
+                  justifyContent: isMobile ? "flex-start" : "space-between",
+                  aspectRatio: isMobile ? "none" : "16 / 9",
+                  minHeight: isMobile ? "auto" : "auto",
+                  width: "100%",
+                  boxSizing: "border-box"
                 }}>
-                  <img
-                    src="/aifordummies.png"
-                    alt="AI for Dummies Guide"
-                    style={{
-                      width: isMobile ? "70px" : "160px",
-                      height: isMobile ? "70px" : "160px",
-                      objectFit: "contain",
-                      borderRadius: "12px",
-                      marginBottom: isMobile ? "8px" : "15px"
-                    }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                  <h3 style={{
-                    color: "#36ff95",
-                    fontSize: isMobile ? "0.85rem" : "1.1rem",
-                    fontWeight: 600,
-                    margin: "0",
-                    textShadow: "0 0 8px #36ff9544"
+                  <div style={{ 
+                    display: "flex", 
+                    flexDirection: "column", 
+                    alignItems: "center", 
+                    justifyContent: "center",
+                    flex: isMobile ? "0 1 auto" : "1",
+                    width: "100%",
+                    gap: isMobile ? "10px" : "0"
                   }}>
-                    AI for Dummies
-                  </h3>
-                  <p style={{
-                    color: "#b2ffe0",
-                    fontSize: isMobile ? "0.7rem" : "0.9rem",
-                    margin: isMobile ? "4px 0 0 0" : "8px 0 0 0",
-                    lineHeight: "1.4"
-                  }}>
-                    Super simple guide to getting started with AI
-                  </p>
+                    <img
+                      src="/aifordummies.png"
+                      alt="AI for Dummies Guide"
+                      style={{
+                        width: isVerySmall ? "50px" : (is360px ? "60px" : (is390px ? "70px" : (isMobile ? "80px" : "120px"))),
+                        height: "auto",
+                        aspectRatio: "1 / 1",
+                        objectFit: "contain",
+                        borderRadius: "12px",
+                        marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px"))),
+                        flexShrink: 0
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    <h3 style={{
+                      color: "#36ff95",
+                      fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
+                      fontWeight: 600,
+                      margin: "0 0 4px 0",
+                      textShadow: "0 0 8px #36ff9544",
+                      lineHeight: "1.2"
+                    }}>
+                      AI for Dummies
+                    </h3>
+                    <p style={{
+                      color: "#b2ffe0",
+                      fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
+                      margin: "0",
+                      lineHeight: "1.4",
+                      textAlign: "center",
+                      width: "100%"
+                    }}>
+                      Super simple guide to getting started with AI
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -757,58 +789,75 @@ const LearnLevelSelector = () => {
                   textDecoration: "none",
                   color: "inherit",
                   transition: "transform 0.2s ease-in-out",
-                  width: "100%"
+                  width: "100%",
+                  height: "100%"
                 }}
-                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
-                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+                onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
               >
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
                   borderRadius: "16px",
-                  padding: isMobile ? "10px" : "20px",
+                  padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                   textAlign: "center",
                   boxShadow: "0 0 20px #36ff9544",
-                  height: "100%",
+                  height: isMobile ? "auto" : "100%",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
-                  minHeight: isMobile ? "160px" : "320px",
-                  maxHeight: isMobile ? "160px" : "none",
-                  width: "100%"
+                  justifyContent: isMobile ? "flex-start" : "space-between",
+                  aspectRatio: isMobile ? "none" : "16 / 9",
+                  minHeight: isMobile ? "auto" : "auto",
+                  width: "100%",
+                  boxSizing: "border-box"
                 }}>
-                  <img
-                    src="/begguide.png"
-                    alt="Beginner AI Guide"
-                    style={{
-                      width: isMobile ? "70px" : "160px",
-                      height: isMobile ? "70px" : "160px",
-                      objectFit: "contain",
-                      borderRadius: "12px",
-                      marginBottom: isMobile ? "8px" : "15px"
-                    }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                  <h3 style={{
-                    color: "#36ff95",
-                    fontSize: isMobile ? "0.85rem" : "1.1rem",
-                    fontWeight: 600,
-                    margin: "0",
-                    textShadow: "0 0 8px #36ff9544"
+                  <div style={{ 
+                    display: "flex", 
+                    flexDirection: "column", 
+                    alignItems: "center", 
+                    justifyContent: "center",
+                    flex: isMobile ? "0 1 auto" : "1",
+                    width: "100%",
+                    gap: isMobile ? "10px" : "0"
                   }}>
-                    Beginner Guide
-                  </h3>
-                  <p style={{
-                    color: "#b2ffe0",
-                    fontSize: isMobile ? "0.7rem" : "0.9rem",
-                    margin: isMobile ? "4px 0 0 0" : "8px 0 0 0",
-                    lineHeight: "1.4"
-                  }}>
-                    Master the fundamentals of AI
-                  </p>
+                    <img
+                      src="/begguide.png"
+                      alt="Beginner AI Guide"
+                      style={{
+                        width: isVerySmall ? "50px" : (is360px ? "60px" : (is390px ? "70px" : (isMobile ? "80px" : "120px"))),
+                        height: "auto",
+                        aspectRatio: "1 / 1",
+                        objectFit: "contain",
+                        borderRadius: "12px",
+                        marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px"))),
+                        flexShrink: 0
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    <h3 style={{
+                      color: "#36ff95",
+                      fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
+                      fontWeight: 600,
+                      margin: "0 0 4px 0",
+                      textShadow: "0 0 8px #36ff9544",
+                      lineHeight: "1.2"
+                    }}>
+                      Beginner Guide
+                    </h3>
+                    <p style={{
+                      color: "#b2ffe0",
+                      fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
+                      margin: "0",
+                      lineHeight: "1.4",
+                      textAlign: "center",
+                      width: "100%"
+                    }}>
+                      Master the fundamentals of AI
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -821,58 +870,75 @@ const LearnLevelSelector = () => {
                   textDecoration: "none",
                   color: "inherit",
                   transition: "transform 0.2s ease-in-out",
-                  width: "100%"
+                  width: "100%",
+                  height: "100%"
                 }}
-                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
-                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+                onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
               >
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
                   borderRadius: "16px",
-                  padding: isMobile ? "10px" : "20px",
+                  padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                   textAlign: "center",
                   boxShadow: "0 0 20px #36ff9544",
-                  height: "100%",
+                  height: isMobile ? "auto" : "100%",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
-                  minHeight: isMobile ? "160px" : "320px",
-                  maxHeight: isMobile ? "160px" : "none",
-                  width: "100%"
+                  justifyContent: isMobile ? "flex-start" : "space-between",
+                  aspectRatio: isMobile ? "none" : "16 / 9",
+                  minHeight: isMobile ? "auto" : "auto",
+                  width: "100%",
+                  boxSizing: "border-box"
                 }}>
-                  <img
-                    src="/intguide.png"
-                    alt="Intermediate AI Guide"
-                    style={{
-                      width: isMobile ? "70px" : "160px",
-                      height: isMobile ? "70px" : "160px",
-                      objectFit: "contain",
-                      borderRadius: "12px",
-                      marginBottom: isMobile ? "8px" : "15px"
-                    }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                  <h3 style={{
-                    color: "#36ff95",
-                    fontSize: isMobile ? "0.85rem" : "1.1rem",
-                    fontWeight: 600,
-                    margin: "0",
-                    textShadow: "0 0 8px #36ff9544"
+                  <div style={{ 
+                    display: "flex", 
+                    flexDirection: "column", 
+                    alignItems: "center", 
+                    justifyContent: "center",
+                    flex: isMobile ? "0 1 auto" : "1",
+                    width: "100%",
+                    gap: isMobile ? "10px" : "0"
                   }}>
-                    Intermediate Guide
-                  </h3>
-                  <p style={{
-                    color: "#b2ffe0",
-                    fontSize: isMobile ? "0.7rem" : "0.9rem",
-                    margin: isMobile ? "4px 0 0 0" : "8px 0 0 0",
-                    lineHeight: "1.4"
-                  }}>
-                    Dive deeper into AI applications
-                  </p>
+                    <img
+                      src="/intguide.png"
+                      alt="Intermediate AI Guide"
+                      style={{
+                        width: isVerySmall ? "50px" : (is360px ? "60px" : (is390px ? "70px" : (isMobile ? "80px" : "120px"))),
+                        height: "auto",
+                        aspectRatio: "1 / 1",
+                        objectFit: "contain",
+                        borderRadius: "12px",
+                        marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px"))),
+                        flexShrink: 0
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    <h3 style={{
+                      color: "#36ff95",
+                      fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
+                      fontWeight: 600,
+                      margin: "0 0 4px 0",
+                      textShadow: "0 0 8px #36ff9544",
+                      lineHeight: "1.2"
+                    }}>
+                      Intermediate Guide
+                    </h3>
+                    <p style={{
+                      color: "#b2ffe0",
+                      fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
+                      margin: "0",
+                      lineHeight: "1.4",
+                      textAlign: "center",
+                      width: "100%"
+                    }}>
+                      Dive deeper into AI applications
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -885,58 +951,75 @@ const LearnLevelSelector = () => {
                   textDecoration: "none",
                   color: "inherit",
                   transition: "transform 0.2s ease-in-out",
-                  width: "100%"
+                  width: "100%",
+                  height: "100%"
                 }}
-                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
-                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+                onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
               >
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
                   borderRadius: "16px",
-                  padding: isMobile ? "10px" : "20px",
+                  padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                   textAlign: "center",
                   boxShadow: "0 0 20px #36ff9544",
-                  height: "100%",
+                  height: isMobile ? "auto" : "100%",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
-                  minHeight: isMobile ? "160px" : "320px",
-                  maxHeight: isMobile ? "160px" : "none",
-                  width: "100%"
+                  justifyContent: isMobile ? "flex-start" : "space-between",
+                  aspectRatio: isMobile ? "none" : "16 / 9",
+                  minHeight: isMobile ? "auto" : "auto",
+                  width: "100%",
+                  boxSizing: "border-box"
                 }}>
-                  <img
-                    src="/advguide.png"
-                    alt="Advanced AI Guide"
-                    style={{
-                      width: isMobile ? "70px" : "160px",
-                      height: isMobile ? "70px" : "160px",
-                      objectFit: "contain",
-                      borderRadius: "12px",
-                      marginBottom: isMobile ? "8px" : "15px"
-                    }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                  <h3 style={{
-                    color: "#36ff95",
-                    fontSize: isMobile ? "0.85rem" : "1.1rem",
-                    fontWeight: 600,
-                    margin: "0",
-                    textShadow: "0 0 8px #36ff9544"
+                  <div style={{ 
+                    display: "flex", 
+                    flexDirection: "column", 
+                    alignItems: "center", 
+                    justifyContent: "center",
+                    flex: isMobile ? "0 1 auto" : "1",
+                    width: "100%",
+                    gap: isMobile ? "10px" : "0"
                   }}>
-                    Advanced Guide
-                  </h3>
-                  <p style={{
-                    color: "#b2ffe0",
-                    fontSize: isMobile ? "0.7rem" : "0.9rem",
-                    margin: isMobile ? "4px 0 0 0" : "8px 0 0 0",
-                    lineHeight: "1.4"
-                  }}>
-                    Become an AI expert and earn Pro status
-                  </p>
+                    <img
+                      src="/advguide.png"
+                      alt="Advanced AI Guide"
+                      style={{
+                        width: isVerySmall ? "50px" : (is360px ? "60px" : (is390px ? "70px" : (isMobile ? "80px" : "120px"))),
+                        height: "auto",
+                        aspectRatio: "1 / 1",
+                        objectFit: "contain",
+                        borderRadius: "12px",
+                        marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px"))),
+                        flexShrink: 0
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    <h3 style={{
+                      color: "#36ff95",
+                      fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
+                      fontWeight: 600,
+                      margin: "0 0 4px 0",
+                      textShadow: "0 0 8px #36ff9544",
+                      lineHeight: "1.2"
+                    }}>
+                      Advanced Guide
+                    </h3>
+                    <p style={{
+                      color: "#b2ffe0",
+                      fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
+                      margin: "0",
+                      lineHeight: "1.4",
+                      textAlign: "center",
+                      width: "100%"
+                    }}>
+                      Earn your AI Pro status badge!
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -944,20 +1027,23 @@ const LearnLevelSelector = () => {
 
                      {/* APP SPOTLIGHT SECTION */}
            <div style={{
-             marginTop: 40,
-             marginBottom: 40,
+             marginTop: isVerySmall ? "30px" : (is360px ? "32px" : (is390px ? "35px" : "40px")),
+             marginBottom: isVerySmall ? "30px" : (is360px ? "32px" : (is390px ? "35px" : "40px")),
              width: "100%",
              display: "flex",
              flexDirection: "column",
-             alignItems: "center"
+             alignItems: "center",
+             padding: isVerySmall ? "0 8px" : (is360px ? "0 10px" : (is390px ? "0 12px" : "0")),
+             boxSizing: "border-box"
            }}>
              <h2 style={{ 
                textAlign: "center", 
                color: "#36ff95", 
-               fontSize: "1.4rem", 
+               fontSize: isVerySmall ? "1.2rem" : (is360px ? "1.25rem" : (is390px ? "1.3rem" : "1.4rem")), 
                fontWeight: 600, 
-               marginBottom: 30,
-               textShadow: "0 0 8px #36ff9544"
+               marginBottom: isVerySmall ? "20px" : (is360px ? "22px" : (is390px ? "25px" : "30px")),
+               textShadow: "0 0 8px #36ff9544",
+               width: "100%"
              }}>
                App Spotlight
              </h2>
@@ -966,11 +1052,12 @@ const LearnLevelSelector = () => {
                <div style={{
                  display: "grid",
                  gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(600px, 1fr))",
-                 gap: "30px",
-                 maxWidth: isMobile ? "600px" : "1000px",
+                 gap: isVerySmall ? "16px" : (is360px ? "18px" : (is390px ? "20px" : (isMobile ? "20px" : "30px"))),
+                 maxWidth: "100%",
                  margin: "0 auto",
-                 padding: isMobile ? "0 15px" : "0 40px",
-                 width: "100%"
+                 padding: isVerySmall ? "0 4px" : (is360px ? "0 6px" : (is390px ? "0 8px" : (isMobile ? "0 8px" : "0 40px"))),
+                 width: "100%",
+                 boxSizing: "border-box"
                }}>
                                {/* VEED Card */}
                <div style={{
@@ -979,15 +1066,18 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                  <div style={{
                    display: "flex",
                    flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch"
+                   alignItems: isMobile ? "stretch" : "stretch",
+                   minHeight: isMobile ? "auto" : "auto"
                  }}>
                    <div style={{
                      flex: isMobile ? "none" : "0 0 200px",
@@ -1021,10 +1111,12 @@ const LearnLevelSelector = () => {
                    </div>
                    <div style={{
                      flex: 1,
-                     padding: isMobile ? "20px" : "30px",
+                     padding: isMobile ? "16px" : "30px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -1156,15 +1248,18 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                  <div style={{
                    display: "flex",
                    flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch"
+                   alignItems: isMobile ? "stretch" : "stretch",
+                   minHeight: isMobile ? "auto" : "auto"
                  }}>
                    <div style={{
                      flex: isMobile ? "none" : "0 0 200px",
@@ -1197,10 +1292,12 @@ const LearnLevelSelector = () => {
                    </div>
                    <div style={{
                      flex: 1,
-                     padding: isMobile ? "20px" : "30px",
+                     padding: isMobile ? "16px" : "30px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -1332,15 +1429,18 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                  <div style={{
                    display: "flex",
                    flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch"
+                   alignItems: isMobile ? "stretch" : "stretch",
+                   minHeight: isMobile ? "auto" : "auto"
                  }}>
                    <div style={{
                      flex: isMobile ? "none" : "0 0 200px",
@@ -1376,7 +1476,9 @@ const LearnLevelSelector = () => {
                      padding: "24px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -1508,15 +1610,18 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                  <div style={{
                    display: "flex",
                    flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch"
+                   alignItems: isMobile ? "stretch" : "stretch",
+                   minHeight: isMobile ? "auto" : "auto"
                  }}>
                    <div style={{
                      flex: isMobile ? "none" : "0 0 200px",
@@ -1552,7 +1657,9 @@ const LearnLevelSelector = () => {
                      padding: "24px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -1684,10 +1791,12 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                                    <div style={{
                     display: "flex",
@@ -1728,7 +1837,9 @@ const LearnLevelSelector = () => {
                      padding: "24px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -1860,15 +1971,18 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                  <div style={{
                    display: "flex",
                    flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch"
+                   alignItems: isMobile ? "stretch" : "stretch",
+                   minHeight: isMobile ? "auto" : "auto"
                  }}>
                    <div style={{
                      flex: isMobile ? "none" : "0 0 200px",
@@ -1904,7 +2018,9 @@ const LearnLevelSelector = () => {
                      padding: "24px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -2036,15 +2152,18 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                  <div style={{
                    display: "flex",
                    flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch"
+                   alignItems: isMobile ? "stretch" : "stretch",
+                   minHeight: isMobile ? "auto" : "auto"
                  }}>
                    <div style={{
                      flex: isMobile ? "none" : "0 0 200px",
@@ -2080,7 +2199,9 @@ const LearnLevelSelector = () => {
                      padding: "24px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -2212,10 +2333,12 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                                    <div style={{
                     display: "flex",
@@ -2256,7 +2379,9 @@ const LearnLevelSelector = () => {
                      padding: isMobile ? "15px" : "25px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -2388,10 +2513,12 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                                    <div style={{
                     display: "flex",
@@ -2432,7 +2559,9 @@ const LearnLevelSelector = () => {
                      padding: isMobile ? "15px" : "25px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -2564,10 +2693,12 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                                    <div style={{
                     display: "flex",
@@ -2608,7 +2739,9 @@ const LearnLevelSelector = () => {
                      padding: isMobile ? "15px" : "25px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -2740,15 +2873,18 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                  <div style={{
                    display: "flex",
                    flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch"
+                   alignItems: isMobile ? "stretch" : "stretch",
+                   minHeight: isMobile ? "auto" : "auto"
                  }}>
                    <div style={{
                      flex: isMobile ? "none" : "0 0 200px",
@@ -2784,7 +2920,9 @@ const LearnLevelSelector = () => {
                      padding: isMobile ? "15px" : "25px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -2916,10 +3054,12 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                                    <div style={{
                     display: "flex",
@@ -2960,7 +3100,9 @@ const LearnLevelSelector = () => {
                      padding: isMobile ? "15px" : "25px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{
@@ -3093,10 +3235,12 @@ const LearnLevelSelector = () => {
                  borderRadius: "16px",
                  overflow: "hidden",
                  boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out"
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
                }}
-               onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                >
                                    <div style={{
                     display: "flex",
@@ -3150,7 +3294,9 @@ const LearnLevelSelector = () => {
                      padding: isMobile ? "15px" : "25px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: "space-between"
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
                    }}>
                      <div>
                        <h3 style={{

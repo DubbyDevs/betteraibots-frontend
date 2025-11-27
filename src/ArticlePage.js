@@ -255,7 +255,8 @@ export default function ArticlePage() {
     "viral-launch": "https://affiliate.viral-launch.com/BAIB",
     "anybiz": "https://anybiz.io/?fpr=ai4n56",
     "megahr": "https://try.megahr.com/BAIB",
-    "airia": "https://try.airia.com/BAIB"
+    "airia": "https://try.airia.com/BAIB",
+    "museit-art-complete-guide": "https://Museit.art"
   };
   
   const affiliateLink = affiliateLinks[article.id] || null;
@@ -422,7 +423,8 @@ export default function ArticlePage() {
     'bebop-ai',
     'catalister',
     'seosparkplug',
-    'airia'
+    'airia',
+    'museit-art-complete-guide'
   ];
   const usesNewsStyleLayout = articlesWithNewsStyleLayout.includes(article.id);
 
@@ -668,7 +670,8 @@ export default function ArticlePage() {
             "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
-            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2"
+            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
+            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -720,7 +723,8 @@ export default function ArticlePage() {
             "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
-            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2"
+            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
+            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -743,7 +747,8 @@ export default function ArticlePage() {
             "bebop-ai": "AI, Artificial Intelligence, Bebop.ai, Workflow Automation, Process Optimization, AI Automation, Business Automation, Workflow Management, BetterAiBots",
             "lusha": "AI, Artificial Intelligence, Lusha, B2B Contact Data, Email Finder, Phone Number Lookup, Sales Intelligence, Lead Generation, CRM Integration, BetterAiBots",
             "hume-ai": "AI, Artificial Intelligence, Hume AI, Empathic AI, Emotion Recognition, Voice AI, Facial Expression Analysis, Emotional Intelligence, AI Interactions, BetterAiBots",
-            "tidio-ai": "AI, Artificial Intelligence, Tidio AI, Lyro AI Agent, Customer Service Automation, Live Chat, Help Desk, AI Chatbot, Customer Support, BetterAiBots"
+            "tidio-ai": "AI, Artificial Intelligence, Tidio AI, Lyro AI Agent, Customer Service Automation, Live Chat, Help Desk, AI Chatbot, Customer Support, BetterAiBots",
+            "museit-art-complete-guide": "AI, Artificial Intelligence, Museit.art, AI Art Creation, AI Art Generator, Creative AI, Mindfulness Art, Digital Art Creation, AI Art Platform, Art Therapy, Creative Expression, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -772,7 +777,8 @@ export default function ArticlePage() {
             "diginius": "Diginius, PPC management, lead intelligence, B2B leads, intent leads, multi-channel reporting, Google Ads, Microsoft Ads, Facebook advertising, LinkedIn advertising, SEO monitoring, BetterAiBots",
             "smartli": "Smartli, AI content creation, product description generator, AI blog writer, AI ads writer, background remover, watermark remover, photo enhancer, UGC video generator, e-commerce content, BetterAiBots",
             "consensus": "Consensus, AI research tool, scientific papers, academic research, evidence-based answers, research synthesis, peer-reviewed sources, citation management, literature review, academic search, BetterAiBots",
-            "browse-ai": "Browse AI, web scraping, data extraction, website monitoring, no-code scraping, web scraper, data extraction tool, website to API, website to spreadsheet, bot evasion, CAPTCHA handling, web data extraction, BetterAiBots"
+            "browse-ai": "Browse AI, web scraping, data extraction, website monitoring, no-code scraping, web scraper, data extraction tool, website to API, website to spreadsheet, bot evasion, CAPTCHA handling, web data extraction, BetterAiBots",
+            "museit-art-complete-guide": "Museit.art, AI art creation, AI art generator, creative AI, mindfulness art, digital art creation, AI art platform, art therapy, creative expression, no-code art, gallery-ready art, Nano Banana technology, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -816,7 +822,8 @@ export default function ArticlePage() {
                 "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
                 "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
                 "megahr": "https://betteraibots.com/megahr.jpg?v=2",
-                "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2"
+                "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
+            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg"
               };
               return ogImageMap[article.id] || primaryImage || article.cover;
             })(),
