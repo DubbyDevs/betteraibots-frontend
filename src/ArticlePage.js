@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { articles } from "./Articles";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 function ShareButtons({ url, title }) {
   // Always use the article URL for sharing, never affiliate links
@@ -1349,6 +1350,7 @@ export default function ArticlePage() {
         <>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
             components={{
             h2: ScholarGPTHeading,
             h3: ({ node, children, ...props }) => {
@@ -2178,6 +2180,7 @@ export default function ArticlePage() {
         {secondaryImages.length > 0 && secondHalf && (
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
             components={markdownComponents}
           >
             {secondHalf}
