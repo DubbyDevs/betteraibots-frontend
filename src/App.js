@@ -61,6 +61,10 @@ import smartli1 from './assets/smartli1.jpg';
 import consensus1 from './assets/consensus1.jpg';
 import browseai1 from './assets/browseai1.jpg';
 import musebrand from './assets/musebrand.jpg';
+import preziai from './assets/preziai.png';
+import prezi2 from './assets/prezi2.jpg';
+import landingi1 from './assets/landingi1.jpg';
+import landingi2 from './assets/landingi2.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -884,6 +888,16 @@ function Apps() {
       readMoreLink: "/learn/invideo-ai"
     },
     {
+      name: "Landingi",
+      description: "AI-powered landing page builder that creates high-converting landing pages in minutes. Build beautiful, responsive landing pages with drag-and-drop editor and AI assistance.",
+      category: "Marketing & Web Design",
+      features: ["AI landing page builder", "Drag-and-drop editor", "High-converting templates", "A/B testing", "Lead generation"],
+      link: "https://try.landingi.com/lwfc597yjm25",
+      trialInfo: "Free trial available",
+      image: landingi1,
+      readMoreLink: "/learn/landingi-complete-guide"
+    },
+    {
       name: "Lindy",
       description: "AI-powered personal assistant that helps you manage tasks",
       category: "Productivity & Personal Assistant",
@@ -942,6 +956,16 @@ function Apps() {
       trialInfo: "Free trial available",
       image: musebrand,
       readMoreLink: "/learn/museit-art-complete-guide"
+    },
+    {
+      name: "Prezi",
+      description: "AI-powered presentation platform that creates engaging, interactive presentations in minutes. Better presentations, faster with AI—stand out from the crowd with Prezi's unique open canvas and dynamic movement.",
+      category: "Content Creation & Media",
+      features: ["AI presentation creation", "Interactive presentations", "Prezi Video integration", "1M+ images and assets", "25% more effective than slides"],
+      link: "https://try.prezi.com/9kk83fjh4yri",
+      trialInfo: "Free trial available",
+      image: preziai,
+      readMoreLink: "/learn/prezi-complete-guide"
     },
     {
       name: "Recomaze",

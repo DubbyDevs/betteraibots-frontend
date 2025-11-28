@@ -698,5 +698,31 @@
       <image:caption>Discover how Museit.art's AI-powered art creation platform transforms your imagination into beautiful artwork. Turn the noise into art with guided creativity, mindfulness-focused design, and gallery-ready quality—no technical skills required.</image:caption>
     </image:image>
   </url>
+
+  <!-- Prezi Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/prezi-complete-guide</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/preziai.png</image:loc>
+      <image:title>Prezi: Better Presentations, Faster with AI-Powered Visual Storytelling</image:title>
+      <image:caption>Discover how Prezi's AI-powered presentation platform creates engaging, interactive presentations in minutes. Stand out from the crowd with Prezi's unique open canvas, dynamic movement, and AI assistance that makes creating easier than ever.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Landingi Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/landingi-complete-guide</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/landingi1.jpg</image:loc>
+      <image:title>Landingi: AI-Powered Landing Page Builder for High-Converting Pages</image:title>
+      <image:caption>Discover how Landingi's AI-powered landing page builder creates high-converting landing pages in minutes. Build beautiful, responsive landing pages with drag-and-drop editor, AI assistance, and A/B testing to maximize conversions.</image:caption>
+    </image:image>
+  </url>
   
 </urlset> 

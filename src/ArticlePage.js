@@ -256,7 +256,9 @@ export default function ArticlePage() {
     "anybiz": "https://anybiz.io/?fpr=ai4n56",
     "megahr": "https://try.megahr.com/BAIB",
     "airia": "https://try.airia.com/BAIB",
-    "museit-art-complete-guide": "https://Museit.art"
+    "museit-art-complete-guide": "https://Museit.art",
+    "prezi-complete-guide": "https://try.prezi.com/9kk83fjh4yri",
+    "landingi-complete-guide": "https://try.landingi.com/lwfc597yjm25"
   };
   
   const affiliateLink = affiliateLinks[article.id] || null;
@@ -424,7 +426,9 @@ export default function ArticlePage() {
     'catalister',
     'seosparkplug',
     'airia',
-    'museit-art-complete-guide'
+    'museit-art-complete-guide',
+    'prezi-complete-guide',
+    'landingi-complete-guide'
   ];
   const usesNewsStyleLayout = articlesWithNewsStyleLayout.includes(article.id);
 
@@ -671,7 +675,9 @@ export default function ArticlePage() {
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
-            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg"
+            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
+            "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
+            "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -724,7 +730,9 @@ export default function ArticlePage() {
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
-            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg"
+            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
+            "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
+            "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -748,7 +756,9 @@ export default function ArticlePage() {
             "lusha": "AI, Artificial Intelligence, Lusha, B2B Contact Data, Email Finder, Phone Number Lookup, Sales Intelligence, Lead Generation, CRM Integration, BetterAiBots",
             "hume-ai": "AI, Artificial Intelligence, Hume AI, Empathic AI, Emotion Recognition, Voice AI, Facial Expression Analysis, Emotional Intelligence, AI Interactions, BetterAiBots",
             "tidio-ai": "AI, Artificial Intelligence, Tidio AI, Lyro AI Agent, Customer Service Automation, Live Chat, Help Desk, AI Chatbot, Customer Support, BetterAiBots",
-            "museit-art-complete-guide": "AI, Artificial Intelligence, Museit.art, AI Art Creation, AI Art Generator, Creative AI, Mindfulness Art, Digital Art Creation, AI Art Platform, Art Therapy, Creative Expression, BetterAiBots"
+            "museit-art-complete-guide": "AI, Artificial Intelligence, Museit.art, AI Art Creation, AI Art Generator, Creative AI, Mindfulness Art, Digital Art Creation, AI Art Platform, Art Therapy, Creative Expression, BetterAiBots",
+            "prezi-complete-guide": "AI, Artificial Intelligence, Prezi, AI Presentations, Presentation Software, Interactive Presentations, Prezi Video, Visual Storytelling, Presentation Design, AI Presentation Creator, BetterAiBots",
+            "landingi-complete-guide": "AI, Artificial Intelligence, Landingi, AI Landing Page Builder, Landing Page Creator, Conversion Optimization, Lead Generation, A/B Testing, Landing Page Design, Marketing Tools, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -778,7 +788,9 @@ export default function ArticlePage() {
             "smartli": "Smartli, AI content creation, product description generator, AI blog writer, AI ads writer, background remover, watermark remover, photo enhancer, UGC video generator, e-commerce content, BetterAiBots",
             "consensus": "Consensus, AI research tool, scientific papers, academic research, evidence-based answers, research synthesis, peer-reviewed sources, citation management, literature review, academic search, BetterAiBots",
             "browse-ai": "Browse AI, web scraping, data extraction, website monitoring, no-code scraping, web scraper, data extraction tool, website to API, website to spreadsheet, bot evasion, CAPTCHA handling, web data extraction, BetterAiBots",
-            "museit-art-complete-guide": "Museit.art, AI art creation, AI art generator, creative AI, mindfulness art, digital art creation, AI art platform, art therapy, creative expression, no-code art, gallery-ready art, Nano Banana technology, BetterAiBots"
+            "museit-art-complete-guide": "Museit.art, AI art creation, AI art generator, creative AI, mindfulness art, digital art creation, AI art platform, art therapy, creative expression, no-code art, gallery-ready art, Nano Banana technology, BetterAiBots",
+            "prezi-complete-guide": "Prezi, AI presentations, presentation software, interactive presentations, Prezi Video, visual storytelling, presentation design, AI presentation creator, open canvas presentations, dynamic presentations, presentation platform, BetterAiBots",
+            "landingi-complete-guide": "Landingi, AI landing page builder, landing page creator, conversion optimization, lead generation, A/B testing, landing page design, drag-and-drop editor, landing page templates, marketing tools, landing page software, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -823,7 +835,9 @@ export default function ArticlePage() {
                 "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
                 "megahr": "https://betteraibots.com/megahr.jpg?v=2",
                 "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
-            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg"
+                "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
+                "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
+                "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg"
               };
               return ogImageMap[article.id] || primaryImage || article.cover;
             })(),
@@ -1237,6 +1251,68 @@ export default function ArticlePage() {
             }}
             />
           </a>
+        ) : article.id === "prezi-complete-guide" ? (
+          <a 
+            href="https://try.prezi.com/9kk83fjh4yri" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "landingi-complete-guide" ? (
+          <a 
+            href="https://try.landingi.com/lwfc597yjm25" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
         ) : (
           <img src={primaryImage} alt="" style={{
             maxWidth: "600px",
@@ -1501,6 +1577,56 @@ export default function ArticlePage() {
                   <div style={{ textAlign: 'center', margin: '30px 0' }}>
                     <a
                       href="https://partners.browse.ai/BAIB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
+              if (src && (src.includes('prezi2') || src.includes('preziai') || src.includes('prezi'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://try.prezi.com/9kk83fjh4yri"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-block', cursor: 'pointer' }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt || ''}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          display: 'block'
+                        }}
+                        {...props}
+                      />
+                    </a>
+                  </div>
+                );
+              }
+              if (src && (src.includes('landingi2') || src.includes('landingi1') || src.includes('landingi'))) {
+                return (
+                  <div style={{ textAlign: 'center', margin: '30px 0' }}>
+                    <a
+                      href="https://try.landingi.com/lwfc597yjm25"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ display: 'inline-block', cursor: 'pointer' }}
@@ -1881,7 +2007,7 @@ export default function ArticlePage() {
               // Handle image links (affiliate links that contain images from markdown)
               // ReactMarkdown renders [![alt](img)](link) as <a><img /></a>
               // Check if this is an affiliate link and if children contains an img element
-              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io') || href.includes('try.plesk.com') || href.includes('join.surecam.com') || href.includes('get.diginius.com') || href.includes('smartli.partnerlinks.io'))) {
+              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io') || href.includes('try.plesk.com') || href.includes('join.surecam.com') || href.includes('get.diginius.com') || href.includes('smartli.partnerlinks.io') || href.includes('try.prezi.com') || href.includes('try.landingi.com'))) {
                 try {
                   // Check if children contains an image element - use simple, safe checking
                   let hasImage = false;
