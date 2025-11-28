@@ -130,6 +130,42 @@ export default function ArticlePage() {
   
   const article = articles.find(a => a.id === id);
   const fromPage = location.state?.from || (location.pathname.startsWith('/learn') ? '/learn' : '/');
+  
+  // Extract video HTML from content if present
+  const extractVideoFromContent = (content) => {
+    if (!content || typeof content !== 'string') return { video: null, restContent: content };
+    
+    // Check if content contains YouTube embed
+    if (!content.includes('youtube.com/embed')) {
+      return { video: null, restContent: content };
+    }
+    
+    // More aggressive pattern: match from start, including all whitespace, the entire div block
+    // This pattern handles multiline HTML with proper closing tags
+    const videoPattern = /^(\s*<div[^>]*>[\s\S]*?<\/iframe>[\s\S]*?<\/div>\s*)/;
+    const videoMatch = content.match(videoPattern);
+    
+    if (videoMatch) {
+      const videoHtml = videoMatch[1].trim();
+      // Remove the matched video block from content
+      let restContent = content.replace(videoPattern, '').trim();
+      // Aggressively remove ANY remaining video HTML (in case regex didn't catch it all)
+      restContent = restContent.replace(/<div[^>]*>[\s\S]*?youtube\.com\/embed[\s\S]*?<\/div>/gi, '').trim();
+      // Also remove any standalone iframe tags
+      restContent = restContent.replace(/<iframe[^>]*youtube\.com\/embed[^>]*>[\s\S]*?<\/iframe>/gi, '').trim();
+      
+      return {
+        video: videoHtml,
+        restContent: restContent
+      };
+    }
+    
+    // Fallback: if no match but video exists, try to remove it anyway
+    const fallbackCleaned = content.replace(/<div[^>]*>[\s\S]*?youtube\.com\/embed[\s\S]*?<\/div>/gi, '').trim();
+    return { video: null, restContent: fallbackCleaned };
+  };
+  
+  const { video, restContent } = article ? extractVideoFromContent(article.content) : { video: null, restContent: null };
 
   // Function to generate heading ID from text
   const generateHeadingId = (text) => {
@@ -1346,12 +1382,39 @@ export default function ArticlePage() {
         lineHeight: 1.7,
         maxWidth: 700
       }}>{article.preview}</p>
-      {typeof article.content === "string" ? (
+      {video && (
+        <div dangerouslySetInnerHTML={{ __html: video }} />
+      )}
+      {typeof restContent === "string" ? (
         <>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
             components={{
+            code: ({ node, children, ...props }) => {
+              // Don't render code blocks that contain video HTML
+              const codeContent = typeof children === 'string' ? children : String(children);
+              if (codeContent.includes('youtube.com/embed') || codeContent.includes('<iframe')) {
+                return null; // Don't render video HTML as code
+              }
+              return <code {...props}>{children}</code>;
+            },
+            pre: ({ node, children, ...props }) => {
+              // Don't render pre blocks that contain video HTML
+              const preContent = typeof children === 'string' ? children : String(children);
+              if (preContent.includes('youtube.com/embed') || preContent.includes('<iframe')) {
+                return null; // Don't render video HTML as code
+              }
+              return <pre {...props}>{children}</pre>;
+            },
+            div: ({ node, children, ...props }) => {
+              // Check if this div contains an iframe (video)
+              if (node?.properties?.dangerouslySetInnerHTML || 
+                  (typeof children === 'string' && children.includes('iframe'))) {
+                return <div {...props} dangerouslySetInnerHTML={{ __html: children }} />;
+              }
+              return <div {...props}>{children}</div>;
+            },
             h2: ScholarGPTHeading,
             h3: ({ node, children, ...props }) => {
               // Extract text content from children, handling both strings and React elements
