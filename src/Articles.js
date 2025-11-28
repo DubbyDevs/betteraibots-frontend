@@ -11921,7 +11921,7 @@ Unlike traditional slide-based presentation tools, Prezi offers a unique open ca
 
 **[🚀 Get Started with Prezi - Free Trial Available](https://try.prezi.com/9kk83fjh4yri)**
 
-[![Prezi AI Presentation Platform](prezi2)](https://try.prezi.com/9kk83fjh4yri)
+[![](prezi2)](https://try.prezi.com/9kk83fjh4yri)
 
 ## Why Prezi Stands Out
 
@@ -12211,7 +12211,7 @@ Unlike traditional website builders that require coding knowledge or complex set
 
 **[🚀 Get Started with Landingi - Free Trial Available](https://try.landingi.com/lwfc597yjm25)**
 
-[![Landingi Landing Page Builder](landingi2)](https://try.landingi.com/lwfc597yjm25)
+[![](landingi2)](https://try.landingi.com/lwfc597yjm25)
 
 ## Why Landingi Stands Out
 
