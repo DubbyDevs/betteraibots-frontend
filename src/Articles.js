@@ -2763,6 +2763,16 @@ Visit Miro.com today and discover why teams around the world trust Miro as their
     preview: "Discover how Capsule CRM's intuitive design and powerful automation features help growing businesses manage customer relationships without the complexity of enterprise solutions.",
     images: ["/capsulecrm.png", capsuleai2],
     content: `
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
+          <iframe 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+            src="https://www.youtube.com/embed/cz1UN93IBzU" 
+            title="Capsule CRM Guide" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
 Sarah stared at her growing client list with a mix of excitement and dread. Her consulting business had tripled in the past year, but her current system of sticky notes, Excel spreadsheets, and scattered email threads was starting to crack under the pressure. She needed something that could grow with her business—powerful enough to handle complex sales processes but simple enough that she could actually use it without a computer science degree.
 
 That's when she discovered **Capsule CRM**, the customer relationship management platform that proves you don't need enterprise-level complexity to achieve professional results. In just three months, Sarah transformed her chaotic client management into a streamlined, automated system that not only kept her organized but actually helped her close 40% more deals.
