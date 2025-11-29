@@ -785,6 +785,16 @@ Smartli is a valuable tool for e-commerce and marketing teams that need to creat
     preview: "Discover how ThorData's enterprise-grade proxy and web scraping infrastructure helps businesses collect data for AI training, market research, and competitive intelligence.",
     images: [thordata, thordata3],
     content: `
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
+          <iframe 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+            src="https://www.youtube.com/embed/5XFaLaiiVnc" 
+            title="ThorData Guide" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
 ## What is ThorData?
 
 ThorData provides enterprise-grade proxy and web scraping infrastructure designed for AI data collection, market research, and competitive intelligence.
