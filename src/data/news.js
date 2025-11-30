@@ -304,6 +304,16 @@ export const newsArticles = [
     category: "AI & Healthcare",
     featured: false,
     content: `
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
+          <iframe 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+            src="https://www.youtube.com/embed/UHwlOZ3xFa8" 
+            title="AI Doctors Are Here: How Medical Diagnosis AI Just Passed Human Accuracy" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
       <h1>AI Doctors Are Here: How Medical Diagnosis AI Just Passed Human Accuracy</h1>
       <p style="font-size: 1.3rem; font-weight: 400; color: #b5ffdb; margin-top: -10px; margin-bottom: 25px; line-height: 1.5;">What started as experimental algorithms in research labs has evolved into FDA-approved systems making real medical decisions that affect millions of patients.</p>
 
@@ -769,6 +779,16 @@ export const newsArticles = [
     category: "AI & Technology",
     featured: false,
     content: `
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
+          <iframe 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+            src="https://www.youtube.com/embed/Kv-JFSjQsRs" 
+            title="Why Small Businesses Are Beating Enterprise with AI Tools" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
       <h1>Why Small Businesses Are Beating Enterprise with AI Tools</h1>
 
       <p>The competitive landscape between small businesses and large enterprises is experiencing an unusual shift. For decades, enterprise companies held decisive advantages in technology adoption—larger budgets, dedicated IT departments, access to cutting-edge tools, and resources to implement complex systems.</p>

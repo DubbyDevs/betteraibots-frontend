@@ -206,7 +206,9 @@ function News({ searchValue }) {
       "the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily",
       "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025",
       "ai-remote-jobs-home-office-gold-rush-2025",
-      "warmy-io-spam-folder-rebellion-email-deliverability"
+      "warmy-io-spam-folder-rebellion-email-deliverability",
+      "why-small-businesses-beat-enterprise-ai-tools-2025",
+      "ai-doctors-are-here-how-medical-diagnosis-ai-just-passed-human-accuracy"
     ];
     return articlesWithVideos.includes(articleSlug);
   };
