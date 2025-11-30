@@ -294,8 +294,11 @@ export default function ArticlePage() {
     "megahr": "https://try.megahr.com/BAIB",
     "airia": "https://try.airia.com/BAIB",
     "museit-art-complete-guide": "https://Museit.art",
+    "nanoz-complete-guide": "https://nanoz.fun",
     "prezi-complete-guide": "https://try.prezi.com/9kk83fjh4yri",
-    "landingi-complete-guide": "https://try.landingi.com/lwfc597yjm25"
+    "landingi-complete-guide": "https://try.landingi.com/lwfc597yjm25",
+    "tradify-complete-guide": "https://partners.tradifyhq.com/rh188vnbjrvr",
+    "logome-complete-guide": "https://logomeai.partnerlinks.io/BAIB"
   };
   
   const affiliateLink = affiliateLinks[article.id] || null;
@@ -464,8 +467,11 @@ export default function ArticlePage() {
     'seosparkplug',
     'airia',
     'museit-art-complete-guide',
+    'nanoz-complete-guide',
     'prezi-complete-guide',
-    'landingi-complete-guide'
+    'landingi-complete-guide',
+    'tradify-complete-guide',
+    'logome-complete-guide'
   ];
   const usesNewsStyleLayout = articlesWithNewsStyleLayout.includes(article.id);
 
@@ -713,8 +719,11 @@ export default function ArticlePage() {
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
+            "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
-            "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg"
+            "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
+            "tradify-complete-guide": "https://betteraibots.com/assets/tradify1.jpg",
+            "logome-complete-guide": "https://betteraibots.com/assets/logome1.png"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -768,8 +777,11 @@ export default function ArticlePage() {
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
+            "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
-            "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg"
+            "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
+            "tradify-complete-guide": "https://betteraibots.com/assets/tradify1.jpg",
+            "logome-complete-guide": "https://betteraibots.com/assets/logome1.png"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -794,8 +806,11 @@ export default function ArticlePage() {
             "hume-ai": "AI, Artificial Intelligence, Hume AI, Empathic AI, Emotion Recognition, Voice AI, Facial Expression Analysis, Emotional Intelligence, AI Interactions, BetterAiBots",
             "tidio-ai": "AI, Artificial Intelligence, Tidio AI, Lyro AI Agent, Customer Service Automation, Live Chat, Help Desk, AI Chatbot, Customer Support, BetterAiBots",
             "museit-art-complete-guide": "AI, Artificial Intelligence, Museit.art, AI Art Creation, AI Art Generator, Creative AI, Mindfulness Art, Digital Art Creation, AI Art Platform, Art Therapy, Creative Expression, BetterAiBots",
+            "nanoz-complete-guide": "AI, Artificial Intelligence, NanoZ.fun, AI Branding, Brand Image Generation, AI Brand Imagery, Brand Consistency, AI Design Tools, Professional Branding, Brand Asset Management, AI Image Generation, BetterAiBots",
             "prezi-complete-guide": "AI, Artificial Intelligence, Prezi, AI Presentations, Presentation Software, Interactive Presentations, Prezi Video, Visual Storytelling, Presentation Design, AI Presentation Creator, BetterAiBots",
-            "landingi-complete-guide": "AI, Artificial Intelligence, Landingi, AI Landing Page Builder, Landing Page Creator, Conversion Optimization, Lead Generation, A/B Testing, Landing Page Design, Marketing Tools, BetterAiBots"
+            "landingi-complete-guide": "AI, Artificial Intelligence, Landingi, AI Landing Page Builder, Landing Page Creator, Conversion Optimization, Lead Generation, A/B Testing, Landing Page Design, Marketing Tools, BetterAiBots",
+            "tradify-complete-guide": "Tradify, Job Management Software, Trade Business Software, Job Management for Trades, Trade Business Management, Electrician Software, Plumber Software, HVAC Software, Job Scheduling, Trade Invoicing, Trade Quoting, Trade Job Tracking, BetterAiBots",
+            "logome-complete-guide": "AI, Artificial Intelligence, Logome, AI Logo Generator, Logo Maker, Brand Kit Creator, AI Logo Maker, Logo Design, Brand Identity, Website Templates, Social Media Templates, Business Cards, Email Signatures, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -826,8 +841,11 @@ export default function ArticlePage() {
             "consensus": "Consensus, AI research tool, scientific papers, academic research, evidence-based answers, research synthesis, peer-reviewed sources, citation management, literature review, academic search, BetterAiBots",
             "browse-ai": "Browse AI, web scraping, data extraction, website monitoring, no-code scraping, web scraper, data extraction tool, website to API, website to spreadsheet, bot evasion, CAPTCHA handling, web data extraction, BetterAiBots",
             "museit-art-complete-guide": "Museit.art, AI art creation, AI art generator, creative AI, mindfulness art, digital art creation, AI art platform, art therapy, creative expression, no-code art, gallery-ready art, Nano Banana technology, BetterAiBots",
+            "nanoz-complete-guide": "NanoZ.fun, AI branding, brand image generation, AI brand imagery, brand consistency, AI design tools, professional branding, brand asset management, AI image generation, brand workflow, organizational tools, BetterAiBots",
             "prezi-complete-guide": "Prezi, AI presentations, presentation software, interactive presentations, Prezi Video, visual storytelling, presentation design, AI presentation creator, open canvas presentations, dynamic presentations, presentation platform, BetterAiBots",
-            "landingi-complete-guide": "Landingi, AI landing page builder, landing page creator, conversion optimization, lead generation, A/B testing, landing page design, drag-and-drop editor, landing page templates, marketing tools, landing page software, BetterAiBots"
+            "landingi-complete-guide": "Landingi, AI landing page builder, landing page creator, conversion optimization, lead generation, A/B testing, landing page design, drag-and-drop editor, landing page templates, marketing tools, landing page software, BetterAiBots",
+            "tradify-complete-guide": "Tradify, job management software, trade business software, job management for trades, trade business management, electrician software, plumber software, HVAC software, job scheduling, trade invoicing, trade quoting, trade job tracking, digital timesheets, trade accounting integration, BetterAiBots",
+            "logome-complete-guide": "Logome, AI logo generator, logo maker, brand kit creator, AI logo maker, logo design, brand identity, website templates, social media templates, business cards, email signatures, poster generator, flyer generator, AI branding, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -873,6 +891,7 @@ export default function ArticlePage() {
                 "megahr": "https://betteraibots.com/megahr.jpg?v=2",
                 "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
                 "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
+                "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
                 "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
                 "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg"
               };
@@ -1319,9 +1338,102 @@ export default function ArticlePage() {
             }}
             />
           </a>
+        ) : article.id === "nanoz-complete-guide" ? (
+          <a 
+            href="https://nanoz.fun" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
         ) : article.id === "landingi-complete-guide" ? (
           <a 
             href="https://try.landingi.com/lwfc597yjm25" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "tradify-complete-guide" ? (
+          <a 
+            href="https://partners.tradifyhq.com/rh188vnbjrvr" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "logome-complete-guide" ? (
+          <a 
+            href="https://logomeai.partnerlinks.io/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
@@ -2072,7 +2184,7 @@ export default function ArticlePage() {
               // Handle image links (affiliate links that contain images from markdown)
               // ReactMarkdown renders [![alt](img)](link) as <a><img /></a>
               // Check if this is an affiliate link and if children contains an img element
-              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io') || href.includes('try.plesk.com') || href.includes('join.surecam.com') || href.includes('get.diginius.com') || href.includes('smartli.partnerlinks.io') || href.includes('try.prezi.com') || href.includes('try.landingi.com'))) {
+              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io') || href.includes('try.plesk.com') || href.includes('join.surecam.com') || href.includes('get.diginius.com') || href.includes('smartli.partnerlinks.io') || href.includes('try.prezi.com') || href.includes('try.landingi.com') || href.includes('nanoz.fun') || href.includes('partners.tradifyhq.com') || href.includes('logomeai.partnerlinks.io'))) {
                 try {
                   // Check if children contains an image element - use simple, safe checking
                   let hasImage = false;

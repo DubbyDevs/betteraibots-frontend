@@ -61,8 +61,11 @@ import smartli1 from './assets/smartli1.jpg';
 import consensus1 from './assets/consensus1.jpg';
 import browseai1 from './assets/browseai1.jpg';
 import musebrand from './assets/musebrand.jpg';
+import nanozlogo from './assets/nanozlogo.png';
 import preziai from './assets/preziai.png';
 import landingi1 from './assets/landingi1.jpg';
+import tradify1 from './assets/tradify1.jpg';
+import logome from './assets/logome1.png';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -956,6 +959,16 @@ function Apps() {
       readMoreLink: "/learn/museit-art-complete-guide"
     },
     {
+      name: "NanoZ.fun",
+      description: "Branding Made Easy - Professional brand imagery at a fraction of traditional costs. Powered by cutting-edge AI that delivers results you've never seen before.",
+      category: "Creative & Design",
+      features: ["AI brand image generation", "Brand consistency", "Professional quality", "Affordable pricing", "Organizational tools", "Workflow optimization"],
+      link: "https://nanoz.fun",
+      trialInfo: "Free Trial Available",
+      image: nanozlogo,
+      readMoreLink: "/learn/nanoz-complete-guide"
+    },
+    {
       name: "Prezi",
       description: "AI-powered presentation platform that creates engaging, interactive presentations in minutes. Better presentations, faster with AI—stand out from the crowd with Prezi's unique open canvas and dynamic movement.",
       category: "Content Creation & Media",
@@ -1016,6 +1029,16 @@ function Apps() {
       readMoreLink: "/learn/tidio-ai"
     },
     {
+      name: "Tradify",
+      description: "Save 10+ hours/week on admin with quoting, invoicing, scheduling, job tracking, and accounting integrations. Built for electricians, plumbers, HVAC, and all trade businesses.",
+      category: "Business & Productivity",
+      features: ["Job management", "Quoting & invoicing", "Scheduling & dispatch", "Job tracking", "Accounting integrations", "Digital timesheets"],
+      link: "https://partners.tradifyhq.com/rh188vnbjrvr",
+      trialInfo: "Free Trial Available",
+      image: tradify1,
+      readMoreLink: "/learn/tradify-complete-guide"
+    },
+    {
       name: "VEED",
       description: "Online video editor with AI features for creating professional content",
       category: "Video Editing",
@@ -1064,6 +1087,16 @@ function Apps() {
       trialInfo: "Free trial available",
       image: "https://betteraibots.com/wispr.png",
       readMoreLink: "/learn/wispr-flow-complete-guide"
+    },
+    {
+      name: "Logome",
+      description: "AI-powered logo generator and brand kit creator.",
+      category: "Creative & Design",
+      features: ["AI logo generator", "Brand kit creation", "Website templates", "Social media templates", "Business cards", "Email signatures", "100+ fonts", "Free logo design"],
+      link: "https://logomeai.partnerlinks.io/BAIB",
+      trialInfo: "Start for free",
+      image: logome,
+      readMoreLink: "/learn/logome-complete-guide"
     }
   ];
 

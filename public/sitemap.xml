@@ -699,6 +699,19 @@
     </image:image>
   </url>
 
+  <!-- NanoZ Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/nanoz-complete-guide</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/nanozlogo.png</image:loc>
+      <image:title>NanoZ.fun: Branding Made Easy - Professional Brand Imagery at a Fraction of Traditional Costs</image:title>
+      <image:caption>Discover how NanoZ.fun delivers professional brand imagery at a fraction of traditional costs. Powered by cutting-edge AI that ensures brand consistency and quality results you've never seen before.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Prezi Article -->
   <url>
     <loc>https://betteraibots.com/learn/prezi-complete-guide</loc>
@@ -722,6 +735,32 @@
       <image:loc>https://betteraibots.com/assets/landingi1.jpg</image:loc>
       <image:title>Landingi: AI-Powered Landing Page Builder for High-Converting Pages</image:title>
       <image:caption>Discover how Landingi's AI-powered landing page builder creates high-converting landing pages in minutes. Build beautiful, responsive landing pages with drag-and-drop editor, AI assistance, and A/B testing to maximize conversions.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Tradify Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/tradify-complete-guide</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/tradify1.jpg</image:loc>
+      <image:title>Tradify: #1 Job Management Software for Trades - Save 10+ Hours/Week on Admin</image:title>
+      <image:caption>Discover how Tradify's job management software helps trade businesses save 10+ hours/week on admin. Built for electricians, plumbers, HVAC, and all trades—manage enquiries, quotes, jobs, invoicing, scheduling, and more all in one place.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Logome Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/logome-complete-guide</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/logome1.png</image:loc>
+      <image:title>Logome: AI Logo Generator &amp; Brand Kit Creator - Design Stunning Logos in Seconds</image:title>
+      <image:caption>Discover how Logome's AI-powered logo generator helps you create stunning logos, brand kits, websites, and social media templates in seconds. No design skills required—800k+ logos generated using AI.</image:caption>
     </image:image>
   </url>
   
