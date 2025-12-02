@@ -46,6 +46,19 @@
     </image:image>
   </url>
   
+  <!-- About Page -->
+  <url>
+    <loc>https://betteraibots.com/about</loc>
+    <lastmod>2025-12-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/betteraibotsglowlogo8.png</image:loc>
+      <image:title>About BetterAiBots - Your AI Tools Directory Hub</image:title>
+      <image:caption>Learn about BetterAiBots - your comprehensive AI tools directory hub. Discover what we do, our services, what makes us unique, and how we help you find the best AI tools for productivity, automation, and staying ahead of the AI revolution.</image:caption>
+    </image:image>
+  </url>
+  
   <!-- Contact Page -->
   <url>
     <loc>https://betteraibots.com/contact</loc>

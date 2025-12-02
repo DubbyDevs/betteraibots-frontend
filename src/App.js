@@ -92,6 +92,7 @@ import IntermediateQuiz from "./components/IntermediateQuiz";
 import AdvancedQuiz from "./components/AdvancedQuiz";
 import LearnLevelSelector from "./components/LearnLevelSelector";
 import Podcast from "./Podcast";
+import About from "./About";
 
 
 
@@ -166,7 +167,7 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
       <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
       <Link to="/Podcast" className="nav-tab" tabIndex={0}>Watch</Link>
-      <Link to="/contact" className="nav-tab" tabIndex={0}>Contact</Link>
+      <Link to="/about" className="nav-tab" tabIndex={0}>About</Link>
       <span
         className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
         onClick={onToggleAnimation}
@@ -4199,6 +4200,7 @@ function App() {
             toggleCategoryBar={toggleCategoryBar}
           />}
         />
+        <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/learn" element={<LearnLevelSelector />} />
         <Route path="/learn/beginner" element={<Articles level="beginner" />} />
