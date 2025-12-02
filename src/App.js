@@ -208,9 +208,18 @@ function News({ searchValue }) {
       "ai-remote-jobs-home-office-gold-rush-2025",
       "warmy-io-spam-folder-rebellion-email-deliverability",
       "why-small-businesses-beat-enterprise-ai-tools-2025",
-      "ai-doctors-are-here-how-medical-diagnosis-ai-just-passed-human-accuracy"
+      "ai-doctors-are-here-how-medical-diagnosis-ai-just-passed-human-accuracy",
+      "ai-chip-wars-heat-up-nvidia-challenger-unexpected-source"
     ];
     return articlesWithVideos.includes(articleSlug);
+  };
+
+  // Helper function to check if an article has audio
+  const articleHasAudio = (articleSlug) => {
+    const articlesWithAudio = [
+      "how-to-use-ai-to-learn-anything-10x-faster"
+    ];
+    return articlesWithAudio.includes(articleSlug);
   };
 
   // Rotating image component for GPT-5 article
@@ -432,6 +441,28 @@ function News({ searchValue }) {
                       <Link to={`/news/${article.slug}`} className="read-more-btn-small">Read Full Article</Link>
                     </div>
                     <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                      {articleHasAudio(article.slug) && (
+                        <Link 
+                          to={`/news/${article.slug}#play-audio`} 
+                          className="read-more-btn-small"
+                          style={{
+                            background: "linear-gradient(135deg, #0bbfdb 0%, #36ff95 100%)",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: isNarrowScreen ? "0" : "6px",
+                            padding: isNarrowScreen ? "8px" : "8px 14px",
+                            fontSize: "0.85rem",
+                            minWidth: isNarrowScreen ? "36px" : "auto"
+                          }}
+                          title="Play Audio"
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
+                          {!isNarrowScreen && "Play"}
+                        </Link>
+                      )}
                       {articleHasVideo(article.slug) && (
                         <Link 
                           to={`/news/${article.slug}#play-video`} 
@@ -4847,6 +4878,28 @@ function NewsArticle() {
       }, 600);
     }
   }, [location.hash, slug]);
+
+  // Auto-scroll to and play audio if #play-audio hash is present
+  useEffect(() => {
+    if (location.hash === '#play-audio') {
+      // First ensure we're at the top, then scroll to audio after content loads
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      
+      // Wait for content to render, then find and scroll to audio player
+      setTimeout(() => {
+        const audioPlayer = document.getElementById('article-audio-player');
+        if (audioPlayer) {
+          audioPlayer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Try to autoplay the audio
+          audioPlayer.play().catch(err => {
+            console.log('Autoplay prevented:', err);
+          });
+        }
+      }, 600);
+    }
+  }, [location.hash, slug]);
   
   // Rotating image component for GPT-5 article
   const RotatingGPT5Image = ({ alt, className, style }) => {
@@ -5107,7 +5160,11 @@ function NewsArticle() {
           </div>
         </div>
         
-        <div className="article-content" dangerouslySetInnerHTML={{ __html: article.content }} />
+        <div className="article-content" dangerouslySetInnerHTML={{ 
+          __html: article.slug === 'how-to-use-ai-to-learn-anything-10x-faster' 
+            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Learn_Ten_Times_Faster_Using_AI_Playbooks.m4a'))
+            : article.content 
+        }} />
         
         <div className="article-footer">
           <div className="share-buttons">

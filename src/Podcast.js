@@ -5,6 +5,7 @@ import welcometobaibpod from './assets/welcometobaibpod.jpg';
 import baiblive from './assets/liveslider/baiblive.jpg';
 import baiblive2 from './assets/liveslider/baiblive2.jpg';
 import baiblive3 from './assets/liveslider/baiblive3.jpg';
+import warmyio2 from './assets/warmyio2.jpg';
 import baiblive4 from './assets/liveslider/baiblive4.jpg';
 import baiblive5 from './assets/liveslider/baiblive5.jpg';
 import baiblive6 from './assets/liveslider/baiblive6.jpg';
@@ -23,6 +24,7 @@ function Podcast() {
   const [showInfoDropdown, setShowInfoDropdown] = useState({});
   const [showModalLinksDropdown, setShowModalLinksDropdown] = useState(false);
   const [showModalInfoDropdown, setShowModalInfoDropdown] = useState(false);
+  const [isBottomVideoPlaying, setIsBottomVideoPlaying] = useState(false);
   const playerRefs = useRef({});
 
   // Affiliate links for AI Tools Discussion video (index 1)
@@ -37,6 +39,11 @@ function Podcast() {
     { name: 'Miro', url: 'https://ps.miro-affiliate.com/gwnvu4zj3r8r' },
     { name: 'Reply.io', url: 'https://get.reply.io/ub7edypmq2gj' },
     { name: 'AdCreative', url: 'https://free-trial.adcreative.ai/0dkpoiajb7o2' }
+  ];
+
+  // Affiliate links for Email Deliverability video (index 2, welcome video)
+  const emailDeliverabilityLinks = [
+    { name: 'Warmy.io', url: 'https://warmyio.partnerlinks.io/ffy5y6ll9374' }
   ];
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -105,10 +112,10 @@ function Podcast() {
       thumbnail: betteraibotsliveEp155Copy55
     },
     {
-      id: 'StFLNRmH7XQ',
-      title: 'Welcome to BetterAiBots Podcast',
-      description: 'In this episode, we\'re pulling back the curtain on BetterAIBots.com itself: what it is, how it works, and why we built it specifically for people who want to stay ahead in the AI revolution.',
-      thumbnail: baiblive3
+      id: 'ytCyZ3LeXJ4',
+      title: 'How to Fix Email Deliverability',
+      description: 'In this episode, we dive deep into the invisible infrastructure of email trust and explore Warmy.io—an AI-powered tool that\'s fighting what they call \"the spam folder rebellion.\" Meet Adeline, the AI assistant that systematically builds your domain\'s reputation by answering the five critical questions every email algorithm asks before letting you into the inbox.',
+      thumbnail: warmyio2
     },
     {
       id: 'JiF-eCQc_SM',
@@ -317,6 +324,11 @@ function Podcast() {
   // Handle video click - all videos are playable
   const handleVideoClick = (index) => {
     setPlayingVideoIndex(index);
+  };
+
+  // Handle bottom static image click - play welcome video in place
+  const handleBottomImageClick = () => {
+    setIsBottomVideoPlaying(true);
   };
 
 
@@ -940,7 +952,7 @@ function Podcast() {
                       gap: '15px',
                       flexWrap: 'wrap'
                     }}>
-                      {index === 1 && (
+                      {(index === 1 || index === 2) && (
                         <>
                           <button
                             className="video-link-button"
@@ -1032,7 +1044,7 @@ function Podcast() {
                                 </button>
                               </div>
                               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                {aiToolsLinks.map((link, linkIndex) => (
+                                {(index === 1 ? aiToolsLinks : emailDeliverabilityLinks).map((link, linkIndex) => (
                                   <a
                                     key={linkIndex}
                                     href={link.url}
@@ -1294,28 +1306,61 @@ function Podcast() {
             style={{
               flex: '1 1 50%',
               maxWidth: '420px',
+              width: '100%',
+              aspectRatio: '16 / 9',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              borderRadius: '16px',
-              padding: '8px',
-              background: 'linear-gradient(135deg, rgba(16, 28, 38, 0.9) 0%, rgba(23, 45, 62, 0.9) 100%)',
-              border: '1px solid rgba(54, 255, 149, 0.5)',
-              boxShadow: '0 10px 40px rgba(54, 255, 149, 0.3), 0 0 60px rgba(11, 191, 219, 0.2)'
+              position: 'relative',
+              borderRadius: '0',
+              padding: '0',
+              background: 'transparent',
+              border: 'none',
+              boxShadow: 'none',
+              overflow: 'hidden'
             }}
           >
-            <img 
-              src="/baibimage.png" 
-              alt="BAIB" 
-              style={{ 
-                maxWidth: '100%',
-                width: '100%',
-                height: 'auto',
-                display: 'block',
-                objectFit: 'contain',
-                borderRadius: '8px'
-              }} 
-            />
+            {isBottomVideoPlaying ? (
+              <iframe
+                src="https://www.youtube.com/embed/StFLNRmH7XQ?autoplay=1&rel=0&enablejsapi=1"
+                title="Welcome to BetterAiBots Podcast"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  border: 'none', 
+                  position: 'absolute', 
+                  top: 0, 
+                  left: 0,
+                  borderRadius: '16px'
+                }}
+              ></iframe>
+            ) : (
+              <div 
+                className="video-thumbnail"
+                onClick={handleBottomImageClick}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'relative',
+                  cursor: 'pointer'
+                }}
+              >
+                <img 
+                  src={baiblive3} 
+                  alt="BAIB" 
+                  style={{ 
+                    width: '100%',
+                    height: '100%',
+                    display: 'block',
+                    objectFit: 'cover',
+                    borderRadius: '16px'
+                  }} 
+                />
+                <div className="video-play-overlay"></div>
+              </div>
+            )}
           </div>
         </div>
 
