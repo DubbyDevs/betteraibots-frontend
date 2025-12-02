@@ -161,6 +161,19 @@ function Podcast() {
 
   // Bottom video removed - no longer needed
 
+  // Helper function to generate slug from video title
+  const getVideoSlug = (video) => {
+    const slugMap = {
+      'O9xN3anQKbM': 'ai-companions-why-20-million-people-are-choosing-digital-love',
+      'PbanVBegAlk': '10-ai-tools-to-give-you-leverage-to-run-everything-alone',
+      'ytCyZ3LeXJ4': 'how-to-fix-email-deliverability',
+      'Kv-JFSjQsRs': 'why-small-businesses-are-beating-enterprise',
+      'tvU6VpFxl0c': 'the-ai-home-office-gold-rush-10-income-streams-for-you',
+      'bou2k-TXtvs': 'ai-chip-wars-the-battle-for-control-in-tech'
+    };
+    return slugMap[video.id] || null;
+  };
+
   // Extract video ID from YouTube URL or use direct ID
   const getVideoId = (video) => {
     if (video.id) return video.id;
@@ -380,27 +393,40 @@ function Podcast() {
         <meta name="twitter:image" content="https://betteraibots.com/podcastimage.png" />
         <meta name="twitter:image:alt" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
         
-        {/* Structured Data for VideoObject */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "VideoObject",
-            "name": "BetterAiBots Podcast",
-            "description": "Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions and stay ahead of the AI revolution.",
-            "thumbnailUrl": "https://betteraibots.com/betteraibotslive.webp",
-            "uploadDate": "2025-11-20",
-            "contentUrl": "https://betteraibots.com/Podcast",
-            "embedUrl": "https://betteraibots.com/Podcast",
-            "publisher": {
-              "@type": "Organization",
-              "name": "BetterAiBots",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://betteraibots.com/betteraibotsglowlogo8.png"
-              }
-            }
-          })}
-        </script>
+        {/* Structured Data for VideoObjects - Individual videos for watch page indexing */}
+        {youtubeVideos.slice(0, 6).map((video, index) => {
+          const thumbnailUrl = video.thumbnail 
+            ? (typeof video.thumbnail === 'string' 
+                ? (video.thumbnail.startsWith('http') 
+                    ? video.thumbnail 
+                    : `https://betteraibots.com${video.thumbnail}`)
+                : `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`)
+            : `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
+          
+          return (
+            <script key={index} type="application/ld+json">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "VideoObject",
+                "name": video.title,
+                "description": video.description,
+                "thumbnailUrl": thumbnailUrl,
+                "uploadDate": "2025-11-20",
+                "contentUrl": `https://www.youtube.com/watch?v=${video.id}`,
+                "embedUrl": `https://www.youtube.com/embed/${video.id}`,
+                "duration": "PT10M",
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "BetterAiBots",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://betteraibots.com/betteraibotsglowlogo8.png"
+                  }
+                }
+              })}
+            </script>
+          );
+        })}
         
         {/* Breadcrumb Structured Data */}
         <script type="application/ld+json">
@@ -1105,106 +1131,39 @@ function Podcast() {
                       >
                         <span>⛶</span> Expand
                       </button>
-                      {index === 1 && (
-                        <>
-                          <button
-                            className="video-link-button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setShowInfoDropdown(prev => ({
-                                ...prev,
-                                [index]: !prev[index]
-                              }));
-                              if (showLinksDropdown[index]) {
-                                setShowLinksDropdown(prev => ({
-                                  ...prev,
-                                  [index]: false
-                                }));
-                              }
-                            }}
-                            style={{
-                              background: 'transparent',
-                              border: '1px solid rgba(54, 255, 149, 0.5)',
-                              color: '#36ff95',
-                              padding: '8px 16px',
-                              borderRadius: '6px',
-                              cursor: 'pointer',
-                              fontSize: '14px',
-                              fontFamily: 'inherit',
-                              transition: 'all 0.3s ease'
-                            }}
-                            onMouseEnter={(e) => {
-                              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
-                              e.target.style.borderColor = '#36ff95';
-                            }}
-                            onMouseLeave={(e) => {
-                              e.target.style.background = 'transparent';
-                              e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
-                            }}
-                          >
-                            Info
-                          </button>
-                          {showInfoDropdown[index] && (
-                            <div style={{
-                              position: 'absolute',
-                              top: '100%',
-                              left: '50%',
-                              transform: 'translateX(-50%)',
-                              marginTop: '10px',
-                              background: 'rgba(16, 28, 38, 0.95)',
-                              border: '1px solid rgba(54, 255, 149, 0.5)',
-                              borderRadius: '8px',
-                              padding: '15px',
-                              minWidth: '250px',
-                              maxWidth: '400px',
-                              zIndex: 1000,
-                              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
-                            }}>
-                              <div style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                marginBottom: '10px',
-                                paddingBottom: '10px',
-                                borderBottom: '1px solid rgba(54, 255, 149, 0.2)'
-                              }}>
-                                <h3 style={{ margin: 0, color: '#36ff95', fontSize: '16px' }}>About This Episode</h3>
-                                <button
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    setShowInfoDropdown(prev => ({
-                                      ...prev,
-                                      [index]: false
-                                    }));
-                                  }}
-                                  style={{
-                                    background: 'transparent',
-                                    border: 'none',
-                                    color: '#36ff95',
-                                    cursor: 'pointer',
-                                    fontSize: '18px',
-                                    padding: '0',
-                                    width: '24px',
-                                    height: '24px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                  }}
-                                >
-                                  ×
-                                </button>
-                              </div>
-                              <p style={{
-                                margin: 0,
-                                color: '#d1efe7',
-                                lineHeight: '1.6',
-                                fontSize: '14px'
-                              }}>
-                                {video.description}
-                              </p>
-                            </div>
-                          )}
-                        </>
+                      {getVideoSlug(video) && (
+                        <Link
+                          to={`/watch/${getVideoSlug(video)}`}
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            padding: '10px 20px',
+                            background: 'transparent',
+                            color: '#36ff95',
+                            border: '1px solid rgba(54, 255, 149, 0.5)',
+                            borderRadius: '8px',
+                            fontWeight: 600,
+                            fontSize: '0.95rem',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease',
+                            textDecoration: 'none',
+                            boxShadow: '0 4px 15px rgba(54, 255, 149, 0.2)'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                            e.target.style.borderColor = '#36ff95';
+                            e.target.style.boxShadow = '0 6px 20px rgba(54, 255, 149, 0.4)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.background = 'transparent';
+                            e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                            e.target.style.boxShadow = '0 4px 15px rgba(54, 255, 149, 0.2)';
+                          }}
+                        >
+                          Watch Page
+                        </Link>
                       )}
                     </div>
                   )}
@@ -1321,6 +1280,40 @@ function Podcast() {
                       >
                         <span>⛶</span> Expand
                       </button>
+                      {getVideoSlug(video) && (
+                        <Link
+                          to={`/watch/${getVideoSlug(video)}`}
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            padding: '10px 20px',
+                            background: 'transparent',
+                            color: '#36ff95',
+                            border: '1px solid rgba(54, 255, 149, 0.5)',
+                            borderRadius: '8px',
+                            fontWeight: 600,
+                            fontSize: '0.95rem',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease',
+                            textDecoration: 'none',
+                            boxShadow: '0 4px 15px rgba(54, 255, 149, 0.2)'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                            e.target.style.borderColor = '#36ff95';
+                            e.target.style.boxShadow = '0 6px 20px rgba(54, 255, 149, 0.4)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.background = 'transparent';
+                            e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                            e.target.style.boxShadow = '0 4px 15px rgba(54, 255, 149, 0.2)';
+                          }}
+                        >
+                          Watch Page
+                        </Link>
+                      )}
                     </div>
                   )}
                 </div>

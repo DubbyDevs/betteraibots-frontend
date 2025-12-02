@@ -80,6 +80,79 @@
     </image:image>
   </url>
   
+  <!-- Individual Video Watch Pages -->
+  <url>
+    <loc>https://betteraibots.com/watch/ai-companions-why-20-million-people-are-choosing-digital-love</loc>
+    <lastmod>2025-12-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/liveslider/baiblive6.jpg</image:loc>
+      <image:title>AI Companions - Why 20 Million People Are Choosing Digital Love</image:title>
+      <image:caption>In this episode, we dive into the uncomfortable reality of AI companions: why millions are choosing digital intimacy over human connection, what this reveals about our loneliness epidemic, and the psychological truths we're being forced to confront.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/watch/10-ai-tools-to-give-you-leverage-to-run-everything-alone</loc>
+    <lastmod>2025-12-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/betteraibotslive ep155 copy55.jpg</image:loc>
+      <image:title>10 AI Tools to give YOU leverage to run EVERYTHING ALONE!</image:title>
+      <image:caption>In this episode, we break down 10 game-changing AI tools that transform how solo entrepreneurs operate. From customer service to sales, operations to marketing—learn how to build your own AI productivity stack and become a true one-person powerhouse.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/watch/how-to-fix-email-deliverability</loc>
+    <lastmod>2025-12-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/warmyio2.jpg</image:loc>
+      <image:title>How to Fix Email Deliverability</image:title>
+      <image:caption>In this episode, we dive deep into the invisible infrastructure of email trust and explore Warmy.io—an AI-powered tool that's fighting what they call "the spam folder rebellion." Meet Adeline, the AI assistant that systematically builds your domain's reputation by answering the five critical questions every email algorithm asks before letting you into the inbox.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/watch/why-small-businesses-are-beating-enterprise</loc>
+    <lastmod>2025-12-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/BetterAiBots Small Business Tools.jpg</image:loc>
+      <image:title>Why Small Businesses Are Beating Enterprise</image:title>
+      <image:caption>For 30 years, big corporations held all the cards — massive budgets, huge IT teams, custom tech fortresses. Small businesses were always playing catch-up. But with generative AI, that pattern is being blown apart.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/watch/the-ai-home-office-gold-rush-10-income-streams-for-you</loc>
+    <lastmod>2025-12-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/airemotejobs.jpg</image:loc>
+      <image:title>The AI Home Office GOLD RUSH: 10 Income Streams For You!</image:title>
+      <image:caption>The AI Home Office Gold Rush is happening RIGHT NOW. While most people are still wondering if AI will replace their jobs, smart entrepreneurs are already using it to multiply their output by 10x—sometimes 100x.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/watch/ai-chip-wars-the-battle-for-control-in-tech</loc>
+    <lastmod>2025-12-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/aichipwars nvidia amd.jpg</image:loc>
+      <image:title>AI Chip WARS! The battle for control in tech</image:title>
+      <image:caption>The AI Chip Wars Heat Up: NVIDIA's New Challenger from an Unexpected Source</image:caption>
+    </image:image>
+  </url>
+  
   <!-- Legal Page -->
   <url>
     <loc>https://betteraibots.com/legal</loc>

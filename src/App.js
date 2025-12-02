@@ -93,6 +93,7 @@ import AdvancedQuiz from "./components/AdvancedQuiz";
 import LearnLevelSelector from "./components/LearnLevelSelector";
 import Podcast from "./Podcast";
 import About from "./About";
+import VideoWatchPage from "./VideoWatchPage";
 
 
 
@@ -4212,6 +4213,7 @@ function App() {
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/apps" element={<Apps />} />
         <Route path="/Podcast" element={<Podcast />} />
+        <Route path="/watch/:slug" element={<VideoWatchPage />} />
         <Route path="/:cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />
         <Route path="/beginner-quiz" element={<AIQuiz />} />
         <Route path="/intermediate-quiz" element={<IntermediateQuiz />} />
