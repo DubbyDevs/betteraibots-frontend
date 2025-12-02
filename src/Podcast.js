@@ -114,7 +114,7 @@ function Podcast() {
     {
       id: 'ytCyZ3LeXJ4',
       title: 'How to Fix Email Deliverability',
-      description: 'In this episode, we dive deep into the invisible infrastructure of email trust and explore Warmy.io—an AI-powered tool that\'s fighting what they call \"the spam folder rebellion.\" Meet Adeline, the AI assistant that systematically builds your domain\'s reputation by answering the five critical questions every email algorithm asks before letting you into the inbox.',
+      description: 'In this episode, we dive deep into the invisible infrastructure of email trust and explore Warmy.io—an AI-powered tool that\'s fighting what they call "the spam folder rebellion." Meet Adeline, the AI assistant that systematically builds your domain\'s reputation by answering the five critical questions every email algorithm asks before letting you into the inbox.',
       thumbnail: warmyio2
     },
     {
