@@ -14,6 +14,8 @@ import baiblive8 from './assets/liveslider/baiblive8.jpg';
 import baiblive9 from './assets/liveslider/baiblive9.jpg';
 import baibview from './assets/baibview.mp4';
 import betteraibotsliveEp155Copy55 from './assets/betteraibotslive ep155 copy55.jpg';
+import smallBusinessTools from './assets/BetterAiBots Small Business Tools.jpg';
+import aichipwars from './assets/aichipwars nvidia amd.jpg';
 
 function Podcast() {
   const [playingVideoIndex, setPlayingVideoIndex] = useState(null);
@@ -118,6 +120,24 @@ function Podcast() {
       thumbnail: warmyio2
     },
     {
+      id: 'Kv-JFSjQsRs',
+      title: 'Why Small Businesses Are Beating Enterprise',
+      description: 'For 30 years, big corporations held all the cards — massive budgets, huge IT teams, custom tech fortresses. Small businesses were always playing catch-up.\n\nBut with generative AI, that pattern is being blown apart.\n\nIn this episode, we explore why small businesses are implementing AI at speeds their massive enterprise rivals simply can\'t match. We break down the structural reasons — speed, flexibility, clean data, and focus — and reveal why the biggest risk today isn\'t picking the wrong tool. It\'s waiting.',
+      thumbnail: smallBusinessTools
+    },
+    {
+      id: 'tvU6VpFxl0c',
+      title: 'The AI Home Office GOLD RUSH: 10 Income Streams For You!',
+      description: 'The AI Home Office Gold Rush is happening RIGHT NOW. While most people are still wondering if AI will replace their jobs, smart entrepreneurs are already using it to multiply their output by 10x—sometimes 100x.',
+      thumbnail: '/airemotejobs.jpg'
+    },
+    {
+      id: 'bou2k-TXtvs',
+      title: 'AI Chip WARS! The battle for control in tech',
+      description: 'The AI Chip Wars Heat Up: NVIDIA\'s New Challenger from an Unexpected Source\n\n→ https://betteraibots.com/news/ai-chip-wars-heat-up-nvidia-challenger-unexpected-source',
+      thumbnail: aichipwars
+    },
+    {
       id: 'JiF-eCQc_SM',
       title: 'AI News Roundup',
       description: 'Weekly roundup of the most important AI news'
@@ -174,7 +194,7 @@ function Podcast() {
 
   // Initialize YouTube API players for embedded iframes to enable getCurrentTime for expand functionality
   useEffect(() => {
-    if (playingVideoIndex !== null && playingVideoIndex !== undefined && playingVideoIndex < 3) {
+    if (playingVideoIndex !== null && playingVideoIndex !== undefined && playingVideoIndex <= 5) {
       const video = youtubeVideos[playingVideoIndex];
       if (!video) return;
       
@@ -1186,6 +1206,121 @@ function Podcast() {
                           )}
                         </>
                       )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Three Video Section - Side by Side */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '30px',
+          margin: '50px auto',
+          padding: '0 20px',
+          flexWrap: 'wrap',
+          maxWidth: '1400px'
+        }}>
+          {[3, 4, 5].map((videoIndex) => {
+            const video = youtubeVideos[videoIndex];
+            const videoId = getVideoId(video);
+            const thumbnail = getThumbnail(video);
+            const isPlaying = playingVideoIndex === videoIndex;
+            
+            return (
+              <div key={videoIndex} className="video-card" style={{
+                width: '100%',
+                maxWidth: '446px',
+                minWidth: '320px',
+                flex: '1 1 320px'
+              }}>
+                {isPlaying ? (
+                  <div className="video-embed-inline">
+                    <iframe
+                      id={`youtube-player-${videoIndex}`}
+                      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1${video.startTime ? `&start=${Math.floor(video.startTime)}` : ''}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      style={{ width: '100%', height: '100%', border: 'none', position: 'absolute', top: 0, left: 0 }}
+                    ></iframe>
+                  </div>
+                ) : (
+                  <div 
+                    className="video-thumbnail"
+                    onClick={() => handleVideoClick(videoIndex)}
+                  >
+                    {thumbnail && (
+                      <img
+                        src={thumbnail}
+                        alt={video.title}
+                        onError={(e) => {
+                          e.target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                        }}
+                      />
+                    )}
+                    <div className="video-play-overlay"></div>
+                  </div>
+                )}
+                <div className="video-info">
+                  <div className="video-title" style={{
+                    textAlign: isPlaying ? 'center' : 'left'
+                  }}>{video.title}</div>
+                  {!isPlaying && (
+                    <div className={`video-description-wrapper ${expandedDescriptions[videoIndex] ? 'expanded' : ''}`}>
+                      <div className={`video-description ${!expandedDescriptions[videoIndex] ? 'collapsed' : ''}`}>
+                        {video.description}
+                      </div>
+                      {video.description && video.description.length > 100 && !expandedDescriptions[videoIndex] && (
+                        <button
+                          className="read-more-link"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedDescriptions(prev => ({
+                              ...prev,
+                              [videoIndex]: !prev[videoIndex]
+                            }));
+                          }}
+                        >
+                          Read more
+                        </button>
+                      )}
+                      {video.description && video.description.length > 100 && expandedDescriptions[videoIndex] && (
+                        <button
+                          className="read-more-link"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedDescriptions(prev => ({
+                              ...prev,
+                              [videoIndex]: !prev[videoIndex]
+                            }));
+                          }}
+                        >
+                          Read less
+                        </button>
+                      )}
+                    </div>
+                  )}
+                  {isPlaying && (
+                    <div className="video-expand-container" style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '15px',
+                      flexWrap: 'wrap'
+                    }}>
+                      <button
+                        className="video-expand-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleExpand(video, videoIndex);
+                        }}
+                      >
+                        <span>⛶</span> Expand
+                      </button>
                     </div>
                   )}
                 </div>
