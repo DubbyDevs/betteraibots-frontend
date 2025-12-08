@@ -25,6 +25,19 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- The Death of the Resume - Featured Article -->
+  <url>
+    <loc>https://betteraibots.com/news/the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/aihiring.jpg</image:loc>
+      <image:title>The Death of the Resume: Why Companies Are Using AI to Hire Without Ever Reading Your CV</image:title>
+      <image:caption>Your carefully crafted resume might never be seen by human eyes—and the algorithm deciding your fate is looking for things you never knew mattered.</image:caption>
+    </image:image>
+  </url>
+  
   <!-- Learn Section -->
   <url>
     <loc>https://betteraibots.com/learn</loc>
@@ -165,7 +178,7 @@
   <!-- The Rise of AI Companions - Featured Article -->
   <url>
     <loc>https://betteraibots.com/news/the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily</loc>
-    <lastmod>2025-11-20</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>

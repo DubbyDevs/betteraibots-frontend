@@ -205,6 +205,7 @@ function News({ searchValue }) {
   // Helper function to check if an article has a video
   const articleHasVideo = (articleSlug) => {
     const articlesWithVideos = [
+      "the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv",
       "the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily",
       "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025",
       "ai-remote-jobs-home-office-gold-rush-2025",
@@ -219,7 +220,8 @@ function News({ searchValue }) {
   // Helper function to check if an article has audio
   const articleHasAudio = (articleSlug) => {
     const articlesWithAudio = [
-      "how-to-use-ai-to-learn-anything-10x-faster"
+      "how-to-use-ai-to-learn-anything-10x-faster",
+      "ai-virtual-assistant-how-to-automate-tasks-2025"
     ];
     return articlesWithAudio.includes(articleSlug);
   };
@@ -377,6 +379,25 @@ function News({ searchValue }) {
               <p className="featured-news-excerpt">{article.excerpt}</p>
               <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap" }}>
                 <Link to={`/news/${article.slug}`} className="read-more-btn">Read Full Article</Link>
+                {articleHasAudio(article.slug) && (
+                  <Link 
+                    to={`/news/${article.slug}#play-audio`} 
+                    className="read-more-btn"
+                    style={{
+                      background: "linear-gradient(135deg, #0bbfdb 0%, #36ff95 100%)",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: isNarrowScreen ? "0" : "8px"
+                    }}
+                  >
+                    {!isNarrowScreen && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "4px" }}>
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    )}
+                    {isNarrowScreen ? "Play" : "Play Audio"}
+                  </Link>
+                )}
                 {articleHasVideo(article.slug) && (
                   <Link 
                     to={`/news/${article.slug}#play-video`} 
@@ -4976,6 +4997,7 @@ function NewsArticle() {
         <meta name="article:section" content={article.category} />
         <meta name="article:tag" content={(() => {
           const tagMap = {
+            "the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv": "AI, Artificial Intelligence, AI Recruiting, AI Hiring, Applicant Tracking System, ATS, AI Job Screening, AI Video Interviews, HireVue, Pymetrics, AI Bias in Hiring, Automated Hiring, AI Recruitment, Job Search, Career, BetterAiBots",
             "the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily": "AI, Artificial Intelligence, AI Companions, Chatbots, AI Relationships, Character.AI, Replika, AI Romance, Digital Intimacy, AI Psychology, Human-AI Interaction, AI Society, BetterAiBots",
             "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
             "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots",
@@ -5014,6 +5036,7 @@ function NewsArticle() {
             },
             "keywords": (() => {
               const keywordMap = {
+                "the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv": "AI, Artificial Intelligence, AI Recruiting, AI Hiring, Applicant Tracking System, ATS, AI Job Screening, AI Video Interviews, HireVue, Pymetrics, AI Bias in Hiring, Automated Hiring, AI Recruitment, Job Search, Career, Resume Screening, AI Assessment, BetterAiBots",
                 "sora-2-physics-reality-ai-video-revolution-2025": "AI, Artificial Intelligence, Sora 2, OpenAI, AI Video Generation, Physics Simulation, AI Video Editing, Video AI, BetterAiBots",
                 "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
                 "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots",
@@ -5167,6 +5190,8 @@ function NewsArticle() {
         <div className="article-content" dangerouslySetInnerHTML={{ 
           __html: article.slug === 'how-to-use-ai-to-learn-anything-10x-faster' 
             ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Learn_Ten_Times_Faster_Using_AI_Playbooks.m4a'))
+            : article.slug === 'ai-virtual-assistant-how-to-automate-tasks-2025'
+            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/ai virtual assistant.mp3'))
             : article.content 
         }} />
         
