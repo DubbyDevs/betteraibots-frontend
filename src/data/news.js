@@ -2657,6 +2657,18 @@ export const newsArticles = [
     category: "AI & Technology",
     featured: false,
     content: `
+      <div id="audio-player-container" style="position: relative; padding: 30px; background: rgba(54, 255, 149, 0.1); border-radius: 12px; margin: 0 0 30px 0; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2); border: 1px solid rgba(54, 255, 149, 0.3);">
+        <audio 
+          id="article-audio-player"
+          controls 
+          style="width: 100%; max-width: 100%; outline: none;"
+          preload="metadata"
+        >
+          <source src="AUDIO_SOURCE_PLACEHOLDER" type="audio/mp4" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
       <h1>Your Fridge Is Watching You (And That's Just the Beginning): The AI Revolution Coming to Everything You Own</h1>
 
       <p>Forget the humanoid machines straight out of sci-fi movies. The real AI revolution happening right now is quieter, stranger, and already sitting on your kitchen counter. It's in your watch. Your doorbell. That vacuum humming across your floor while you sleep. The physical world isn't just getting "smart" anymore—it's getting intelligent. And the difference between those two things? That's what's about to change everything.</p>

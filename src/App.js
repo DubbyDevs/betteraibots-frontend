@@ -222,7 +222,8 @@ function News({ searchValue }) {
     const articlesWithAudio = [
       "how-to-use-ai-to-learn-anything-10x-faster",
       "ai-virtual-assistant-how-to-automate-tasks-2025",
-      "sora-2-physics-reality-ai-video-revolution-2025"
+      "sora-2-physics-reality-ai-video-revolution-2025",
+      "ai-robotics-revolution-everything-you-own-2025"
     ];
     return articlesWithAudio.includes(articleSlug);
   };
@@ -5195,6 +5196,8 @@ function NewsArticle() {
             ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/ai virtual assistant.mp3'))
             : article.slug === 'sora-2-physics-reality-ai-video-revolution-2025'
             ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Sora2 physics champ of ai video.mp3'))
+            : article.slug === 'ai-robotics-revolution-everything-you-own-2025'
+            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Anticipatory_AI_Is_Watching_You_Everywhere.m4a'))
             : article.content 
         }} />
         
