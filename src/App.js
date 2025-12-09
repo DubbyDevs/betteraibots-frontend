@@ -4087,6 +4087,8 @@ function App() {
     setSearchValue("");
   }, [location.pathname]);
 
+  const isLearnPage = location.pathname.startsWith('/learn');
+
   return (
     <>
     <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
@@ -4246,7 +4248,7 @@ function App() {
         <Route path="/moderation" element={<Moderation approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <div style={{ marginTop: '60px' }}>
+      <div style={{ marginTop: isLearnPage ? 0 : '60px' }}>
       <FooterWithWallets showPWAInstallButton={false} />
       </div>
       

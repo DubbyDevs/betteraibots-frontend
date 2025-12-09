@@ -384,7 +384,7 @@ const LearnLevelSelector = () => {
   };
 
   return (
-    <>
+    <div>
       <Helmet>
         <title>Choose Your AI Learning Path | BetterAiBots.com</title>
         <meta name="description" content="Select your AI learning level: Beginner, Intermediate, or Advanced. Start your journey to AI mastery with our structured learning paths." />
@@ -483,12 +483,12 @@ const LearnLevelSelector = () => {
                 }}
               >
                 {/* Content Container - Flex to fill space */}
-                <div style={{ 
+                                 <div style={{
                   flex: '1', 
-                  display: 'flex', 
+                   display: 'flex',
                   flexDirection: 'column', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
+                   alignItems: 'center',
+                   justifyContent: 'center',
                   width: '100%',
                   overflow: 'hidden'
                 }}>
@@ -501,21 +501,21 @@ const LearnLevelSelector = () => {
                     justifyContent: 'center',
                     marginBottom: isVerySmall ? '8px' : (is360px ? '10px' : (is390px ? '12px' : (isMobile ? '12px' : '15px'))),
                     flexShrink: 0
-                  }}>
-                    <img 
-                      src={level.id === 'beginner' ? '/beginnerbadge.webp' : level.id === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
-                      alt={`${level.title} badge`}
-                      style={{
-                        width: '100%',
-                        height: '100%',
+                 }}>
+                  <img 
+                    src={level.id === 'beginner' ? '/beginnerbadge.webp' : level.id === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
+                    alt={`${level.title} badge`}
+                    style={{
+                      width: '100%',
+                      height: '100%',
                         objectFit: 'contain',
                         aspectRatio: '1 / 1'
-                      }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                  </div>
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                </div>
 
                   {/* Title and Difficulty */}
                   <div style={{
@@ -716,7 +716,6 @@ const LearnLevelSelector = () => {
               >
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
                   borderRadius: "16px",
                   padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                   textAlign: "center",
@@ -726,56 +725,68 @@ const LearnLevelSelector = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: isMobile ? "flex-start" : "space-between",
-                  aspectRatio: isMobile ? "none" : "16 / 9",
                   minHeight: isMobile ? "auto" : "auto",
                   width: "100%",
                   boxSizing: "border-box"
                 }}>
                   <div style={{ 
-                    display: "flex", 
-                    flexDirection: "column", 
-                    alignItems: "center", 
-                    justifyContent: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
                     flex: isMobile ? "0 1 auto" : "1",
                     width: "100%",
                     gap: isMobile ? "10px" : "0"
                   }}>
-                    <img
-                      src="/aifordummies.png"
-                      alt="AI for Dummies Guide"
-                      style={{
-                        width: isVerySmall ? "50px" : (is360px ? "60px" : (is390px ? "70px" : (isMobile ? "80px" : "120px"))),
-                        height: "auto",
-                        aspectRatio: "1 / 1",
-                        objectFit: "contain",
-                        borderRadius: "12px",
-                        marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px"))),
-                        flexShrink: 0
-                      }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                    <h3 style={{
-                      color: "#36ff95",
+                    <div style={{
+                      border: "2px solid #36ff95",
+                      borderRadius: "12px",
+                      padding: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px"))),
+                      aspectRatio: "1 / 1",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: isVerySmall ? "58px" : (is360px ? "70px" : (is390px ? "82px" : (isMobile ? "92px" : "126px"))),
+                      height: "auto",
+                      boxSizing: "border-box",
+                      flexShrink: 0,
+                      marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px")))
+                }}>
+                  <img
+                    src="/aifordummies.png"
+                    alt="AI for Dummies Guide"
+                    style={{
+                          width: "100%",
+                          height: "100%",
+                          aspectRatio: "1 / 1",
+                      objectFit: "contain",
+                          borderRadius: "8px"
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                    </div>
+                  <h3 style={{
+                    color: "#36ff95",
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
-                      fontWeight: 600,
+                    fontWeight: 600,
                       margin: "0 0 4px 0",
                       textShadow: "0 0 8px #36ff9544",
                       lineHeight: "1.2"
-                    }}>
-                      AI for Dummies
-                    </h3>
-                    <p style={{
-                      color: "#b2ffe0",
+                  }}>
+                    AI for Dummies
+                  </h3>
+                  <p style={{
+                    color: "#b2ffe0",
                       fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
                       margin: "0",
                       lineHeight: "1.4",
                       textAlign: "center",
                       width: "100%"
-                    }}>
-                      Super simple guide to getting started with AI
-                    </p>
+                  }}>
+                    Super simple guide to getting started with AI
+                  </p>
                   </div>
                 </div>
               </div>
@@ -797,7 +808,6 @@ const LearnLevelSelector = () => {
               >
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
                   borderRadius: "16px",
                   padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                   textAlign: "center",
@@ -807,56 +817,68 @@ const LearnLevelSelector = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: isMobile ? "flex-start" : "space-between",
-                  aspectRatio: isMobile ? "none" : "16 / 9",
                   minHeight: isMobile ? "auto" : "auto",
                   width: "100%",
                   boxSizing: "border-box"
                 }}>
                   <div style={{ 
-                    display: "flex", 
-                    flexDirection: "column", 
-                    alignItems: "center", 
-                    justifyContent: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
                     flex: isMobile ? "0 1 auto" : "1",
                     width: "100%",
                     gap: isMobile ? "10px" : "0"
                   }}>
-                    <img
-                      src="/begguide.png"
-                      alt="Beginner AI Guide"
-                      style={{
-                        width: isVerySmall ? "50px" : (is360px ? "60px" : (is390px ? "70px" : (isMobile ? "80px" : "120px"))),
-                        height: "auto",
-                        aspectRatio: "1 / 1",
-                        objectFit: "contain",
-                        borderRadius: "12px",
-                        marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px"))),
-                        flexShrink: 0
-                      }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                    <h3 style={{
-                      color: "#36ff95",
+                    <div style={{
+                      border: "2px solid #36ff95",
+                      borderRadius: "12px",
+                      padding: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px"))),
+                      aspectRatio: "1 / 1",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: isVerySmall ? "58px" : (is360px ? "70px" : (is390px ? "82px" : (isMobile ? "92px" : "126px"))),
+                      height: "auto",
+                      boxSizing: "border-box",
+                      flexShrink: 0,
+                      marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px")))
+                }}>
+                  <img
+                    src="/begguide.png"
+                    alt="Beginner AI Guide"
+                    style={{
+                          width: "100%",
+                          height: "100%",
+                          aspectRatio: "1 / 1",
+                      objectFit: "contain",
+                          borderRadius: "8px"
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                    </div>
+                  <h3 style={{
+                    color: "#36ff95",
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
-                      fontWeight: 600,
+                    fontWeight: 600,
                       margin: "0 0 4px 0",
                       textShadow: "0 0 8px #36ff9544",
                       lineHeight: "1.2"
-                    }}>
-                      Beginner Guide
-                    </h3>
-                    <p style={{
-                      color: "#b2ffe0",
+                  }}>
+                    Beginner Guide
+                  </h3>
+                  <p style={{
+                    color: "#b2ffe0",
                       fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
                       margin: "0",
                       lineHeight: "1.4",
                       textAlign: "center",
                       width: "100%"
-                    }}>
-                      Master the fundamentals of AI
-                    </p>
+                  }}>
+                    Master the fundamentals of AI
+                  </p>
                   </div>
                 </div>
               </div>
@@ -878,7 +900,6 @@ const LearnLevelSelector = () => {
               >
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
                   borderRadius: "16px",
                   padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                   textAlign: "center",
@@ -888,56 +909,68 @@ const LearnLevelSelector = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: isMobile ? "flex-start" : "space-between",
-                  aspectRatio: isMobile ? "none" : "16 / 9",
                   minHeight: isMobile ? "auto" : "auto",
                   width: "100%",
                   boxSizing: "border-box"
                 }}>
                   <div style={{ 
-                    display: "flex", 
-                    flexDirection: "column", 
-                    alignItems: "center", 
-                    justifyContent: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
                     flex: isMobile ? "0 1 auto" : "1",
                     width: "100%",
                     gap: isMobile ? "10px" : "0"
                   }}>
-                    <img
-                      src="/intguide.png"
-                      alt="Intermediate AI Guide"
-                      style={{
-                        width: isVerySmall ? "50px" : (is360px ? "60px" : (is390px ? "70px" : (isMobile ? "80px" : "120px"))),
-                        height: "auto",
-                        aspectRatio: "1 / 1",
-                        objectFit: "contain",
-                        borderRadius: "12px",
-                        marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px"))),
-                        flexShrink: 0
-                      }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                    <h3 style={{
-                      color: "#36ff95",
+                    <div style={{
+                      border: "2px solid #36ff95",
+                      borderRadius: "12px",
+                      padding: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px"))),
+                      aspectRatio: "1 / 1",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: isVerySmall ? "58px" : (is360px ? "70px" : (is390px ? "82px" : (isMobile ? "92px" : "126px"))),
+                      height: "auto",
+                      boxSizing: "border-box",
+                      flexShrink: 0,
+                      marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px")))
+                }}>
+                  <img
+                    src="/intguide.png"
+                    alt="Intermediate AI Guide"
+                    style={{
+                          width: "100%",
+                          height: "100%",
+                          aspectRatio: "1 / 1",
+                      objectFit: "contain",
+                          borderRadius: "8px"
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                    </div>
+                  <h3 style={{
+                    color: "#36ff95",
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
-                      fontWeight: 600,
+                    fontWeight: 600,
                       margin: "0 0 4px 0",
                       textShadow: "0 0 8px #36ff9544",
                       lineHeight: "1.2"
-                    }}>
-                      Intermediate Guide
-                    </h3>
-                    <p style={{
-                      color: "#b2ffe0",
+                  }}>
+                    Intermediate Guide
+                  </h3>
+                  <p style={{
+                    color: "#b2ffe0",
                       fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
                       margin: "0",
                       lineHeight: "1.4",
                       textAlign: "center",
                       width: "100%"
-                    }}>
-                      Dive deeper into AI applications
-                    </p>
+                  }}>
+                    Dive deeper into AI applications
+                  </p>
                   </div>
                 </div>
               </div>
@@ -959,7 +992,6 @@ const LearnLevelSelector = () => {
               >
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
                   borderRadius: "16px",
                   padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                   textAlign: "center",
@@ -969,48 +1001,60 @@ const LearnLevelSelector = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: isMobile ? "flex-start" : "space-between",
-                  aspectRatio: isMobile ? "none" : "16 / 9",
                   minHeight: isMobile ? "auto" : "auto",
                   width: "100%",
                   boxSizing: "border-box"
                 }}>
                   <div style={{ 
-                    display: "flex", 
-                    flexDirection: "column", 
-                    alignItems: "center", 
-                    justifyContent: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
                     flex: isMobile ? "0 1 auto" : "1",
                     width: "100%",
                     gap: isMobile ? "10px" : "0"
                   }}>
-                    <img
-                      src="/advguide.png"
-                      alt="Advanced AI Guide"
-                      style={{
-                        width: isVerySmall ? "50px" : (is360px ? "60px" : (is390px ? "70px" : (isMobile ? "80px" : "120px"))),
-                        height: "auto",
-                        aspectRatio: "1 / 1",
-                        objectFit: "contain",
-                        borderRadius: "12px",
-                        marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px"))),
-                        flexShrink: 0
-                      }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                    <h3 style={{
-                      color: "#36ff95",
+                    <div style={{
+                      border: "2px solid #36ff95",
+                      borderRadius: "12px",
+                      padding: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px"))),
+                      aspectRatio: "1 / 1",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: isVerySmall ? "58px" : (is360px ? "70px" : (is390px ? "82px" : (isMobile ? "92px" : "126px"))),
+                      height: "auto",
+                      boxSizing: "border-box",
+                      flexShrink: 0,
+                      marginBottom: isMobile ? "0" : (isVerySmall ? "6px" : (is360px ? "8px" : (is390px ? "10px" : "12px")))
+                }}>
+                  <img
+                    src="/advguide.png"
+                    alt="Advanced AI Guide"
+                    style={{
+                          width: "100%",
+                          height: "100%",
+                          aspectRatio: "1 / 1",
+                      objectFit: "contain",
+                          borderRadius: "8px"
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                    </div>
+                  <h3 style={{
+                    color: "#36ff95",
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
-                      fontWeight: 600,
+                    fontWeight: 600,
                       margin: "0 0 4px 0",
                       textShadow: "0 0 8px #36ff9544",
                       lineHeight: "1.2"
-                    }}>
-                      Advanced Guide
-                    </h3>
-                    <p style={{
-                      color: "#b2ffe0",
+                  }}>
+                    Advanced Guide
+                  </h3>
+                  <p style={{
+                    color: "#b2ffe0",
                       fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
                       margin: "0",
                       lineHeight: "1.4",
@@ -1025,8 +1069,8 @@ const LearnLevelSelector = () => {
             </div>
           </div>
 
-                     {/* APP SPOTLIGHT SECTION */}
-           <div style={{
+          {/* APP SPOTLIGHT SECTION */}
+          <div style={{
              marginTop: isVerySmall ? "70px" : (is360px ? "80px" : (is390px ? "90px" : "100px")),
              marginBottom: isVerySmall ? "30px" : (is360px ? "32px" : (is390px ? "35px" : "40px")),
              width: "100%",
@@ -1049,62 +1093,56 @@ const LearnLevelSelector = () => {
                App Spotlight
              </h2>
              
-                                         {/* App Spotlight Cards Grid */}
-               <div style={{
+            {/* App Spotlight Cards Grid */}
+            <div style={{
                  display: "grid",
-                 gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(600px, 1fr))",
-                 gap: isVerySmall ? "16px" : (is360px ? "18px" : (is390px ? "20px" : (isMobile ? "20px" : "30px"))),
-                 maxWidth: "100%",
+                 gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(340px, 1fr))",
+                 gap: isVerySmall ? "16px" : (is360px ? "18px" : (is390px ? "20px" : (isMobile ? "20px" : "24px"))),
+                 maxWidth: "1400px",
                  margin: "0 auto",
-                 padding: isVerySmall ? "0 4px" : (is360px ? "0 6px" : (is390px ? "0 8px" : (isMobile ? "0 8px" : "0 40px"))),
+                 padding: isVerySmall ? "0 8px" : (is360px ? "0 10px" : (is390px ? "0 12px" : (isMobile ? "0 16px" : "0 24px"))),
                  width: "100%",
                  boxSizing: "border-box"
                }}>
                                {/* Museit.art Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                 <div style={{
-                   display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch",
-                   minHeight: isMobile ? "auto" : "auto"
-                 }}>
-                   <div style={{
-                     flex: isMobile ? "none" : "0 0 200px",
-                     width: isMobile ? "100%" : "auto",
-                     height: isMobile ? "auto" : "200px",
-                     minHeight: isMobile ? "200px" : "auto",
-                     position: "relative",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                     borderTopLeftRadius: isMobile ? "14px" : "8px",
-                     borderTopRightRadius: isMobile ? "14px" : "8px",
-                     overflow: "hidden"
-                   }}>
-                     <img
+                <div style={{
+                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                  border: "2px solid #36ff95",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  boxShadow: "0 0 20px #36ff9544",
+                  transition: "transform 0.2s ease-in-out",
+                  width: "100%",
+                  maxWidth: "100%",
+                  display: "flex",
+                  flexDirection: "column"
+                }}
+                onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
+                >
+                  <div style={{
+                    flexShrink: 0,
+                    width: "100%",
+                    height: "220px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "rgba(54, 255, 149, 0.05)",
+                    border: "1px solid rgba(54, 255, 149, 0.2)",
+                    borderRadius: "14px",
+                    margin: "16px 16px 0 16px",
+                    padding: "10px",
+                    boxSizing: "border-box"
+                  }}>
+                      <img
                        src={musebrand}
                        alt="Museit.art - AI Art Creation Platform"
                        style={{
-                         maxWidth: "95%",
-                         maxHeight: "95%",
-                         objectFit: "contain",
-                         transform: isMobile ? "scale(1)" : "scale(1.2)"
+                         maxWidth: "200px",
+                         maxHeight: "200px",
+                         width: "auto",
+                         height: "auto",
+                         objectFit: "contain"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1113,12 +1151,11 @@ const LearnLevelSelector = () => {
                    </div>
                    <div style={{
                      flex: 1,
-                     padding: isMobile ? "16px" : "30px",
+                     padding: isMobile ? "16px" : "24px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
+                     justifyContent: "space-between",
+                     minWidth: 0
                    }}>
                      <div>
                        <h3 style={{
@@ -1240,59 +1277,47 @@ const LearnLevelSelector = () => {
                        </Link>
                      </div>
                    </div>
-                 </div>
                </div>
 
                                {/* NanoZ.fun Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                 <div style={{
-                   display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch",
-                   minHeight: isMobile ? "auto" : "auto"
-                 }}>
-                   <div style={{
-                     flex: isMobile ? "none" : "0 0 200px",
-                     width: isMobile ? "100%" : "200px",
-                     height: isMobile ? "auto" : "200px",
-                     minHeight: isMobile ? "200px" : "200px",
-                     maxWidth: isMobile ? "100%" : "200px",
-                     maxHeight: isMobile ? "auto" : "200px",
-                     position: "relative",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                     borderTopLeftRadius: isMobile ? "14px" : "8px",
-                     borderTopRightRadius: isMobile ? "14px" : "8px",
-                     overflow: "hidden"
-                   }}>
+                <div style={{
+                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                  border: "2px solid #36ff95",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  boxShadow: "0 0 20px #36ff9544",
+                  transition: "transform 0.2s ease-in-out",
+                  width: "100%",
+                  maxWidth: "100%",
+                  display: "flex",
+                  flexDirection: "column"
+                }}
+                onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
+                >
+                  <div style={{
+                    flexShrink: 0,
+                    width: "100%",
+                    height: "220px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "rgba(54, 255, 149, 0.05)",
+                    border: "1px solid rgba(54, 255, 149, 0.2)",
+                    borderRadius: "14px",
+                    margin: "16px 16px 0 16px",
+                    padding: "10px",
+                    boxSizing: "border-box"
+                  }}>
                      <img
                        src={nanozlogo}
                        alt="NanoZ.fun - AI Branding Platform"
                        style={{
-                         width: "100%",
-                         height: "100%",
-                         maxWidth: "100%",
-                         maxHeight: "100%",
-                         objectFit: "contain",
-                         padding: "10px",
-                         boxSizing: "border-box"
+                         maxWidth: "200px",
+                         maxHeight: "200px",
+                         width: "auto",
+                         height: "auto",
+                         objectFit: "contain"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1301,12 +1326,11 @@ const LearnLevelSelector = () => {
                    </div>
                    <div style={{
                      flex: 1,
-                     padding: isMobile ? "16px" : "30px",
+                     padding: isMobile ? "16px" : "24px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
+                     justifyContent: "space-between",
+                     minWidth: 0
                    }}>
                      <div>
                        <h3 style={{
@@ -1428,233 +1452,46 @@ const LearnLevelSelector = () => {
                        </Link>
                      </div>
                    </div>
-                 </div>
-               </div>
-
-                               {/* VEED Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                 <div style={{
-                   display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch",
-                   minHeight: isMobile ? "auto" : "auto"
-                 }}>
-                   <div style={{
-                     flex: isMobile ? "none" : "0 0 200px",
-                     width: isMobile ? "100%" : "auto",
-                     height: isMobile ? "auto" : "200px",
-                     minHeight: isMobile ? "200px" : "auto",
-                     position: "relative",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                     borderTopLeftRadius: isMobile ? "14px" : "8px",
-                     borderTopRightRadius: isMobile ? "14px" : "8px"
-                   }}>
-                     <img
-                       src="/veedreview.png"
-                       alt="VEED.io - Online Video Editor"
-                       style={{
-                         maxWidth: "95%",
-                         maxHeight: "95%",
-                         objectFit: "contain",
-                         transform: isMobile ? "scale(1)" : "scale(1.2)"
-                       }}
-                       onError={(e) => {
-                         e.target.style.display = 'none';
-                       }}
-                     />
-                   </div>
-                   <div style={{
-                     flex: 1,
-                     padding: isMobile ? "16px" : "30px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         VEED.io
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • Video Editing
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.85rem" : "0.95rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 15px 0"
-                       }}>
-                         Professional video editing made simple. Create stunning videos with AI-powered tools, automatic subtitles, and seamless collaboration features.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         gap: "8px",
-                         flexWrap: "wrap",
-                         marginBottom: "20px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
-                           AI-Powered
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
-                           Auto Subtitles
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
-                           Team Collaboration
-                         </span>
-                       </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://veed.cello.so/rwFO6zwGZh9"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try VEED Free
-                       </a>
-                       <Link
-                         to="/learn/veed-complete-guide"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                   </div>
-                 </div>
                </div>
 
                                {/* Reply.io Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                 <div style={{
-                   display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch",
-                   minHeight: isMobile ? "auto" : "auto"
-                 }}>
-                   <div style={{
-                     flex: isMobile ? "none" : "0 0 200px",
-                     width: isMobile ? "100%" : "auto",
-                     height: isMobile ? "auto" : "200px",
-                     minHeight: isMobile ? "200px" : "auto",
-                     position: "relative",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                     borderTopLeftRadius: isMobile ? "14px" : "8px",
-                     borderTopRightRadius: isMobile ? "14px" : "8px"
-                   }}>
+                <div style={{
+                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                  border: "2px solid #36ff95",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  boxShadow: "0 0 20px #36ff9544",
+                  transition: "transform 0.2s ease-in-out",
+                  width: "100%",
+                  maxWidth: "100%",
+                  display: "flex",
+                  flexDirection: "column"
+                }}
+                onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
+                >
+                  <div style={{
+                    flexShrink: 0,
+                    width: "100%",
+                    height: "220px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "rgba(54, 255, 149, 0.05)",
+                    border: "1px solid rgba(54, 255, 149, 0.2)",
+                    borderRadius: "14px",
+                    margin: "16px 16px 0 16px",
+                    padding: "10px",
+                    boxSizing: "border-box"
+                  }}>
                      <img
                        src="/replyio.png"
                        alt="Reply.io - AI Sales Automation Platform"
                        style={{
-                         maxWidth: "95%",
-                         maxHeight: "95%",
+                         maxWidth: "200px",
+                         maxHeight: "200px",
+                         width: "auto",
+                         height: "auto",
                          objectFit: "contain"
                        }}
                        onError={(e) => {
@@ -1664,12 +1501,11 @@ const LearnLevelSelector = () => {
                    </div>
                    <div style={{
                      flex: 1,
-                     padding: isMobile ? "16px" : "30px",
+                     padding: isMobile ? "16px" : "24px",
                      display: "flex",
                      flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
+                     justifyContent: "space-between",
+                     minWidth: 0
                    }}>
                      <div>
                        <h3 style={{
@@ -1765,2217 +1601,37 @@ const LearnLevelSelector = () => {
                        >
                          Try Reply.io Free
                        </a>
-                       <Link
-                         to="/learn/reply-io-complete-guide"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-                               {/* AiSDR Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                 <div style={{
-                   display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch",
-                   minHeight: isMobile ? "auto" : "auto"
-                 }}>
-                   <div style={{
-                     flex: isMobile ? "none" : "0 0 200px",
-                     width: isMobile ? "100%" : "auto",
-                     height: isMobile ? "auto" : "200px",
-                     minHeight: isMobile ? "200px" : "auto",
-                     position: "relative",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                     borderTopLeftRadius: isMobile ? "14px" : "8px",
-                     borderTopRightRadius: isMobile ? "14px" : "8px"
-                   }}>
-                     <img
-                       src="/aisdr.png"
-                       alt="AiSDR - AI Sales Development Platform"
-                       style={{
-                         maxWidth: "95%",
-                         maxHeight: "95%",
-                         objectFit: "contain"
-                       }}
-                       onError={(e) => {
-                         e.target.style.display = 'none';
-                       }}
-                     />
-                   </div>
-                   <div style={{
-                     flex: 1,
-                     padding: "24px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         AiSDR
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • Sales & AI
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         AI-powered sales development platform that books qualified meetings 24/7. Transform your pipeline with personalized outreach at scale.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           AI-Powered
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           10-Min Response
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           HubSpot Integration
-                         </span>
-                       </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://aisdr.com/?ref=betteraibots"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try AiSDR Now
-                       </a>
-                       <Link
-                         to="/learn/aisdr-complete-guide"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-                               {/* Miro Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                 <div style={{
-                   display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch",
-                   minHeight: isMobile ? "auto" : "auto"
-                 }}>
-                   <div style={{
-                     flex: isMobile ? "none" : "0 0 200px",
-                     width: isMobile ? "100%" : "auto",
-                     height: isMobile ? "auto" : "200px",
-                     minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                     position: "relative",
-                     borderTopLeftRadius: isMobile ? "14px" : "8px",
-                     borderTopRightRadius: isMobile ? "14px" : "8px"
-                   }}>
-                     <img
-                       src="/miro.png"
-                       alt="Miro - Visual Collaboration Platform"
-                       style={{
-                         maxWidth: "95%",
-                         maxHeight: "95%",
-                         objectFit: "contain"
-                       }}
-                       onError={(e) => {
-                         e.target.style.display = 'none';
-                       }}
-                     />
-                   </div>
-                   <div style={{
-                     flex: 1,
-                     padding: "24px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         Miro
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • Collaboration & Design
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         AI-powered collaboration platform with limitless canvas for teams to build, plan, and innovate together with real-time collaboration.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           AI-Powered
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           2,500+ Templates
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           Real-Time Collab
-                         </span>
-                       </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://ps.miro-affiliate.com/gwnvu4zj3r8r"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try Miro Now
-                       </a>
-                       <Link
-                         to="/learn/miro-complete-guide"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-                               {/* Capsule CRM Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                                   <div style={{
-                    display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "stretch"
-                  }}>
-                    <div style={{
-                      flex: isMobile ? "none" : "0 0 200px",
-                      width: isMobile ? "100%" : "auto",
-                      height: isMobile ? "auto" : "200px",
-                      minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                      position: "relative",
-                      borderTopLeftRadius: isMobile ? "14px" : "8px",
-                      borderTopRightRadius: isMobile ? "14px" : "8px"
-                    }}>
-                                                                                        <img
-                       src="/capsulecrm.png"
-                       alt="Capsule CRM - Simple Yet Powerful CRM"
-                         style={{
-                           maxWidth: "95%",
-                           maxHeight: "95%",
-                           objectFit: "contain"
-                         }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                   </div>
-                     <div style={{
-                     flex: 1,
-                     padding: "24px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         Capsule CRM
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • Sales & CRM
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         Simple yet powerful CRM trusted by 10,000+ businesses. Manage contacts, track deals, and automate workflows without complexity.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                       fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           Free Plan Available
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           Easy Setup
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           60+ Integrations
-                         </span>
-                     </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://get.capsulenow.io/6894ebdizsds"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try Free Trial
-                       </a>
-                       <Link
-                         to="/learn/capsule-crm-complete-guide"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-                               {/* MRPeasy Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                 <div style={{
-                   display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch",
-                   minHeight: isMobile ? "auto" : "auto"
-                 }}>
-                   <div style={{
-                     flex: isMobile ? "none" : "0 0 200px",
-                     width: isMobile ? "100%" : "auto",
-                     height: isMobile ? "auto" : "200px",
-                     minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                     position: "relative",
-                     borderTopLeftRadius: isMobile ? "14px" : "8px",
-                     borderTopRightRadius: isMobile ? "14px" : "8px"
-                   }}>
-                     <img
-                       src="/mrpeasy.png"
-                       alt="MRPeasy - Manufacturing ERP Solution"
-                       style={{
-                         maxWidth: "95%",
-                         maxHeight: "95%",
-                         objectFit: "contain"
-                       }}
-                       onError={(e) => {
-                         e.target.style.display = 'none';
-                       }}
-                     />
-                   </div>
-                   <div style={{
-                     flex: 1,
-                     padding: "24px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         MRPeasy
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • Manufacturing & ERP
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         Complete Manufacturing ERP for small businesses. Manage production, inventory, sales, and finances in one integrated platform.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           AI-Powered
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           10-Min Response
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           HubSpot Integration
-                         </span>
-                       </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://try.mrpeasy.com/m72w6bztymwh"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try Free Trial
-                       </a>
-                       <Link
-                         to="/learn/mrpeasy-complete-guide"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-                               {/* Murf.ai Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                 <div style={{
-                   display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch",
-                   minHeight: isMobile ? "auto" : "auto"
-                 }}>
-                   <div style={{
-                     flex: isMobile ? "none" : "0 0 200px",
-                     width: isMobile ? "100%" : "auto",
-                     height: isMobile ? "auto" : "200px",
-                     minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                     position: "relative",
-                     borderTopLeftRadius: isMobile ? "14px" : "8px",
-                     borderTopRightRadius: isMobile ? "14px" : "8px"
-                   }}>
-                     <img
-                       src="/murfai.png"
-                       alt="Murf.ai - AI Voice Generation Platform"
-                       style={{
-                         maxWidth: "95%",
-                         maxHeight: "95%",
-                         objectFit: "contain"
-                       }}
-                       onError={(e) => {
-                         e.target.style.display = 'none';
-                       }}
-                     />
-                   </div>
-                   <div style={{
-                     flex: 1,
-                     padding: "24px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         Murf.ai
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • AI Voice Generation
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         Ultra-realistic AI voice generation with 200+ voices, voice cloning, and comprehensive customization tools for content creators and businesses.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           10 Min Free Trial
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           Voice Cloning
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.8rem",
-                           border: "1px solid rgba(54, 255, 149, 0.3)"
-                         }}>
-                           20+ Languages
-                         </span>
-                       </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://get.murf.ai/i5n7gfvz5cbw"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try Free Trial
-                       </a>
-                       <Link
-                         to="/learn/murf-ai-complete-guide"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-                               {/* Lindy.ai Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                                   <div style={{
-                    display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "stretch"
-                  }}>
-                    <div style={{
-                      flex: isMobile ? "none" : "0 0 200px",
-                      width: isMobile ? "100%" : "auto",
-                      height: isMobile ? "auto" : "200px",
-                      minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                      position: "relative",
-                      borderTopLeftRadius: isMobile ? "14px" : "8px",
-                      borderTopRightRadius: isMobile ? "14px" : "8px"
-                    }}>
-                                                                                        <img
-                          src="/lindy.png"
-                          alt="Lindy.ai - AI Automation Platform"
-                         style={{
-                           maxWidth: "95%",
-                           maxHeight: "95%",
-                           objectFit: "contain"
-                         }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                   </div>
-                   <div style={{
-                     flex: "1",
-                     padding: isMobile ? "15px" : "25px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         Lindy.ai - AI Automation Platform
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • Productivity & Automation
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         Discover how Lindy.ai's AI automation platform helps businesses create custom AI agents without coding, with 6,000+ integrations and 24/7 operation capabilities.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           Free Trial Available
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           AI Automation
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           6,000+ Integrations
-                         </span>
-                     </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://try.lindy.ai/lhgvxfidor04"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                        style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                          padding: "12px 24px",
-                          borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                        }}
-                       onMouseOver={(e) => {
-                         e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                       }}
-                       onMouseOut={(e) => {
-                         e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try Free Trial
-                       </a>
-                       <Link
-                         to="/learn/lindy-ai"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                    </div>
-                  </div>
-                </div>
-
-                               {/* Viral Launch Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                                   <div style={{
-                    display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "stretch"
-                  }}>
-                    <div style={{
-                      flex: isMobile ? "none" : "0 0 200px",
-                      width: isMobile ? "100%" : "auto",
-                      height: isMobile ? "auto" : "200px",
-                      minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                      position: "relative",
-                      borderTopLeftRadius: isMobile ? "14px" : "8px",
-                      borderTopRightRadius: isMobile ? "14px" : "8px"
-                    }}>
-                                                                                        <img
-                          src="/virallaunch.png"
-                          alt="Viral Launch - Amazon Seller Optimization Platform"
-                         style={{
-                           maxWidth: "95%",
-                           maxHeight: "95%",
-                           objectFit: "contain"
-                         }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                   </div>
-                   <div style={{
-                     flex: "1",
-                     padding: isMobile ? "15px" : "25px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         Viral Launch - Amazon Seller Optimization Platform
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • E-commerce & Amazon
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         Discover how Viral Launch's AI-powered platform has helped over 300,000 businesses drive $34 billion in Amazon sales with data-driven product research and optimization tools.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           Free Trial Available
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           Amazon Optimization
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           Product Research
-                         </span>
-                       </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://affiliate.viral-launch.com/BAIB"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try Free Trial
-                       </a>
-                       <Link
-                         to="/learn/viral-launch"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                    </div>
-                  </div>
-                </div>
-
-                               {/* Apollo Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                                   <div style={{
-                    display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "stretch"
-                  }}>
-                    <div style={{
-                      flex: isMobile ? "none" : "0 0 200px",
-                      width: isMobile ? "100%" : "auto",
-                      height: isMobile ? "auto" : "200px",
-                      minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                      position: "relative",
-                      borderTopLeftRadius: isMobile ? "14px" : "8px",
-                      borderTopRightRadius: isMobile ? "14px" : "8px"
-                    }}>
-                                                                                        <img
-                          src={require("../assets/apolloailogo.webp")}
-                          alt="Apollo AI - Sales Intelligence Platform"
-                         style={{
-                           maxWidth: "95%",
-                           maxHeight: "95%",
-                           objectFit: "contain"
-                         }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                   </div>
-                   <div style={{
-                     flex: "1",
-                     padding: isMobile ? "15px" : "25px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         Apollo AI - Sales Intelligence Platform
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • Sales & CRM
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         Explore how Apollo AI is transforming sales with over 210 million contacts, AI-powered prospecting, and intelligent lead generation.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           Free Trial Available
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           Sales Intelligence
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           210M+ Contacts
-                         </span>
-                       </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://get.apollo.io/BAIB"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try Free Trial
-                       </a>
-                       <Link
-                         to="/learn/apollo-io"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                    </div>
-                  </div>
-                </div>
-
-               {/* Alli AI Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                 <div style={{
-                   display: "flex",
-                   flexDirection: isMobile ? "column" : "row",
-                   alignItems: isMobile ? "stretch" : "stretch",
-                   minHeight: isMobile ? "auto" : "auto"
-                 }}>
-                   <div style={{
-                     flex: isMobile ? "none" : "0 0 200px",
-                     width: isMobile ? "100%" : "auto",
-                     height: isMobile ? "auto" : "200px",
-                     minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                     position: "relative",
-                     borderTopLeftRadius: isMobile ? "14px" : "8px",
-                     borderTopRightRadius: isMobile ? "14px" : "8px"
-                   }}>
-                     <img
-                       src="/alliai.png"
-                       alt="Alli AI - SEO Automation Platform"
-                       style={{
-                         maxWidth: "95%",
-                         maxHeight: "95%",
-                         objectFit: "contain"
-                       }}
-                       onError={(e) => {
-                         e.target.style.display = 'none';
-                       }}
-                     />
-                   </div>
-                   <div style={{
-                     flex: "1",
-                     padding: isMobile ? "15px" : "25px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         Alli AI - SEO Automation Platform
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • SEO & Marketing
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         Discover how Alli AI is revolutionizing SEO with AI-powered automation that optimizes, deploys, and scales SEO campaigns without any coding required.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           10-Day Free Trial
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           SEO Automation
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           No Coding Required
-                         </span>
-                       </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                       <a
-                         href="https://try.alliai.com/0guepbqpqhsf"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try Free Trial
-                       </a>
-                       <Link
-                         to="/learn/alli-ai"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-               {/* AdCreative Card */}
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                                   <div style={{
-                    display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "stretch"
-                  }}>
-                    <div style={{
-                      flex: isMobile ? "none" : "0 0 200px",
-                      width: isMobile ? "100%" : "auto",
-                      height: isMobile ? "auto" : "200px",
-                      minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                      position: "relative",
-                      borderTopLeftRadius: isMobile ? "14px" : "8px",
-                      borderTopRightRadius: isMobile ? "14px" : "8px"
-                    }}>
-                                                                                        <img
-                           src={require("../assets/adcreativeaitrial.png")}
-                           alt="AdCreative AI - Ad Generation Platform"
-                         style={{
-                           maxWidth: "95%",
-                           maxHeight: "95%",
-                           objectFit: "contain"
-                         }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                   </div>
-                   <div style={{
-                     flex: "1",
-                     padding: isMobile ? "15px" : "25px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1.1rem" : "1.3rem",
-                         fontWeight: 700,
-                         margin: "0 0 12px 0",
-                         lineHeight: 1.3
-                       }}>
-                         AdCreative AI - Ad Generation Platform
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                         Featured • Marketing & Advertising
-                       </p>
-                       <p style={{
-                         color: "#e0e0e0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: 1.5,
-                         margin: "0 0 16px 0"
-                       }}>
-                         Learn how AdCreative AI is revolutionizing digital advertising with AI-powered ad generation and high-converting creative assets.
-                       </p>
-                       <div style={{
-                         display: "flex",
-                         flexWrap: "wrap",
-                         gap: "8px",
-                         marginBottom: "16px"
-                       }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           Free Trial Available
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           AI Ad Generation
-                         </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.1)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "12px",
-                           fontSize: "0.75rem",
-                           fontWeight: "500"
-                         }}>
-                           High-Converting Ads
-                         </span>
-                       </div>
-                     </div>
-                     <div style={{
-                       display: "flex",
-                       gap: "12px",
-                       flexWrap: "wrap"
-                     }}>
-                      <a
-                        href="https://free-trial.adcreative.ai/0dkpoiajb7o2"
-                        target="_blank"
-                         rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
-                       >
-                         Try Free Trial
-                       </a>
-                       <Link
-                         to="/learn/adcreative-ai"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
-                       >
-                         Read Full Article
-                       </Link>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-                {/* Flowith Card */}
-               {!isLearnRootPage && (
-               <div style={{
-                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                 border: "2px solid #36ff95",
-                 borderRadius: "16px",
-                 overflow: "hidden",
-                 boxShadow: "0 0 20px #36ff9544",
-                 transition: "transform 0.2s ease-in-out",
-                 width: "100%",
-                 minHeight: isMobile ? "auto" : "auto"
-               }}
-               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
-               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
-               >
-                                   <div style={{
-                    display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "stretch"
-                  }}>
-                    <div style={{
-                      flex: isMobile ? "none" : "0 0 200px",
-                      width: isMobile ? "100%" : "auto",
-                      height: isMobile ? "auto" : "200px",
-                      minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                      position: "relative",
-                      borderTopLeftRadius: isMobile ? "14px" : "8px",
-                      borderTopRightRadius: isMobile ? "14px" : "8px"
-                    }}>
-                                                                                                                                                                                <img
-                        src="/flowith.jpg"
-                        alt="Flowith.io - Revolutionary AI Canvas"
-                         style={{
-                           maxWidth: "95%",
-                           maxHeight: "95%",
-                           objectFit: "contain"
-                         }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                     <div style={{
-                       position: "absolute",
-                       top: "15px",
-                       right: "15px",
-                       background: "rgba(54, 255, 149, 0.9)",
-                       color: "#1a2330",
-                       padding: "5px 12px",
-                       borderRadius: "20px",
-                       fontSize: "0.8rem",
-                       fontWeight: "600"
-                     }}>
-                       FEATURED
-                     </div>
-                   </div>
-                   <div style={{
-                     flex: "1",
-                     padding: isMobile ? "15px" : "25px",
-                     display: "flex",
-                     flexDirection: "column",
-                     justifyContent: isMobile ? "flex-start" : "space-between",
-                     minHeight: isMobile ? "auto" : "auto",
-                     gap: isMobile ? "20px" : "0"
-                   }}>
-                     <div>
-                       <h3 style={{
-                         color: "#36ff95",
-                         fontSize: isMobile ? "1rem" : "1.4rem",
-                         fontWeight: "600",
-                         margin: "0 0 10px 0",
-                         lineHeight: "1.3"
-                       }}>
-                          Flowith.io - Revolutionary AI Canvas
-                       </h3>
-                       <p style={{
-                         color: "#9ca3af",
-                         fontSize: isMobile ? "0.8rem" : "0.9rem",
-                         margin: "0 0 15px 0"
-                       }}>
-                          Featured • Productivity & AI Workspace
-                       </p>
-                       <p style={{
-                         color: "#b2ffe0",
-                         fontSize: isMobile ? "0.9rem" : "1rem",
-                         lineHeight: "1.5",
-                         margin: "0 0 20px 0"
-                       }}>
-                          Discover how Flowith.io is revolutionizing AI interaction with its infinite canvas, multi-threaded conversations, and collaborative AI workspace.
-                       </p>
-                     </div>
-                                           <a
-                        href="/learn/flowith-io"
-                        style={{
-                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
-                          color: "#1a2330",
-                          textDecoration: "none",
-                          padding: "12px 24px",
-                          borderRadius: "8px",
-                          fontWeight: "600",
-                          textAlign: "center",
-                          transition: "all 0.3s ease",
-                          alignSelf: "stretch",
-                          width: "100%",
-                          display: "block"
-                        }}
-                       onMouseOver={(e) => {
-                         e.target.style.transform = "translateY(-2px)";
-                         e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
-                       }}
-                       onMouseOut={(e) => {
-                         e.target.style.transform = "translateY(0)";
-                         e.target.style.boxShadow = "none";
-                       }}
-                                           >
-                        Read Full Article
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                )}
-
-                                {/* ScholarGPT Card */}
-                {!isLearnRootPage && (
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 0 20px #36ff9544",
-                  transition: "transform 0.2s ease-in-out"
-                }}
-                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
+                <Link
+                  to="/learn/reply-io-complete-guide"
+                  style={{
+                    background: "transparent",
+                    color: "#36ff95",
+                    padding: "12px 24px",
+                    borderRadius: "8px",
+                    textDecoration: "none",
+                    fontWeight: 600,
+                    fontSize: "0.9rem",
+                    border: "2px solid #36ff95",
+                    transition: "all 0.2s ease"
+                  }}
+                  onMouseOver={e => {
+                    e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                    e.target.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseOut={e => {
+                    e.target.style.background = "transparent";
+                    e.target.style.transform = "translateY(0)";
+                  }}
                 >
-                  <div style={{
-                    display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "stretch"
-                  }}>
-                    <div style={{
-                      flex: isMobile ? "none" : "0 0 200px",
-                      width: isMobile ? "100%" : "auto",
-                      height: isMobile ? "auto" : "200px",
-                      minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                      position: "relative",
-                      borderTopLeftRadius: isMobile ? "14px" : "8px",
-                      borderTopRightRadius: isMobile ? "14px" : "8px"
-                    }}>
-                      <img
-                        src="/scholargpt.jpg"
-                        alt="ScholarGPT - AI Research Assistant"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "contain"
-                        }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                      <div style={{
-                        position: "absolute",
-                        top: "15px",
-                        right: "15px",
-                        background: "rgba(54, 255, 149, 0.9)",
-                        color: "#1a2330",
-                        padding: "5px 12px",
-                        borderRadius: "20px",
-                        fontSize: "0.8rem",
-                        fontWeight: "600"
-                      }}>
-                        FEATURED
-                      </div>
-                    </div>
-                    <div style={{
-                      flex: "1",
-                      padding: isMobile ? "15px" : "25px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between"
-                    }}>
-                      <div>
-                        <h3 style={{
-                          color: "#36ff95",
-                          fontSize: isMobile ? "1rem" : "1.4rem",
-                          fontWeight: "600",
-                          margin: "0 0 10px 0",
-                          lineHeight: "1.3"
-                        }}>
-                          ScholarGPT - AI Research Assistant
-                        </h3>
-                        <p style={{
-                          color: "#9ca3af",
-                          fontSize: isMobile ? "0.8rem" : "0.9rem",
-                          margin: "0 0 15px 0"
-                        }}>
-                          Featured • Research & Education
-                        </p>
-                        <p style={{
-                          color: "#b2ffe0",
-                          fontSize: isMobile ? "0.9rem" : "1rem",
-                          lineHeight: "1.5",
-                          margin: "0 0 20px 0"
-                        }}>
-                          Discover how ScholarGPT is revolutionizing academic research with AI-powered literature analysis, citation management, and research paper generation.
-                        </p>
-                      </div>
-                      <a
-                        href="/learn/scholar-gpt"
-                        style={{
-                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
-                          color: "#1a2330",
-                          textDecoration: "none",
-                          padding: "12px 24px",
-                          borderRadius: "8px",
-                          fontWeight: "600",
-                          textAlign: "center",
-                          transition: "all 0.3s ease",
-                          alignSelf: "stretch",
-                          width: "100%",
-                          display: "block"
-                        }}
-                        onMouseOver={(e) => {
-                          e.target.style.transform = "translateY(-2px)";
-                          e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
-                        }}
-                        onMouseOut={(e) => {
-                          e.target.style.transform = "translateY(0)";
-                          e.target.style.boxShadow = "none";
-                        }}
-                      >
-                        Read Full Article
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                )}
-
-                {/* Brevo Card */}
-                {!isLearnRootPage && (
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 0 20px #36ff9544",
-                  transition: "transform 0.2s ease-in-out"
-                }}
-                onMouseOver={e => { e.currentTarget.style.transform = "scale(1.02)"; }}
-                onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
-                >
-                  <div style={{
-                    display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "stretch"
-                  }}>
-                    <div style={{
-                      flex: isMobile ? "none" : "0 0 200px",
-                      width: isMobile ? "100%" : "auto",
-                      height: isMobile ? "auto" : "200px",
-                      minHeight: isMobile ? "200px" : "auto",
-                     display: "flex",
-                     alignItems: "center",
-                     justifyContent: "center",
-                     backgroundColor: "rgba(54, 255, 149, 0.05)",
-                     borderRadius: isMobile ? "0" : "8px",
-                     margin: isMobile ? "0 0 0 0" : "20px",
-                     border: "1px solid rgba(54, 255, 149, 0.2)",
-                      position: "relative",
-                      borderTopLeftRadius: isMobile ? "14px" : "8px",
-                      borderTopRightRadius: isMobile ? "14px" : "8px"
-                    }}>
-                      <img
-                        src="/brevologo.png"
-                        alt="Brevo - All-in-One Marketing Platform"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "contain"
-                        }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                      <div style={{
-                        position: "absolute",
-                        top: "15px",
-                        right: "15px",
-                        background: "rgba(54, 255, 149, 0.9)",
-                        color: "#1a2330",
-                        padding: "5px 12px",
-                        borderRadius: "20px",
-                        fontSize: "0.8rem",
-                        fontWeight: "600"
-                      }}>
-                        FEATURED
-                      </div>
-                    </div>
-                    <div style={{
-                      flex: "1",
-                      padding: isMobile ? "15px" : "25px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between"
-                    }}>
-                      <div>
-                        <h3 style={{
-                          color: "#36ff95",
-                          fontSize: isMobile ? "1rem" : "1.4rem",
-                          fontWeight: "600",
-                          margin: "0 0 10px 0",
-                          lineHeight: "1.3"
-                        }}>
-                          Brevo - All-in-One Marketing Platform
-                        </h3>
-                        <p style={{
-                          color: "#9ca3af",
-                          fontSize: isMobile ? "0.8rem" : "0.9rem",
-                          margin: "0 0 15px 0"
-                        }}>
-                          Featured • Email Marketing & Automation
-                        </p>
-                        <p style={{
-                          color: "#b2ffe0",
-                          fontSize: isMobile ? "0.9rem" : "1rem",
-                          lineHeight: "1.5",
-                          margin: "0 0 20px 0"
-                        }}>
-                          Discover how Brevo's AI-powered marketing platform helps businesses of all sizes connect with customers through email, SMS, WhatsApp, and automation workflows.
-                        </p>
-                      </div>
-                      <a
-                        href="/learn/brevo-complete-guide"
-                        style={{
-                          background: "linear-gradient(135deg, #36ff95, #0bbfdb)",
-                          color: "#1a2330",
-                          textDecoration: "none",
-                          padding: "12px 24px",
-                          borderRadius: "8px",
-                          fontWeight: "600",
-                          textAlign: "center",
-                          transition: "all 0.3s ease",
-                          alignSelf: "stretch",
-                          width: "100%",
-                          display: "block"
-                        }}
-                        onMouseOver={(e) => {
-                          e.target.style.transform = "translateY(-2px)";
-                          e.target.style.boxShadow = "0 8px 20px rgba(54, 255, 149, 0.4)";
-                        }}
-                        onMouseOut={(e) => {
-                          e.target.style.transform = "translateY(0)";
-                          e.target.style.boxShadow = "none";
-                        }}
-                      >
-                        Read Full Article
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                )}
+                  Read Full Article
+                </Link>
               </div>
-           </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Guide Modals */}
         </div>
       </div>
 
@@ -4166,7 +1822,7 @@ const LearnLevelSelector = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

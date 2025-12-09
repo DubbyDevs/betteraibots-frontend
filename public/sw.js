@@ -1,6 +1,6 @@
 // Use timestamp-based cache version to force updates on each deployment
 const CACHE_VERSION = 'v2.0.0';
-const BUILD_TIMESTAMP = '2025-11-23T08-25-56Z';
+const BUILD_TIMESTAMP = '2025-12-09T06-13-44Z';
 const CACHE_NAME = `betteraibots-${CACHE_VERSION}-${BUILD_TIMESTAMP}`;
 
 // Only activate service worker for BetterAiBots domains
