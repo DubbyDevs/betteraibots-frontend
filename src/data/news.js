@@ -2664,7 +2664,7 @@ export const newsArticles = [
           style="width: 100%; max-width: 100%; outline: none;"
           preload="metadata"
         >
-          <source src="AUDIO_SOURCE_PLACEHOLDER" type="audio/mp4" />
+          <source src="AUDIO_SOURCE_PLACEHOLDER" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </div>

@@ -168,7 +168,6 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
       <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
       <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
       <Link to="/Podcast" className="nav-tab" tabIndex={0}>Watch</Link>
-      <Link to="/about" className="nav-tab" tabIndex={0}>About</Link>
       <span
         className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
         onClick={onToggleAnimation}
@@ -4578,6 +4577,26 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
               </Link>
             </li>
             <li>
+              <Link
+                to="/about"
+                style={{
+                  color: "#b5ffdb",
+                  textDecoration: "none",
+                  fontSize: "0.95rem",
+                  transition: "color 0.2s",
+                  display: "inline-block"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#36ff95";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "#b5ffdb";
+                }}
+              >
+                About
+              </Link>
+            </li>
+            <li>
               <a
                 href="https://www.youtube.com/@BetterAiBots"
                 target="_blank"
@@ -5197,7 +5216,7 @@ function NewsArticle() {
             : article.slug === 'sora-2-physics-reality-ai-video-revolution-2025'
             ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Sora2 physics champ of ai video.mp3'))
             : article.slug === 'ai-robotics-revolution-everything-you-own-2025'
-            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Anticipatory_AI_Is_Watching_You_Everywhere.m4a'))
+            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/WatchingYouEverywhere.mp3'))
             : article.content 
         }} />
         
