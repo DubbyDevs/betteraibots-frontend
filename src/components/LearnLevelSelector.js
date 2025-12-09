@@ -302,7 +302,6 @@ function AIForDummiesGuide({ onClose }) {
 const LearnLevelSelector = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isLearnRootPage = location.pathname === '/learn';
   const [isMobile, setIsMobile] = useState(false);
   const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1920);
   const [showAIForDummiesGuide, setShowAIForDummiesGuide] = useState(false);
