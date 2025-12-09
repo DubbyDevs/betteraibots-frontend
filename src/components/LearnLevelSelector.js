@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import nanozlogo from '../assets/nanozlogo.png';
 import musebrand from '../assets/musebrand.jpg';
@@ -301,7 +301,6 @@ function AIForDummiesGuide({ onClose }) {
 
 const LearnLevelSelector = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const [isMobile, setIsMobile] = useState(false);
   const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1920);
   const [showAIForDummiesGuide, setShowAIForDummiesGuide] = useState(false);
