@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import nanozlogo from '../assets/nanozlogo.png';
+import musebrand from '../assets/musebrand.jpg';
 
 // --- AI FOR DUMMIES GUIDE COMPONENT ---
 function AIForDummiesGuide({ onClose }) {
@@ -396,7 +398,7 @@ const LearnLevelSelector = () => {
       <div style={{
         background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
         padding: isVerySmall ? '12px 8px' : (is360px ? '14px 10px' : (is390px ? '16px 12px' : (isMobile ? '16px 12px' : '20px'))),
-        paddingBottom: isVerySmall ? '40px' : (is360px ? '45px' : (isMobile ? '50px' : '60px')),
+        paddingBottom: '0',
         minHeight: 'calc(100vh - 150px)',
         width: '100%',
         maxWidth: '100vw',
@@ -410,7 +412,7 @@ const LearnLevelSelector = () => {
           marginBottom: '0',
           marginLeft: 'auto',
           padding: isVerySmall ? '20px 8px' : (is360px ? '25px 10px' : (is390px ? '30px 12px' : (isMobile ? '30px 12px' : '40px 20px'))),
-          paddingBottom: isVerySmall ? '40px' : (is360px ? '45px' : (isMobile ? '50px' : '60px')),
+          paddingBottom: '0',
           boxSizing: 'border-box',
           width: '100%'
         }}>
@@ -1025,7 +1027,7 @@ const LearnLevelSelector = () => {
 
                      {/* APP SPOTLIGHT SECTION */}
            <div style={{
-             marginTop: isVerySmall ? "30px" : (is360px ? "32px" : (is390px ? "35px" : "40px")),
+             marginTop: isVerySmall ? "70px" : (is360px ? "80px" : (is390px ? "90px" : "100px")),
              marginBottom: isVerySmall ? "30px" : (is360px ? "32px" : (is390px ? "35px" : "40px")),
              width: "100%",
              display: "flex",
@@ -1039,6 +1041,7 @@ const LearnLevelSelector = () => {
                color: "#36ff95", 
                fontSize: isVerySmall ? "1.2rem" : (is360px ? "1.25rem" : (is390px ? "1.3rem" : "1.4rem")), 
                fontWeight: 600, 
+               marginTop: "0",
                marginBottom: isVerySmall ? "20px" : (is360px ? "22px" : (is390px ? "25px" : "30px")),
                textShadow: "0 0 8px #36ff9544",
                width: "100%"
@@ -1057,6 +1060,377 @@ const LearnLevelSelector = () => {
                  width: "100%",
                  boxSizing: "border-box"
                }}>
+                               {/* Museit.art Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
+               }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                 <div style={{
+                   display: "flex",
+                   flexDirection: isMobile ? "column" : "row",
+                   alignItems: isMobile ? "stretch" : "stretch",
+                   minHeight: isMobile ? "auto" : "auto"
+                 }}>
+                   <div style={{
+                     flex: isMobile ? "none" : "0 0 200px",
+                     width: isMobile ? "100%" : "auto",
+                     height: isMobile ? "auto" : "200px",
+                     minHeight: isMobile ? "200px" : "auto",
+                     position: "relative",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
+                     borderTopLeftRadius: isMobile ? "14px" : "8px",
+                     borderTopRightRadius: isMobile ? "14px" : "8px",
+                     overflow: "hidden"
+                   }}>
+                     <img
+                       src={musebrand}
+                       alt="Museit.art - AI Art Creation Platform"
+                       style={{
+                         maxWidth: "95%",
+                         maxHeight: "95%",
+                         objectFit: "contain",
+                         transform: isMobile ? "scale(1)" : "scale(1.2)"
+                       }}
+                       onError={(e) => {
+                         e.target.style.display = 'none';
+                       }}
+                     />
+                   </div>
+                   <div style={{
+                     flex: 1,
+                     padding: isMobile ? "16px" : "30px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         Museit.art
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Creative & Design
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.85rem" : "0.95rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 15px 0"
+                       }}>
+                         AI-powered art creation platform that turns your imagination into beautiful artwork. Turn the noise into art with guided creativity and mindfulness-focused design.
+                       </p>
+                       <div style={{
+                         display: "flex",
+                         gap: "8px",
+                         flexWrap: "wrap",
+                         marginBottom: "20px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           AI Art Generation
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           Gallery-Ready Quality
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           No Technical Skills
+                         </span>
+                       </div>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://Museit.art"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try Museit.art Free
+                       </a>
+                       <Link
+                         to="/learn/museit-art-complete-guide"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+                               {/* NanoZ.fun Card */}
+               <div style={{
+                 background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                 border: "2px solid #36ff95",
+                 borderRadius: "16px",
+                 overflow: "hidden",
+                 boxShadow: "0 0 20px #36ff9544",
+                 transition: "transform 0.2s ease-in-out",
+                 width: "100%",
+                 minHeight: isMobile ? "auto" : "auto"
+               }}
+               onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+               onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
+               >
+                 <div style={{
+                   display: "flex",
+                   flexDirection: isMobile ? "column" : "row",
+                   alignItems: isMobile ? "stretch" : "stretch",
+                   minHeight: isMobile ? "auto" : "auto"
+                 }}>
+                   <div style={{
+                     flex: isMobile ? "none" : "0 0 200px",
+                     width: isMobile ? "100%" : "200px",
+                     height: isMobile ? "auto" : "200px",
+                     minHeight: isMobile ? "200px" : "200px",
+                     maxWidth: isMobile ? "100%" : "200px",
+                     maxHeight: isMobile ? "auto" : "200px",
+                     position: "relative",
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     backgroundColor: "rgba(54, 255, 149, 0.05)",
+                     borderRadius: isMobile ? "0" : "8px",
+                     margin: isMobile ? "0 0 0 0" : "20px",
+                     border: "1px solid rgba(54, 255, 149, 0.2)",
+                     borderTopLeftRadius: isMobile ? "14px" : "8px",
+                     borderTopRightRadius: isMobile ? "14px" : "8px",
+                     overflow: "hidden"
+                   }}>
+                     <img
+                       src={nanozlogo}
+                       alt="NanoZ.fun - AI Branding Platform"
+                       style={{
+                         width: "100%",
+                         height: "100%",
+                         maxWidth: "100%",
+                         maxHeight: "100%",
+                         objectFit: "contain",
+                         padding: "10px",
+                         boxSizing: "border-box"
+                       }}
+                       onError={(e) => {
+                         e.target.style.display = 'none';
+                       }}
+                     />
+                   </div>
+                   <div style={{
+                     flex: 1,
+                     padding: isMobile ? "16px" : "30px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: isMobile ? "flex-start" : "space-between",
+                     minHeight: isMobile ? "auto" : "auto",
+                     gap: isMobile ? "20px" : "0"
+                   }}>
+                     <div>
+                       <h3 style={{
+                         color: "#36ff95",
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         NanoZ.fun
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Creative & Design
+                       </p>
+                       <p style={{
+                         color: "#e0e0e0",
+                         fontSize: isMobile ? "0.85rem" : "0.95rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 15px 0"
+                       }}>
+                         Branding Made Easy - Professional brand imagery at a fraction of traditional costs. Powered by cutting-edge AI that delivers results you've never seen before.
+                       </p>
+                       <div style={{
+                         display: "flex",
+                         gap: "8px",
+                         flexWrap: "wrap",
+                         marginBottom: "20px"
+                       }}>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           AI Branding
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           Brand Consistency
+                         </span>
+                         <span style={{
+                           background: "rgba(54, 255, 149, 0.2)",
+                           color: "#36ff95",
+                           padding: "4px 8px",
+                           borderRadius: "4px",
+                           fontSize: "0.75rem",
+                           fontWeight: 500
+                         }}>
+                           Affordable Pricing
+                         </span>
+                       </div>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://nanoz.fun"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                           color: "#000",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           transition: "all 0.2s ease",
+                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.transform = "translateY(-2px)";
+                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.transform = "translateY(0)";
+                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                         }}
+                       >
+                         Try NanoZ.fun Free
+                       </a>
+                       <Link
+                         to="/learn/nanoz-complete-guide"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
                                {/* VEED Card */}
                <div style={{
                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
