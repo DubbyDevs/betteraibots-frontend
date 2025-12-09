@@ -3005,6 +3005,18 @@ export const newsArticles = [
     category: "AI & Technology",
     featured: false,
     content: `
+      <div id="audio-player-container" style="position: relative; padding: 30px; background: rgba(54, 255, 149, 0.1); border-radius: 12px; margin: 0 0 30px 0; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2); border: 1px solid rgba(54, 255, 149, 0.3);">
+        <audio 
+          id="article-audio-player"
+          controls 
+          style="width: 100%; max-width: 100%; outline: none;"
+          preload="metadata"
+        >
+          <source src="AUDIO_SOURCE_PLACEHOLDER" type="audio/mp4" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
         <h1>Nano Banana: The Game-Changing AI Image Editor That's Taking the World by Storm</h1>
         
         <p>In the rapidly evolving world of artificial intelligence, few tools have generated as much excitement as Nano Banana. What started as a mysterious AI model on LMArena has now been revealed as Google's most advanced image generation and editing technology: <strong>Gemini 2.5 Flash Image</strong>. This revolutionary tool is transforming how creators, marketers, and everyday users approach image editing, offering unprecedented control through simple text prompts.</p>

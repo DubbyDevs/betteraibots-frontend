@@ -20,7 +20,7 @@
   <!-- News Section -->
   <url>
     <loc>https://betteraibots.com/news</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -41,7 +41,7 @@
   <!-- Learn Section -->
   <url>
     <loc>https://betteraibots.com/learn</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -293,9 +293,14 @@
   
   <url>
     <loc>https://betteraibots.com/news/nano-banana-game-changing-ai-image-editor</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/nanabananaguide.png</image:loc>
+      <image:title>Nano Banana: The Game-Changing AI Image Editor That's Taking the World by Storm</image:title>
+      <image:caption>Discover how Google's Gemini 2.5 Flash Image, known as Nano Banana, is revolutionizing AI image editing with unprecedented character consistency and natural language control.</image:caption>
+    </image:image>
   </url>
   
   <url>
@@ -504,7 +509,7 @@
   <!-- AI Robotics Revolution News Article -->
   <url>
     <loc>https://betteraibots.com/news/ai-robotics-revolution-everything-you-own-2025</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
