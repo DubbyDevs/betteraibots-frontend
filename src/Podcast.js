@@ -16,6 +16,7 @@ import baibview from './assets/baibview.mp4';
 import betteraibotsliveEp155Copy55 from './assets/betteraibotslive ep155 copy55.jpg';
 import smallBusinessTools from './assets/BetterAiBots Small Business Tools.jpg';
 import aichipwars from './assets/aichipwars nvidia amd.jpg';
+import musebrand from './assets/musebrand.jpg';
 
 function Podcast() {
   const [playingVideoIndex, setPlayingVideoIndex] = useState(null);
@@ -102,6 +103,24 @@ function Podcast() {
   // Order: Video 3 (left, coming soon) -> Video 2 (middle) -> Video 1 (right, welcome podcast)
   const youtubeVideos = useMemo(() => [
     {
+      id: 'gxiFa0KiXrA',
+      title: 'The Death of the Resume',
+      description: 'AI-driven hiring is rewriting the rules. See why resumes are getting skipped and what the new screening game really looks like.',
+      thumbnail: '/aihiring.jpg'
+    },
+    {
+      id: 'hGeW2slgRcY',
+      title: 'Museit.art — AI Art for Beginners',
+      description: 'A beginner-friendly walkthrough on turning prompts into polished AI artwork with Museit.art.',
+      thumbnail: 'https://img.youtube.com/vi/hGeW2slgRcY/maxresdefault.jpg'
+    },
+    {
+      id: 'jOMD55PrX-Y',
+      title: 'The AI Job Boom Nobody’s Shhh!',
+      description: 'A $200B AI hiring wave is here. Learn which roles are exploding and how to land one fast.',
+      thumbnail: 'https://img.youtube.com/vi/jOMD55PrX-Y/maxresdefault.jpg'
+    },
+    {
       id: 'O9xN3anQKbM',
       title: 'AI Companions - Why 20 Million People Are Choosing Digital Love',
       description: 'In this episode, we dive into the uncomfortable reality of AI companions: why millions are choosing digital intimacy over human connection, what this reveals about our loneliness epidemic, and the psychological truths we\'re being forced to confront.',
@@ -164,6 +183,8 @@ function Podcast() {
   // Helper function to generate slug from video title
   const getVideoSlug = (video) => {
     const slugMap = {
+      'gxiFa0KiXrA': 'the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv',
+      'jOMD55PrX-Y': 'ai-job-boom-how-to-get-hired-in-the-ai-revolution',
       'O9xN3anQKbM': 'ai-companions-why-20-million-people-are-choosing-digital-love',
       'PbanVBegAlk': '10-ai-tools-to-give-you-leverage-to-run-everything-alone',
       'ytCyZ3LeXJ4': 'how-to-fix-email-deliverability',
@@ -207,7 +228,7 @@ function Podcast() {
 
   // Initialize YouTube API players for embedded iframes to enable getCurrentTime for expand functionality
   useEffect(() => {
-    if (playingVideoIndex !== null && playingVideoIndex !== undefined && playingVideoIndex <= 5) {
+    if (playingVideoIndex !== null && playingVideoIndex !== undefined && playingVideoIndex < youtubeVideos.length) {
       const video = youtubeVideos[playingVideoIndex];
       if (!video) return;
       
@@ -394,7 +415,7 @@ function Podcast() {
         <meta name="twitter:image:alt" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
         
         {/* Structured Data for VideoObjects - Individual videos for watch page indexing */}
-        {youtubeVideos.slice(0, 6).map((video, index) => {
+        {youtubeVideos.slice(0, 9).map((video, index) => {
           const thumbnailUrl = video.thumbnail 
             ? (typeof video.thumbnail === 'string' 
                 ? (video.thumbnail.startsWith('http') 
@@ -1322,6 +1343,155 @@ function Podcast() {
           })}
         </div>
 
+        {/* Three Video Section - Additional Row */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '30px',
+          margin: '50px auto',
+          padding: '0 20px',
+          flexWrap: 'wrap',
+          maxWidth: '1400px'
+        }}>
+          {[6, 7, 8].map((videoIndex) => {
+            const video = youtubeVideos[videoIndex];
+            const videoId = getVideoId(video);
+            const thumbnail = getThumbnail(video);
+            const isPlaying = playingVideoIndex === videoIndex;
+            
+            return (
+              <div key={videoIndex} className="video-card" style={{
+                width: '100%',
+                maxWidth: '446px',
+                minWidth: '320px',
+                flex: '1 1 320px'
+              }}>
+                {isPlaying ? (
+                  <div className="video-embed-inline">
+                    <iframe
+                      id={`youtube-player-${videoIndex}`}
+                      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1${video.startTime ? `&start=${Math.floor(video.startTime)}` : ''}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      style={{ width: '100%', height: '100%', border: 'none', position: 'absolute', top: 0, left: 0 }}
+                    ></iframe>
+                  </div>
+                ) : (
+                  <div 
+                    className="video-thumbnail"
+                    onClick={() => handleVideoClick(videoIndex)}
+                  >
+                    {thumbnail && (
+                      <img
+                        src={thumbnail}
+                        alt={video.title}
+                        onError={(e) => {
+                          e.target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                        }}
+                      />
+                    )}
+                    <div className="video-play-overlay"></div>
+                  </div>
+                )}
+                <div className="video-info">
+                  <div className="video-title" style={{
+                    textAlign: isPlaying ? 'center' : 'left'
+                  }}>{video.title}</div>
+                  {!isPlaying && (
+                    <div className={`video-description-wrapper ${expandedDescriptions[videoIndex] ? 'expanded' : ''}`}>
+                      <div className={`video-description ${!expandedDescriptions[videoIndex] ? 'collapsed' : ''}`}>
+                        {video.description}
+                      </div>
+                      {video.description && video.description.length > 100 && !expandedDescriptions[videoIndex] && (
+                        <button
+                          className="read-more-link"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedDescriptions(prev => ({
+                              ...prev,
+                              [videoIndex]: !prev[videoIndex]
+                            }));
+                          }}
+                        >
+                          Read more
+                        </button>
+                      )}
+                      {video.description && video.description.length > 100 && expandedDescriptions[videoIndex] && (
+                        <button
+                          className="read-more-link"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedDescriptions(prev => ({
+                              ...prev,
+                              [videoIndex]: !prev[videoIndex]
+                            }));
+                          }}
+                        >
+                          Read less
+                        </button>
+                      )}
+                    </div>
+                  )}
+                  {isPlaying && (
+                    <div className="video-expand-container" style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '15px',
+                      flexWrap: 'wrap'
+                    }}>
+                      <button
+                        className="video-expand-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleExpand(video, videoIndex);
+                        }}
+                      >
+                        <span>ƒ></span> Expand
+                      </button>
+                      {getVideoSlug(video) && (
+                        <Link
+                          to={`/watch/${getVideoSlug(video)}`}
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            padding: '10px 20px',
+                            background: 'transparent',
+                            color: '#36ff95',
+                            border: '1px solid rgba(54, 255, 149, 0.5)',
+                            borderRadius: '8px',
+                            fontWeight: 600,
+                            fontSize: '0.95rem',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease',
+                            textDecoration: 'none',
+                            boxShadow: '0 4px 15px rgba(54, 255, 149, 0.2)'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                            e.target.style.borderColor = '#36ff95';
+                            e.target.style.boxShadow = '0 6px 20px rgba(54, 255, 149, 0.4)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.background = 'transparent';
+                            e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                            e.target.style.boxShadow = '0 4px 15px rgba(54, 255, 149, 0.2)';
+                          }}
+                        >
+                          Watch Page
+                        </Link>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
         {/* Studio Images */}
         <div style={{
           display: 'flex',
@@ -1798,6 +1968,3 @@ function Podcast() {
 }
 
 export default Podcast;
-
-
-
