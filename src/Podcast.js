@@ -16,7 +16,6 @@ import baibview from './assets/baibview.mp4';
 import betteraibotsliveEp155Copy55 from './assets/betteraibotslive ep155 copy55.jpg';
 import smallBusinessTools from './assets/BetterAiBots Small Business Tools.jpg';
 import aichipwars from './assets/aichipwars nvidia amd.jpg';
-import musebrand from './assets/musebrand.jpg';
 
 function Podcast() {
   const [playingVideoIndex, setPlayingVideoIndex] = useState(null);
