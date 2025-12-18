@@ -4,7 +4,7 @@ export const newsArticles = [
     slug: "ai-job-boom-how-to-get-hired-in-the-ai-revolution",
     title: "The AI Job Boom Nobody's Talking About: How to Get Hired in the AI Revolution (Before It's Too Late)",
     excerpt: "A 200 billion dollar AI hiring wave is creating new, high paying roles faster than layoffs - here is how to land one before the window closes.",
-    image: "/aijobboom.jpg",
+    image: "https://betteraibots.com/aijobboom.jpg?v=1",
     date: "12-15-25",
     author: "BetterAiBots",
     category: "AI Careers",
