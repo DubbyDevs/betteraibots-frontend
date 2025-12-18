@@ -1,5 +1,263 @@
 export const newsArticles = [
   {
+    id: 30,
+    slug: "ai-job-boom-how-to-get-hired-in-the-ai-revolution",
+    title: "The AI Job Boom Nobody's Talking About: How to Get Hired in the AI Revolution (Before It's Too Late)",
+    excerpt: "A 200 billion dollar AI hiring wave is creating new, high paying roles faster than layoffs - here is how to land one before the window closes.",
+    image: "/aijobboom.jpg",
+    date: "12-15-25",
+    author: "BetterAiBots",
+    category: "AI Careers",
+    featured: true,
+    readTime: "18 min read",
+    content: `
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
+        <iframe 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+          src="https://www.youtube.com/embed/jOMD55PrX-Y" 
+          title="The AI Job Boom - How to Get Hired in the AI Revolution" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      
+      <h1>The AI Job Boom Nobody's Talking About: How to Get Hired in the AI Revolution (Before It's Too Late)</h1>
+      
+      <p>While everyone is panicking about AI taking jobs, a 200 billion dollar job creation wave is quietly happening - and most people are missing it.</p>
+      
+      <p>Let me guess: you have seen the headlines. "AI Will Eliminate 80,000 Jobs." "Automation Threatens Millions of Workers." "Is Your Job Safe from AI?"</p>
+      
+      <p>The fear is real, and it is not entirely unfounded. AI is changing the job market dramatically. But here is what those scary headlines are not telling you: for every job AI threatens, it is creating new ones - and many of them pay better than what they are replacing.</p>
+      
+      <p>In 2025, while tech companies cut over 80,000 traditional positions, they simultaneously posted 170 million new AI related job openings globally. AI trainers are making up to 335,000 dollars annually. Prompt engineers at major companies earn 175,000 to 300,000 dollars. Companies are so desperate for people who understand AI that they are hiring folks with just 6 months of training into six figure roles.</p>
+      
+      <p>The opportunity is massive. But it is also time sensitive. Right now, the demand for AI skilled workers far exceeds the supply. AI talent demand exceeds supply by 3.2 to 1 across key roles, with over 1.6 million open positions and only 518,000 qualified candidates available. Companies are willing to train people, pay premiums, and overlook traditional qualifications if you can demonstrate AI capabilities. But this window will not stay open forever.</p>
+      
+      <p>The question is not whether AI will change your career. It will. The question is whether you will be on the side that benefits from that change or suffers from it.</p>
+      
+      <p>Here is everything you need to know about the jobs AI is actually creating, which ones are worth pursuing, and how to start training today - even if you have zero technical background.</p>
+      
+      <h2>The Real Numbers: What Is Actually Happening to Jobs</h2>
+      <p>Before we dive into the opportunities, let us be honest about what is happening to traditional jobs.</p>
+      
+      <p><strong>Jobs facing real AI pressure:</strong></p>
+      <ul>
+        <li>Data entry and basic administrative tasks</li>
+        <li>Routine customer service (tier 1 support)</li>
+        <li>Simple content writing and social media posting</li>
+        <li>Basic graphic design for templates and simple assets</li>
+        <li>Routine bookkeeping and data processing</li>
+        <li>Simple coding tasks and bug fixes</li>
+        <li>Basic translation and transcription work</li>
+      </ul>
+      
+      <p>Notice the pattern? The jobs most at risk involve repetitive, predictable tasks that follow clear rules.</p>
+      
+      <p>But here is what is simultaneously happening, and this is the part that matters: job postings that mentioned at least one AI skill advertised salaries 28 percent higher on average than those that listed none, representing roughly 18,000 dollars more per year. For those with at least two AI skills, the premium was 43 percent higher.</p>
+      
+      <p>If you have AI skills, you are looking at 28 to 43 percent higher pay for doing essentially the same type of work - just augmented with AI tools.</p>
+      
+      <p>And it is not just happening in tech. Since 2022, job postings mentioning generative AI skills were up 800 percent for non tech roles.</p>
+      
+      <h2>The Jobs Being Created Right Now</h2>
+      <p>Let us break down the actual roles companies are hiring for, and which ones you can realistically get into without spending four years getting a computer science degree.</p>
+      
+      <h3>Entry Level AI Jobs (You Can Start These Tomorrow)</h3>
+      
+      <h4>1. AI Trainer / Data Annotator</h4>
+      <p>This is the easiest entry point into AI careers, and it is hiring massively right now.</p>
+      <p><strong>What you actually do:</strong> You are teaching AI systems what is correct and what is not. This might involve labeling images, rating AI generated content, transcribing audio, evaluating search results, or providing feedback on AI responses.</p>
+      <p><strong>Pay:</strong> Starting at 20 dollars per hour, with expert projects starting at 40 dollars per hour. Base rate is about 25 dollars an hour, although earnings vary based on the type of project.</p>
+      <p><strong>Requirements:</strong> Attention to detail, basic computer skills, fluency in English (or other languages for specialized projects). Over 11,000 entry level data annotation jobs became available in the first 6 months of 2024.</p>
+      <p><strong>How to start:</strong> Platforms like DataAnnotation.tech, Scale AI, Appen, Lionbridge, RWS TrainAI Community, and Stellar AI are hiring right now. You can apply today, pass a simple qualification test, and start working this week.</p>
+      <p><strong>Real talk:</strong> This is not glamorous work. You are clicking, labeling, and evaluating for hours. But it is flexible, requires no degree, and gets your foot in the door while you build other AI skills.</p>
+      
+      <h4>2. Prompt Engineer (Entry Level)</h4>
+      <p>This is one of the hottest new job titles, and it is far less technical than it sounds.</p>
+      <p><strong>What you actually do:</strong> You figure out the best ways to talk to AI to get it to do what you need. You write instructions for AI systems, test them, refine them, and document what works. Think of it like being a translator between humans and AI.</p>
+      <p><strong>Pay:</strong> Entry level starts around 60,000 to 80,000 dollars. Mid level quickly jumps to 100,000 to 175,000 dollars. Senior prompt engineers at major tech companies make 200,000 to 300,000 dollars.</p>
+      <p><strong>Requirements:</strong> Strong writing skills, creativity, logical thinking, understanding of how AI works (which you can learn in a few weeks), and domain expertise in something like marketing, healthcare, law, or education.</p>
+      <p><strong>How to start:</strong> Take free courses on prompting, practice extensively with ChatGPT or Claude, build a portfolio of effective prompts for specific use cases, and start applying.</p>
+      
+      <h4>3. AI Content Strategist / AI Workflow Designer</h4>
+      <p>Companies know they should be using AI, but they do not know how. That is where you come in.</p>
+      <p><strong>What you actually do:</strong> You figure out where AI can fit into a company's existing work processes. You identify opportunities, implement solutions, and train teams.</p>
+      <p><strong>Pay:</strong> 65,000 to 120,000 dollars depending on experience and company size.</p>
+      <p><strong>Requirements:</strong> Understanding of AI tools, strong communication skills, experience in the relevant industry, and problem solving abilities.</p>
+      <p><strong>How to start:</strong> Learn the major AI tools cold, document case studies of how you have used AI to improve workflows, and position yourself as the AI person at your company or to potential employers.</p>
+      
+      <h3>Mid Level AI Jobs (6-18 Months of Training)</h3>
+      
+      <h4>4. Machine Learning Engineer</h4>
+      <p>The demand for ML engineers has skyrocketed in 2025. Experienced ML engineers command base salaries between 170,000 and 200,000 dollars, with total compensation easily exceeding 250,000 annually.</p>
+      <p><strong>What you actually do:</strong> You build and maintain AI models. You take data, train AI systems on it, test them, improve them, and deploy them into production.</p>
+      <p><strong>Requirements:</strong> Strong programming skills (Python is essential), understanding of machine learning concepts, experience with frameworks like TensorFlow or PyTorch, and comfort with statistics.</p>
+      <p><strong>How to start:</strong></p>
+      <ul>
+        <li>Take online courses (Coursera, fast.ai, Google's ML courses)</li>
+        <li>Build projects (Kaggle competitions are perfect)</li>
+        <li>Focus on one domain like computer vision, NLP, or recommendation systems</li>
+        <li>Create a portfolio on GitHub showing your projects</li>
+      </ul>
+      
+      <h4>5. AI Product Manager</h4>
+      <p>AI product manager roles are increasingly specialized, with salaries ranging from 130,000 to 220,000 dollars.</p>
+      <p><strong>What you actually do:</strong> You bridge the gap between technical AI teams and business needs. You decide what AI products to build, prioritize features, manage timelines, and ensure the AI solves real problems users care about.</p>
+      <p><strong>Requirements:</strong> Understanding of AI capabilities and limitations, product management experience, enough technical depth to talk to engineers, and business savvy.</p>
+      <p><strong>How to start:</strong> If you are already in product management, add AI literacy through courses. If you are new, get AI certifications and start as an associate product manager or product analyst working on AI products.</p>
+      
+      <h4>6. Natural Language Processing (NLP) Engineer</h4>
+      <p>The explosion of generative AI applications has created unprecedented demand for NLP talent. Companies are paying premium salaries of 150,000 dollars or more for professionals who can build and improve language models, chatbots, and other text based AI systems.</p>
+      <p><strong>What you actually do:</strong> You build AI systems that understand and generate human language, including chatbots, translation tools, sentiment analysis systems, and content generation tools.</p>
+      <p><strong>Requirements:</strong> Strong programming in Python, understanding of linguistics and how language works, experience with NLP libraries and frameworks, and experience working with large language models.</p>
+      <p><strong>How to start:</strong> Focus your ML learning specifically on NLP. Build chatbots, translation tools, or text analysis projects. The field is specialized enough that focused learning beats general AI knowledge.</p>
+      
+      <h3>The Non Technical AI Jobs (They Pay Well Too)</h3>
+      
+      <h4>7. AI Ethics Specialist / AI Auditor</h4>
+      <p>AI ethics and audit roles are in severe shortage, with demand well above available talent.</p>
+      <p><strong>What you actually do:</strong> You test AI systems for bias, fairness, and compliance with regulations. You make sure the AI is not discriminating, violating privacy laws, or producing harmful outputs.</p>
+      <p><strong>Pay:</strong> 90,000 to 180,000 dollars.</p>
+      <p><strong>Requirements:</strong> Understanding of AI basics, background in ethics, law, or policy, analytical skills, and strong written communication.</p>
+      <p><strong>How to start:</strong> Take AI ethics courses, learn about AI regulations, and position yourself at the intersection of AI and your existing expertise.</p>
+      
+      <h4>8. AI Training Specialist / AI Implementation Consultant</h4>
+      <p>Companies are buying AI tools but do not know how to use them. They need people to train their teams.</p>
+      <p><strong>What you actually do:</strong> You teach employees how to use AI tools effectively, create training materials, run workshops, and help companies implement AI into their workflows.</p>
+      <p><strong>Pay:</strong> 70,000 to 140,000 dollars.</p>
+      <p><strong>Requirements:</strong> Deep knowledge of AI tools, teaching ability, patience, strong communication, and industry expertise.</p>
+      <p><strong>How to start:</strong> Become an expert user of AI tools. Document everything you learn. Create training materials. Start training people at your current company, then market yourself as a consultant.</p>
+      
+      <h2>Where the Jobs Actually Are</h2>
+      <p>Demand for AI skills is higher in non tech sectors than in IT and computer science. Job postings mentioning generative AI skills were up 800 percent for non tech roles.</p>
+      
+      <p><strong>Industries aggressively hiring AI talent right now:</strong></p>
+      <ul>
+        <li>Healthcare: diagnosis, patient monitoring, drug discovery, administrative automation</li>
+        <li>Finance: fraud detection, trading algorithms, customer service, risk assessment</li>
+        <li>Retail: inventory optimization, customer behavior prediction, personalized marketing</li>
+        <li>Manufacturing: quality control, predictive maintenance, supply chain optimization</li>
+        <li>Legal: document analysis, case research, contract review</li>
+        <li>Education: personalized learning, grading automation, curriculum development</li>
+        <li>Marketing: content generation, ad targeting, customer insights, campaign optimization</li>
+      </ul>
+      
+      <h2>The Training Path: From Zero to Hired</h2>
+      <p>Let us get practical. You want in on this. How do you actually do it?</p>
+      
+      <h3>Path 1: The Fast Track (3-6 Months to Your First AI Job)</h3>
+      <p><strong>Goal:</strong> Get hired as an AI trainer, data annotator, or entry level prompt engineer.</p>
+      <p><strong>Month 1: AI Literacy</strong></p>
+      <ul>
+        <li>Take Google's AI Essentials course (free, 10 hours)</li>
+        <li>Take Prompting Essentials</li>
+        <li>Use ChatGPT or Claude daily for actual work tasks</li>
+        <li>Document what works and what does not</li>
+      </ul>
+      <p><strong>Month 2: Hands On Practice</strong></p>
+      <ul>
+        <li>Apply to data annotation platforms (DataAnnotation.tech, Scale AI, Appen)</li>
+        <li>Start doing paid annotation work</li>
+        <li>Build a portfolio of effective prompts for different use cases</li>
+        <li>Join AI communities on Reddit, Discord, or LinkedIn</li>
+      </ul>
+      <p><strong>Month 3-6: Specialize and Apply</strong></p>
+      <ul>
+        <li>Pick one industry or application (marketing, customer service, content creation, etc.)</li>
+        <li>Become the expert on AI tools for that niche</li>
+        <li>Create case studies showing results you have achieved</li>
+        <li>Start applying to entry level AI roles and network actively</li>
+      </ul>
+      <p><strong>Expected outcome:</strong> Entry level AI job paying 50,000 to 80,000 dollars, with a clear path to 100,000 plus within 2 years.</p>
+      
+      <h3>Path 2: The Technical Track (6-12 Months to ML Engineer or AI Developer)</h3>
+      <p><strong>Goal:</strong> Get hired as a machine learning engineer, AI developer, or data scientist.</p>
+      <p><strong>Months 1-3: Programming Fundamentals</strong></p>
+      <ul>
+        <li>Learn Python</li>
+        <li>Learn basic statistics and linear algebra</li>
+        <li>Practice daily on coding platforms like LeetCode or HackerRank</li>
+      </ul>
+      <p><strong>Months 4-6: Machine Learning Foundations</strong></p>
+      <ul>
+        <li>Take Andrew Ng's Machine Learning course on Coursera</li>
+        <li>Learn key ML libraries: scikit-learn, TensorFlow or PyTorch</li>
+        <li>Complete hands on projects (Kaggle competitions are perfect)</li>
+        <li>Build 2-3 projects showing different ML skills</li>
+      </ul>
+      <p><strong>Months 7-12: Specialization and Job Search</strong></p>
+      <ul>
+        <li>Pick a specialization (NLP, computer vision, or recommendation systems)</li>
+        <li>Build impressive projects in your specialization</li>
+        <li>Contribute to open source AI projects</li>
+        <li>Create a portfolio website and GitHub showing your work</li>
+        <li>Start applying to ML engineer roles, including junior positions</li>
+      </ul>
+      <p><strong>Expected outcome:</strong> Machine learning engineer role paying 100,000 to 170,000 dollars, with rapid salary growth as you gain experience.</p>
+      
+      <h3>Path 3: The Business AI Track (3-9 Months to AI Strategy or Implementation Role)</h3>
+      <p><strong>Goal:</strong> Become an AI consultant, strategist, or implementation specialist.</p>
+      <p><strong>Months 1-3: Deep AI Tool Mastery</strong></p>
+      <ul>
+        <li>Master ChatGPT, Claude, Midjourney, and major AI productivity tools</li>
+        <li>Take business focused AI courses</li>
+        <li>Use AI extensively in your current job and document results</li>
+        <li>Build case studies of AI implementations</li>
+      </ul>
+      <p><strong>Months 4-6: Domain Expertise</strong></p>
+      <ul>
+        <li>Become the AI expert for your industry</li>
+        <li>Study how competitors use AI</li>
+        <li>Network with other AI professionals in your field</li>
+        <li>Get certified (Google, Microsoft, or IBM AI certifications)</li>
+      </ul>
+      <p><strong>Months 7-9: Launch Your AI Career</strong></p>
+      <ul>
+        <li>Position yourself as an AI consultant or apply to AI strategy roles</li>
+        <li>Create content sharing your expertise (LinkedIn posts, blog, or video)</li>
+        <li>Reach out to companies that need AI help</li>
+        <li>Leverage your industry experience plus AI knowledge</li>
+      </ul>
+      <p><strong>Expected outcome:</strong> AI consultant or strategist role paying 80,000 to 150,000 dollars, with potential for much higher as an independent consultant.</p>
+      
+      <h2>The Free Training Resources That Actually Work</h2>
+      <p>You do not need to spend thousands on bootcamps.</p>
+      <p><strong>AI Fundamentals:</strong> Google AI Essentials, OpenAI's AI Foundations, University of Maryland's free AI and Career Empowerment certificate.</p>
+      <p><strong>Technical Training:</strong> Fast.ai, Google's Machine Learning Crash Course, Coursera's Machine Learning Specialization by Andrew Ng (audit for free), Kaggle Learn.</p>
+      <p><strong>Certifications That Matter:</strong> Google Career Certificates with practical AI training, Microsoft Azure AI Fundamentals, IBM AI Engineering Professional Certificate, AWS AI Practitioner. Certificates help, but a portfolio of actual work matters more.</p>
+      
+      <h2>The Skills Employers Actually Want</h2>
+      <p>Python dominates the skill landscape. Other key areas include deep learning frameworks (TensorFlow, PyTorch), cloud and infrastructure (Kubernetes, GCP), and backend or database technologies (SQL, Java, Linux). Cloud and DevOps skills tend to command the highest salaries. For non technical roles, employers want strong prompting, tool depth, critical thinking about AI limitations, communication, domain expertise, and ethical AI understanding.</p>
+      
+      <h2>The Reality Check: What to Actually Expect</h2>
+      <ul>
+        <li>The competition is increasing, and the window for easy premiums will close. Get in now.</li>
+        <li>You will need to keep learning. AI changes fast.</li>
+        <li>Not everyone will make 300,000 dollars; more realistic expectations are 50,000 to 80,000 starting out and 100,000 to 150,000 with a few years of experience.</li>
+        <li>Entry level might be grinding, but the career progression is fast.</li>
+        <li>Remote work is real. About one third of AI jobs are fully remote, and another third are hybrid.</li>
+      </ul>
+      
+      <h2>The Mindset Shift: Work WITH AI, Not Against It</h2>
+      <p>Thrivers ask how they can use AI to become 10x better at their job. Strugglers ask how to protect their job from AI. Every job will involve AI eventually. Workers with AI skills earn 28 percent more than their counterparts, and those with multiple AI skills see 43 percent salary premiums.</p>
+      
+      <h2>Your Action Plan: Start Today</h2>
+      <p><strong>Today:</strong> Open ChatGPT or Claude, start using it for actual work tasks, and pay attention to what works.</p>
+      <p><strong>This Week:</strong> Take the Google AI Essentials course, decide which path appeals to you, and join a few AI communities.</p>
+      <p><strong>This Month:</strong></p>
+      <ul>
+        <li>If you chose fast track: apply to three to five data annotation platforms.</li>
+        <li>If you chose technical: start learning Python daily.</li>
+        <li>If you chose business: document five ways AI improved your work and connect with people working in AI.</li>
+      </ul>
+      <p><strong>Next 3 Months:</strong> Complete the first phase of your chosen learning path, build your first project or case study, start positioning yourself as someone with AI skills, and begin applying to entry level AI roles or seeking AI projects.</p>
+      <p><strong>In 6 Months:</strong> Have a portfolio of AI work, be actively applying to AI jobs, network with people hiring for these roles, and consider yourself an AI professional with demonstrable skills.</p>
+      
+      <h2>The Bottom Line</h2>
+      <p>AI is not going to take your job. But someone who knows how to use AI might. The shortage is going to get worse before it gets better, and companies are desperate for people who understand AI. This opportunity window is open right now, but it will not stay open forever. Stop reading about AI taking jobs. Start building the skills that make you irreplaceable in an AI powered economy. The future is happening for you if you are willing to take it.</p>
+    `
+  },
+  {
     id: 29,
     slug: "the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv",
     title: "The Death of the Resume: Why Companies Are Using AI to Hire Without Ever Reading Your CV",
@@ -8,7 +266,7 @@ export const newsArticles = [
     date: "12-06-2025",
     author: "BetterAiBots",
     category: "AI & Society",
-    featured: true,
+    featured: false,
     content: `
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
         <iframe 

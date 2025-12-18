@@ -211,7 +211,8 @@ function News({ searchValue }) {
       "warmy-io-spam-folder-rebellion-email-deliverability",
       "why-small-businesses-beat-enterprise-ai-tools-2025",
       "ai-doctors-are-here-how-medical-diagnosis-ai-just-passed-human-accuracy",
-      "ai-chip-wars-heat-up-nvidia-challenger-unexpected-source"
+      "ai-chip-wars-heat-up-nvidia-challenger-unexpected-source",
+      "ai-job-boom-how-to-get-hired-in-the-ai-revolution"
     ];
     return articlesWithVideos.includes(articleSlug);
   };
