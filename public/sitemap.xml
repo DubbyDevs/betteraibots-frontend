@@ -894,4 +894,121 @@
     </image:image>
   </url>
   
+  <!-- Vista Social Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/vista-social</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/vistasocial.jpg</image:loc>
+      <image:title>Vista Social Review - Social Media Management Tool</image:title>
+      <image:caption>Scheduling, approvals, inbox, and analytics for social media teams.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- DataHawk Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/datahawk</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/datahawkai.jpg</image:loc>
+      <image:title>DataHawk Review - Amazon Analytics and Keyword Tracking</image:title>
+      <image:caption>Track rankings, competitors, and sales performance for Amazon.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- RankPrompt Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/rankprompt</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/rankpromptai.jpg</image:loc>
+      <image:title>RankPrompt Review - AI SEO Content Briefs</image:title>
+      <image:caption>Keyword research, SERP insights, and SEO outlines.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Snowfire AI Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/snowfire-ai</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/snowfireai.jpg</image:loc>
+      <image:title>Snowfire AI Review - SEO Content and Ad Copy</image:title>
+      <image:caption>Generate SEO content, ads, and marketing assets faster.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Volza Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/volza</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/volzaai.png</image:loc>
+      <image:title>Volza Review - Global Trade Intelligence</image:title>
+      <image:caption>Supplier discovery, shipment tracking, and market research.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Bidx Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/bidx</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/bidxai.jpg</image:loc>
+      <image:title>Bidx Review - AI Ad Optimization</image:title>
+      <image:caption>Optimize paid campaigns with performance insights and budget pacing.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Laxis Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/laxis</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/laxisai.jpg</image:loc>
+      <image:title>Laxis Review - AI Meeting Assistant</image:title>
+      <image:caption>Transcripts, summaries, and action items after calls.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- KrispCall Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/krispcall</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/krispcallai.jpg</image:loc>
+      <image:title>KrispCall Review - Cloud Phone System</image:title>
+      <image:caption>Business numbers, routing, and AI call summaries.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- GetResponse Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/getresponse</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/getresponseai.jpg</image:loc>
+      <image:title>GetResponse Review - Email Marketing and Automation</image:title>
+      <image:caption>Campaigns, landing pages, and funnels in one platform.</image:caption>
+    </image:image>
+  </url>
+
 </urlset> 

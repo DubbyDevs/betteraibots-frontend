@@ -66,6 +66,15 @@ import preziai from './assets/preziai.png';
 import landingi1 from './assets/landingi1.jpg';
 import tradify1 from './assets/tradify1.jpg';
 import logome from './assets/logome1.png';
+import vistasocial from './assets/vistasocial.jpg';
+import datahawkai from './assets/datahawkai.jpg';
+import rankpromptai from './assets/rankpromptai.jpg';
+import snowfireai from './assets/snowfireai.jpg';
+import volzaai from './assets/volzaai.png';
+import bidxai from './assets/bidxai.jpg';
+import laxisai from './assets/laxisai.jpg';
+import krispcallai from './assets/krispcallai.jpg';
+import getresponseai from './assets/getresponseai.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -707,6 +716,36 @@ const PAID_APPS = [
     readMoreLink: "/learn/seosparkplug"
   },
   {
+    name: "Bidx",
+    description: "AI-powered advertising optimization platform for managing and scaling performance campaigns",
+    category: "Marketing & Advertising",
+    features: ["Campaign optimization", "Performance insights", "Budget pacing", "Automated recommendations"],
+    price: "Contact sales",
+    link: "https://try.bidx.io/BAIB",
+    image: bidxai,
+    readMoreLink: "/learn/bidx"
+  },
+  {
+    name: "KrispCall",
+    description: "Cloud phone system with AI calling features for sales, support, and global teams",
+    category: "Sales & Customer Support",
+    features: ["Business phone numbers", "Call routing", "AI call summaries", "CRM integrations"],
+    price: "From $15/month",
+    link: "https://try.krispcall.com/BAIB",
+    image: krispcallai,
+    readMoreLink: "/learn/krispcall"
+  },
+  {
+    name: "RankPrompt",
+    description: "AI-powered SEO platform that turns prompts into search-ready content briefs, outlines, and keyword-driven page plans",
+    category: "SEO & Content",
+    features: ["Keyword research", "Content briefs", "SERP insights", "Prompt-to-outline workflow", "Optimization recommendations"],
+    price: "Contact sales",
+    link: "https://join.rankprompt.com/BAIB",
+    image: rankpromptai,
+    readMoreLink: "/learn/rankprompt"
+  },
+  {
     name: "Airia",
     description: "Enterprise AI orchestration platform that accelerates agent development from concept to production with rapid prototyping and intelligent operations",
     category: "AI & Enterprise Automation",
@@ -918,6 +957,16 @@ function Apps() {
       readMoreLink: "/learn/consensus"
     },
     {
+      name: "DataHawk",
+      description: "Amazon marketplace analytics and keyword tracking platform for sellers and brands who want to grow rankings, revenue, and market share",
+      category: "E-commerce & Marketplace Analytics",
+      features: ["Keyword rank tracking", "Market intelligence", "Sales & profitability analytics", "PPC insights", "Competitor monitoring"],
+      link: "https://get.datahawk.co/eoe07kko8pol",
+      trialInfo: "Free Trial Available",
+      image: datahawkai,
+      readMoreLink: "/learn/datahawk"
+    },
+    {
       name: "Flowith.io",
       description: "AI-powered workflow automation platform that helps streamline your business processes",
       category: "Workflow Automation",
@@ -926,6 +975,16 @@ function Apps() {
       trialInfo: "Free trial available",
       image: "/flowith.jpg",
       readMoreLink: "/learn/flowith-io"
+    },
+    {
+      name: "GetResponse",
+      description: "Email marketing and automation platform with campaigns, landing pages, and conversion funnels",
+      category: "Email Marketing & Automation",
+      features: ["Email campaigns", "Marketing automation", "Landing pages", "Funnels", "Contact segmentation"],
+      link: "https://try.getresponsetoday.com/BAIB",
+      trialInfo: "Free Trial Available",
+      image: getresponseai,
+      readMoreLink: "/learn/getresponse"
     },
     {
       name: "Hume AI",
@@ -958,6 +1017,16 @@ function Apps() {
       readMoreLink: "/learn/landingi-complete-guide"
     },
     {
+      name: "Laxis",
+      description: "AI meeting assistant that records, transcribes, summarizes, and turns conversations into actionable notes",
+      category: "Productivity & Meetings",
+      features: ["Meeting recording", "Transcripts & summaries", "Action items", "CRM notes", "Team collaboration"],
+      link: "https://get.laxis.com/BAIB",
+      trialInfo: "Free Trial Available",
+      image: laxisai,
+      readMoreLink: "/learn/laxis"
+    },
+    {
       name: "Lindy",
       description: "AI-powered personal assistant that helps you manage tasks",
       category: "Productivity & Personal Assistant",
@@ -966,6 +1035,16 @@ function Apps() {
       trialInfo: "Free Trial Available",
       image: "/lindy.png",
       readMoreLink: "/learn/lindy-ai"
+    },
+    {
+      name: "Logome",
+      description: "AI-powered logo generator and brand kit creator.",
+      category: "Creative & Design",
+      features: ["AI logo generator", "Brand kit creation", "Website templates", "Social media templates", "Business cards", "Email signatures", "100+ fonts", "Free logo design"],
+      link: "https://logomeai.partnerlinks.io/BAIB",
+      trialInfo: "Start for free",
+      image: logome,
+      readMoreLink: "/learn/logome-complete-guide"
     },
     {
       name: "Lusha",
@@ -1068,6 +1147,16 @@ function Apps() {
       readMoreLink: "/learn/smartli"
     },
     {
+      name: "Snowfire AI",
+      description: "AI content and marketing platform for generating SEO-friendly content, ad copy, and campaign assets faster",
+      category: "Marketing & Content",
+      features: ["SEO content generation", "Ad copy creation", "Brand voice control", "Content repurposing", "Team collaboration"],
+      link: "https://partners.snowfire.ai/8f5vtlj0mksq",
+      trialInfo: "Free Trial Available",
+      image: snowfireai,
+      readMoreLink: "/learn/snowfire-ai"
+    },
+    {
       name: "ThorData",
       description: "Enterprise-grade proxy and web scraping infrastructure with 60M+ IPs, 120+ scraper APIs, and powerful tools for AI data collection",
       category: "Data & Proxies",
@@ -1118,6 +1207,26 @@ function Apps() {
       readMoreLink: "/learn/vida-ai-agent-os"
     },
     {
+      name: "Vista Social",
+      description: "Social media management platform for planning, publishing, and analyzing content across channels",
+      category: "Social Media & Marketing",
+      features: ["Multi-channel scheduling", "Unified inbox", "Approvals & workflows", "Analytics reporting"],
+      link: "https://join.vistasocial.com/BAIB",
+      trialInfo: "Free Trial Available",
+      image: vistasocial,
+      readMoreLink: "/learn/vista-social"
+    },
+    {
+      name: "Volza",
+      description: "Global trade intelligence platform that helps you find suppliers, analyze competitors, and track shipments across markets",
+      category: "Sales & Market Intelligence",
+      features: ["Supplier discovery", "Shipment tracking", "Competitor analysis", "Trade data insights", "Market research"],
+      link: "https://partner.volza.com/BAIB",
+      trialInfo: "Free Trial Available",
+      image: volzaai,
+      readMoreLink: "/learn/volza"
+    },
+    {
       name: "Warmy",
       description: "Auto All-In-One Tool For Email Deliverability To Make Your Email Channel Reliable",
       category: "Email Marketing",
@@ -1146,16 +1255,6 @@ function Apps() {
       trialInfo: "Free trial available",
       image: "https://betteraibots.com/wispr.png",
       readMoreLink: "/learn/wispr-flow-complete-guide"
-    },
-    {
-      name: "Logome",
-      description: "AI-powered logo generator and brand kit creator.",
-      category: "Creative & Design",
-      features: ["AI logo generator", "Brand kit creation", "Website templates", "Social media templates", "Business cards", "Email signatures", "100+ fonts", "Free logo design"],
-      link: "https://logomeai.partnerlinks.io/BAIB",
-      trialInfo: "Start for free",
-      image: logome,
-      readMoreLink: "/learn/logome-complete-guide"
     }
   ];
 

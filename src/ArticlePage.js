@@ -265,6 +265,7 @@ export default function ArticlePage() {
     "atria": "https://affiliates.tryatria.com/BAIB",
     "recomaze": "https://affiliate.recomaze.ai/BAIB",
     "vida-ai-agent-os": "https://try.vida.io/BAIB",
+    "vista-social": "https://join.vistasocial.com/BAIB",
     "plesk": "https://try.plesk.com/BAIB",
     "surecam": "https://join.surecam.com/BAIB",
     "diginius": "https://get.diginius.com/rvao67pwqqux",
@@ -298,7 +299,15 @@ export default function ArticlePage() {
     "prezi-complete-guide": "https://try.prezi.com/9kk83fjh4yri",
     "landingi-complete-guide": "https://try.landingi.com/lwfc597yjm25",
     "tradify-complete-guide": "https://partners.tradifyhq.com/rh188vnbjrvr",
-    "logome-complete-guide": "https://logomeai.partnerlinks.io/BAIB"
+    "logome-complete-guide": "https://logomeai.partnerlinks.io/BAIB",
+    "datahawk": "https://get.datahawk.co/eoe07kko8pol",
+    "rankprompt": "https://join.rankprompt.com/BAIB",
+    "snowfire-ai": "https://partners.snowfire.ai/8f5vtlj0mksq",
+    "volza": "https://partner.volza.com/BAIB",
+    "bidx": "https://try.bidx.io/BAIB",
+    "laxis": "https://get.laxis.com/BAIB",
+    "krispcall": "https://try.krispcall.com/BAIB",
+    "getresponse": "https://try.getresponsetoday.com/BAIB"
   };
   
   const affiliateLink = affiliateLinks[article.id] || null;
@@ -432,6 +441,7 @@ export default function ArticlePage() {
     'atria',
     'recomaze',
     'vida-ai-agent-os',
+    'vista-social',
     'plesk',
     'surecam',
     'diginius',
@@ -471,7 +481,15 @@ export default function ArticlePage() {
     'prezi-complete-guide',
     'landingi-complete-guide',
     'tradify-complete-guide',
-    'logome-complete-guide'
+    'logome-complete-guide',
+    'datahawk',
+    'rankprompt',
+    'snowfire-ai',
+    'volza',
+    'bidx',
+    'laxis',
+    'krispcall',
+    'getresponse'
   ];
   const usesNewsStyleLayout = articlesWithNewsStyleLayout.includes(article.id);
 
@@ -692,6 +710,7 @@ export default function ArticlePage() {
             "atria": "https://betteraibots.com/assets/atria1.jpg",
             "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
             "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
+            "vista-social": "https://betteraibots.com/assets/vistasocial.jpg",
             "plesk": "https://betteraibots.com/assets/plesk1.jpg",
             "surecam": "https://betteraibots.com/assets/surecam1.jpg",
             "diginius": "https://betteraibots.com/assets/diginius1.jpg",
@@ -723,7 +742,15 @@ export default function ArticlePage() {
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
             "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
             "tradify-complete-guide": "https://betteraibots.com/assets/tradify1.jpg",
-            "logome-complete-guide": "https://betteraibots.com/assets/logome1.png"
+            "logome-complete-guide": "https://betteraibots.com/assets/logome1.png",
+            "datahawk": "https://betteraibots.com/assets/datahawkai.jpg",
+            "rankprompt": "https://betteraibots.com/assets/rankpromptai.jpg",
+            "snowfire-ai": "https://betteraibots.com/assets/snowfireai.jpg",
+            "volza": "https://betteraibots.com/assets/volzaai.png",
+            "bidx": "https://betteraibots.com/assets/bidxai.jpg",
+            "laxis": "https://betteraibots.com/assets/laxisai.jpg",
+            "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
+            "getresponse": "https://betteraibots.com/assets/getresponseai.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -750,6 +777,7 @@ export default function ArticlePage() {
             "atria": "https://betteraibots.com/assets/atria1.jpg",
             "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
             "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
+            "vista-social": "https://betteraibots.com/assets/vistasocial.jpg",
             "plesk": "https://betteraibots.com/assets/plesk1.jpg",
             "surecam": "https://betteraibots.com/assets/surecam1.jpg",
             "diginius": "https://betteraibots.com/assets/diginius1.jpg",
@@ -781,7 +809,9 @@ export default function ArticlePage() {
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
             "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
             "tradify-complete-guide": "https://betteraibots.com/assets/tradify1.jpg",
-            "logome-complete-guide": "https://betteraibots.com/assets/logome1.png"
+            "logome-complete-guide": "https://betteraibots.com/assets/logome1.png",
+            "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
+            "getresponse": "https://betteraibots.com/assets/getresponseai.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -810,7 +840,16 @@ export default function ArticlePage() {
             "prezi-complete-guide": "AI, Artificial Intelligence, Prezi, AI Presentations, Presentation Software, Interactive Presentations, Prezi Video, Visual Storytelling, Presentation Design, AI Presentation Creator, BetterAiBots",
             "landingi-complete-guide": "AI, Artificial Intelligence, Landingi, AI Landing Page Builder, Landing Page Creator, Conversion Optimization, Lead Generation, A/B Testing, Landing Page Design, Marketing Tools, BetterAiBots",
             "tradify-complete-guide": "Tradify, Job Management Software, Trade Business Software, Job Management for Trades, Trade Business Management, Electrician Software, Plumber Software, HVAC Software, Job Scheduling, Trade Invoicing, Trade Quoting, Trade Job Tracking, BetterAiBots",
-            "logome-complete-guide": "AI, Artificial Intelligence, Logome, AI Logo Generator, Logo Maker, Brand Kit Creator, AI Logo Maker, Logo Design, Brand Identity, Website Templates, Social Media Templates, Business Cards, Email Signatures, BetterAiBots"
+            "vista-social": "Vista Social, social media management, social scheduling, content calendar, social inbox, approvals workflow, social analytics, marketing teams, agencies, BetterAiBots",
+            "logome-complete-guide": "AI, Artificial Intelligence, Logome, AI Logo Generator, Logo Maker, Brand Kit Creator, AI Logo Maker, Logo Design, Brand Identity, Website Templates, Social Media Templates, Business Cards, Email Signatures, BetterAiBots",
+            "datahawk": "DataHawk, Amazon analytics, Amazon keyword tracking, Amazon seller tools, marketplace analytics, product ranking, Amazon SEO, PPC insights, competitor monitoring, BetterAiBots",
+            "rankprompt": "RankPrompt, AI SEO, content briefs, keyword research, SERP insights, SEO content planning, content outlines, SEO workflow, BetterAiBots",
+            "snowfire-ai": "Snowfire AI, AI content generation, SEO content, ad copy, marketing content, content briefs, keyword research, content workflows, BetterAiBots",
+            "volza": "Volza, trade intelligence, supplier discovery, shipment tracking, import export data, competitor analysis, market research, global trade data, BetterAiBots",
+            "bidx": "Bidx, AI advertising optimization, performance marketing, ad campaign optimization, budget pacing, ROAS, PPC analytics, paid media, BetterAiBots",
+            "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
+            "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
+            "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -845,7 +884,16 @@ export default function ArticlePage() {
             "prezi-complete-guide": "Prezi, AI presentations, presentation software, interactive presentations, Prezi Video, visual storytelling, presentation design, AI presentation creator, open canvas presentations, dynamic presentations, presentation platform, BetterAiBots",
             "landingi-complete-guide": "Landingi, AI landing page builder, landing page creator, conversion optimization, lead generation, A/B testing, landing page design, drag-and-drop editor, landing page templates, marketing tools, landing page software, BetterAiBots",
             "tradify-complete-guide": "Tradify, job management software, trade business software, job management for trades, trade business management, electrician software, plumber software, HVAC software, job scheduling, trade invoicing, trade quoting, trade job tracking, digital timesheets, trade accounting integration, BetterAiBots",
-            "logome-complete-guide": "Logome, AI logo generator, logo maker, brand kit creator, AI logo maker, logo design, brand identity, website templates, social media templates, business cards, email signatures, poster generator, flyer generator, AI branding, BetterAiBots"
+            "vista-social": "Vista Social, social media management, social media scheduler, content calendar, unified inbox, approval workflows, social analytics, marketing teams, agency reporting, BetterAiBots",
+            "logome-complete-guide": "Logome, AI logo generator, logo maker, brand kit creator, AI logo maker, logo design, brand identity, website templates, social media templates, business cards, email signatures, poster generator, flyer generator, AI branding, BetterAiBots",
+            "datahawk": "DataHawk, Amazon analytics, Amazon keyword tracker, Amazon seller analytics, marketplace intelligence, product ranking tracker, Amazon SEO tool, PPC analytics, competitor tracking, Amazon sales analytics, BetterAiBots",
+            "rankprompt": "RankPrompt, AI SEO tool, keyword research, content brief generator, SERP analysis, SEO content outlines, prompt to outline, on-page optimization, SEO planning, BetterAiBots",
+            "snowfire-ai": "Snowfire AI, AI content writer, SEO content generation, ad copy generator, marketing content, keyword research, content briefs, AI copywriting, content optimization, BetterAiBots",
+            "volza": "Volza, trade data, supplier database, shipment data, import export intelligence, sourcing research, buyer supplier insights, global trade analytics, BetterAiBots",
+            "bidx": "Bidx, ad optimization platform, AI marketing, performance insights, paid advertising analytics, campaign optimization, budget optimization, PPC tools, BetterAiBots",
+            "laxis": "Laxis, AI meeting notes, meeting transcription, meeting summary tool, action item tracking, call recorder, meeting assistant, productivity tool, BetterAiBots",
+            "krispcall": "KrispCall, virtual phone system, VoIP business phone, call tracking, call routing, AI call summary, CRM integration, business calling, BetterAiBots",
+            "getresponse": "GetResponse, email marketing platform, marketing automation tool, email sequences, landing page builder, funnel builder, email list growth, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -893,7 +941,16 @@ export default function ArticlePage() {
                 "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
                 "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
                 "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
-                "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg"
+                "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
+                "vista-social": "https://betteraibots.com/assets/vistasocial.jpg",
+                "datahawk": "https://betteraibots.com/assets/datahawkai.jpg",
+                "rankprompt": "https://betteraibots.com/assets/rankpromptai.jpg",
+                "snowfire-ai": "https://betteraibots.com/assets/snowfireai.jpg",
+                "volza": "https://betteraibots.com/assets/volzaai.png",
+                "bidx": "https://betteraibots.com/assets/bidxai.jpg",
+                "laxis": "https://betteraibots.com/assets/laxisai.jpg",
+                "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
+                "getresponse": "https://betteraibots.com/assets/getresponseai.jpg"
               };
               return ogImageMap[article.id] || primaryImage || article.cover;
             })(),
@@ -920,7 +977,16 @@ export default function ArticlePage() {
               const keywordMap = {
                 "blackbox-ai": "Blackbox.ai, AI code assistant, code completion, AI autocomplete, programming tools, software development, AI coding, code generation, developer tools, BetterAiBots",
                 "webydo": "Webydo, web design platform, no-code design, website builder, CMS, client management, web development, design tools, BetterAiBots",
-                "thordata": "ThorData, proxy service, web scraping, data collection, residential proxies, scraper APIs, AI data infrastructure, web data collection, BetterAiBots"
+                "thordata": "ThorData, proxy service, web scraping, data collection, residential proxies, scraper APIs, AI data infrastructure, web data collection, BetterAiBots",
+                "vista-social": "Vista Social, social media management, social scheduling, content calendar, unified inbox, approvals workflow, social analytics, marketing teams, BetterAiBots",
+                "datahawk": "DataHawk, Amazon analytics, Amazon keyword tracking, Amazon seller analytics, marketplace intelligence, product ranking tracker, Amazon SEO tool, PPC analytics, competitor tracking, BetterAiBots",
+                "rankprompt": "RankPrompt, AI SEO, content briefs, keyword research, SERP insights, SEO content planning, content outlines, prompt to outline, BetterAiBots",
+                "snowfire-ai": "Snowfire AI, AI content generation, SEO content, ad copy, marketing content, content briefs, keyword research, content workflows, BetterAiBots",
+                "volza": "Volza, trade intelligence, supplier discovery, shipment tracking, import export data, competitor analysis, market research, global trade data, BetterAiBots",
+                "bidx": "Bidx, AI advertising optimization, performance marketing, ad campaign optimization, budget pacing, ROAS, PPC analytics, paid media, BetterAiBots",
+                "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
+                "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
+                "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots"
               };
               return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
             })(),
@@ -1431,9 +1497,226 @@ export default function ArticlePage() {
             }}
             />
           </a>
+        ) : article.id === "rankprompt" ? (
+          <a 
+            href="https://join.rankprompt.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "snowfire-ai" ? (
+          <a 
+            href="https://partners.snowfire.ai/8f5vtlj0mksq" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "volza" ? (
+          <a 
+            href="https://partner.volza.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
         ) : article.id === "logome-complete-guide" ? (
           <a 
             href="https://logomeai.partnerlinks.io/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "bidx" ? (
+          <a 
+            href="https://try.bidx.io/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "laxis" ? (
+          <a 
+            href="https://get.laxis.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "krispcall" ? (
+          <a 
+            href="https://try.krispcall.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "getresponse" ? (
+          <a 
+            href="https://try.getresponsetoday.com/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
