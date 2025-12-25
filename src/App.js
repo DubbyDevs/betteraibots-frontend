@@ -599,7 +599,61 @@ function News({ searchValue }) {
             <button type="submit" className="newsletter-btn">Subscribe</button>
           </form>
         </div>
+    </div>
+
+    {expandedApp && (
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'rgba(5, 10, 18, 0.75)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 9999,
+          padding: '20px'
+        }}
+        onClick={() => setExpandedApp(null)}
+      >
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '900px',
+            transform: 'scale(1.03)',
+            transition: 'transform 0.2s ease'
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div style={{ position: 'relative' }}>
+            <button
+              onClick={() => setExpandedApp(null)}
+              style={{
+                position: 'absolute',
+                top: '12px',
+                right: '12px',
+                background: '#36ff95',
+                color: '#0b131a',
+                border: 'none',
+                borderRadius: '999px',
+                width: '32px',
+                height: '32px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                boxShadow: '0 6px 16px rgba(54, 255, 149, 0.4)',
+                zIndex: 10000
+              }}
+              aria-label="Close app details"
+            >
+              ×
+            </button>
+            {renderAppCard(expandedApp.app, expandedApp.type, { isModal: true })}
+          </div>
+        </div>
       </div>
+    )}
     </>
   );
 }
@@ -1890,60 +1944,6 @@ function Apps() {
                 justifyItems: 'center'
               }}>
                 {PAID_APPS.map(app => renderAppCard(app, 'paid'))}
-
-                {expandedApp && (
-                  <div
-                    style={{
-                      position: 'fixed',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      background: 'rgba(5, 10, 18, 0.75)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      zIndex: 9999,
-                      padding: '20px'
-                    }}
-                    onClick={() => setExpandedApp(null)}
-                  >
-                    <div
-                      style={{
-                        width: '100%',
-                        maxWidth: '900px',
-                        transform: 'scale(1.03)',
-                        transition: 'transform 0.2s ease'
-                      }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <div style={{ position: 'relative' }}>
-                        <button
-                          onClick={() => setExpandedApp(null)}
-                          style={{
-                            position: 'absolute',
-                            top: '12px',
-                            right: '12px',
-                            background: '#36ff95',
-                            color: '#0b131a',
-                            border: 'none',
-                            borderRadius: '999px',
-                            width: '32px',
-                            height: '32px',
-                            fontWeight: 700,
-                            cursor: 'pointer',
-                            boxShadow: '0 6px 16px rgba(54, 255, 149, 0.4)',
-                            zIndex: 10000
-                          }}
-                          aria-label="Close app details"
-                        >
-                          ×
-                        </button>
-                        {renderAppCard(expandedApp.app, expandedApp.type, { isModal: true })}
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           )}
