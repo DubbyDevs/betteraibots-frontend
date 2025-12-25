@@ -307,7 +307,8 @@ export default function ArticlePage() {
     "bidx": "https://try.bidx.io/BAIB",
     "laxis": "https://get.laxis.com/BAIB",
     "krispcall": "https://try.krispcall.com/BAIB",
-    "getresponse": "https://try.getresponsetoday.com/BAIB"
+    "getresponse": "https://try.getresponsetoday.com/BAIB",
+    "creativescore": "https://affiliate.creativescore.ai/BAIB"
   };
   
   const affiliateLink = affiliateLinks[article.id] || null;
@@ -489,7 +490,8 @@ export default function ArticlePage() {
     'bidx',
     'laxis',
     'krispcall',
-    'getresponse'
+    'getresponse',
+    'creativescore'
   ];
   const usesNewsStyleLayout = articlesWithNewsStyleLayout.includes(article.id);
 
@@ -750,7 +752,8 @@ export default function ArticlePage() {
             "bidx": "https://betteraibots.com/assets/bidxai.jpg",
             "laxis": "https://betteraibots.com/assets/laxisai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
-            "getresponse": "https://betteraibots.com/assets/getresponseai.jpg"
+            "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
+            "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -849,7 +852,8 @@ export default function ArticlePage() {
             "bidx": "Bidx, AI advertising optimization, performance marketing, ad campaign optimization, budget pacing, ROAS, PPC analytics, paid media, BetterAiBots",
             "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
             "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
-            "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots"
+            "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
+            "creativescore": "CreativeScore, AI creative scoring, ad creative analysis, performance prediction, ad diagnostics, creative optimization, paid media, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -893,7 +897,8 @@ export default function ArticlePage() {
             "bidx": "Bidx, ad optimization platform, AI marketing, performance insights, paid advertising analytics, campaign optimization, budget optimization, PPC tools, BetterAiBots",
             "laxis": "Laxis, AI meeting notes, meeting transcription, meeting summary tool, action item tracking, call recorder, meeting assistant, productivity tool, BetterAiBots",
             "krispcall": "KrispCall, virtual phone system, VoIP business phone, call tracking, call routing, AI call summary, CRM integration, business calling, BetterAiBots",
-            "getresponse": "GetResponse, email marketing platform, marketing automation tool, email sequences, landing page builder, funnel builder, email list growth, BetterAiBots"
+            "getresponse": "GetResponse, email marketing platform, marketing automation tool, email sequences, landing page builder, funnel builder, email list growth, BetterAiBots",
+            "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -947,11 +952,12 @@ export default function ArticlePage() {
                 "rankprompt": "https://betteraibots.com/assets/rankpromptai.jpg",
                 "snowfire-ai": "https://betteraibots.com/assets/snowfireai.jpg",
                 "volza": "https://betteraibots.com/assets/volzaai.png",
-                "bidx": "https://betteraibots.com/assets/bidxai.jpg",
-                "laxis": "https://betteraibots.com/assets/laxisai.jpg",
-                "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
-                "getresponse": "https://betteraibots.com/assets/getresponseai.jpg"
-              };
+            "bidx": "https://betteraibots.com/assets/bidxai.jpg",
+            "laxis": "https://betteraibots.com/assets/laxisai.jpg",
+            "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
+            "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
+            "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg"
+          };
               return ogImageMap[article.id] || primaryImage || article.cover;
             })(),
             "author": {
@@ -986,7 +992,8 @@ export default function ArticlePage() {
                 "bidx": "Bidx, AI advertising optimization, performance marketing, ad campaign optimization, budget pacing, ROAS, PPC analytics, paid media, BetterAiBots",
                 "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
                 "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
-                "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots"
+                "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
+                "creativescore": "CreativeScore, AI creative scoring, ad creative analysis, performance prediction, ad diagnostics, creative optimization, paid media, BetterAiBots"
               };
               return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
             })(),
@@ -1717,6 +1724,37 @@ export default function ArticlePage() {
         ) : article.id === "getresponse" ? (
           <a 
             href="https://try.getresponsetoday.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "creativescore" ? (
+          <a 
+            href="https://affiliate.creativescore.ai/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{

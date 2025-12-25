@@ -75,6 +75,7 @@ import bidxai from './assets/bidxai.jpg';
 import laxisai from './assets/laxisai.jpg';
 import krispcallai from './assets/krispcallai.jpg';
 import getresponseai from './assets/getresponseai.jpg';
+import creativescoreai from './assets/creativescoreai.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -955,6 +956,16 @@ function Apps() {
       trialInfo: "Free trial available",
       image: consensus1,
       readMoreLink: "/learn/consensus"
+    },
+    {
+      name: "CreativeScore",
+      description: "AI creative analysis platform that scores ad creatives and predicts performance before you launch",
+      category: "Marketing & Advertising",
+      features: ["Creative scoring", "Performance prediction", "Ad diagnostics", "Creative optimization tips", "Team collaboration"],
+      link: "https://affiliate.creativescore.ai/BAIB",
+      trialInfo: "Free Trial Available",
+      image: creativescoreai,
+      readMoreLink: "/learn/creativescore"
     },
     {
       name: "DataHawk",
