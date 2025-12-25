@@ -828,6 +828,7 @@ function Apps() {
   }, []);
   
   const [expandedFeatures, setExpandedFeatures] = useState({});
+  const [expandedApp, setExpandedApp] = useState(null);
   
   // Toggle feature expansion on mobile
   const toggleFeature = (cardId, featureIndex) => {
@@ -1270,7 +1271,8 @@ function Apps() {
   ];
 
 
-  const renderAppCard = (app, type) => {
+  const renderAppCard = (app, type, options = {}) => {
+    const { isModal = false } = options;
     const cardId = `${app.name}-${type}`;
     return (
     <div key={app.name} className="app-card" style={{
@@ -1278,30 +1280,30 @@ function Apps() {
       border: '2px solid #36ff95',
       boxShadow: '0 0 20px rgba(54, 255, 149, 0.4), 0 0 40px rgba(54, 255, 149, 0.2), inset 0 0 20px rgba(54, 255, 149, 0.1)',
       borderRadius: '16px',
-      padding: isMobile ? '16px' : '24px',
+      padding: isModal ? '32px' : isMobile ? '16px' : '24px',
       marginBottom: '20px',
       backdropFilter: 'blur(10px)',
       transition: 'all 0.3s ease',
-      cursor: isMobile ? 'default' : 'pointer',
+      cursor: isMobile || isModal ? 'default' : 'pointer',
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
-      minHeight: isMobile ? 'auto' : '400px',
+      minHeight: isModal ? '520px' : isMobile ? 'auto' : '400px',
       width: '100%',
       maxWidth: isMobile ? 'calc(100vw - 40px)' : '100%',
       boxSizing: 'border-box'
-    }} onClick={!isMobile ? (e) => {
-      // Don't open affiliate link if clicking on "Read More" link
+    }} onClick={!isMobile && !isModal ? (e) => {
+      // Don't open modal if clicking on links
       if (e.target.closest('a[href]')) {
         return;
       }
-      window.open(app.link, '_blank');
+      setExpandedApp({ app, type });
     } : undefined}>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '16px' }}>
         <div 
           style={{
-            width: '60px',
-            height: '60px',
+            width: isModal ? '120px' : '60px',
+            height: isModal ? '120px' : '60px',
             borderRadius: '12px',
             background: 'rgba(255, 255, 255, 0.05)',
             display: 'flex',
@@ -1313,13 +1315,17 @@ function Apps() {
             transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
             cursor: 'pointer'
           }}
+          onClick={(e) => {
+            e.stopPropagation();
+            window.open(app.link, '_blank');
+          }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.4)';
             e.currentTarget.style.boxShadow = '0 0 8px rgba(54, 255, 149, 0.25)';
             const img = e.currentTarget.querySelector('img');
             if (img) {
               img.style.transform = 'scale(1.2)';
-              img.style.padding = '4px';
+              img.style.padding = isModal ? '6px' : '4px';
             }
           }}
           onMouseLeave={(e) => {
@@ -1328,7 +1334,7 @@ function Apps() {
             const img = e.currentTarget.querySelector('img');
             if (img) {
               img.style.transform = 'scale(1)';
-              img.style.padding = '8px';
+              img.style.padding = isModal ? '12px' : '8px';
             }
           }}
         >
@@ -1340,7 +1346,7 @@ function Apps() {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                padding: '8px',
+                padding: isModal ? '12px' : '8px',
                 transition: 'transform 0.3s ease, padding 0.3s ease'
               }}
               onError={(e) => {
@@ -1362,7 +1368,7 @@ function Apps() {
         <div style={{ flex: 1 }}>
           <h3 style={{
             margin: '0 0 8px 0',
-            fontSize: '1.43rem',
+            fontSize: isModal ? '1.75rem' : '1.43rem',
             fontWeight: '600',
             color: '#36ff95',
             display: 'flex',
@@ -1386,11 +1392,38 @@ function Apps() {
           <p style={{
             margin: '0 0 8px 0',
             color: '#ffffff',
-            fontSize: '0.99rem',
+            fontSize: isModal ? '1.1rem' : '0.99rem',
             fontWeight: '500'
           }}>
-            {app.category}
-          </p>
+          {app.category}
+        </p>
+        {isModal && app.readMoreLink && (
+          <Link
+            to={app.readMoreLink}
+            state={{ from: '/apps' }}
+            onClick={(e) => {
+              e.stopPropagation();
+              e.nativeEvent.stopImmediatePropagation();
+              sessionStorage.setItem('articleFromPage', '/apps');
+            }}
+            style={{
+              display: 'inline-block',
+              color: '#36ff95',
+              fontSize: '1.02rem',
+              fontWeight: '600',
+              textDecoration: 'none',
+              marginBottom: '10px'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.textDecoration = 'underline';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.textDecoration = 'none';
+            }}
+          >
+            User Guide for {app.name}
+          </Link>
+        )}
           {type === 'trial' && app.trialInfo && (
             <p style={{
               margin: '0 0 8px 0',
@@ -1404,19 +1437,19 @@ function Apps() {
         </div>
       </div>
       
-      <p style={{
-        margin: '0 0 16px 0',
-        color: '#d1efe7',
-        fontSize: '1rem',
-        lineHeight: '1.5'
-      }}>
-        {app.description}
-      </p>
+        <p style={{
+          margin: '0 0 16px 0',
+          color: '#d1efe7',
+          fontSize: isModal ? '1.1rem' : '1rem',
+          lineHeight: '1.5'
+        }}>
+          {app.description}
+        </p>
       
       <div style={{ marginBottom: '16px', flex: 1 }}>
         <h4 style={{
           margin: '0 0 8px 0',
-          fontSize: '0.9rem',
+          fontSize: isModal ? '1.05rem' : '0.9rem',
           color: '#36ff95',
           fontWeight: '600'
         }}>
@@ -1426,7 +1459,7 @@ function Apps() {
           margin: 0,
           paddingLeft: '20px',
           color: '#9ca3af',
-          fontSize: '0.9rem'
+          fontSize: isModal ? '1rem' : '0.9rem'
         }}>
           {app.features.map((feature, index) => {
             const featureKey = `${cardId}-${index}`;
@@ -1439,7 +1472,7 @@ function Apps() {
                 transition: 'all 0.2s ease',
                 cursor: isMobile ? 'pointer' : 'default',
                 color: isMobile && isExpanded ? '#ffffff' : '#9ca3af',
-                fontSize: isMobile && isExpanded ? '1.035rem' : '0.9rem',
+                fontSize: isMobile && isExpanded ? '1.035rem' : isModal ? '1rem' : '0.9rem',
                 fontWeight: isMobile && isExpanded ? '500' : 'normal'
               }}
               onClick={isMobile ? () => toggleFeature(cardId, index) : undefined}
@@ -1469,15 +1502,15 @@ function Apps() {
         <span 
           style={{
             color: '#36ff95',
-            fontSize: '0.99rem',
+            fontSize: isModal ? '1.1rem' : '0.99rem',
             fontWeight: '600',
-            cursor: isMobile ? 'pointer' : 'default',
+            cursor: 'pointer',
             userSelect: 'none'
           }}
-          onClick={isMobile ? (e) => {
+          onClick={(e) => {
             e.stopPropagation();
             window.open(app.link, '_blank');
-          } : undefined}
+          }}
         >
           Click to visit →
         </span>
@@ -1493,7 +1526,7 @@ function Apps() {
             }}
             style={{
               color: '#ffffff',
-              fontSize: '0.85rem',
+              fontSize: isModal ? '1rem' : '0.85rem',
               fontWeight: '600',
               textDecoration: 'none',
               padding: '4px 8px',
@@ -1857,6 +1890,60 @@ function Apps() {
                 justifyItems: 'center'
               }}>
                 {PAID_APPS.map(app => renderAppCard(app, 'paid'))}
+
+                {expandedApp && (
+                  <div
+                    style={{
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      background: 'rgba(5, 10, 18, 0.75)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      zIndex: 9999,
+                      padding: '20px'
+                    }}
+                    onClick={() => setExpandedApp(null)}
+                  >
+                    <div
+                      style={{
+                        width: '100%',
+                        maxWidth: '900px',
+                        transform: 'scale(1.03)',
+                        transition: 'transform 0.2s ease'
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div style={{ position: 'relative' }}>
+                        <button
+                          onClick={() => setExpandedApp(null)}
+                          style={{
+                            position: 'absolute',
+                            top: '12px',
+                            right: '12px',
+                            background: '#36ff95',
+                            color: '#0b131a',
+                            border: 'none',
+                            borderRadius: '999px',
+                            width: '32px',
+                            height: '32px',
+                            fontWeight: 700,
+                            cursor: 'pointer',
+                            boxShadow: '0 6px 16px rgba(54, 255, 149, 0.4)',
+                            zIndex: 10000
+                          }}
+                          aria-label="Close app details"
+                        >
+                          ×
+                        </button>
+                        {renderAppCard(expandedApp.app, expandedApp.type, { isModal: true })}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

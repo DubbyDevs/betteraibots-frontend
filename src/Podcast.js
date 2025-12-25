@@ -47,6 +47,35 @@ function Podcast() {
   const emailDeliverabilityLinks = [
     { name: 'Warmy.io', url: 'https://warmyio.partnerlinks.io/ffy5y6ll9374' }
   ];
+  const capsuleCrmLinks = [
+    { name: 'Capsule CRM', url: 'https://capsulecrm.com/signup/?ref=betteraibots' }
+  ];
+  const thorDataLinks = [
+    { name: 'ThorData', url: 'https://www.thordata.com/' }
+  ];
+  const museitLinks = [
+    { name: 'Museit.art', url: 'https://museit.art' }
+  ];
+  const linksByVideoId = {
+    'jOMD55PrX-Y': aiToolsLinks,
+    'PbanVBegAlk': aiToolsLinks,
+    'ytCyZ3LeXJ4': emailDeliverabilityLinks,
+    'cz1UN93IBzU': capsuleCrmLinks,
+    '5XFaLaiiVnc': thorDataLinks,
+    'VEbHf-jICZc': museitLinks,
+    'hGeW2slgRcY': museitLinks
+  };
+  const getVideoLinks = (video) => linksByVideoId[video?.id] || null;
+  const hideWatchPageIds = new Set([
+    'Kv-JFSjQsRs', // Why Small Businesses Are Beating Enterprise
+    'tvU6VpFxl0c', // The AI Home Office GOLD RUSH
+    'bou2k-TXtvs', // AI Chip WARS
+    'O9xN3anQKbM', // AI Companions
+    'PbanVBegAlk', // 10 AI Tools
+    'ytCyZ3LeXJ4', // How to Fix Email Deliverability
+    'jOMD55PrX-Y', // The AI Job Boom
+    'gxiFa0KiXrA'  // The Death of the Resume
+  ]);
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth <= 768;
@@ -120,40 +149,58 @@ function Podcast() {
       thumbnail: 'https://img.youtube.com/vi/jOMD55PrX-Y/maxresdefault.jpg'
     },
     {
+      id: 'cz1UN93IBzU',
+      title: 'Capsule CRM Review',
+      description: 'What is Capsule CRM? The platform that gets it right. Capsule CRM was built on a simple but revolutionary premise: CRM software should make your life easier, not harder. While competitors added layers of complexity, Capsule focused on an intuitive platform that small to medium businesses can use effectively. Link: https://capsulecrm.com/signup/?ref=betteraibots',
+      thumbnail: 'https://img.youtube.com/vi/cz1UN93IBzU/hqdefault.jpg'
+    },
+    {
+      id: '5XFaLaiiVnc',
+      title: 'How ThorData Solves the AI Data Collection Wall',
+      description: 'AI model training data collection, market research and competitive intelligence, price monitoring and comparison, lead generation and data enrichment, academic research. Link: https://www.thordata.com/',
+      thumbnail: 'https://img.youtube.com/vi/5XFaLaiiVnc/hqdefault.jpg'
+    },
+    {
+      id: 'VEbHf-jICZc',
+      title: "AI's Impact on Creativity in General",
+      description: 'A deeper look into the impacts of AI and art in general, and how new technology is propelling the art industry in ways never imagined before. Link: https://museit.art',
+      thumbnail: 'https://img.youtube.com/vi/VEbHf-jICZc/hqdefault.jpg'
+    },
+    {
       id: 'O9xN3anQKbM',
       title: 'AI Companions - Why 20 Million People Are Choosing Digital Love',
       description: 'In this episode, we dive into the uncomfortable reality of AI companions: why millions are choosing digital intimacy over human connection, what this reveals about our loneliness epidemic, and the psychological truths we\'re being forced to confront.',
-      thumbnail: baiblive6
+      thumbnail: 'https://img.youtube.com/vi/O9xN3anQKbM/maxresdefault.jpg'
     },
     {
       id: 'PbanVBegAlk',
       title: '10 AI Tools to give YOU leverage to run EVERYTHING ALONE!',
       description: 'In this episode, we break down 10 game-changing AI tools that transform how solo entrepreneurs operate. From customer service to sales, operations to marketing—learn how to build your own AI productivity stack and become a true one-person powerhouse.',
-      thumbnail: betteraibotsliveEp155Copy55
+      thumbnail: 'https://img.youtube.com/vi/PbanVBegAlk/maxresdefault.jpg'
     },
     {
       id: 'ytCyZ3LeXJ4',
       title: 'How to Fix Email Deliverability',
       description: 'In this episode, we dive deep into the invisible infrastructure of email trust and explore Warmy.io—an AI-powered tool that\'s fighting what they call "the spam folder rebellion." Meet Adeline, the AI assistant that systematically builds your domain\'s reputation by answering the five critical questions every email algorithm asks before letting you into the inbox.',
-      thumbnail: warmyio2
+      thumbnail: 'https://img.youtube.com/vi/ytCyZ3LeXJ4/maxresdefault.jpg'
     },
     {
       id: 'Kv-JFSjQsRs',
       title: 'Why Small Businesses Are Beating Enterprise',
       description: 'For 30 years, big corporations held all the cards — massive budgets, huge IT teams, custom tech fortresses. Small businesses were always playing catch-up.\n\nBut with generative AI, that pattern is being blown apart.\n\nIn this episode, we explore why small businesses are implementing AI at speeds their massive enterprise rivals simply can\'t match. We break down the structural reasons — speed, flexibility, clean data, and focus — and reveal why the biggest risk today isn\'t picking the wrong tool. It\'s waiting.',
-      thumbnail: smallBusinessTools
+      thumbnail: 'https://img.youtube.com/vi/Kv-JFSjQsRs/hqdefault.jpg'
     },
     {
       id: 'tvU6VpFxl0c',
       title: 'The AI Home Office GOLD RUSH: 10 Income Streams For You!',
       description: 'The AI Home Office Gold Rush is happening RIGHT NOW. While most people are still wondering if AI will replace their jobs, smart entrepreneurs are already using it to multiply their output by 10x—sometimes 100x.',
-      thumbnail: '/airemotejobs.jpg'
+      thumbnail: 'https://img.youtube.com/vi/tvU6VpFxl0c/maxresdefault.jpg'
     },
     {
       id: 'bou2k-TXtvs',
       title: 'AI Chip WARS! The battle for control in tech',
       description: 'The AI Chip Wars Heat Up: NVIDIA\'s New Challenger from an Unexpected Source\n\n→ https://betteraibots.com/news/ai-chip-wars-heat-up-nvidia-challenger-unexpected-source',
-      thumbnail: aichipwars
+      thumbnail: 'https://img.youtube.com/vi/bou2k-TXtvs/maxresdefault.jpg'
     },
     {
       id: 'JiF-eCQc_SM',
@@ -223,6 +270,8 @@ function Podcast() {
       };
     }
   }, []);
+
+  const selectedVideoLinks = selectedVideo ? getVideoLinks(selectedVideo) : null;
 
 
   // Initialize YouTube API players for embedded iframes to enable getCurrentTime for expand functionality
@@ -933,6 +982,7 @@ function Podcast() {
           {youtubeVideos.slice(0, 3).map((video, index) => {
             const videoId = getVideoId(video);
             const thumbnail = getThumbnail(video);
+            const videoLinks = getVideoLinks(video);
             // Only the video at the playing index should be playing
             // Video 2 (index 1, middle) and Video 1 (index 2, right, welcome podcast) are playable
             const isPlaying = playingVideoIndex === index;
@@ -1018,7 +1068,7 @@ function Podcast() {
                       gap: '15px',
                       flexWrap: 'wrap'
                     }}>
-                      {(index === 1 || index === 2) && (
+                      {videoLinks && (
                         <>
                           <button
                             className="video-link-button"
@@ -1110,7 +1160,7 @@ function Podcast() {
                                 </button>
                               </div>
                               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                {(index === 1 ? aiToolsLinks : emailDeliverabilityLinks).map((link, linkIndex) => (
+                                {videoLinks.map((link, linkIndex) => (
                                   <a
                                     key={linkIndex}
                                     href={link.url}
@@ -1151,7 +1201,7 @@ function Podcast() {
                       >
                         <span>⛶</span> Expand
                       </button>
-                      {getVideoSlug(video) && (
+                      {!hideWatchPageIds.has(video.id) && getVideoSlug(video) && (
                         <Link
                           to={`/watch/${getVideoSlug(video)}`}
                           onClick={(e) => e.stopPropagation()}
@@ -1207,6 +1257,7 @@ function Podcast() {
             const video = youtubeVideos[videoIndex];
             const videoId = getVideoId(video);
             const thumbnail = getThumbnail(video);
+            const videoLinks = getVideoLinks(video);
             const isPlaying = playingVideoIndex === videoIndex;
             
             return (
@@ -1291,6 +1342,130 @@ function Podcast() {
                       gap: '15px',
                       flexWrap: 'wrap'
                     }}>
+                      {videoLinks && (
+                        <>
+                          <button
+                            className="video-link-button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowLinksDropdown(prev => ({
+                                ...prev,
+                                [videoIndex]: !prev[videoIndex]
+                              }));
+                              if (showInfoDropdown[videoIndex]) {
+                                setShowInfoDropdown(prev => ({
+                                  ...prev,
+                                  [videoIndex]: false
+                                }));
+                              }
+                            }}
+                            style={{
+                              background: 'transparent',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              color: '#36ff95',
+                              padding: '8px 16px',
+                              borderRadius: '6px',
+                              cursor: 'pointer',
+                              fontSize: '14px',
+                              fontFamily: 'inherit',
+                              transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                              e.target.style.borderColor = '#36ff95';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.target.style.background = 'transparent';
+                              e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                            }}
+                          >
+                            Links
+                          </button>
+                          {showLinksDropdown[videoIndex] && (
+                            <div style={{
+                              position: 'absolute',
+                              top: '100%',
+                              left: '50%',
+                              transform: 'translateX(-50%)',
+                              marginTop: '10px',
+                              background: 'rgba(16, 28, 38, 0.95)',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              borderRadius: '8px',
+                              padding: '15px',
+                              minWidth: '200px',
+                              maxWidth: '300px',
+                              maxHeight: '400px',
+                              overflowY: 'auto',
+                              zIndex: 1000,
+                              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+                            }}>
+                              <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                marginBottom: '10px',
+                                paddingBottom: '10px',
+                                borderBottom: '1px solid rgba(54, 255, 149, 0.2)'
+                              }}>
+                                <h3 style={{ margin: 0, color: '#36ff95', fontSize: '16px' }}>Tools Mentioned</h3>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setShowLinksDropdown(prev => ({
+                                      ...prev,
+                                      [videoIndex]: false
+                                    }));
+                                  }}
+                                  style={{
+                                    background: 'transparent',
+                                    border: 'none',
+                                    color: '#36ff95',
+                                    cursor: 'pointer',
+                                    fontSize: '18px',
+                                    padding: '0',
+                                    width: '24px',
+                                    height: '24px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                  }}
+                                >
+                                  A-
+                                </button>
+                              </div>
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                {videoLinks.map((link, linkIndex) => (
+                                  <a
+                                    key={linkIndex}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    style={{
+                                      color: '#d1efe7',
+                                      textDecoration: 'none',
+                                      padding: '8px 12px',
+                                      borderRadius: '6px',
+                                      transition: 'all 0.2s ease',
+                                      display: 'block'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                                      e.target.style.color = '#36ff95';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.target.style.background = 'transparent';
+                                      e.target.style.color = '#d1efe7';
+                                    }}
+                                  >
+                                    {link.name}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </>
+                      )}
                       <button
                         className="video-expand-button"
                         onClick={(e) => {
@@ -1300,7 +1475,7 @@ function Podcast() {
                       >
                         <span>⛶</span> Expand
                       </button>
-                      {getVideoSlug(video) && (
+                      {!hideWatchPageIds.has(video.id) && getVideoSlug(video) && (
                         <Link
                           to={`/watch/${getVideoSlug(video)}`}
                           onClick={(e) => e.stopPropagation()}
@@ -1356,6 +1531,7 @@ function Podcast() {
             const video = youtubeVideos[videoIndex];
             const videoId = getVideoId(video);
             const thumbnail = getThumbnail(video);
+            const videoLinks = getVideoLinks(video);
             const isPlaying = playingVideoIndex === videoIndex;
             
             return (
@@ -1440,6 +1616,130 @@ function Podcast() {
                       gap: '15px',
                       flexWrap: 'wrap'
                     }}>
+                      {videoLinks && (
+                        <>
+                          <button
+                            className="video-link-button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowLinksDropdown(prev => ({
+                                ...prev,
+                                [videoIndex]: !prev[videoIndex]
+                              }));
+                              if (showInfoDropdown[videoIndex]) {
+                                setShowInfoDropdown(prev => ({
+                                  ...prev,
+                                  [videoIndex]: false
+                                }));
+                              }
+                            }}
+                            style={{
+                              background: 'transparent',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              color: '#36ff95',
+                              padding: '8px 16px',
+                              borderRadius: '6px',
+                              cursor: 'pointer',
+                              fontSize: '14px',
+                              fontFamily: 'inherit',
+                              transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                              e.target.style.borderColor = '#36ff95';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.target.style.background = 'transparent';
+                              e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                            }}
+                          >
+                            Links
+                          </button>
+                          {showLinksDropdown[videoIndex] && (
+                            <div style={{
+                              position: 'absolute',
+                              top: '100%',
+                              left: '50%',
+                              transform: 'translateX(-50%)',
+                              marginTop: '10px',
+                              background: 'rgba(16, 28, 38, 0.95)',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              borderRadius: '8px',
+                              padding: '15px',
+                              minWidth: '200px',
+                              maxWidth: '300px',
+                              maxHeight: '400px',
+                              overflowY: 'auto',
+                              zIndex: 1000,
+                              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+                            }}>
+                              <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                marginBottom: '10px',
+                                paddingBottom: '10px',
+                                borderBottom: '1px solid rgba(54, 255, 149, 0.2)'
+                              }}>
+                                <h3 style={{ margin: 0, color: '#36ff95', fontSize: '16px' }}>Tools Mentioned</h3>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setShowLinksDropdown(prev => ({
+                                      ...prev,
+                                      [videoIndex]: false
+                                    }));
+                                  }}
+                                  style={{
+                                    background: 'transparent',
+                                    border: 'none',
+                                    color: '#36ff95',
+                                    cursor: 'pointer',
+                                    fontSize: '18px',
+                                    padding: '0',
+                                    width: '24px',
+                                    height: '24px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                  }}
+                                >
+                                  A-
+                                </button>
+                              </div>
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                {videoLinks.map((link, linkIndex) => (
+                                  <a
+                                    key={linkIndex}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    style={{
+                                      color: '#d1efe7',
+                                      textDecoration: 'none',
+                                      padding: '8px 12px',
+                                      borderRadius: '6px',
+                                      transition: 'all 0.2s ease',
+                                      display: 'block'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                                      e.target.style.color = '#36ff95';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.target.style.background = 'transparent';
+                                      e.target.style.color = '#d1efe7';
+                                    }}
+                                  >
+                                    {link.name}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </>
+                      )}
                       <button
                         className="video-expand-button"
                         onClick={(e) => {
@@ -1449,7 +1749,281 @@ function Podcast() {
                       >
                         <span>ƒ></span> Expand
                       </button>
-                      {getVideoSlug(video) && (
+                      {!hideWatchPageIds.has(video.id) && getVideoSlug(video) && (
+                        <Link
+                          to={`/watch/${getVideoSlug(video)}`}
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            padding: '10px 20px',
+                            background: 'transparent',
+                            color: '#36ff95',
+                            border: '1px solid rgba(54, 255, 149, 0.5)',
+                            borderRadius: '8px',
+                            fontWeight: 600,
+                            fontSize: '0.95rem',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease',
+                            textDecoration: 'none',
+                            boxShadow: '0 4px 15px rgba(54, 255, 149, 0.2)'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                            e.target.style.borderColor = '#36ff95';
+                            e.target.style.boxShadow = '0 6px 20px rgba(54, 255, 149, 0.4)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.background = 'transparent';
+                            e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                            e.target.style.boxShadow = '0 4px 15px rgba(54, 255, 149, 0.2)';
+                          }}
+                        >
+                          Watch Page
+                        </Link>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Three Video Section - Fourth Row */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '30px',
+          margin: '50px auto',
+          padding: '0 20px',
+          flexWrap: 'wrap',
+          maxWidth: '1400px'
+        }}>
+          {[9, 10, 11].map((videoIndex) => {
+            const video = youtubeVideos[videoIndex];
+            const videoId = getVideoId(video);
+            const thumbnail = getThumbnail(video);
+            const videoLinks = getVideoLinks(video);
+            const isPlaying = playingVideoIndex === videoIndex;
+            
+            return (
+              <div key={videoIndex} className="video-card" style={{
+                width: '100%',
+                maxWidth: '446px',
+                minWidth: '320px',
+                flex: '1 1 320px'
+              }}>
+                {isPlaying ? (
+                  <div className="video-embed-inline">
+                    <iframe
+                      id={`youtube-player-${videoIndex}`}
+                      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1${video.startTime ? `&start=${Math.floor(video.startTime)}` : ''}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      style={{ width: '100%', height: '100%', border: 'none', position: 'absolute', top: 0, left: 0 }}
+                    ></iframe>
+                  </div>
+                ) : (
+                  <div 
+                    className="video-thumbnail"
+                    onClick={() => handleVideoClick(videoIndex)}
+                  >
+                    {thumbnail && (
+                      <img
+                        src={thumbnail}
+                        alt={video.title}
+                        onError={(e) => {
+                          e.target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                        }}
+                      />
+                    )}
+                    <div className="video-play-overlay"></div>
+                  </div>
+                )}
+                <div className="video-info">
+                  <div className="video-title" style={{
+                    textAlign: isPlaying ? 'center' : 'left'
+                  }}>{video.title}</div>
+                  {!isPlaying && (
+                    <div className={`video-description-wrapper ${expandedDescriptions[videoIndex] ? 'expanded' : ''}`}>
+                      <div className={`video-description ${!expandedDescriptions[videoIndex] ? 'collapsed' : ''}`}>
+                        {video.description}
+                      </div>
+                      {video.description && video.description.length > 100 && !expandedDescriptions[videoIndex] && (
+                        <button
+                          className="read-more-link"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedDescriptions(prev => ({
+                              ...prev,
+                              [videoIndex]: !prev[videoIndex]
+                            }));
+                          }}
+                        >
+                          Read more
+                        </button>
+                      )}
+                      {video.description && video.description.length > 100 && expandedDescriptions[videoIndex] && (
+                        <button
+                          className="read-more-link"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedDescriptions(prev => ({
+                              ...prev,
+                              [videoIndex]: !prev[videoIndex]
+                            }));
+                          }}
+                        >
+                          Read less
+                        </button>
+                      )}
+                    </div>
+                  )}
+                  {isPlaying && (
+                    <div className="video-expand-container" style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '15px',
+                      flexWrap: 'wrap'
+                    }}>
+                      {videoLinks && (
+                        <>
+                          <button
+                            className="video-link-button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowLinksDropdown(prev => ({
+                                ...prev,
+                                [videoIndex]: !prev[videoIndex]
+                              }));
+                              if (showInfoDropdown[videoIndex]) {
+                                setShowInfoDropdown(prev => ({
+                                  ...prev,
+                                  [videoIndex]: false
+                                }));
+                              }
+                            }}
+                            style={{
+                              background: 'transparent',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              color: '#36ff95',
+                              padding: '8px 16px',
+                              borderRadius: '6px',
+                              cursor: 'pointer',
+                              fontSize: '14px',
+                              fontFamily: 'inherit',
+                              transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                              e.target.style.borderColor = '#36ff95';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.target.style.background = 'transparent';
+                              e.target.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+                            }}
+                          >
+                            Links
+                          </button>
+                          {showLinksDropdown[videoIndex] && (
+                            <div style={{
+                              position: 'absolute',
+                              top: '100%',
+                              left: '50%',
+                              transform: 'translateX(-50%)',
+                              marginTop: '10px',
+                              background: 'rgba(16, 28, 38, 0.95)',
+                              border: '1px solid rgba(54, 255, 149, 0.5)',
+                              borderRadius: '8px',
+                              padding: '15px',
+                              minWidth: '200px',
+                              maxWidth: '300px',
+                              maxHeight: '400px',
+                              overflowY: 'auto',
+                              zIndex: 1000,
+                              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+                            }}>
+                              <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                marginBottom: '10px',
+                                paddingBottom: '10px',
+                                borderBottom: '1px solid rgba(54, 255, 149, 0.2)'
+                              }}>
+                                <h3 style={{ margin: 0, color: '#36ff95', fontSize: '16px' }}>Tools Mentioned</h3>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setShowLinksDropdown(prev => ({
+                                      ...prev,
+                                      [videoIndex]: false
+                                    }));
+                                  }}
+                                  style={{
+                                    background: 'transparent',
+                                    border: 'none',
+                                    color: '#36ff95',
+                                    cursor: 'pointer',
+                                    fontSize: '18px',
+                                    padding: '0',
+                                    width: '24px',
+                                    height: '24px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                  }}
+                                >
+                                  A-
+                                </button>
+                              </div>
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                {videoLinks.map((link, linkIndex) => (
+                                  <a
+                                    key={linkIndex}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    style={{
+                                      color: '#d1efe7',
+                                      textDecoration: 'none',
+                                      padding: '8px 12px',
+                                      borderRadius: '6px',
+                                      transition: 'all 0.2s ease',
+                                      display: 'block'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                                      e.target.style.color = '#36ff95';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.target.style.background = 'transparent';
+                                      e.target.style.color = '#d1efe7';
+                                    }}
+                                  >
+                                    {link.name}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </>
+                      )}
+                      <button
+                        className="video-expand-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleExpand(video, videoIndex);
+                        }}
+                      >
+                        <span>’'></span> Expand
+                      </button>
+                      {!hideWatchPageIds.has(video.id) && getVideoSlug(video) && (
                         <Link
                           to={`/watch/${getVideoSlug(video)}`}
                           onClick={(e) => e.stopPropagation()}
@@ -1712,7 +2286,7 @@ function Podcast() {
                 style={{ width: '100%', height: '100%', border: 'none' }}
               ></iframe>
             </div>
-            {selectedVideo.originalIndex === 1 && (
+            {selectedVideoLinks && (
               <div style={{
                 position: 'absolute',
                 bottom: '60px',
@@ -1805,7 +2379,7 @@ function Podcast() {
                       </button>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                      {aiToolsLinks.map((link, linkIndex) => (
+                      {selectedVideoLinks.map((link, linkIndex) => (
                         <a
                           key={linkIndex}
                           href={link.url}
