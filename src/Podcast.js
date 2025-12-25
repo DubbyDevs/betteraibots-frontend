@@ -5,7 +5,6 @@ import welcometobaibpod from './assets/welcometobaibpod.jpg';
 import baiblive from './assets/liveslider/baiblive.jpg';
 import baiblive2 from './assets/liveslider/baiblive2.jpg';
 import baiblive3 from './assets/liveslider/baiblive3.jpg';
-import warmyio2 from './assets/warmyio2.jpg';
 import baiblive4 from './assets/liveslider/baiblive4.jpg';
 import baiblive5 from './assets/liveslider/baiblive5.jpg';
 import baiblive6 from './assets/liveslider/baiblive6.jpg';
@@ -13,9 +12,6 @@ import baiblive7 from './assets/liveslider/baiblive7.jpg';
 import baiblive8 from './assets/liveslider/baiblive8.jpg';
 import baiblive9 from './assets/liveslider/baiblive9.jpg';
 import baibview from './assets/baibview.mp4';
-import betteraibotsliveEp155Copy55 from './assets/betteraibotslive ep155 copy55.jpg';
-import smallBusinessTools from './assets/BetterAiBots Small Business Tools.jpg';
-import aichipwars from './assets/aichipwars nvidia amd.jpg';
 
 function Podcast() {
   const [playingVideoIndex, setPlayingVideoIndex] = useState(null);
