@@ -68,6 +68,7 @@ import tradify1 from './assets/tradify1.jpg';
 import logome from './assets/logome1.png';
 import vistasocial from './assets/vistasocial.jpg';
 import datahawkai from './assets/datahawkai.jpg';
+import elevenlabsai from './assets/elevenlabsai.jpg';
 import rankpromptai from './assets/rankpromptai.jpg';
 import snowfireai from './assets/snowfireai.jpg';
 import volzaai from './assets/volzaai.png';
@@ -234,7 +235,9 @@ function News({ searchValue }) {
       "ai-virtual-assistant-how-to-automate-tasks-2025",
       "sora-2-physics-reality-ai-video-revolution-2025",
       "ai-robotics-revolution-everything-you-own-2025",
-      "nano-banana-game-changing-ai-image-editor"
+      "nano-banana-game-changing-ai-image-editor",
+      "nano-banana-pro-upgrade-whats-new",
+      "alibaba-ai-revolution-53-billion-investment-2025"
     ];
     return articlesWithAudio.includes(articleSlug);
   };
@@ -408,7 +411,7 @@ function News({ searchValue }) {
                         <path d="M8 5v14l11-7z"/>
                       </svg>
                     )}
-                    {isNarrowScreen ? "Play" : "Play Audio"}
+                    Play
                   </Link>
                 )}
                 {articleHasVideo(article.slug) && (
@@ -491,7 +494,7 @@ function News({ searchValue }) {
                             fontSize: "0.85rem",
                             minWidth: isNarrowScreen ? "36px" : "auto"
                           }}
-                          title="Play Audio"
+                          title="Play"
                         >
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M8 5v14l11-7z"/>
@@ -978,6 +981,16 @@ function Apps() {
       trialInfo: "Free Trial Available",
       image: datahawkai,
       readMoreLink: "/learn/datahawk"
+    },
+    {
+      name: "ElevenLabs",
+      description: "AI voice and text-to-speech platform for realistic voiceovers, voice cloning, and multilingual audio",
+      category: "Voice & Audio AI",
+      features: ["Text-to-speech voices", "Voice cloning", "Dubbing and localization", "Sound effects generation", "API access"],
+      link: "https://try.elevenlabs.io/BAIB",
+      trialInfo: "Free Trial Available",
+      image: elevenlabsai,
+      readMoreLink: "/learn/elevenlabs"
     },
     {
       name: "Flowith.io",
@@ -5284,7 +5297,9 @@ function NewsArticle() {
           </div>
           <div className="article-meta">
             <span className="article-date">{article.date}</span>
-            <span className="article-read-time">{article.readTime}</span>
+            {article.readTime && (
+              <span className="article-read-time">{article.readTime}</span>
+            )}
           </div>
         </div>
         
@@ -5421,6 +5436,10 @@ function NewsArticle() {
             ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/WatchingYouEverywhere.mp3'))
             : article.slug === 'nano-banana-game-changing-ai-image-editor'
             ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Nano_Banana_Becomes_Conversational_Image_Editor.m4a'))
+            : article.slug === 'nano-banana-pro-upgrade-whats-new'
+            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Nano_Banana_Pro_Versus_the_Free_Model.m4a'))
+            : article.slug === 'alibaba-ai-revolution-53-billion-investment-2025'
+            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Alibaba_s_$53_Billion_AI_Pivot.m4a'))
             : article.content 
         }} />
         
