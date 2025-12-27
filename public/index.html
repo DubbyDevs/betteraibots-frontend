@@ -284,13 +284,26 @@
           localStorage.clear();
           sessionStorage.clear();
           
-          // Reload
-          window.location.reload();
+          // Reload with cache-bust to avoid stale assets
+          const cacheBustUrl = new URL(window.location.href);
+          cacheBustUrl.searchParams.set('cacheBust', Date.now().toString());
+          window.location.replace(cacheBustUrl.toString());
         } catch (error) {
           console.error('Error clearing cache:', error);
           window.location.reload();
         }
       };
+
+      // One-time automatic cleanup to clear old service workers and caches.
+      (function runOneTimeCleanup() {
+        const cleanupKey = 'betteraibots-sw-cleanup-v1';
+        if (localStorage.getItem(cleanupKey)) return;
+        localStorage.setItem(cleanupKey, '1');
+
+        window.clearCacheAndReload().catch(() => {
+          // If cleanup fails, avoid loops; allow manual refresh.
+        });
+      })();
       
       // Handle JavaScript errors
       window.addEventListener('error', function(e) {
