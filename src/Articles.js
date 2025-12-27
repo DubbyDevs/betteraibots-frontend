@@ -16531,17 +16531,30 @@ function IntermediateGuide({ onClose, onQuizClick }) {
 
 // --- MAIN PAGE COMPONENT ---
 export default function Articles({ level = "beginner" }) {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 768;
+    }
+    return false;
+  });
   const [showAIStarterGuide, setShowAIStarterGuide] = useState(false);
   const [showAIForDummiesGuide, setShowAIForDummiesGuide] = useState(false);
   const [showIntermediateGuide, setShowIntermediateGuide] = useState(false);
   const [showAdvancedGuide, setShowAdvancedGuide] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
+  const getStoredValue = (key, fallback) => {
+    try {
+      const value = localStorage.getItem(key);
+      return value ?? fallback;
+    } catch (error) {
+      return fallback;
+    }
+  };
   const [userLevel, setUserLevel] = useState(() => {
-    return localStorage.getItem('aiLevel') || 'beginner';
+    return getStoredValue('aiLevel', 'beginner');
   });
   const [proStatus, setProStatus] = useState(() => {
-    return localStorage.getItem('proStatus') === 'true';
+    return getStoredValue('proStatus', 'false') === 'true';
   });
   const [showProAnimation, setShowProAnimation] = useState(false);
 

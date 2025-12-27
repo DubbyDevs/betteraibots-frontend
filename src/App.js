@@ -200,8 +200,18 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
 
 // --- NEWS PAGE ---
 function News({ searchValue }) {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1150);
-  const [isNarrowScreen, setIsNarrowScreen] = useState(window.innerWidth < 900);
+  const [isSmallScreen, setIsSmallScreen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 1150;
+    }
+    return false;
+  });
+  const [isNarrowScreen, setIsNarrowScreen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 900;
+    }
+    return false;
+  });
   
   useEffect(() => {
     const handleResize = () => {
@@ -4126,7 +4136,12 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
 // --- Disclaimer Bar ---
 // eslint-disable-next-line no-unused-vars
 function DisclaimerBar() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth;
+    }
+    return 0;
+  });
 
   useEffect(() => {
     function handleResize() { setWindowWidth(window.innerWidth); }
