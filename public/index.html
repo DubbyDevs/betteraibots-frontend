@@ -264,8 +264,11 @@
       });
       
       // Function to clear cache and reload
-      window.clearCacheAndReload = async function() {
+      window.clearCacheAndReload = async function(options = {}) {
         try {
+          const { preserveCleanupKey } = options;
+          const cleanupKey = 'betteraibots-sw-cleanup-v1';
+          const cleanupValue = preserveCleanupKey ? localStorage.getItem(cleanupKey) : null;
           // Clear service workers
           if ('serviceWorker' in navigator) {
             const registrations = await navigator.serviceWorker.getRegistrations();
@@ -283,6 +286,9 @@
           // Clear storage
           localStorage.clear();
           sessionStorage.clear();
+          if (preserveCleanupKey) {
+            localStorage.setItem(cleanupKey, cleanupValue || '1');
+          }
           
           // Reload with cache-bust to avoid stale assets
           const cacheBustUrl = new URL(window.location.href);
@@ -296,11 +302,18 @@
 
       // One-time automatic cleanup to clear old service workers and caches.
       (function runOneTimeCleanup() {
-        const cleanupKey = 'betteraibots-sw-cleanup-v1';
-        if (localStorage.getItem(cleanupKey)) return;
-        localStorage.setItem(cleanupKey, '1');
+        const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '');
+        if (isMobileDevice) return;
 
-        window.clearCacheAndReload().catch(() => {
+        const cleanupKey = 'betteraibots-sw-cleanup-v1';
+        try {
+          if (localStorage.getItem(cleanupKey)) return;
+          localStorage.setItem(cleanupKey, '1');
+        } catch (error) {
+          return;
+        }
+
+        window.clearCacheAndReload({ preserveCleanupKey: true }).catch(() => {
           // If cleanup fails, avoid loops; allow manual refresh.
         });
       })();
