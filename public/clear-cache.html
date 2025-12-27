@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clearing Cache - BetterAiBots</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #1a2330 0%, #0f1419 100%);
+        color: #e5f6ef;
+        font-family: "Poppins", Arial, sans-serif;
+        text-align: center;
+        padding: 24px;
+      }
+      .card {
+        max-width: 520px;
+        background: rgba(16, 28, 38, 0.9);
+        border: 1px solid rgba(54, 255, 149, 0.25);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+      }
+      h1 {
+        font-size: 1.4rem;
+        margin: 0 0 12px;
+        color: #36ff95;
+      }
+      p {
+        margin: 0;
+        color: #9ca3af;
+        font-size: 0.98rem;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Clearing cache…</h1>
+      <p>This only takes a moment. You will be redirected automatically.</p>
+    </div>
+    <script>
+      (async function clearCacheAndRedirect() {
+        try {
+          if ('serviceWorker' in navigator) {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            await Promise.all(registrations.map((registration) => registration.unregister()));
+          }
+          if ('caches' in window) {
+            const cacheNames = await caches.keys();
+            await Promise.all(cacheNames.map((name) => caches.delete(name)));
+          }
+          try { localStorage.clear(); } catch (e) {}
+          try { sessionStorage.clear(); } catch (e) {}
+        } finally {
+          const targetUrl = new URL('/', window.location.origin);
+          targetUrl.searchParams.set('cacheBust', Date.now().toString());
+          window.location.replace(targetUrl.toString());
+        }
+      })();
+    </script>
+  </body>
+</html>
