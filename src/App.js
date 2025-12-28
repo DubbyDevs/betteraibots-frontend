@@ -77,6 +77,7 @@ import laxisai from './assets/laxisai.jpg';
 import krispcallai from './assets/krispcallai.jpg';
 import getresponseai from './assets/getresponseai.jpg';
 import creativescoreai from './assets/creativescoreai.jpg';
+import gammaai from './assets/gammaai.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -1012,6 +1013,16 @@ function Apps() {
       trialInfo: "Free trial available",
       image: "/flowith.jpg",
       readMoreLink: "/learn/flowith-io"
+    },
+    {
+      name: "Gamma",
+      description: "AI-powered presentation and document builder that turns prompts into polished decks, docs, and webpages",
+      category: "Presentations & Docs",
+      features: ["AI slide generation", "Presentation templates", "Brand themes", "One-click export", "Web publish links"],
+      link: "https://try.gamma.app/BAIB",
+      trialInfo: "Free Trial Available",
+      image: gammaai,
+      readMoreLink: "/learn/gamma"
     },
     {
       name: "GetResponse",
@@ -2392,8 +2403,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     }
     
     // Calculate total length and middle positions for affiliate ads
-    const totalLength = shuffledRegularBots.length + affiliateAds.length;
-    const middleStart = Math.floor((totalLength - affiliateAds.length) / 2);
+    const desiredPreAdCount = 11;
+    const middleStart = Math.min(desiredPreAdCount, shuffledRegularBots.length);
     
     // Create the final array with affiliate ads in the middle
     const result = [...shuffledRegularBots];

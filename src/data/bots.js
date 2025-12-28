@@ -109,14 +109,6 @@ export const rawBots = [
     categories: ["Health & Wellness", "Education"]
   },
   {
-    title: "Finance, Economics, Stock, Crypto",
-    desc: "Get in-depth financial analysis, crypto research, and investment insights. (Not financial advice)",
-    image: placeholderImg14,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-iR15hX15H-finance-economics-stock-crypto-trade-invest",
-    categories: ["Productivity"]
-  },
-  {
     title: "Personal Assistant",
     desc: "Organize and optimize your daily life with this AI-powered personal assistant.",
     image: placeholderImg11,
@@ -167,22 +159,6 @@ export const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/g/g-rLVq3NTrN-ai-music-maker-song-words-to-music-free",
     categories: ["Music", "Creative Tools"]
-  },
-  {
-    title: "AI Video Maker",
-    desc: "Create AI-generated videos instantly.",
-    image: placeholderImg22,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-68736569e14c81919097d15d1302fb50-video-creator",
-    categories: ["Creative Tools", "Productivity"]
-  },
-  {
-    title: "Glibatree Art Designer",
-    desc: "AI art design, concept visuals, and creative ideas from the Glibatree bot.",
-    image: placeholderImg3,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-7CKojumSX-glibatree-art-designer",
-    categories: ["Creative Tools"]
   },
   {
     title: "Grammar Checker",

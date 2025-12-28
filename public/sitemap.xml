@@ -28,7 +28,7 @@
   <!-- The AI Job Boom - Featured Article -->
   <url>
     <loc>https://betteraibots.com/news/ai-job-boom-how-to-get-hired-in-the-ai-revolution</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -318,7 +318,7 @@
 
   <url>
     <loc>https://betteraibots.com/news/nano-banana-pro-upgrade-whats-new</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -330,7 +330,7 @@
 
   <url>
     <loc>https://betteraibots.com/news/openai-garlic-model-ai-just-leveled-up</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -941,6 +941,19 @@
       <image:loc>https://betteraibots.com/assets/datahawkai.jpg</image:loc>
       <image:title>DataHawk Review - Amazon Analytics and Keyword Tracking</image:title>
       <image:caption>Track rankings, competitors, and sales performance for Amazon.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Gamma Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/gamma</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/gammaai.jpg</image:loc>
+      <image:title>Gamma Review - AI Presentation Builder</image:title>
+      <image:caption>Generate decks, docs, and web presentations with AI prompts.</image:caption>
     </image:image>
   </url>
 
