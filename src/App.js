@@ -233,7 +233,8 @@ function News({ searchValue }) {
       "why-small-businesses-beat-enterprise-ai-tools-2025",
       "ai-doctors-are-here-how-medical-diagnosis-ai-just-passed-human-accuracy",
       "ai-chip-wars-heat-up-nvidia-challenger-unexpected-source",
-      "ai-job-boom-how-to-get-hired-in-the-ai-revolution"
+      "ai-job-boom-how-to-get-hired-in-the-ai-revolution",
+      "openai-garlic-model-ai-just-leveled-up"
     ];
     return articlesWithVideos.includes(articleSlug);
   };

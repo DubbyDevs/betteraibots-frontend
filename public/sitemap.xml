@@ -327,6 +327,18 @@
       <image:caption>Gemini 3 Pro Image brings 4K output, reliable text rendering, and studio-grade creative controls.</image:caption>
     </image:image>
   </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/openai-garlic-model-ai-just-leveled-up</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/chatgptgarlic.jpg</image:loc>
+      <image:title>OpenAI’s Garlic Model Is a Silent Monster | AI Just Leveled Up</image:title>
+      <image:caption>OpenAI’s Garlic model focuses on reasoning, code intelligence, and efficient scaling for real-world performance.</image:caption>
+    </image:image>
+  </url>
   
   <url>
     <loc>https://betteraibots.com/news/warmy-io-spam-folder-rebellion-email-deliverability</loc>
