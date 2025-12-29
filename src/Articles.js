@@ -11476,6 +11476,16 @@ This article contains affiliate links to <a href="https://try.elevenlabs.io/BAIB
 
 **<a href="https://try.gamma.app/BAIB" target="_blank" rel="noopener noreferrer">Start your Gamma free trial</a>**
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
+  <iframe 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+    src="https://www.youtube.com/embed/s94JIklOT4s" 
+    title="Gamma Demo Video"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+
 ## Core Features of Gamma
 
 - **AI slide generation**: Turn prompts or outlines into complete slide decks.

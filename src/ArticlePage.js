@@ -486,6 +486,7 @@ export default function ArticlePage() {
     'tradify-complete-guide',
     'logome-complete-guide',
     'datahawk',
+    'gamma',
     'rankprompt',
     'snowfire-ai',
     'volza',
