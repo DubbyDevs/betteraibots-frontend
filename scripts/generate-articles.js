@@ -1672,7 +1672,7 @@ const newsArticles = [
 
       <h2>5. Capsule CRM: Keep Your Sales Pipeline Organized</h2>
 
-      <p>As a solo founder, you're managing multiple customer relationships, sales opportunities, and follow-ups. Keeping track of everything in spreadsheets or your head doesn't scale. <a href="https://get.capsulenow.io/6894ebdizsds" target="_blank" rel="noopener noreferrer" style="color: #36ff95; text-decoration: underline;">Capsule CRM</a> provides a simple, powerful CRM designed for small businesses.</p>
+      <p>As a solo founder, you're managing multiple customer relationships, sales opportunities, and follow-ups. Keeping track of everything in spreadsheets or your head doesn't scale. <a href="https://capsulecrm.com/signup/?ref=betteraibots" target="_blank" rel="noopener noreferrer" style="color: #36ff95; text-decoration: underline;">Capsule CRM</a> provides a simple, powerful CRM designed for small businesses.</p>
 
       <p>Capsule combines contact management, sales pipeline tracking, email marketing, and project management in one intuitive platform. It's built for solo founders and small teams who need organization without complexity.</p>
 
@@ -2430,3 +2430,5 @@ console.log('✅ All static article files generated successfully!');
 console.log('📝 These are complete HTML pages with full React app styling');
 console.log('🌐 Social media crawlers will see the correct images');
 console.log('🎨 Pages now look identical to your React app'); 
+
+

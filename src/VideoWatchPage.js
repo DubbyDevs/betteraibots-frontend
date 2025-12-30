@@ -13,7 +13,7 @@ const aiToolsLinks = [
   { name: 'Lusha', url: 'https://partnerstack.lusha.com/w61xn76pa3sr' },
   { name: 'Apollo AI', url: 'https://get.apollo.io/BAIB' },
   { name: 'Brevo', url: 'https://get.brevo.com/um9xszmf3nfd' },
-  { name: 'Capsule CRM', url: 'https://get.capsulenow.io/6894ebdizsds' },
+  { name: 'Capsule CRM', url: 'https://capsulecrm.com/signup/?ref=betteraibots' },
   { name: 'Flowith.io', url: 'https://aff.flowith.io/52dtlja1b580' },
   { name: 'Lindy', url: 'https://try.lindy.ai/lhgvxfidor04' },
   { name: 'Miro', url: 'https://ps.miro-affiliate.com/gwnvu4zj3r8r' },
@@ -514,4 +514,8 @@ function VideoWatchPage() {
 }
 
 export default VideoWatchPage;
+
+
+
+
 

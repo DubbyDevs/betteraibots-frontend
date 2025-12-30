@@ -959,7 +959,7 @@ function Apps() {
       description: "Simple CRM for small businesses to manage contacts, sales pipeline, and customer relationships",
       category: "Sales & CRM",
       features: ["Contact management", "Email marketing", "Project management", "Workflow automation"],
-      link: "https://get.capsulenow.io/6894ebdizsds",
+      link: "https://capsulecrm.com/signup/?ref=betteraibots",
       trialInfo: "14-day free trial",
       image: "/capsulecrm.png",
       readMoreLink: "/learn/capsule-crm-complete-guide"
@@ -5610,3 +5610,6 @@ export default function AppWithRouter() {
     </Auth0Provider>
   );
 }
+
+
+
