@@ -20,9 +20,22 @@
   <!-- News Section -->
   <url>
     <loc>https://betteraibots.com/news</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- The Complete Guide to Ranking #1 on Google in just 48 Hours?? -->
+  <url>
+    <loc>https://betteraibots.com/news/perplexity-parasite-seo-ranking-guide-48-hours</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/aihacks.png</image:loc>
+      <image:title>The Complete Guide to Ranking #1 on Google in just 48 Hours??</image:title>
+      <image:caption>Step-by-step framework to rank informational content fast by leveraging Perplexity's domain authority.</image:caption>
+    </image:image>
   </url>
   
   <!-- The AI Job Boom - Featured Article -->

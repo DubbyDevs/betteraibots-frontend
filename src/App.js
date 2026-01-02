@@ -235,7 +235,8 @@ function News({ searchValue }) {
       "ai-doctors-are-here-how-medical-diagnosis-ai-just-passed-human-accuracy",
       "ai-chip-wars-heat-up-nvidia-challenger-unexpected-source",
       "ai-job-boom-how-to-get-hired-in-the-ai-revolution",
-      "openai-garlic-model-ai-just-leveled-up"
+      "openai-garlic-model-ai-just-leveled-up",
+      "perplexity-parasite-seo-ranking-guide-48-hours"
     ];
     return articlesWithVideos.includes(articleSlug);
   };

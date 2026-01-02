@@ -137,10 +137,10 @@ function Podcast() {
       thumbnail: 'https://img.youtube.com/vi/Fg6yu725i3I/maxresdefault.jpg'
     },
     {
-      id: 'UHwlOZ3xFa8',
-      title: 'AI Doctors Are Here',
-      description: 'This podcast is for informational purposes only and does not constitute medical advice. Never make any health decisions based solely on this podcast. Always consult with qualified healthcare professionals for medical diagnosis, treatment, and health-related decisions. The information presented here should not be used as a substitute for professional medical advice, diagnosis, or treatment.',
-      thumbnail: 'https://img.youtube.com/vi/UHwlOZ3xFa8/maxresdefault.jpg'
+      id: 'tvvg3B3Lo4A',
+      title: 'The Perplexity SEO Strategy Getting Pages Ranked in 48 Hours??',
+      description: 'Discover how to rank #1 on Google in just 48 hours using Perplexity Parasite SEO—no backlinks, no waiting months for results. This step-by-step tutorial shows you exactly how to leverage Perplexity AI\'s massive domain authority to get your content on page one fast.',
+      thumbnail: 'https://img.youtube.com/vi/tvvg3B3Lo4A/maxresdefault.jpg'
     },
     {
       id: 's94JIklOT4s',
