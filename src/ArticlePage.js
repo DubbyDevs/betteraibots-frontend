@@ -494,7 +494,8 @@ export default function ArticlePage() {
     'laxis',
     'krispcall',
     'getresponse',
-    'creativescore'
+    'creativescore',
+    'databox'
   ];
   const usesNewsStyleLayout = articlesWithNewsStyleLayout.includes(article.id);
 
@@ -758,7 +759,8 @@ export default function ArticlePage() {
             "laxis": "https://betteraibots.com/assets/laxisai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
-            "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg"
+            "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
+            "databox": "https://betteraibots.com/assets/databoxai.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -969,7 +971,8 @@ export default function ArticlePage() {
             "laxis": "https://betteraibots.com/assets/laxisai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
-            "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg"
+            "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
+            "databox": "https://betteraibots.com/assets/databoxai.jpg"
           };
               return ogImageMap[article.id] || primaryImage || article.cover;
             })(),
@@ -1770,6 +1773,37 @@ export default function ArticlePage() {
         ) : article.id === "creativescore" ? (
           <a 
             href="https://affiliate.creativescore.ai/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "databox" ? (
+          <a 
+            href="https://join.databox.com/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{

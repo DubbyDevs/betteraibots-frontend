@@ -109,6 +109,8 @@ import getresponseai from "./assets/getresponseai.jpg";
 import getresponseai2 from "./assets/getresponseai2.jpg";
 import creativescoreai from "./assets/creativescoreai.jpg";
 import creativescoreai2 from "./assets/creativescoreai2.jpg";
+import databoxai from "./assets/databoxai.jpg";
+import databox2 from "./assets/databox2.jpg";
 import gammaai from "./assets/gammaai.jpg";
 import gammaai2 from "./assets/gammaai2.jpg";
 import aihacks from "./assets/aihacks.png";
@@ -118,6 +120,247 @@ const paintindetifierai = "/paintindetifierai.webp";
 
 // --- ARTICLES ---
 export const articles = [
+  {
+    id: "databox",
+    title: "Databox Review: Business Analytics Platform with 130+ Integrations, Custom Metrics, and No-Code Dashboards",
+    date: "January 2026",
+    cover: databoxai,
+    preview: "Databox is a business analytics platform that connects data from 130+ sources, builds custom metrics, and creates no-code dashboards. This comprehensive user guide covers features, setup, workflows, and how to use Databox to visualize and report on key performance indicators.",
+    images: [databoxai, databox2],
+    content: `
+## Databox Review: Business Analytics and Data Visualization Platform
+
+<a href="https://join.databox.com/BAIB" target="_blank" rel="noopener noreferrer">Databox</a> is a business analytics platform built for teams that need to connect data from multiple sources, build custom metrics, and create no-code dashboards. If you are searching for a business intelligence tool that combines data integration, metric building, and visualization in one platform, Databox is designed for that workflow.
+
+**<a href="https://join.databox.com/BAIB" target="_blank" rel="noopener noreferrer">Start your Databox free trial</a>**
+
+## Core Features of Databox
+
+- **130+ data integrations**: Connect apps, databases, spreadsheets, and cloud warehouses.
+- **Custom metrics builder**: Create derived metrics by calculating and combining data points.
+- **No-code dashboards**: Build beautiful, customizable dashboards without coding.
+- **Automated reporting**: Send scheduled reports with AI performance summaries.
+- **Goal tracking**: Set targets and monitor progress with visual gauges.
+- **Data preparation tools**: Clean, merge, filter, and organize data for better analysis.
+- **Row-level data access**: Drill down into underlying data to understand performance drivers.
+
+## How to Use Databox (Step-by-Step Guide)
+
+### 1. Create your Databox account
+Sign up at <a href="https://join.databox.com/BAIB" target="_blank" rel="noopener noreferrer">Databox</a> and choose the plan that matches your data sources and team size.
+
+### 2. Connect your data sources
+Link the apps you use most from 130+ pre-made integrations. Databox handles API changes, updates, and maintenance automatically.
+
+### 3. Connect databases and spreadsheets (optional)
+Bridge the gap between backend data and business decisions by creating metrics from databases, cloud warehouses, and spreadsheets.
+
+### 4. Use the custom API (if needed)
+If you don't see a pre-made integration, use Databox's API to pull in the data that matters most to your company.
+
+### 5. Select sync frequency
+Choose how often each data source updates, from near real-time to every 24 hours, so you get the right data at the right time.
+
+### 6. Prepare your data
+Clean, organize, and shape your data so every metric is reliable and built on a solid foundation:
+- Create custom tables of raw, row-level data
+- Merge datasets from multiple sources
+- Filter out irrelevant data
+- Calculate and create custom columns
+
+### 7. Build custom metrics
+Create the metrics that matter most to your company by adding multiple filters and dimensions or calculating metrics together.
+
+### 8. Visualize key metrics
+Drag and drop your metrics onto no-code dashboards, or view metric insights to dive deeper into a particular one.
+
+### 9. Customize your dashboards
+Create beautiful, highly customizable dashboards without code. Easily resize and rearrange metrics, or customize the styling to match your brand.
+
+### 10. Choose the perfect visualization
+Select from a variety of visualization types (including radial, pie, funnel, and more) to present your data clearly and uncover insights faster.
+
+### 11. Add goals and track progress
+Add goals to your dashboards and reports to track progress visually with gauges and progress bars.
+
+### 12. Use 1-click templates
+Start with a pre-made template to build a report or dashboard in one click, then customize it for your own needs.
+
+### 13. Analyze trends and performance
+Understand how your business is performing and why it's performing that way:
+- Break down and filter entire dashboards by different dimensions
+- Click a metric to drill down into row-level data
+- Visualize a metric's performance, uncover anomalies, view forecasted performance, and compare to benchmarks
+
+### 14. Spot anomalies early
+See when performance deviates from typical patterns, so you can respond quickly and keep things on track.
+
+### 15. Export to CSV
+Take your data anywhere. Prepare it in Databox, then export it for analysis in other tools.
+
+### 16. Report performance to stakeholders
+Easily share data with your team, board, or clients in the format you prefer:
+- Send automated reports with long-form write-ups or presentations
+- Get AI performance summaries and recommendations
+- Add Data Stories with dynamic elements like metrics, time periods, and percentage of change
+- Send automated notifications about key metrics via Slack or email
+- Get alerted when numbers spike or dip
+- Embed dashboards anywhere or share them with stakeholders
+
+### 17. Use or create templates
+Start with one of Databox's pre-built templates and customize it for your needs, or create your own from scratch to reuse across clients.
+
+### 18. Plan for future growth
+Use your data to make better decisions and set better targets:
+- Set and track goals for your team or company
+- Break goals down into bite-sized steps
+- Monitor your progress
+- Compare industry benchmarks to see if you're ahead of or behind the curve
+- Forecast future performance, including best and worst-case scenarios
+
+## Connect Your Data
+
+### Connect the Apps You Use Most
+Sync data from 130+ pre-made integrations in a few clicks. Databox handles API changes, updates, and maintenance so you don't have to.
+
+### Connect Databases & Spreadsheets
+Bridge the gap between your backend data and business decisions by creating metrics and dashboards from databases, cloud warehouses, and spreadsheets.
+
+### Use Our Custom API
+No integration? No problem. Use Databox's API to pull in the data that matters most to your company.
+
+### Select Your Sync Frequency
+Get the right data at the right time. Choose how often each source updates, from near real-time to every 24 hours.
+
+## Prepare Your Data for Better Analysis
+
+### Prepare Datasets
+Create a custom table of raw, row-level data to analyze or build metrics from.
+
+### Merge Datasets Together
+Blend data from multiple sources to uncover insights you can't see in isolation.
+
+### Filter Out Irrelevant Data
+Zero in on what matters most and remove the rest.
+
+### Calculate & Create Columns
+Create derived metrics by calculating custom columns together.
+
+## Build Custom Metrics
+
+Create the metrics that matter most to your company, by adding multiple filters and dimensions or calculating metrics together.
+
+## Visualize Key Metrics
+
+### Build No-Code Dashboards
+Create beautiful, highly customizable dashboards without code. Easily resize and rearrange metrics, or customize the styling to match your brand.
+
+### Find the Perfect Visualization
+Choose from a variety of visualization types (including radial, pie, funnel, and more) to present your data clearly and uncover insights faster.
+
+### See Goal Progress
+Add goals to your dashboards and reports to track progress visually with gauges and progress bars.
+
+### 1-Click Templates
+Start with a pre-made template to build a report or dashboard in one click, then customize it for your own needs.
+
+## Analyze Trends and Performance
+
+### Analyze from Various Dimensions
+Break down and filter entire dashboards, or the metrics on them, by different dimensions.
+
+### Drill into Row-Level Data
+Click a metric on a dashboard to drill down into the row-level data behind it, to understand what's driving performance.
+
+### Dig Deeper into a Specific Metric
+Understand the why behind the what. Visualize a metric's performance, uncover anomalies, view forecasted performance, and compare to benchmarks.
+
+### Spot Anomalies Early
+See when performance deviates from typical patterns, so you can respond quickly and keep things on track.
+
+### Export to CSV
+Take your data anywhere. Prepare it in Databox, then export it for analysis in other tools.
+
+## Report Performance to Stakeholders
+
+### Send Automated Reports
+Create a long-form write-up or presentation, complete with your dashboards, metrics, and AI performance summaries.
+
+### Get AI Performance Summaries
+Save time with AI summaries and recommendations that explain performance trends and suggest what to do next.
+
+### Add Data Stories
+Add dynamic elements like metrics, time periods, and percentage of change to the text of your reports to tell a story with your data.
+
+### Get Performance Updates
+Send stakeholders automated notifications about key metrics via Slack or email, or get alerted when numbers spike or dip.
+
+### Share Dashboards with Anyone
+Embed dashboards anywhere, or share them with stakeholders who aren't in Databox.
+
+### Use or Create Templates
+Start with one of Databox's pre-built templates and customize it for your needs, or create your own from scratch to reuse across clients.
+
+## Plan for Future Growth
+
+### Set & Track Goals
+Set targets for your team or company, break them down into bite-sized steps, and monitor your progress.
+
+### Compare Industry Benchmarks
+Benchmark a metric's performance to see if you're ahead of or behind the curve.
+
+### Forecast Future Performance
+Quickly see how a metric is expected to perform in the future, including best and worst-case scenarios.
+
+## Who Databox Is Best For
+
+- **Marketing teams** tracking campaign performance across multiple channels
+- **Sales teams** monitoring pipeline, conversions, and revenue metrics
+- **E-commerce businesses** analyzing product performance and customer behavior
+- **Agencies** reporting to multiple clients with customized dashboards
+- **Executives and stakeholders** who need high-level performance visibility
+- **Data analysts** who need to combine data from multiple sources
+- **Operations teams** tracking KPIs and operational metrics
+
+## Databox Pricing and Free Trial
+
+Databox offers plans based on the number of data sources, metrics, and users. Pricing can change, so verify the latest details directly.
+
+**<a href="https://join.databox.com/BAIB" target="_blank" rel="noopener noreferrer">See Databox plans and start a free trial</a>**
+
+## Databox vs Other Business Analytics Tools
+
+Databox focuses on combining data integration, custom metric building, and no-code dashboard creation in one platform. It is a strong option if you want to connect multiple data sources, build custom metrics, and create shareable dashboards without coding.
+
+## Best Practices for Better Results
+
+- **Start with key metrics**: Focus on the 5-10 metrics that matter most to your business.
+- **Use templates**: Leverage pre-built templates to get started quickly, then customize.
+- **Set up automated reports**: Schedule regular reports to keep stakeholders informed.
+- **Clean your data**: Use Databox's data preparation tools to ensure reliable metrics.
+- **Track goals**: Set clear targets and monitor progress visually.
+- **Use AI summaries**: Leverage AI performance summaries to save time and get insights.
+- **Share dashboards**: Make data accessible to your team by sharing dashboards.
+
+## Bottom Line
+
+If you need a business analytics platform that connects data from multiple sources, builds custom metrics, and creates no-code dashboards, <a href="https://join.databox.com/BAIB" target="_blank" rel="noopener noreferrer">Databox</a> is worth testing.
+
+**<a href="https://join.databox.com/BAIB" target="_blank" rel="noopener noreferrer">Start your Databox free trial</a>**
+
+---
+
+## Affiliate Disclosure
+
+This article contains affiliate links to <a href="https://join.databox.com/BAIB" target="_blank" rel="noopener noreferrer">Databox</a>. We may earn a commission if you sign up through our links, at no extra cost to you.
+
+## Important Disclaimers
+
+**Pricing and Terms:** Verify current pricing, limits, and terms directly with <a href="https://join.databox.com/BAIB" target="_blank" rel="noopener noreferrer">Databox</a>.
+
+**User Responsibility:** Any decision to use Databox should be based on your own evaluation of your needs and budget.
+    `
+  },
   {
     id: "perplexity-parasite-seo-guide",
     title: "The Complete Guide to Ranking #1 on Google in just 48 Hours??",
@@ -17159,6 +17402,23 @@ export default function Articles({ level = "beginner" }) {
   };
   
   const uniqueArticles = articles.filter(article => {
+    // Exclude Perplexity article from App Spotlight (it's on /news page)
+    if (article.id === "perplexity-parasite-seo-guide") {
+      return false;
+    }
+    // Exclude ScholarGPT article from App Spotlight
+    if (article.id === "scholar-gpt") {
+      return false;
+    }
+    // Exclude SEOSparkPlug article from App Spotlight
+    if (article.id === "seosparkplug") {
+      return false;
+    }
+    // Exclude PaintR article from App Spotlight
+    if (article.id === "paintr") {
+      return false;
+    }
+    
     // Get normalized title for comparison
     const normalizedTitle = article.title ? getNormalizedTitle(article.title) : '';
     

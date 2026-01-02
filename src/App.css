@@ -153,9 +153,9 @@ html {
 }
 
 .header-logo {
-  height: 55.2px;
+  height: 1.05rem;
   width: auto;
-  max-width: 337px;
+  max-width: none;
   margin-right: 10px;
   margin-left: 0px;
   image-rendering: -webkit-optimize-contrast;

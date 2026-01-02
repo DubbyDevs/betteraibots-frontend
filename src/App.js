@@ -77,6 +77,7 @@ import laxisai from './assets/laxisai.jpg';
 import krispcallai from './assets/krispcallai.jpg';
 import getresponseai from './assets/getresponseai.jpg';
 import creativescoreai from './assets/creativescoreai.jpg';
+import databoxai from './assets/databoxai.jpg';
 import gammaai from './assets/gammaai.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -984,6 +985,16 @@ function Apps() {
       trialInfo: "Free Trial Available",
       image: creativescoreai,
       readMoreLink: "/learn/creativescore"
+    },
+    {
+      name: "Databox",
+      description: "Business analytics platform that connects data from 130+ sources, builds custom metrics, and creates no-code dashboards to visualize and report on key performance indicators",
+      category: "Business Analytics & Data Visualization",
+      features: ["130+ data integrations", "Custom metrics builder", "No-code dashboards", "Automated reporting", "Goal tracking", "AI performance summaries"],
+      link: "https://join.databox.com/BAIB",
+      trialInfo: "Free Trial Available",
+      image: databoxai,
+      readMoreLink: "/learn/databox"
     },
     {
       name: "DataHawk",

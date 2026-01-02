@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import nanozlogo from '../assets/nanozlogo.png';
 import musebrand from '../assets/musebrand.jpg';
+import blackboxai from '../assets/blackboxai.webp';
 
 // --- AI FOR DUMMIES GUIDE COMPONENT ---
 function AIForDummiesGuide({ onClose }) {
@@ -330,7 +330,7 @@ const LearnLevelSelector = () => {
     {
       id: 'beginner',
       title: 'Beginner',
-      description: 'New to AI? Start here with the fundamentals',
+      description: 'Start here with the basics',
       features: [
         'AI basics and terminology',
         'ChatGPT and Claude introduction',
@@ -439,7 +439,7 @@ const LearnLevelSelector = () => {
             display: 'grid',
             gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
             gap: isVerySmall ? '8px' : (is360px ? '10px' : (is390px ? '12px' : (isMobile ? '12px' : '20px'))),
-            marginBottom: isVerySmall ? '30px' : (is360px ? '32px' : (isMobile ? '35px' : '40px')),
+            marginBottom: '5px',
             justifyContent: 'center',
             maxWidth: isMobile ? '100%' : '1200px',
             margin: '0 auto',
@@ -492,8 +492,6 @@ const LearnLevelSelector = () => {
                 }}>
                   {/* Badge - Responsive with locked aspect ratio */}
                   <div style={{
-                    width: isVerySmall ? '30%' : (is360px ? '32%' : (is390px ? '35%' : (isMobile ? '35%' : '40%'))),
-                    aspectRatio: '1 / 1',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -504,10 +502,14 @@ const LearnLevelSelector = () => {
                     src={level.id === 'beginner' ? '/beginnerbadge.webp' : level.id === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
                     alt={`${level.title} badge`}
                     style={{
-                      width: '100%',
-                      height: '100%',
-                        objectFit: 'contain',
-                        aspectRatio: '1 / 1'
+                      width: isVerySmall ? '80px' : (is360px ? '90px' : (is390px ? '100px' : (isMobile ? '110px' : '140px'))),
+                      height: 'auto',
+                      display: 'block',
+                      filter: level.id === 'beginner' 
+                        ? 'drop-shadow(0 0 10px rgba(54, 255, 149, 0.67))' 
+                        : level.id === 'intermediate' 
+                        ? 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.67))' 
+                        : 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.67))'
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -682,7 +684,7 @@ const LearnLevelSelector = () => {
               position: "relative",
               zIndex: 2
             }}>
-              Guides
+              AI Guides
             </h2>
             
             <div style={{
@@ -707,7 +709,8 @@ const LearnLevelSelector = () => {
                   color: "inherit",
                   transition: "transform 0.2s ease-in-out",
                   width: "100%",
-                  height: "100%"
+                  height: "100%",
+                  margin: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px")))
                 }}
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
@@ -758,7 +761,8 @@ const LearnLevelSelector = () => {
                           height: "100%",
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
-                          borderRadius: "8px"
+                          borderRadius: "8px",
+                          boxShadow: "0 0 28px rgba(139, 92, 246, 0.67)"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -799,7 +803,8 @@ const LearnLevelSelector = () => {
                   color: "inherit",
                   transition: "transform 0.2s ease-in-out",
                   width: "100%",
-                  height: "100%"
+                  height: "100%",
+                  margin: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px")))
                 }}
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
@@ -850,7 +855,8 @@ const LearnLevelSelector = () => {
                           height: "100%",
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
-                          borderRadius: "8px"
+                          borderRadius: "8px",
+                          boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -891,7 +897,8 @@ const LearnLevelSelector = () => {
                   color: "inherit",
                   transition: "transform 0.2s ease-in-out",
                   width: "100%",
-                  height: "100%"
+                  height: "100%",
+                  margin: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px")))
                 }}
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
@@ -942,7 +949,8 @@ const LearnLevelSelector = () => {
                           height: "100%",
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
-                          borderRadius: "8px"
+                          borderRadius: "8px",
+                          boxShadow: "0 0 28px rgba(139, 92, 246, 0.67)"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -983,7 +991,8 @@ const LearnLevelSelector = () => {
                   color: "inherit",
                   transition: "transform 0.2s ease-in-out",
                   width: "100%",
-                  height: "100%"
+                  height: "100%",
+                  margin: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px")))
                 }}
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
@@ -1034,7 +1043,8 @@ const LearnLevelSelector = () => {
                           height: "100%",
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
-                          borderRadius: "8px"
+                          borderRadius: "8px",
+                          boxShadow: "0 0 28px rgba(255, 215, 0, 0.67)"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -1123,24 +1133,22 @@ const LearnLevelSelector = () => {
                     width: "100%",
                     height: "220px",
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: "rgba(54, 255, 149, 0.05)",
-                    border: "1px solid rgba(54, 255, 149, 0.2)",
-                    borderRadius: "14px",
-                    margin: "16px 16px 0 16px",
-                    padding: "10px",
+                    marginTop: "16px",
                     boxSizing: "border-box"
                   }}>
                       <img
                        src={musebrand}
                        alt="Museit.art - AI Art Creation Platform"
                        style={{
-                         maxWidth: "200px",
-                         maxHeight: "200px",
-                         width: "auto",
-                         height: "auto",
-                         objectFit: "contain"
+                         width: "200px",
+                         height: "200px",
+                         objectFit: "contain",
+                         borderRadius: "24px",
+                         boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)",
+                         display: "block"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1277,7 +1285,7 @@ const LearnLevelSelector = () => {
                    </div>
                </div>
 
-                               {/* NanoZ.fun Card */}
+                               {/* Blackbox.ai Card */}
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
@@ -1298,24 +1306,22 @@ const LearnLevelSelector = () => {
                     width: "100%",
                     height: "220px",
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: "rgba(54, 255, 149, 0.05)",
-                    border: "1px solid rgba(54, 255, 149, 0.2)",
-                    borderRadius: "14px",
-                    margin: "16px 16px 0 16px",
-                    padding: "10px",
+                    marginTop: "16px",
                     boxSizing: "border-box"
                   }}>
                      <img
-                       src={nanozlogo}
-                       alt="NanoZ.fun - AI Branding Platform"
+                       src={blackboxai}
+                       alt="Blackbox.ai - AI Code Assistant"
                        style={{
-                         maxWidth: "200px",
-                         maxHeight: "200px",
-                         width: "auto",
-                         height: "auto",
-                         objectFit: "contain"
+                         width: "200px",
+                         height: "200px",
+                         objectFit: "contain",
+                         borderRadius: "24px",
+                         boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)",
+                         display: "block"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1338,14 +1344,14 @@ const LearnLevelSelector = () => {
                          margin: "0 0 12px 0",
                          lineHeight: 1.3
                        }}>
-                         NanoZ.fun
+                         Blackbox.ai
                        </h3>
                        <p style={{
                          color: "#9ca3af",
                          fontSize: isMobile ? "0.8rem" : "0.9rem",
                          margin: "0 0 15px 0"
                        }}>
-                         Featured • Creative & Design
+                         Featured • Development & Coding
                        </p>
                        <p style={{
                          color: "#e0e0e0",
@@ -1353,7 +1359,7 @@ const LearnLevelSelector = () => {
                          lineHeight: 1.5,
                          margin: "0 0 15px 0"
                        }}>
-                         Branding Made Easy - Professional brand imagery at a fraction of traditional costs. Powered by cutting-edge AI that delivers results you've never seen before.
+                         AI-powered code assistant that helps developers write code faster with real-time autocomplete and intelligent suggestions.
                        </p>
                        <div style={{
                          display: "flex",
@@ -1369,7 +1375,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           AI Branding
+                           AI Code Completion
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.2)",
@@ -1379,7 +1385,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           Brand Consistency
+                           Multi-Language
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.2)",
@@ -1389,7 +1395,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           Affordable Pricing
+                           Real-Time Autocomplete
                          </span>
                        </div>
                      </div>
@@ -1399,7 +1405,7 @@ const LearnLevelSelector = () => {
                        flexWrap: "wrap"
                      }}>
                        <a
-                         href="https://nanoz.fun"
+                         href="https://blackboxai.partnerlinks.io/BAIB"
                          target="_blank"
                          rel="noopener noreferrer"
                          style={{
@@ -1422,10 +1428,10 @@ const LearnLevelSelector = () => {
                            e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
                          }}
                        >
-                         Try NanoZ.fun Free
+                         Try Blackbox.ai Free
                        </a>
                        <Link
-                         to="/learn/nanoz-complete-guide"
+                         to="/learn/blackbox-ai"
                          style={{
                            background: "transparent",
                            color: "#36ff95",
@@ -1452,7 +1458,7 @@ const LearnLevelSelector = () => {
                    </div>
                </div>
 
-                               {/* Reply.io Card */}
+                               {/* Flowith.io Card */}
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
@@ -1473,24 +1479,22 @@ const LearnLevelSelector = () => {
                     width: "100%",
                     height: "220px",
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: "rgba(54, 255, 149, 0.05)",
-                    border: "1px solid rgba(54, 255, 149, 0.2)",
-                    borderRadius: "14px",
-                    margin: "16px 16px 0 16px",
-                    padding: "10px",
+                    marginTop: "16px",
                     boxSizing: "border-box"
                   }}>
                      <img
-                       src="/replyio.png"
-                       alt="Reply.io - AI Sales Automation Platform"
+                       src="/flowith.jpg"
+                       alt="Flowith.io - AI Workspace Platform"
                        style={{
-                         maxWidth: "200px",
-                         maxHeight: "200px",
-                         width: "auto",
-                         height: "auto",
-                         objectFit: "contain"
+                         width: "200px",
+                         height: "200px",
+                         objectFit: "contain",
+                         borderRadius: "24px",
+                         boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)",
+                         display: "block"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1513,14 +1517,14 @@ const LearnLevelSelector = () => {
                          margin: "0 0 12px 0",
                          lineHeight: 1.3
                        }}>
-                         Reply.io
+                         Flowith.io
                        </h3>
                        <p style={{
                          color: "#9ca3af",
                          fontSize: isMobile ? "0.8rem" : "0.9rem",
                          margin: "0 0 15px 0"
                        }}>
-                         Featured • Sales Automation
+                         Featured • AI Workspace
                        </p>
                        <p style={{
                          color: "#e0e0e0",
@@ -1528,7 +1532,7 @@ const LearnLevelSelector = () => {
                          lineHeight: 1.5,
                          margin: "0 0 15px 0"
                        }}>
-                         AI-powered sales automation platform that helps you find, engage, and convert prospects with personalized outreach at scale.
+                         Revolutionary AI canvas workspace that goes beyond traditional chatbots. Interact with multiple AI models simultaneously, create visual workflows, and organize complex projects on an infinite canvas.
                        </p>
                        <div style={{
                          display: "flex",
@@ -1544,7 +1548,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           AI-Powered
+                           Infinite Canvas
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.2)",
@@ -1554,7 +1558,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           Multi-Channel
+                           Multi-AI Models
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.2)",
@@ -1564,7 +1568,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           CRM Integration
+                           Agent Neo
                          </span>
                        </div>
                      </div>
@@ -1574,7 +1578,7 @@ const LearnLevelSelector = () => {
                        flexWrap: "wrap"
                      }}>
                        <a
-                         href="https://get.reply.io/ub7edypmq2gj"
+                         href="https://aff.flowith.io/52dtlja1b580"
                          target="_blank"
                          rel="noopener noreferrer"
                          style={{
@@ -1597,10 +1601,10 @@ const LearnLevelSelector = () => {
                            e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
                          }}
                        >
-                         Try Reply.io Free
+                         Try Flowith.io Free
                        </a>
                 <Link
-                  to="/learn/reply-io-complete-guide"
+                  to="/learn/flowith-io"
                   style={{
                     background: "transparent",
                     color: "#36ff95",
