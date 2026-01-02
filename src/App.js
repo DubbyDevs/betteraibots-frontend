@@ -1,5 +1,5 @@
 import { CATEGORY_SLUGS } from './constants';
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
@@ -98,6 +98,8 @@ import GoogleAnalytics from "./GoogleAnalytics";
 import Breadcrumbs from './components/Breadcrumbs';
 import { bots } from './data/bots';
 import { newsArticles } from './data/news';
+import MyAI from "./MyAI";
+import { freeAppsData, trialAppsData } from './data/appsData';
 import Articles from "./Articles";
 import ArticlePage from "./ArticlePage";
 import AIQuiz from "./components/AIQuiz";
@@ -159,6 +161,27 @@ function AuthButtons() {
 
 // --- Nav Tabs Bar ---
 function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, animationPaused, onToggleAnimation }) {
+  const location = useLocation();
+  
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
+  
+  const getActiveStyle = (path) => {
+    if (isActive(path)) {
+      return {
+        background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+        color: '#101c26',
+        transform: 'translateY(-1px)',
+        boxShadow: '0 4px 16px #16ff6c40'
+      };
+    }
+    return {};
+  };
+  
   return (
     <nav className="nav-tabs-bar" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
       <Link 
@@ -176,11 +199,17 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
         <span style={{ color: '#ffffff', textShadow: '0 0 10px rgba(255, 255, 255, 0.3)' }}>BetterAi</span>
         <span style={{ color: '#36ff95', textShadow: '0 0 10px rgba(54, 255, 149, 0.5)' }}>Bots</span>
       </Link>
-      <Link to="/" className="nav-tab" tabIndex={0}>Home</Link>
-      <Link to="/apps" className="nav-tab" tabIndex={0}>Apps</Link>
-      <Link to="/learn" className="nav-tab" tabIndex={0}>Learn</Link>
-      <Link to="/news" className="nav-tab" tabIndex={0}>News</Link>
-      <Link to="/Podcast" className="nav-tab" tabIndex={0}>Watch</Link>
+      <Link to="/" className="nav-tab" tabIndex={0} style={getActiveStyle('/')}>Home</Link>
+      <Link to="/apps" className="nav-tab" tabIndex={0} style={getActiveStyle('/apps')}>Apps</Link>
+      <Link to="/learn" className="nav-tab" tabIndex={0} style={getActiveStyle('/learn')}>Learn</Link>
+      <Link to="/news" className="nav-tab" tabIndex={0} style={getActiveStyle('/news')}>News</Link>
+      <Link to="/Podcast" className="nav-tab" tabIndex={0} style={getActiveStyle('/Podcast')}>Watch</Link>
+      <Link to="/my-ai" className="nav-tab" tabIndex={0} style={isActive('/my-ai') ? {
+        background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+        color: '#101c26',
+        transform: 'translateY(-1px)',
+        boxShadow: '0 4px 16px #16ff6c40'
+      } : { color: '#36ff95' }}>My AI 🚀</Link>
       <span
         className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
         onClick={onToggleAnimation}
@@ -817,18 +846,20 @@ const tickerMessages = [
 ];
 
 // --- APPS PAGE ---
-function Apps() {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const sectionFromUrl = searchParams.get('section');
-  const [activeSection, setActiveSection] = useState(sectionFromUrl || 'trial');
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth <= 768;
-    }
-    return false;
+function Apps() {  
+  const [activeSection, setActiveSection] = useState('trial');
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const { section: sectionFromUrl } = useParams();
+  const navigate = useNavigate();
+  const [progressMode, setProgressMode] = useState(() => {
+    const saved = localStorage.getItem('baib_progress_mode');
+    return saved === 'true';
   });
-  
+  const [userProgress, setUserProgress] = useState(() => {
+    const saved = localStorage.getItem('baib_progress');
+    return saved ? JSON.parse(saved) : {};
+  });
+
   // Update activeSection when URL changes
   useEffect(() => {
     if (sectionFromUrl && ['free', 'trial', 'paid'].includes(sectionFromUrl)) {
@@ -844,9 +875,68 @@ function Apps() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Listen for changes to baib_progress in other components (like MyAI)
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const saved = localStorage.getItem('baib_progress');
+      if (saved) setUserProgress(JSON.parse(saved));
+    };
+    window.addEventListener('storage', handleStorageChange);
+    // Also poll occasionally because 'storage' event only fires between different windows
+    const interval = setInterval(handleStorageChange, 2000);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('baib_progress_mode', progressMode);
+  }, [progressMode]);
+
+  // Cleanup hover timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const trialApps = useMemo(() => {
+    if (!progressMode) return trialAppsData;
+    return trialAppsData.filter(app => {
+      const progress = userProgress[app.name] || {};
+      // Filter out apps that are started, completed, or hidden
+      return !['started', 'completed', 'no_longer_want'].includes(progress.status);
+    });
+  }, [progressMode, userProgress]);
+
+  const freeApps = useMemo(() => {
+    if (!progressMode) return freeAppsData;
+    return freeAppsData.filter(app => {
+      const progress = userProgress[app.name] || {};
+      return !['started', 'completed', 'no_longer_want'].includes(progress.status);
+    });
+  }, [progressMode, userProgress]);
+
+  // Calculate total monthly cost for all started apps
+  const totalMonthlyCost = useMemo(() => {
+    const allAppsForCost = [...freeAppsData, ...trialAppsData, ...PAID_APPS];
+    return allAppsForCost.reduce((total, app) => {
+      const progress = userProgress[app.name] || {};
+      if (progress.status === 'started' && progress.monthlyCost) {
+        return total + (parseFloat(progress.monthlyCost) || 0);
+      }
+      return total;
+    }, 0);
+  }, [userProgress]);
   
   const [expandedFeatures, setExpandedFeatures] = useState({});
   const [expandedApp, setExpandedApp] = useState(null);
+  const [showProgressHelp, setShowProgressHelp] = useState(false);
+  const hoverTimeoutRef = useRef(null);
   
   // Toggle feature expansion on mobile
   const toggleFeature = (cardId, featureIndex) => {
@@ -858,465 +948,7 @@ function Apps() {
     }));
   };
 
-  const freeApps = [
-    {
-      name: "ChatGPT",
-      description: "Free AI chatbot with GPT-4o mini, perfect for conversations and basic tasks",
-      category: "Chat & Writing",
-      features: ["Unlimited GPT-4o mini", "Web browsing", "File uploads", "Mobile app"],
-      link: "https://chat.openai.com",
-      image: chatgptai
-    },
-    {
-      name: "Claude",
-      description: "Anthropic's AI assistant with superior writing capabilities and 200K context",
-      category: "Writing & Analysis",
-      features: ["200K token context", "Superior writing", "File analysis", "Web search"],
-      link: "https://claude.ai",
-      image: claudeailogo
-    },
-    {
-      name: "Google Gemini",
-      description: "Google's AI model with advanced reasoning and multimodal capabilities",
-      category: "Multimodal AI",
-      features: ["Image analysis", "Code generation", "Creative writing", "Google integration"],
-      link: "https://gemini.google.com",
-      image: geminiai
-    }
-  ];
 
-  const trialApps = [
-    {
-      name: "AdCreative",
-      description: "AI-powered ad creative generator that creates high-converting ads in seconds",
-      category: "Marketing & Advertising",
-      features: ["AI ad generation", "Brand customization", "Performance tracking", "Multiple formats"],
-      link: "https://free-trial.adcreative.ai/0dkpoiajb7o2",
-      trialInfo: "Free Trial Available",
-      image: adcreativeaitrial,
-      readMoreLink: "/learn/adcreative-ai"
-    },
-    {
-      name: "Alli AI",
-      description: "AI-powered SEO automation platform that optimizes, automates, and scales SEO campaigns without coding",
-      category: "SEO & Marketing",
-      features: ["On-page optimization", "Real-time deployment", "No coding required", "Works with any CMS"],
-      link: "https://try.alliai.com/0guepbqpqhsf",
-      trialInfo: "10-Day Free Trial",
-      image: "https://betteraibots.com/alliai.png",
-      readMoreLink: "/learn/alli-ai"
-    },
-    {
-      name: "Apollo AI",
-      description: "AI sales platform with over 210 million contacts to find, contact, and close your ideal buyers",
-      category: "Sales & CRM",
-      features: ["Contact database", "AI-powered prospecting", "Email automation", "Sales intelligence"],
-      link: "https://get.apollo.io/BAIB",
-      trialInfo: "Pro plans from $49/month",
-      image: apolloLogo,
-      readMoreLink: "/learn/apollo-io"
-    },
-    {
-      name: "Atria",
-      description: "The AI ad engine that grows your revenue with analytics, research, creation, and inspiration tools all in one platform",
-      category: "Marketing & Advertising",
-      features: ["AI ad analytics", "25M+ ad library", "AI ad creation", "Competitor research", "Asset management"],
-      link: "https://affiliates.tryatria.com/BAIB",
-      trialInfo: "7-Day Free Trial",
-      image: atria1,
-      readMoreLink: "/learn/atria"
-    },
-    {
-      name: "Blackbox.ai",
-      description: "AI-powered code assistant that helps developers write code faster with real-time autocomplete and intelligent suggestions",
-      category: "Development & Coding",
-      features: ["AI code completion", "Multi-language support", "Context-aware suggestions", "Real-time autocomplete"],
-      link: "https://blackboxai.partnerlinks.io/BAIB",
-      trialInfo: "Free Trial Available",
-      image: blackboxai,
-      readMoreLink: "/learn/blackbox-ai"
-    },
-    {
-      name: "Brevo",
-      description: "AI-driven email marketing platform trusted by 500,000+ companies with automation and smart segmentation",
-      category: "Email Marketing & Automation",
-      features: ["Smart segmentation", "Send time optimization", "Automation workflows", "150+ integrations"],
-      link: "https://get.brevo.com/um9xszmf3nfd",
-      trialInfo: "Free plan available",
-      image: "/brevologo.png",
-      readMoreLink: "/learn/brevo-complete-guide"
-    },
-    {
-      name: "Browse AI",
-      description: "AI-powered web scraping and monitoring platform that extracts data from any website with no coding required",
-      category: "Data Extraction & Web Scraping",
-      features: ["No-code web scraping", "Website monitoring", "API generation", "7,000+ integrations"],
-      link: "https://partners.browse.ai/BAIB",
-      trialInfo: "Free trial available",
-      image: browseai1,
-      readMoreLink: "/learn/browse-ai"
-    },
-    {
-      name: "Capsule CRM",
-      description: "Simple CRM for small businesses to manage contacts, sales pipeline, and customer relationships",
-      category: "Sales & CRM",
-      features: ["Contact management", "Email marketing", "Project management", "Workflow automation"],
-      link: "https://capsulecrm.com/signup/?ref=betteraibots",
-      trialInfo: "14-day free trial",
-      image: "/capsulecrm.png",
-      readMoreLink: "/learn/capsule-crm-complete-guide"
-    },
-    {
-      name: "Consensus",
-      description: "AI-powered research tool that finds and synthesizes evidence from scientific papers and academic literature",
-      category: "Research & Education",
-      features: ["AI research synthesis", "Academic paper search", "Evidence-based answers", "Citation management"],
-      link: "https://get.consensus.app/BAIB",
-      trialInfo: "Free trial available",
-      image: consensus1,
-      readMoreLink: "/learn/consensus"
-    },
-    {
-      name: "CreativeScore",
-      description: "AI creative analysis platform that scores ad creatives and predicts performance before you launch",
-      category: "Marketing & Advertising",
-      features: ["Creative scoring", "Performance prediction", "Ad diagnostics", "Creative optimization tips", "Team collaboration"],
-      link: "https://affiliate.creativescore.ai/BAIB",
-      trialInfo: "Free Trial Available",
-      image: creativescoreai,
-      readMoreLink: "/learn/creativescore"
-    },
-    {
-      name: "Databox",
-      description: "Business analytics platform that connects data from 130+ sources, builds custom metrics, and creates no-code dashboards to visualize and report on key performance indicators",
-      category: "Business Analytics & Data Visualization",
-      features: ["130+ data integrations", "Custom metrics builder", "No-code dashboards", "Automated reporting", "Goal tracking", "AI performance summaries"],
-      link: "https://join.databox.com/BAIB",
-      trialInfo: "Free Trial Available",
-      image: databoxai,
-      readMoreLink: "/learn/databox"
-    },
-    {
-      name: "DataHawk",
-      description: "Amazon marketplace analytics and keyword tracking platform for sellers and brands who want to grow rankings, revenue, and market share",
-      category: "E-commerce & Marketplace Analytics",
-      features: ["Keyword rank tracking", "Market intelligence", "Sales & profitability analytics", "PPC insights", "Competitor monitoring"],
-      link: "https://get.datahawk.co/eoe07kko8pol",
-      trialInfo: "Free Trial Available",
-      image: datahawkai,
-      readMoreLink: "/learn/datahawk"
-    },
-    {
-      name: "ElevenLabs",
-      description: "AI voice and text-to-speech platform for realistic voiceovers, voice cloning, and multilingual audio",
-      category: "Voice & Audio AI",
-      features: ["Text-to-speech voices", "Voice cloning", "Dubbing and localization", "Sound effects generation", "API access"],
-      link: "https://try.elevenlabs.io/BAIB",
-      trialInfo: "Free Trial Available",
-      image: elevenlabsai,
-      readMoreLink: "/learn/elevenlabs"
-    },
-    {
-      name: "Flowith.io",
-      description: "AI-powered workflow automation platform that helps streamline your business processes",
-      category: "Workflow Automation",
-      features: ["AI process automation", "No-code workflows", "Integration capabilities", "Analytics dashboard"],
-      link: "https://aff.flowith.io/52dtlja1b580",
-      trialInfo: "Free trial available",
-      image: "/flowith.jpg",
-      readMoreLink: "/learn/flowith-io"
-    },
-    {
-      name: "Gamma",
-      description: "AI-powered presentation and document builder that turns prompts into polished decks, docs, and webpages",
-      category: "Presentations & Docs",
-      features: ["AI slide generation", "Presentation templates", "Brand themes", "One-click export", "Web publish links"],
-      link: "https://try.gamma.app/BAIB",
-      trialInfo: "Free Trial Available",
-      image: gammaai,
-      readMoreLink: "/learn/gamma"
-    },
-    {
-      name: "GetResponse",
-      description: "Email marketing and automation platform with campaigns, landing pages, and conversion funnels",
-      category: "Email Marketing & Automation",
-      features: ["Email campaigns", "Marketing automation", "Landing pages", "Funnels", "Contact segmentation"],
-      link: "https://try.getresponsetoday.com/BAIB",
-      trialInfo: "Free Trial Available",
-      image: getresponseai,
-      readMoreLink: "/learn/getresponse"
-    },
-    {
-      name: "Hume AI",
-      description: "Empathic AI platform that understands human emotion and expression to create more natural, engaging interactions",
-      category: "AI & Machine Learning",
-      features: ["Emotion recognition", "Voice AI", "Facial expression analysis", "Empathic AI models", "Real-time emotion detection"],
-      link: "https://try.hume.ai/BAIB",
-      trialInfo: "Free Trial Available",
-      image: humeai,
-      readMoreLink: "/learn/hume-ai"
-    },
-    {
-      name: "Invideo",
-      description: "AI video creation platform with thousands of templates and easy editing",
-      category: "Video Creation",
-      features: ["AI video generation", "5000+ templates", "Text-to-video", "Easy editing"],
-      link: "https://betteraibots.com/invideo",
-      trialInfo: "Free Trial Available",
-      image: InVideoAvatar,
-      readMoreLink: "/learn/invideo-ai"
-    },
-    {
-      name: "Landingi",
-      description: "AI-powered landing page builder that creates high-converting landing pages in minutes. Build beautiful, responsive landing pages with drag-and-drop editor and AI assistance.",
-      category: "Marketing & Web Design",
-      features: ["AI landing page builder", "Drag-and-drop editor", "High-converting templates", "A/B testing", "Lead generation"],
-      link: "https://try.landingi.com/lwfc597yjm25",
-      trialInfo: "Free trial available",
-      image: landingi1,
-      readMoreLink: "/learn/landingi-complete-guide"
-    },
-    {
-      name: "Laxis",
-      description: "AI meeting assistant that records, transcribes, summarizes, and turns conversations into actionable notes",
-      category: "Productivity & Meetings",
-      features: ["Meeting recording", "Transcripts & summaries", "Action items", "CRM notes", "Team collaboration"],
-      link: "https://get.laxis.com/BAIB",
-      trialInfo: "Free Trial Available",
-      image: laxisai,
-      readMoreLink: "/learn/laxis"
-    },
-    {
-      name: "Lindy",
-      description: "AI-powered personal assistant that helps you manage tasks",
-      category: "Productivity & Personal Assistant",
-      features: ["Task management", "Smart scheduling", "Email organization", "Meeting assistance"],
-      link: "https://try.lindy.ai/lhgvxfidor04",
-      trialInfo: "Free Trial Available",
-      image: "/lindy.png",
-      readMoreLink: "/learn/lindy-ai"
-    },
-    {
-      name: "Logome",
-      description: "AI-powered logo generator and brand kit creator.",
-      category: "Creative & Design",
-      features: ["AI logo generator", "Brand kit creation", "Website templates", "Social media templates", "Business cards", "Email signatures", "100+ fonts", "Free logo design"],
-      link: "https://logomeai.partnerlinks.io/BAIB",
-      trialInfo: "Start for free",
-      image: logome,
-      readMoreLink: "/learn/logome-complete-guide"
-    },
-    {
-      name: "Lusha",
-      description: "B2B contact data platform with verified emails, phone numbers, and company intelligence for sales teams",
-      category: "Sales & CRM",
-      features: ["Verified contact data", "Email finder", "Phone number lookup", "Company intelligence", "CRM integrations"],
-      link: "https://partnerstack.lusha.com/w61xn76pa3sr",
-      trialInfo: "Free Trial Available",
-      image: "/lusha1.jpg",
-      readMoreLink: "/learn/lusha"
-    },
-    {
-      name: "Miro",
-      description: "AI-powered collaboration platform with limitless canvas for teams to build, plan, and innovate together",
-      category: "Collaboration & Design",
-      features: ["AI-powered canvas", "160+ integrations", "Real-time collaboration", "Templates & workflows"],
-      link: "https://ps.miro-affiliate.com/gwnvu4zj3r8r",
-      trialInfo: "Free plan available",
-      image: "/miro.png",
-      readMoreLink: "/learn/miro-complete-guide"
-    },
-    {
-      name: "MRPeasy",
-      description: "AI-powered MRP software for small manufacturers with 10-200 employees",
-      category: "Manufacturing & ERP",
-      features: ["Production planning", "Inventory management", "CRM integration", "Real-time reporting"],
-      link: "https://try.mrpeasy.com/m72w6bztymwh",
-      trialInfo: "14-Day Free Trial",
-      image: "/mrpeasy.png",
-      readMoreLink: "/learn/mrpeasy-complete-guide"
-    },
-    {
-      name: "Murf.ai",
-      description: "Versatile AI voice generator & Text to Speech software with 200+ realistic voices in 20+ languages",
-      category: "Voice AI & Audio",
-      features: ["Voice cloning", "AI dubbing", "Voice changer", "200+ voices"],
-      link: "https://get.murf.ai/i5n7gfvz5cbw",
-      trialInfo: "Free trial available",
-      image: "/murfai.png",
-      readMoreLink: "/learn/murf-ai-complete-guide"
-    },
-    {
-      name: "Museit.art",
-      description: "AI-powered art creation platform that turns your imagination into beautiful artwork. Turn the noise into art with guided creativity and mindfulness-focused design.",
-      category: "Creative & Design",
-      features: ["AI art generation", "Mindfulness-focused creation", "Gallery-ready quality", "No technical skills required", "Creative inspiration"],
-      link: "https://Museit.art",
-      trialInfo: "Free trial available",
-      image: musebrand,
-      readMoreLink: "/learn/museit-art-complete-guide"
-    },
-    {
-      name: "NanoZ.fun",
-      description: "Branding Made Easy - Professional brand imagery at a fraction of traditional costs. Powered by cutting-edge AI that delivers results you've never seen before.",
-      category: "Creative & Design",
-      features: ["AI brand image generation", "Brand consistency", "Professional quality", "Affordable pricing", "Organizational tools", "Workflow optimization"],
-      link: "https://nanoz.fun",
-      trialInfo: "Free Trial Available",
-      image: nanozlogo,
-      readMoreLink: "/learn/nanoz-complete-guide"
-    },
-    {
-      name: "Prezi",
-      description: "AI-powered presentation platform that creates engaging, interactive presentations in minutes. Better presentations, faster with AI—stand out from the crowd with Prezi's unique open canvas and dynamic movement.",
-      category: "Content Creation & Media",
-      features: ["AI presentation creation", "Interactive presentations", "Prezi Video integration", "1M+ images and assets", "25% more effective than slides"],
-      link: "https://try.prezi.com/9kk83fjh4yri",
-      trialInfo: "Free trial available",
-      image: preziai,
-      readMoreLink: "/learn/prezi-complete-guide"
-    },
-    {
-      name: "Recomaze",
-      description: "AI-powered e-commerce platform that turns your store into an AI sales agent with discoverability, concierge, and conversion optimization",
-      category: "E-commerce & Sales",
-      features: ["AI discoverability", "AI concierge", "Agentic sales flows", "Cart uplift", "Conversion memory"],
-      link: "https://affiliate.recomaze.ai/BAIB",
-      trialInfo: "7-Day Free Trial",
-      image: recomaze1,
-      readMoreLink: "/learn/recomaze"
-    },
-    {
-      name: "Reply.io",
-      description: "AI-powered sales outreach platform with multichannel sequences, email automation, and AI SDR agents",
-      category: "Sales & CRM",
-      features: ["AI SDR agents", "Multichannel sequences", "Email automation", "LinkedIn automation", "Meeting scheduler"],
-      link: "https://get.reply.io/ub7edypmq2gj",
-      trialInfo: "14-day free trial",
-      image: "/replyio.png",
-      readMoreLink: "/learn/reply-io-complete-guide"
-    },
-    {
-      name: "Smartli",
-      description: "AI-powered content creation platform with product description generator, blog writer, ads writer, and image editing tools",
-      category: "Content Creation & E-commerce",
-      features: ["AI product descriptions", "AI blog writer", "AI ads writer", "Background remover", "Watermark remover"],
-      link: "https://smartli.partnerlinks.io/BAIB",
-      trialInfo: "7-day free trial",
-      image: smartli1,
-      readMoreLink: "/learn/smartli"
-    },
-    {
-      name: "Snowfire AI",
-      description: "AI content and marketing platform for generating SEO-friendly content, ad copy, and campaign assets faster",
-      category: "Marketing & Content",
-      features: ["SEO content generation", "Ad copy creation", "Brand voice control", "Content repurposing", "Team collaboration"],
-      link: "https://partners.snowfire.ai/8f5vtlj0mksq",
-      trialInfo: "Free Trial Available",
-      image: snowfireai,
-      readMoreLink: "/learn/snowfire-ai"
-    },
-    {
-      name: "ThorData",
-      description: "Enterprise-grade proxy and web scraping infrastructure with 60M+ IPs, 120+ scraper APIs, and powerful tools for AI data collection",
-      category: "Data & Proxies",
-      features: ["60M+ residential IPs", "120+ scraper APIs", "99.9% uptime", "Free trial available"],
-      link: "https://affiliate.thordata.com/BAIB",
-      trialInfo: "Free Trial Available",
-      image: thordata,
-      readMoreLink: "/learn/thordata"
-    },
-    {
-      name: "Tidio AI",
-      description: "AI customer service platform with Lyro AI Agent, Live Chat, Help Desk, and automated flows to eliminate up to 90% of support questions",
-      category: "Customer Service & Support",
-      features: ["Lyro AI Agent", "Live Chat", "Help Desk", "Automated Flows", "67% resolution rate"],
-      link: "https://affiliate.tidio.com/BAIB",
-      trialInfo: "Free Trial Available",
-      image: tidioai,
-      readMoreLink: "/learn/tidio-ai"
-    },
-    {
-      name: "Tradify",
-      description: "Save 10+ hours/week on admin with quoting, invoicing, scheduling, job tracking, and accounting integrations. Built for electricians, plumbers, HVAC, and all trade businesses.",
-      category: "Business & Productivity",
-      features: ["Job management", "Quoting & invoicing", "Scheduling & dispatch", "Job tracking", "Accounting integrations", "Digital timesheets"],
-      link: "https://partners.tradifyhq.com/rh188vnbjrvr",
-      trialInfo: "Free Trial Available",
-      image: tradify1,
-      readMoreLink: "/learn/tradify-complete-guide"
-    },
-    {
-      name: "VEED",
-      description: "Online video editor with AI features for creating professional content",
-      category: "Video Editing",
-      features: ["AI video editing", "Auto-subtitles", "Background removal", "Collaboration tools"],
-      link: "https://veed.cello.so/rwFO6zwGZh9",
-      trialInfo: "Free plan available",
-      image: "/veedreview.png",
-      readMoreLink: "/learn/veed-complete-guide"
-    },
-    {
-      name: "Vida",
-      description: "AI Agent Operating System for deploying omnichannel AI agents that call, text, email, chat, and manage business workflows",
-      category: "AI & Automation",
-      features: ["AI phone agents", "Omnichannel communication", "No-code agent builder", "Enterprise scalability"],
-      link: "https://try.vida.io/BAIB",
-      trialInfo: "Free Trial Available",
-      image: vida1,
-      readMoreLink: "/learn/vida-ai-agent-os"
-    },
-    {
-      name: "Vista Social",
-      description: "Social media management platform for planning, publishing, and analyzing content across channels",
-      category: "Social Media & Marketing",
-      features: ["Multi-channel scheduling", "Unified inbox", "Approvals & workflows", "Analytics reporting"],
-      link: "https://join.vistasocial.com/BAIB",
-      trialInfo: "Free Trial Available",
-      image: vistasocial,
-      readMoreLink: "/learn/vista-social"
-    },
-    {
-      name: "Volza",
-      description: "Global trade intelligence platform that helps you find suppliers, analyze competitors, and track shipments across markets",
-      category: "Sales & Market Intelligence",
-      features: ["Supplier discovery", "Shipment tracking", "Competitor analysis", "Trade data insights", "Market research"],
-      link: "https://partner.volza.com/BAIB",
-      trialInfo: "Free Trial Available",
-      image: volzaai,
-      readMoreLink: "/learn/volza"
-    },
-    {
-      name: "Warmy",
-      description: "Auto All-In-One Tool For Email Deliverability To Make Your Email Channel Reliable",
-      category: "Email Marketing",
-      features: ["AI-driven automation", "Email deliverability optimization", "Spam folder avoidance", "Real-time insights"],
-      link: "https://warmyio.partnerlinks.io/ffy5y6ll9374",
-      trialInfo: "7-Day Free Trial",
-      image: warmyicon,
-      readMoreLink: "/news/warmy-io-spam-folder-rebellion-email-deliverability"
-    },
-    {
-      name: "Webydo",
-      description: "Professional web design platform that lets you create pixel-perfect websites without coding, with built-in CMS and client management",
-      category: "Web Design & Development",
-      features: ["No-code design", "Built-in CMS", "Client management", "Secure hosting"],
-      link: "https://partners.webydo.com/BAIB",
-      trialInfo: "Free Trial Available",
-      image: webydoai,
-      readMoreLink: "/learn/webydo"
-    },
-    {
-      name: "Wispr Flow",
-      description: "Voice-first AI assistant for faster typing, note-taking, and content creation across all your apps",
-      category: "Productivity & Voice AI",
-      features: ["Voice dictation", "Cross-platform compatibility", "AI-powered transcription", "Background operation"],
-      link: "https://wisprflow.ai/downloads?referral=KING16",
-      trialInfo: "Free trial available",
-      image: "https://betteraibots.com/wispr.png",
-      readMoreLink: "/learn/wispr-flow-complete-guide"
-    }
-  ];
 
 
   const renderAppCard = (app, type, options = {}) => {
@@ -1753,6 +1385,197 @@ function Apps() {
           </button>
         </div>
 
+        {/* Progress Mode Toggle */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '12px',
+          marginBottom: '30px',
+          padding: '12px 20px',
+          background: 'rgba(54, 255, 149, 0.05)',
+          borderRadius: '16px',
+          border: '1px solid rgba(54, 255, 149, 0.2)',
+          maxWidth: 'fit-content',
+          margin: '0 auto 40px auto'
+        }}>
+          <span style={{ 
+            color: progressMode ? '#36ff95' : '#9ca3af', 
+            fontSize: '0.95rem',
+            fontWeight: 600 
+          }}>
+            {progressMode ? '🚀 Progress Mode ON' : '📊 Enable Progress Mode'}
+          </span>
+          <div 
+            onClick={() => setProgressMode(!progressMode)}
+            style={{
+              width: '50px',
+              height: '26px',
+              background: progressMode ? '#36ff95' : 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '13px',
+              position: 'relative',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            <div style={{
+              width: '20px',
+              height: '20px',
+              background: '#fff',
+              borderRadius: '50%',
+              position: 'absolute',
+              top: '3px',
+              left: progressMode ? '27px' : '3px',
+              transition: 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+            }} />
+          </div>
+          <Link 
+            to="/my-ai" 
+            style={{ 
+              marginLeft: '10px',
+              padding: '6px 12px',
+              background: 'rgba(54, 255, 149, 0.1)',
+              border: '1px solid #36ff95',
+              borderRadius: '8px',
+              color: '#36ff95',
+              fontSize: '0.85rem',
+              textDecoration: 'none',
+              fontWeight: 600
+            }}
+          >
+            Go to My AI Dashboard
+          </Link>
+          <button
+            onClick={() => setShowProgressHelp(true)}
+            onMouseEnter={() => {
+              if (!isMobile) {
+                hoverTimeoutRef.current = setTimeout(() => {
+                  setShowProgressHelp(true);
+                }, 800); // 800ms delay on hover
+              }
+            }}
+            onMouseLeave={() => {
+              if (hoverTimeoutRef.current) {
+                clearTimeout(hoverTimeoutRef.current);
+              }
+            }}
+            style={{
+              marginLeft: '8px',
+              width: '24px',
+              height: '24px',
+              borderRadius: '50%',
+              border: '1px solid #36ff95',
+              background: 'rgba(54, 255, 149, 0.1)',
+              color: '#36ff95',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.2s ease',
+              padding: 0
+            }}
+            onMouseOver={(e) => {
+              e.target.style.background = 'rgba(54, 255, 149, 0.2)';
+              e.target.style.transform = 'scale(1.1)';
+              e.target.style.boxShadow = '0 0 8px rgba(54, 255, 149, 0.4)';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+              e.target.style.transform = 'scale(1)';
+              e.target.style.boxShadow = 'none';
+            }}
+            title="Hover or click to learn about Progress Mode"
+          >
+            ?
+          </button>
+        </div>
+
+        {/* Progress Help Modal */}
+        <Modal 
+          show={showProgressHelp} 
+          onHide={() => setShowProgressHelp(false)}
+          centered
+          size="lg"
+        >
+          <Modal.Header closeButton style={{ background: '#18232f', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
+            <Modal.Title style={{ color: '#36ff95', fontWeight: 600 }}>
+              🚀 How to Organize & Track Your AI Apps
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{ background: '#18232f', color: '#d1efe7', padding: '24px' }}>
+            <div style={{ lineHeight: '1.8', fontSize: '0.95rem' }}>
+              <p style={{ marginBottom: '20px', color: '#b5ffdb' }}>
+                <strong style={{ color: '#36ff95' }}>Progress Mode</strong> helps you organize, clean, and track the AI apps you're exploring. Here's how it works:
+              </p>
+              
+              <div style={{ marginBottom: '20px' }}>
+                <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>📊 Enable Progress Mode</h4>
+                <p style={{ marginBottom: '12px' }}>
+                  When enabled, the Apps page will automatically <strong>hide apps</strong> you've already started, completed, or marked as "No Longer Want to See". This keeps your workspace clean and focused on new opportunities.
+                </p>
+              </div>
+
+              <div style={{ marginBottom: '20px' }}>
+                <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>📝 Track Your Trials</h4>
+                <p style={{ marginBottom: '12px' }}>
+                  In your <strong>My AI Dashboard</strong>, you can:
+                </p>
+                <ul style={{ paddingLeft: '20px', marginBottom: '12px' }}>
+                  <li>Mark apps as <strong>Currently Started</strong> and set trial dates</li>
+                  <li>Set <strong>Cancel Reminder</strong> dates to avoid unwanted charges</li>
+                  <li>Track when your <strong>Trial Ends</strong></li>
+                  <li>Add <strong>Monthly Cost</strong> to track your spending</li>
+                  <li>Take <strong>Notes</strong> on your experience with each app</li>
+                  <li>Mark apps as <strong>Already Done</strong> or <strong>No Longer Want to See</strong></li>
+                </ul>
+              </div>
+
+              <div style={{ marginBottom: '20px' }}>
+                <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>🎯 Organize Your Workspace</h4>
+                <p style={{ marginBottom: '12px' }}>
+                  By tracking your progress, you can:
+                </p>
+                <ul style={{ paddingLeft: '20px', marginBottom: '12px' }}>
+                  <li><strong>Clean up</strong> your Apps page to show only new opportunities</li>
+                  <li><strong>Remember</strong> which trials you've started and when to cancel</li>
+                  <li><strong>Track spending</strong> by adding monthly costs and see your total</li>
+                  <li><strong>Keep notes</strong> on what works and what doesn't</li>
+                  <li><strong>Organize</strong> all your AI platform signups in one place</li>
+                </ul>
+              </div>
+
+              <div style={{ 
+                background: 'rgba(54, 255, 149, 0.1)', 
+                border: '1px solid rgba(54, 255, 149, 0.3)', 
+                borderRadius: '8px', 
+                padding: '12px',
+                marginTop: '20px'
+              }}>
+                <p style={{ margin: 0, fontSize: '0.85rem', color: '#9ca3af' }}>
+                  <strong style={{ color: '#36ff95' }}>Note:</strong> All your progress is stored locally in your browser. We don't track or cancel trials for you - you're responsible for managing your own subscriptions.
+                </p>
+              </div>
+            </div>
+          </Modal.Body>
+          <Modal.Footer style={{ background: '#18232f', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
+            <Button 
+              onClick={() => setShowProgressHelp(false)}
+              style={{
+                background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+                border: 'none',
+                color: '#101c26',
+                fontWeight: 600,
+                padding: '8px 20px'
+              }}
+            >
+              Got it!
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
         {/* Section Content */}
         <div style={{ minHeight: '600px' }}>
           {activeSection === 'free' && (
@@ -2106,6 +1929,7 @@ function HamburgerMenu({ open, onClose, clickPosition, isMobile }) {
           <li onClick={() => handleNavigation('/learn')}>Learn</li>
           <li onClick={() => handleNavigation('/news')}>News</li>
           <li onClick={() => handleNavigation('/Podcast')}>Watch</li>
+          <li onClick={() => handleNavigation('/my-ai')} style={{ color: '#36ff95' }}>My AI 🚀</li>
           <li onClick={() => handleNavigation('/contact')}>Contact</li>
         </ul>
       </div>
@@ -4488,6 +4312,7 @@ function App() {
         <Route path="/news" element={<News searchValue={searchValue} />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/apps" element={<Apps />} />
+        <Route path="/my-ai" element={<MyAI trialApps={trialAppsData} freeApps={freeAppsData} paidApps={PAID_APPS} />} />
         <Route path="/Podcast" element={<Podcast />} />
         <Route path="/watch/:slug" element={<VideoWatchPage />} />
         <Route path="/:cat" element={<CategoryPage botList={botList} onOpenModal={handleOpenModal} />} />

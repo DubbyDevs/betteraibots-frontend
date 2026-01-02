@@ -6,7 +6,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://betteraibots.com/</loc>
-    <lastmod>2025-11-15</lastmod>
+    <lastmod>2026-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -20,7 +20,7 @@
   <!-- News Section -->
   <url>
     <loc>https://betteraibots.com/news</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -28,7 +28,7 @@
   <!-- The Complete Guide to Ranking #1 on Google in just 48 Hours?? -->
   <url>
     <loc>https://betteraibots.com/news/perplexity-parasite-seo-ranking-guide-48-hours</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -67,7 +67,7 @@
   <!-- Learn Section -->
   <url>
     <loc>https://betteraibots.com/learn</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -75,7 +75,7 @@
   <!-- Apps Section -->
   <url>
     <loc>https://betteraibots.com/apps</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -85,10 +85,23 @@
     </image:image>
   </url>
   
+  <!-- My AI Dashboard -->
+  <url>
+    <loc>https://betteraibots.com/my-ai</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/og-image.png?v=3</image:loc>
+      <image:title>My AI Dashboard – AI Trial Progress Tracker &amp; Cost Management</image:title>
+      <image:caption>Track your AI trial progress, manage costs, and organize all your AI subscriptions in one dashboard. Monitor trial dates, set cancellation reminders, and track monthly spending.</image:caption>
+    </image:image>
+  </url>
+  
   <!-- About Page -->
   <url>
     <loc>https://betteraibots.com/about</loc>
-    <lastmod>2025-12-02</lastmod>
+    <lastmod>2026-01-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
