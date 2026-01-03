@@ -310,7 +310,8 @@ export default function ArticlePage() {
     "laxis": "https://get.laxis.com/BAIB",
     "krispcall": "https://try.krispcall.com/BAIB",
     "getresponse": "https://try.getresponsetoday.com/BAIB",
-    "creativescore": "https://affiliate.creativescore.ai/BAIB"
+    "creativescore": "https://affiliate.creativescore.ai/BAIB",
+    "seamless-ai-complete-guide": "https://get.seamless.ai/BAIB"
   };
   
   const affiliateLink = affiliateLinks[article.id] || null;
@@ -495,7 +496,9 @@ export default function ArticlePage() {
     'krispcall',
     'getresponse',
     'creativescore',
-    'databox'
+    'databox',
+    'seamless-ai-complete-guide',
+    'warmy-io-spam-folder-rebellion-email-deliverability'
   ];
   const usesNewsStyleLayout = articlesWithNewsStyleLayout.includes(article.id);
 
@@ -760,7 +763,8 @@ export default function ArticlePage() {
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
-            "databox": "https://betteraibots.com/assets/databoxai.jpg"
+            "databox": "https://betteraibots.com/assets/databoxai.jpg",
+            "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -972,7 +976,8 @@ export default function ArticlePage() {
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
-            "databox": "https://betteraibots.com/assets/databoxai.jpg"
+            "databox": "https://betteraibots.com/assets/databoxai.jpg",
+            "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"
           };
               return ogImageMap[article.id] || primaryImage || article.cover;
             })(),
@@ -1804,6 +1809,37 @@ export default function ArticlePage() {
         ) : article.id === "databox" ? (
           <a 
             href="https://join.databox.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "seamless-ai-complete-guide" ? (
+          <a 
+            href="https://get.seamless.ai/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{

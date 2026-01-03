@@ -33,6 +33,7 @@ import InVideoAvatar from '../assets/InVideoAvatar.webp';
 import nanozlogo from '../assets/nanozlogo.png';
 import tidioai from '../assets/tidioai.webp';
 import webydoai from '../assets/webydoai.webp';
+import seamlessailogo from '../assets/seemlessailogo.jpg';
 
 export const freeAppsData = [
   {
@@ -371,6 +372,16 @@ export const trialAppsData = [
     trialInfo: "14-Day Free Trial",
     image: "/replyio.png",
     readMoreLink: "/learn/reply-io-complete-guide"
+  },
+  {
+    name: "Seamless.AI",
+    description: "Real-time B2B sales intelligence platform with 1.3+ billion contacts and 121+ million companies. Find accurate email addresses, phone numbers, and company data in seconds",
+    category: "Sales & CRM",
+    features: ["Real-time contact search", "1.3B+ business contacts", "121M+ companies", "Email & phone finder", "Chrome extension", "CRM integrations"],
+    link: "https://get.seamless.ai/BAIB",
+    trialInfo: "Free for up to 50 credits",
+    image: seamlessailogo,
+    readMoreLink: "/learn/seamless-ai-complete-guide"
   },
   {
     name: "Smartli",
