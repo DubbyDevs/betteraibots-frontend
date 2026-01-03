@@ -22,7 +22,6 @@ import flowith2 from "./assets/flowith2.jpg";
 import hume2 from "./assets/hume2.jpg";
 import invideo2 from "./assets/invideo2.jpg";
 import lindyai from "./assets/lindyai.jpg";
-import lushaai from "./assets/lushaai.jpg";
 import miroai2 from "./assets/miroai2.jpg";
 import mrpeasy2ai from "./assets/mrpeasy2ai.jpg";
 import murf2 from "./assets/murf2.jpg";
