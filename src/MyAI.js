@@ -4,14 +4,16 @@ import { Helmet } from 'react-helmet-async';
 import { Modal, Button } from 'react-bootstrap';
 
 const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
-  // Combine free apps, trial apps, and paid apps for tracking
-  const allApps = [...freeApps, ...trialApps, ...paidApps];
+  // Combine free apps, trial apps, and paid apps for tracking, then sort alphabetically
+  const allApps = [...freeApps, ...trialApps, ...paidApps].sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
   const [progress, setProgress] = useState(() => {
     const saved = localStorage.getItem('baib_progress');
     return saved ? JSON.parse(saved) : {};
   });
 
-  const [filter, setFilter] = useState('all'); // all, started, hidden, completed
+  const [filter, setFilter] = useState('all'); // all, not_started, started, currently_using, hidden
   const [showHelpModal, setShowHelpModal] = useState(false);
   const hoverTimeoutRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -77,22 +79,39 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
     }));
   };
 
-  // Calculate total monthly cost for all started apps
+  // Calculate total monthly cost for all current users (completed status)
   const totalMonthlyCost = allApps.reduce((total, app) => {
     const appProgress = progress[app.name] || {};
-    if (appProgress.status === 'started' && appProgress.monthlyCost) {
+    if (appProgress.status === 'completed' && appProgress.monthlyCost) {
       return total + (parseFloat(appProgress.monthlyCost) || 0);
     }
     return total;
   }, 0);
 
+  // Calculate total current trials
+  const totalCurrentTrials = allApps.filter(app => {
+    const appProgress = progress[app.name] || {};
+    return appProgress.status === 'started';
+  }).length;
+
+  // Calculate trials ending within 48 hours
+  const trialsEndingSoon = allApps.filter(app => {
+    const appProgress = progress[app.name] || {};
+    if (appProgress.status === 'started' && appProgress.endDate) {
+      const endDate = new Date(appProgress.endDate);
+      const now = new Date();
+      const hoursUntilEnd = (endDate - now) / (1000 * 60 * 60);
+      return hoursUntilEnd > 0 && hoursUntilEnd <= 48;
+    }
+    return false;
+  }).length;
+
   const filteredApps = allApps.filter(app => {
     const appProgress = progress[app.name] || {};
     if (filter === 'started') return appProgress.status === 'started';
-    if (filter === 'completed') return appProgress.status === 'completed';
+    if (filter === 'currently_using') return appProgress.status === 'started' || appProgress.status === 'completed';
     if (filter === 'hidden') return appProgress.status === 'no_longer_want';
-    if (filter === 'not_started') return !appProgress.status || appProgress.status === 'not_started';
-    return appProgress.status !== 'no_longer_want'; // Default: don't show excluded in 'all'
+    return appProgress.status !== 'no_longer_want'; // Default: don't show "not interested" apps in 'all'
   });
 
   return (
@@ -175,34 +194,76 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         </div>
         <h1 style={{ color: '#36ff95', fontSize: '2.5rem', marginBottom: '15px', fontWeight: 700 }}>My AI Dashboard 🚀</h1>
         <p style={{ color: '#b5ffdb', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', marginBottom: '20px' }}>
-          Your personal notepad and progress tracker for AI applications. Track your trials, take notes, and organize your workspace.
+          Your personal ai progress tracker for AI applications. Track your trials, your subscription costs, take notes, and organize your own custom app directory page.
         </p>
-        {totalMonthlyCost > 0 && (
-          <div style={{
-            background: 'rgba(54, 255, 149, 0.1)',
-            border: '2px solid #36ff95',
-            borderRadius: '12px',
-            padding: '16px 24px',
-            display: 'inline-block',
-            marginTop: '10px'
-          }}>
-            <div style={{ color: '#36ff95', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
-              Total Monthly Cost
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '15px',
+          justifyContent: 'center',
+          marginTop: '20px'
+        }}>
+          {totalCurrentTrials > 0 && (
+            <div style={{
+              background: 'rgba(54, 255, 149, 0.1)',
+              border: '2px solid #36ff95',
+              borderRadius: '12px',
+              padding: '16px 24px',
+              display: 'inline-block',
+              minWidth: '200px'
+            }}>
+              <div style={{ color: '#36ff95', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
+                Total Current Trials
+              </div>
+              <div style={{ color: '#ffffff', fontSize: '1.8rem', fontWeight: 700 }}>
+                {totalCurrentTrials}
+              </div>
             </div>
-            <div style={{ color: '#ffffff', fontSize: '1.8rem', fontWeight: 700 }}>
-              ${totalMonthlyCost.toFixed(2)}
+          )}
+          {trialsEndingSoon > 0 && (
+            <div style={{
+              background: 'rgba(255, 179, 71, 0.1)',
+              border: '2px solid #ffb347',
+              borderRadius: '12px',
+              padding: '16px 24px',
+              display: 'inline-block',
+              minWidth: '200px'
+            }}>
+              <div style={{ color: '#ffb347', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
+                Trials Ending Soon (≤48h)
+              </div>
+              <div style={{ color: '#ffffff', fontSize: '1.8rem', fontWeight: 700 }}>
+                {trialsEndingSoon}
+              </div>
             </div>
-            <div style={{ color: '#9ca3af', fontSize: '0.8rem', marginTop: '4px' }}>
-              Across {allApps.filter(app => {
-                const appProgress = progress[app.name] || {};
-                return appProgress.status === 'started' && appProgress.monthlyCost;
-              }).length} active subscription{allApps.filter(app => {
-                const appProgress = progress[app.name] || {};
-                return appProgress.status === 'started' && appProgress.monthlyCost;
-              }).length !== 1 ? 's' : ''}
+          )}
+          {totalMonthlyCost > 0 && (
+            <div style={{
+              background: 'rgba(54, 255, 149, 0.1)',
+              border: '2px solid #36ff95',
+              borderRadius: '12px',
+              padding: '16px 24px',
+              display: 'inline-block',
+              minWidth: '200px'
+            }}>
+              <div style={{ color: '#36ff95', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
+                Total Monthly Cost
+              </div>
+              <div style={{ color: '#ffffff', fontSize: '1.8rem', fontWeight: 700 }}>
+                ${totalMonthlyCost.toFixed(2)}
+              </div>
+              <div style={{ color: '#9ca3af', fontSize: '0.8rem', marginTop: '4px' }}>
+                Across {allApps.filter(app => {
+                  const appProgress = progress[app.name] || {};
+                  return appProgress.status === 'completed' && appProgress.monthlyCost;
+                }).length} active subscription{allApps.filter(app => {
+                  const appProgress = progress[app.name] || {};
+                  return appProgress.status === 'completed' && appProgress.monthlyCost;
+                }).length !== 1 ? 's' : ''}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       <div style={{
@@ -212,7 +273,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         marginBottom: '30px',
         flexWrap: 'wrap'
       }}>
-        {['all', 'not_started', 'started', 'completed', 'hidden'].map(f => (
+        {['all', 'started', 'currently_using', 'hidden'].map(f => (
           <button
             key={f}
             onClick={() => setFilter(f)}
@@ -229,7 +290,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               transition: 'all 0.2s ease'
             }}
           >
-            {f === 'all' ? 'All Trials' : f === 'hidden' ? 'Excluded' : f.replace('_', ' ')}
+            {f === 'all' ? 'All Apps' : f === 'hidden' ? 'Not Interested' : f === 'started' ? 'Started Trial' : f === 'currently_using' ? 'Currently Using' : f.replace('_', ' ')}
           </button>
         ))}
       </div>
@@ -242,7 +303,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         marginBottom: '40px'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', margin: 0, fontWeight: 600 }}>Trial Progress List</h2>
+          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', margin: 0, fontWeight: 600 }}>AI Usage Dashboard</h2>
           <button
             onClick={() => setShowHelpModal(true)}
             onMouseEnter={() => {
@@ -333,9 +394,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                         }}
                       >
                         <option value="not_started">Not Started</option>
-                        <option value="started">Currently Started</option>
-                        <option value="completed">Already Done</option>
-                        <option value="no_longer_want">No Longer Want to See</option>
+                        <option value="started">In Trial</option>
+                        <option value="completed">Current User</option>
+                        <option value="no_longer_want">Not Interested</option>
                       </select>
                       <a 
                         href={app.link} 
@@ -344,11 +405,27 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                         style={{
                           background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
                           color: '#101c26',
-                          padding: '8px 16px',
+                          padding: '10px 20px',
                           borderRadius: '8px',
                           textDecoration: 'none',
                           fontWeight: 600,
-                          fontSize: '0.9rem'
+                          fontSize: '0.9rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          transition: 'all 0.3s ease',
+                          boxShadow: '0 2px 8px rgba(54, 255, 149, 0.2)',
+                          minHeight: '38px'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.transform = 'translateY(-2px)';
+                          e.target.style.boxShadow = '0 4px 16px rgba(54, 255, 149, 0.4)';
+                          e.target.style.background = 'linear-gradient(135deg, #4affb3 0%, #1bd4f0 100%)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.transform = 'translateY(0)';
+                          e.target.style.boxShadow = '0 2px 8px rgba(54, 255, 149, 0.2)';
+                          e.target.style.background = 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)';
                         }}
                       >
                         Visit Site
@@ -360,11 +437,30 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                             background: 'rgba(54, 255, 149, 0.1)',
                             color: '#36ff95',
                             border: '1px solid #36ff95',
-                            padding: '8px 16px',
+                            padding: '10px 20px',
                             borderRadius: '8px',
                             textDecoration: 'none',
                             fontWeight: 600,
-                            fontSize: '0.9rem'
+                            fontSize: '0.9rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transition: 'all 0.3s ease',
+                            minHeight: '38px'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.background = 'rgba(54, 255, 149, 0.2)';
+                            e.target.style.borderColor = '#4affb3';
+                            e.target.style.color = '#ffffff';
+                            e.target.style.transform = 'translateY(-2px)';
+                            e.target.style.boxShadow = '0 4px 12px rgba(54, 255, 149, 0.3)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+                            e.target.style.borderColor = '#36ff95';
+                            e.target.style.color = '#36ff95';
+                            e.target.style.transform = 'translateY(0)';
+                            e.target.style.boxShadow = 'none';
                           }}
                         >
                           Read More
@@ -433,7 +529,19 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                           }}
                         />
                       </div>
-                      <div>
+                    </div>
+                  )}
+
+                  {appProgress.status === 'completed' && (
+                    <div style={{ 
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '15px',
+                      background: 'rgba(54, 255, 149, 0.05)',
+                      padding: '15px',
+                      borderRadius: '8px'
+                    }}>
+                      <div style={{ width: '200px' }}>
                         <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Monthly Cost ($)</label>
                         <input 
                           type="number" 
@@ -449,7 +557,14 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                             borderRadius: '6px',
                             color: '#ffffff',
                             padding: '8px',
-                            fontSize: '0.9rem'
+                            fontSize: '0.9rem',
+                            MozAppearance: 'textfield'
+                          }}
+                          onWheel={(e) => e.target.blur()}
+                          onKeyDown={(e) => {
+                            if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                              e.preventDefault();
+                            }
                           }}
                         />
                       </div>
@@ -521,16 +636,16 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               </p>
               <ul style={{ paddingLeft: '20px', marginBottom: '12px' }}>
                 <li><strong>Not Started</strong> - You haven't signed up yet</li>
-                <li><strong>Currently Started</strong> - You're actively using the trial (this will show date fields)</li>
-                <li><strong>Already Done</strong> - You've completed or canceled this trial</li>
-                <li><strong>No Longer Want to See</strong> - Hide this app from your main Apps page</li>
+                <li><strong>In Trial</strong> - You're actively using the trial (this will show date fields and cost input)</li>
+                <li><strong>Current User</strong> - You've completed the trial and are currently using this app</li>
+                <li><strong>Not Interested</strong> - Hide this app from your main Apps page</li>
               </ul>
             </div>
 
             <div style={{ marginBottom: '20px' }}>
               <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>📅 Set Important Dates</h4>
               <p style={{ marginBottom: '12px' }}>
-                When you mark an app as <strong>Currently Started</strong>, you can track:
+                When you mark an app as <strong>In Trial</strong>, you can track:
               </p>
               <ul style={{ paddingLeft: '20px', marginBottom: '12px' }}>
                 <li><strong>Trial Started</strong> - The date you signed up</li>
@@ -546,7 +661,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             <div style={{ marginBottom: '20px' }}>
               <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>💰 Track Your Spending</h4>
               <p style={{ marginBottom: '12px' }}>
-                When you mark an app as <strong>Currently Started</strong>, you can add its monthly cost. This helps you:
+                When you mark an app as <strong>In Trial</strong>, you can add its monthly cost. This helps you:
               </p>
               <ul style={{ paddingLeft: '20px', marginBottom: '12px' }}>
                 <li>See your <strong>total monthly spending</strong> across all AI subscriptions</li>
@@ -575,18 +690,17 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                 Use the filter buttons at the top to view:
               </p>
               <ul style={{ paddingLeft: '20px', marginBottom: '12px' }}>
-                <li><strong>All Trials</strong> - See everything except excluded apps</li>
-                <li><strong>Not Started</strong> - Apps you haven't tried yet</li>
-                <li><strong>Started</strong> - Currently active trials</li>
-                <li><strong>Completed</strong> - Trials you've finished</li>
-                <li><strong>Excluded</strong> - Apps you don't want to see</li>
+                <li><strong>All Apps</strong> - See everything except apps marked as "Not Interested"</li>
+                <li><strong>Started Trial</strong> - Apps with active trials</li>
+                <li><strong>Currently Using</strong> - Apps you're currently using (includes active trials)</li>
+                <li><strong>Not Interested</strong> - Apps you don't want to see (excluded from main apps list)</li>
               </ul>
             </div>
 
             <div style={{ marginBottom: '20px' }}>
               <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>🚀 Enable Progress Mode</h4>
               <p style={{ marginBottom: '12px' }}>
-                Go back to the <strong>Apps page</strong> and enable <strong>Progress Mode</strong>. This will automatically hide apps you've started, completed, or excluded, keeping your workspace clean and focused on new opportunities.
+                Go back to the <strong>Apps page</strong> and enable <strong>Progress Mode</strong>. This will automatically hide apps you've started, completed, or marked as "Not Interested", keeping your workspace clean and focused on new opportunities.
               </p>
             </div>
 

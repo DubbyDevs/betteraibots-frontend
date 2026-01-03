@@ -14,7 +14,6 @@ import logome from '../assets/logome1.png';
 import vistasocial from '../assets/vistasocial.jpg';
 import datahawkai from '../assets/datahawkai.jpg';
 import elevenlabsai from '../assets/elevenlabsai.jpg';
-import rankpromptai from '../assets/rankpromptai.jpg';
 import snowfireai from '../assets/snowfireai.jpg';
 import volzaai from '../assets/volzaai.png';
 import laxisai from '../assets/laxisai.jpg';
@@ -22,25 +21,18 @@ import getresponseai from '../assets/getresponseai.jpg';
 import creativescoreai from '../assets/creativescoreai.jpg';
 import databoxai from '../assets/databoxai.jpg';
 import gammaai from '../assets/gammaai.jpg';
-import n8nicon from '../assets/n8nicon.jpg';
 import warmyicon from '../assets/warmyicon.jpg';
 import recomaze1 from '../assets/recomaze1.jpg';
 import vida1 from '../assets/vida1.jpg';
-import plesk1 from '../assets/plesk1.jpg';
-import surecam1 from '../assets/surecam1.jpg';
-import seosparkplug1 from '../assets/seosparkplug1.jpg';
 import smartli1 from '../assets/smartli1.jpg';
 import preziai from '../assets/preziai.png';
 import tradify1 from '../assets/tradify1.jpg';
+import thordatawebp from '../assets/thordata.webp';
 import humeai from '../assets/humeai.webp';
 import InVideoAvatar from '../assets/InVideoAvatar.webp';
+import nanozlogo from '../assets/nanozlogo.png';
 import tidioai from '../assets/tidioai.webp';
 import webydoai from '../assets/webydoai.webp';
-import nanozlogo from '../assets/nanozlogo.png';
-import lushaai from '../assets/lushaai.jpg';
-import mrpeasy2ai from '../assets/mrpeasy2ai.jpg';
-import miroai2 from '../assets/miroai2.jpg';
-import thordatawebp from '../assets/thordata.webp';
 
 export const freeAppsData = [
   {
@@ -417,7 +409,6 @@ export const trialAppsData = [
     features: ["AI customer service", "Live chat & chatbots", "Email marketing", "Multichannel support", "Analytics & reporting"],
     link: "https://tidio.partnerlinks.io/BAIB",
     trialInfo: "Start for free",
-    // eslint-disable-next-line no-undef
     image: tidioai,
     readMoreLink: "/learn/tidio-complete-guide"
   },
@@ -488,7 +479,6 @@ export const trialAppsData = [
     features: ["No-code design", "Built-in CMS", "Client management", "Secure hosting"],
     link: "https://partners.webydo.com/BAIB",
     trialInfo: "Free Trial Available",
-    // eslint-disable-next-line no-undef
     image: webydoai,
     readMoreLink: "/learn/webydo"
   },

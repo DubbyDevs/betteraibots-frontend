@@ -34,51 +34,17 @@ import anybiz from './assets/anybiz.webp';
 import catalisterai from './assets/catalisterai.webp';
 import castmagicai from './assets/castmagicai.webp';
 import runpod from './assets/runpod.webp';
-import thordata from './assets/thordata.webp';
-import webydoai from './assets/webydoai.webp';
-import tidioai from './assets/tidioai.webp';
-import humeai from './assets/humeai.webp';
-import blackboxai from './assets/blackboxai.webp';
 import airiaai from './assets/airiaai.webp';
 import bebopai from './assets/bebopai.webp';
-import adcreativeaitrial from './assets/adcreativeaitrial.png';
-import apolloLogo from './assets/apolloailogo.webp';
-import atria1 from './assets/atria1.jpg';
-import InVideoAvatar from './assets/InVideoAvatar.webp';
+import diginius1 from './assets/diginius1.jpg';
 import megahr from './assets/megahr.webp';
-import n8nicon from './assets/n8nicon.jpg';
-import warmyicon from './assets/warmyicon.jpg';
-import chatgptai from './assets/chatgptai.jpg';
-import claudeailogo from './assets/claudeailogo.jpg';
-import geminiai from './assets/geminiai.jpg';
-import recomaze1 from './assets/recomaze1.jpg';
-import vida1 from './assets/vida1.jpg';
+import bidxai from './assets/bidxai.jpg';
+import krispcallai from './assets/krispcallai.jpg';
+import rankpromptai from './assets/rankpromptai.jpg';
 import plesk1 from './assets/plesk1.jpg';
 import surecam1 from './assets/surecam1.jpg';
-import diginius1 from './assets/diginius1.jpg';
 import seosparkplug1 from './assets/seosparkplug1.jpg';
-import smartli1 from './assets/smartli1.jpg';
-import consensus1 from './assets/consensus1.jpg';
-import browseai1 from './assets/browseai1.jpg';
-import musebrand from './assets/musebrand.jpg';
-import nanozlogo from './assets/nanozlogo.png';
-import preziai from './assets/preziai.png';
-import landingi1 from './assets/landingi1.jpg';
-import tradify1 from './assets/tradify1.jpg';
-import logome from './assets/logome1.png';
-import vistasocial from './assets/vistasocial.jpg';
-import datahawkai from './assets/datahawkai.jpg';
-import elevenlabsai from './assets/elevenlabsai.jpg';
-import rankpromptai from './assets/rankpromptai.jpg';
-import snowfireai from './assets/snowfireai.jpg';
-import volzaai from './assets/volzaai.png';
-import bidxai from './assets/bidxai.jpg';
-import laxisai from './assets/laxisai.jpg';
-import krispcallai from './assets/krispcallai.jpg';
-import getresponseai from './assets/getresponseai.jpg';
-import creativescoreai from './assets/creativescoreai.jpg';
-import databoxai from './assets/databoxai.jpg';
-import gammaai from './assets/gammaai.jpg';
+import n8nicon from './assets/n8nicon.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -850,7 +816,6 @@ function Apps() {
   const [activeSection, setActiveSection] = useState('trial');
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const { section: sectionFromUrl } = useParams();
-  const navigate = useNavigate();
   const [progressMode, setProgressMode] = useState(() => {
     const saved = localStorage.getItem('baib_progress_mode');
     return saved === 'true';
@@ -921,17 +886,6 @@ function Apps() {
     });
   }, [progressMode, userProgress]);
 
-  // Calculate total monthly cost for all started apps
-  const totalMonthlyCost = useMemo(() => {
-    const allAppsForCost = [...freeAppsData, ...trialAppsData, ...PAID_APPS];
-    return allAppsForCost.reduce((total, app) => {
-      const progress = userProgress[app.name] || {};
-      if (progress.status === 'started' && progress.monthlyCost) {
-        return total + (parseFloat(progress.monthlyCost) || 0);
-      }
-      return total;
-    }, 0);
-  }, [userProgress]);
   
   const [expandedFeatures, setExpandedFeatures] = useState({});
   const [expandedApp, setExpandedApp] = useState(null);
