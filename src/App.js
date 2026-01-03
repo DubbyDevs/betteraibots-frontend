@@ -945,31 +945,13 @@ function Apps() {
             justifyContent: 'center',
             flexShrink: 0,
             overflow: 'hidden',
-            border: '1px solid rgba(54, 255, 149, 0.2)',
-            transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+            border: '1px solid rgba(54, 255, 149, 0.4)',
+            boxShadow: '0 0 8px rgba(54, 255, 149, 0.25)',
             cursor: 'pointer'
           }}
           onClick={(e) => {
             e.stopPropagation();
             window.open(app.link, '_blank');
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.4)';
-            e.currentTarget.style.boxShadow = '0 0 8px rgba(54, 255, 149, 0.25)';
-            const img = e.currentTarget.querySelector('img');
-            if (img) {
-              img.style.transform = 'scale(1.2)';
-              img.style.padding = isModal ? '6px' : '4px';
-            }
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.2)';
-            e.currentTarget.style.boxShadow = 'none';
-            const img = e.currentTarget.querySelector('img');
-            if (img) {
-              img.style.transform = 'scale(1)';
-              img.style.padding = isModal ? '12px' : '8px';
-            }
           }}
         >
           {app.image ? (
@@ -980,8 +962,8 @@ function Apps() {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                padding: isModal ? '12px' : '8px',
-                transition: 'transform 0.3s ease, padding 0.3s ease'
+                padding: isModal ? '6px' : '4px',
+                transform: 'scale(1.2)'
               }}
               onError={(e) => {
                 // Fallback to letter if image fails to load
