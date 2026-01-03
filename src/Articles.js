@@ -824,7 +824,7 @@ This article contains affiliate links to <a href="https://get.seamless.ai/BAIB" 
   },
   {
     id: "museit-art-complete-guide",
-    title: "Museit.art: Turn the Noise into Art with AI-Powered Creative Expression",
+    title: "Turn the Noise into Art with AI-Powered Creative Expression",
     date: "January 2026",
     cover: musebrand,
     preview: "Discover how Museit.art's AI-powered art creation platform transforms your imagination into beautiful artwork. Turn the noise into art with guided creativity, mindfulness-focused design, and gallery-ready quality—no technical skills required.",
@@ -3395,7 +3395,7 @@ If you regularly need evidence-based answers from scientific literature and want
   },
   {
     id: "museit-art-complete-guide",
-    title: "Museit.art: Turn the Noise into Art with AI-Powered Creative Expression",
+    title: "Turn the Noise into Art with AI-Powered Creative Expression",
     date: "January 2026",
     cover: musebrand,
     preview: "Discover how Museit.art's AI-powered art creation platform transforms your imagination into beautiful artwork. Turn the noise into art with guided creativity, mindfulness-focused design, and gallery-ready quality—no technical skills required.",
@@ -20085,6 +20085,10 @@ export default function Articles({ level = "beginner" }) {
     }
     // Exclude PaintR article from App Spotlight
     if (article.id === "paintr") {
+      return false;
+    }
+    // Exclude Cheat Coder article from App Spotlight
+    if (article.id === "cheat-coder") {
       return false;
     }
     
