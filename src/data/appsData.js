@@ -34,6 +34,8 @@ import nanozlogo from '../assets/nanozlogo.png';
 import tidioai from '../assets/tidioai.webp';
 import webydoai from '../assets/webydoai.webp';
 import seamlessailogo from '../assets/seemlessailogo.jpg';
+import descriptai from '../assets/descriptai.png';
+import descriptai2 from '../assets/descriptai2.jpg';
 
 export const freeAppsData = [
   {
@@ -182,6 +184,16 @@ export const trialAppsData = [
     trialInfo: "Free Trial Available",
     image: datahawkai,
     readMoreLink: "/learn/datahawk"
+  },
+  {
+    name: "Descript",
+    description: "AI-powered video and podcast editing platform that makes editing as easy as editing text, with transcription-based editing and AI features",
+    category: "Video & Audio Editing",
+    features: ["Text-based video editing", "AI video generation", "Voice cloning", "Screen recording", "Automatic transcription", "AI avatars"],
+    link: "https://get.descript.com/BAIB",
+    trialInfo: "Free Trial Available",
+    image: descriptai,
+    readMoreLink: "/learn/descript"
   },
   {
     name: "ElevenLabs",
