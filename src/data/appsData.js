@@ -35,7 +35,6 @@ import tidioai from '../assets/tidioai.webp';
 import webydoai from '../assets/webydoai.webp';
 import seamlessailogo from '../assets/seemlessailogo.jpg';
 import descriptai from '../assets/descriptai.png';
-import descriptai2 from '../assets/descriptai2.jpg';
 
 export const freeAppsData = [
   {
