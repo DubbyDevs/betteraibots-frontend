@@ -36,6 +36,8 @@ import webydoai from '../assets/webydoai.webp';
 import seamlessailogo from '../assets/seemlessailogo.jpg';
 import descriptai from '../assets/descriptai.png';
 import unbounceai from '../assets/unbounceai.png';
+import landbotai from '../assets/landbotai.png';
+import reclaimai from '../assets/reclaimai.png';
 
 export const freeAppsData = [
   {
@@ -256,6 +258,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/invideo-ai"
   },
   {
+    name: "Landbot",
+    description: "AI-powered chatbot platform that combines AI intelligence with rule-based logic to build conversational experiences for websites, WhatsApp, and more",
+    category: "Chatbots & Automation",
+    features: ["AI Agent Chatbots", "WhatsApp Chatbots", "Website Chatbots", "No-code builder", "Lead generation", "Customer support automation"],
+    link: "https://get.landbotlab.com/BAIB",
+    trialInfo: "Free plan available",
+    image: landbotai,
+    readMoreLink: "/learn/landbot"
+  },
+  {
     name: "Landingi",
     description: "AI-powered landing page builder that creates high-converting landing pages in minutes. Build beautiful, responsive landing pages with drag-and-drop editor and AI assistance.",
     category: "Marketing & Web Design",
@@ -364,6 +376,16 @@ export const trialAppsData = [
     trialInfo: "Start for free",
     image: preziai,
     readMoreLink: "/learn/prezi-complete-guide"
+  },
+  {
+    name: "Reclaim.ai",
+    description: "AI-powered calendar and time management platform that automatically schedules meetings, blocks focus time, and optimizes your calendar for productivity",
+    category: "Productivity & Time Management",
+    features: ["Smart scheduling", "Automatic calendar blocking", "Focus time protection", "Meeting optimization", "Calendar analytics", "Team scheduling"],
+    link: "https://go.reclaim.ai/BAIB",
+    trialInfo: "Free plan available",
+    image: reclaimai,
+    readMoreLink: "/learn/reclaim-ai"
   },
   {
     name: "Recomaze",

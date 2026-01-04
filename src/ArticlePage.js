@@ -303,6 +303,8 @@ export default function ArticlePage() {
     "datahawk": "https://get.datahawk.co/eoe07kko8pol",
     "descript": "https://get.descript.com/BAIB",
     "unbounce": "https://unbounce.partnerlinks.io/BAIB",
+    "landbot": "https://get.landbotlab.com/BAIB",
+    "reclaim-ai": "https://go.reclaim.ai/BAIB",
     "elevenlabs": "https://try.elevenlabs.io/BAIB",
     "gamma": "https://try.gamma.app/BAIB",
     "rankprompt": "https://join.rankprompt.com/BAIB",
@@ -491,6 +493,8 @@ export default function ArticlePage() {
     'datahawk',
     'descript',
     'unbounce',
+    'landbot',
+    'reclaim-ai',
     'gamma',
     'rankprompt',
     'snowfire-ai',
@@ -759,6 +763,8 @@ export default function ArticlePage() {
             "datahawk": "https://betteraibots.com/assets/datahawkai.jpg",
             "descript": "https://betteraibots.com/assets/descriptai.png",
             "unbounce": "https://betteraibots.com/assets/unbounceai.png",
+            "landbot": "https://betteraibots.com/assets/landbotai.png",
+            "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
             "elevenlabs": "https://betteraibots.com/assets/elevenlabsai.jpg",
             "gamma": "https://betteraibots.com/assets/gammaai.jpg",
             "rankprompt": "https://betteraibots.com/assets/rankpromptai.jpg",
@@ -1877,6 +1883,68 @@ export default function ArticlePage() {
         ) : article.id === "unbounce" ? (
           <a 
             href="https://unbounce.partnerlinks.io/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "landbot" ? (
+          <a 
+            href="https://get.landbotlab.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "reclaim-ai" ? (
+          <a 
+            href="https://go.reclaim.ai/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
