@@ -879,6 +879,32 @@
     </image:image>
   </url>
 
+  <!-- Reclaim.ai Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/reclaim-ai</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/reclaimai.png</image:loc>
+      <image:title>Reclaim.ai: AI-Powered Calendar and Time Management Platform</image:title>
+      <image:caption>Reclaim.ai is an AI-powered calendar and time management platform that automatically schedules meetings, blocks focus time, protects your work-life balance, and optimizes your calendar for maximum productivity. With smart scheduling, automatic time blocking, and intelligent calendar management, Reclaim.ai helps you take control of your time and get more done.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Unbounce Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/unbounce</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/unbounceai.png</image:loc>
+      <image:title>Unbounce: AI-Powered Landing Page Builder and Conversion Optimization Platform</image:title>
+      <image:caption>Unbounce is an AI-powered landing page builder and conversion optimization platform that helps marketers build, test, and optimize landing pages without code. With drag-and-drop editing, A/B testing, AI copywriting, and Smart Traffic optimization, Unbounce transforms how businesses convert visitors into customers.</image:caption>
+    </image:image>
+  </url>
+
   <!-- NanoZ Article -->
   <url>
     <loc>https://betteraibots.com/learn/nanoz-complete-guide</loc>
@@ -970,6 +996,19 @@
     </image:image>
   </url>
 
+  <!-- Descript Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/descript</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/descriptai.png</image:loc>
+      <image:title>Descript: AI Video Editor with Text-Based Editing and AI Video Generation</image:title>
+      <image:caption>Descript is an AI-powered video editing platform that makes video editing as easy as editing text. With transcription-based editing, AI video generation, voice cloning, and professional tools, Descript transforms how creators and businesses make video content.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Gamma Article -->
   <url>
     <loc>https://betteraibots.com/learn/gamma</loc>
@@ -993,6 +1032,19 @@
       <image:loc>https://betteraibots.com/assets/elevenlabsai.jpg</image:loc>
       <image:title>ElevenLabs Review - AI Voice and Text-to-Speech</image:title>
       <image:caption>Realistic AI voiceovers, voice cloning, and dubbing for creators.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Landbot Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/landbot</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/landbotai.png</image:loc>
+      <image:title>Landbot: AI-Powered Chatbot Platform for Conversational Experiences</image:title>
+      <image:caption>Landbot is an AI-powered chatbot platform that combines the intelligence of AI with the control of rule-based chatbots to build enjoyable conversational experiences. Whether you need website chatbots, WhatsApp automation, or AI agents, Landbot makes it easy to create, deploy, and optimize chatbots that convert visitors into customers.</image:caption>
     </image:image>
   </url>
 

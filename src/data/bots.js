@@ -139,7 +139,7 @@ export const rawBots = [
     image: adcreativeaiImg,
     rotatingImages: [adcreativeaiImg, adcreativeaiImg2, adcreativeaiImg3],
     free: false,
-    openaiLink: "https://free-trial.adcreative.ai/0dkpoiajb7o2",
+    openaiLink: "https://free-trial.adcreative.ai/BAIB",
     isAffiliate: true,
     categories: ["Creative Tools", "Productivity"],
     freeLabel: "Free Trial"

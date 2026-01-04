@@ -31,12 +31,12 @@ function Podcast() {
     { name: 'Lusha', url: 'https://partnerstack.lusha.com/w61xn76pa3sr' },
     { name: 'Apollo AI', url: 'https://get.apollo.io/BAIB' },
     { name: 'Brevo', url: 'https://get.brevo.com/um9xszmf3nfd' },
-    { name: 'Capsule CRM', url: 'https://capsulecrm.com/signup/?ref=betteraibots' },
+    { name: 'Capsule CRM', url: 'https://get.capsulenow.io/BAIB' },
     { name: 'Flowith.io', url: 'https://aff.flowith.io/52dtlja1b580' },
     { name: 'Lindy', url: 'https://try.lindy.ai/lhgvxfidor04' },
     { name: 'Miro', url: 'https://ps.miro-affiliate.com/gwnvu4zj3r8r' },
     { name: 'Reply.io', url: 'https://get.reply.io/ub7edypmq2gj' },
-    { name: 'AdCreative', url: 'https://free-trial.adcreative.ai/0dkpoiajb7o2' }
+    { name: 'AdCreative', url: 'https://free-trial.adcreative.ai/BAIB' }
   ];
 
   // Affiliate links for Email Deliverability video (index 2, welcome video)
@@ -44,7 +44,7 @@ function Podcast() {
     { name: 'Warmy.io', url: 'https://warmyio.partnerlinks.io/ffy5y6ll9374' }
   ];
   const capsuleCrmLinks = [
-    { name: 'Capsule CRM', url: 'https://capsulecrm.com/signup/?ref=betteraibots' }
+    { name: 'Capsule CRM', url: 'https://get.capsulenow.io/BAIB' }
   ];
   const thorDataLinks = [
     { name: 'ThorData', url: 'https://www.thordata.com/' }
@@ -169,7 +169,7 @@ function Podcast() {
     {
       id: 'cz1UN93IBzU',
       title: 'Capsule CRM Review',
-      description: 'What is Capsule CRM? The platform that gets it right. Capsule CRM was built on a simple but revolutionary premise: CRM software should make your life easier, not harder. While competitors added layers of complexity, Capsule focused on an intuitive platform that small to medium businesses can use effectively. Link: https://capsulecrm.com/signup/?ref=betteraibots',
+      description: 'What is Capsule CRM? The platform that gets it right. Capsule CRM was built on a simple but revolutionary premise: CRM software should make your life easier, not harder. While competitors added layers of complexity, Capsule focused on an intuitive platform that small to medium businesses can use effectively. Link: https://get.capsulenow.io/BAIB',
       thumbnail: 'https://img.youtube.com/vi/cz1UN93IBzU/hqdefault.jpg'
     },
     {

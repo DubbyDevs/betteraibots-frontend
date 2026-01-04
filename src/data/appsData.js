@@ -72,7 +72,7 @@ export const trialAppsData = [
     description: "AI-powered ad creative generator that creates high-converting ads in seconds",
     category: "Marketing & Advertising",
     features: ["AI ad generation", "Brand customization", "Performance tracking", "Multiple formats"],
-    link: "https://free-trial.adcreative.ai/0dkpoiajb7o2",
+    link: "https://free-trial.adcreative.ai/BAIB",
     trialInfo: "Free Trial Available",
     image: adcreativeaitrial,
     readMoreLink: "/learn/adcreative-ai"
@@ -142,7 +142,7 @@ export const trialAppsData = [
     description: "Simple CRM for small businesses to manage contacts, sales pipeline, and customer relationships",
     category: "Sales & CRM",
     features: ["Contact management", "Email marketing", "Project management", "Workflow automation"],
-    link: "https://capsulecrm.com/signup/?ref=betteraibots",
+    link: "https://get.capsulenow.io/BAIB",
     trialInfo: "14-day free trial",
     image: "/capsulecrm.png",
     readMoreLink: "/learn/capsule-crm-complete-guide"
