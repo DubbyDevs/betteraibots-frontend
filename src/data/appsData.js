@@ -35,6 +35,7 @@ import tidioai from '../assets/tidioai.webp';
 import webydoai from '../assets/webydoai.webp';
 import seamlessailogo from '../assets/seemlessailogo.jpg';
 import descriptai from '../assets/descriptai.png';
+import unbounceai from '../assets/unbounceai.png';
 
 export const freeAppsData = [
   {
@@ -443,6 +444,16 @@ export const trialAppsData = [
     trialInfo: "14-day free trial",
     image: tradify1,
     readMoreLink: "/learn/tradify-complete-guide"
+  },
+  {
+    name: "Unbounce",
+    description: "AI-powered landing page builder and conversion optimization platform that helps marketers build, test, and optimize landing pages without code",
+    category: "Marketing & Landing Pages",
+    features: ["Drag-and-drop builder", "A/B testing", "AI copywriting", "Smart Traffic optimization", "100+ templates", "1,000+ integrations"],
+    link: "https://unbounce.partnerlinks.io/BAIB",
+    trialInfo: "14-day free trial",
+    image: unbounceai,
+    readMoreLink: "/learn/unbounce"
   },
   {
     name: "VEED.io",
