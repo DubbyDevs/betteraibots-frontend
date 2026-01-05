@@ -508,7 +508,7 @@ const LearnLevelSelector = () => {
                       filter: level.id === 'beginner' 
                         ? 'drop-shadow(0 0 10px rgba(54, 255, 149, 0.67))' 
                         : level.id === 'intermediate' 
-                        ? 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.67))' 
+                        ? 'drop-shadow(0 0 10px rgba(20, 184, 166, 0.67))' 
                         : 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.67))'
                     }}
                     onError={(e) => {
@@ -762,7 +762,7 @@ const LearnLevelSelector = () => {
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
                           borderRadius: "8px",
-                          boxShadow: "0 0 28px rgba(139, 92, 246, 0.67)"
+                          boxShadow: "0 0 28px rgba(20, 184, 166, 0.67)"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -950,7 +950,7 @@ const LearnLevelSelector = () => {
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
                           borderRadius: "8px",
-                          boxShadow: "0 0 28px rgba(139, 92, 246, 0.67)"
+                          boxShadow: "0 0 28px rgba(20, 184, 166, 0.67)"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -1725,7 +1725,7 @@ const LearnLevelSelector = () => {
             width: '100%',
             overflow: 'auto',
             position: 'relative',
-            boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)',
+            boxShadow: '0 20px 60px rgba(20, 184, 166, 0.3)',
             padding: '40px',
             textAlign: 'center',
             color: '#d1efe7'

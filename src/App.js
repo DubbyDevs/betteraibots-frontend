@@ -1865,8 +1865,8 @@ function HamburgerMenu({ open, onClose, clickPosition, isMobile }) {
           <li onClick={() => handleNavigation('/learn')}>Learn</li>
           <li onClick={() => handleNavigation('/news')}>News</li>
           <li onClick={() => handleNavigation('/Podcast')}>Watch</li>
-          <li onClick={() => handleNavigation('/my-ai')} style={{ color: '#36ff95' }}>My AI 🚀</li>
           <li onClick={() => handleNavigation('/contact')}>Contact</li>
+          <li onClick={() => handleNavigation('/my-ai')} style={{ color: '#36ff95' }}>My AI 🚀</li>
         </ul>
       </div>
     </div>
@@ -4910,6 +4910,216 @@ function ClipboardBtn({ address, copied, handleCopy }) {
   );
 }
 
+// Function to find related news articles based on keywords and content similarity
+function findRelatedNewsArticles(currentArticle, allArticles, limit = 2) {
+  if (!currentArticle || !allArticles || !Array.isArray(allArticles) || allArticles.length === 0) return [];
+  
+  // Extract keywords from title and excerpt
+  const currentTitle = (currentArticle.title || '').toLowerCase();
+  const currentExcerpt = (currentArticle.excerpt || '').toLowerCase();
+  const currentContent = (currentArticle.content || '').toLowerCase();
+  
+  // Create a set of keywords from title (split by common words)
+  const stopWords = new Set(['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'should', 'could', 'may', 'might', 'must', 'can', 'this', 'that', 'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'what', 'which', 'who', 'whom', 'whose', 'where', 'when', 'why', 'how', 'all', 'each', 'every', 'both', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now']);
+  
+  const extractKeywords = (text) => {
+    if (!text || typeof text !== 'string') return [];
+    return text
+      .replace(/[^\w\s]/g, ' ')
+      .split(/\s+/)
+      .filter(word => word.length > 3 && !stopWords.has(word.toLowerCase()))
+      .map(word => word.toLowerCase());
+  };
+  
+  const currentKeywords = new Set([
+    ...extractKeywords(currentTitle),
+    ...extractKeywords(currentExcerpt),
+    ...extractKeywords(currentContent.substring(0, 1000)) // First 1000 chars for performance
+  ]);
+  
+  // Topic clusters - group related articles
+  const topicClusters = {
+    'ai-content': ['ai', 'content', 'writing', 'copy', 'text', 'article', 'blog', 'seo'],
+    'ai-video': ['video', 'editing', 'production', 'youtube', 'streaming', 'media'],
+    'ai-audio': ['audio', 'voice', 'podcast', 'music', 'sound', 'speech'],
+    'ai-marketing': ['marketing', 'advertising', 'campaign', 'social', 'email', 'outreach'],
+    'ai-sales': ['sales', 'crm', 'leads', 'prospects', 'contacts', 'outreach'],
+    'ai-design': ['design', 'graphic', 'image', 'visual', 'creative', 'art'],
+    'ai-productivity': ['productivity', 'automation', 'workflow', 'task', 'calendar', 'time'],
+    'ai-seo': ['seo', 'search', 'keyword', 'ranking', 'optimization', 'serp'],
+    'ai-analytics': ['analytics', 'data', 'metrics', 'dashboard', 'reporting', 'insights'],
+    'ai-chatbot': ['chatbot', 'chat', 'conversation', 'messaging', 'support', 'assistant'],
+    'ai-ecommerce': ['ecommerce', 'amazon', 'seller', 'product', 'inventory', 'fba'],
+    'ai-hosting': ['hosting', 'server', 'infrastructure', 'deployment', 'cloud'],
+  };
+  
+  // Score articles based on keyword overlap and topic clusters
+  const seenSlugs = new Set(); // Track article slugs to prevent duplicates
+  const scoredArticles = allArticles
+    .filter(a => {
+      // Filter out current article, articles without title/excerpt, and duplicates
+      if (!a || !a.slug || a.slug === currentArticle.slug || !a.title || !a.excerpt) return false;
+      if (seenSlugs.has(a.slug)) return false; // Skip duplicates
+      seenSlugs.add(a.slug);
+      return true;
+    })
+    .map(otherArticle => {
+      const otherTitle = (otherArticle.title || '').toLowerCase();
+      const otherExcerpt = (otherArticle.excerpt || '').toLowerCase();
+      const otherKeywords = new Set([
+        ...extractKeywords(otherTitle),
+        ...extractKeywords(otherExcerpt)
+      ]);
+      
+      // Calculate keyword overlap
+      let score = 0;
+      currentKeywords.forEach(keyword => {
+        if (otherKeywords.has(keyword)) {
+          score += 2; // Title/excerpt matches are weighted higher
+        }
+      });
+      
+      // Check topic cluster matches
+      Object.entries(topicClusters).forEach(([cluster, keywords]) => {
+        const currentInCluster = keywords.some(kw => currentKeywords.has(kw));
+        const otherInCluster = keywords.some(kw => otherKeywords.has(kw));
+        if (currentInCluster && otherInCluster) {
+          score += 3; // Topic cluster matches get bonus points
+        }
+      });
+      
+      // Bonus for same category if it exists
+      if (currentArticle.category && otherArticle.category && currentArticle.category === otherArticle.category) {
+        score += 1;
+      }
+      
+      return { article: otherArticle, score };
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(item => item.article);
+  
+  // Final deduplication by slug to ensure no duplicates
+  const uniqueArticles = [];
+  const finalSeenSlugs = new Set();
+  for (const article of scoredArticles) {
+    if (article && article.slug && !finalSeenSlugs.has(article.slug)) {
+      finalSeenSlugs.add(article.slug);
+      uniqueArticles.push(article);
+      if (uniqueArticles.length >= limit) break;
+    }
+  }
+  
+  return uniqueArticles;
+}
+
+// Function to add internal links to news article content
+function addInternalLinksToNews(content, currentSlug, allArticles) {
+  if (!content || typeof content !== 'string' || !allArticles || !Array.isArray(allArticles)) return content;
+  
+  // Create a map of common product/tool names to article slugs
+  const productNameMap = new Map();
+  
+  allArticles.forEach(article => {
+    if (!article || !article.title || typeof article.title !== 'string' || article.slug === currentSlug) return;
+    if (!article.slug || typeof article.slug !== 'string') return;
+    
+    // Extract the main product/tool name from title
+    const title = article.title.toLowerCase();
+    
+    // Common patterns to extract product names
+    const patterns = [
+      /^([^:]+?)(?:\s*:|\s+review|\s+guide|\s+platform|\s+tool)/i,
+      /^(ai-powered\s+)?([a-z0-9-]+)(?:\s+platform|\s+tool|\s+system)/i,
+      /^the\s+([a-z0-9-]+)/i,
+    ];
+    
+    let productName = null;
+    for (const pattern of patterns) {
+      const match = title.match(pattern);
+      if (match && match[1]) {
+        productName = match[1].trim().toLowerCase();
+        productName = productName.replace(/^(ai-powered|the|a|an)\s+/i, '').trim();
+        if (productName.length > 3) break;
+      }
+    }
+    
+    // Fallback: use first significant word
+    if (!productName && title) {
+      const words = title.split(/\s+/);
+      productName = words.find(word => 
+        word && word.length > 3 && 
+        !['complete', 'guide', 'review', 'platform', 'tool', 'system', 'ai-powered', 'ai', 'the', 'a', 'an'].includes(word.toLowerCase())
+      );
+      if (productName) productName = productName.toLowerCase();
+    }
+    
+    // Also try to extract from slug
+    let slugProductName = null;
+    if (article.slug && typeof article.slug === 'string') {
+      const slugParts = article.slug.split('-');
+      slugProductName = slugParts.find(part => part && part.length > 3 && !['complete', 'guide', 'review'].includes(part));
+    }
+    
+    if (productName && typeof productName === 'string' && productName.length > 3) {
+      productNameMap.set(productName, article);
+    }
+    if (slugProductName && typeof slugProductName === 'string' && slugProductName.length > 3) {
+      productNameMap.set(slugProductName, article);
+    }
+    
+    // Add variations
+    if (productName && typeof productName === 'string') {
+      const variations = [
+        productName.replace(/\.(io|ai|com)$/, ''),
+        productName.replace(/\s+ai$/, ''),
+      ];
+      variations.forEach(variation => {
+        if (variation && typeof variation === 'string' && variation.length > 3) {
+          productNameMap.set(variation, article);
+        }
+      });
+    }
+  });
+  
+  let processedContent = content;
+  const linkedArticles = new Set();
+  
+  // Process each potential product mention
+  productNameMap.forEach((targetArticle, productName) => {
+    if (!targetArticle || !targetArticle.slug || linkedArticles.has(targetArticle.slug)) return;
+    if (!productName || typeof productName !== 'string') return;
+    
+    const escapedName = productName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const backtick = String.fromCharCode(96);
+    const regexPattern = '(^|[^\\[\\]()' + backtick + '])(\\b' + escapedName + '\\b)(?![^<]*>)(?![^\\[]*\\]\\()';
+    const regex = new RegExp(regexPattern, 'gi');
+    
+    const matches = [...processedContent.matchAll(regex)];
+    if (matches.length === 0) return;
+    
+    let linkCount = 0;
+    const maxLinks = 2;
+    
+    processedContent = processedContent.replace(regex, (match, prefix, term) => {
+      if (linkCount >= maxLinks) return match;
+      
+      const beforeMatch = processedContent.substring(0, processedContent.lastIndexOf(match, processedContent.indexOf(match)));
+      const codeBlockCount = (beforeMatch.match(/```/g) || []).length;
+      if (codeBlockCount % 2 !== 0) return match;
+      
+      linkCount++;
+      linkedArticles.add(targetArticle.slug);
+      
+      // Replace with HTML link to news article
+      return `${prefix}<a href="/news/${targetArticle.slug}" style="color: #36ff95; text-decoration: underline;">${term}</a>`;
+    });
+  });
+  
+  return processedContent;
+}
+
 // --- INDIVIDUAL NEWS ARTICLE PAGE ---
 function NewsArticle() {
   const { slug } = useParams();
@@ -5226,21 +5436,27 @@ function NewsArticle() {
         </div>
         
         <div className="article-content" dangerouslySetInnerHTML={{ 
-          __html: article.slug === 'how-to-use-ai-to-learn-anything-10x-faster' 
-            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Learn_Ten_Times_Faster_Using_AI_Playbooks.m4a'))
-            : article.slug === 'ai-virtual-assistant-how-to-automate-tasks-2025'
-            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/ai virtual assistant.mp3'))
-            : article.slug === 'sora-2-physics-reality-ai-video-revolution-2025'
-            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Sora2 physics champ of ai video.mp3'))
-            : article.slug === 'ai-robotics-revolution-everything-you-own-2025'
-            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/WatchingYouEverywhere.mp3'))
-            : article.slug === 'nano-banana-game-changing-ai-image-editor'
-            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Nano_Banana_Becomes_Conversational_Image_Editor.m4a'))
-            : article.slug === 'nano-banana-pro-upgrade-whats-new'
-            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Nano_Banana_Pro_Versus_the_Free_Model.m4a'))
-            : article.slug === 'alibaba-ai-revolution-53-billion-investment-2025'
-            ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Alibaba_s_$53_Billion_AI_Pivot.m4a'))
-            : article.content 
+          __html: (() => {
+            let content = article.slug === 'how-to-use-ai-to-learn-anything-10x-faster' 
+              ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Learn_Ten_Times_Faster_Using_AI_Playbooks.m4a'))
+              : article.slug === 'ai-virtual-assistant-how-to-automate-tasks-2025'
+              ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/ai virtual assistant.mp3'))
+              : article.slug === 'sora-2-physics-reality-ai-video-revolution-2025'
+              ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Sora2 physics champ of ai video.mp3'))
+              : article.slug === 'ai-robotics-revolution-everything-you-own-2025'
+              ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/WatchingYouEverywhere.mp3'))
+              : article.slug === 'nano-banana-game-changing-ai-image-editor'
+              ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Nano_Banana_Becomes_Conversational_Image_Editor.m4a'))
+              : article.slug === 'nano-banana-pro-upgrade-whats-new'
+              ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Nano_Banana_Pro_Versus_the_Free_Model.m4a'))
+              : article.slug === 'alibaba-ai-revolution-53-billion-investment-2025'
+              ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Alibaba_s_$53_Billion_AI_Pivot.m4a'))
+              : article.content;
+            
+            // Add internal links to news articles
+            content = addInternalLinksToNews(content, article.slug, newsArticles);
+            return content;
+          })()
         }} />
         
         <div className="article-footer">
@@ -5359,6 +5575,145 @@ function NewsArticle() {
           
           <Link to="/news" className="back-to-news-btn">← Back to News</Link>
         </div>
+        
+        {/* Related Articles Section */}
+        {(() => {
+          const relatedArticles = findRelatedNewsArticles(article, newsArticles, 2);
+          if (relatedArticles.length === 0) return null;
+          
+          return (
+            <div style={{
+              marginTop: '60px',
+              paddingTop: '40px',
+              borderTop: '1px solid rgba(54, 255, 149, 0.2)'
+            }}>
+              <h2 style={{
+                fontSize: '2rem',
+                fontWeight: 600,
+                marginBottom: '30px',
+                color: '#36ff95'
+              }}>
+                Related Articles
+              </h2>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                gap: '20px'
+              }}>
+                {relatedArticles.map((relatedArticle) => {
+                  const relatedImage = relatedArticle.image 
+                    ? (typeof relatedArticle.image === 'string' 
+                        ? (relatedArticle.image.startsWith('http') 
+                            ? relatedArticle.image 
+                            : relatedArticle.image.startsWith('/')
+                              ? relatedArticle.image
+                              : `/${relatedArticle.image}`)
+                        : relatedArticle.image)
+                    : null;
+                  
+                  return (
+                    <Link
+                      key={relatedArticle.slug}
+                      to={`/news/${relatedArticle.slug}`}
+                      onClick={() => window.scrollTo(0, 0)}
+                      style={{
+                        textDecoration: 'none',
+                        color: 'inherit',
+                        display: 'block',
+                        background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.05) 0%, rgba(26, 35, 48, 0.5) 100%)',
+                        borderRadius: '12px',
+                        overflow: 'hidden',
+                        border: '1px solid rgba(54, 255, 149, 0.2)',
+                        transition: 'all 0.3s ease',
+                        cursor: 'pointer'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-4px)';
+                        e.currentTarget.style.boxShadow = '0 8px 24px rgba(54, 255, 149, 0.2)';
+                        e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.4)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = 'none';
+                        e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.2)';
+                      }}
+                    >
+                      {relatedImage && (
+                        <div style={{
+                          width: '100%',
+                          paddingBottom: '56.25%', // 16:9 aspect ratio
+                          position: 'relative',
+                          overflow: 'hidden',
+                          background: '#1a1a1a'
+                        }}>
+                          <img 
+                            src={relatedImage} 
+                            alt={relatedArticle.title}
+                            style={{
+                              position: 'absolute',
+                              top: 0,
+                              left: 0,
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'cover',
+                              transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.target.style.transform = 'scale(1.05)';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.target.style.transform = 'scale(1)';
+                            }}
+                          />
+                        </div>
+                      )}
+                      <div style={{ padding: '20px' }}>
+                        <h3 style={{
+                          fontSize: '1.1rem',
+                          fontWeight: 600,
+                          marginBottom: '10px',
+                          color: '#fff',
+                          lineHeight: '1.4'
+                        }}>
+                          {relatedArticle.title}
+                        </h3>
+                        {relatedArticle.excerpt && (
+                          <p style={{
+                            fontSize: '0.9rem',
+                            color: '#b0b0b0',
+                            lineHeight: '1.5',
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
+                            marginBottom: '10px'
+                          }}>
+                            {relatedArticle.excerpt}
+                          </p>
+                        )}
+                        {relatedArticle.date && (
+                          <span style={{
+                            display: 'inline-block',
+                            fontSize: '0.75rem',
+                            color: '#36ff95',
+                            backgroundColor: 'rgba(54, 255, 149, 0.1)',
+                            padding: '4px 12px',
+                            borderRadius: '20px',
+                            border: '1px solid rgba(54, 255, 149, 0.3)',
+                            marginTop: '8px',
+                            fontWeight: '500'
+                          }}>
+                            {relatedArticle.date}
+                          </span>
+                        )}
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })()}
       </div>
     </>
   );

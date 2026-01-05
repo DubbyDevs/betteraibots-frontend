@@ -113,6 +113,256 @@ function ShareButtons({ url, title }) {
   );
 }
 
+// Function to find related articles based on keywords, title, and content similarity
+function findRelatedArticles(currentArticle, allArticles, limit = 2) {
+  if (!currentArticle || !allArticles || allArticles.length === 0) return [];
+  
+  // Extract keywords from title and preview
+  const currentTitle = (currentArticle.title || '').toLowerCase();
+  const currentPreview = (currentArticle.preview || '').toLowerCase();
+  const currentContent = (currentArticle.content || '').toLowerCase();
+  
+  // Create a set of keywords from title (split by common words)
+  const stopWords = new Set(['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'should', 'could', 'may', 'might', 'must', 'can', 'this', 'that', 'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'what', 'which', 'who', 'whom', 'whose', 'where', 'when', 'why', 'how', 'all', 'each', 'every', 'both', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now']);
+  
+  const extractKeywords = (text) => {
+    return text
+      .replace(/[^\w\s]/g, ' ')
+      .split(/\s+/)
+      .filter(word => word.length > 3 && !stopWords.has(word.toLowerCase()))
+      .map(word => word.toLowerCase());
+  };
+  
+  const currentKeywords = new Set([
+    ...extractKeywords(currentTitle),
+    ...extractKeywords(currentPreview),
+    ...extractKeywords(currentContent.substring(0, 1000)) // First 1000 chars for performance
+  ]);
+  
+  // Topic clusters - group related articles
+  const topicClusters = {
+    'ai-content': ['ai', 'content', 'writing', 'copy', 'text', 'article', 'blog', 'seo'],
+    'ai-video': ['video', 'editing', 'production', 'youtube', 'streaming', 'media'],
+    'ai-audio': ['audio', 'voice', 'podcast', 'music', 'sound', 'speech'],
+    'ai-marketing': ['marketing', 'advertising', 'campaign', 'social', 'email', 'outreach'],
+    'ai-sales': ['sales', 'crm', 'leads', 'prospects', 'contacts', 'outreach'],
+    'ai-design': ['design', 'graphic', 'image', 'visual', 'creative', 'art'],
+    'ai-productivity': ['productivity', 'automation', 'workflow', 'task', 'calendar', 'time'],
+    'ai-seo': ['seo', 'search', 'keyword', 'ranking', 'optimization', 'serp'],
+    'ai-analytics': ['analytics', 'data', 'metrics', 'dashboard', 'reporting', 'insights'],
+    'ai-chatbot': ['chatbot', 'chat', 'conversation', 'messaging', 'support', 'assistant'],
+    'ai-ecommerce': ['ecommerce', 'amazon', 'seller', 'product', 'inventory', 'fba'],
+    'ai-hosting': ['hosting', 'server', 'infrastructure', 'deployment', 'cloud'],
+  };
+  
+  // Score articles based on keyword overlap and topic clusters
+  const seenIds = new Set(); // Track article IDs to prevent duplicates
+  const scoredArticles = allArticles
+    .filter(a => {
+      // Filter out current article, articles without title/preview, and duplicates
+      if (!a || !a.id || a.id === currentArticle.id || !a.title || !a.preview) return false;
+      if (seenIds.has(a.id)) return false; // Skip duplicates
+      seenIds.add(a.id);
+      return true;
+    })
+    .map(otherArticle => {
+      const otherTitle = (otherArticle.title || '').toLowerCase();
+      const otherPreview = (otherArticle.preview || '').toLowerCase();
+      const otherKeywords = new Set([
+        ...extractKeywords(otherTitle),
+        ...extractKeywords(otherPreview)
+      ]);
+      
+      // Calculate keyword overlap
+      let score = 0;
+      currentKeywords.forEach(keyword => {
+        if (otherKeywords.has(keyword)) {
+          score += 2; // Title/preview matches are weighted higher
+        }
+      });
+      
+      // Check topic cluster matches
+      Object.entries(topicClusters).forEach(([cluster, keywords]) => {
+        const currentInCluster = keywords.some(kw => currentKeywords.has(kw));
+        const otherInCluster = keywords.some(kw => otherKeywords.has(kw));
+        if (currentInCluster && otherInCluster) {
+          score += 3; // Topic cluster matches get bonus points
+        }
+      });
+      
+      // Bonus for same level if it exists
+      if (currentArticle.level && otherArticle.level && currentArticle.level === otherArticle.level) {
+        score += 1;
+      }
+      
+      return { article: otherArticle, score };
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(item => item.article);
+  
+  // Final deduplication by ID to ensure no duplicates
+  const uniqueArticles = [];
+  const finalSeenIds = new Set();
+  for (const article of scoredArticles) {
+    if (article && article.id && !finalSeenIds.has(article.id)) {
+      finalSeenIds.add(article.id);
+      uniqueArticles.push(article);
+      if (uniqueArticles.length >= limit) break;
+    }
+  }
+  
+  return uniqueArticles;
+}
+
+// Function to add internal links to article content
+// This creates contextual links to related articles mentioned in the content
+function addInternalLinks(content, currentArticleId, allArticles) {
+  if (!content || typeof content !== 'string' || !allArticles || !Array.isArray(allArticles)) return content;
+  
+  // Create a map of common product/tool names to article IDs
+  // Focus on distinctive product names that are likely to be mentioned
+  const productNameMap = new Map();
+  
+  allArticles.forEach(article => {
+    if (!article || !article.title || typeof article.title !== 'string' || article.id === currentArticleId) return;
+    if (!article.id || typeof article.id !== 'string') return;
+    
+    // Extract the main product/tool name from title
+    // Look for patterns like "Product Name:" or standalone product names
+    const title = article.title.toLowerCase();
+    
+    // Common patterns to extract product names
+    const patterns = [
+      /^([^:]+?)(?:\s*:|\s+review|\s+guide|\s+platform|\s+tool)/i, // "Product Name: Description"
+      /^(ai-powered\s+)?([a-z0-9-]+)(?:\s+platform|\s+tool|\s+system)/i, // "Product Platform"
+      /^the\s+([a-z0-9-]+)/i, // "The Product"
+    ];
+    
+    let productName = null;
+    for (const pattern of patterns) {
+      const match = title.match(pattern);
+      if (match && match[1]) {
+        productName = match[1].trim().toLowerCase();
+        // Clean up common prefixes
+        productName = productName.replace(/^(ai-powered|the|a|an)\s+/i, '').trim();
+        if (productName.length > 3) break;
+      }
+    }
+    
+    // Fallback: use first significant word
+    if (!productName && title) {
+      const words = title.split(/\s+/);
+      productName = words.find(word => 
+        word && word.length > 3 && 
+        !['complete', 'guide', 'review', 'platform', 'tool', 'system', 'ai-powered', 'ai', 'the', 'a', 'an'].includes(word.toLowerCase())
+      );
+      if (productName) productName = productName.toLowerCase();
+    }
+    
+    // Also try to extract from ID (often contains product name)
+    let idProductName = null;
+    if (article.id && typeof article.id === 'string') {
+      const idParts = article.id.split('-');
+      idProductName = idParts.find(part => part && part.length > 3 && !['complete', 'guide', 'review'].includes(part));
+    }
+    
+    if (productName && typeof productName === 'string' && productName.length > 3) {
+      productNameMap.set(productName, article);
+    }
+    if (idProductName && typeof idProductName === 'string' && idProductName.length > 3) {
+      productNameMap.set(idProductName, article);
+    }
+    
+    // Add variations (remove common suffixes, handle .io, .ai, etc.)
+    if (productName && typeof productName === 'string') {
+      const variations = [
+        productName.replace(/\.(io|ai|com)$/, ''), // Remove TLD
+        productName.replace(/\s+ai$/, ''), // Remove " AI" suffix
+      ];
+      variations.forEach(variation => {
+        if (variation && typeof variation === 'string' && variation.length > 3) {
+          productNameMap.set(variation, article);
+        }
+      });
+    }
+  });
+  
+  let processedContent = content;
+  const linkedArticles = new Set(); // Track which articles we've linked to avoid over-linking
+  
+  // Process each potential product mention
+  productNameMap.forEach((targetArticle, productName) => {
+    if (!targetArticle || !targetArticle.id || linkedArticles.has(targetArticle.id)) return; // Already linked this article
+    if (!productName || typeof productName !== 'string') return;
+    
+    // Create regex to find product mentions, but avoid:
+    // - Already linked text
+    // - Inside code blocks (```)
+    // - Inside HTML tags
+    // - Inside existing markdown links
+    
+    const escapedName = productName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Build regex pattern as a string to avoid template literal issues with backticks
+    // Pattern: match product name, but not if it's inside code blocks, HTML tags, or existing links
+    // Using String.fromCharCode(96) for backtick to avoid template literal parsing issues
+    const backtick = String.fromCharCode(96);
+    const regexPattern = '(^|[^\\[\\]()' + backtick + '])(\\b' + escapedName + '\\b)(?![^<]*>)(?![^\\[]*\\]\\()';
+    const regex = new RegExp(regexPattern, 'gi');
+    
+    // Check if product is mentioned in content
+    const matches = [...processedContent.matchAll(regex)];
+    if (matches.length === 0) return;
+    
+    // Only link the first 1-2 mentions to avoid over-linking
+    let linkCount = 0;
+    const maxLinks = 2;
+    
+    processedContent = processedContent.replace(regex, (match, prefix, term) => {
+      // Skip if we've already linked enough times
+      if (linkCount >= maxLinks) return match;
+      
+      // Check if we're inside a code block
+      const beforeMatch = processedContent.substring(0, processedContent.lastIndexOf(match, processedContent.indexOf(match)));
+      const codeBlockCount = (beforeMatch.match(/```/g) || []).length;
+      if (codeBlockCount % 2 !== 0) return match; // Inside code block
+      
+      // Check if we're inside an HTML tag
+      const htmlTagPattern = /<[^>]*>/g;
+      const htmlTags = [...beforeMatch.matchAll(htmlTagPattern)];
+      const lastTag = htmlTags[htmlTags.length - 1];
+      if (lastTag && lastTag[0].startsWith('<') && !lastTag[0].includes('/')) {
+        // Check if we're inside an unclosed tag
+        const tagName = lastTag[0].match(/<(\w+)/);
+        if (tagName) {
+          const closingTag = new RegExp(`</${tagName[1]}>`, 'i');
+          const afterMatch = processedContent.substring(processedContent.indexOf(match) + match.length);
+          if (!closingTag.test(afterMatch.substring(0, 500))) {
+            return match; // Inside unclosed HTML tag
+          }
+        }
+      }
+      
+      // Check if already in a markdown link
+      const linkPattern = new RegExp(`\\[.*?${escapedName}.*?\\]\\([^)]+\\)`, 'i');
+      const contextBefore = processedContent.substring(Math.max(0, processedContent.indexOf(match) - 100), processedContent.indexOf(match));
+      const contextAfter = processedContent.substring(processedContent.indexOf(match) + match.length, processedContent.indexOf(match) + match.length + 100);
+      if (linkPattern.test(contextBefore + match + contextAfter)) {
+        return match; // Already in a link
+      }
+      
+      linkCount++;
+      linkedArticles.add(targetArticle.id);
+      
+      // Replace with markdown link
+      return `${prefix}[${term}](/learn/${targetArticle.id})`;
+    });
+  });
+  
+  return processedContent;
+}
+  
 export default function ArticlePage() {
   const { id } = useParams();
   const location = useLocation();
@@ -165,7 +415,9 @@ export default function ArticlePage() {
     return { video: null, restContent: fallbackCleaned };
   };
   
-  const { video, restContent } = article ? extractVideoFromContent(article.content) : { video: null, restContent: null };
+  // Process content to add internal links
+  const processedContent = article ? addInternalLinks(article.content, article.id, articles) : null;
+  const { video, restContent } = article ? extractVideoFromContent(processedContent) : { video: null, restContent: null };
 
   // Function to generate heading ID from text
   const generateHeadingId = (text) => {
@@ -345,7 +597,7 @@ export default function ArticlePage() {
     return { firstHalf, secondHalf };
   };
   
-  const { firstHalf, secondHalf } = splitContentForSecondaryImages(article.content);
+  const { firstHalf, secondHalf } = splitContentForSecondaryImages(processedContent || article.content);
 
   // Shared markdown components for rendering article content
   const markdownComponents = {
@@ -2408,6 +2660,33 @@ export default function ArticlePage() {
                 );
               }
               
+              // Handle internal article links (/learn/ routes)
+              if (href && (href.startsWith('/learn/') || href.startsWith('https://betteraibots.com/learn/'))) {
+                const articleId = href.replace(/^.*\/learn\//, '').replace(/\/$/, '');
+                return (
+                  <Link
+                    to={`/learn/${articleId}`}
+                    state={{ from: fromPage }}
+                    onClick={() => window.scrollTo(0, 0)}
+                    style={{ 
+                      color: '#36ff95', 
+                      textDecoration: 'underline',
+                      cursor: 'pointer',
+                      transition: 'color 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.color = '#00ffb2';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.color = '#36ff95';
+                    }}
+                    {...props}
+                  >
+                    {children}
+                  </Link>
+                );
+              }
+              
               // Check if this is the InVideo link
               if (href && href.includes('invideo.sjv.io')) {
                 return (
@@ -2829,7 +3108,7 @@ export default function ArticlePage() {
             ),
           }}
         >
-          {secondaryImages.length > 0 ? firstHalf : article.content}
+          {secondaryImages.length > 0 ? firstHalf : (processedContent || article.content)}
         </ReactMarkdown>
         {secondaryImages.length > 0 && (
           <div style={{
@@ -2905,7 +3184,7 @@ export default function ArticlePage() {
         )}
         </>
       ) : (
-        article.content
+        (processedContent || article.content)
       )}
       {/* Middle image before interview section */}
       {article.id === 'vetgpt' && images[1] && (
@@ -3003,6 +3282,141 @@ export default function ArticlePage() {
           <ShareButtons url={shareUrl} title={article.title} />
         </div>
       )}
+      
+      {/* Related Articles Section */}
+      {(() => {
+        const relatedArticles = findRelatedArticles(article, articles, 2);
+        if (relatedArticles.length === 0) return null;
+        
+        return (
+          <div style={{
+            marginTop: '60px',
+            paddingTop: '40px',
+            borderTop: '1px solid rgba(54, 255, 149, 0.2)'
+          }}>
+            <h2 style={{
+              fontSize: '2rem',
+              fontWeight: 600,
+              marginBottom: '30px',
+              color: '#36ff95'
+            }}>
+              Related Articles
+            </h2>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+              gap: '20px'
+            }}>
+              {relatedArticles.map((relatedArticle) => {
+                const relatedCover = relatedArticle.cover 
+                  ? (typeof relatedArticle.cover === 'string' 
+                      ? (relatedArticle.cover.startsWith('http') 
+                          ? relatedArticle.cover 
+                          : relatedArticle.cover.startsWith('/')
+                            ? relatedArticle.cover
+                            : `/${relatedArticle.cover}`)
+                      : relatedArticle.cover)
+                  : null;
+                
+                return (
+                  <Link
+                    key={relatedArticle.id}
+                    to={`/learn/${relatedArticle.id}`}
+                    state={{ from: fromPage }}
+                    onClick={() => window.scrollTo(0, 0)}
+                    style={{
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      display: 'block',
+                      background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.05) 0%, rgba(26, 35, 48, 0.5) 100%)',
+                      borderRadius: '12px',
+                      overflow: 'hidden',
+                      border: '1px solid rgba(54, 255, 149, 0.2)',
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(54, 255, 149, 0.2)';
+                      e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.4)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                      e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.2)';
+                    }}
+                  >
+                    {relatedCover && (
+                      <div style={{
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '20px',
+                        background: '#1a1a1a'
+                      }}>
+                        <img 
+                          src={relatedCover} 
+                          alt={relatedArticle.title}
+                          style={{
+                            width: '200px',
+                            height: '200px',
+                            maxWidth: '200px',
+                            maxHeight: '200px',
+                            objectFit: 'cover',
+                            borderRadius: '8px',
+                            transition: 'transform 0.3s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.transform = 'scale(1.05)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.transform = 'scale(1)';
+                          }}
+                        />
+                      </div>
+                    )}
+                    <div style={{ padding: '20px' }}>
+                      <h3 style={{
+                        fontSize: '1.1rem',
+                        fontWeight: 600,
+                        marginBottom: '10px',
+                        color: '#fff',
+                        lineHeight: '1.4'
+                      }}>
+                        {relatedArticle.title}
+                      </h3>
+                      {relatedArticle.preview && (
+                        <p style={{
+                          fontSize: '0.9rem',
+                          color: '#b0b0b0',
+                          lineHeight: '1.5',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                          marginBottom: '10px'
+                        }}>
+                          {relatedArticle.preview}
+                        </p>
+                      )}
+                      {relatedArticle.date && (
+                        <p style={{
+                          fontSize: '0.85rem',
+                          color: '#36ff95',
+                          margin: 0
+                        }}>
+                          {relatedArticle.date}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
       </div>
     </>
   );
