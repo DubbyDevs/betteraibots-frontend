@@ -5124,7 +5124,6 @@ function addInternalLinksToNews(content, currentSlug, allArticles) {
 function NewsArticle() {
   const { slug } = useParams();
   const location = useLocation();
-  console.log('NewsArticle component rendered with slug:', slug);
   
   // Auto-scroll to and play video if #play-video hash is present
   useEffect(() => {
@@ -5164,8 +5163,8 @@ function NewsArticle() {
         if (audioPlayer) {
           audioPlayer.scrollIntoView({ behavior: 'smooth', block: 'center' });
           // Try to autoplay the audio
-          audioPlayer.play().catch(err => {
-            console.log('Autoplay prevented:', err);
+          audioPlayer.play().catch(() => {
+            // Autoplay prevented - this is normal browser behavior
           });
         }
       }, 600);
@@ -5200,7 +5199,6 @@ function NewsArticle() {
   
   // Use the imported newsArticles from data/news.js
   const article = newsArticles.find(article => article.slug === slug);
-  console.log('Article found:', article);
   
   if (!article) {
     return (

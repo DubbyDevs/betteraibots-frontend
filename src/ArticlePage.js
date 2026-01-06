@@ -3308,15 +3308,8 @@ export default function ArticlePage() {
               gap: '20px'
             }}>
               {relatedArticles.map((relatedArticle) => {
-                const relatedCover = relatedArticle.cover 
-                  ? (typeof relatedArticle.cover === 'string' 
-                      ? (relatedArticle.cover.startsWith('http') 
-                          ? relatedArticle.cover 
-                          : relatedArticle.cover.startsWith('/')
-                            ? relatedArticle.cover
-                            : `/${relatedArticle.cover}`)
-                      : relatedArticle.cover)
-                  : null;
+                // Use cover image directly (same as primaryImage - webpack processes it automatically)
+                const relatedCover = relatedArticle.cover || null;
                 
                 return (
                   <Link
@@ -3366,6 +3359,11 @@ export default function ArticlePage() {
                             objectFit: 'cover',
                             borderRadius: '8px',
                             transition: 'transform 0.3s ease'
+                          }}
+                          onError={(e) => {
+                            // Fallback if image fails to load
+                            console.error('Failed to load related article image:', relatedCover, 'for article:', relatedArticle.id);
+                            e.target.style.display = 'none';
                           }}
                           onMouseEnter={(e) => {
                             e.target.style.transform = 'scale(1.05)';
