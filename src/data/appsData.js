@@ -38,6 +38,7 @@ import descriptai from '../assets/descriptai.png';
 import unbounceai from '../assets/unbounceai.png';
 import landbotai from '../assets/landbotai.png';
 import reclaimai from '../assets/reclaimai.png';
+import amplemarketai from '../assets/amplemarketai.png';
 
 export const freeAppsData = [
   {
@@ -96,6 +97,16 @@ export const trialAppsData = [
     trialInfo: "Pro plans from $49/month",
     image: apolloLogo,
     readMoreLink: "/learn/apollo-io"
+  },
+  {
+    name: "Amplemarket",
+    description: "AI-powered sales engagement platform that combines prospecting, outreach, and automation to help sales teams find, contact, and close more deals",
+    category: "Sales & CRM",
+    features: ["AI prospecting", "Multichannel outreach", "Email warmup", "CRM integration", "Bounce rates under 2.3%", "25%+ reply rates"],
+    link: "https://grow.amplemarket.com/BAIB",
+    trialInfo: "Free Trial Available",
+    image: amplemarketai,
+    readMoreLink: "/learn/amplemarket"
   },
   {
     name: "Atria",

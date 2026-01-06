@@ -1048,6 +1048,19 @@
     </image:image>
   </url>
 
+  <!-- Amplemarket Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/amplemarket</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/amplemarketai.jpg</image:loc>
+      <image:title>Amplemarket: AI-Powered Sales Engagement Platform</image:title>
+      <image:caption>Amplemarket is an AI-powered sales engagement platform that combines prospecting, outreach, and automation to help sales teams find, contact, and close more deals. With advanced AI, accurate contact data, multichannel outreach, and intelligent automation, Amplemarket helps sales teams scale their outreach and improve reply rates.</image:caption>
+    </image:image>
+  </url>
+
   <!-- RankPrompt Article -->
   <url>
     <loc>https://betteraibots.com/learn/rankprompt</loc>
