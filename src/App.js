@@ -45,6 +45,8 @@ import plesk1 from './assets/plesk1.jpg';
 import surecam1 from './assets/surecam1.jpg';
 import seosparkplug1 from './assets/seosparkplug1.jpg';
 import n8nicon from './assets/n8nicon.jpg';
+import mindstudioai from './assets/mindstudioai.jpeg';
+import mindstudioai2 from './assets/mindstudioai2.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -620,14 +622,24 @@ function News({ searchValue }) {
 // Constant array for paid apps - defined outside component for stable reference
 const PAID_APPS = [
   {
-    name: "n8n",
-    description: "Open-source workflow automation platform for connecting apps and services",
-    category: "Workflow Automation",
-    features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
-    price: "$20-$50/month",
-    link: "https://n8n.partnerlinks.io/wjt1744jflsx",
-    image: n8nicon,
-    readMoreLink: "/news/n8n-revolution-business-automation-2025"
+    name: "MindStudio",
+    description: "AI agent builder platform that lets you create custom AI assistants and workflows without coding",
+    category: "AI & Automation",
+    features: ["No-code AI agent builder", "Custom workflows", "API integrations", "Multi-agent systems"],
+    price: "Contact sales",
+    link: "https://get.mindstudio.ai/BAIB",
+    image: mindstudioai,
+    readMoreLink: "/learn/mindstudio"
+  },
+  {
+    name: "RunPod",
+    description: "Cloud GPU platform for training, fine-tuning, and deploying AI models with zero infrastructure management",
+    category: "AI Infrastructure",
+    features: ["On-demand GPUs", "Serverless AI workloads", "Instant scaling", "Global deployment"],
+    price: "Pay per use",
+    link: "https://get.runpod.io/w3na2cm4xdjp",
+    image: runpod,
+    readMoreLink: "/learn/runpod"
   },
   {
     name: "Viral Launch AI",
@@ -640,6 +652,16 @@ const PAID_APPS = [
     readMoreLink: "/learn/viral-launch"
   },
   {
+    name: "n8n",
+    description: "Open-source workflow automation platform for connecting apps and services",
+    category: "Workflow Automation",
+    features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
+    price: "$20-$50/month",
+    link: "https://n8n.partnerlinks.io/wjt1744jflsx",
+    image: n8nicon,
+    readMoreLink: "/news/n8n-revolution-business-automation-2025"
+  },
+  {
     name: "AiSDR",
     description: "AI sales development representative that books meetings with your ideal prospects through personalized outreach",
     category: "Sales & CRM",
@@ -650,17 +672,7 @@ const PAID_APPS = [
     readMoreLink: "/learn/aisdr-complete-guide"
   },
   {
-    name: "RunPod.io",
-    description: "Cloud GPU platform for training, fine-tuning, and deploying AI models with zero infrastructure management",
-    category: "AI Infrastructure",
-    features: ["On-demand GPUs", "Serverless AI workloads", "Instant scaling", "Global deployment"],
-    price: "Pay per use",
-    link: "https://get.runpod.io/w3na2cm4xdjp",
-    image: runpod,
-    readMoreLink: "/learn/runpod"
-  },
-  {
-    name: "Pipes.ai",
+    name: "Pipes",
     description: "AI-powered lead engagement platform that converts web leads into live calls for your sales team",
     category: "Sales & Lead Generation",
     features: ["AI-powered voice and SMS", "Lead verification and filtering", "Automated follow-ups", "Real-time analytics"],
@@ -680,7 +692,7 @@ const PAID_APPS = [
     readMoreLink: "/learn/castmagic"
   },
   {
-    name: "AnyBiz.io",
+    name: "AnyBiz",
     description: "AI sales agents that generate meetings and sales for any business through email, LinkedIn, and phone calls",
     category: "Sales & Lead Generation",
     features: ["AI sales agents", "Email automation", "LinkedIn outreach", "Phone call automation"],
@@ -718,16 +730,6 @@ const PAID_APPS = [
     link: "https://join.catalister.com/BAIB",
     image: catalisterai,
     readMoreLink: "/learn/catalister"
-  },
-  {
-    name: "SEOSparkPlug",
-    description: "AI-powered SEO platform that analyzes 25+ factors, writes code, optimizes social content, and tracks results in one workflow",
-    category: "SEO & Digital Marketing",
-    features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
-    price: "Contact sales",
-    link: "https://seosparkplug.com",
-    image: seosparkplug1,
-    readMoreLink: "/learn/seosparkplug"
   },
   {
     name: "Bidx",

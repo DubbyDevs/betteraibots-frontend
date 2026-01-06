@@ -558,6 +558,7 @@ export default function ArticlePage() {
     "landbot": "https://get.landbotlab.com/BAIB",
     "reclaim-ai": "https://go.reclaim.ai/BAIB",
     "amplemarket": "https://grow.amplemarket.com/BAIB",
+    "mindstudio": "https://get.mindstudio.ai/BAIB",
     "elevenlabs": "https://try.elevenlabs.io/BAIB",
     "gamma": "https://try.gamma.app/BAIB",
     "rankprompt": "https://join.rankprompt.com/BAIB",
@@ -749,6 +750,7 @@ export default function ArticlePage() {
     'landbot',
     'reclaim-ai',
     'amplemarket',
+    'mindstudio',
     'gamma',
     'rankprompt',
     'snowfire-ai',
@@ -1020,6 +1022,7 @@ export default function ArticlePage() {
             "landbot": "https://betteraibots.com/assets/landbotai.png",
             "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
             "amplemarket": "https://betteraibots.com/amplemarketai.jpg",
+            "mindstudio": "https://betteraibots.com/assets/mindstudioai.jpeg",
             "elevenlabs": "https://betteraibots.com/assets/elevenlabsai.jpg",
             "gamma": "https://betteraibots.com/assets/gammaai.jpg",
             "rankprompt": "https://betteraibots.com/assets/rankpromptai.jpg",
@@ -1097,6 +1100,7 @@ export default function ArticlePage() {
             "landbot": "https://betteraibots.com/assets/landbotai.png",
             "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
             "amplemarket": "https://betteraibots.com/amplemarketai.jpg",
+            "mindstudio": "https://betteraibots.com/assets/mindstudioai.jpeg",
             "elevenlabs": "https://betteraibots.com/assets/elevenlabsai.jpg",
             "gamma": "https://betteraibots.com/assets/gammaai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
@@ -1239,6 +1243,12 @@ export default function ArticlePage() {
                 "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
                 "vista-social": "https://betteraibots.com/assets/vistasocial.jpg",
                 "datahawk": "https://betteraibots.com/assets/datahawkai.jpg",
+                "descript": "https://betteraibots.com/assets/descriptai.png",
+                "unbounce": "https://betteraibots.com/assets/unbounceai.png",
+                "landbot": "https://betteraibots.com/assets/landbotai.png",
+                "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
+                "amplemarket": "https://betteraibots.com/amplemarketai.jpg",
+                "mindstudio": "https://betteraibots.com/assets/mindstudioai.jpeg",
                 "elevenlabs": "https://betteraibots.com/assets/elevenlabsai.jpg",
                 "gamma": "https://betteraibots.com/assets/gammaai.jpg",
                 "rankprompt": "https://betteraibots.com/assets/rankpromptai.jpg",
@@ -1289,7 +1299,13 @@ export default function ArticlePage() {
                 "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
                 "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
                 "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
-                "creativescore": "CreativeScore, AI creative scoring, ad creative analysis, performance prediction, ad diagnostics, creative optimization, paid media, BetterAiBots"
+                "creativescore": "CreativeScore, AI creative scoring, ad creative analysis, performance prediction, ad diagnostics, creative optimization, paid media, BetterAiBots",
+                "descript": "Descript, AI video editing, video transcription, podcast editing, video production, AI editing tools, video editing software, content creation, BetterAiBots",
+                "unbounce": "Unbounce, landing page builder, conversion optimization, A/B testing, landing pages, PPC campaigns, marketing automation, lead generation, BetterAiBots",
+                "landbot": "Landbot, chatbot builder, conversational AI, chatbot platform, WhatsApp chatbot, lead generation, customer support, no-code chatbot, BetterAiBots",
+                "reclaim-ai": "Reclaim.ai, calendar management, time blocking, AI scheduling, calendar automation, productivity, meeting scheduling, time optimization, BetterAiBots",
+                "amplemarket": "Amplemarket, sales engagement, prospecting, outreach automation, sales automation, B2B sales, lead generation, sales CRM, BetterAiBots",
+                "mindstudio": "MindStudio, AI agent builder, no-code AI, AI workflow automation, custom AI assistants, AI agent development, workflow builder, AI automation platform, BetterAiBots"
               };
               return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
             })(),
@@ -2237,6 +2253,37 @@ export default function ArticlePage() {
         ) : article.id === "amplemarket" ? (
           <a 
             href="https://grow.amplemarket.com/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "mindstudio" ? (
+          <a 
+            href="https://get.mindstudio.ai/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{

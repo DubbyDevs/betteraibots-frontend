@@ -1061,6 +1061,19 @@
     </image:image>
   </url>
 
+  <!-- MindStudio Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/mindstudio</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/mindstudioai.jpeg</image:loc>
+      <image:title>MindStudio: AI Agent Builder Platform</image:title>
+      <image:caption>MindStudio is an AI agent builder platform that lets you create custom AI assistants and workflows without coding. Build sophisticated AI agents, automate complex processes, and deploy AI solutions for your business with a visual, no-code interface.</image:caption>
+    </image:image>
+  </url>
+
   <!-- RankPrompt Article -->
   <url>
     <loc>https://betteraibots.com/learn/rankprompt</loc>

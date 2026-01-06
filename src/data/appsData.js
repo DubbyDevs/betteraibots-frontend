@@ -39,6 +39,7 @@ import unbounceai from '../assets/unbounceai.png';
 import landbotai from '../assets/landbotai.png';
 import reclaimai from '../assets/reclaimai.png';
 import amplemarketai from '../assets/amplemarketai.png';
+import seosparkplug1 from '../assets/seosparkplug1.jpg';
 
 export const freeAppsData = [
   {
@@ -119,7 +120,7 @@ export const trialAppsData = [
     readMoreLink: "/learn/atria"
   },
   {
-    name: "Blackbox.ai",
+    name: "Blackbox",
     description: "AI-powered code assistant that helps developers write code faster with real-time autocomplete and intelligent suggestions",
     category: "Development & Coding",
     features: ["AI code completion", "Multi-language support", "Context-aware suggestions", "Real-time autocomplete"],
@@ -219,7 +220,7 @@ export const trialAppsData = [
     readMoreLink: "/learn/elevenlabs"
   },
   {
-    name: "Flowith.io",
+    name: "Flowith AI",
     description: "AI-powered workflow automation platform that helps streamline your business processes",
     category: "Workflow Automation",
     features: ["AI process automation", "No-code workflows", "Integration capabilities", "Analytics dashboard"],
@@ -389,7 +390,7 @@ export const trialAppsData = [
     readMoreLink: "/learn/prezi-complete-guide"
   },
   {
-    name: "Reclaim.ai",
+    name: "Reclaim",
     description: "AI-powered calendar and time management platform that automatically schedules meetings, blocks focus time, and optimizes your calendar for productivity",
     category: "Productivity & Time Management",
     features: ["Smart scheduling", "Automatic calendar blocking", "Focus time protection", "Meeting optimization", "Calendar analytics", "Team scheduling"],
@@ -419,7 +420,7 @@ export const trialAppsData = [
     readMoreLink: "/learn/reply-io-complete-guide"
   },
   {
-    name: "Seamless.AI",
+    name: "Seamless",
     description: "Real-time B2B sales intelligence platform with 1.3+ billion contacts and 121+ million companies. Find accurate email addresses, phone numbers, and company data in seconds",
     category: "Sales & CRM",
     features: ["Real-time contact search", "1.3B+ business contacts", "121M+ companies", "Email & phone finder", "Chrome extension", "CRM integrations"],
@@ -427,6 +428,16 @@ export const trialAppsData = [
     trialInfo: "Free for up to 50 credits",
     image: seamlessailogo,
     readMoreLink: "/learn/seamless-ai-complete-guide"
+  },
+  {
+    name: "SEOSparkPlug",
+    description: "AI-powered SEO platform that analyzes 25+ factors, writes code, optimizes social content, and tracks results in one workflow",
+    category: "SEO & Digital Marketing",
+    features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
+    link: "https://seosparkplug.com",
+    trialInfo: "Free Trial Available",
+    image: seosparkplug1,
+    readMoreLink: "/learn/seosparkplug"
   },
   {
     name: "Smartli",
@@ -489,7 +500,7 @@ export const trialAppsData = [
     readMoreLink: "/learn/unbounce"
   },
   {
-    name: "VEED.io",
+    name: "VEED",
     description: "AI-powered video editing platform that makes it easy to create, edit, and enhance videos with professional tools",
     category: "Video Creation & Editing",
     features: ["AI video editing", "Subtitle generation", "Screen recording", "Video templates", "Collaboration tools"],
