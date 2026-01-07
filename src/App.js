@@ -2958,14 +2958,17 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           marginTop: "40px",
           textAlign: "left"
         }}>
-          <Link to="/apps" style={{ textDecoration: 'none' }}>
+          <Link to="/apps" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
             <div style={{
               background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
               borderRadius: "16px",
               padding: "30px",
               border: "1px solid rgba(54, 255, 149, 0.2)",
               cursor: "pointer",
-              transition: "all 0.3s ease"
+              transition: "all 0.3s ease",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column"
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
@@ -2991,21 +2994,25 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 color: "#d1efe7",
                 fontSize: "1rem",
                 lineHeight: "1.6",
-                margin: 0
+                margin: 0,
+                flex: 1
               }}>
                 Browse free AI bots you can try immediately, plus premium tools with free trials that usually don't require a credit card. Test them out, compare options, and find what actually fits your workflow — no pressure, no guesswork.
               </p>
             </div>
           </Link>
           
-          <Link to="/learn" style={{ textDecoration: 'none' }}>
+          <Link to="/learn" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
             <div style={{
               background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
               borderRadius: "16px",
               padding: "30px",
               border: "1px solid rgba(54, 255, 149, 0.2)",
               cursor: "pointer",
-              transition: "all 0.3s ease"
+              transition: "all 0.3s ease",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column"
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
@@ -3031,21 +3038,25 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 color: "#d1efe7",
                 fontSize: "1rem",
                 lineHeight: "1.6",
-                margin: 0
+                margin: 0,
+                flex: 1
               }}>
                 Every tool on BetterAiBots comes with a clear, beginner-friendly user guide so you know exactly how to use it, what to expect, and what to avoid. Our learning paths help you level up fast—from exploring new AI tools to mastering advanced workflows—with quizzes to track your progress.
               </p>
             </div>
           </Link>
           
-          <Link to="/news" style={{ textDecoration: 'none' }}>
+          <Link to="/news" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
             <div style={{
               background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
               borderRadius: "16px",
               padding: "30px",
               border: "1px solid rgba(54, 255, 149, 0.2)",
               cursor: "pointer",
-              transition: "all 0.3s ease"
+              transition: "all 0.3s ease",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column"
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
@@ -3071,21 +3082,25 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 color: "#d1efe7",
                 fontSize: "1rem",
                 lineHeight: "1.6",
-                margin: 0
+                margin: 0,
+                flex: 1
               }}>
                 AI changes fast — and we keep you ahead of it. Our News & Updates section breaks down major AI announcements, new AI tools, and big platform changes in simple, clear language so you always know what matters and why.
               </p>
             </div>
           </Link>
           
-          <Link to="/Podcast" style={{ textDecoration: 'none' }}>
+          <Link to="/Podcast" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
             <div style={{
               background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
               borderRadius: "16px",
               padding: "30px",
               border: "1px solid rgba(54, 255, 149, 0.2)",
               cursor: "pointer",
-              transition: "all 0.3s ease"
+              transition: "all 0.3s ease",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column"
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
@@ -3111,7 +3126,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 color: "#d1efe7",
                 fontSize: "1rem",
                 lineHeight: "1.6",
-                margin: 0
+                margin: 0,
+                flex: 1
               }}>
                 Smart testing matters. We show you how to evaluate new AI tools, which workflows to experiment with, and how to identify genuine value versus marketing hype — long before you spend a dollar.
               </p>
@@ -3120,43 +3136,70 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         </div>
         
         <div style={{
-          marginTop: isMobile ? "50px" : "80px"
+          marginTop: isMobile ? "50px" : "100px",
+          padding: isMobile ? "40px 20px" : "80px 60px",
+          background: "linear-gradient(135deg, rgba(23, 45, 62, 0.6) 0%, rgba(16, 28, 38, 0.8) 100%)",
+          borderRadius: "32px",
+          border: "1px solid rgba(54, 255, 149, 0.15)",
+          backdropFilter: "blur(12px)",
+          boxShadow: "0 20px 50px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(54, 255, 149, 0.05)",
+          position: "relative",
+          overflow: "hidden"
         }}>
-          <h2 style={{
-            color: "#36ff95",
-            fontSize: isMobile ? "1.5rem" : "1.8rem",
-            fontWeight: 700,
-            marginBottom: "30px",
+          {/* Subtle Glow Orbs */}
+          <div style={{
+            position: "absolute",
+            top: "-100px",
+            right: "-100px",
+            width: "300px",
+            height: "300px",
+            background: "radial-gradient(circle, rgba(54, 255, 149, 0.1) 0%, transparent 70%)",
+            pointerEvents: "none"
+          }} />
+          <div style={{
+            position: "absolute",
+            bottom: "-100px",
+            left: "-100px",
+            width: "300px",
+            height: "300px",
+            background: "radial-gradient(circle, rgba(11, 191, 219, 0.1) 0%, transparent 70%)",
+            pointerEvents: "none"
+          }} />
+
+          <h2 className="hero-headline" style={{
+            fontSize: isMobile ? "2.2rem" : "3.2rem",
+            marginBottom: "50px",
             textAlign: "center",
-            fontFamily: "Inter, Arial, sans-serif"
+            letterSpacing: "-1px"
           }}>
             Visit our Channel
           </h2>
           
           <div style={{
-            maxWidth: "1000px",
+            maxWidth: "1100px",
             margin: "0 auto",
             display: isMobile ? "block" : "flex",
-            alignItems: "flex-start",
-            gap: "30px"
+            alignItems: "center",
+            gap: "50px"
           }}>
             <div style={{
-              flex: 1,
+              flex: 1.2,
               textAlign: isMobile ? "center" : "left"
             }}>
               <p style={{
-                color: "#d1efe7",
-                fontSize: isMobile ? "1rem" : "1.05rem",
-                lineHeight: "1.7",
-                marginBottom: "20px"
+                color: "#ffffff",
+                fontSize: isMobile ? "1.1rem" : "1.2rem",
+                lineHeight: "1.8",
+                marginBottom: "24px",
+                fontWeight: 500
               }}>
                 If you've ever wondered which AI tools are worth your time, how to actually use them, or how to stay ahead in a world changing by the week… you're in the right place.
               </p>
               <p style={{
                 color: "#d1efe7",
-                fontSize: isMobile ? "0.95rem" : "1rem",
-                lineHeight: "1.7",
-                marginBottom: "24px"
+                fontSize: isMobile ? "1rem" : "1.1rem",
+                lineHeight: "1.8",
+                marginBottom: "30px"
               }}>
                 On our <a 
                   href="https://www.youtube.com/@BetterAiBots" 
@@ -3165,8 +3208,11 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   style={{
                     color: "#36ff95",
                     textDecoration: "underline",
-                    fontWeight: 600
+                    fontWeight: 700,
+                    transition: "color 0.2s"
                   }}
+                  onMouseEnter={(e) => e.target.style.color = "#0bbfdb"}
+                  onMouseLeave={(e) => e.target.style.color = "#36ff95"}
                 >YouTube channel</a>, we break down the newest AI tools, bots, and apps — from powerful paid platforms to the best free tools you can start using today. We test everything, explain how it works, and give you real results (not hype).
               </p>
             </div>
@@ -3176,17 +3222,25 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               style={{
                 display: "block",
                 cursor: "pointer",
-                maxWidth: isMobile ? "100%" : "420px",
-                width: isMobile ? "100%" : "420px",
+                maxWidth: isMobile ? "100%" : "480px",
+                width: isMobile ? "100%" : "480px",
                 flexShrink: 0,
-                marginBottom: isMobile ? "30px" : "0",
-                transition: "box-shadow 0.3s ease"
+                position: "relative",
+                padding: "10px",
+                background: "linear-gradient(135deg, rgba(54, 255, 149, 0.15) 0%, rgba(11, 191, 219, 0.15) 100%)",
+                borderRadius: "20px",
+                border: "1px solid rgba(54, 255, 149, 0.2)",
+                transition: "all 0.3s ease"
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 6px 24px rgba(54, 255, 149, 0.3)";
+                e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
+                e.currentTarget.style.transform = "scale(1.02)";
+                e.currentTarget.style.boxShadow = "0 12px 40px rgba(54, 255, 149, 0.25)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
+                e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "none";
               }}
             >
               <img
@@ -3196,10 +3250,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   width: "100%",
                   height: "auto",
                   borderRadius: "12px",
-                  boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)",
-                  transform: currentImageIndex === 0 ? "scale(1)" : "scale(1.02)",
                   opacity: imageOpacity,
-                  transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                  transition: "opacity 1s ease-in-out",
                   display: "block"
                 }}
                 draggable={false}
@@ -3210,149 +3262,112 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           {/* Navigation Buttons */}
           <div style={{
             maxWidth: "1000px",
-            margin: isMobile ? "50px auto 0" : "90px auto 0",
+            margin: isMobile ? "50px auto 0" : "100px auto 0",
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "center",
-            gap: isMobile ? "15px" : "20px"
+            gap: isMobile ? "15px" : "25px"
           }}>
-            <Link
-              to="/apps"
-              style={{
-                display: "inline-block",
-                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
+            {[
+              { to: "/apps", label: "View Apps" },
+              { to: "/learn", label: "Learn AI" },
+              { to: "/news", label: "Go To News" },
+              { href: "https://www.youtube.com/@BetterAiBots", label: "Visit Channel" }
+            ].map((btn, idx) => {
+              const baseStyle = {
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)",
                 color: "#101c26",
-                padding: isMobile ? "14px 28px" : "16px 32px",
-                borderRadius: "8px",
+                padding: isMobile ? "14px 28px" : "18px 40px",
+                borderRadius: "12px",
                 textDecoration: "none",
-                fontWeight: 700,
-                fontSize: isMobile ? "1rem" : "1.1rem",
-                transition: "all 0.2s",
+                fontWeight: 800,
+                fontSize: isMobile ? "0.95rem" : "1.1rem",
+                transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 textAlign: "center",
-                minWidth: isMobile ? "140px" : "160px"
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)";
-                e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)";
-                e.target.style.boxShadow = "none";
-              }}
-            >
-              View Apps
-            </Link>
-            
-            <Link
-              to="/learn"
-              style={{
-                display: "inline-block",
-                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
-                color: "#101c26",
-                padding: isMobile ? "14px 28px" : "16px 32px",
-                borderRadius: "8px",
-                textDecoration: "none",
-                fontWeight: 700,
-                fontSize: isMobile ? "1rem" : "1.1rem",
-                transition: "all 0.2s",
-                textAlign: "center",
-                minWidth: isMobile ? "140px" : "160px"
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)";
-                e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)";
-                e.target.style.boxShadow = "none";
-              }}
-            >
-              Learn AI
-            </Link>
-            
-            <Link
-              to="/news"
-              style={{
-                display: "inline-block",
-                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
-                color: "#101c26",
-                padding: isMobile ? "14px 28px" : "16px 32px",
-                borderRadius: "8px",
-                textDecoration: "none",
-                fontWeight: 700,
-                fontSize: isMobile ? "1rem" : "1.1rem",
-                transition: "all 0.2s",
-                textAlign: "center",
-                minWidth: isMobile ? "140px" : "160px"
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)";
-                e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)";
-                e.target.style.boxShadow = "none";
-              }}
-            >
-              Go To News
-            </Link>
-            
-            <a
-              href="https://www.youtube.com/@BetterAiBots"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-block",
-                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
-                color: "#101c26",
-                padding: isMobile ? "14px 28px" : "16px 32px",
-                borderRadius: "8px",
-                textDecoration: "none",
-                fontWeight: 700,
-                fontSize: isMobile ? "1rem" : "1.1rem",
-                transition: "all 0.2s",
-                textAlign: "center",
-                minWidth: isMobile ? "140px" : "160px"
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)";
-                e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)";
-                e.target.style.boxShadow = "none";
-              }}
-            >
-              Visit Channel
-            </a>
+                minWidth: isMobile ? "140px" : "180px",
+                boxShadow: "0 4px 15px rgba(54, 255, 149, 0.2)",
+                border: "none"
+              };
+
+              if (btn.to) {
+                return (
+                  <Link
+                    key={idx}
+                    to={btn.to}
+                    style={baseStyle}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = "translateY(-5px) scale(1.05)";
+                      e.target.style.boxShadow = "0 12px 25px rgba(54, 255, 149, 0.4)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = "translateY(0) scale(1)";
+                      e.target.style.boxShadow = "0 4px 15px rgba(54, 255, 149, 0.2)";
+                    }}
+                  >
+                    {btn.label}
+                  </Link>
+                );
+              }
+
+              return (
+                <a
+                  key={idx}
+                  href={btn.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={baseStyle}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = "translateY(-5px) scale(1.05)";
+                    e.target.style.boxShadow = "0 12px 25px rgba(54, 255, 149, 0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = "translateY(0) scale(1)";
+                    e.target.style.boxShadow = "0 4px 15px rgba(54, 255, 149, 0.2)";
+                  }}
+                >
+                  {btn.label}
+                </a>
+              );
+            })}
           </div>
           
           {/* Free Trials Link */}
           <div style={{
             width: "100%",
             textAlign: "center",
-            marginTop: isMobile ? "25px" : "30px"
+            marginTop: isMobile ? "30px" : "40px"
           }}>
             <Link
               to="/apps?section=trial"
               style={{
-                color: "#36ff95",
+                color: "#101c26",
+                background: "rgba(54, 255, 149, 0.9)",
                 textDecoration: "none",
-                fontSize: isMobile ? "1rem" : "1.1rem",
-                fontWeight: 600,
-                transition: "all 0.2s",
-                display: "inline-block"
+                fontSize: isMobile ? "0.9rem" : "1rem",
+                fontWeight: 700,
+                padding: "10px 24px",
+                borderRadius: "30px",
+                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                display: "inline-block",
+                boxShadow: "0 4px 14px rgba(54, 255, 149, 0.3)",
+                textTransform: "uppercase",
+                letterSpacing: "1px"
               }}
               onMouseEnter={(e) => {
-                e.target.style.color = "#ffffff";
-                e.target.style.textDecoration = "underline";
+                e.target.style.background = "#ffffff";
+                e.target.style.transform = "scale(1.05)";
+                e.target.style.boxShadow = "0 6px 20px rgba(255, 255, 255, 0.4)";
               }}
               onMouseLeave={(e) => {
-                e.target.style.color = "#36ff95";
-                e.target.style.textDecoration = "none";
+                e.target.style.background = "rgba(54, 255, 149, 0.9)";
+                e.target.style.transform = "scale(1)";
+                e.target.style.boxShadow = "0 4px 14px rgba(54, 255, 149, 0.3)";
               }}
             >
-              Looking for free trials?
+              🚀 Explore Free Trials
             </Link>
           </div>
         </div>
