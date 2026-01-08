@@ -367,7 +367,7 @@ export const trialAppsData = [
     link: "https://museit.art/?ref=BAIB",
     trialInfo: "Free Trial Available",
     image: musebrand,
-    readMoreLink: "/learn/museit-art"
+    readMoreLink: "/learn/museit-art-complete-guide"
   },
   {
     name: "NanoZ.fun",
