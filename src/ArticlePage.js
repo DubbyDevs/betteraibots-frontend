@@ -549,6 +549,7 @@ export default function ArticlePage() {
     "museit-art-complete-guide": "https://Museit.art",
     "nanoz-complete-guide": "https://nanoz.fun",
     "prezi-complete-guide": "https://try.prezi.com/9kk83fjh4yri",
+    "quillbot-complete-guide": "https://try.quillbot.com/BAIB",
     "landingi-complete-guide": "https://try.landingi.com/lwfc597yjm25",
     "tradify-complete-guide": "https://partners.tradifyhq.com/rh188vnbjrvr",
     "logome-complete-guide": "https://logomeai.partnerlinks.io/BAIB",
@@ -741,6 +742,7 @@ export default function ArticlePage() {
     'museit-art-complete-guide',
     'nanoz-complete-guide',
     'prezi-complete-guide',
+    'quillbot-complete-guide',
     'landingi-complete-guide',
     'tradify-complete-guide',
     'logome-complete-guide',
@@ -1013,6 +1015,7 @@ export default function ArticlePage() {
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
             "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
+            "quillbot-complete-guide": "https://betteraibots.com/assets/quilbot.jpg",
             "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
             "tradify-complete-guide": "https://betteraibots.com/assets/tradify1.jpg",
             "logome-complete-guide": "https://betteraibots.com/assets/logome1.png",
@@ -1091,6 +1094,7 @@ export default function ArticlePage() {
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
             "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
+            "quillbot-complete-guide": "https://betteraibots.com/assets/quilbot.jpg",
             "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
             "tradify-complete-guide": "https://betteraibots.com/assets/tradify1.jpg",
             "logome-complete-guide": "https://betteraibots.com/assets/logome1.png",
@@ -1131,6 +1135,7 @@ export default function ArticlePage() {
             "museit-art-complete-guide": "AI, Artificial Intelligence, Museit.art, AI Art Creation, AI Art Generator, Creative AI, Mindfulness Art, Digital Art Creation, AI Art Platform, Art Therapy, Creative Expression, BetterAiBots",
             "nanoz-complete-guide": "AI, Artificial Intelligence, NanoZ.fun, AI Branding, Brand Image Generation, AI Brand Imagery, Brand Consistency, AI Design Tools, Professional Branding, Brand Asset Management, AI Image Generation, BetterAiBots",
             "prezi-complete-guide": "AI, Artificial Intelligence, Prezi, AI Presentations, Presentation Software, Interactive Presentations, Prezi Video, Visual Storytelling, Presentation Design, AI Presentation Creator, BetterAiBots",
+            "quillbot-complete-guide": "AI, Artificial Intelligence, QuillBot, AI Paraphrasing Tool, Grammar Checker, AI Detector, Plagiarism Checker, AI Humanizer, Writing Assistant, Text Rewriter, Paraphrasing Software, BetterAiBots",
             "landingi-complete-guide": "AI, Artificial Intelligence, Landingi, AI Landing Page Builder, Landing Page Creator, Conversion Optimization, Lead Generation, A/B Testing, Landing Page Design, Marketing Tools, BetterAiBots",
             "tradify-complete-guide": "Tradify, Job Management Software, Trade Business Software, Job Management for Trades, Trade Business Management, Electrician Software, Plumber Software, HVAC Software, Job Scheduling, Trade Invoicing, Trade Quoting, Trade Job Tracking, BetterAiBots",
             "vista-social": "Vista Social, social media management, social scheduling, content calendar, social inbox, approvals workflow, social analytics, marketing teams, agencies, BetterAiBots",
@@ -1240,6 +1245,7 @@ export default function ArticlePage() {
                 "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
                 "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
                 "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
+                "quillbot-complete-guide": "https://betteraibots.com/assets/quilbot.jpg",
                 "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
                 "vista-social": "https://betteraibots.com/assets/vistasocial.jpg",
                 "datahawk": "https://betteraibots.com/assets/datahawkai.jpg",
@@ -1304,6 +1310,7 @@ export default function ArticlePage() {
                 "unbounce": "Unbounce, landing page builder, conversion optimization, A/B testing, landing pages, PPC campaigns, marketing automation, lead generation, BetterAiBots",
                 "landbot": "Landbot, chatbot builder, conversational AI, chatbot platform, WhatsApp chatbot, lead generation, customer support, no-code chatbot, BetterAiBots",
                 "reclaim-ai": "Reclaim.ai, calendar management, time blocking, AI scheduling, calendar automation, productivity, meeting scheduling, time optimization, BetterAiBots",
+                "quillbot-complete-guide": "QuillBot, AI paraphrasing tool, grammar checker, AI detector, plagiarism checker, AI humanizer, writing assistant, text rewriter, paraphrasing software, BetterAiBots",
                 "amplemarket": "Amplemarket, sales engagement, prospecting, outreach automation, sales automation, B2B sales, lead generation, sales CRM, BetterAiBots",
                 "mindstudio": "MindStudio, AI agent builder, no-code AI, AI workflow automation, custom AI assistants, AI agent development, workflow builder, AI automation platform, BetterAiBots"
               };
@@ -1695,6 +1702,37 @@ export default function ArticlePage() {
         ) : article.id === "prezi-complete-guide" ? (
           <a 
             href="https://try.prezi.com/9kk83fjh4yri" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "quillbot-complete-guide" ? (
+          <a 
+            href="https://try.quillbot.com/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{

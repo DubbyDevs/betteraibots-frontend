@@ -40,6 +40,7 @@ import landbotai from '../assets/landbotai.png';
 import reclaimai from '../assets/reclaimai.png';
 import amplemarketai from '../assets/amplemarketai.png';
 import seosparkplug1 from '../assets/seosparkplug1.jpg';
+import quillbot from '../assets/quilbot.jpg';
 
 export const freeAppsData = [
   {
@@ -388,6 +389,16 @@ export const trialAppsData = [
     trialInfo: "Start for free",
     image: preziai,
     readMoreLink: "/learn/prezi-complete-guide"
+  },
+  {
+    name: "QuillBot",
+    description: "AI-powered writing assistant that helps you paraphrase, check grammar, detect AI content, and improve your writing. Write effortlessly and efficiently with QuillBot's suite of AI tools.",
+    category: "Writing & Editing",
+    features: ["AI paraphrasing tool", "Grammar checker", "AI detector", "Plagiarism checker", "AI humanizer", "Summarizer", "Citation generator"],
+    link: "https://try.quillbot.com/BAIB",
+    trialInfo: "Free plan available",
+    image: quillbot,
+    readMoreLink: "/learn/quillbot-complete-guide"
   },
   {
     name: "Reclaim",
