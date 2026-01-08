@@ -8138,7 +8138,7 @@ If you're looking for a control panel that balances ease of use with powerful fe
   },
   {
     id: "quillbot-complete-guide",
-    title: "Complete Guide to QuillBot: AI Writing Assistant for Paraphrasing, Grammar, and More",
+    title: "AI Writing Assistant for Paraphrasing, Grammar, and More",
     date: "November 2025",
     cover: quillbot,
     preview: "QuillBot is an AI-powered writing assistant that helps you paraphrase text, check grammar, detect AI content, and improve your writing. Learn how to use QuillBot's suite of tools to write better, faster, and smarter.",

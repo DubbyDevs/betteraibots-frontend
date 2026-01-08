@@ -9,6 +9,10 @@
 # /news/anthropic-claude-35-sonnet-reasoning /news/anthropic-claude-35-sonnet-reasoning.html 200
 # /news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025 /news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025.html 200
 
+# Serve prerendered HTML for learn articles (crawlers will get HTML, users get redirected to React app)
+# The prerendered HTML files contain JavaScript that redirects non-crawlers to the React app
+/learn/*  /learn/:splat.html  200
+
 # All other routes go to React app
 /*    /index.html   200
 
