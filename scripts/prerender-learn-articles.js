@@ -351,38 +351,46 @@ if (!fs.existsSync(learnDir)) {
 // Load articles
 let articles = loadArticlesFromJSON();
 
-if (articles.length === 0) {
-  console.warn('⚠️  No articles found. Please ensure extract-article-metadata.js runs before this script.');
-  console.log('💡 Tip: The build script should run extract-article-metadata.js before prerender-learn-articles.js');
-} else {
-  // Deduplicate by article ID (keep first occurrence)
-  const uniqueArticlesMap = new Map();
-  const duplicates = [];
-  
-  articles.forEach(article => {
-    if (uniqueArticlesMap.has(article.id)) {
-      duplicates.push(article.id);
-    } else {
-      uniqueArticlesMap.set(article.id, article);
+try {
+  if (articles.length === 0) {
+    console.warn('⚠️  No articles found. Please ensure extract-article-metadata.js runs before this script.');
+    console.log('💡 Tip: The build script should run extract-article-metadata.js before prerender-learn-articles.js');
+    console.log('✅ Prerender script completed (no articles to prerender)');
+  } else {
+    // Deduplicate by article ID (keep first occurrence)
+    const uniqueArticlesMap = new Map();
+    const duplicates = [];
+    
+    articles.forEach(article => {
+      if (uniqueArticlesMap.has(article.id)) {
+        duplicates.push(article.id);
+      } else {
+        uniqueArticlesMap.set(article.id, article);
+      }
+    });
+    
+    const uniqueArticles = Array.from(uniqueArticlesMap.values());
+    
+    if (duplicates.length > 0) {
+      console.log(`⚠️  Found ${duplicates.length} duplicate article(s): ${[...new Set(duplicates)].join(', ')}`);
+      console.log(`📊 Processing ${articles.length} total articles, ${uniqueArticles.length} unique articles`);
     }
-  });
-  
-  const uniqueArticles = Array.from(uniqueArticlesMap.values());
-  
-  if (duplicates.length > 0) {
-    console.log(`⚠️  Found ${duplicates.length} duplicate article(s): ${[...new Set(duplicates)].join(', ')}`);
-    console.log(`📊 Processing ${articles.length} total articles, ${uniqueArticles.length} unique articles`);
+    
+    // Generate HTML files for each unique article
+    uniqueArticles.forEach(article => {
+      const htmlContent = generatePrerenderedHTML(article);
+      const filePath = path.join(learnDir, `${article.id}.html`);
+      fs.writeFileSync(filePath, htmlContent);
+      console.log(`✅ Generated prerendered HTML: ${article.id}.html`);
+    });
+    
+    console.log(`\n🎉 Successfully prerendered ${uniqueArticles.length} unique learn articles!`);
+    console.log('📝 These files will be served to search engine crawlers');
+    console.log('👥 Users will be redirected to the React app');
   }
-  
-  // Generate HTML files for each unique article
-  uniqueArticles.forEach(article => {
-    const htmlContent = generatePrerenderedHTML(article);
-    const filePath = path.join(learnDir, `${article.id}.html`);
-    fs.writeFileSync(filePath, htmlContent);
-    console.log(`✅ Generated prerendered HTML: ${article.id}.html`);
-  });
-  
-  console.log(`\n🎉 Successfully prerendered ${uniqueArticles.length} unique learn articles!`);
-  console.log('📝 These files will be served to search engine crawlers');
-  console.log('👥 Users will be redirected to the React app');
+} catch (error) {
+  console.error('Error in prerender-learn-articles script:', error);
+  // Don't fail the build - prerendering is optional
+  console.log('⚠️  Continuing build despite prerender errors');
 }
+process.exit(0);

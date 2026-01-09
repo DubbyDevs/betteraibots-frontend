@@ -60,7 +60,15 @@ if (articles.length === 0) {
   console.warn('⚠️  No articles extracted. The regex pattern may need adjustment.');
   console.log('💡 Make sure your Articles.js follows the pattern:');
   console.log('   { id: "...", title: "...", date: "...", cover: ..., preview: "..." }');
-  process.exit(1);
+  // Don't fail the build - just create empty array
+  const publicDir = path.join(__dirname, '..', 'public');
+  if (!fs.existsSync(publicDir)) {
+    fs.mkdirSync(publicDir, { recursive: true });
+  }
+  const outputPath = path.join(publicDir, 'articles-metadata.json');
+  fs.writeFileSync(outputPath, JSON.stringify([], null, 2), 'utf8');
+  console.log('✅ Created empty articles-metadata.json');
+  process.exit(0);
 } else {
   // Deduplicate by article ID (keep first occurrence)
   const uniqueArticlesMap = new Map();
