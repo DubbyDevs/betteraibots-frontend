@@ -221,71 +221,41 @@ function findRelatedArticles(currentArticle, allArticles, limit = 2) {
 function addInternalLinks(content, currentArticleId, allArticles) {
   if (!content || typeof content !== 'string' || !allArticles || !Array.isArray(allArticles)) return content;
   
-  // Create a map of common product/tool names to article IDs
-  // Focus on distinctive product names that are likely to be mentioned
+  // Blacklist of common words that should NEVER be auto-linked
+  const blacklistedWords = new Set([
+    'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by',
+    'from', 'up', 'about', 'into', 'through', 'during', 'including', 'until', 'against', 'among',
+    'complete', 'guide', 'review', 'platform', 'tool', 'system', 'powered', 'ai-powered', 'ai',
+    'voice', 'video', 'audio', 'image', 'text', 'data', 'file', 'page', 'site', 'web', 'app',
+    'user', 'team', 'business', 'company', 'service', 'product', 'feature', 'function', 'option',
+    'create', 'edit', 'delete', 'save', 'load', 'manage', 'control', 'access', 'start', 'stop',
+    'click', 'link', 'button', 'menu', 'search', 'filter', 'sort', 'view', 'show', 'hide',
+    'help', 'support', 'assist', 'tutorial', 'documentation', 'read', 'write', 'send', 'receive',
+    'get', 'set', 'add', 'remove', 'update', 'change', 'modify', 'copy', 'paste', 'cut'
+  ]);
+  
+  // Create a map of distinctive product/tool names to article IDs
+  // Only use actual product names from article IDs, not common words from titles
   const productNameMap = new Map();
   
   allArticles.forEach(article => {
-    if (!article || !article.title || typeof article.title !== 'string' || article.id === currentArticleId) return;
-    if (!article.id || typeof article.id !== 'string') return;
+    if (!article || !article.id || typeof article.id !== 'string' || article.id === currentArticleId) return;
     
-    // Extract the main product/tool name from title
-    // Look for patterns like "Product Name:" or standalone product names
-    const title = article.title.toLowerCase();
+    // Extract product name ONLY from article ID (most reliable source)
+    // IDs are usually like "adcreative-ai", "murf-ai-complete-guide", "lindy-ai", etc.
+    const idParts = article.id.split('-');
     
-    // Common patterns to extract product names
-    const patterns = [
-      /^([^:]+?)(?:\s*:|\s+review|\s+guide|\s+platform|\s+tool)/i, // "Product Name: Description"
-      /^(ai-powered\s+)?([a-z0-9-]+)(?:\s+platform|\s+tool|\s+system)/i, // "Product Platform"
-      /^the\s+([a-z0-9-]+)/i, // "The Product"
-    ];
+    // Find the first substantial part that's not a blacklisted word
+    const productName = idParts.find(part => 
+      part && 
+      part.length > 3 && 
+      !blacklistedWords.has(part.toLowerCase()) &&
+      !['complete', 'guide', 'review', 'platform', 'tool', 'system'].includes(part.toLowerCase())
+    );
     
-    let productName = null;
-    for (const pattern of patterns) {
-      const match = title.match(pattern);
-      if (match && match[1]) {
-        productName = match[1].trim().toLowerCase();
-        // Clean up common prefixes
-        productName = productName.replace(/^(ai-powered|the|a|an)\s+/i, '').trim();
-        if (productName.length > 3) break;
-      }
-    }
-    
-    // Fallback: use first significant word
-    if (!productName && title) {
-      const words = title.split(/\s+/);
-      productName = words.find(word => 
-        word && word.length > 3 && 
-        !['complete', 'guide', 'review', 'platform', 'tool', 'system', 'ai-powered', 'ai', 'the', 'a', 'an'].includes(word.toLowerCase())
-      );
-      if (productName) productName = productName.toLowerCase();
-    }
-    
-    // Also try to extract from ID (often contains product name)
-    let idProductName = null;
-    if (article.id && typeof article.id === 'string') {
-      const idParts = article.id.split('-');
-      idProductName = idParts.find(part => part && part.length > 3 && !['complete', 'guide', 'review'].includes(part));
-    }
-    
-    if (productName && typeof productName === 'string' && productName.length > 3) {
-      productNameMap.set(productName, article);
-    }
-    if (idProductName && typeof idProductName === 'string' && idProductName.length > 3) {
-      productNameMap.set(idProductName, article);
-    }
-    
-    // Add variations (remove common suffixes, handle .io, .ai, etc.)
-    if (productName && typeof productName === 'string') {
-      const variations = [
-        productName.replace(/\.(io|ai|com)$/, ''), // Remove TLD
-        productName.replace(/\s+ai$/, ''), // Remove " AI" suffix
-      ];
-      variations.forEach(variation => {
-        if (variation && typeof variation === 'string' && variation.length > 3) {
-          productNameMap.set(variation, article);
-        }
-      });
+    // Only add to map if it's a valid product name (not a common word)
+    if (productName && typeof productName === 'string' && productName.length > 3 && !blacklistedWords.has(productName.toLowerCase())) {
+      productNameMap.set(productName.toLowerCase(), article);
     }
   });
   
@@ -319,45 +289,77 @@ function addInternalLinks(content, currentArticleId, allArticles) {
     let linkCount = 0;
     const maxLinks = 2;
     
-    processedContent = processedContent.replace(regex, (match, prefix, term) => {
-      // Skip if we've already linked enough times
-      if (linkCount >= maxLinks) return match;
+    // Use a more reliable approach: find all matches first, then process them in reverse
+    const allMatches = [];
+    let matchResult;
+    const tempRegex = new RegExp(regexPattern, 'gi');
+    while ((matchResult = tempRegex.exec(processedContent)) !== null) {
+      allMatches.push({
+        index: matchResult.index,
+        match: matchResult[0],
+        prefix: matchResult[1],
+        term: matchResult[2]
+      });
+    }
+    
+    // Process matches in reverse order to maintain indices when replacing
+    for (let i = allMatches.length - 1; i >= 0 && linkCount < maxLinks; i--) {
+      const { index, match, prefix, term } = allMatches[i];
       
       // Check if we're inside a code block
-      const beforeMatch = processedContent.substring(0, processedContent.lastIndexOf(match, processedContent.indexOf(match)));
+      const beforeMatch = processedContent.substring(0, index);
       const codeBlockCount = (beforeMatch.match(/```/g) || []).length;
-      if (codeBlockCount % 2 !== 0) return match; // Inside code block
+      if (codeBlockCount % 2 !== 0) continue; // Inside code block
       
       // Check if we're inside an HTML tag
       const htmlTagPattern = /<[^>]*>/g;
       const htmlTags = [...beforeMatch.matchAll(htmlTagPattern)];
       const lastTag = htmlTags[htmlTags.length - 1];
       if (lastTag && lastTag[0].startsWith('<') && !lastTag[0].includes('/')) {
-        // Check if we're inside an unclosed tag
         const tagName = lastTag[0].match(/<(\w+)/);
         if (tagName) {
           const closingTag = new RegExp(`</${tagName[1]}>`, 'i');
-          const afterMatch = processedContent.substring(processedContent.indexOf(match) + match.length);
+          const afterMatch = processedContent.substring(index + match.length);
           if (!closingTag.test(afterMatch.substring(0, 500))) {
-            return match; // Inside unclosed HTML tag
+            continue; // Inside unclosed HTML tag
           }
         }
       }
       
-      // Check if already in a markdown link
-      const linkPattern = new RegExp(`\\[.*?${escapedName}.*?\\]\\([^)]+\\)`, 'i');
-      const contextBefore = processedContent.substring(Math.max(0, processedContent.indexOf(match) - 100), processedContent.indexOf(match));
-      const contextAfter = processedContent.substring(processedContent.indexOf(match) + match.length, processedContent.indexOf(match) + match.length + 100);
-      if (linkPattern.test(contextBefore + match + contextAfter)) {
-        return match; // Already in a link
+      // Check if already in a markdown link - look backwards for [ and forwards for ](
+      const lookBack = 500;
+      const lookForward = 500;
+      const contextStart = Math.max(0, index - lookBack);
+      const contextEnd = Math.min(processedContent.length, index + match.length + lookForward);
+      const context = processedContent.substring(contextStart, contextEnd);
+      const relativeIndex = index - contextStart;
+      
+      // Find the nearest [ before our match
+      const beforeContext = context.substring(0, relativeIndex);
+      const lastOpenBracket = beforeContext.lastIndexOf('[');
+      
+      if (lastOpenBracket !== -1) {
+        // Check if there's a ]( after the [ and before/at our match
+        const afterOpenBracket = context.substring(lastOpenBracket);
+        const closeBracketIndex = afterOpenBracket.indexOf('](');
+        
+        if (closeBracketIndex !== -1) {
+          // Check if our match is between [ and ](
+          const linkTextStart = lastOpenBracket;
+          const linkTextEnd = lastOpenBracket + closeBracketIndex;
+          if (relativeIndex >= linkTextStart && relativeIndex + match.length <= linkTextEnd) {
+            continue; // Already inside a markdown link text
+          }
+        }
       }
       
       linkCount++;
       linkedArticles.add(targetArticle.id);
       
-      // Replace with markdown link
-      return `${prefix}[${term}](/learn/${targetArticle.id})`;
-    });
+      // Replace with markdown link (processing in reverse so indices stay valid)
+      const replacement = `${prefix}[${term}](/learn/${targetArticle.id})`;
+      processedContent = processedContent.substring(0, index) + replacement + processedContent.substring(index + match.length);
+    }
   });
   
   return processedContent;
@@ -655,7 +657,7 @@ export default function ArticlePage() {
               const targetElement = document.getElementById(targetId);
               if (targetElement) {
                 targetElement.scrollIntoView({ 
-                  behavior: 'smooth',
+                  behavior: 'auto',
                   block: 'start'
                 });
               }
@@ -2772,7 +2774,7 @@ export default function ArticlePage() {
                       const targetElement = document.getElementById(targetId);
                       if (targetElement) {
                         targetElement.scrollIntoView({ 
-                          behavior: 'smooth',
+                          behavior: 'auto',
                           block: 'start'
                         });
                       }

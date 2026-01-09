@@ -408,7 +408,7 @@ function Podcast() {
           // On mobile: scroll to the specific video card
           const videoCard = document.getElementById(`video-card-${heroVideoIndex}`);
           if (videoCard) {
-            videoCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            videoCard.scrollIntoView({ behavior: 'auto', block: 'start' });
           }
         } else {
           // On desktop: scroll to the specific video card with padding at top
@@ -418,7 +418,7 @@ function Podcast() {
             const offsetPosition = elementPosition + window.pageYOffset - 15;
             window.scrollTo({
               top: offsetPosition,
-              behavior: 'smooth'
+              behavior: 'auto'
             });
           }
         }

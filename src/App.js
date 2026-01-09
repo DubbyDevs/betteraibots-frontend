@@ -2771,7 +2771,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               onClick={() => {
                 const heroSection = document.querySelector('.hero-section');
                 if (heroSection) {
-                  heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  heroSection.scrollIntoView({ behavior: 'auto', block: 'start' });
                 }
               }}
             >
@@ -4454,7 +4454,7 @@ function App() {
       
       {/* Scroll to Top Button */}
       <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}
         style={{
           position: 'fixed',
           bottom: 20,
@@ -5325,7 +5325,7 @@ function NewsArticle() {
       setTimeout(() => {
         const videoIframe = document.querySelector('iframe[src*="youtube.com/embed"]');
         if (videoIframe) {
-          videoIframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          videoIframe.scrollIntoView({ behavior: 'auto', block: 'center' });
           // Try to autoplay the video by updating the src with autoplay parameter
           const currentSrc = videoIframe.getAttribute('src');
           if (currentSrc && !currentSrc.includes('autoplay=1')) {
@@ -5349,7 +5349,7 @@ function NewsArticle() {
       setTimeout(() => {
         const audioPlayer = document.getElementById('article-audio-player');
         if (audioPlayer) {
-          audioPlayer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          audioPlayer.scrollIntoView({ behavior: 'auto', block: 'center' });
           // Try to autoplay the audio
           audioPlayer.play().catch(() => {
             // Autoplay prevented - this is normal browser behavior
