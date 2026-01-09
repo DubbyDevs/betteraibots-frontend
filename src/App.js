@@ -2283,12 +2283,14 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
 
   // Learn image slideshow effect - smooth crossfade every 10 seconds
   useEffect(() => {
-    // Preload all learn images
+    // Preload all learn images immediately
     learnImages.forEach((src) => {
       const img = new Image();
       img.src = src;
     });
+  }, []);
 
+  useEffect(() => {
     // Rotate images every 10 seconds with cross-dissolve
     const intervalId = setInterval(() => {
       setLearnImageIndex((prevIndex) => {
@@ -2647,38 +2649,27 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   overflow: 'hidden',
                   position: 'relative'
                 }}>
-                  <img 
-                    src={learnImages[learnPrevIndex]} 
-                    alt="Learn" 
-                    style={{ 
-                      maxWidth: isMobile ? '180px' : '240px',
-                      width: '100%',
-                      height: 'auto',
-                      display: 'block',
-                      opacity: learnImageIndex === learnPrevIndex ? 1 : 0,
-                      transition: 'opacity 1.5s ease-in-out',
-                      pointerEvents: 'none',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      zIndex: 1
-                    }} 
-                  />
-                  <img 
-                    src={learnImages[learnImageIndex]} 
-                    alt="Learn" 
-                    style={{ 
-                      maxWidth: isMobile ? '180px' : '240px',
-                      width: '100%',
-                      height: 'auto',
-                      display: 'block',
-                      opacity: learnImageIndex === learnPrevIndex ? 0 : 1,
-                      transition: 'opacity 1.5s ease-in-out',
-                      pointerEvents: 'none',
-                      position: 'relative',
-                      zIndex: 2
-                    }} 
-                  />
+                  {learnImages.map((imgSrc, idx) => (
+                    <img 
+                      key={idx}
+                      src={imgSrc} 
+                      alt="Learn" 
+                      loading="eager"
+                      style={{ 
+                        maxWidth: isMobile ? '180px' : '240px',
+                        width: '100%',
+                        height: 'auto',
+                        display: 'block',
+                        opacity: idx === learnImageIndex ? 1 : 0,
+                        transition: 'opacity 1.5s ease-in-out',
+                        pointerEvents: 'none',
+                        position: idx === 0 ? 'relative' : 'absolute',
+                        top: 0,
+                        left: 0,
+                        zIndex: idx === learnImageIndex ? 2 : (idx === learnPrevIndex ? 1 : 0)
+                      }} 
+                    />
+                  ))}
                 </div>
                 <span style={{
                   color: '#b5ffdb',
