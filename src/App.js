@@ -2909,6 +2909,188 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         </div>
       </div>
       
+      {/* Apps Directory Preview Section */}
+      <div className="hero-section" style={isMobile ? { padding: '60px 20px' } : { padding: '60px 0' }}>
+        <Link to="/apps" style={{ textDecoration: 'none', display: 'block' }}>
+          <div style={{
+            maxWidth: '1000px',
+            margin: '0 auto',
+            background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)',
+            border: '2px solid rgba(54, 255, 149, 0.3)',
+            borderRadius: '20px',
+            padding: isMobile ? '30px 20px' : '40px',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 10px 30px rgba(54, 255, 149, 0.2)';
+            e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.3)';
+          }}
+          >
+            <h1 className="hero-headline" style={{ 
+              marginBottom: "15px",
+              background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
+              AI Apps Directory
+            </h1>
+            <h2 className="hero-subheadline custom-hero-desc" style={{
+              marginBottom: "30px",
+              maxWidth: "800px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              color: '#d1efe7'
+            }}>
+              Discover the best AI applications: free tools, trial versions, and premium paid solutions
+            </h2>
+            
+            {/* Stats Grid */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+              gap: isMobile ? '15px' : '20px',
+              marginBottom: '25px'
+            }}>
+              <div style={{
+                background: 'rgba(139, 92, 246, 0.1)',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
+                borderRadius: '12px',
+                padding: '20px',
+                textAlign: 'center',
+                transition: 'all 0.3s ease'
+              }}>
+                <div style={{
+                  fontSize: isMobile ? '2rem' : '2.5rem',
+                  fontWeight: '700',
+                  color: '#8b5cf6',
+                  marginBottom: '8px'
+                }}>
+                  🎯 {trialAppsData.length}
+                </div>
+                <div style={{
+                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  color: '#d1efe7',
+                  fontWeight: '600'
+                }}>
+                  Free Trials
+                </div>
+              </div>
+              
+              <div style={{
+                background: 'rgba(255, 215, 0, 0.1)',
+                border: '1px solid rgba(255, 215, 0, 0.3)',
+                borderRadius: '12px',
+                padding: '20px',
+                textAlign: 'center',
+                transition: 'all 0.3s ease'
+              }}>
+                <div style={{
+                  fontSize: isMobile ? '2rem' : '2.5rem',
+                  fontWeight: '700',
+                  color: '#ffd700',
+                  marginBottom: '8px'
+                }}>
+                  💎 {PAID_APPS.length}
+                </div>
+                <div style={{
+                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  color: '#d1efe7',
+                  fontWeight: '600'
+                }}>
+                  Paid AI Apps
+                </div>
+              </div>
+              
+              <div style={{
+                background: 'rgba(11, 191, 219, 0.1)',
+                border: '1px solid rgba(11, 191, 219, 0.3)',
+                borderRadius: '12px',
+                padding: '20px',
+                textAlign: 'center',
+                transition: 'all 0.3s ease'
+              }}>
+                <div style={{
+                  fontSize: isMobile ? '2rem' : '2.5rem',
+                  fontWeight: '700',
+                  color: '#0bbfdb',
+                  marginBottom: '8px'
+                }}>
+                  ⚡ {trialAppsData.length + PAID_APPS.length}
+                </div>
+                <div style={{
+                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  color: '#d1efe7',
+                  fontWeight: '600'
+                }}>
+                  Premium Tools
+                </div>
+              </div>
+            </div>
+            
+            {/* Features */}
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '15px',
+              marginTop: '20px'
+            }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: '#b5ffdb',
+                fontSize: isMobile ? '0.85rem' : '0.9rem'
+              }}>
+                <span>📊</span>
+                <span>Enable Progress Mode</span>
+              </div>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: '#b5ffdb',
+                fontSize: isMobile ? '0.85rem' : '0.9rem'
+              }}>
+                <span>🎯</span>
+                <span>Premium Apps with Free Trials</span>
+              </div>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: '#b5ffdb',
+                fontSize: isMobile ? '0.85rem' : '0.9rem'
+              }}>
+                <span>📈</span>
+                <span>Go to My AI Dashboard</span>
+              </div>
+            </div>
+            
+            {/* CTA Text */}
+            <div style={{
+              textAlign: 'center',
+              marginTop: '25px',
+              color: '#36ff95',
+              fontSize: isMobile ? '0.95rem' : '1.1rem',
+              fontWeight: '600'
+            }}>
+              Click to explore all apps →
+            </div>
+          </div>
+        </Link>
+      </div>
+      
       <div className="hero-section" style={isMobile ? { padding: '0 20px' } : { padding: '60px 0 0 0' }}>
         <h1 className="hero-headline" style={{ marginBottom: "30px" }}>GPT Discovery Hub</h1>
         <h2 className="hero-subheadline custom-hero-desc" style={{
