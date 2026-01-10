@@ -5314,6 +5314,41 @@ function NewsArticle() {
   const { slug } = useParams();
   const location = useLocation();
   
+  // Convert date from MM-DD-YY format to ISO format (YYYY-MM-DD)
+  const convertDateToISO = (dateString) => {
+    if (!dateString) return new Date().toISOString().split('T')[0];
+    
+    // Handle MM-DD-YY or MM-DD-YYYY format
+    if (dateString.includes('-')) {
+      const parts = dateString.split('-');
+      if (parts.length === 3) {
+        let month = parts[0].padStart(2, '0');
+        let day = parts[1].padStart(2, '0');
+        let year = parseInt(parts[2], 10);
+        
+        // Handle 2-digit years (assume 2000s)
+        if (year < 100) {
+          year = 2000 + year;
+        }
+        
+        // Return ISO format: YYYY-MM-DD
+        return `${year}-${month}-${day}`;
+      }
+    }
+    
+    // If parsing fails, try to parse as-is
+    try {
+      const date = new Date(dateString);
+      if (!isNaN(date.getTime())) {
+        return date.toISOString().split('T')[0];
+      }
+    } catch (e) {
+      // Fallback to current date
+    }
+    
+    return new Date().toISOString().split('T')[0];
+  };
+  
   // Auto-scroll to and play video if #play-video hash is present
   useEffect(() => {
     if (location.hash === '#play-video') {
@@ -5425,7 +5460,7 @@ function NewsArticle() {
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.excerpt} />
         <meta name="twitter:image" content={article.image ? (article.image.startsWith('http') ? article.image : `https://betteraibots.com${article.image}`) : "https://betteraibots.com/og-image.png?v=3"} />
-        <meta name="article:published_time" content={article.date} />
+        <meta name="article:published_time" content={convertDateToISO(article.date)} />
         <meta name="article:author" content={article.author} />
         <meta name="article:section" content={article.category} />
         <meta name="article:tag" content={(() => {
@@ -5462,8 +5497,8 @@ function NewsArticle() {
                 "url": "https://betteraibots.com/betteraibotsglowlogo8.png"
               }
             },
-            "datePublished": article.date,
-            "dateModified": article.date,
+            "datePublished": convertDateToISO(article.date),
+            "dateModified": convertDateToISO(article.date),
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": `https://betteraibots.com/news/${article.slug}`
