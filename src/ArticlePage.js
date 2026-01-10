@@ -222,16 +222,85 @@ function addInternalLinks(content, currentArticleId, allArticles) {
   if (!content || typeof content !== 'string' || !allArticles || !Array.isArray(allArticles)) return content;
   
   // Blacklist of common words that should NEVER be auto-linked
+  // This includes common English words, technical terms, and generic descriptors
   const blacklistedWords = new Set([
+    // Articles and common words
     'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by',
     'from', 'up', 'about', 'into', 'through', 'during', 'including', 'until', 'against', 'among',
+    'over', 'under', 'above', 'below', 'between', 'within', 'without', 'across', 'around', 'behind',
+    'beside', 'beyond', 'near', 'inside', 'outside', 'toward', 'towards', 'upon', 'via', 'per',
+    
+    // Common verbs
+    'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did',
+    'will', 'would', 'should', 'could', 'may', 'might', 'must', 'can', 'shall', 'ought',
+    'get', 'got', 'give', 'gave', 'take', 'took', 'make', 'made', 'go', 'went', 'come', 'came',
+    'see', 'saw', 'know', 'knew', 'think', 'thought', 'say', 'said', 'tell', 'told', 'ask', 'asked',
+    'work', 'worked', 'use', 'used', 'try', 'tried', 'call', 'called', 'find', 'found', 'want', 'wanted',
+    'need', 'needed', 'help', 'helped', 'seem', 'seemed', 'feel', 'felt', 'become', 'became', 'leave', 'left',
+    'put', 'set', 'add', 'remove', 'update', 'change', 'modify', 'create', 'edit', 'delete', 'save', 'load',
+    'manage', 'control', 'access', 'start', 'stop', 'run', 'ran', 'show', 'showed', 'hide', 'hid',
+    'read', 'read', 'write', 'wrote', 'send', 'sent', 'receive', 'received', 'copy', 'copied', 'paste', 'pasted',
+    'cut', 'search', 'filter', 'sort', 'view', 'click', 'link', 'open', 'opened', 'close', 'closed',
+    
+    // Common nouns
+    'time', 'year', 'people', 'way', 'day', 'man', 'thing', 'woman', 'life', 'child', 'world', 'school',
+    'state', 'family', 'student', 'group', 'country', 'problem', 'hand', 'part', 'place', 'case', 'week',
+    'company', 'system', 'program', 'question', 'work', 'government', 'number', 'night', 'point', 'home',
+    'water', 'room', 'mother', 'area', 'money', 'story', 'fact', 'month', 'lot', 'right', 'study', 'book',
+    'eye', 'job', 'word', 'business', 'issue', 'side', 'kind', 'head', 'house', 'service', 'friend', 'father',
+    'power', 'hour', 'game', 'line', 'end', 'member', 'law', 'car', 'city', 'community', 'name', 'president',
+    'team', 'minute', 'idea', 'kid', 'body', 'information', 'back', 'parent', 'face', 'others', 'level',
+    'office', 'door', 'health', 'person', 'art', 'war', 'history', 'party', 'result', 'change', 'morning',
+    'reason', 'research', 'girl', 'guy', 'moment', 'air', 'teacher', 'force', 'education', 'robot', 'small',
+    
+    // Technical/common terms
     'complete', 'guide', 'review', 'platform', 'tool', 'system', 'powered', 'ai-powered', 'ai',
     'voice', 'video', 'audio', 'image', 'text', 'data', 'file', 'page', 'site', 'web', 'app',
-    'user', 'team', 'business', 'company', 'service', 'product', 'feature', 'function', 'option',
-    'create', 'edit', 'delete', 'save', 'load', 'manage', 'control', 'access', 'start', 'stop',
-    'click', 'link', 'button', 'menu', 'search', 'filter', 'sort', 'view', 'show', 'hide',
-    'help', 'support', 'assist', 'tutorial', 'documentation', 'read', 'write', 'send', 'receive',
-    'get', 'set', 'add', 'remove', 'update', 'change', 'modify', 'copy', 'paste', 'cut'
+    'user', 'team', 'service', 'product', 'feature', 'function', 'option', 'button', 'menu',
+    'support', 'assist', 'tutorial', 'documentation', 'learn', 'learning', 'learned',
+    
+    // Adjectives and descriptors
+    'good', 'bad', 'new', 'old', 'first', 'last', 'long', 'great', 'little', 'own', 'other', 'right',
+    'big', 'high', 'small', 'large', 'next', 'early', 'young', 'important', 'few', 'public', 'bad',
+    'same', 'able', 'human', 'local', 'late', 'hard', 'major', 'better', 'economic', 'strong', 'possible',
+    'whole', 'free', 'military', 'true', 'federal', 'international', 'full', 'special', 'easy', 'clear',
+    'recent', 'certain', 'personal', 'open', 'red', 'difficult', 'available', 'likely', 'national', 'real',
+    'best', 'better', 'big', 'black', 'certain', 'clear', 'close', 'cold', 'common', 'complete',
+    'dark', 'dead', 'dear', 'deep', 'different', 'difficult', 'dirty', 'dry', 'early', 'easy', 'empty',
+    'equal', 'exact', 'extra', 'fair', 'false', 'familiar', 'far', 'fast', 'fat', 'fine', 'firm',
+    'first', 'fit', 'flat', 'foreign', 'free', 'fresh', 'full', 'funny', 'general', 'gentle', 'glad',
+    'good', 'great', 'green', 'half', 'handsome', 'happy', 'hard', 'harsh', 'healthy', 'heavy', 'high',
+    'holy', 'honest', 'hot', 'huge', 'human', 'hungry', 'ill', 'important', 'impossible', 'inner', 'intelligent',
+    'interesting', 'international', 'kind', 'large', 'last', 'late', 'lazy', 'left', 'light', 'like', 'little',
+    'live', 'local', 'lonely', 'long', 'loose', 'loud', 'lovely', 'low', 'lucky', 'mad', 'main', 'major',
+    'many', 'married', 'material', 'medical', 'mental', 'middle', 'military', 'minor', 'modern', 'moral',
+    'most', 'much', 'musical', 'narrow', 'national', 'natural', 'near', 'necessary', 'negative', 'nervous',
+    'new', 'nice', 'noble', 'normal', 'northern', 'notable', 'novel', 'numerous', 'obvious', 'odd', 'official',
+    'old', 'only', 'open', 'opposite', 'orange', 'ordinary', 'original', 'other', 'outer', 'overall', 'own',
+    'particular', 'past', 'patient', 'peaceful', 'perfect', 'personal', 'physical', 'plain', 'pleasant', 'plenty',
+    'political', 'poor', 'popular', 'positive', 'possible', 'potential', 'powerful', 'practical', 'precious',
+    'present', 'pretty', 'previous', 'primary', 'prime', 'private', 'probable', 'professional', 'proper',
+    'proud', 'public', 'pure', 'quick', 'quiet', 'quite', 'rapid', 'rare', 'raw', 'ready', 'real', 'recent',
+    'red', 'regular', 'relative', 'relevant', 'religious', 'remarkable', 'remote', 'responsible', 'rich',
+    'right', 'rough', 'round', 'royal', 'rude', 'rural', 'sad', 'safe', 'same', 'satisfied', 'scared',
+    'scientific', 'second', 'secret', 'secure', 'serious', 'several', 'severe', 'sharp', 'short', 'shy',
+    'sick', 'significant', 'silent', 'silly', 'similar', 'simple', 'single', 'skilled', 'sleepy', 'slow',
+    'small', 'smart', 'smooth', 'social', 'soft', 'solid', 'some', 'sorry', 'southern', 'spare', 'special',
+    'specific', 'spiritual', 'splendid', 'square', 'standard', 'steady', 'steep', 'still', 'straight', 'strange',
+    'strict', 'strong', 'stupid', 'subject', 'substantial', 'successful', 'sudden', 'sufficient', 'suitable',
+    'sure', 'surprised', 'sweet', 'swift', 'tall', 'tame', 'tart', 'tasteful', 'tasty', 'teachable', 'tedious',
+    'teenage', 'temporary', 'tender', 'tense', 'terrible', 'thankful', 'thick', 'thin', 'thirsty', 'thorough',
+    'thoughtful', 'tight', 'tiny', 'tired', 'tough', 'tragic', 'tremendous', 'trivial', 'troublesome', 'true',
+    'trustful', 'trusting', 'trustworthy', 'ugly', 'ultimate', 'unable', 'unaware', 'uncertain', 'uncommon',
+    'unconscious', 'under', 'uneasy', 'unexpected', 'unfair', 'unfortunate', 'unhappy', 'unhealthy', 'uniform',
+    'unique', 'universal', 'unknown', 'unlikely', 'unlucky', 'unnatural', 'unpleasant', 'unreasonable', 'unsafe',
+    'unsatisfied', 'unusual', 'unwilling', 'upper', 'upset', 'urban', 'urgent', 'useful', 'useless', 'usual',
+    'vague', 'vain', 'valid', 'valuable', 'variable', 'vast', 'verbal', 'vertical', 'very', 'vicious', 'victorious',
+    'violent', 'virtual', 'visible', 'visual', 'vital', 'vivid', 'vocal', 'void', 'voluntary', 'vulnerable',
+    'warm', 'wary', 'wasteful', 'watchful', 'watery', 'weak', 'wealthy', 'weary', 'weird', 'welcome', 'well',
+    'western', 'wet', 'whole', 'wicked', 'wide', 'widespread', 'wild', 'willing', 'wise', 'witty', 'wonderful',
+    'wooden', 'woolly', 'worried', 'worse', 'worst', 'worth', 'worthy', 'wounded', 'wrong', 'young', 'youthful',
+    'zealous', 'zero'
   ]);
   
   // Create a map of distinctive product/tool names to article IDs
@@ -246,16 +315,31 @@ function addInternalLinks(content, currentArticleId, allArticles) {
     const idParts = article.id.split('-');
     
     // Find the first substantial part that's not a blacklisted word
-    const productName = idParts.find(part => 
-      part && 
-      part.length > 3 && 
-      !blacklistedWords.has(part.toLowerCase()) &&
-      !['complete', 'guide', 'review', 'platform', 'tool', 'system'].includes(part.toLowerCase())
-    );
+    // Must be at least 4 characters and not in blacklist
+    const productName = idParts.find(part => {
+      if (!part || part.length < 4) return false;
+      const lowerPart = part.toLowerCase();
+      // CRITICAL: Check blacklist FIRST before any other checks
+      if (blacklistedWords.has(lowerPart)) return false;
+      // Additional check: skip common suffixes/prefixes
+      if (['complete', 'guide', 'review', 'platform', 'tool', 'system', 'ai', 'io', 'com', 'the', 'a', 'an'].includes(lowerPart)) return false;
+      return true;
+    });
     
     // Only add to map if it's a valid product name (not a common word)
-    if (productName && typeof productName === 'string' && productName.length > 3 && !blacklistedWords.has(productName.toLowerCase())) {
-      productNameMap.set(productName.toLowerCase(), article);
+    // Triple-check blacklist before adding - this is critical
+    if (productName && 
+        typeof productName === 'string' && 
+        productName.length >= 4) {
+      const lowerProductName = productName.toLowerCase();
+      // Final blacklist check - if it's a common word, skip it entirely
+      // Also check for common word variations
+      if (!blacklistedWords.has(lowerProductName) && 
+          !blacklistedWords.has(lowerProductName + 's') && // plural
+          !blacklistedWords.has(lowerProductName + 'ing') && // gerund
+          !blacklistedWords.has(lowerProductName + 'ed')) { // past tense
+        productNameMap.set(lowerProductName, article);
+      }
     }
   });
   
@@ -266,6 +350,13 @@ function addInternalLinks(content, currentArticleId, allArticles) {
   productNameMap.forEach((targetArticle, productName) => {
     if (!targetArticle || !targetArticle.id || linkedArticles.has(targetArticle.id)) return; // Already linked this article
     if (!productName || typeof productName !== 'string') return;
+    
+    // CRITICAL: Double-check blacklist - never link common words
+    // This MUST be checked before any regex matching
+    const lowerProductName = productName.toLowerCase();
+    if (blacklistedWords.has(lowerProductName)) {
+      return; // Skip this entirely - it's a common word
+    }
     
     // Create regex to find product mentions, but avoid:
     // - Already linked text
@@ -351,6 +442,12 @@ function addInternalLinks(content, currentArticleId, allArticles) {
             continue; // Already inside a markdown link text
           }
         }
+      }
+      
+      // FINAL SAFETY CHECK: Make absolutely sure the matched term isn't a blacklisted word
+      const matchedTerm = term.toLowerCase();
+      if (blacklistedWords.has(matchedTerm)) {
+        continue; // Skip this match - it's a common word
       }
       
       linkCount++;

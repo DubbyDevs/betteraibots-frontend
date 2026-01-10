@@ -246,7 +246,8 @@ function News({ searchValue }) {
       "ai-robotics-revolution-everything-you-own-2025",
       "nano-banana-game-changing-ai-image-editor",
       "nano-banana-pro-upgrade-whats-new",
-      "alibaba-ai-revolution-53-billion-investment-2025"
+      "alibaba-ai-revolution-53-billion-investment-2025",
+      "3-ai-tools-generate-leads-businesses-2026"
     ];
     return articlesWithAudio.includes(articleSlug);
   };
@@ -5434,7 +5435,8 @@ function NewsArticle() {
             "ai-remote-jobs-home-office-gold-rush-2025": "AI, Artificial Intelligence, AI Jobs, Remote Work, AI Income, Work From Home, AI Automation, AI Tools, BetterAiBots",
             "ai-robotics-revolution-everything-you-own-2025": "AI, Artificial Intelligence, AI Robotics, Smart Home, IoT, Physical AI, AI Devices, BetterAiBots",
             "ai-virtual-assistant-how-to-automate-tasks-2025": "AI, Artificial Intelligence, AI Virtual Assistant, Task Automation, AI Productivity, Business Automation, Personal Automation, AI Tools, BetterAiBots",
-            "why-small-businesses-beat-enterprise-ai-tools-2025": "AI, Artificial Intelligence, Small Business AI, Enterprise AI, Business Automation, AI Tools, SMB Technology, Competitive Advantage, BetterAiBots"
+            "why-small-businesses-beat-enterprise-ai-tools-2025": "AI, Artificial Intelligence, Small Business AI, Enterprise AI, Business Automation, AI Tools, SMB Technology, Competitive Advantage, BetterAiBots",
+            "3-ai-tools-generate-leads-businesses-2026": "AI lead generation, AI prospecting tools, Apollo.io, Lusha, Seamless.ai, Reply.io, AI sales automation, B2B lead generation, AI outreach tools, lead generation workflow, AI CRM, AI qualification tools, sales automation, AI marketing tools, BetterAiBots"
           };
           return tagMap[article.slug] || "AI, Artificial Intelligence, AI News, BetterAiBots";
         })()} />
@@ -5637,6 +5639,8 @@ function NewsArticle() {
               ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Nano_Banana_Pro_Versus_the_Free_Model.m4a'))
               : article.slug === 'alibaba-ai-revolution-53-billion-investment-2025'
               ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Alibaba_s_$53_Billion_AI_Pivot.m4a'))
+              : article.slug === '3-ai-tools-generate-leads-businesses-2026'
+              ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Automating_Lead_Generation_The_2025_Playbook.m4a'))
               : article.content;
             
             // Add internal links to news articles
