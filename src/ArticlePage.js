@@ -608,6 +608,7 @@ export default function ArticlePage() {
     "pipes-ai": "https://try.pipes.ai/hmqj0m3am6un",
     "runpod": "https://get.runpod.io/w3na2cm4xdjp",
     "seosparkplug": "https://seosparkplug.com",
+    "adwisely": "https://get.adwisely.com/BAIB",
     "brevo-complete-guide": "https://get.brevo.com/um9xszmf3nfd",
     "aisdr-complete-guide": "https://partner.aisdr.com/5fxea2u5m85d",
     "adcreative-ai": "https://free-trial.adcreative.ai/BAIB",
@@ -839,6 +840,7 @@ export default function ArticlePage() {
     'seosparkplug',
     'airia',
     'museit-art-complete-guide',
+    'adwisely',
     'nanoz-complete-guide',
     'prezi-complete-guide',
     'quillbot-complete-guide',
@@ -1100,6 +1102,7 @@ export default function ArticlePage() {
             "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
             "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
             "seosparkplug": "https://betteraibots.com/assets/seosparkplug1.jpg",
+            "adwisely": "https://betteraibots.com/adwisely.png",
             "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
             "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
             "runpod": "https://betteraibots.com/runpod.jpg?v=2",
@@ -1179,6 +1182,7 @@ export default function ArticlePage() {
             "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
             "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
             "seosparkplug": "https://betteraibots.com/assets/seosparkplug1.jpg",
+            "adwisely": "https://betteraibots.com/adwisely.png",
             "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
             "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
             "runpod": "https://betteraibots.com/runpod.jpg?v=2",
@@ -1220,6 +1224,7 @@ export default function ArticlePage() {
             "webydo": "AI, Artificial Intelligence, Webydo, Web Design, No-Code Design, Website Builder, CMS, Client Management, BetterAiBots",
             "thordata": "AI, Artificial Intelligence, ThorData, Proxy, Web Scraping, Data Collection, AI Data Infrastructure, Residential Proxies, Scraper APIs, BetterAiBots",
             "seosparkplug": "AI, Artificial Intelligence, SEOSparkPlug, SEO Platform, AI SEO, SEO Analysis, Digital Marketing, Website Optimization, SEO Tools, BetterAiBots",
+            "adwisely": "AI, Artificial Intelligence, Adwisely, Google Ads, Meta Ads, Facebook Ads, Instagram Ads, AI Advertising, Paid Advertising, ROAS Optimization, BetterAiBots",
             "catalister": "AI, Artificial Intelligence, Catalister, Dropshipping, E-commerce Automation, Shopify Integration, AI Dropshipping, E-commerce Tools, BetterAiBots",
             "airia": "AI, Artificial Intelligence, Airia, Enterprise AI, AI Orchestration, AI Agent Development, Enterprise Automation, AI Platform, BetterAiBots",
             "runpod": "AI, Artificial Intelligence, RunPod, Cloud GPU, GPU Computing, AI Training, AI Model Deployment, GPU Infrastructure, BetterAiBots",
@@ -1259,6 +1264,7 @@ export default function ArticlePage() {
             "webydo": "Webydo, web design platform, no-code design, website builder, CMS, client management, web development, design tools, BetterAiBots",
             "thordata": "ThorData, proxy service, web scraping, data collection, residential proxies, scraper APIs, AI data infrastructure, web data collection, BetterAiBots",
             "seosparkplug": "SEOSparkPlug, AI SEO platform, SEO analysis, SEO tools, digital marketing, website optimization, SEO automation, AI SEO tools, BetterAiBots",
+            "adwisely": "Adwisely, Google Ads, Meta Ads, Facebook Ads, Instagram Ads, AI advertising, paid advertising, ROAS optimization, ad management, BetterAiBots",
             "catalister": "Catalister, dropshipping automation, e-commerce automation, Shopify integration, AI dropshipping, e-commerce tools, dropshipping platform, BetterAiBots",
             "airia": "Airia, enterprise AI, AI orchestration, AI agent development, enterprise automation, AI platform, rapid prototyping, BetterAiBots",
             "runpod": "RunPod, cloud GPU, GPU computing, AI training, AI model deployment, GPU infrastructure, serverless AI, cloud computing, BetterAiBots",
@@ -1333,6 +1339,7 @@ export default function ArticlePage() {
                 "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
                 "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
                 "seosparkplug": "https://betteraibots.com/assets/seosparkplug1.jpg",
+                "adwisely": "https://betteraibots.com/adwisely.png",
                 "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
                 "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
                 "runpod": "https://betteraibots.com/runpod.jpg?v=2",
@@ -1429,6 +1436,68 @@ export default function ArticlePage() {
         article.id === "seosparkplug" ? (
           <a 
             href="https://seosparkplug.com" 
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "adwisely" ? (
+          <a 
+            href="https://get.adwisely.com/BAIB" 
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "runpod" ? (
+          <a 
+            href="https://get.runpod.io/w3na2cm4xdjp" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
@@ -3342,8 +3411,62 @@ export default function ArticlePage() {
             margin: '40px 0',
             alignItems: 'center'
           }}>
-            {secondaryImages.map((imgSrc, idx) => (
-              affiliateLink ? (
+            {secondaryImages.map((imgSrc, idx) => {
+              const isVideo = imgSrc && (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov'));
+              
+              if (isVideo) {
+                return affiliateLink ? (
+                  <a
+                    key={idx}
+                    href={affiliateLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'block',
+                      cursor: 'pointer',
+                      textDecoration: 'none'
+                    }}
+                  >
+                    <video 
+                      src={imgSrc}
+                      controls
+                      style={{
+                        width: "100%",
+                        maxWidth: "600px",
+                        height: "auto",
+                        borderRadius: 16,
+                        display: "block",
+                        boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)",
+                        transition: "transform 0.2s ease, box-shadow 0.2s ease"
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.transform = "scale(1.02)";
+                        e.target.style.boxShadow = "0 6px 24px rgba(54, 255, 149, 0.3)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.transform = "scale(1)";
+                        e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.2)";
+                      }}
+                    />
+                  </a>
+                ) : (
+                  <video 
+                    key={idx}
+                    src={imgSrc}
+                    controls
+                    style={{
+                      width: "100%",
+                      maxWidth: "600px",
+                      height: "auto",
+                      borderRadius: 16,
+                      display: "block",
+                      boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)"
+                    }}
+                  />
+                );
+              }
+              
+              return affiliateLink ? (
                 <a
                   key={idx}
                   href={affiliateLink}
@@ -3393,8 +3516,8 @@ export default function ArticlePage() {
                     boxShadow: "0 4px 20px rgba(54, 255, 149, 0.2)"
                   }} 
                 />
-              )
-            ))}
+              );
+            })}
           </div>
         )}
         {secondaryImages.length > 0 && secondHalf && (

@@ -1112,7 +1112,7 @@ const LearnLevelSelector = () => {
                  width: "100%",
                  boxSizing: "border-box"
                }}>
-                               {/* Museit.art Card */}
+                               {/* Flowith.io Card */}
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
@@ -1139,9 +1139,9 @@ const LearnLevelSelector = () => {
                     marginTop: "16px",
                     boxSizing: "border-box"
                   }}>
-                      <img
-                       src={musebrand}
-                       alt="Museit.art - AI Art Creation Platform"
+                     <img
+                       src="/flowith.jpg"
+                       alt="Flowith.io - AI Workspace Platform"
                        style={{
                          width: "200px",
                          height: "200px",
@@ -1171,14 +1171,14 @@ const LearnLevelSelector = () => {
                          margin: "0 0 12px 0",
                          lineHeight: 1.3
                        }}>
-                         Museit.art
+                         Flowith.io
                        </h3>
                        <p style={{
                          color: "#9ca3af",
                          fontSize: isMobile ? "0.8rem" : "0.9rem",
                          margin: "0 0 15px 0"
                        }}>
-                         Featured • Creative & Design
+                         Featured • AI Workspace
                        </p>
                        <p style={{
                          color: "#e0e0e0",
@@ -1186,7 +1186,7 @@ const LearnLevelSelector = () => {
                          lineHeight: 1.5,
                          margin: "0 0 15px 0"
                        }}>
-                         AI-powered art creation platform that turns your imagination into beautiful artwork. Turn the noise into art with guided creativity and mindfulness-focused design.
+                         Revolutionary AI canvas workspace that goes beyond traditional chatbots. Interact with multiple AI models simultaneously, create visual workflows, and organize complex projects on an infinite canvas.
                        </p>
                        <div style={{
                          display: "flex",
@@ -1202,7 +1202,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           AI Art Generation
+                           Infinite Canvas
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.2)",
@@ -1212,7 +1212,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           Gallery-Ready Quality
+                           Multi-AI Models
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.2)",
@@ -1222,7 +1222,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           No Technical Skills
+                           Agent Neo
                          </span>
                        </div>
                      </div>
@@ -1232,7 +1232,7 @@ const LearnLevelSelector = () => {
                        flexWrap: "wrap"
                      }}>
                        <a
-                         href="https://Museit.art"
+                         href="https://aff.flowith.io/52dtlja1b580"
                          target="_blank"
                          rel="noopener noreferrer"
                          style={{
@@ -1255,10 +1255,10 @@ const LearnLevelSelector = () => {
                            e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
                          }}
                        >
-                         Try Museit.art Free
+                         Try Flowith.io Free
                        </a>
-                       <Link
-                         to="/learn/museit-art-complete-guide"
+                <Link
+                  to="/learn/flowith-io"
                          style={{
                            background: "transparent",
                            color: "#36ff95",
@@ -1458,7 +1458,7 @@ const LearnLevelSelector = () => {
                    </div>
                </div>
 
-                               {/* Flowith.io Card */}
+                               {/* Museit.art Card */}
                 <div style={{
                   background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
                   border: "2px solid #36ff95",
@@ -1485,9 +1485,9 @@ const LearnLevelSelector = () => {
                     marginTop: "16px",
                     boxSizing: "border-box"
                   }}>
-                     <img
-                       src="/flowith.jpg"
-                       alt="Flowith.io - AI Workspace Platform"
+                      <img
+                       src={musebrand}
+                       alt="Museit.art - AI Art Creation Platform"
                        style={{
                          width: "200px",
                          height: "200px",
@@ -1517,14 +1517,14 @@ const LearnLevelSelector = () => {
                          margin: "0 0 12px 0",
                          lineHeight: 1.3
                        }}>
-                         Flowith.io
+                         Museit.art
                        </h3>
                        <p style={{
                          color: "#9ca3af",
                          fontSize: isMobile ? "0.8rem" : "0.9rem",
                          margin: "0 0 15px 0"
                        }}>
-                         Featured • AI Workspace
+                         Featured • Creative & Design
                        </p>
                        <p style={{
                          color: "#e0e0e0",
@@ -1532,7 +1532,7 @@ const LearnLevelSelector = () => {
                          lineHeight: 1.5,
                          margin: "0 0 15px 0"
                        }}>
-                         Revolutionary AI canvas workspace that goes beyond traditional chatbots. Interact with multiple AI models simultaneously, create visual workflows, and organize complex projects on an infinite canvas.
+                         AI-powered art creation platform that turns your imagination into beautiful artwork. Turn the noise into art with guided creativity and mindfulness-focused design.
                        </p>
                        <div style={{
                          display: "flex",
@@ -1548,7 +1548,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           Infinite Canvas
+                           AI Art Generation
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.2)",
@@ -1558,7 +1558,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           Multi-AI Models
+                           Gallery-Ready Quality
                          </span>
                          <span style={{
                            background: "rgba(54, 255, 149, 0.2)",
@@ -1568,7 +1568,7 @@ const LearnLevelSelector = () => {
                            fontSize: "0.75rem",
                            fontWeight: 500
                          }}>
-                           Agent Neo
+                           No Technical Skills
                          </span>
                        </div>
                      </div>
@@ -1578,7 +1578,7 @@ const LearnLevelSelector = () => {
                        flexWrap: "wrap"
                      }}>
                        <a
-                         href="https://aff.flowith.io/52dtlja1b580"
+                         href="https://Museit.art"
                          target="_blank"
                          rel="noopener noreferrer"
                          style={{
@@ -1601,39 +1601,37 @@ const LearnLevelSelector = () => {
                            e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
                          }}
                        >
-                         Try Flowith.io Free
+                         Try Museit.art Free
                        </a>
-                <Link
-                  to="/learn/flowith-io"
-                  style={{
-                    background: "transparent",
-                    color: "#36ff95",
-                    padding: "12px 24px",
-                    borderRadius: "8px",
-                    textDecoration: "none",
-                    fontWeight: 600,
-                    fontSize: "0.9rem",
-                    border: "2px solid #36ff95",
-                    transition: "all 0.2s ease"
-                  }}
-                  onMouseOver={e => {
-                    e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                    e.target.style.transform = "translateY(-2px)";
-                  }}
-                  onMouseOut={e => {
-                    e.target.style.background = "transparent";
-                    e.target.style.transform = "translateY(0)";
-                  }}
-                >
-                  Read Full Article
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Guide Modals */}
+                       <Link
+                         to="/learn/museit-art-complete-guide"
+                         style={{
+                           background: "transparent",
+                           color: "#36ff95",
+                           padding: "12px 24px",
+                           borderRadius: "8px",
+                           textDecoration: "none",
+                           fontWeight: 600,
+                           fontSize: "0.9rem",
+                           border: "2px solid #36ff95",
+                           transition: "all 0.2s ease"
+                         }}
+                         onMouseOver={e => {
+                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                           e.target.style.transform = "translateY(-2px)";
+                         }}
+                         onMouseOut={e => {
+                           e.target.style.background = "transparent";
+                           e.target.style.transform = "translateY(0)";
+                         }}
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+               </div>
+             </div>
+           </div>
         </div>
       </div>
 

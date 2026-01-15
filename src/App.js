@@ -29,7 +29,6 @@ import freeaigpts from './assets/freeaigpts.webp';
 import freeaigpts2 from './assets/freeaigpts2.webp';
 import baibshow2 from './assets/baibshow2.webp';
 import baibshow3 from './assets/baibshow3.webp';
-import pipesai from './assets/pipesai.webp';
 import anybiz from './assets/anybiz.webp';
 import catalisterai from './assets/catalisterai.webp';
 import castmagicai from './assets/castmagicai.webp';
@@ -45,6 +44,7 @@ import plesk1 from './assets/plesk1.jpg';
 import surecam1 from './assets/surecam1.jpg';
 import n8nicon from './assets/n8nicon.jpg';
 import mindstudioai from './assets/mindstudioai.jpeg';
+import seosparkplug1 from './assets/seosparkplug1.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -651,14 +651,14 @@ const PAID_APPS = [
     readMoreLink: "/learn/viral-launch"
   },
   {
-    name: "n8n",
-    description: "Open-source workflow automation platform for connecting apps and services",
-    category: "Workflow Automation",
-    features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
-    price: "$20-$50/month",
-    link: "https://n8n.partnerlinks.io/wjt1744jflsx",
-    image: n8nicon,
-    readMoreLink: "/news/n8n-revolution-business-automation-2025"
+    name: "SEOSparkPlug",
+    description: "AI-powered SEO platform that analyzes 25+ factors, writes code, optimizes social content, and tracks results in one workflow",
+    category: "SEO & Digital Marketing",
+    features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
+    price: "Free Trial Available",
+    link: "https://seosparkplug.com",
+    image: seosparkplug1,
+    readMoreLink: "/learn/seosparkplug"
   },
   {
     name: "AiSDR",
@@ -669,16 +669,6 @@ const PAID_APPS = [
     link: "https://partner.aisdr.com/5fxea2u5m85d",
     image: "/aisdr.png",
     readMoreLink: "/learn/aisdr-complete-guide"
-  },
-  {
-    name: "Pipes",
-    description: "AI-powered lead engagement platform that converts web leads into live calls for your sales team",
-    category: "Sales & Lead Generation",
-    features: ["AI-powered voice and SMS", "Lead verification and filtering", "Automated follow-ups", "Real-time analytics"],
-    price: "Contact sales",
-    link: "https://try.pipes.ai/hmqj0m3am6un",
-    image: pipesai,
-    readMoreLink: "/learn/pipes-ai"
   },
   {
     name: "CastMagic",
@@ -739,6 +729,16 @@ const PAID_APPS = [
     link: "https://try.bidx.io/BAIB",
     image: bidxai,
     readMoreLink: "/learn/bidx"
+  },
+  {
+    name: "n8n",
+    description: "Open-source workflow automation platform for connecting apps and services",
+    category: "Workflow Automation",
+    features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
+    price: "$20-$50/month",
+    link: "https://n8n.partnerlinks.io/wjt1744jflsx",
+    image: n8nicon,
+    readMoreLink: "/news/n8n-revolution-business-automation-2025"
   },
   {
     name: "KrispCall",
@@ -2160,6 +2160,16 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   const [appsScrollPosition, setAppsScrollPosition] = useState(0);
   const [appsIsTransitioning, setAppsIsTransitioning] = useState(true);
   
+  // Calculate unique premium tools count (apps that appear in either trialAppsData or PAID_APPS, but only count each once)
+  const uniquePremiumToolsCount = useMemo(() => {
+    const allAppNames = new Set();
+    // Add all app names from trialAppsData
+    trialAppsData.forEach(app => allAppNames.add(app.name));
+    // Add all app names from PAID_APPS
+    PAID_APPS.forEach(app => allAppNames.add(app.name));
+    return allAppNames.size;
+  }, []);
+  
   // Randomize bot list while keeping affiliate ads in fixed middle positions
   // This randomizes every time the Home component mounts (when someone visits the page)
   const [randomizedBots] = useState(() => {
@@ -2958,9 +2968,11 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             {/* Stats Grid */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+              gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
               gap: isMobile ? '15px' : '20px',
-              marginBottom: '25px'
+              marginBottom: '25px',
+              maxWidth: '600px',
+              margin: '0 auto 25px auto'
             }}>
               <div style={{
                 background: 'rgba(139, 92, 246, 0.1)',
@@ -2988,31 +3000,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               </div>
               
               <div style={{
-                background: 'rgba(255, 215, 0, 0.1)',
-                border: '1px solid rgba(255, 215, 0, 0.3)',
-                borderRadius: '12px',
-                padding: '20px',
-                textAlign: 'center',
-                transition: 'all 0.3s ease'
-              }}>
-                <div style={{
-                  fontSize: isMobile ? '2rem' : '2.5rem',
-                  fontWeight: '700',
-                  color: '#ffd700',
-                  marginBottom: '8px'
-                }}>
-                  💎 {PAID_APPS.length}
-                </div>
-                <div style={{
-                  fontSize: isMobile ? '0.9rem' : '1rem',
-                  color: '#d1efe7',
-                  fontWeight: '600'
-                }}>
-                  Paid AI Apps
-                </div>
-              </div>
-              
-              <div style={{
                 background: 'rgba(11, 191, 219, 0.1)',
                 border: '1px solid rgba(11, 191, 219, 0.3)',
                 borderRadius: '12px',
@@ -3026,14 +3013,14 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   color: '#0bbfdb',
                   marginBottom: '8px'
                 }}>
-                  ⚡ {trialAppsData.length + PAID_APPS.length}
+                  ⚡ {uniquePremiumToolsCount}
                 </div>
                 <div style={{
                   fontSize: isMobile ? '0.9rem' : '1rem',
                   color: '#d1efe7',
                   fontWeight: '600'
                 }}>
-                  Premium Tools
+                  Premium AI Tools (total)
                 </div>
               </div>
             </div>

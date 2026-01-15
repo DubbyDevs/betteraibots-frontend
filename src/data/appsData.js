@@ -39,7 +39,6 @@ import unbounceai from '../assets/unbounceai.png';
 import landbotai from '../assets/landbotai.png';
 import reclaimai from '../assets/reclaimai.png';
 import amplemarketai from '../assets/amplemarketai.png';
-import seosparkplug1 from '../assets/seosparkplug1.jpg';
 import quillbot from '../assets/quilbot.jpg';
 
 export const freeAppsData = [
@@ -79,6 +78,16 @@ export const trialAppsData = [
     trialInfo: "Free Trial Available",
     image: adcreativeaitrial,
     readMoreLink: "/learn/adcreative-ai"
+  },
+  {
+    name: "Adwisely",
+    description: "AI-powered Google Ads & Meta Ads platform that launches full-funnel campaigns and optimizes for high ROAS with expert support",
+    category: "Marketing & Advertising",
+    features: ["AI-powered Google & Meta ads", "Full-funnel campaigns", "Automated optimization", "Dedicated ad expert support", "ROAS tracking"],
+    link: "https://get.adwisely.com/BAIB",
+    trialInfo: "7-day free trial",
+    image: "/adwisely.png",
+    readMoreLink: "/learn/adwisely"
   },
   {
     name: "Alli AI",
@@ -439,16 +448,6 @@ export const trialAppsData = [
     trialInfo: "Free for up to 50 credits",
     image: seamlessailogo,
     readMoreLink: "/learn/seamless-ai-complete-guide"
-  },
-  {
-    name: "SEOSparkPlug",
-    description: "AI-powered SEO platform that analyzes 25+ factors, writes code, optimizes social content, and tracks results in one workflow",
-    category: "SEO & Digital Marketing",
-    features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
-    link: "https://seosparkplug.com",
-    trialInfo: "Free Trial Available",
-    image: seosparkplug1,
-    readMoreLink: "/learn/seosparkplug"
   },
   {
     name: "Smartli",
