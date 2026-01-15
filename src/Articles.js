@@ -36,7 +36,6 @@ import freeseotools from "./assets/freeseotools.jpg";
 import alliai2 from "./assets/alliai2.jpg";
 import virallaunch2 from "./assets/virallaunch2.jpg";
 import castmagic2 from "./assets/castmagic2.jpg";
-import pipesai from "./assets/pipesai.webp";
 import anybiz from "./assets/anybiz.webp";
 import anybizio from "./assets/anybizio.jpg";
 import megahr from "./assets/megahr.webp";
