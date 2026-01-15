@@ -687,6 +687,25 @@ const LearnLevelSelector = () => {
               AI Guides
             </h2>
             
+            <style>{`
+              @keyframes neonPulse {
+                0%, 100% {
+                  box-shadow: 0 0 20px #36ff9544, 0 0 4px #a855f7, 0 0 8px #36ff95, 0 0 12px #36ff95;
+                }
+                50% {
+                  box-shadow: 0 0 20px #36ff9544, 0 0 4px #a855f7, 0 0 15px #36ff95, 0 0 25px #36ff95, 0 0 35px #36ff95;
+                }
+              }
+              @keyframes neonPulseHover {
+                0%, 100% {
+                  box-shadow: 0 0 20px #36ff9544, 0 0 4px #36ff95, 0 0 8px #36ff95;
+                }
+                50% {
+                  box-shadow: 0 0 20px #36ff9544, 0 0 6px #36ff95, 0 0 12px #36ff95, 0 0 18px #36ff95;
+                }
+              }
+            `}</style>
+            
             <div style={{
               display: "grid",
               gridTemplateColumns: isMobile ? "1fr" : "repeat(4, 1fr)",
@@ -715,21 +734,37 @@ const LearnLevelSelector = () => {
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
               >
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  borderRadius: "16px",
-                  padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
-                  textAlign: "center",
-                  boxShadow: "0 0 20px #36ff9544",
-                  height: isMobile ? "auto" : "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: isMobile ? "flex-start" : "space-between",
-                  minHeight: isMobile ? "auto" : "auto",
-                  width: "100%",
-                  boxSizing: "border-box"
-                }}>
+                <div 
+                  style={{
+                    background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                    borderRadius: "16px",
+                    padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
+                    textAlign: "center",
+                    border: "1px solid #a855f7",
+                    boxShadow: "0 0 20px #36ff9544, 0 0 4px #a855f7",
+                    height: isMobile ? "auto" : "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: isMobile ? "flex-start" : "space-between",
+                    minHeight: isMobile ? "auto" : "auto",
+                    width: "100%",
+                    boxSizing: "border-box",
+                    transition: "border 0.3s ease, box-shadow 0.3s ease"
+                  }}
+                  onMouseEnter={e => {
+                    if (!isMobile) {
+                      e.currentTarget.style.border = "1px solid #36ff95";
+                      e.currentTarget.style.animation = "neonPulseHover 1.5s ease-in-out infinite";
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!isMobile) {
+                      e.currentTarget.style.border = "1px solid #a855f7";
+                      e.currentTarget.style.animation = "none";
+                    }
+                  }}
+                >
                   <div style={{ 
                   display: "flex",
                   flexDirection: "column",
@@ -809,21 +844,37 @@ const LearnLevelSelector = () => {
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
               >
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  borderRadius: "16px",
-                  padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
-                  textAlign: "center",
-                  boxShadow: "0 0 20px #36ff9544",
-                  height: isMobile ? "auto" : "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: isMobile ? "flex-start" : "space-between",
-                  minHeight: isMobile ? "auto" : "auto",
-                  width: "100%",
-                  boxSizing: "border-box"
-                }}>
+                <div 
+                  style={{
+                    background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                    borderRadius: "16px",
+                    padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
+                    textAlign: "center",
+                    border: "1px solid #a855f7",
+                    boxShadow: "0 0 20px #36ff9544, 0 0 4px #a855f7",
+                    height: isMobile ? "auto" : "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: isMobile ? "flex-start" : "space-between",
+                    minHeight: isMobile ? "auto" : "auto",
+                    width: "100%",
+                    boxSizing: "border-box",
+                    transition: "border 0.3s ease, box-shadow 0.3s ease"
+                  }}
+                  onMouseEnter={e => {
+                    if (!isMobile) {
+                      e.currentTarget.style.border = "1px solid #36ff95";
+                      e.currentTarget.style.animation = "neonPulseHover 1.5s ease-in-out infinite";
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!isMobile) {
+                      e.currentTarget.style.border = "1px solid #a855f7";
+                      e.currentTarget.style.animation = "none";
+                    }
+                  }}
+                >
                   <div style={{ 
                   display: "flex",
                   flexDirection: "column",
@@ -903,21 +954,37 @@ const LearnLevelSelector = () => {
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
               >
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  borderRadius: "16px",
-                  padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
-                  textAlign: "center",
-                  boxShadow: "0 0 20px #36ff9544",
-                  height: isMobile ? "auto" : "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: isMobile ? "flex-start" : "space-between",
-                  minHeight: isMobile ? "auto" : "auto",
-                  width: "100%",
-                  boxSizing: "border-box"
-                }}>
+                <div 
+                  style={{
+                    background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                    borderRadius: "16px",
+                    padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
+                    textAlign: "center",
+                    border: "1px solid #a855f7",
+                    boxShadow: "0 0 20px #36ff9544, 0 0 4px #a855f7",
+                    height: isMobile ? "auto" : "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: isMobile ? "flex-start" : "space-between",
+                    minHeight: isMobile ? "auto" : "auto",
+                    width: "100%",
+                    boxSizing: "border-box",
+                    transition: "border 0.3s ease, box-shadow 0.3s ease"
+                  }}
+                  onMouseEnter={e => {
+                    if (!isMobile) {
+                      e.currentTarget.style.border = "1px solid #36ff95";
+                      e.currentTarget.style.animation = "neonPulseHover 1.5s ease-in-out infinite";
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!isMobile) {
+                      e.currentTarget.style.border = "1px solid #a855f7";
+                      e.currentTarget.style.animation = "none";
+                    }
+                  }}
+                >
                   <div style={{ 
                   display: "flex",
                   flexDirection: "column",
@@ -997,21 +1064,37 @@ const LearnLevelSelector = () => {
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
               >
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  borderRadius: "16px",
-                  padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
-                  textAlign: "center",
-                  boxShadow: "0 0 20px #36ff9544",
-                  height: isMobile ? "auto" : "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: isMobile ? "flex-start" : "space-between",
-                  minHeight: isMobile ? "auto" : "auto",
-                  width: "100%",
-                  boxSizing: "border-box"
-                }}>
+                <div 
+                  style={{
+                    background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                    borderRadius: "16px",
+                    padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
+                    textAlign: "center",
+                    border: "1px solid #a855f7",
+                    boxShadow: "0 0 20px #36ff9544, 0 0 4px #a855f7",
+                    height: isMobile ? "auto" : "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: isMobile ? "flex-start" : "space-between",
+                    minHeight: isMobile ? "auto" : "auto",
+                    width: "100%",
+                    boxSizing: "border-box",
+                    transition: "border 0.3s ease, box-shadow 0.3s ease"
+                  }}
+                  onMouseEnter={e => {
+                    if (!isMobile) {
+                      e.currentTarget.style.border = "1px solid #36ff95";
+                      e.currentTarget.style.animation = "neonPulseHover 1.5s ease-in-out infinite";
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!isMobile) {
+                      e.currentTarget.style.border = "1px solid #a855f7";
+                      e.currentTarget.style.animation = "none";
+                    }
+                  }}
+                >
                   <div style={{ 
                   display: "flex",
                   flexDirection: "column",
