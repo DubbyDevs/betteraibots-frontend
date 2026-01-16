@@ -260,6 +260,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/getresponse"
   },
   {
+    name: "GoHighLevel",
+    description: "AI-powered all-in-one business operating system for marketing, sales, and client management with automation, CRM, and white-label capabilities",
+    category: "Business Management",
+    features: ["All-in-one platform", "CRM & pipeline management", "Social media scheduling", "Landing pages & funnels", "White-label solution", "AI-powered automation", "14-day free trial"],
+    link: "https://www.gohighlevel.com/?fp_ref=baib",
+    trialInfo: "14-Day Free Trial",
+    image: "/gohighlevelai.jpg",
+    readMoreLink: "/learn/gohighlevel"
+  },
+  {
     name: "Hume AI",
     description: "Empathic AI platform that understands human emotion and expression to create more natural, engaging interactions",
     category: "AI & Machine Learning",

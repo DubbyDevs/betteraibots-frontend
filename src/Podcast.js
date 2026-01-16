@@ -56,6 +56,10 @@ function Podcast() {
   const museitLinks = [
     { name: 'Museit.art', url: 'https://museit.art' }
   ];
+  const pomelliLinks = [
+    { name: 'GoHighLevel', url: 'https://www.gohighlevel.com/?fp_ref=baib' },
+    { name: 'Pomelli', url: 'https://labs.google.com/pomelli' }
+  ];
   const gammaLinks = [
     { name: 'Gamma', url: 'https://try.gamma.app/BAIB' }
   ];
@@ -65,7 +69,7 @@ function Podcast() {
     'ytCyZ3LeXJ4': emailDeliverabilityLinks,
     'cz1UN93IBzU': capsuleCrmLinks,
     '5XFaLaiiVnc': thorDataLinks,
-    'VEbHf-jICZc': museitLinks,
+    'pfjtuijhDuU': pomelliLinks,
     'hGeW2slgRcY': museitLinks,
     's94JIklOT4s': gammaLinks
   };
@@ -186,10 +190,10 @@ function Podcast() {
       thumbnail: 'https://img.youtube.com/vi/5XFaLaiiVnc/hqdefault.jpg'
     },
     {
-      id: 'VEbHf-jICZc',
-      title: "AI's Impact on Creativity in General",
-      description: 'A deeper look into the impacts of AI and art in general, and how new technology is propelling the art industry in ways never imagined before. Link: https://museit.art',
-      thumbnail: 'https://img.youtube.com/vi/VEbHf-jICZc/hqdefault.jpg'
+      id: 'pfjtuijhDuU',
+      title: "Google's Secret Pomelli Tool",
+      description: 'Google quietly released Pomelli—a free AI tool that scans any business website and generates complete brand DNA, campaign ideas, and unlimited branded marketing content in minutes. In this complete implementation guide, we break down exactly how to use Pomelli to build a content creation service.',
+      thumbnail: 'https://img.youtube.com/vi/pfjtuijhDuU/maxresdefault.jpg'
     },
     {
       id: 'O9xN3anQKbM',

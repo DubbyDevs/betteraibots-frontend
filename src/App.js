@@ -232,7 +232,8 @@ function News({ searchValue }) {
       "ai-chip-wars-heat-up-nvidia-challenger-unexpected-source",
       "ai-job-boom-how-to-get-hired-in-the-ai-revolution",
       "openai-garlic-model-ai-just-leveled-up",
-      "perplexity-parasite-seo-ranking-guide-48-hours"
+      "perplexity-parasite-seo-ranking-guide-48-hours",
+      "how-to-build-content-creation-service-google-pomelli-tool"
     ];
     return articlesWithVideos.includes(articleSlug);
   };
@@ -5499,7 +5500,27 @@ function addInternalLinksToNews(content, currentSlug, allArticles) {
     'find', 'want', 'need', 'help', 'seem', 'feel', 'become', 'leave', 'put', 'set', 'add', 'remove',
     'update', 'change', 'modify', 'create', 'edit', 'delete', 'save', 'load', 'manage', 'control',
     'access', 'start', 'stop', 'run', 'show', 'hide', 'read', 'write', 'send', 'receive', 'copy',
-    'paste', 'cut', 'search', 'filter', 'sort', 'view', 'click', 'link', 'open', 'close'
+    'paste', 'cut', 'search', 'filter', 'sort', 'view', 'click', 'link', 'open', 'close',
+    // Common nouns and descriptors
+    'google', 'googles', 'world', 'small', 'tools', 'tool', 'ai', 'business', 'businesses',
+    'content', 'service', 'services', 'website', 'websites', 'website', 'page', 'pages',
+    'social', 'media', 'marketing', 'brand', 'brands', 'design', 'designs', 'image', 'images',
+    'post', 'posts', 'campaign', 'campaigns', 'customer', 'customers', 'owner', 'owners',
+    'company', 'companies', 'product', 'products', 'feature', 'features', 'system', 'systems',
+    'platform', 'platforms', 'application', 'applications', 'software', 'technology', 'technologies',
+    'data', 'information', 'time', 'year', 'years', 'people', 'way', 'ways', 'day', 'days',
+    'man', 'men', 'woman', 'women', 'thing', 'things', 'part', 'parts', 'life', 'lives',
+    'work', 'works', 'case', 'cases', 'group', 'groups', 'number', 'numbers', 'place', 'places',
+    'point', 'points', 'problem', 'problems', 'fact', 'facts', 'hand', 'hands', 'eye', 'eyes',
+    'head', 'heads', 'face', 'faces', 'side', 'sides', 'end', 'ends', 'back', 'backs',
+    'line', 'lines', 'name', 'names', 'word', 'words', 'question', 'questions', 'answer', 'answers',
+    'home', 'homes', 'room', 'rooms', 'door', 'doors', 'window', 'windows', 'table', 'tables',
+    'chair', 'chairs', 'book', 'books', 'paper', 'papers', 'letter', 'letters', 'number', 'numbers',
+    'money', 'moneys', 'water', 'waters', 'food', 'foods', 'car', 'cars', 'house', 'houses',
+    'school', 'schools', 'student', 'students', 'teacher', 'teachers', 'class', 'classes',
+    'office', 'offices', 'job', 'jobs', 'work', 'works', 'hour', 'hours', 'minute', 'minutes',
+    'second', 'seconds', 'week', 'weeks', 'month', 'months', 'year', 'years', 'today', 'yesterday',
+    'tomorrow', 'morning', 'mornings', 'afternoon', 'afternoons', 'evening', 'evenings', 'night', 'nights'
   ]);
   
   // Create a map of common product/tool names to article slugs
@@ -5596,8 +5617,11 @@ function addInternalLinksToNews(content, currentSlug, allArticles) {
       if (linkCount >= maxLinks) return match;
       
       // FINAL SAFETY CHECK: Make absolutely sure the matched term isn't a blacklisted word
+      // Check base form, possessive form, and plural forms
       const matchedTerm = term.toLowerCase();
-      if (blacklistedWords.has(matchedTerm)) {
+      const baseTerm = matchedTerm.replace(/'s$/, '').replace(/s$/, '');
+      
+      if (blacklistedWords.has(matchedTerm) || blacklistedWords.has(baseTerm)) {
         return match; // Skip this match - it's a common word
       }
       

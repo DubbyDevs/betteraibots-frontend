@@ -1137,6 +1137,7 @@ export default function ArticlePage() {
             "laxis": "https://betteraibots.com/assets/laxisai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
+            "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
             "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
             "databox": "https://betteraibots.com/assets/databoxai.jpg",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"
@@ -1211,7 +1212,8 @@ export default function ArticlePage() {
             "elevenlabs": "https://betteraibots.com/assets/elevenlabsai.jpg",
             "gamma": "https://betteraibots.com/assets/gammaai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
-            "getresponse": "https://betteraibots.com/assets/getresponseai.jpg"
+            "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
+            "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -1254,6 +1256,7 @@ export default function ArticlePage() {
             "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
             "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
             "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
+            "gohighlevel": "GoHighLevel, all-in-one business platform, CRM, marketing automation, social media scheduling, landing pages, funnels, white-label solution, business management, client management, BetterAiBots",
             "creativescore": "CreativeScore, AI creative scoring, ad creative analysis, performance prediction, ad diagnostics, creative optimization, paid media, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
@@ -1302,6 +1305,7 @@ export default function ArticlePage() {
             "laxis": "Laxis, AI meeting notes, meeting transcription, meeting summary tool, action item tracking, call recorder, meeting assistant, productivity tool, BetterAiBots",
             "krispcall": "KrispCall, virtual phone system, VoIP business phone, call tracking, call routing, AI call summary, CRM integration, business calling, BetterAiBots",
             "getresponse": "GetResponse, email marketing platform, marketing automation tool, email sequences, landing page builder, funnel builder, email list growth, BetterAiBots",
+            "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
             "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
@@ -1370,6 +1374,7 @@ export default function ArticlePage() {
             "laxis": "https://betteraibots.com/assets/laxisai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
+            "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
             "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
             "databox": "https://betteraibots.com/assets/databoxai.jpg",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"
