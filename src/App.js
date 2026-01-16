@@ -1039,7 +1039,7 @@ function Apps() {
     }
     
     return apps;
-  }, [progressMode, userProgress, selectedCategory]);
+  }, [progressMode, userProgress, selectedCategory, matchesCategory]);
 
   const freeApps = useMemo(() => {
     let apps = progressMode 
@@ -1055,7 +1055,7 @@ function Apps() {
     }
     
     return apps;
-  }, [progressMode, userProgress, selectedCategory]);
+  }, [progressMode, userProgress, selectedCategory, matchesCategory]);
 
   const paidApps = useMemo(() => {
     // Apply category filter to paid apps
