@@ -1,5 +1,5 @@
 import { CATEGORY_SLUGS } from './constants';
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import logo from './assets/betteraibotsglowlogo.webp';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
@@ -812,6 +812,112 @@ const tickerMessages = [
   "🔍 We do not own, operate, or control any AI tools, GPTs, or services listed. All trademarks and content belong to their respective owners. Use third-party services at your own risk."
 ];
 
+// Category grouping - map similar categories to unified names
+const CATEGORY_GROUPS = {
+  'Sales & Marketing': [
+    'Sales & CRM', 
+    'Sales & Lead Generation', 
+    'Sales & Market Intelligence',
+    'Marketing & Advertising', 
+    'Marketing & Web Design', 
+    'Marketing & Landing Pages',
+    'SEO & Marketing', 
+    'SEO & Digital Marketing',
+    'SEO & Content',
+    'Marketing & PPC Management'
+  ],
+  'Content Creation': [
+    'Content Creation & Media', 
+    'Content Creation & Monetization',
+    'Writing & Analysis', 
+    'Writing & Editing',
+    'Chat & Writing', 
+    'Presentations & Docs',
+    'Creative & Design',
+    'Multimodal AI',
+    // Also include video/audio since they're for creating content
+    'Video & Audio Editing', 
+    'Video Creation', 
+    'Video Creation & Editing',
+    'Voice & Audio AI',
+    'Video Editing'
+  ],
+  'Video & Audio': [
+    'Video & Audio Editing', 
+    'Video Creation', 
+    'Video Creation & Editing',
+    'Voice & Audio AI',
+    'Video Editing'
+  ],
+  'E-commerce': [
+    'E-commerce & Marketplace Analytics', 
+    'E-commerce & Dropshipping', 
+    'E-commerce & Amazon',
+    'E-commerce & Personalization',
+    'Web Design & E-commerce'
+  ],
+  'Data & Analytics': [
+    'Data Extraction & Web Scraping', 
+    'Business Analytics & Data Visualization',
+    'Data Analytics & Business Intelligence',
+    'Research & Education',
+    // Include e-commerce analytics since they're data tools
+    'E-commerce & Marketplace Analytics',
+    // Include sales market intelligence since it's analytics
+    'Sales & Market Intelligence'
+  ],
+  'Email & Communication': [
+    'Email Marketing & Automation', 
+    'Email Marketing',
+    'Sales & Customer Support',
+    'Customer Support & Engagement'
+  ],
+  'AI & Development': [
+    'AI & Machine Learning', 
+    'Development & Coding', 
+    'AI Infrastructure',
+    'Web Design & Development',
+    // Include automation & workflow
+    'Workflow Automation', 
+    'AI & Automation', 
+    'AI & Enterprise Automation', 
+    'Chatbots & Automation',
+    // Include web design categories
+    'Marketing & Web Design',
+    'Web Design & E-commerce'
+  ],
+  'Productivity': [
+    'Productivity & Meetings', 
+    'Productivity & Personal Assistant',
+    'Productivity & Collaboration',
+    'Productivity & Time Management',
+    'Productivity & Voice AI'
+  ],
+  'Business Management': [
+    'Business Management',
+    // Include email & communication
+    'Email Marketing & Automation', 
+    'Email Marketing',
+    'Sales & Customer Support',
+    'Customer Support & Engagement',
+    // Include productivity
+    'Productivity & Meetings', 
+    'Productivity & Personal Assistant',
+    'Productivity & Collaboration',
+    'Productivity & Time Management',
+    'Productivity & Voice AI'
+  ],
+  'HR & Recruitment': [
+    'HR & Recruitment'
+  ],
+  'Web & Hosting': [
+    'Web Hosting & Server Management'
+  ],
+  'Fleet Management': [
+    'Fleet Management & Safety'
+  ]
+};
+
 // --- APPS PAGE ---
 function Apps() {  
   const [activeSection, setActiveSection] = useState('trial');
@@ -825,6 +931,7 @@ function Apps() {
     const saved = localStorage.getItem('baib_progress');
     return saved ? JSON.parse(saved) : {};
   });
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   // Update activeSection when URL changes
   useEffect(() => {
@@ -870,22 +977,120 @@ function Apps() {
     };
   }, []);
 
-  const trialApps = useMemo(() => {
-    if (!progressMode) return trialAppsData;
-    return trialAppsData.filter(app => {
-      const progress = userProgress[app.name] || {};
-      // Filter out apps that are started, completed, or hidden
-      return !['started', 'completed', 'no_longer_want'].includes(progress.status);
+  // Get all unique categories from all app sources and map them to groups
+  const allCategories = useMemo(() => {
+    const categoryMap = new Map();
+    const allRawCategories = new Set();
+    
+    // Collect all raw categories
+    freeAppsData.forEach(app => app.category && allRawCategories.add(app.category));
+    trialAppsData.forEach(app => app.category && allRawCategories.add(app.category));
+    PAID_APPS.forEach(app => app.category && allRawCategories.add(app.category));
+    
+    // Map raw categories to grouped categories
+    Array.from(allRawCategories).forEach(rawCat => {
+      let found = false;
+      for (const [groupName, groupCats] of Object.entries(CATEGORY_GROUPS)) {
+        if (groupCats.includes(rawCat)) {
+          if (!categoryMap.has(groupName)) {
+            categoryMap.set(groupName, new Set());
+          }
+          categoryMap.get(groupName).add(rawCat);
+          found = true;
+          break;
+        }
+      }
+      // If category doesn't match any group, add it as its own group
+      if (!found) {
+        categoryMap.set(rawCat, new Set([rawCat]));
+      }
     });
-  }, [progressMode, userProgress]);
+    
+    return Array.from(categoryMap.keys()).sort();
+  }, []);
+
+  // Helper function to check if app matches selected category
+  const matchesCategory = useCallback((appCategory) => {
+    if (selectedCategory === 'all' || !selectedCategory) return true;
+    if (!appCategory) return false;
+    
+    // Check if category is in the selected group
+    const groupCategories = CATEGORY_GROUPS[selectedCategory];
+    if (groupCategories && groupCategories.includes(appCategory)) {
+      return true;
+    }
+    
+    // Check if it's an exact match (for categories not in groups)
+    return appCategory === selectedCategory;
+  }, [selectedCategory]);
+
+  const trialApps = useMemo(() => {
+    let apps = progressMode 
+      ? trialAppsData.filter(app => {
+          const progress = userProgress[app.name] || {};
+          return !['started', 'completed', 'no_longer_want'].includes(progress.status);
+        })
+      : trialAppsData;
+    
+    // Apply category filter
+    if (selectedCategory !== 'all') {
+      apps = apps.filter(app => matchesCategory(app.category));
+    }
+    
+    return apps;
+  }, [progressMode, userProgress, selectedCategory]);
 
   const freeApps = useMemo(() => {
-    if (!progressMode) return freeAppsData;
-    return freeAppsData.filter(app => {
-      const progress = userProgress[app.name] || {};
-      return !['started', 'completed', 'no_longer_want'].includes(progress.status);
-    });
-  }, [progressMode, userProgress]);
+    let apps = progressMode 
+      ? freeAppsData.filter(app => {
+          const progress = userProgress[app.name] || {};
+          return !['started', 'completed', 'no_longer_want'].includes(progress.status);
+        })
+      : freeAppsData;
+    
+    // Apply category filter
+    if (selectedCategory !== 'all') {
+      apps = apps.filter(app => matchesCategory(app.category));
+    }
+    
+    return apps;
+  }, [progressMode, userProgress, selectedCategory]);
+
+  const paidApps = useMemo(() => {
+    // Apply category filter to paid apps
+    if (selectedCategory === 'all') {
+      return PAID_APPS;
+    }
+    return PAID_APPS.filter(app => matchesCategory(app.category));
+  }, [selectedCategory, matchesCategory]);
+
+  // Auto-switch section if current section has 0 results but another section has results
+  useEffect(() => {
+    if (selectedCategory === 'all') return; // Don't auto-switch when showing all categories
+    
+    if (activeSection === 'trial' && trialApps.length === 0) {
+      // If trial section has no results, switch to paid if it has results
+      if (paidApps.length > 0) {
+        setActiveSection('paid');
+      } else if (freeApps.length > 0) {
+        setActiveSection('free');
+      }
+    } else if (activeSection === 'paid' && paidApps.length === 0) {
+      // If paid section has no results, switch to trial if it has results
+      if (trialApps.length > 0) {
+        setActiveSection('trial');
+      } else if (freeApps.length > 0) {
+        setActiveSection('free');
+      }
+    } else if (activeSection === 'free' && freeApps.length === 0) {
+      // If free section has no results, switch to trial or paid if they have results
+      if (trialApps.length > 0) {
+        setActiveSection('trial');
+      } else if (paidApps.length > 0) {
+        setActiveSection('paid');
+      }
+    }
+  }, [activeSection, selectedCategory, trialApps.length, paidApps.length, freeApps.length]);
 
   
   const [expandedFeatures, setExpandedFeatures] = useState({});
@@ -1318,8 +1523,58 @@ function Apps() {
               transition: 'all 0.3s ease'
             }}
           >
-            💎 Paid AI Apps ({PAID_APPS.length})
+            💎 Paid AI Apps ({paidApps.length})
           </button>
+        </div>
+
+        {/* Category Filter Dropdown */}
+        <div style={{
+          marginBottom: '20px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <label style={{
+            color: '#36ff95',
+            fontSize: '0.95rem',
+            fontWeight: 600,
+            whiteSpace: 'nowrap'
+          }}>
+            Filter by Category:
+          </label>
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            style={{
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(54, 255, 149, 0.3)',
+              borderRadius: '8px',
+              padding: '8px 16px',
+              color: '#d1efe7',
+              fontSize: '0.95rem',
+              fontWeight: 500,
+              cursor: 'pointer',
+              minWidth: '200px',
+              outline: 'none',
+              transition: 'all 0.3s ease'
+            }}
+            onFocus={(e) => {
+              e.target.style.borderColor = '#36ff95';
+              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = 'rgba(54, 255, 149, 0.3)';
+              e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+            }}
+          >
+            <option value="all" style={{ background: '#1a2330', color: '#d1efe7' }}>All Categories</option>
+            {allCategories.map(category => (
+              <option key={category} value={category} style={{ background: '#1a2330', color: '#d1efe7' }}>
+                {category}
+              </option>
+            ))}
+          </select>
         </div>
 
         {/* Progress Mode Toggle */}
@@ -1551,7 +1806,20 @@ function Apps() {
                 boxSizing: 'border-box',
                 justifyItems: 'center'
               }}>
-                {freeApps.map(app => renderAppCard(app, 'free'))}
+                {freeApps.length > 0 ? (
+                  freeApps.map(app => renderAppCard(app, 'free'))
+                ) : (
+                  <div style={{
+                    gridColumn: '1 / -1',
+                    textAlign: 'center',
+                    padding: '40px',
+                    color: '#9ca3af'
+                  }}>
+                    <p style={{ fontSize: '1.1rem', margin: 0 }}>
+                      No free apps found in the "{selectedCategory}" category.
+                    </p>
+                  </div>
+                )}
               </div>
               
               {/* Free Trials Highlight */}
@@ -1656,7 +1924,20 @@ function Apps() {
                 boxSizing: 'border-box',
                 justifyItems: 'center'
               }}>
-                {trialApps.map(app => renderAppCard(app, 'trial'))}
+                {trialApps.length > 0 ? (
+                  trialApps.map(app => renderAppCard(app, 'trial'))
+                ) : (
+                  <div style={{
+                    gridColumn: '1 / -1',
+                    textAlign: 'center',
+                    padding: '40px',
+                    color: '#9ca3af'
+                  }}>
+                    <p style={{ fontSize: '1.1rem', margin: 0 }}>
+                      No trial apps found in the "{selectedCategory}" category.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -1697,7 +1978,20 @@ function Apps() {
                 boxSizing: 'border-box',
                 justifyItems: 'center'
               }}>
-                {PAID_APPS.map(app => renderAppCard(app, 'paid'))}
+                {paidApps.length > 0 ? (
+                  paidApps.map(app => renderAppCard(app, 'paid'))
+                ) : (
+                  <div style={{
+                    gridColumn: '1 / -1',
+                    textAlign: 'center',
+                    padding: '40px',
+                    color: '#9ca3af'
+                  }}>
+                    <p style={{ fontSize: '1.1rem', margin: 0 }}>
+                      No paid apps found in the "{selectedCategory}" category.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -4708,47 +5002,6 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
           }}>
             <li>
               <Link
-                to="/legal"
-                style={{
-                  color: "#b5ffdb",
-                  textDecoration: "none",
-                  fontSize: "0.95rem",
-                  transition: "color 0.2s",
-                  display: "inline-block"
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = "#36ff95";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = "#b5ffdb";
-                }}
-              >
-                Legal & Terms
-              </Link>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <Link
-                to="/privacy"
-                style={{
-                  color: "#b5ffdb",
-                  textDecoration: "none",
-                  fontSize: "0.95rem",
-                  transition: "color 0.2s",
-                  display: "inline-block"
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = "#36ff95";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = "#b5ffdb";
-                }}
-              >
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/contact"
                 style={{
                   color: "#b5ffdb",
@@ -4765,6 +5018,26 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
                 }}
               >
                 Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/my-ai"
+                style={{
+                  color: "#b5ffdb",
+                  textDecoration: "none",
+                  fontSize: "0.95rem",
+                  transition: "color 0.2s",
+                  display: "inline-block"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#36ff95";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "#b5ffdb";
+                }}
+              >
+                My AI
               </Link>
             </li>
             <li>
@@ -4808,6 +5081,26 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
               >
                 Channel
               </a>
+            </li>
+            <li>
+              <Link
+                to="/my-ai"
+                style={{
+                  color: "#b5ffdb",
+                  textDecoration: "none",
+                  fontSize: "0.95rem",
+                  transition: "color 0.2s",
+                  display: "inline-block"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#36ff95";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "#b5ffdb";
+                }}
+              >
+                My AI
+              </Link>
             </li>
             {showPWAInstallButton && onPWAInstallClick && !isIOSMobile && (
               <li>
@@ -5194,6 +5487,21 @@ function findRelatedNewsArticles(currentArticle, allArticles, limit = 2) {
 function addInternalLinksToNews(content, currentSlug, allArticles) {
   if (!content || typeof content !== 'string' || !allArticles || !Array.isArray(allArticles)) return content;
   
+  // Blacklist of common words that should NEVER be auto-linked
+  const blacklistedWords = new Set([
+    'learn', 'robot', 'complete', 'reach', 'out', 'follow', 'up', 'scalable', 'repeatable',
+    'empathy', 'creativity', 'relationship', 'building', 'conversion', 'efficiency', 'research',
+    'resources', 'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with',
+    'by', 'from', 'up', 'about', 'into', 'through', 'during', 'including', 'until', 'against',
+    'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did',
+    'will', 'would', 'should', 'could', 'may', 'might', 'must', 'can', 'get', 'got', 'give', 'take',
+    'make', 'go', 'come', 'see', 'know', 'think', 'say', 'tell', 'ask', 'work', 'use', 'try', 'call',
+    'find', 'want', 'need', 'help', 'seem', 'feel', 'become', 'leave', 'put', 'set', 'add', 'remove',
+    'update', 'change', 'modify', 'create', 'edit', 'delete', 'save', 'load', 'manage', 'control',
+    'access', 'start', 'stop', 'run', 'show', 'hide', 'read', 'write', 'send', 'receive', 'copy',
+    'paste', 'cut', 'search', 'filter', 'sort', 'view', 'click', 'link', 'open', 'close'
+  ]);
+  
   // Create a map of common product/tool names to article slugs
   const productNameMap = new Map();
   
@@ -5267,6 +5575,12 @@ function addInternalLinksToNews(content, currentSlug, allArticles) {
     if (!targetArticle || !targetArticle.slug || linkedArticles.has(targetArticle.slug)) return;
     if (!productName || typeof productName !== 'string') return;
     
+    // CRITICAL: Check blacklist - never link common words
+    const lowerProductName = productName.toLowerCase();
+    if (blacklistedWords.has(lowerProductName)) {
+      return; // Skip this entirely - it's a common word
+    }
+    
     const escapedName = productName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const backtick = String.fromCharCode(96);
     const regexPattern = '(^|[^\\[\\]()' + backtick + '])(\\b' + escapedName + '\\b)(?![^<]*>)(?![^\\[]*\\]\\()';
@@ -5280,6 +5594,12 @@ function addInternalLinksToNews(content, currentSlug, allArticles) {
     
     processedContent = processedContent.replace(regex, (match, prefix, term) => {
       if (linkCount >= maxLinks) return match;
+      
+      // FINAL SAFETY CHECK: Make absolutely sure the matched term isn't a blacklisted word
+      const matchedTerm = term.toLowerCase();
+      if (blacklistedWords.has(matchedTerm)) {
+        return match; // Skip this match - it's a common word
+      }
       
       const beforeMatch = processedContent.substring(0, processedContent.lastIndexOf(match, processedContent.indexOf(match)));
       const codeBlockCount = (beforeMatch.match(/```/g) || []).length;

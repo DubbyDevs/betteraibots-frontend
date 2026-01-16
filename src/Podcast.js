@@ -11,6 +11,10 @@ import baiblive6 from './assets/liveslider/baiblive6.jpg';
 import baiblive7 from './assets/liveslider/baiblive7.jpg';
 import baiblive8 from './assets/liveslider/baiblive8.jpg';
 import baiblive9 from './assets/liveslider/baiblive9.jpg';
+import tenAITools from './assets/liveslider/10aitools.jpg';
+import capsuleCrm from './assets/liveslider/capsulecrm.jpg';
+import pomelliGuide from './assets/liveslider/pomelliguide.jpg';
+import gammaGuide from './assets/liveslider/gammaiguide.jpg';
 import baibview from './assets/baibview.mp4';
 
 function Podcast() {
@@ -90,10 +94,13 @@ function Podcast() {
     baiblive3,
     baiblive4,
     baiblive5,
+    pomelliGuide,
     baiblive6,
+    capsuleCrm,
+    gammaGuide,
     baiblive7,
     baiblive8,
-    baiblive9
+    tenAITools
   ];
 
   // Bottom slideshow images (remove baiblive3 and baiblive6 from rotation)
@@ -569,20 +576,17 @@ function Podcast() {
             margin-bottom: 50px;
           }
           .podcast-intro h2 {
+            color: #36ff95;
             font-size: 2.5rem;
-            background: linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 700;
           }
           .podcast-intro p {
-            font-size: 1.2rem;
-            color: #e0e0e0;
+            color: #b5ffdb;
+            font-size: 1.1rem;
             max-width: 800px;
             margin: 0 auto;
-            line-height: 1.6;
+            margin-bottom: 20px;
           }
           .video-grid {
             display: grid;
@@ -852,9 +856,14 @@ function Podcast() {
           @media (max-width: 768px) {
             .podcast-intro h2 {
               font-size: 2rem;
+              color: #36ff95;
+              font-weight: 700;
+              margin-bottom: 15px;
             }
             .podcast-intro p {
               font-size: 1rem;
+              color: #b5ffdb;
+              margin-bottom: 20px;
             }
             .video-grid {
               grid-template-columns: 1fr;
