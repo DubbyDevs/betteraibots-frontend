@@ -669,6 +669,8 @@ export default function ArticlePage() {
     "laxis": "https://get.laxis.com/BAIB",
     "krispcall": "https://try.krispcall.com/BAIB",
     "getresponse": "https://try.getresponsetoday.com/BAIB",
+    "gohighlevel": "https://www.gohighlevel.com/?fp_ref=baib",
+    "weave": "https://partnerstack.getweave.com/BAIB",
     "creativescore": "https://affiliate.creativescore.ai/BAIB",
     "seamless-ai-complete-guide": "https://get.seamless.ai/BAIB"
   };
@@ -1138,6 +1140,7 @@ export default function ArticlePage() {
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
+            "weave": "https://betteraibots.com/weaveai.jpg",
             "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
             "databox": "https://betteraibots.com/assets/databoxai.jpg",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"
@@ -1213,7 +1216,8 @@ export default function ArticlePage() {
             "gamma": "https://betteraibots.com/assets/gammaai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
-            "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg"
+            "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
+            "weave": "https://betteraibots.com/weaveai.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -1256,8 +1260,9 @@ export default function ArticlePage() {
             "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
             "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
             "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
-            "gohighlevel": "GoHighLevel, all-in-one business platform, CRM, marketing automation, social media scheduling, landing pages, funnels, white-label solution, business management, client management, BetterAiBots",
-            "creativescore": "CreativeScore, AI creative scoring, ad creative analysis, performance prediction, ad diagnostics, creative optimization, paid media, BetterAiBots"
+            "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
+            "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
+            "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -1306,6 +1311,7 @@ export default function ArticlePage() {
             "krispcall": "KrispCall, virtual phone system, VoIP business phone, call tracking, call routing, AI call summary, CRM integration, business calling, BetterAiBots",
             "getresponse": "GetResponse, email marketing platform, marketing automation tool, email sequences, landing page builder, funnel builder, email list growth, BetterAiBots",
             "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
+            "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
             "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
@@ -1375,6 +1381,7 @@ export default function ArticlePage() {
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
+            "weave": "https://betteraibots.com/weaveai.jpg",
             "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
             "databox": "https://betteraibots.com/assets/databoxai.jpg",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"

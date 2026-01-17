@@ -570,6 +570,16 @@ export const trialAppsData = [
     readMoreLink: "/news/warmy-io-spam-folder-rebellion-email-deliverability"
   },
   {
+    name: "Weave",
+    description: "AI-powered communication platform for healthcare practices with AI Receptionist, call intelligence, automated reminders, payment solutions, and patient engagement tools",
+    category: "Email & Communication",
+    features: ["AI Receptionist (voice & text)", "Call Intelligence", "Automated appointment reminders", "Text-to-pay", "Online scheduling", "Review management", "Email marketing", "No long-term contracts"],
+    link: "https://partnerstack.getweave.com/BAIB",
+    trialInfo: "Free Trial Available",
+    image: "/weaveai.jpg",
+    readMoreLink: "/learn/weave"
+  },
+  {
     name: "Webydo",
     description: "Professional web design platform that lets you create pixel-perfect websites without coding, with built-in CMS and client management",
     category: "Web Design & Development",
