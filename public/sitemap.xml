@@ -1217,6 +1217,19 @@
     </image:image>
   </url>
 
+  <!-- Turbotic Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/turbotic</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/turbotic.png</image:loc>
+      <image:title>Turbotic Complete Guide - AI-Powered Automation and Business Transformation Platform</image:title>
+      <image:caption>AI-powered automation and transformation platform that helps businesses build business cases, automate workflows, and deploy digital transformation with secure, compliant tools.</image:caption>
+    </image:image>
+  </url>
+
   <!-- CreativeScore Article -->
   <url>
     <loc>https://betteraibots.com/learn/creativescore</loc>

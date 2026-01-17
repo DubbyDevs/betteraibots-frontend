@@ -671,6 +671,7 @@ export default function ArticlePage() {
     "getresponse": "https://try.getresponsetoday.com/BAIB",
     "gohighlevel": "https://www.gohighlevel.com/?fp_ref=baib",
     "weave": "https://partnerstack.getweave.com/BAIB",
+    "turbotic": "https://try.turbotic.com/BAIB",
     "creativescore": "https://affiliate.creativescore.ai/BAIB",
     "seamless-ai-complete-guide": "https://get.seamless.ai/BAIB"
   };
@@ -864,6 +865,9 @@ export default function ArticlePage() {
     'laxis',
     'krispcall',
     'getresponse',
+    'gohighlevel',
+    'weave',
+    'turbotic',
     'creativescore',
     'databox',
     'seamless-ai-complete-guide',
@@ -1141,6 +1145,7 @@ export default function ArticlePage() {
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
             "weave": "https://betteraibots.com/weaveai.jpg",
+            "turbotic": "https://betteraibots.com/turbotic.png",
             "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
             "databox": "https://betteraibots.com/assets/databoxai.jpg",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"
@@ -1217,7 +1222,8 @@ export default function ArticlePage() {
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
-            "weave": "https://betteraibots.com/weaveai.jpg"
+            "weave": "https://betteraibots.com/weaveai.jpg",
+            "turbotic": "https://betteraibots.com/turbotic.png"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -1262,6 +1268,7 @@ export default function ArticlePage() {
             "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
             "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
             "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
+            "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
             "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
@@ -1312,6 +1319,7 @@ export default function ArticlePage() {
             "getresponse": "GetResponse, email marketing platform, marketing automation tool, email sequences, landing page builder, funnel builder, email list growth, BetterAiBots",
             "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
             "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
+            "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
             "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
@@ -1382,6 +1390,7 @@ export default function ArticlePage() {
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
             "weave": "https://betteraibots.com/weaveai.jpg",
+            "turbotic": "https://betteraibots.com/turbotic.png",
             "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
             "databox": "https://betteraibots.com/assets/databoxai.jpg",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"

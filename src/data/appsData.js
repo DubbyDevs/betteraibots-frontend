@@ -510,6 +510,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/tradify-complete-guide"
   },
   {
+    name: "Turbotic",
+    description: "AI-powered automation and transformation platform for building business cases, automating workflows, and deploying digital transformation with secure, compliant tools",
+    category: "AI & Development",
+    features: ["Custom AI assistants", "Meeting Agent for summaries", "Business case generation", "Process documentation", "Automation roadmaps", "ISO-27001 & SOC 2 compliant", "Free trial available"],
+    link: "https://try.turbotic.com/BAIB",
+    trialInfo: "Free Trial Available",
+    image: "/turbotic.png",
+    readMoreLink: "/learn/turbotic"
+  },
+  {
     name: "Unbounce",
     description: "AI-powered landing page builder and conversion optimization platform that helps marketers build, test, and optimize landing pages without code",
     category: "Marketing & Landing Pages",
