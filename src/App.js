@@ -5083,26 +5083,6 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
                 Channel
               </a>
             </li>
-            <li>
-              <Link
-                to="/my-ai"
-                style={{
-                  color: "#b5ffdb",
-                  textDecoration: "none",
-                  fontSize: "0.95rem",
-                  transition: "color 0.2s",
-                  display: "inline-block"
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = "#36ff95";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = "#b5ffdb";
-                }}
-              >
-                My AI
-              </Link>
-            </li>
             {showPWAInstallButton && onPWAInstallClick && !isIOSMobile && (
               <li>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -5162,7 +5142,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
             lineHeight: "1.6",
             margin: 0
           }}>
-            BetterAiBots.com is a free AI app directory helping you discover the best tools, bots, and workflows. Explore, compare, and share powerful AI applications to boost productivity and simplify your life.
+            Paying for AI tools you forgot you had? BetterAiBots.com is your free command center for discovering powerful AI apps, comparing what works, and tracking every subscription so nothing slips through the cracks.
           </p>
         </div>
       </div>
@@ -5233,7 +5213,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
             POWERED BY{" "}
           </span>
           <a
-            href="https://Dubby.fun"
+            href="https://www.skowers.com"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -5241,7 +5221,8 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-              fontWeight: 700,
+              fontWeight: 800,
+              fontStyle: "italic",
               textDecoration: "none",
               fontFamily: "Inter, Arial, sans-serif",
               display: "inline",
@@ -5249,7 +5230,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
               paddingLeft: "3px"
             }}
           >
-            DubbyDevs
+            SKOWERS
           </a>
         </div>
       </div>

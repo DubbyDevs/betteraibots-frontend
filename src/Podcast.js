@@ -64,7 +64,6 @@ function Podcast() {
     { name: 'Gamma', url: 'https://try.gamma.app/BAIB' }
   ];
   const linksByVideoId = {
-    'jOMD55PrX-Y': aiToolsLinks,
     'PbanVBegAlk': aiToolsLinks,
     'ytCyZ3LeXJ4': emailDeliverabilityLinks,
     'cz1UN93IBzU': capsuleCrmLinks,
@@ -80,9 +79,7 @@ function Podcast() {
     'bou2k-TXtvs', // AI Chip WARS
     'O9xN3anQKbM', // AI Companions
     'PbanVBegAlk', // 10 AI Tools
-    'ytCyZ3LeXJ4', // How to Fix Email Deliverability
-    'jOMD55PrX-Y', // The AI Job Boom
-    'gxiFa0KiXrA'  // The Death of the Resume
+    'ytCyZ3LeXJ4' // How to Fix Email Deliverability
   ]);
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -160,22 +157,10 @@ function Podcast() {
       thumbnail: 'https://img.youtube.com/vi/s94JIklOT4s/maxresdefault.jpg'
     },
     {
-      id: 'gxiFa0KiXrA',
-      title: 'The Death of the Resume',
-      description: 'AI-driven hiring is rewriting the rules. See why resumes are getting skipped and what the new screening game really looks like.',
-      thumbnail: '/aihiring.jpg'
-    },
-    {
       id: 'hGeW2slgRcY',
       title: 'Museit.art - AI Art for Beginners',
       description: 'A beginner-friendly walkthrough on turning prompts into polished AI artwork with Museit.art.',
       thumbnail: 'https://img.youtube.com/vi/hGeW2slgRcY/maxresdefault.jpg'
-    },
-    {
-      id: 'jOMD55PrX-Y',
-      title: "The AI Job Boom Nobody's Shhh!",
-      description: 'A $200B AI hiring wave is here. Learn which roles are exploding and how to land one fast.',
-      thumbnail: 'https://img.youtube.com/vi/jOMD55PrX-Y/maxresdefault.jpg'
     },
     {
       id: 'cz1UN93IBzU',
@@ -225,12 +210,6 @@ function Podcast() {
       description: 'The AI Home Office Gold Rush is happening RIGHT NOW. While most people are still wondering if AI will replace their jobs, smart entrepreneurs are already using it to multiply their output by 10x, sometimes 100x.',
       thumbnail: 'https://img.youtube.com/vi/tvU6VpFxl0c/maxresdefault.jpg'
     },
-    {
-      id: 'bou2k-TXtvs',
-      title: 'AI Chip WARS! The battle for control in tech',
-      description: 'The AI Chip Wars Heat Up: NVIDIA\'s New Challenger from an Unexpected Source.\n\nLink: https://betteraibots.com/news/ai-chip-wars-heat-up-nvidia-challenger-unexpected-source',
-      thumbnail: 'https://img.youtube.com/vi/bou2k-TXtvs/maxresdefault.jpg'
-    },
   ], []);
 
   // Bottom video removed - no longer needed
@@ -238,14 +217,11 @@ function Podcast() {
   // Helper function to generate slug from video title
   const getVideoSlug = (video) => {
     const slugMap = {
-      'gxiFa0KiXrA': 'the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv',
-      'jOMD55PrX-Y': 'ai-job-boom-how-to-get-hired-in-the-ai-revolution',
       'O9xN3anQKbM': 'ai-companions-why-20-million-people-are-choosing-digital-love',
       'PbanVBegAlk': '10-ai-tools-to-give-you-leverage-to-run-everything-alone',
       'ytCyZ3LeXJ4': 'how-to-fix-email-deliverability',
       'Kv-JFSjQsRs': 'why-small-businesses-are-beating-enterprise',
-      'tvU6VpFxl0c': 'the-ai-home-office-gold-rush-10-income-streams-for-you',
-      'bou2k-TXtvs': 'ai-chip-wars-the-battle-for-control-in-tech'
+      'tvU6VpFxl0c': 'the-ai-home-office-gold-rush-10-income-streams-for-you'
     };
     return slugMap[video.id] || null;
   };

@@ -5,7 +5,11 @@ import { Modal, Button } from 'react-bootstrap';
 
 const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
   // Combine free apps, trial apps, and paid apps for tracking, then sort alphabetically
-  const allApps = [...freeApps, ...trialApps, ...paidApps].sort((a, b) => {
+  const [customApps, setCustomApps] = useState(() => {
+    const saved = localStorage.getItem('baib_custom_apps');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const allApps = [...freeApps, ...trialApps, ...paidApps, ...customApps].sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
   const [progress, setProgress] = useState(() => {
@@ -15,12 +19,30 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
 
   const [filter, setFilter] = useState('all'); // all, not_started, started, currently_using, hidden
   const [showHelpModal, setShowHelpModal] = useState(false);
+  const [showCustomModal, setShowCustomModal] = useState(false);
+  const [customMode, setCustomMode] = useState('add'); // add | edit
+  const [editingName, setEditingName] = useState('');
+  const [customError, setCustomError] = useState('');
+  const [customForm, setCustomForm] = useState({
+    name: '',
+    category: 'Custom',
+    link: '',
+    status: 'started',
+    startDate: '',
+    cancelDate: '',
+    endDate: '',
+    monthlyCost: ''
+  });
   const hoverTimeoutRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     localStorage.setItem('baib_progress', JSON.stringify(progress));
   }, [progress]);
+
+  useEffect(() => {
+    localStorage.setItem('baib_custom_apps', JSON.stringify(customApps));
+  }, [customApps]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -77,6 +99,153 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         monthlyCost: cost ? parseFloat(cost) || 0 : 0
       }
     }));
+  };
+
+  const resetCustomForm = () => {
+    setCustomForm({
+      name: '',
+      category: 'Custom',
+      link: '',
+      status: 'started',
+      startDate: '',
+      cancelDate: '',
+      endDate: '',
+      monthlyCost: ''
+    });
+    setCustomError('');
+    setCustomMode('add');
+    setEditingName('');
+  };
+
+  const addCustomApp = () => {
+    const trimmedName = customForm.name.trim();
+    if (!trimmedName) {
+      setCustomError('Please enter an app name.');
+      return;
+    }
+
+    const nameExists = allApps.some(app => app.name.toLowerCase() === trimmedName.toLowerCase());
+    if (nameExists) {
+      setCustomError('That app already exists. Try a different name.');
+      return;
+    }
+
+    const newApp = {
+      name: trimmedName,
+      category: customForm.category || 'Custom',
+      link: customForm.link.trim(),
+      image: null,
+      readMoreLink: null,
+      isCustom: true
+    };
+
+    setCustomApps(prev => [...prev, newApp]);
+
+    const status = customForm.status || 'started';
+    const progressData = { status };
+    if (status === 'started') {
+      progressData.startDate = customForm.startDate || '';
+      progressData.cancelDate = customForm.cancelDate || '';
+      progressData.endDate = customForm.endDate || '';
+    }
+    if (status === 'completed') {
+      progressData.monthlyCost = customForm.monthlyCost ? parseFloat(customForm.monthlyCost) || 0 : 0;
+    }
+    setProgress(prev => ({
+      ...prev,
+      [trimmedName]: {
+        ...(prev[trimmedName] || {}),
+        ...progressData
+      }
+    }));
+
+    setShowCustomModal(false);
+    resetCustomForm();
+  };
+
+  const startEditCustomApp = (app) => {
+    const appProgress = progress[app.name] || {};
+    setCustomForm({
+      name: app.name || '',
+      category: app.category || 'Custom',
+      link: app.link || '',
+      status: appProgress.status || 'started',
+      startDate: appProgress.startDate || '',
+      cancelDate: appProgress.cancelDate || '',
+      endDate: appProgress.endDate || '',
+      monthlyCost: appProgress.monthlyCost !== undefined ? String(appProgress.monthlyCost) : ''
+    });
+    setCustomMode('edit');
+    setEditingName(app.name);
+    setCustomError('');
+    setShowCustomModal(true);
+  };
+
+  const saveCustomAppEdits = () => {
+    const trimmedName = customForm.name.trim();
+    if (!trimmedName) {
+      setCustomError('Please enter an app name.');
+      return;
+    }
+
+    const nameExists = allApps.some(app => app.name.toLowerCase() === trimmedName.toLowerCase() && app.name !== editingName);
+    if (nameExists) {
+      setCustomError('That app already exists. Try a different name.');
+      return;
+    }
+
+    setCustomApps(prev => prev.map(app => {
+      if (app.name !== editingName) return app;
+      return {
+        ...app,
+        name: trimmedName,
+        category: customForm.category || 'Custom',
+        link: customForm.link.trim()
+      };
+    }));
+
+    const status = customForm.status || 'started';
+    const progressData = { status };
+    if (status === 'started') {
+      progressData.startDate = customForm.startDate || '';
+      progressData.cancelDate = customForm.cancelDate || '';
+      progressData.endDate = customForm.endDate || '';
+    } else {
+      progressData.startDate = '';
+      progressData.cancelDate = '';
+      progressData.endDate = '';
+    }
+    if (status === 'completed') {
+      progressData.monthlyCost = customForm.monthlyCost ? parseFloat(customForm.monthlyCost) || 0 : 0;
+    } else {
+      progressData.monthlyCost = 0;
+    }
+
+    setProgress(prev => {
+      const next = { ...prev };
+      if (editingName && editingName !== trimmedName) {
+        delete next[editingName];
+      }
+      next[trimmedName] = {
+        ...(next[trimmedName] || {}),
+        ...progressData
+      };
+      return next;
+    });
+
+    setShowCustomModal(false);
+    resetCustomForm();
+  };
+
+  const removeCustomApp = (appName) => {
+    const shouldRemove = window.confirm(`Remove "${appName}" from your dashboard? This will delete its saved data.`);
+    if (!shouldRemove) return;
+    setCustomApps(prev => prev.filter(app => app.name !== appName));
+    setProgress(prev => {
+      const next = { ...prev };
+      delete next[appName];
+      return next;
+    });
   };
 
   // Calculate total monthly cost for all current users (completed status)
@@ -302,8 +471,45 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         padding: '24px',
         marginBottom: '40px'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
           <h2 style={{ color: '#36ff95', fontSize: '1.5rem', margin: 0, fontWeight: 600 }}>AI Usage Dashboard</h2>
+          <button
+            onClick={() => {
+              resetCustomForm();
+              setCustomMode('add');
+              setShowCustomModal(true);
+            }}
+            style={{
+              width: '30px',
+              height: '30px',
+              borderRadius: '8px',
+              border: '1px solid #36ff95',
+              background: 'rgba(54, 255, 149, 0.1)',
+              color: '#36ff95',
+              fontSize: '20px',
+              fontWeight: 700,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.2s ease',
+              padding: 0
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'rgba(54, 255, 149, 0.2)';
+              e.target.style.transform = 'scale(1.05)';
+              e.target.style.boxShadow = '0 0 8px rgba(54, 255, 149, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+              e.target.style.transform = 'scale(1)';
+              e.target.style.boxShadow = 'none';
+            }}
+            title="Add custom app"
+            aria-label="Add custom app"
+          >
+            +
+          </button>
           <button
             onClick={() => setShowHelpModal(true)}
             onMouseEnter={() => {
@@ -370,17 +576,34 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                   gap: '20px'
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '15px' }}>
-                    <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
                       {app.image && (
                         <img src={app.image} alt={app.name} style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'contain' }} />
                       )}
                       <div>
-                        <h3 style={{ margin: 0, fontSize: '1.25rem', color: '#ffffff' }}>{app.name}</h3>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                          <h3 style={{ margin: 0, fontSize: '1.25rem', color: '#ffffff' }}>{app.name}</h3>
+                          {app.isCustom && (
+                            <span style={{
+                              background: 'rgba(54, 255, 149, 0.15)',
+                              border: '1px solid rgba(54, 255, 149, 0.4)',
+                              color: '#36ff95',
+                              fontSize: '0.7rem',
+                              fontWeight: 700,
+                              padding: '2px 8px',
+                              borderRadius: '999px',
+                              textTransform: 'uppercase',
+                              letterSpacing: '0.04em'
+                            }}>
+                              Custom
+                            </span>
+                          )}
+                        </div>
                         <p style={{ margin: '4px 0 0 0', fontSize: '0.9rem', color: '#9ca3af' }}>{app.category}</p>
                       </div>
                     </div>
                     
-                    <div style={{ display: 'flex', gap: '10px' }}>
+                    <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                       <select 
                         value={appProgress.status || 'not_started'}
                         onChange={(e) => updateAppStatus(app.name, e.target.value)}
@@ -396,40 +619,78 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                         <option value="not_started">Not Started</option>
                         <option value="started">In Trial</option>
                         <option value="completed">Current User</option>
-                        <option value="no_longer_want">Not Interested</option>
+                        {!app.isCustom && <option value="no_longer_want">Not Interested</option>}
                       </select>
-                      <a 
-                        href={app.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        style={{
-                          background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
-                          color: '#101c26',
-                          padding: '10px 20px',
-                          borderRadius: '8px',
-                          textDecoration: 'none',
-                          fontWeight: 600,
-                          fontSize: '0.9rem',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          transition: 'all 0.3s ease',
-                          boxShadow: '0 2px 8px rgba(54, 255, 149, 0.2)',
-                          minHeight: '38px'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.target.style.transform = 'translateY(-2px)';
-                          e.target.style.boxShadow = '0 4px 16px rgba(54, 255, 149, 0.4)';
-                          e.target.style.background = 'linear-gradient(135deg, #4affb3 0%, #1bd4f0 100%)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.target.style.transform = 'translateY(0)';
-                          e.target.style.boxShadow = '0 2px 8px rgba(54, 255, 149, 0.2)';
-                          e.target.style.background = 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)';
-                        }}
-                      >
-                        Visit Site
-                      </a>
+                      {app.isCustom && (
+                        <>
+                          <button
+                            onClick={() => startEditCustomApp(app)}
+                            style={{
+                              background: 'rgba(54, 255, 149, 0.1)',
+                              color: '#36ff95',
+                              border: '1px solid rgba(54, 255, 149, 0.4)',
+                              padding: '10px 16px',
+                              borderRadius: '8px',
+                              fontWeight: 600,
+                              fontSize: '0.85rem',
+                              cursor: 'pointer',
+                              minHeight: '38px'
+                            }}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => removeCustomApp(app.name)}
+                            style={{
+                              background: 'rgba(255, 107, 107, 0.1)',
+                              color: '#ff6b6b',
+                              border: '1px solid rgba(255, 107, 107, 0.4)',
+                              padding: '10px 16px',
+                              borderRadius: '8px',
+                              fontWeight: 600,
+                              fontSize: '0.85rem',
+                              cursor: 'pointer',
+                              minHeight: '38px'
+                            }}
+                          >
+                            Remove
+                          </button>
+                        </>
+                      )}
+                      {app.link && (
+                        <a 
+                          href={app.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          style={{
+                            background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+                            color: '#101c26',
+                            padding: '10px 20px',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            fontWeight: 600,
+                            fontSize: '0.9rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transition: 'all 0.3s ease',
+                            boxShadow: '0 2px 8px rgba(54, 255, 149, 0.2)',
+                            minHeight: '38px'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.transform = 'translateY(-2px)';
+                            e.target.style.boxShadow = '0 4px 16px rgba(54, 255, 149, 0.4)';
+                            e.target.style.background = 'linear-gradient(135deg, #4affb3 0%, #1bd4f0 100%)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.transform = 'translateY(0)';
+                            e.target.style.boxShadow = '0 2px 8px rgba(54, 255, 149, 0.2)';
+                            e.target.style.background = 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)';
+                          }}
+                        >
+                          Visit Site
+                        </a>
+                      )}
                       {app.readMoreLink && (
                         <Link 
                           to={app.readMoreLink}
@@ -732,9 +993,220 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      {/* Add Custom App Modal */}
+      <Modal
+        show={showCustomModal}
+        onHide={() => {
+          setShowCustomModal(false);
+          resetCustomForm();
+        }}
+        centered
+        size="lg"
+      >
+        <Modal.Header closeButton style={{ background: '#18232f', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
+          <Modal.Title style={{ color: '#36ff95', fontWeight: 600 }}>
+            {customMode === 'edit' ? 'Edit Custom App' : 'Add Custom App'}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ background: '#18232f', color: '#d1efe7', padding: '24px' }}>
+          <div style={{ display: 'grid', gap: '16px' }}>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.9rem', color: '#b5ffdb', marginBottom: '8px' }}>App Name *</label>
+              <input
+                type="text"
+                value={customForm.name}
+                onChange={(e) => setCustomForm(prev => ({ ...prev, name: e.target.value }))}
+                placeholder="e.g., Notion AI"
+                style={{
+                  width: '100%',
+                  background: '#1c2835',
+                  border: '1px solid rgba(54, 255, 149, 0.2)',
+                  borderRadius: '8px',
+                  color: '#ffffff',
+                  padding: '10px',
+                  fontSize: '0.95rem'
+                }}
+              />
+            </div>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.9rem', color: '#b5ffdb', marginBottom: '8px' }}>Category</label>
+              <input
+                type="text"
+                value={customForm.category}
+                onChange={(e) => setCustomForm(prev => ({ ...prev, category: e.target.value }))}
+                placeholder="Custom"
+                style={{
+                  width: '100%',
+                  background: '#1c2835',
+                  border: '1px solid rgba(54, 255, 149, 0.2)',
+                  borderRadius: '8px',
+                  color: '#ffffff',
+                  padding: '10px',
+                  fontSize: '0.95rem'
+                }}
+              />
+            </div>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.9rem', color: '#b5ffdb', marginBottom: '8px' }}>Website (optional)</label>
+              <input
+                type="url"
+                value={customForm.link}
+                onChange={(e) => setCustomForm(prev => ({ ...prev, link: e.target.value }))}
+                placeholder="https://"
+                style={{
+                  width: '100%',
+                  background: '#1c2835',
+                  border: '1px solid rgba(54, 255, 149, 0.2)',
+                  borderRadius: '8px',
+                  color: '#ffffff',
+                  padding: '10px',
+                  fontSize: '0.95rem'
+                }}
+              />
+            </div>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.9rem', color: '#b5ffdb', marginBottom: '8px' }}>Status</label>
+              <select
+                value={customForm.status}
+                onChange={(e) => setCustomForm(prev => ({ ...prev, status: e.target.value }))}
+                style={{
+                  width: '100%',
+                  background: '#18232f',
+                  color: '#36ff95',
+                  border: '1px solid #36ff95',
+                  borderRadius: '8px',
+                  padding: '10px',
+                  cursor: 'pointer'
+                }}
+              >
+                <option value="not_started">Not Started</option>
+                <option value="started">In Trial</option>
+                <option value="completed">Current User</option>
+              </select>
+            </div>
+            {customForm.status === 'started' && (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Trial Started</label>
+                  <input
+                    type="date"
+                    value={customForm.startDate}
+                    onChange={(e) => setCustomForm(prev => ({ ...prev, startDate: e.target.value }))}
+                    style={{
+                      width: '100%',
+                      background: '#1c2835',
+                      border: '1px solid rgba(54, 255, 149, 0.2)',
+                      borderRadius: '8px',
+                      color: '#ffffff',
+                      padding: '8px',
+                      fontSize: '0.9rem'
+                    }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Cancel Reminder</label>
+                  <input
+                    type="date"
+                    value={customForm.cancelDate}
+                    onChange={(e) => setCustomForm(prev => ({ ...prev, cancelDate: e.target.value }))}
+                    style={{
+                      width: '100%',
+                      background: '#1c2835',
+                      border: '1px solid rgba(54, 255, 149, 0.2)',
+                      borderRadius: '8px',
+                      color: '#ffffff',
+                      padding: '8px',
+                      fontSize: '0.9rem'
+                    }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Trial Ends</label>
+                  <input
+                    type="date"
+                    value={customForm.endDate}
+                    onChange={(e) => setCustomForm(prev => ({ ...prev, endDate: e.target.value }))}
+                    style={{
+                      width: '100%',
+                      background: '#1c2835',
+                      border: '1px solid rgba(54, 255, 149, 0.2)',
+                      borderRadius: '8px',
+                      color: '#ffffff',
+                      padding: '8px',
+                      fontSize: '0.9rem'
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+            {customForm.status === 'completed' && (
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Monthly Cost ($)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  placeholder="0.00"
+                  value={customForm.monthlyCost}
+                  onChange={(e) => setCustomForm(prev => ({ ...prev, monthlyCost: e.target.value }))}
+                  style={{
+                    width: '200px',
+                    background: '#1c2835',
+                    border: '1px solid rgba(54, 255, 149, 0.2)',
+                    borderRadius: '8px',
+                    color: '#ffffff',
+                    padding: '8px',
+                    fontSize: '0.9rem',
+                    MozAppearance: 'textfield'
+                  }}
+                  onWheel={(e) => e.target.blur()}
+                  onKeyDown={(e) => {
+                    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                      e.preventDefault();
+                    }
+                  }}
+                />
+              </div>
+            )}
+            {customError && (
+              <div style={{ color: '#ff6b6b', fontSize: '0.9rem' }}>
+                {customError}
+              </div>
+            )}
+          </div>
+        </Modal.Body>
+        <Modal.Footer style={{ background: '#18232f', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              setShowCustomModal(false);
+              resetCustomForm();
+            }}
+            style={{
+              background: 'rgba(54, 255, 149, 0.1)',
+              border: '1px solid rgba(54, 255, 149, 0.3)',
+              color: '#36ff95'
+            }}
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={customMode === 'edit' ? saveCustomAppEdits : addCustomApp}
+            style={{
+              background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+              border: 'none',
+              color: '#101c26',
+              fontWeight: 600,
+              padding: '8px 20px'
+            }}
+          >
+            {customMode === 'edit' ? 'Save Changes' : 'Add App'}
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
 
 export default MyAI;
-

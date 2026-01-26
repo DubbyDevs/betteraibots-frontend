@@ -122,6 +122,11 @@ const Breadcrumbs = () => {
       if (lowerSegment === 'apps') {
         friendlyName = 'Apps';
       }
+
+      // Handle my-ai
+      if (lowerSegment === 'my-ai') {
+        friendlyName = 'My-AI';
+      }
       
       // Handle learn
       if (pathSegments[0].toLowerCase() === 'learn' && index === 0) {
