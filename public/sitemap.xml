@@ -206,18 +206,7 @@
     </image:image>
   </url>
   
-  <url>
-    <loc>https://betteraibots.com/watch/ai-chip-wars-the-battle-for-control-in-tech</loc>
-    <lastmod>2025-12-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/aichipwars nvidia amd.jpg</image:loc>
-      <image:title>AI Chip WARS! The battle for control in tech</image:title>
-      <image:caption>The AI Chip Wars Heat Up: NVIDIA's New Challenger from an Unexpected Source</image:caption>
-    </image:image>
-  </url>
-  
+    
   <!-- Legal Page -->
   <url>
     <loc>https://betteraibots.com/legal</loc>

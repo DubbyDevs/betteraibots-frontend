@@ -5,7 +5,6 @@ import baiblive6 from './assets/liveslider/baiblive6.jpg';
 import betteraibotsliveEp155Copy55 from './assets/betteraibotslive ep155 copy55.jpg';
 import warmyio2 from './assets/warmyio2.jpg';
 import smallBusinessTools from './assets/BetterAiBots Small Business Tools.jpg';
-import aichipwars from './assets/aichipwars nvidia amd.jpg';
 
 // Affiliate links for videos
 const aiToolsLinks = [
@@ -30,7 +29,7 @@ const videoData = {
   'ai-companions-why-20-million-people-are-choosing-digital-love': {
     id: 'O9xN3anQKbM',
     title: 'AI Companions - Why 20 Million People Are Choosing Digital Love',
-    description: 'In this episode, we dive into the uncomfortable reality of AI companions: why millions are choosing digital intimacy over human connection, what this reveals about our loneliness epidemic, and the psychological truths we\'re being forced to confront.',
+    description: `In this episode, we dive into the uncomfortable reality of AI companions: why millions are choosing digital intimacy over human connection, what this reveals about our loneliness epidemic, and the psychological truths we're being forced to confront.`,
     thumbnail: baiblive6,
     slug: 'ai-companions-why-20-million-people-are-choosing-digital-love',
     links: null
@@ -38,7 +37,7 @@ const videoData = {
   '10-ai-tools-to-give-you-leverage-to-run-everything-alone': {
     id: 'PbanVBegAlk',
     title: '10 AI Tools to give YOU leverage to run EVERYTHING ALONE!',
-    description: 'In this episode, we break down 10 game-changing AI tools that transform how solo entrepreneurs operate. From customer service to sales, operations to marketing—learn how to build your own AI productivity stack and become a true one-person powerhouse.',
+    description: `In this episode, we break down 10 game-changing AI tools that transform how solo entrepreneurs operate. From customer service to sales, operations to marketing - learn how to build your own AI productivity stack and become a true one-person powerhouse.`,
     thumbnail: betteraibotsliveEp155Copy55,
     slug: '10-ai-tools-to-give-you-leverage-to-run-everything-alone',
     links: aiToolsLinks
@@ -46,7 +45,7 @@ const videoData = {
   'how-to-fix-email-deliverability': {
     id: 'ytCyZ3LeXJ4',
     title: 'How to Fix Email Deliverability',
-    description: 'In this episode, we dive deep into the invisible infrastructure of email trust and explore Warmy.io—an AI-powered tool that\'s fighting what they call "the spam folder rebellion." Meet Adeline, the AI assistant that systematically builds your domain\'s reputation by answering the five critical questions every email algorithm asks before letting you into the inbox.',
+    description: `In this episode, we dive deep into the invisible infrastructure of email trust and explore Warmy.io—an AI-powered tool that's fighting what they call "the spam folder rebellion." Meet Adeline, the AI assistant that systematically builds your domain's reputation by answering the five critical questions every email algorithm asks before letting you into the inbox.`,
     thumbnail: warmyio2,
     slug: 'how-to-fix-email-deliverability',
     links: emailDeliverabilityLinks
@@ -54,7 +53,11 @@ const videoData = {
   'why-small-businesses-are-beating-enterprise': {
     id: 'Kv-JFSjQsRs',
     title: 'Why Small Businesses Are Beating Enterprise',
-    description: 'For 30 years, big corporations held all the cards — massive budgets, huge IT teams, custom tech fortresses. Small businesses were always playing catch-up.\n\nBut with generative AI, that pattern is being blown apart.\n\nIn this episode, we explore why small businesses are implementing AI at speeds their massive enterprise rivals simply can\'t match. We break down the structural reasons — speed, flexibility, clean data, and focus — and reveal why the biggest risk today isn\'t picking the wrong tool. It\'s waiting.',
+    description: `For 30 years, big corporations held all the cards — massive budgets, huge IT teams, custom tech fortresses. Small businesses were always playing catch-up.
+
+But with generative AI, that pattern is being blown apart.
+
+In this episode, we explore why small businesses are implementing AI at speeds their massive enterprise rivals simply can't match. We break down the structural reasons — speed, flexibility, clean data, and focus — and reveal why the biggest risk today isn't picking the wrong tool. It's waiting.`,
     thumbnail: smallBusinessTools,
     slug: 'why-small-businesses-are-beating-enterprise',
     links: null
@@ -62,17 +65,9 @@ const videoData = {
   'the-ai-home-office-gold-rush-10-income-streams-for-you': {
     id: 'tvU6VpFxl0c',
     title: 'The AI Home Office GOLD RUSH: 10 Income Streams For You!',
-    description: 'The AI Home Office Gold Rush is happening RIGHT NOW. While most people are still wondering if AI will replace their jobs, smart entrepreneurs are already using it to multiply their output by 10x—sometimes 100x.',
+    description: `The AI Home Office Gold Rush is happening RIGHT NOW. While most people are still wondering if AI will replace their jobs, smart entrepreneurs are already using it to multiply their output by 10x—sometimes 100x.`,
     thumbnail: '/airemotejobs.jpg',
     slug: 'the-ai-home-office-gold-rush-10-income-streams-for-you',
-    links: null
-  },
-  'ai-chip-wars-the-battle-for-control-in-tech': {
-    id: 'bou2k-TXtvs',
-    title: 'AI Chip WARS! The battle for control in tech',
-    description: 'The AI Chip Wars Heat Up: NVIDIA\'s New Challenger from an Unexpected Source\n\n→ https://betteraibots.com/news/ai-chip-wars-heat-up-nvidia-challenger-unexpected-source',
-    thumbnail: aichipwars,
-    slug: 'ai-chip-wars-the-battle-for-control-in-tech',
     links: null
   }
 };
@@ -85,7 +80,7 @@ function VideoWatchPage() {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-    
+
     if (slug && videoData[slug]) {
       setVideo(videoData[slug]);
     } else {
@@ -98,10 +93,10 @@ function VideoWatchPage() {
     return null;
   }
 
-  const thumbnailUrl = video.thumbnail 
-    ? (typeof video.thumbnail === 'string' 
-        ? (video.thumbnail.startsWith('http') 
-            ? video.thumbnail 
+  const thumbnailUrl = video.thumbnail
+    ? (typeof video.thumbnail === 'string'
+        ? (video.thumbnail.startsWith('http')
+            ? video.thumbnail
             : `https://betteraibots.com${video.thumbnail}`)
         : `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`)
     : `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
@@ -114,7 +109,7 @@ function VideoWatchPage() {
         <meta name="keywords" content={`${video.title}, AI podcast, BetterAiBots, AI tools, artificial intelligence, video podcast`} />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href={`https://betteraibots.com/watch/${video.slug}`} />
-        
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="video.other" />
         <meta property="og:url" content={`https://betteraibots.com/watch/${video.slug}`} />
@@ -128,7 +123,7 @@ function VideoWatchPage() {
         <meta property="og:video:width" content="1280" />
         <meta property="og:video:height" content="720" />
         <meta property="og:site_name" content="BetterAiBots" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="player" />
         <meta name="twitter:url" content={`https://betteraibots.com/watch/${video.slug}`} />
@@ -138,7 +133,7 @@ function VideoWatchPage() {
         <meta name="twitter:player" content={`https://www.youtube.com/embed/${video.id}`} />
         <meta name="twitter:player:width" content="1280" />
         <meta name="twitter:player:height" content="720" />
-        
+
         {/* VideoObject Structured Data for Watch Page */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -161,7 +156,7 @@ function VideoWatchPage() {
             }
           })}
         </script>
-        
+
         {/* Breadcrumb Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -191,7 +186,7 @@ function VideoWatchPage() {
         </script>
       </Helmet>
 
-      <div style={{
+<div style={{
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '40px 20px',

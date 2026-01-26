@@ -4072,6 +4072,9 @@ function Legal() {
         <b>External Links & Third-Party Sites:</b><br />
         This Site contains links to third-party content and external sites. <b>We have no control over, and assume no responsibility for, the content, policies, or practices of any third-party site or service.</b> Visiting any external link is at your own risk.
         <br /><br />
+        <b>My-AI Dashboard (Local Tracking) Disclaimer:</b><br />
+        The My-AI Dashboard is a self-managed tracking tool provided "as is" for convenience. <b>All data entered (including app names, costs, trial dates, reminders, and notes) is stored locally in your browser and is not transmitted to or stored by BetterAiBots.com.</b> We do not monitor, verify, or guarantee the accuracy of any data you enter. You are solely responsible for tracking, canceling, and paying for any subscriptions, trials, or services. <b>We make no promises about reminders, dates, costs, or outcomes, and we are not liable for missed cancellations, charges, fees, or any financial or personal decisions you make.</b>
+        <br /><br />
         <b>Indemnification:</b><br />
         By using BetterAiBots.com, you agree to indemnify and hold harmless its owners, operators, affiliates, and contributors from any and all claims, liabilities, damages, or costs (including attorney's fees) arising from your use of the Site, submissions, or interactions with any third-party bots or links.
         <br /><br />
@@ -4095,7 +4098,9 @@ function Legal() {
         <br /><br />
         <b>5. Third-Party Sites:</b> Using any bot or external link is subject to the privacy policies of those providers. We are not responsible for their data practices.
         <br /><br />
-        <b>6. Privacy Concerns:</b> Use the contact form for privacy-related questions or concerns. Do not email us.
+        <b>6. My-AI Dashboard (Local Storage):</b> Any My-AI Dashboard data you enter (including app names, costs, trial dates, reminders, and notes) is stored locally in your browser using local storage. We do not receive, store, or back up this data. If you clear your browser data, change devices, or uninstall the site, this data may be lost.
+        <br /><br />
+        <b>7. Privacy Concerns:</b> Use the contact form for privacy-related questions or concerns. Do not email us.
       </div>
       <h2 className="hero-headline" style={{ fontSize: "2.1rem" }}>Terms of Use</h2>
       <div style={{
@@ -4106,6 +4111,7 @@ function Legal() {
         <ul>
           <li>Not submit, use, or access bots, links, or information for any unlawful, harmful, or fraudulent purpose</li>
           <li>Use any bots, links, or content solely at your own risk</li>
+          <li>Accept that My-AI Dashboard tracking is local-only and you are solely responsible for your subscription decisions, payments, and cancellations</li>
           <li>Independently verify all information and consult qualified professionals as needed</li>
           <li>Respect all copyright, trademark, and intellectual property rights</li>
           <li>Promptly report abuse, infringement, or illegal content through the contact form</li>
