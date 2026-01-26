@@ -25,6 +25,19 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- A Beginner's Guide to Visual Collaboration: Try These Tools Together -->
+  <url>
+    <loc>https://betteraibots.com/news/beginners-guide-visual-collaboration-miro-prezi</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/aimirostack.jpg</image:loc>
+      <image:title>A Beginner's Guide to Visual Collaboration: Try These Tools Together</image:title>
+      <image:caption>Learn how Miro and Prezi AI work together to cut meetings and turn team input into clear presentations.</image:caption>
+    </image:image>
+  </url>
+  
   <!-- The Complete Guide to Ranking #1 on Google in just 48 Hours?? -->
   <url>
     <loc>https://betteraibots.com/news/perplexity-parasite-seo-ranking-guide-48-hours</loc>
