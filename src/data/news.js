@@ -2768,7 +2768,7 @@ Next steps</pre>
     slug: "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025",
     title: "AI Productivity Stack for Solo Founders: 10 Tools to Run Your Business Alone",
     excerpt: "Running a business solo doesn't mean doing everything manually. Discover the essential AI tools that let solo founders compete with teams—from customer service automation to sales outreach, workflow management to content creation. Build your one-person powerhouse with these 10 game-changing tools.",
-    image: "/solofoundersai.jpg",
+    image: "/aitools2.jpg",
     date: "11-7-2025",
     author: "BetterAiBots",
     category: "AI & Productivity",

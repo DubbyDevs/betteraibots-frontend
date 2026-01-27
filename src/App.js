@@ -1387,26 +1387,26 @@ function Apps() {
   return (
     <>
       <Helmet>
-        <title>AI Apps Directory 2025 – Free, Trial & Paid AI Tools | BetterAiBots.com</title>
+        <title>Premium AI Tools Directory 2025 – Free, Trial & Paid AI Tools | BetterAiBots.com</title>
         <meta name="description" content="Discover the best AI apps and tools in 2025: free AI applications, free trials, and premium paid AI tools for productivity, creativity, marketing, and business automation." />
         <meta name="keywords" content="AI apps, free AI tools, AI software, ChatGPT, Claude, Google Gemini, AI trials, paid AI tools, artificial intelligence apps, AI productivity tools, AI marketing tools, AI video creation, AI workflow automation, n8n, AdCreative, Invideo, VEED, Viral Launch, AI chatbots, AI writing tools, AI image generation, AI business tools" />
         <meta name="author" content="BetterAiBots.com" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="AI Apps Directory 2025 – Free, Trial & Paid AI Tools" />
+        <meta property="og:title" content="Premium AI Tools Directory 2025 – Free, Trial & Paid AI Tools" />
         <meta property="og:description" content="Explore curated AI apps and tools: free applications, trial versions, and premium paid tools to enhance your workflow and boost productivity." />
         <meta property="og:url" content="https://betteraibots.com/apps" />
         <meta property="og:image" content="https://betteraibots.com/og-image.png?v=3" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="AI Apps Directory 2025 - Free, Trial & Paid AI Tools" />
+        <meta property="og:image:alt" content="Premium AI Tools Directory 2025 - Free, Trial & Paid AI Tools" />
         <meta property="og:site_name" content="BetterAiBots.com" />
         <meta property="og:locale" content="en_US" />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="AI Apps Directory 2025 – Free, Trial & Paid AI Tools" />
+        <meta property="twitter:title" content="Premium AI Tools Directory 2025 – Free, Trial & Paid AI Tools" />
         <meta property="twitter:description" content="Discover the best AI apps and tools in 2025: free applications, trial versions, and premium paid tools for productivity and business." />
         <meta property="twitter:image" content="https://betteraibots.com/og-image.png?v=3" />
-        <meta property="twitter:image:alt" content="AI Apps Directory 2025" />
+        <meta property="twitter:image:alt" content="Premium AI Tools Directory 2025" />
         <link rel="canonical" href="https://betteraibots.com/apps" />
         
         {/* Structured Data */}
@@ -1414,7 +1414,7 @@ function Apps() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "AI Apps Directory 2025",
+          "name": "Premium AI Tools Directory 2025",
           "description": "Comprehensive directory of AI applications including free tools, trial versions, and premium paid solutions for productivity, creativity, and business automation.",
           "url": "https://betteraibots.com/apps",
           "image": "https://betteraibots.com/og-image.png?v=3",
@@ -1452,9 +1452,9 @@ function Apps() {
       </Helmet>
       
       <div className="hero-section" style={isMobile ? { padding: '0 20px' } : {}}>
-        <h1 className="hero-headline">AI Apps Directory</h1>
+        <h1 className="hero-headline">Premium AI Tools Directory</h1>
         <p className="hero-subheadline custom-hero-desc">
-          Discover the best AI applications: free tools, trial versions, and premium paid solutions
+          Discover the best AI applications: free tools, trial versions, and premium paid solutions — plus track all your AI apps and costs in one place.
         </p>
       </div>
       
@@ -1489,7 +1489,7 @@ function Apps() {
               transition: 'all 0.3s ease'
             }}
           >
-            🆓 Free AI Apps ({freeApps.length})
+            🆓 Freemium ({freeApps.length})
           </button>
           <button
             onClick={() => setActiveSection('trial')}
@@ -2427,6 +2427,12 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     }
     return false;
   });
+  const [screenWidth, setScreenWidth] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth;
+    }
+    return 1200;
+  });
   const [isTwoColumnLayout, setIsTwoColumnLayout] = useState(() => {
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
@@ -2455,12 +2461,28 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   // Apps image slideshow state - horizontal scroll left animation
   const [appsScrollPosition, setAppsScrollPosition] = useState(0);
   const [appsIsTransitioning, setAppsIsTransitioning] = useState(true);
+
+  // Random App Spotlight (3 free-trial apps per page load)
+  const appSpotlightApps = useMemo(() => {
+    const shuffled = [...trialAppsData];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, 3);
+  }, []);
+
+  const isVerySmall = screenWidth < 360; // 320px devices
+  const is360px = screenWidth >= 360 && screenWidth < 390;
+  const is390px = screenWidth >= 390 && screenWidth < 430;
   
-  // Calculate unique premium tools count (apps that appear in either trialAppsData or PAID_APPS, but only count each once)
+  // Calculate unique premium tools count (trial + paid + freemium apps, count each once)
   const uniquePremiumToolsCount = useMemo(() => {
     const allAppNames = new Set();
     // Add all app names from trialAppsData
     trialAppsData.forEach(app => allAppNames.add(app.name));
+    // Add freemium apps from freeAppsData
+    freeAppsData.forEach(app => allAppNames.add(app.name));
     // Add all app names from PAID_APPS
     PAID_APPS.forEach(app => allAppNames.add(app.name));
     return allAppNames.size;
@@ -2530,6 +2552,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         setIsMobile(width <= 768);
         // 2-column layout is between 750px and 900px
         setIsTwoColumnLayout(width > 750 && width <= 900);
+        setScreenWidth(width);
       }
     };
     
@@ -3217,7 +3240,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       </div>
       
       {/* Apps Directory Preview Section */}
-      <div className="hero-section" style={isMobile ? { padding: '60px 20px' } : { padding: '60px 0' }}>
+      <div className="hero-section" style={isMobile ? { padding: '60px 20px 30px' } : { padding: '60px 0 30px' }}>
         <Link to="/apps" style={{ textDecoration: 'none', display: 'block' }}>
           <div style={{
             maxWidth: '1000px',
@@ -3249,7 +3272,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text'
             }}>
-              AI Apps Directory
+              Premium AI Tools Directory
             </h1>
             <h2 className="hero-subheadline custom-hero-desc" style={{
               marginBottom: "30px",
@@ -3258,7 +3281,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               marginRight: "auto",
               color: '#d1efe7'
             }}>
-              Discover the best AI applications: free tools, trial versions, and premium paid solutions
+              Discover the best AI applications: free tools, trial versions, and premium paid solutions — plus track all your AI apps and costs in one place.
             </h2>
             
             {/* Stats Grid */}
@@ -3373,6 +3396,215 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             </div>
           </div>
         </Link>
+      </div>
+
+      {/* App Spotlight (Random Free Trial Apps) */}
+      <div style={{
+        marginTop: isVerySmall ? "70px" : (is360px ? "80px" : (is390px ? "90px" : "100px")),
+        marginBottom: isVerySmall ? "30px" : (is360px ? "32px" : (is390px ? "35px" : "40px")),
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: isVerySmall ? "0 8px" : (is360px ? "0 10px" : (is390px ? "0 12px" : "0")),
+        boxSizing: "border-box"
+      }}>
+        <h2 style={{ 
+          textAlign: "center", 
+          color: "#36ff95", 
+          fontSize: isVerySmall ? "1.2rem" : (is360px ? "1.25rem" : (is390px ? "1.3rem" : "1.4rem")), 
+          fontWeight: 600, 
+          marginTop: "0",
+          marginBottom: isVerySmall ? "20px" : (is360px ? "22px" : (is390px ? "25px" : "30px")),
+          textShadow: "0 0 8px #36ff9544",
+          width: "100%"
+        }}>
+          App Spotlight
+        </h2>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(340px, 1fr))",
+          gap: isVerySmall ? "16px" : (is360px ? "18px" : (is390px ? "20px" : (isMobile ? "20px" : "24px"))),
+          maxWidth: "1400px",
+          margin: "0 auto",
+          padding: isVerySmall ? "0 8px" : (is360px ? "0 10px" : (is390px ? "0 12px" : (isMobile ? "0 16px" : "0 24px"))),
+          width: "100%",
+          boxSizing: "border-box"
+        }}>
+          {appSpotlightApps.map((app) => {
+            const imageSrc = typeof app.image === 'string'
+              ? (app.image.startsWith('http') || app.image.startsWith('/') ? app.image : `/${app.image}`)
+              : app.image;
+            const readMoreLink = app.readMoreLink || "/apps?section=trial";
+            const badgeItems = Array.isArray(app.features) ? app.features.slice(0, 3) : [];
+            return (
+              <div
+                key={app.name}
+                style={{
+                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                  border: "2px solid #36ff95",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  boxShadow: "0 0 20px #36ff9544",
+                  transition: "transform 0.2s ease-in-out",
+                  width: "100%",
+                  maxWidth: "100%",
+                  display: "flex",
+                  flexDirection: "column"
+                }}
+                onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
+              >
+                <div style={{
+                  flexShrink: 0,
+                  width: "100%",
+                  height: "220px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: "16px",
+                  boxSizing: "border-box"
+                }}>
+                  <img
+                    src={imageSrc}
+                    alt={`${app.name} logo`}
+                    style={{
+                      width: "200px",
+                      height: "200px",
+                      objectFit: "contain",
+                      borderRadius: "24px",
+                      boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)",
+                      display: "block"
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                </div>
+                <div style={{
+                  flex: 1,
+                  padding: isMobile ? "16px" : "24px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  minWidth: 0
+                }}>
+                  <div>
+                    <h3 style={{
+                      color: "#36ff95",
+                      fontSize: isMobile ? "1.1rem" : "1.3rem",
+                      fontWeight: 700,
+                      margin: "0 0 12px 0",
+                      lineHeight: 1.3
+                    }}>
+                      {app.name}
+                    </h3>
+                    <p style={{
+                      color: "#9ca3af",
+                      fontSize: isMobile ? "0.8rem" : "0.9rem",
+                      margin: "0 0 15px 0"
+                    }}>
+                      Featured • {app.category}
+                    </p>
+                    <p style={{
+                      color: "#e0e0e0",
+                      fontSize: isMobile ? "0.85rem" : "0.95rem",
+                      lineHeight: 1.5,
+                      margin: "0 0 15px 0"
+                    }}>
+                      {app.description}
+                    </p>
+                    {badgeItems.length > 0 && (
+                      <div style={{
+                        display: "flex",
+                        gap: "8px",
+                        flexWrap: "wrap",
+                        marginBottom: "20px"
+                      }}>
+                        {badgeItems.map((feature) => (
+                          <span
+                            key={feature}
+                            style={{
+                              background: "rgba(54, 255, 149, 0.2)",
+                              color: "#36ff95",
+                              padding: "4px 8px",
+                              borderRadius: "4px",
+                              fontSize: "0.75rem",
+                              fontWeight: 500
+                            }}
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                    alignItems: "flex-start"
+                  }}>
+                    <a
+                      href={app.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
+                        color: "#000",
+                        padding: "12px 24px",
+                        borderRadius: "8px",
+                        textDecoration: "none",
+                        fontWeight: 600,
+                        fontSize: "0.9rem",
+                        transition: "all 0.2s ease",
+                        boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)",
+                        width: "fit-content"
+                      }}
+                      onMouseOver={e => {
+                        e.target.style.transform = "translateY(-2px)";
+                        e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
+                      }}
+                      onMouseOut={e => {
+                        e.target.style.transform = "translateY(0)";
+                        e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
+                      }}
+                    >
+                      Try {app.name} Free
+                    </a>
+                    <Link
+                      to={readMoreLink}
+                      style={{
+                        background: "transparent",
+                        color: "#36ff95",
+                        padding: "12px 24px",
+                        borderRadius: "8px",
+                        textDecoration: "none",
+                        fontWeight: 600,
+                        fontSize: "0.9rem",
+                        border: "2px solid #36ff95",
+                        transition: "all 0.2s ease",
+                        width: "fit-content"
+                      }}
+                      onMouseOver={e => {
+                        e.target.style.background = "rgba(54, 255, 149, 0.1)";
+                        e.target.style.transform = "translateY(-2px)";
+                      }}
+                      onMouseOut={e => {
+                        e.target.style.background = "transparent";
+                        e.target.style.transform = "translateY(0)";
+                      }}
+                    >
+                      Read Full Article
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
       
       <div className="hero-section" style={isMobile ? { padding: '0 20px' } : { padding: '60px 0 0 0' }}>

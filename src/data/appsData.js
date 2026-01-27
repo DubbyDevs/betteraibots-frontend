@@ -510,6 +510,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/tradify-complete-guide"
   },
   {
+    name: "Travel Code AI",
+    description: "AI travel planning platform that builds trip plans, routes, and day-by-day itineraries from your preferences and budget.",
+    category: "Travel & Planning",
+    features: ["AI trip planning", "Day-by-day itineraries", "Route optimization", "Budget-aware recommendations", "Shareable plans"],
+    link: "https://join.travel-code.com/BAIB",
+    trialInfo: "Free Trial Available",
+    image: "/travelcodeai.jpg",
+    readMoreLink: "/learn/travel-code-ai-complete-guide"
+  },
+  {
     name: "Turbotic",
     description: "AI-powered automation and transformation platform for building business cases, automating workflows, and deploying digital transformation with secure, compliant tools",
     category: "AI & Development",
