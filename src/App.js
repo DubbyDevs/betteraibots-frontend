@@ -222,6 +222,7 @@ function News({ searchValue }) {
   // Helper function to check if an article has a video
   const articleHasVideo = (articleSlug) => {
     const articlesWithVideos = [
+      "beginners-guide-visual-collaboration-miro-prezi",
       "the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv",
       "the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily",
       "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025",

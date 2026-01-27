@@ -15,6 +15,15 @@ export const newsArticles = [
     featured: true,
     readTime: "14 min read",
     content: `
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
+        <iframe 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+          src="https://www.youtube.com/embed/lLI1S2kYdTM" 
+          title="A Beginner's Guide to Visual Collaboration: Try These Tools Together" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
       <h1>A Beginner's Guide to Visual Collaboration: Try These Tools Together</h1>
       <p>This guide explains how to use visual collaboration tools effectively, even if you've never used them before. We'll focus on practical steps you can take today to improve how your team works together, especially if people work in different locations or time zones.</p>
 
