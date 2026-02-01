@@ -234,7 +234,8 @@ function News({ searchValue }) {
       "ai-job-boom-how-to-get-hired-in-the-ai-revolution",
       "openai-garlic-model-ai-just-leveled-up",
       "perplexity-parasite-seo-ranking-guide-48-hours",
-      "how-to-build-content-creation-service-google-pomelli-tool"
+      "how-to-build-content-creation-service-google-pomelli-tool",
+      "3-ai-tools-generate-leads-businesses-2026"
     ];
     return articlesWithVideos.includes(articleSlug);
   };
@@ -248,8 +249,7 @@ function News({ searchValue }) {
       "ai-robotics-revolution-everything-you-own-2025",
       "nano-banana-game-changing-ai-image-editor",
       "nano-banana-pro-upgrade-whats-new",
-      "alibaba-ai-revolution-53-billion-investment-2025",
-      "3-ai-tools-generate-leads-businesses-2026"
+      "alibaba-ai-revolution-53-billion-investment-2025"
     ];
     return articlesWithAudio.includes(articleSlug);
   };
@@ -5711,7 +5711,7 @@ function addInternalLinksToNews(content, currentSlug, allArticles) {
   // Blacklist of common words that should NEVER be auto-linked
   const blacklistedWords = new Set([
     'learn', 'robot', 'complete', 'reach', 'out', 'follow', 'up', 'scalable', 'repeatable',
-    'empathy', 'creativity', 'relationship', 'building', 'conversion', 'efficiency', 'research',
+    'empathy', 'creativity', 'relationship', 'building', 'build', 'conversion', 'efficiency', 'research',
     'resources', 'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with',
     'by', 'from', 'up', 'about', 'into', 'through', 'during', 'including', 'until', 'against',
     'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did',
@@ -6225,8 +6225,6 @@ function NewsArticle() {
               ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Nano_Banana_Pro_Versus_the_Free_Model.m4a'))
               : article.slug === 'alibaba-ai-revolution-53-billion-investment-2025'
               ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Alibaba_s_$53_Billion_AI_Pivot.m4a'))
-              : article.slug === '3-ai-tools-generate-leads-businesses-2026'
-              ? article.content.replace('AUDIO_SOURCE_PLACEHOLDER', require('./assets/Automating_Lead_Generation_The_2025_Playbook.m4a'))
               : article.content;
             
             // Add internal links to news articles
