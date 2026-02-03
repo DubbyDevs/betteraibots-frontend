@@ -22048,10 +22048,22 @@ This article contains affiliate links to [Logome](https://logomeai.partnerlinks.
 
 // --- News Ticker Banner ---
 const promos = [
-  { text: "💕 Try TheLoveDoc — free AI relationship help!", link: "/#TheLoveDoc" },
-  { text: "📚 Scholar GPT — AI-powered academic assistant!", link: "/#ScholarGPT" },
-  { text: "🎵 PlaylistAI — Instantly create music playlists with AI!", link: "/#PlaylistAI" },
-  { text: "🚀 Video AI — Edit & summarize video content in seconds!", link: "/#VideoAI" }
+  { 
+    text: "📸 InstaGlamor — Human-directed, AI-powered studio portraits!", 
+    link: "/learn/instaglamor" 
+  },
+  { 
+    text: "🎨 Museit.art — Turn the noise into AI-powered art.", 
+    link: "/learn/museit-art-complete-guide" 
+  },
+  { 
+    text: "🧩 NanoZ.fun — Brand imagery at a fraction of traditional costs.", 
+    link: "/learn/nanoz-complete-guide" 
+  },
+  { 
+    text: "📊 Databox — Visualize KPIs with no-code dashboards.", 
+    link: "/learn/databox" 
+  }
 ];
 
 function NewsTicker() {
