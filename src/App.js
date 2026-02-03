@@ -45,6 +45,7 @@ import surecam1 from './assets/surecam1.jpg';
 import n8nicon from './assets/n8nicon.jpg';
 import mindstudioai from './assets/mindstudioai.jpeg';
 import seosparkplug1 from './assets/seosparkplug1.jpg';
+import instaglamorlogo from './assets/instaglamorlogo.png';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -701,6 +702,21 @@ const PAID_APPS = [
     link: "https://try.megahr.com/BAIB",
     image: megahr,
     readMoreLink: "/learn/megahr"
+  },
+  {
+    name: "InstaGlamor",
+    description: "Premium human-directed + AI-powered photography studio for executive portraits, lifestyle imagery, products, and brand visuals.",
+    category: "Photography & Branding",
+    features: [
+      "Business & executive portraits",
+      "Custom glamour & lifestyle looks",
+      "Professional product photography",
+      "Company branding and team imagery"
+    ],
+    price: "Per package",
+    link: "https://www.InstaGlamor.com",
+    image: instaglamorlogo,
+    readMoreLink: "/learn/instaglamor"
   },
   {
     name: "Bebop.ai",

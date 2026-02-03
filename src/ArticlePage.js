@@ -673,7 +673,8 @@ export default function ArticlePage() {
     "weave": "https://partnerstack.getweave.com/BAIB",
     "turbotic": "https://try.turbotic.com/BAIB",
     "creativescore": "https://affiliate.creativescore.ai/BAIB",
-    "seamless-ai-complete-guide": "https://get.seamless.ai/BAIB"
+    "seamless-ai-complete-guide": "https://get.seamless.ai/BAIB",
+    "instaglamor": "https://www.InstaGlamor.com"
   };
   
   const affiliateLink = affiliateLinks[article.id] || null;
@@ -871,6 +872,7 @@ export default function ArticlePage() {
     'turbotic',
     'creativescore',
     'databox',
+    'instaglamor',
     'seamless-ai-complete-guide',
     'warmy-io-spam-folder-rebellion-email-deliverability'
   ];

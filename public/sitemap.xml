@@ -98,6 +98,128 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Learn App Guides -->
+  <url>
+    <loc>https://betteraibots.com/learn/instaglamor</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/instaglamorlogo.png</image:loc>
+      <image:title>InstaGlamor: Human Direction, AI Precision, Studio-Grade Results</image:title>
+      <image:caption>InstaGlamor combines human creative direction with AI precision to turn simple reference photos into studio-grade portraits, lifestyle imagery, and brand visuals.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/learn/museit-art-complete-guide</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/musebrand.jpg</image:loc>
+      <image:title>Turn the Noise into Art with AI-Powered Creative Expression</image:title>
+      <image:caption>Discover how Museit.art transforms your imagination into beautiful artwork with AI-powered creative expression.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/learn/nanoz-complete-guide</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/nanozlogo.png</image:loc>
+      <image:title>Branding Made Easy with NanoZ</image:title>
+      <image:caption>Learn how NanoZ.fun delivers professional brand imagery at a fraction of traditional costs using AI.</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Trial / commercial app guides -->
+  <url>
+    <loc>https://betteraibots.com/learn/adcreative-ai</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/adcreative.png</image:loc>
+      <image:title>AdCreative.ai – AI-Powered Ad Creative Generator</image:title>
+      <image:caption>Generate high-converting ad creatives in seconds with AdCreative.ai’s AI-powered workflows.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/learn/adwisely</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/adwisely.png</image:loc>
+      <image:title>Adwisely – AI Google &amp; Meta Ads Platform</image:title>
+      <image:caption>Launch and optimize full-funnel Google and Meta campaigns with Adwisely’s AI-powered ad platform.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/learn/apollo-io</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/apollo.png</image:loc>
+      <image:title>Apollo.io – AI Sales Platform</image:title>
+      <image:caption>Find, contact, and close ideal buyers using Apollo’s AI-powered sales intelligence and outreach tools.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/learn/brevo-complete-guide</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/brevologo.png</image:loc>
+      <image:title>Brevo Complete App Spotlight</image:title>
+      <image:caption>All-in-one AI-powered marketing and CRM platform for email, SMS, WhatsApp, and automation workflows.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/learn/browse-ai</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/browseai1.jpg</image:loc>
+      <image:title>Browse AI – Web Scraping &amp; Monitoring Platform</image:title>
+      <image:caption>Extract and monitor website data with Browse AI’s no-code web scraping and automation platform.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/learn/databox</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/databoxai.jpg</image:loc>
+      <image:title>Databox – Business Analytics &amp; Dashboards</image:title>
+      <image:caption>Connect 130+ data sources, build custom metrics, and create no-code dashboards with Databox.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/learn/seamless-ai-complete-guide</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/seemlessailogo.jpg</image:loc>
+      <image:title>Seamless.AI – Real-Time B2B Sales Intelligence Platform</image:title>
+      <image:caption>Find real-time verified B2B contact data and build targeted prospect lists with Seamless.AI.</image:caption>
+    </image:image>
+  </url>
+  
   <!-- Apps Section -->
   <url>
     <loc>https://betteraibots.com/apps</loc>
