@@ -4135,16 +4135,20 @@ const CATEGORY_REVERSE = {
 // --- CONTACT PAGE ---
 function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [botField, setBotField] = useState('');
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [recaptchaValue, setRecaptchaValue] = useState(null);
 
   function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === 'bot-field') setBotField(value);
+    else setForm({ ...form, [name]: value });
     setError('');
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (form.name.length < 2 || !form.email.includes('@') || form.message.length < 4) {
       setError("Please fill in all fields with valid info.");
@@ -4154,21 +4158,53 @@ function Contact() {
       setError("Please verify you are not a robot.");
       return;
     }
+    if (botField) {
+      setSent(true);
+      setForm({ name: '', email: '', message: '' });
+      setRecaptchaValue(null);
+      setBotField('');
+      setTimeout(() => setSent(false), 3200);
+      return;
+    }
 
-    const newContact = {
-      name: form.name,
-      email: form.email,
-      message: form.message,
-      date: new Date().toLocaleString(),
-    };
-    const storedContacts = JSON.parse(localStorage.getItem("contactMessages") || "[]");
-    storedContacts.unshift(newContact);
-    localStorage.setItem("contactMessages", JSON.stringify(storedContacts));
+    setSubmitting(true);
+    setError('');
+    try {
+      const body = new URLSearchParams({
+        'form-name': 'contact',
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        'bot-field': botField,
+      }).toString();
 
-    setSent(true);
-    setForm({ name: '', email: '', message: '' });
-    setRecaptchaValue(null);
-    setTimeout(() => setSent(false), 3200);
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+
+      if (!res.ok) throw new Error('Submission failed');
+
+      const newContact = {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        date: new Date().toLocaleString(),
+      };
+      const storedContacts = JSON.parse(localStorage.getItem("contactMessages") || "[]");
+      storedContacts.unshift(newContact);
+      localStorage.setItem("contactMessages", JSON.stringify(storedContacts));
+
+      setSent(true);
+      setForm({ name: '', email: '', message: '' });
+      setRecaptchaValue(null);
+      setTimeout(() => setSent(false), 3200);
+    } catch (err) {
+      setError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -4194,10 +4230,19 @@ function Contact() {
       <p className="hero-subheadline custom-hero-desc">
         Questions, suggestions or feedback? Reach out!
       </p>
-      <form className="contact-form"
+      <form
+        name="contact"
+        method="post"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        className="contact-form"
         style={{ maxWidth: 420, margin: "32px auto 0", background: "#172d3e", borderRadius: 20, padding: 28, boxShadow: "0 3px 26px #09e26924" }}
         onSubmit={handleSubmit}
       >
+        <input type="hidden" name="form-name" value="contact" />
+        <p style={{ position: 'absolute', left: '-9999px' }}>
+          <label>Don’t fill this out: <input name="bot-field" value={botField} onChange={handleChange} tabIndex={-1} autoComplete="off" /></label>
+        </p>
         <label className="form-label neon-green">Name</label>
         <input className="form-control" name="name" value={form.name} onChange={handleChange} required />
         <label className="form-label neon-green">Email</label>
@@ -4211,7 +4256,9 @@ function Contact() {
             theme="dark"
           />
         </div>
-        <Button type="submit" className="header-btn" style={{ width: "100%", marginTop: 15 }}>Send Message</Button>
+        <Button type="submit" className="header-btn" style={{ width: "100%", marginTop: 15 }} disabled={submitting}>
+          {submitting ? 'Sending...' : 'Send Message'}
+        </Button>
         {error && <div style={{ color: "#ff6464", marginTop: 8 }}>{error}</div>}
         {sent && <div className="neon-green" style={{ marginTop: 10 }}>Thank you! We got your message.</div>}
       </form>
