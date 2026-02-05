@@ -13,6 +13,9 @@
 # The prerendered HTML files contain JavaScript that redirects non-crawlers to the React app
 /learn/*  /learn/:splat.html  200
 
+# Legacy /sam/* URLs (e.g. sam/box-bold-a-e, sam/boss-bot-*) - not used in this app; redirect to home
+/sam/*  /  301
+
 # All other routes go to React app
 /*    /index.html   200
 

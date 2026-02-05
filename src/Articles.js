@@ -372,7 +372,7 @@ Getting started takes just a few minutes:
 5. Upload 2–3 reference images  
 6. Complete checkout and watch for your delivery email
 
-**[✨ Start Your InstaGlamor Order](https://www.InstaGlamor.com){: target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;"}**
+**<a href="https://www.InstaGlamor.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">✨ Start Your InstaGlamor Order</a>**
 
 If you have custom needs (bigger teams, special use cases, or ongoing content pipelines), you can also use the **Contact** option on the site to discuss tailored packages.
 

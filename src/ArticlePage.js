@@ -1456,8 +1456,39 @@ export default function ArticlePage() {
       {topShareSection}
       <div className={usesNewsStyleLayout ? "article-content" : ""} style={usesNewsStyleLayout ? {} : enhancedContentStyles}>
       {/* Top Image */}
-      {primaryImage && (
-        article.id === "seosparkplug" ? (
+      {(primaryImage || article.id === "instaglamor") && (
+        article.id === "instaglamor" ? (
+          <a
+            href="https://instaglamor.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "seosparkplug" ? (
           <a 
             href="https://seosparkplug.com" 
             target="_blank"
@@ -3786,6 +3817,27 @@ export default function ArticlePage() {
           </div>
         );
       })()}
+
+      {/* Explore more - internal links for indexing */}
+      <nav style={{
+        marginTop: '48px',
+        padding: '24px',
+        background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.06) 0%, rgba(26, 35, 48, 0.4) 100%)',
+        borderRadius: '12px',
+        border: '1px solid rgba(54, 255, 149, 0.15)'
+      }} aria-label="Explore more">
+        <h2 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '12px', color: '#36ff95' }}>Explore more</h2>
+        <p style={{ fontSize: '0.95rem', color: '#b0b0b0', marginBottom: '16px' }}>Discover AI tools, guides, and news on BetterAiBots.</p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+          <Link to="/learn" style={{ color: '#36ff95', textDecoration: 'underline' }}>Learn AI guides</Link>
+          <span style={{ color: '#555' }}> · </span>
+          <Link to="/news" style={{ color: '#36ff95', textDecoration: 'underline' }}>News</Link>
+          <span style={{ color: '#555' }}> · </span>
+          <Link to="/apps" style={{ color: '#36ff95', textDecoration: 'underline' }}>Apps</Link>
+          <span style={{ color: '#555' }}> · </span>
+          <Link to="/" style={{ color: '#36ff95', textDecoration: 'underline' }}>Home</Link>
+        </div>
+      </nav>
       </div>
     </>
   );
