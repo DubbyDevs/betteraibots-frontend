@@ -9,9 +9,9 @@
 # /news/anthropic-claude-35-sonnet-reasoning /news/anthropic-claude-35-sonnet-reasoning.html 200
 # /news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025 /news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025.html 200
 
-# Serve prerendered HTML for learn articles (crawlers will get HTML, users get redirected to React app)
-# The prerendered HTML files contain JavaScript that redirects non-crawlers to the React app
-/learn/*  /learn/:splat.html  200
+# Learn routes: serve index.html so the SPA handles /learn/instaglamor etc. (direct links and Google won't 404)
+# Prerendered .html files in public/learn are no longer used by redirect; SPA serves all learn pages
+/learn/*  /index.html  200
 
 # Legacy /sam/* URLs (e.g. sam/box-bold-a-e, sam/boss-bot-*) - not used in this app; redirect to home
 /sam/*  /  301
