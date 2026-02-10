@@ -119,6 +119,13 @@
     "cover": null
   },
   {
+    "id": "pinecone-vector-database",
+    "title": "Build Knowledgeable AI with Production-Ready Search",
+    "date": "February 2026",
+    "preview": "Pinecone is a fully managed vector database that powers high-relevance search, RAG, and AI agents at scale. This guide covers setup, indexing, querying, and best practices so you can ship production-ready AI search without managing infrastructure.",
+    "cover": null
+  },
+  {
     "id": "elevenlabs",
     "title": "AI Voice, Text-to-Speech, and Voice Cloning for Creators",
     "date": "December 2025",

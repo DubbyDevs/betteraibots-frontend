@@ -400,6 +400,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/intermediate/nanoz-complete-guide"
   },
   {
+    name: "Pinecone",
+    description: "Vector database for semantic search, RAG, and AI apps with fully managed infrastructure and serverless scaling.",
+    category: "AI & Machine Learning",
+    features: ["Production-ready vector search", "Namespaces and metadata filters", "Seamless RAG integration", "Scales with your workload"],
+    link: "https://www.skowers.com/api/go/d8",
+    trialInfo: "Free tier available",
+    image: "/pineconeai.jpg",
+    readMoreLink: "/learn/pinecone-vector-database"
+  },
+  {
     name: "Prezi AI",
     description: "AI-powered presentation platform that helps you create engaging, dynamic, and visually stunning presentations. Enhance your storytelling with Prezi's unique zoomable canvas and AI-driven design suggestions.",
     category: "Presentations & Docs",
