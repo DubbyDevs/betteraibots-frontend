@@ -417,7 +417,7 @@ export const trialAppsData = [
     link: "https://nanoz.fun",
     trialInfo: "Free Trial Available",
     image: nanozlogo,
-    readMoreLink: "/learn/intermediate/nanoz-complete-guide"
+    readMoreLink: "/learn/nanoz-complete-guide"
   },
   {
     name: "Pinecone",
@@ -517,7 +517,7 @@ export const trialAppsData = [
     link: "https://snowfire.com/?ref=BAIB",
     trialInfo: "Free Trial Available",
     image: snowfireai,
-    readMoreLink: "/learn/snowfire"
+    readMoreLink: "/learn/snowfire-ai"
   },
   {
     name: "ThorData",
@@ -537,7 +537,7 @@ export const trialAppsData = [
     link: "https://tidio.partnerlinks.io/BAIB",
     trialInfo: "Start for free",
     image: tidioai,
-    readMoreLink: "/learn/tidio-complete-guide"
+    readMoreLink: "/learn/tidio-ai"
   },
   {
     name: "Tradify",
@@ -597,7 +597,7 @@ export const trialAppsData = [
     link: "https://vida.sjv.io/BAIB",
     trialInfo: "Free Trial Available",
     image: vida1,
-    readMoreLink: "/learn/vida"
+    readMoreLink: "/learn/vida-ai-agent-os"
   },
   {
     name: "Vista Social",
@@ -607,7 +607,7 @@ export const trialAppsData = [
     link: "https://vistasocial.sjv.io/BAIB",
     trialInfo: "14-day free trial",
     image: vistasocial,
-    readMoreLink: "/learn/vista-social-complete-guide"
+    readMoreLink: "/learn/vista-social"
   },
   {
     name: "Volza",

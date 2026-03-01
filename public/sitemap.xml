@@ -901,6 +901,32 @@
     </image:image>
   </url>
 
+  <!-- InVideo AI Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/invideo-ai</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/InVideoFreeTrial.png</image:loc>
+      <image:title>InVideo AI – AI Video Generator</image:title>
+      <image:caption>Create professional videos with InVideo AI. Text-to-video, templates, and AI-powered editing.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Flowith IO Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/flowith-io</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/flowith.jpg</image:loc>
+      <image:title>Flowith IO – AI Workflow Automation</image:title>
+      <image:caption>AI-powered workflow automation to streamline business processes.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Tidio AI Article -->
   <url>
     <loc>https://betteraibots.com/learn/tidio-ai</loc>
