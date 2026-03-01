@@ -270,15 +270,6 @@ function generatePrerenderedHTML(article) {
     }
     </script>
     
-    <!-- Redirect to React app for users (not crawlers) -->
-    <script>
-      // Only redirect if this is a user (not a crawler)
-      const isCrawler = /bot|crawler|spider|crawling|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp|TelegramBot|Googlebot|Bingbot|Slurp/i.test(navigator.userAgent);
-      if (!isCrawler) {
-        window.location.href = '${articleUrl}';
-      }
-    </script>
-    
     <style>
       body { 
         font-family: Arial, sans-serif; 
