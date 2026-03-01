@@ -1,5 +1,5 @@
 // Cleanup-only service worker to disable PWA caching.
-// This clears old caches and unregisters itself on activation.
+// v2 — clears old caches and unregisters itself so mobile users don't get stuck on old app.
 
 self.addEventListener('install', () => {
   self.skipWaiting();

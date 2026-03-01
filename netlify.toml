@@ -16,6 +16,25 @@
   for = "/"
   [headers.values]
     Content-Type = "text/html; charset=utf-8"
+    # Prevent app shell from being cached (fixes mobile stuck on old SW/cached app)
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Pragma = "no-cache"
+
+# App shell: never cache index.html so users don't get stuck on old service worker / cached app
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Pragma = "no-cache"
+
+# Clear-cache page: always fetch from network so users can escape stuck old app
+[[headers]]
+  for = "/clear-cache.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Pragma = "no-cache"
 
 # Security Headers
 [[headers]]
@@ -141,5 +160,7 @@
 [[headers]]
   for = "/sw.js"
   [headers.values]
-    Cache-Control = "no-cache"
+    # Force mobile to fetch new SW so old PWA cache gets replaced by cleanup worker
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Pragma = "no-cache"
     X-Content-Type-Options = "nosniff" 
