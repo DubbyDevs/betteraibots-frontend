@@ -1472,4 +1472,95 @@
     </image:image>
   </url>
 
+  <!-- Paintr Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/paintr</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/paintindetifierai.webp</image:loc>
+      <image:title>Paintr – AI Image Identifier and Art Tool</image:title>
+      <image:caption>Paintr ChatGPT GPT for image identification and creative art. User guide and link.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Scholar GPT Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/scholar-gpt</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/bot-placeholder4.webp</image:loc>
+      <image:title>Scholar GPT – AI Research Assistant</image:title>
+      <image:caption>Scholar GPT ChatGPT GPT for academic research and citations. User guide and link.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Cheat Coder Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/cheat-coder</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/cheatcoder.png</image:loc>
+      <image:title>Cheat Coder – AI Coding Assistant GPT</image:title>
+      <image:caption>Cheat Coder ChatGPT GPT for code generation and debugging. User guide and link.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Viral Launch Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/viral-launch</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/virallaunch.png</image:loc>
+      <image:title>Viral Launch – Amazon Seller and Product Research</image:title>
+      <image:caption>Viral Launch helps Amazon sellers with product research, keyword tracking, and launch strategies. Free trial and user guide.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- AnyBiz Alt Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/anybiz-alt</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/anybizio.jpg</image:loc>
+      <image:title>AnyBiz – AI Sales Agents That Book Meetings</image:title>
+      <image:caption>AI sales agents through email, LinkedIn, and phone. User guide and trial.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Perplexity Parasite SEO Guide (Learn) -->
+  <url>
+    <loc>https://betteraibots.com/learn/perplexity-parasite-seo-guide</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/assets/aihacks.png</image:loc>
+      <image:title>Perplexity Parasite SEO – Ranking #1 on Google in 48 Hours</image:title>
+      <image:caption>Step-by-step framework to rank informational content fast by leveraging Perplexity's domain authority.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Warmy.io Email Deliverability Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/warmy-io-spam-folder-rebellion-email-deliverability</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/warmyio.jpg</image:loc>
+      <image:title>Warmy.io – Email Warm-up and Deliverability</image:title>
+      <image:caption>AI-powered email warm-up technology for better deliverability and open rates. Free trial and user guide.</image:caption>
+    </image:image>
+  </url>
+
 </urlset> 
