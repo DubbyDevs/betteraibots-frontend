@@ -1043,31 +1043,6 @@
     </image:image>
   </url>
 
-  <url>
-    <loc>https://betteraibots.com/learn/browse-ai</loc>
-    <lastmod>2025-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/browseai1.jpg</image:loc>
-      <image:title>Browse AI: AI-Powered Web Scraping and Monitoring Platform for Data Extraction</image:title>
-      <image:caption>Browse AI is the leading AI-powered web scraping and monitoring platform that helps you extract data from any website with no coding required. Monitor websites for changes, turn websites into APIs, and integrate with 7,000+ apps.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Museit.art Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/museit-art-complete-guide</loc>
-    <lastmod>2025-11-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/musebrand.jpg</image:loc>
-      <image:title>Museit.art: Turn the Noise into Art with AI-Powered Creative Expression</image:title>
-      <image:caption>Discover how Museit.art's AI-powered art creation platform transforms your imagination into beautiful artwork. Turn the noise into art with guided creativity, mindfulness-focused design, and gallery-ready quality—no technical skills required.</image:caption>
-    </image:image>
-  </url>
-
   <!-- Reclaim.ai Article -->
   <url>
     <loc>https://betteraibots.com/learn/reclaim-ai</loc>
@@ -1091,19 +1066,6 @@
       <image:loc>https://betteraibots.com/assets/unbounceai.png</image:loc>
       <image:title>Unbounce: AI-Powered Landing Page Builder and Conversion Optimization Platform</image:title>
       <image:caption>Unbounce is an AI-powered landing page builder and conversion optimization platform that helps marketers build, test, and optimize landing pages without code. With drag-and-drop editing, A/B testing, AI copywriting, and Smart Traffic optimization, Unbounce transforms how businesses convert visitors into customers.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- NanoZ Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/nanoz-complete-guide</loc>
-    <lastmod>2025-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/nanozlogo.png</image:loc>
-      <image:title>NanoZ.fun: Branding Made Easy - Professional Brand Imagery at a Fraction of Traditional Costs</image:title>
-      <image:caption>Discover how NanoZ.fun delivers professional brand imagery at a fraction of traditional costs. Powered by cutting-edge AI that ensures brand consistency and quality results you've never seen before.</image:caption>
     </image:image>
   </url>
 
@@ -1276,19 +1238,6 @@
     </image:image>
   </url>
 
-  <!-- Adwisely Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/adwisely</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/adwisely.png</image:loc>
-      <image:title>AI-Powered Google Ads &amp; Meta Ads Platform for High ROAS</image:title>
-      <image:caption>Boost sales effortlessly with AI-powered Google Ads, Facebook Ads &amp; Instagram Ads managed by experts. Launch full-funnel AI-driven ads—from retargeting to prospecting—in just a few clicks, without needing deep marketing expertise.</image:caption>
-    </image:image>
-  </url>
-
   <!-- MindStudio Article -->
   <url>
     <loc>https://betteraibots.com/learn/mindstudio</loc>
@@ -1442,6 +1391,84 @@
       <image:loc>https://betteraibots.com/assets/creativescoreai.jpg</image:loc>
       <image:title>CreativeScore Review - AI Creative Scoring</image:title>
       <image:caption>Score ad creatives and predict performance before launch.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Lindy AI Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/lindy-ai</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/lindy.png</image:loc>
+      <image:title>Lindy AI – AI Assistant and Workflow Automation</image:title>
+      <image:caption>Lindy AI is an AI assistant that automates workflows, emails, and tasks. Free trial and user guide.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Capsule CRM Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/capsule-crm-complete-guide</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/capsulecrm.png</image:loc>
+      <image:title>Capsule CRM – Complete Guide and Free Trial</image:title>
+      <image:caption>Complete guide to Capsule CRM for contact and sales pipeline management. Free trial and setup walkthrough.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- MRPeasy Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/mrpeasy-complete-guide</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/mrpeasy.png</image:loc>
+      <image:title>MRPeasy – Manufacturing ERP Complete Guide and Free Trial</image:title>
+      <image:caption>Complete guide to MRPeasy for manufacturing and production planning. Free trial and user guide.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Murf AI Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/murf-ai-complete-guide</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/murfai.png</image:loc>
+      <image:title>Murf AI – Text-to-Speech and Voiceover Complete Guide</image:title>
+      <image:caption>Complete guide to Murf AI for AI voiceovers and text-to-speech. Free trial and user guide.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Alli AI Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/alli-ai</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/alliai.png</image:loc>
+      <image:title>Alli AI – AI Marketing and SEO Tools</image:title>
+      <image:caption>Alli AI provides AI-powered marketing and SEO tools. Free trial and user guide.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Travel Code AI Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/travel-code-ai-complete-guide</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/travelcodeai.jpg</image:loc>
+      <image:title>Travel Code AI – AI Travel Planning Platform</image:title>
+      <image:caption>Build trips faster with AI travel planning, structured itineraries, and day-by-day schedules. Free trial and user guide.</image:caption>
     </image:image>
   </url>
 
