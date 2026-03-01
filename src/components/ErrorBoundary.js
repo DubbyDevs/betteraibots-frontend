@@ -75,7 +75,7 @@ class ErrorBoundary extends React.Component {
           </button>
           
           <a
-            href="/fix-mobile"
+            href="/reset-app"
             target="_top"
             rel="noopener noreferrer"
             style={{

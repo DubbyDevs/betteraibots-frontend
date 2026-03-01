@@ -353,7 +353,7 @@
             '<div style="font-size: 1rem; color: #9ca3af; margin-bottom: 24px; max-width: 340px;">' +
             (isScriptLoad ? 'The app didn\'t load. Tap <strong>Clear cache</strong> below, then try again.' : 'Please try <strong>Clear cache</strong> first, then refresh.') +
             '</div>' +
-            '<a href="/fix-mobile" target="_top" style="display: inline-block; margin-bottom: 12px; ' +
+            '<a href="/reset-app" target="_top" style="display: inline-block; margin-bottom: 12px; ' +
             'background: linear-gradient(135deg, #36ff95, #0bbfdb); color: #1a2330; border: none; padding: 14px 28px; ' +
             'border-radius: 8px; font-weight: 600; cursor: pointer; font-family: Poppins, sans-serif; text-decoration: none;">Clear cache</a>' +
             '<button onclick="window.location.reload()" style="' +
@@ -365,7 +365,7 @@
       // Catch promise rejections (e.g. failed chunk load on mobile) so user gets recovery options
       window.addEventListener('unhandledrejection', function(e) {
         var root = document.getElementById('root');
-        if (!root || root.querySelector('a[href="/fix-mobile"]')) return;
+        if (!root || root.querySelector('a[href="/reset-app"]')) return;
         var msg = (e.reason && (e.reason.message || e.reason + '')) || '';
         if (/chunk|loading|network|failed to fetch|dynamically import/i.test(msg)) {
           root.innerHTML = '<div style="' +
@@ -375,7 +375,7 @@
             'color: #ff6b6b; font-family: Poppins, sans-serif; text-align: center; padding: 20px; box-sizing: border-box;">' +
             '<div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 16px;">Something went wrong</div>' +
             '<div style="font-size: 1rem; color: #9ca3af; margin-bottom: 24px; max-width: 340px;">The app didn\'t load. Tap <strong>Clear cache</strong>, then try again.</div>' +
-            '<a href="/fix-mobile" target="_top" style="display: inline-block; margin-bottom: 12px; ' +
+            '<a href="/reset-app" target="_top" style="display: inline-block; margin-bottom: 12px; ' +
             'background: linear-gradient(135deg, #36ff95, #0bbfdb); color: #1a2330; border: none; padding: 14px 28px; ' +
             'border-radius: 8px; font-weight: 600; cursor: pointer; font-family: Poppins, sans-serif; text-decoration: none;">Clear cache</a>' +
             '<button onclick="window.location.reload()" style="' +

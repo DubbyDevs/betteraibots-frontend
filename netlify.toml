@@ -36,9 +36,15 @@
     Cache-Control = "no-store, no-cache, must-revalidate"
     Pragma = "no-cache"
 
-# Fix-mobile (same as clear-cache): no-store so old SW never serves cached response
+# Escape-hatch paths (same as clear-cache): no-store so old SW doesn't serve cached response
 [[headers]]
   for = "/fix-mobile"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Pragma = "no-cache"
+[[headers]]
+  for = "/reset-app"
   [headers.values]
     Content-Type = "text/html; charset=utf-8"
     Cache-Control = "no-store, no-cache, must-revalidate"

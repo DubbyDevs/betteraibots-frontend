@@ -9,9 +9,11 @@
 # /news/anthropic-claude-35-sonnet-reasoning /news/anthropic-claude-35-sonnet-reasoning.html 200
 # /news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025 /news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025.html 200
 
-# Short URLs for cache clear (use /fix-mobile if Clear cache button does nothing - old SW never cached this path)
-/clear-cache   /clear-cache.html  200
-/fix-mobile    /clear-cache.html  200
+# Escape hatch: serve static clear-cache page so users can break out of old service worker loop.
+# Use a path the old SW has never seen (e.g. /reset-app) so it can't return cached index.html.
+/clear-cache     /clear-cache.html  200
+/fix-mobile      /clear-cache.html  200
+/reset-app       /clear-cache.html  200
 
 # Learn routes: always serve index.html (SPA) so /learn/* never serves static .html files and causes redirect loops
 # Force (!) overrides static files so /learn/apollo-io etc. load the React app, not public/learn/apollo-io.html
