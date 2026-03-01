@@ -182,92 +182,37 @@
         originalError.apply(console, args);
       };
       
-      // Hide loading screen when React app loads
-      let reactLoaded = false;
-      let loadingTimeout;
-      
-      // Check if React has mounted by looking for the root element content
+      // Hide loading screen when React app loads (no timeout trap – no "App Not Loading" screen)
       function checkReactLoaded() {
         const root = document.getElementById('root');
         if (root && root.children.length > 0) {
           const firstChild = root.children[0];
-          // Check if React has rendered (not just the loading div)
           if (firstChild && !firstChild.style.background && firstChild.querySelector) {
-            reactLoaded = true;
-            const loadingElement = document.querySelector('#root > div[style*="background"]');
-            if (loadingElement) {
-              loadingElement.style.display = 'none';
-            }
-            if (loadingTimeout) clearTimeout(loadingTimeout);
+            const loadingEl = document.querySelector('#root > div[style*="background"]');
+            if (loadingEl) loadingEl.style.display = 'none';
             return true;
           }
         }
         return false;
       }
-      
-      // Check immediately and periodically
       window.addEventListener('load', function() {
-        // Check every 500ms for React to load
-        const checkInterval = setInterval(function() {
-          if (checkReactLoaded()) {
-            clearInterval(checkInterval);
-          }
+        const iv = setInterval(function() {
+          if (checkReactLoaded()) clearInterval(iv);
         }, 500);
-        
-        // If React hasn't loaded after 10 seconds, show error and offer to clear cache
-        loadingTimeout = setTimeout(function() {
-          if (!reactLoaded && !checkReactLoaded()) {
-            clearInterval(checkInterval);
-            const root = document.getElementById('root');
-            if (root) {
-              root.innerHTML = `
-                <div style="
-                  position: fixed;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background: linear-gradient(135deg, #1a2330 0%, #0f1419 100%);
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  justify-content: center;
-                  color: #36ff95;
-                  font-family: 'Poppins', sans-serif;
-                  text-align: center;
-                  padding: 20px;
-                  z-index: 99999;
-                ">
-                  <div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 20px;">App Not Loading</div>
-                  <div style="font-size: 1rem; color: #9ca3af; margin-bottom: 30px; max-width: 400px;">
-                    The app may be stuck due to cached files. Try clearing the cache and reloading.
-                  </div>
-                  <button onclick="clearCacheAndReload()" style="
-                    background: linear-gradient(135deg, #36ff95, #0bbfdb);
-                    color: #1a2330;
-                    border: none;
-                    padding: 12px 24px;
-                    border-radius: 8px;
-                    font-weight: 600;
-                    cursor: pointer;
-                    font-family: 'Poppins', sans-serif;
-                    margin-bottom: 15px;
-                  ">Clear Cache & Reload</button>
-                  <button onclick="window.location.reload()" style="
-                    background: rgba(255, 255, 255, 0.1);
-                    color: #9ca3af;
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                    padding: 12px 24px;
-                    border-radius: 8px;
-                    font-weight: 600;
-                    cursor: pointer;
-                    font-family: 'Poppins', sans-serif;
-                  ">Just Reload</button>
-                </div>
-              `;
-            }
+        // If still loading after 15s, show one escape link (no full-screen takeover)
+        setTimeout(function() {
+          if (checkReactLoaded()) return;
+          var root = document.getElementById('root');
+          var loader = root && root.querySelector('div[style*="flex"]');
+          if (loader) {
+            var a = document.createElement('a');
+            a.href = '/reset-app';
+            a.target = '_top';
+            a.style.cssText = 'margin-top:24px;font-size:0.85rem;color:#6b7280;';
+            a.textContent = 'Stuck? Go to betteraibots.com/reset-app';
+            loader.appendChild(a);
           }
-        }, 10000);
+        }, 15000);
       });
       
       // Function to clear cache and reload
