@@ -26,6 +26,9 @@ const affiliateLinks = {
   "capsule-crm-complete-guide": "https://get.capsulenow.io/BAIB",
   "flowith-io": "https://aff.flowith.io/52dtlja1b580",
   "hume-ai": "https://try.hume.ai/BAIB",
+  "practice-ignition": "https://get.practiceignition.com/BAIB",
+  "emergent": "https://get.emergent.sh/BAIB",
+  "sleekflow": "https://sleekflow.partnerlinks.io/BAIB",
   "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
   "lindy-ai": "https://try.lindy.ai/lhgvxfidor04",
   "lusha": "https://partnerstack.lusha.com/w61xn76pa3sr",
@@ -116,6 +119,9 @@ const ogImageMap = {
   "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
   "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
   "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
+  "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+  "emergent": "https://betteraibots.com/emergentai.png",
+  "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
   "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
   "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
   "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
@@ -169,7 +175,10 @@ const keywordMap = {
   "reclaim-ai": "Reclaim.ai, calendar management, time blocking, AI scheduling, calendar automation, productivity, meeting scheduling, time optimization, BetterAiBots",
   "quillbot-complete-guide": "QuillBot, AI paraphrasing tool, grammar checker, AI detector, plagiarism checker, AI humanizer, writing assistant, text rewriter, paraphrasing software, BetterAiBots",
   "amplemarket": "Amplemarket, sales engagement, prospecting, outreach automation, sales automation, B2B sales, lead generation, sales CRM, BetterAiBots",
-  "mindstudio": "MindStudio, AI agent builder, no-code AI, AI workflow automation, custom AI assistants, AI agent development, workflow builder, AI automation platform, BetterAiBots"
+  "mindstudio": "MindStudio, AI agent builder, no-code AI, AI workflow automation, custom AI assistants, AI agent development, workflow builder, AI automation platform, BetterAiBots",
+  "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
+  "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
+  "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
 };
 
 // Helper function to get image URL

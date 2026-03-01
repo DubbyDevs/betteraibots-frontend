@@ -93,7 +93,7 @@
   <!-- Learn Section -->
   <url>
     <loc>https://betteraibots.com/learn</loc>
-    <lastmod>2026-01-02</lastmod>
+    <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -859,6 +859,45 @@
       <image:loc>https://betteraibots.com/hume2.jpg?v=2</image:loc>
       <image:title>Hume AI - Empathic AI Platform</image:title>
       <image:caption>Master Hume AI's empathic AI platform with comprehensive guides on emotion recognition, voice AI, and facial expression analysis to create more natural, engaging AI interactions.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Ignition (Practice Ignition) User Guide -->
+  <url>
+    <loc>https://betteraibots.com/learn/practice-ignition</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/ignitionlogo.jpg</image:loc>
+      <image:title>Ignition User Guide – Proposals, Onboarding &amp; Payments</image:title>
+      <image:caption>Learn how to use Ignition to send professional proposals, onboard clients, and get paid—all in one practice management platform for accountants and bookkeepers.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Emergent User Guide -->
+  <url>
+    <loc>https://betteraibots.com/learn/emergent</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/emergentai.png</image:loc>
+      <image:title>Emergent User Guide – Build Full-Stack Web &amp; Mobile Apps with AI</image:title>
+      <image:caption>Build production-ready web and mobile apps through conversation. Emergent uses AI agents that design, code, and deploy your application from start to finish—in minutes.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SleekFlow User Guide -->
+  <url>
+    <loc>https://betteraibots.com/learn/sleekflow</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/sleekflowai.jpg</image:loc>
+      <image:title>SleekFlow User Guide – Omnichannel AI Messaging for Conversions</image:title>
+      <image:caption>Centralize WhatsApp, Messenger, and live chat in one team inbox. Use AI agents to qualify leads, route conversations, and convert more sales with SleekFlow.</image:caption>
     </image:image>
   </url>
 

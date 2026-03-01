@@ -16,6 +16,10 @@
 # Legacy /sam/* URLs (e.g. sam/box-bold-a-e, sam/boss-bot-*) - not used in this app; redirect to home
 /sam/*  /  301
 
+# Legacy /articles/* URLs (e.g. love-doc-ai) - no longer used; redirect to home so GSC stops "Page with redirect"
+/articles/love-doc-ai  /  301
+/articles/*  /  301
+
 # All other routes go to React app
 /*    /index.html   200
 

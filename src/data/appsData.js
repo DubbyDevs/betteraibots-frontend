@@ -230,6 +230,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/elevenlabs"
   },
   {
+    name: "Emergent",
+    description: "Build full-stack web and mobile apps in minutes through conversation with AI agents that design, code, and deploy",
+    category: "Development & Coding",
+    features: ["Conversation-to-app", "AI design & code", "Web & mobile", "Deploy from chat", "Y Combinator S24"],
+    link: "https://get.emergent.sh/BAIB",
+    trialInfo: "Free Trial Available",
+    image: "/emergentai.png",
+    readMoreLink: "/learn/emergent"
+  },
+  {
     name: "Flowith AI",
     description: "AI-powered workflow automation platform that helps streamline your business processes",
     category: "Workflow Automation",
@@ -278,6 +288,16 @@ export const trialAppsData = [
     trialInfo: "Free Trial Available",
     image: humeai,
     readMoreLink: "/learn/hume-ai"
+  },
+  {
+    name: "Ignition",
+    description: "Practice management software for accounting and bookkeeping firms—client onboarding, proposals, and payments in one platform",
+    category: "Business Management",
+    features: ["Proposals & engagement letters", "Client onboarding", "Online payments", "Practice management"],
+    link: "https://get.practiceignition.com/BAIB",
+    trialInfo: "Free Trial Available",
+    image: "/ignitionlogo.jpg",
+    readMoreLink: "/learn/practice-ignition"
   },
   {
     name: "Invideo",
@@ -468,6 +488,16 @@ export const trialAppsData = [
     trialInfo: "Free for up to 50 credits",
     image: seamlessailogo,
     readMoreLink: "/learn/seamless-ai-complete-guide"
+  },
+  {
+    name: "SleekFlow",
+    description: "Omnichannel AI messaging platform that centralizes WhatsApp, Messenger, and live chat in one inbox with AI agents for lead qualification and conversion",
+    category: "Chatbots & Automation",
+    features: ["Shared team inbox", "WhatsApp Business API", "AI agents (AgentFlow)", "Broadcast campaigns", "CRM integrations", "Catalog & payment in chat"],
+    link: "https://sleekflow.partnerlinks.io/BAIB",
+    trialInfo: "Start for Free",
+    image: "/sleekflowai.jpg",
+    readMoreLink: "/learn/sleekflow"
   },
   {
     name: "Smartli",

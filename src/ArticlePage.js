@@ -628,6 +628,9 @@ export default function ArticlePage() {
     "capsule-crm-complete-guide": "https://get.capsulenow.io/BAIB",
     "flowith-io": "https://aff.flowith.io/52dtlja1b580",
     "hume-ai": "https://try.hume.ai/BAIB",
+    "practice-ignition": "https://get.practiceignition.com/BAIB",
+    "emergent": "https://get.emergent.sh/BAIB",
+    "sleekflow": "https://sleekflow.partnerlinks.io/BAIB",
     "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
     "lindy-ai": "https://try.lindy.ai/lhgvxfidor04",
     "lusha": "https://partnerstack.lusha.com/w61xn76pa3sr",
@@ -821,6 +824,9 @@ export default function ArticlePage() {
     'capsule-crm-complete-guide',
     'flowith-io',
     'hume-ai',
+    'practice-ignition',
+    'emergent',
+    'sleekflow',
     'invideo-ai',
     'lindy-ai',
     'lusha',
@@ -1124,6 +1130,9 @@ export default function ArticlePage() {
             "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
+            "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+            "emergent": "https://betteraibots.com/emergentai.png",
+            "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
             "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
@@ -1208,6 +1217,9 @@ export default function ArticlePage() {
             "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
+            "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+            "emergent": "https://betteraibots.com/emergentai.png",
+            "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
             "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
@@ -1277,7 +1289,10 @@ export default function ArticlePage() {
             "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
             "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
             "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
-            "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots"
+            "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots",
+            "practice-ignition": "AI, Artificial Intelligence, Ignition, Practice Ignition, practice management, proposals, client onboarding, accounting software, bookkeeping, engagement letters, online payments, professional services, BetterAiBots",
+            "emergent": "AI, Artificial Intelligence, Emergent, build apps with AI, full-stack apps, no-code app builder, AI agents, conversation to app, web app builder, mobile app, deploy with AI, Y Combinator, BetterAiBots",
+            "sleekflow": "AI, Artificial Intelligence, SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow, AI agents, team inbox, lead qualification, broadcast campaigns, CRM messaging, conversion, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -1328,7 +1343,10 @@ export default function ArticlePage() {
             "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
             "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
             "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
-            "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots"
+            "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots",
+            "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
+            "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
+            "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />

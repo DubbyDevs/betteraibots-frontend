@@ -5468,6 +5468,197 @@ Hume AI represents a significant step forward in creating AI that understands an
     `
   },
   {
+    id: "practice-ignition",
+    title: "Ignition User Guide – Proposals, Onboarding & Payments",
+    date: "February 2026",
+    cover: "/ignitionlogo.jpg",
+    preview: "Learn how to use Ignition to send professional proposals, onboard clients, and get paid—all in one practice management platform for accountants and bookkeepers.",
+    images: ["/ignitionlogo.jpg", "/ignitiondetails.jpg"],
+    content: `
+## What is Ignition?
+
+Ignition is practice management software built for accounting firms, bookkeepers, and professional services. It streamlines proposals, engagement letters, client onboarding, and recurring payments so you spend less time on admin and more time serving clients.
+
+**[🚀 Start your Ignition free trial](https://get.practiceignition.com/BAIB)**
+
+<div style="text-align:center; margin: 24px 0;">
+<a href="https://get.practiceignition.com/BAIB" target="_blank" rel="noopener noreferrer" style="display:inline-block; cursor:pointer;">
+<img src="/ignitiondetails.jpg" alt="Ignition – user guide overview" style="max-width:100%; width:600px; height:auto; border-radius:16px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);" />
+</a>
+</div>
+
+## User Guide – Getting Started
+
+### 1. Set Up Your Account and Branding
+
+After signing up, add your logo and company details in **Settings**. This ensures every proposal and client-facing document looks professional and consistent.
+
+### 2. Create Your First Proposal
+
+- Go to **Proposals** and click **New Proposal**.
+- Choose a template or start from scratch.
+- Add services, pricing (one-off or recurring), and terms.
+- Customize the cover and message to match your brand.
+
+Send the proposal to your client; they can accept and sign online.
+
+### 3. Client Onboarding
+
+Once a proposal is accepted, use **Client Onboarding** to collect client details, documents, and agreements. Automate reminders so nothing is missed.
+
+### 4. Payments and Billing
+
+Connect your payment gateway (e.g. Stripe) in **Settings**. Set up recurring billing for retainers and subscriptions. Ignition can charge clients automatically and record payments in your accounting software.
+
+### 5. Integrations
+
+Link Ignition to your existing tools (e.g. Xero, QuickBooks) so client and revenue data stays in sync and you avoid double entry.
+
+## Key Features at a Glance
+
+- **Proposals & engagement letters** – Professional, customizable, e-sign ready
+- **Client onboarding** – Centralized forms and document collection
+- **Online payments** – One-off and recurring, with automated invoicing
+- **Practice management** – One place for clients, jobs, and revenue
+
+## Who Is Ignition For?
+
+- Accounting and bookkeeping firms
+- Consultants and advisors who send proposals and retainers
+- Any practice that wants to get paid on time with less admin
+
+## Conclusion
+
+Ignition helps you win more clients with clear proposals, onboard them smoothly, and get paid reliably. Use the steps above to get started, and explore the dashboard and reports as you grow.
+
+**[🚀 Start your Ignition free trial](https://get.practiceignition.com/BAIB)**
+
+---
+
+**Affiliate Disclosure:** BetterAiBots.com may have affiliate relationships with Ignition.
+
+**User Responsibility:** Any decision to use Ignition should be based on your own analysis of your practice needs, budget, and objectives.
+    `
+  },
+  {
+    id: "emergent",
+    title: "Emergent User Guide – Build Full-Stack Web & Mobile Apps with AI",
+    date: "February 2026",
+    cover: "/emergentai.png",
+    preview: "Build production-ready web and mobile apps through conversation. Emergent uses AI agents that design, code, and deploy your application from start to finish—in minutes.",
+    images: ["/emergentai.png", "/emergentai2.jpg"],
+    content: `
+## What is Emergent?
+
+[Emergent](https://get.emergent.sh/BAIB) lets you build full-stack web and mobile apps in minutes by chatting with AI. Instead of writing code from scratch, you describe what you want and AI agents handle design, development, and deployment. It’s built for founders, product managers, and teams who need to ship apps fast.
+
+**[🚀 Get started with Emergent](https://get.emergent.sh/BAIB)**
+
+## User Guide – Getting Started
+
+### 1. Sign Up and Connect
+
+Go to [Emergent](https://get.emergent.sh/BAIB) and sign in with Google or email. You’ll land in a chat-style interface where you’ll describe your app.
+
+### 2. Describe Your App
+
+Tell Emergent what you want: e.g. “A task app with projects, due dates, and assignees” or “A landing page with a signup form and pricing table.” The AI turns your description into a real app.
+
+### 3. Review and Iterate
+
+Emergent’s AI designs and codes the app. You can ask for changes in plain language (“add dark mode,” “make the button green”) and it updates the app accordingly.
+
+### 4. Deploy
+
+When you’re happy with it, deploy to production with one click. Emergent handles hosting so you get a live web or mobile app without managing servers.
+
+## Key Features
+
+- **Conversation-to-app** – Describe your idea; AI builds the UI and logic
+- **Full-stack** – Frontend, backend, and database in one flow
+- **Web & mobile** – Get web apps and mobile-ready outputs
+- **Design, code, deploy** – One platform from idea to production
+- **Y Combinator S24** – Backed by Y Combinator
+
+## Who Is Emergent For?
+
+- **Founders and indie hackers** – Ship MVPs and demos without a dev team
+- **Product managers** – Prototype and validate ideas quickly
+- **IT agencies and ops teams** – Build internal or client tools without long dev cycles
+
+## Conclusion
+
+Emergent is for anyone who wants to go from idea to live app in minutes. Use the steps above to describe your app, refine it in chat, and deploy—all through the affiliate link below.
+
+**[🚀 Get started with Emergent](https://get.emergent.sh/BAIB)**
+
+---
+
+**Affiliate Disclosure:** BetterAiBots.com may have affiliate relationships with Emergent.
+
+**User Responsibility:** Any decision to use Emergent should be based on your own analysis of your needs, budget, and objectives.
+    `
+  },
+  {
+    id: "sleekflow",
+    title: "SleekFlow User Guide – Omnichannel AI Messaging for Conversions",
+    date: "February 2026",
+    cover: "/sleekflowai.jpg",
+    preview: "Centralize WhatsApp, Messenger, and live chat in one team inbox. Use AI agents to qualify leads, route conversations, and convert more sales with SleekFlow.",
+    images: ["/sleekflowai.jpg", "/sleekflow2.jpg"],
+    content: `
+## What is SleekFlow?
+
+[SleekFlow](https://sleekflow.partnerlinks.io/BAIB) is an omnichannel AI messaging platform for businesses. It unifies WhatsApp, Facebook Messenger, Instagram, live chat, and more in a single team inbox so you stop juggling apps and losing leads. AI agents (AgentFlow) work 24/7 to engage leads, qualify them, and route sales-ready conversations to your team.
+
+**[🚀 Start for free with SleekFlow](https://sleekflow.partnerlinks.io/BAIB)**
+
+## User Guide – Getting Started
+
+### 1. Centralize Your Messaging
+
+Connect WhatsApp Business API, Messenger, Instagram DM, and website chat to one shared inbox. All conversations and lead context stay in one place.
+
+### 2. Set Up AI Agents (AgentFlow)
+
+Build AI agents that answer common questions, nurture interest, recommend products, and hand off high-intent leads to your team. Train agents on your data and set boundaries in the visual builder.
+
+### 3. Run Broadcast Campaigns
+
+Use rich customer data to segment contacts and send targeted WhatsApp broadcasts, reminders, and coupons. Track campaign ROI and double down on what works.
+
+### 4. Sell in Chat
+
+Use catalog and payment links so customers can browse and pay inside WhatsApp. Integrate with Shopify, HubSpot, or Salesforce to sync data and automate follow-ups.
+
+## Key Features
+
+- **Shared team inbox** – One number, multi-user login, no missed leads
+- **WhatsApp Business API** – Official Meta partner; scale to 10,000+ users with broadcast
+- **AgentFlow** – AI agents that qualify, route, and convert
+- **Broadcast & automation** – Campaigns and workflows without extra headcount
+- **CRM integrations** – Salesforce, HubSpot, Shopify, Google Sheets
+
+## Who Is SleekFlow For?
+
+- B2C brands wanting to convert more on WhatsApp and social
+- Sales and support teams that need one inbox for all channels
+- Businesses that want AI to handle first touch and route leads to humans
+
+## Conclusion
+
+SleekFlow helps you capture leads from every channel, qualify them with AI, and close more deals. Start with the link below to try it at zero cost.
+
+**[🚀 Start for free with SleekFlow](https://sleekflow.partnerlinks.io/BAIB)**
+
+---
+
+**Affiliate Disclosure:** BetterAiBots.com may have affiliate relationships with SleekFlow.
+
+**User Responsibility:** Any decision to use SleekFlow should be based on your own analysis of your needs, budget, and objectives.
+    `
+  },
+  {
     id: "lusha",
     title: "The B2B Contact Data Platform Powering Sales Teams Worldwide",
     date: "December 2025",
@@ -24614,24 +24805,33 @@ export default function Articles({ level = "beginner" }) {
     return true;
   });
 
-  // App Spotlight order: InstaGlamor, then Pinecone, then Databox (for each level)
+  // App Spotlight order: Ignition featured first, then SleekFlow, Emergent, InstaGlamor, Pinecone, Databox
   const orderedForSpotlight = (() => {
     const arr = [...uniqueArticles];
+    const iIgnition = arr.findIndex(a => a.id === 'practice-ignition');
+    const iSleekflow = arr.findIndex(a => a.id === 'sleekflow');
+    const iEmergent = arr.findIndex(a => a.id === 'emergent');
     const iInsta = arr.findIndex(a => a.id === 'instaglamor');
     const iPin = arr.findIndex(a => a.id === 'pinecone-vector-database');
     const iData = arr.findIndex(a => a.id === 'databox');
-    if (iInsta >= 0 && iData >= 0 && iPin >= 0) {
-      const [insta, pin, data] = [
+    if (iIgnition >= 0 && iSleekflow >= 0 && iEmergent >= 0 && iInsta >= 0 && iData >= 0 && iPin >= 0) {
+      const [ignition, sleekflow, emergent, insta, pin, data] = [
+        arr[iIgnition],
+        arr[iSleekflow],
+        arr[iEmergent],
         arr[iInsta],
         arr[iPin],
         arr[iData]
       ];
-      const indices = [iInsta, iPin, iData].sort((a, b) => a - b);
+      const indices = [iIgnition, iSleekflow, iEmergent, iInsta, iPin, iData].sort((a, b) => a - b);
+      arr.splice(indices[5], 1);
+      arr.splice(indices[4], 1);
+      arr.splice(indices[3], 1);
       arr.splice(indices[2], 1);
       arr.splice(indices[1], 1);
       arr.splice(indices[0], 1);
       const insertAt = indices[0];
-      arr.splice(insertAt, 0, insta, pin, data);
+      arr.splice(insertAt, 0, ignition, sleekflow, emergent, insta, pin, data);
     }
     return arr;
   })();
