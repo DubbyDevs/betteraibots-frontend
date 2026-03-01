@@ -74,12 +74,16 @@ class ErrorBoundary extends React.Component {
             Refresh Page
           </button>
           
-          <button 
-            onClick={() => window.location.href = '/clear-cache'} 
+          <a
+            href="/fix-mobile"
+            target="_top"
+            rel="noopener noreferrer"
             style={{
-              background: 'rgba(255, 107, 107, 0.1)',
-              color: '#ff6b6b',
-              border: '1px solid #ff6b6b',
+              display: 'inline-block',
+              background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+              color: '#1a2330',
+              border: 'none',
+              textDecoration: 'none',
               padding: '12px 24px',
               borderRadius: '8px',
               fontWeight: '600',
@@ -88,8 +92,8 @@ class ErrorBoundary extends React.Component {
               marginBottom: '15px'
             }}
           >
-            Clear Cache
-          </button>
+            Clear cache (fix stuck app)
+          </a>
           
           <button 
             onClick={() => this.setState({ hasError: false })} 
