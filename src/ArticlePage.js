@@ -1420,7 +1420,10 @@ export default function ArticlePage() {
             "turbotic": "https://betteraibots.com/turbotic.png",
             "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
             "databox": "https://betteraibots.com/assets/databoxai.jpg",
-            "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"
+            "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg",
+            "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+            "emergent": "https://betteraibots.com/emergentai.png",
+            "sleekflow": "https://betteraibots.com/sleekflowai.jpg"
           };
               return ogImageMap[article.id] || primaryImage || article.cover;
             })(),
@@ -1467,7 +1470,10 @@ export default function ArticlePage() {
                 "reclaim-ai": "Reclaim.ai, calendar management, time blocking, AI scheduling, calendar automation, productivity, meeting scheduling, time optimization, BetterAiBots",
                 "quillbot-complete-guide": "QuillBot, AI paraphrasing tool, grammar checker, AI detector, plagiarism checker, AI humanizer, writing assistant, text rewriter, paraphrasing software, BetterAiBots",
                 "amplemarket": "Amplemarket, sales engagement, prospecting, outreach automation, sales automation, B2B sales, lead generation, sales CRM, BetterAiBots",
-                "mindstudio": "MindStudio, AI agent builder, no-code AI, AI workflow automation, custom AI assistants, AI agent development, workflow builder, AI automation platform, BetterAiBots"
+                "mindstudio": "MindStudio, AI agent builder, no-code AI, AI workflow automation, custom AI assistants, AI agent development, workflow builder, AI automation platform, BetterAiBots",
+                "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
+                "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
+                "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
               };
               return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
             })(),
