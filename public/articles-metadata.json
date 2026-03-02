@@ -35,6 +35,13 @@
     "cover": null
   },
   {
+    "id": "adwisely",
+    "title": "AI-Powered Google Ads & Meta Ads Platform for High ROAS",
+    "date": "January 2026",
+    "preview": "Boost sales effortlessly with AI-powered Google Ads, Facebook Ads & Instagram Ads managed by experts. Launch full-funnel AI-driven ads—from retargeting to prospecting—in just a few clicks, without needing deep marketing expertise.",
+    "cover": null
+  },
+  {
     "id": "reclaim-ai",
     "title": "AI-Powered Calendar and Time Management Platform",
     "date": "January 2026",
@@ -67,6 +74,27 @@
     "title": "AI Video Editor: Text-Based Editing, Transcription, and AI-Powered Video Creation",
     "date": "January 2026",
     "preview": "Descript is an AI-powered video editing platform that makes video editing as easy as editing text. With transcription-based editing, AI video generation, voice cloning, and professional tools, Descript transforms how creators and businesses make video content.",
+    "cover": null
+  },
+  {
+    "id": "gohighlevel",
+    "title": "GoHighLevel Complete Guide: AI-Powered All-in-One Business Operating System",
+    "date": "January 2026",
+    "preview": "GoHighLevel is an AI-powered all-in-one business operating system that combines CRM, marketing automation, social media scheduling, landing pages, funnels, and white-label capabilities in one platform. This comprehensive guide covers features, workflows, and how to use GoHighLevel to grow and manage",
+    "cover": null
+  },
+  {
+    "id": "weave",
+    "title": "Weave Complete Guide: AI-Powered Communication Platform for Healthcare Practices",
+    "date": "January 2026",
+    "preview": "Weave is an AI-powered communication platform designed for healthcare practices that combines AI Receptionist, call intelligence, automated reminders, payment solutions, and patient engagement tools in one unified system. This comprehensive guide covers features, workflows, and how to use Weave to a",
+    "cover": null
+  },
+  {
+    "id": "turbotic",
+    "title": "Turbotic Complete Guide: AI-Powered Automation and Business Transformation Platform",
+    "date": "January 2026",
+    "preview": "Turbotic is an AI-powered automation and transformation platform that helps businesses build business cases, automate workflows, and deploy digital transformation with secure, compliant tools. This comprehensive guide covers features, workflows, and how to use Turbotic to streamline operations and a",
     "cover": null
   },
   {
@@ -105,6 +133,27 @@
     "cover": null
   },
   {
+    "id": "practice-ignition",
+    "title": "Ignition User Guide – Proposals, Onboarding & Payments",
+    "date": "February 2026",
+    "preview": "Learn how to use Ignition to send professional proposals, onboard clients, and get paid—all in one practice management platform for accountants and bookkeepers.",
+    "cover": null
+  },
+  {
+    "id": "emergent",
+    "title": "Emergent User Guide – Build Full-Stack Web & Mobile Apps with AI",
+    "date": "February 2026",
+    "preview": "Build production-ready web and mobile apps through conversation. Emergent uses AI agents that design, code, and deploy your application from start to finish—in minutes.",
+    "cover": null
+  },
+  {
+    "id": "sleekflow",
+    "title": "SleekFlow User Guide – Omnichannel AI Messaging for Conversions",
+    "date": "February 2026",
+    "preview": "Centralize WhatsApp, Messenger, and live chat in one team inbox. Use AI agents to qualify leads, route conversations, and convert more sales with SleekFlow.",
+    "cover": null
+  },
+  {
     "id": "lusha",
     "title": "The B2B Contact Data Platform Powering Sales Teams Worldwide",
     "date": "December 2025",
@@ -122,7 +171,7 @@
     "id": "pinecone-vector-database",
     "title": "Build Knowledgeable AI with Production-Ready Search",
     "date": "February 2026",
-    "preview": "Pinecone is a fully managed vector database that powers high-relevance search, RAG, and AI agents at scale. This guide covers setup, indexing, querying, and best practices so you can ship production-ready AI search without managing infrastructure.",
+    "preview": "Pinecone is a fully managed vector database that powers high-relevance search, RAG, and AI agents at scale. This guide walks you through concepts, setup, indexing your data, and querying with real examples so you can deploy production-ready AI search without managing infrastructure.",
     "cover": null
   },
   {
@@ -144,6 +193,34 @@
     "title": "RankPrompt Review: AI SEO Content Briefs, Keyword Research, and SERP Insights",
     "date": "December 2025",
     "preview": "RankPrompt is an AI-powered SEO platform that turns prompts into search-ready content briefs, outlines, and keyword-focused page plans. This guide covers features, workflows, and how to use RankPrompt to publish content that ranks.",
+    "cover": null
+  },
+  {
+    "id": "getresponse",
+    "title": "GetResponse Review: Email Marketing, Automation, and Funnels",
+    "date": "December 2025",
+    "preview": "GetResponse is an email marketing and automation platform for campaigns, landing pages, and conversion funnels. This guide covers features, workflows, and how to use GetResponse to grow your email list and revenue.",
+    "cover": null
+  },
+  {
+    "id": "creativescore",
+    "title": "AI Powered Creative Scoring and Ad Performance Prediction",
+    "date": "December 2025",
+    "preview": "CreativeScore is an AI creative analysis platform that scores ads and predicts performance before launch. This guide covers features, workflows, and how to use CreativeScore to improve ad creative results.",
+    "cover": null
+  },
+  {
+    "id": "laxis",
+    "title": "AI Meeting Assistant for Transcripts, Summaries, and Action Items",
+    "date": "December 2025",
+    "preview": "Laxis is an AI meeting assistant that records, transcribes, summarizes, and captures action items. This guide covers features, workflows, and how to use Laxis to turn meetings into clear notes and follow-ups.",
+    "cover": null
+  },
+  {
+    "id": "krispcall",
+    "title": "Cloud Phone System with AI Call Summaries",
+    "date": "December 2025",
+    "preview": "KrispCall is a cloud phone system for sales and support teams with AI call summaries, routing, and CRM integrations. This guide covers features, workflows, and how to use KrispCall for business calling.",
     "cover": null
   },
   {
@@ -231,6 +308,13 @@
     "cover": null
   },
   {
+    "id": "travel-code-ai-complete-guide",
+    "title": "Travel Code AI Complete Guide: Plan Smarter Trips in Minutes",
+    "date": "November 2025",
+    "preview": "Travel Code AI is an AI travel planning platform that helps you build day-by-day itineraries, optimize routes, and organize trip details fast. This guide shows how to set up a trip, refine plans, and make travel days smoother with clear, actionable workflows.",
+    "cover": null
+  },
+  {
     "id": "logome-complete-guide",
     "title": "AI Logo Generator & Brand Kit Creator - Design Stunning Logos in Seconds",
     "date": "November 2025",
@@ -260,7 +344,7 @@
   },
   {
     "id": "quillbot-complete-guide",
-    "title": "Complete Guide to QuillBot: AI Writing Assistant for Paraphrasing, Grammar, and More",
+    "title": "AI Writing Assistant for Paraphrasing, Grammar, and More",
     "date": "November 2025",
     "preview": "QuillBot is an AI-powered writing assistant that helps you paraphrase text, check grammar, detect AI content, and improve your writing. Learn how to use QuillBot's suite of tools to write better, faster, and smarter.",
     "cover": null
@@ -275,7 +359,7 @@
   {
     "id": "atria",
     "title": "The AI Ad Engine That Transforms Your Marketing Workflow",
-    "date": "November 2025",
+    "date": "October 2025",
     "preview": "Discover how Atria's all-in-one AI ad platform combines analytics, research, creation, and inspiration to help marketers create winning ads faster and scale revenue growth.",
     "cover": null
   },
@@ -331,7 +415,7 @@
   {
     "id": "mrpeasy-complete-guide",
     "title": "The Complete Manufacturing ERP Solution for Small Businesses",
-    "date": "October 2025",
+    "date": "September 2025",
     "preview": "Discover how MRPeasy's cloud-based ERP system helps small manufacturing businesses streamline production, manage inventory, and scale operations efficiently.",
     "cover": null
   },
@@ -422,14 +506,14 @@
   {
     "id": "alli-ai",
     "title": "The Complete SEO Automation Platform Guide",
-    "date": "July 2025",
+    "date": "August 2025",
     "preview": "Discover how Alli AI's automated SEO platform helps agencies optimize thousands of pages instantly, with real-time deployment and universal CMS compatibility.",
     "cover": null
   },
   {
     "id": "webydo",
     "title": "Professional Web Design Platform for Pixel-Perfect Websites Without Coding",
-    "date": "July 2025",
+    "date": "August 2025",
     "preview": "Discover how Webydo's professional web design platform enables designers to create pixel-perfect websites without coding, with advanced design tools and client management features.",
     "cover": null
   },
@@ -476,52 +560,17 @@
     "cover": null
   },
   {
-    "id": "pipes-ai",
-    "title": "Turn Web Leads into Live Conversations with AI-Driven Outreach",
-    "date": "July 2025",
-    "preview": "See how Pipes.ai verifies inbound leads, launches AI voice/SMS follow-ups, and connects the hottest prospects to your sales team in real time.",
-    "cover": null
-  },
-  {
     "id": "volza",
     "title": "Global Trade Intelligence, Suppliers, and Shipment Data",
-    "date": "December 2025",
+    "date": "July 2025",
     "preview": "Volza is a global trade intelligence platform for supplier discovery, shipment tracking, and competitor research. This guide covers features, workflows, and how to use Volza for market research and sourcing.",
     "cover": null
   },
   {
     "id": "bidx",
     "title": "AI Advertising Optimization and Performance Insights",
-    "date": "December 2025",
+    "date": "July 2025",
     "preview": "Bidx is an AI-powered advertising optimization platform for scaling performance campaigns. This guide covers features, workflows, and how to use Bidx to improve ROI across paid channels.",
-    "cover": null
-  },
-  {
-    "id": "laxis",
-    "title": "AI Meeting Assistant for Transcripts, Summaries, and Action Items",
-    "date": "December 2025",
-    "preview": "Laxis is an AI meeting assistant that records, transcribes, summarizes, and captures action items. This guide covers features, workflows, and how to use Laxis to turn meetings into clear notes and follow-ups.",
-    "cover": null
-  },
-  {
-    "id": "krispcall",
-    "title": "Cloud Phone System with AI Call Summaries",
-    "date": "December 2025",
-    "preview": "KrispCall is a cloud phone system for sales and support teams with AI call summaries, routing, and CRM integrations. This guide covers features, workflows, and how to use KrispCall for business calling.",
-    "cover": null
-  },
-  {
-    "id": "getresponse",
-    "title": "GetResponse Review: Email Marketing, Automation, and Funnels",
-    "date": "December 2025",
-    "preview": "GetResponse is an email marketing and automation platform for campaigns, landing pages, and conversion funnels. This guide covers features, workflows, and how to use GetResponse to grow your email list and revenue.",
-    "cover": null
-  },
-  {
-    "id": "creativescore",
-    "title": "AI Powered Creative Scoring and Ad Performance Prediction",
-    "date": "December 2025",
-    "preview": "CreativeScore is an AI creative analysis platform that scores ads and predicts performance before launch. This guide covers features, workflows, and how to use CreativeScore to improve ad creative results.",
     "cover": null
   }
 ]

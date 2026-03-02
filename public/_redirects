@@ -9,6 +9,9 @@
 # /news/anthropic-claude-35-sonnet-reasoning /news/anthropic-claude-35-sonnet-reasoning.html 200
 # /news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025 /news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025.html 200
 
+# No service worker — return 404 so no worker is ever registered or updated
+/sw.js   404   404
+
 # Escape hatch: serve static clear-cache page so users can break out of old service worker loop.
 # Use a path the old SW has never seen (e.g. /reset-app) so it can't return cached index.html.
 /clear-cache     /clear-cache.html  200

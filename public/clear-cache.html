@@ -44,8 +44,8 @@
     <div class="card">
       <h1>Clearing cache…</h1>
       <p>Removing old app data and service worker.</p>
-      <p style="margin-top:12px;font-size:0.9rem;color:#36ff95;" id="countdown">Redirecting in <strong>5</strong> seconds…</p>
-      <p style="margin-top:12px;font-size:0.85rem;color:#6b7280;">Waiting so the old app is fully removed before loading the site.</p>
+      <p style="margin-top:12px;font-size:0.9rem;color:#36ff95;" id="countdown">Redirecting in <strong>10</strong> seconds…</p>
+      <p style="margin-top:12px;font-size:0.85rem;color:#6b7280;">Waiting so the service worker and caches are fully removed before loading the site.</p>
       <p style="margin-top:8px;font-size:0.8rem;color:#4b5563;">If it loops again, type in the address bar: <strong>betteraibots.com/reset-app</strong></p>
     </div>
     <script>
@@ -62,7 +62,7 @@
           try { localStorage.clear(); } catch (e) {}
           try { sessionStorage.clear(); } catch (e) {}
         } catch (e) {}
-        var sec = 5;
+        var sec = 10;
         var el = document.getElementById('countdown');
         var tick = setInterval(function() {
           sec--;
