@@ -118,5 +118,30 @@
       <input type="text" name="bot-field" />
     </form>
     <div id="root"></div>
+    <script>
+      (function() {
+        window.__lastError = '';
+        window.addEventListener('error', function(e) {
+          if (e.message) window.__lastError = (window.__lastError || '') + ' ' + e.message;
+          if (e.error && e.error.stack) window.__lastError = (window.__lastError || '') + ' ' + e.error.stack;
+        });
+        window.addEventListener('unhandledrejection', function(e) {
+          var msg = e.reason && (e.reason.message || String(e.reason));
+          if (msg) window.__lastError = (window.__lastError || '') + ' ' + msg;
+        });
+        setTimeout(function() {
+          var root = document.getElementById('root');
+          if (!root || root.children.length === 0 || (root.children.length === 1 && !root.querySelector('a, button, [class]'))) {
+            root.innerHTML = '<div style="padding:24px;font-family:sans-serif;color:#9ca3af;max-width:400px;margin:0 auto;text-align:center;">' +
+              '<p style="color:#36ff95;font-size:1.1rem;">App didn\'t load.</p>' +
+              '<p style="margin:12px 0;">On mobile, type in your <strong>address bar</strong>:</p>' +
+              '<p style="word-break:break-all;color:#fff;margin:16px 0;">betteraibots.com/reset-app</p>' +
+              '<p style="font-size:0.85rem;">Then wait 5 seconds and you\'ll be redirected back.</p>' +
+              (window.__lastError ? '<pre style="text-align:left;font-size:0.75rem;overflow:auto;max-height:120px;background:#0f1419;padding:12px;border-radius:8px;margin-top:16px;">' + String(window.__lastError).slice(0,500) + '</pre>' : '') +
+              '</div>';
+          }
+        }, 8000);
+      })();
+    </script>
   </body>
 </html>
