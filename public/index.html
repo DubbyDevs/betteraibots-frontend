@@ -102,17 +102,6 @@
         // Silently fail if gtag is not available
       }
       
-      // Clear very old caches on page load to prevent white screens
-      if ('caches' in window) {
-        caches.keys().then(function(names) {
-          for (let name of names) {
-            // Only clear old v1.x caches, let service worker handle v2.x cache cleanup
-            if (name.startsWith('betteraibots-v1.')) {
-              caches.delete(name);
-            }
-          }
-        });
-      }
     </script>
     <meta name='impact-site-verification' value='cfbac7eb-75f8-40e4-a326-57f3a39c7653'>
     
@@ -120,165 +109,14 @@
     <!-- Replace the content value with your verification code from Google Search Console -->
     <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" /> -->
   </head>
-  <body>
+  <body style="margin:0;background:#1a2332;">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <!-- Hidden form for Netlify Forms (detected at build); React submits via fetch -->
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
       <input type="text" name="bot-field" />
     </form>
-    <div id="root">
-      <!-- Loading fallback to prevent blank white screen -->
-      <div style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #1a2330 0%, #0f1419 100%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #36ff95;
-        font-family: 'Poppins', sans-serif;
-        z-index: 9999;
-      ">
-        <div style="
-          width: 60px;
-          height: 60px;
-          border: 3px solid rgba(54, 255, 149, 0.3);
-          border-top: 3px solid #36ff95;
-          border-radius: 50%;
-          animation: spin 1s linear infinite;
-          margin-bottom: 20px;
-        "></div>
-        <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">BetterAiBots</div>
-        <div style="font-size: 0.9rem; color: #9ca3af;">Loading AI tools...</div>
-      </div>
-      <style>
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      </style>
-    </div>
-    
-    <!-- Error handling script -->
-    <script>
-      // Suppress console errors from external services (503s, network failures)
-      const originalError = console.error;
-      console.error = function(...args) {
-        const errorMsg = args.join(' ');
-        // Suppress known external service errors that don't affect functionality
-        if (errorMsg.includes('fonts.googleapis.com') || 
-            errorMsg.includes('googletagmanager.com') ||
-            errorMsg.includes('Failed to load resource') ||
-            errorMsg.includes('503')) {
-          return; // Don't log these errors
-        }
-        originalError.apply(console, args);
-      };
-      
-      // Hide loading screen when React app loads (no timeout trap – no "App Not Loading" screen)
-      function checkReactLoaded() {
-        const root = document.getElementById('root');
-        if (root && root.children.length > 0) {
-          const firstChild = root.children[0];
-          if (firstChild && !firstChild.style.background && firstChild.querySelector) {
-            const loadingEl = document.querySelector('#root > div[style*="background"]');
-            if (loadingEl) loadingEl.style.display = 'none';
-            return true;
-          }
-        }
-        return false;
-      }
-      window.addEventListener('load', function() {
-        const iv = setInterval(function() {
-          if (checkReactLoaded()) clearInterval(iv);
-        }, 500);
-        // If still loading after 15s, show one escape link (no full-screen takeover)
-        setTimeout(function() {
-          if (checkReactLoaded()) return;
-          var root = document.getElementById('root');
-          var loader = root && root.querySelector('div[style*="flex"]');
-          if (loader) {
-            var a = document.createElement('a');
-            a.href = '/reset-app';
-            a.target = '_top';
-            a.style.cssText = 'margin-top:24px;font-size:0.85rem;color:#6b7280;';
-            a.textContent = 'Stuck? Go to betteraibots.com/reset-app';
-            loader.appendChild(a);
-          }
-        }, 15000);
-      });
-      
-      // Function to clear cache and reload
-      window.clearCacheAndReload = async function(options = {}) {
-        try {
-          const { preserveCleanupKey } = options;
-          const cleanupKey = 'betteraibots-sw-cleanup-v1';
-          const cleanupValue = preserveCleanupKey ? localStorage.getItem(cleanupKey) : null;
-          // Clear service workers
-          if ('serviceWorker' in navigator) {
-            const registrations = await navigator.serviceWorker.getRegistrations();
-            for (let registration of registrations) {
-              await registration.unregister();
-            }
-          }
-          
-          // Clear all caches
-          if ('caches' in window) {
-            const cacheNames = await caches.keys();
-            await Promise.all(cacheNames.map(name => caches.delete(name)));
-          }
-          
-          // Clear storage
-          localStorage.clear();
-          sessionStorage.clear();
-          if (preserveCleanupKey) {
-            localStorage.setItem(cleanupKey, cleanupValue || '1');
-          }
-          
-          // Reload with cache-bust to avoid stale assets
-          const cacheBustUrl = new URL(window.location.href);
-          cacheBustUrl.searchParams.set('cacheBust', Date.now().toString());
-          window.location.replace(cacheBustUrl.toString());
-        } catch (error) {
-          console.error('Error clearing cache:', error);
-          window.location.reload();
-        }
-      };
-
-      // One-time automatic cleanup to clear old service workers and caches.
-      (function runOneTimeCleanup() {
-        const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '');
-        if (isMobileDevice) return;
-
-        const cleanupKey = 'betteraibots-sw-cleanup-v1';
-        try {
-          if (localStorage.getItem(cleanupKey)) return;
-          localStorage.setItem(cleanupKey, '1');
-        } catch (error) {
-          return;
-        }
-
-        window.clearCacheAndReload({ preserveCleanupKey: true }).catch(() => {
-          // If cleanup fails, avoid loops; allow manual refresh.
-        });
-      })();
-      
-      // Log errors only; do not replace the page with an error UI (avoids stuck "Something went wrong" loop)
-      window.addEventListener('error', function(e) {
-        if (e.target && (e.target.tagName === 'LINK' || e.target.tagName === 'SCRIPT')) {
-          if (e.target.src && (e.target.src.includes('fonts.googleapis.com') || e.target.src.includes('googletagmanager.com'))) return;
-          if (e.filename && (e.filename.includes('fonts.googleapis.com') || e.filename.includes('googletagmanager.com'))) return;
-        }
-        console.error('Global error:', e.error);
-      });
-      window.addEventListener('unhandledrejection', function(e) { console.error('Unhandled rejection:', e.reason); });
-    </script>
+    <div id="root"></div>
   </body>
 </html>
