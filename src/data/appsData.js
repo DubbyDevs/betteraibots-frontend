@@ -520,6 +520,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/snowfire-ai"
   },
   {
+    name: "Spiky",
+    description: "Real-time AI sales coaching and meeting intelligence that surfaces winning behaviors, handles objections on the spot, and syncs with your CRM",
+    category: "Sales & CRM",
+    features: ["Real-time call feedback", "Playbook execution (e.g. MEDDPICC)", "Objection detection & responses", "Pipeline visibility", "CRM sync", "Personalized coaching"],
+    link: "https://get.spiky.ai/BAIB",
+    trialInfo: "Free Trial Available",
+    image: "/spikyai.png",
+    readMoreLink: "/learn/spiky-ai"
+  },
+  {
     name: "ThorData",
     description: "AI-powered data analytics platform that helps businesses analyze, visualize, and make data-driven decisions",
     category: "Data Analytics & Business Intelligence",

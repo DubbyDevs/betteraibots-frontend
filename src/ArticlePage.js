@@ -631,6 +631,7 @@ export default function ArticlePage() {
     "practice-ignition": "https://get.practiceignition.com/BAIB",
     "omniseo": "https://get.omniseo.com/BAIB",
     "compliancely": "https://get.compliancely.com/gwmdzyd8i95g",
+    "spiky-ai": "https://get.spiky.ai/BAIB",
     "emergent": "https://get.emergent.sh/BAIB",
     "sleekflow": "https://sleekflow.partnerlinks.io/BAIB",
     "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
@@ -829,6 +830,7 @@ export default function ArticlePage() {
     'practice-ignition',
     'omniseo',
     'compliancely',
+    'spiky-ai',
     'emergent',
     'sleekflow',
     'invideo-ai',
@@ -1137,6 +1139,7 @@ export default function ArticlePage() {
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
             "compliancely": "https://betteraibots.com/compailogo.png",
+            "spiky-ai": "https://betteraibots.com/spikyai.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
@@ -1226,6 +1229,7 @@ export default function ArticlePage() {
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
             "compliancely": "https://betteraibots.com/compailogo.png",
+            "spiky-ai": "https://betteraibots.com/spikyai.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
@@ -1301,6 +1305,7 @@ export default function ArticlePage() {
             "practice-ignition": "AI, Artificial Intelligence, Ignition, Practice Ignition, practice management, proposals, client onboarding, accounting software, bookkeeping, engagement letters, online payments, professional services, BetterAiBots",
             "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
             "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
+            "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
             "emergent": "AI, Artificial Intelligence, Emergent, build apps with AI, full-stack apps, no-code app builder, AI agents, conversation to app, web app builder, mobile app, deploy with AI, Y Combinator, BetterAiBots",
             "sleekflow": "AI, Artificial Intelligence, SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow, AI agents, team inbox, lead qualification, broadcast campaigns, CRM messaging, conversion, BetterAiBots"
           };
@@ -1357,6 +1362,7 @@ export default function ArticlePage() {
             "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
             "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
             "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
+            "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
             "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
             "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
           };
@@ -1436,6 +1442,7 @@ export default function ArticlePage() {
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
             "compliancely": "https://betteraibots.com/compailogo.png",
+            "spiky-ai": "https://betteraibots.com/spikyai.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg"
           };
@@ -1488,6 +1495,7 @@ export default function ArticlePage() {
                 "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
                 "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
                 "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
+                "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
                 "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
                 "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
               };

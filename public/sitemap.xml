@@ -112,6 +112,18 @@
   </url>
   
   <url>
+    <loc>https://betteraibots.com/learn/spiky-ai</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/spikyai.png</image:loc>
+      <image:title>Spiky.ai User Guide – Real-Time AI Sales Coaching &amp; Meeting Intelligence</image:title>
+      <image:caption>Learn how Spiky.ai delivers real-time sales coaching, call momentum and objection handling, playbook execution, and pipeline visibility—so your team scales winning behaviors and closes more deals.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
     <loc>https://betteraibots.com/learn/compliancely</loc>
     <lastmod>2026-03-01</lastmod>
     <changefreq>weekly</changefreq>

@@ -7032,6 +7032,114 @@ This article contains affiliate links to <a href="https://partners.snowfire.ai/8
     `
   },
   {
+    id: "spiky-ai",
+    title: "Spiky.ai User Guide – Real-Time AI Sales Coaching & Meeting Intelligence",
+    date: "March 2026",
+    cover: "/spikyai.png",
+    preview: "Learn how Spiky.ai delivers real-time sales coaching, call momentum and objection handling, playbook execution, and pipeline visibility—so your team scales winning behaviors and closes more deals.",
+    images: ["/spikyai.png"],
+    content: `
+## What is Spiky.ai?
+
+<a href="https://get.spiky.ai/BAIB" target="_blank" rel="noopener noreferrer">Spiky.ai</a> is a real-time AI sales coaching and meeting intelligence platform that helps sales teams identify winning behaviors, execute playbooks during live calls, and scale what works across the team. Instead of reviewing calls after the fact, Spiky surfaces objections, suggests responses, and tracks call momentum (e.g. MEDDPICC) in real time—while syncing with your CRM so managers get full pipeline visibility and data-driven coaching recommendations.
+
+**[Book a Spiky.ai demo or start free](https://get.spiky.ai/BAIB)**
+
+---
+
+## Why Real-Time Sales Coaching Matters
+
+Sales reps who get in-the-moment guidance close more deals and adopt playbooks faster. Spiky.ai gives reps real-time feedback on talking speed, tone, objection handling, and playbook coverage so they can correct course during the call instead of in the next review. For managers, it means better playbook adoption, clearer pipeline visibility, and less time spent on manual call reviews.
+
+**[Try Spiky.ai for real-time coaching](https://get.spiky.ai/BAIB)**
+
+---
+
+## Key Features
+
+### Real-Time Feedback During Calls
+
+Spiky analyzes live sales calls and surfaces actionable feedback as the conversation happens: call momentum scores, talking speed and tone, active playbook status (e.g. MEDDPICC), and success metrics so reps know where they stand. [Get real-time feedback with Spiky](https://get.spiky.ai/BAIB).
+
+### Objection Detection and Suggested Responses
+
+When an objection is detected (e.g. concerns about downtime or integration), Spiky suggests proven responses so reps can address it on the spot instead of losing the deal. Teams report better closure rates when objections are handled in real time.
+
+### Playbook Execution (e.g. MEDDPICC)
+
+Keep reps on track with methodology-based playbooks. Spiky tracks which elements are covered (pain points, budget, timeline, authority, etc.) and highlights gaps so reps can fill them during the same call. [See how Spiky supports your playbook](https://get.spiky.ai/BAIB).
+
+### Pipeline Visibility and Deal Prioritization
+
+Managers get a clear view of deal progression, outstanding tasks, and where each opportunity stands. Spiky helps prioritize which deals need attention and which reps need coaching, so you close faster and scale winning behaviors.
+
+### CRM Sync
+
+Spiky integrates with Salesforce, HubSpot, Pipedrive, Zoho, and other CRMs so activity, notes, and insights flow into your existing stack. No double entry—meeting intelligence and coaching live where you already work.
+
+### Personalized Coaching and Training
+
+Use Spiky’s coaching and training library to improve skills and replicate top-performer behaviors. Recommendations are based on actual call and pipeline data, so coaching is targeted and actionable. [Explore Spiky coaching](https://get.spiky.ai/BAIB).
+
+---
+
+## Getting Started
+
+### 1. Book a Demo or Sign Up
+
+Go to [Spiky.ai](https://get.spiky.ai/BAIB) and book a demo or sign up for a free trial. Spiky works with Google Meet, Zoom, Microsoft Teams, Webex, and major calendar and CRM tools.
+
+### 2. Connect Calendar and CRM
+
+Connect your calendar (Google Calendar, Outlook) and CRM (Salesforce, HubSpot, Pipedrive, Zoho) so Spiky can join meetings, analyze calls, and sync outcomes automatically.
+
+### 3. Configure Playbooks and Metrics
+
+Set up your sales playbooks (e.g. MEDDPICC, MEDDIC) and success metrics so Spiky can track coverage and momentum in real time and in post-call insights.
+
+### 4. Review Insights and Coach Your Team
+
+Use the dashboard to see team performance, deal progression, and Spiky’s recommendations. Focus coaching where it will move the needle most. [Start with Spiky](https://get.spiky.ai/BAIB).
+
+---
+
+## Who Is Spiky.ai For?
+
+- **Sales teams** that want real-time coaching and higher win rates
+- **Sales leaders** who need pipeline visibility and data-driven rep development
+- **Revenue organizations** using MEDDPICC or similar methodologies who want playbook adherence during calls
+- **Customer success** (Spiky also offers Customer Success–focused insights and workflows)
+
+---
+
+## Integrations
+
+Spiky integrates with Microsoft Outlook and Google Calendar (scheduling), Microsoft Teams, Google Meet, Webex, Zoom (meeting platforms), Salesforce, Pipedrive, HubSpot, Zoho (CRM), and Zapier and Five9 for workflow and telephony. [Check Spiky integrations](https://get.spiky.ai/BAIB).
+
+---
+
+## Security and Compliance
+
+Spiky is SOC 2 Type II certified, GDPR and KVKK compliant, and runs on ISO 27001 infrastructure, so your meeting and pipeline data are handled with enterprise-grade security.
+
+---
+
+## Conclusion
+
+Spiky.ai helps sales teams 2x revenue by scaling winning behaviors: real-time feedback, objection handling, playbook execution, and pipeline visibility—all synced with your CRM. Use the steps above to get started and align your team around what works.
+
+**[Book a demo or start your Spiky.ai free trial](https://get.spiky.ai/BAIB)**
+
+---
+
+**Affiliate Disclosure:** BetterAiBots.com may have affiliate relationships with Spiky.ai. We may earn a commission if you sign up through our links, at no extra cost to you.
+
+**Pricing and Terms:** Pricing and product details are subject to change. Verify current plans and terms on [Spiky.ai](https://get.spiky.ai/BAIB).
+
+**User Responsibility:** Any decision to use Spiky.ai should be based on your own sales and coaching needs, stack, and objectives.
+    `
+  },
+  {
     id: "smartli",
     title: "AI-Powered Content Creation Platform for E-commerce and Marketing",
     date: "November 2025",
@@ -25013,10 +25121,11 @@ export default function Articles({ level = "beginner" }) {
     return true;
   });
 
-  // App Spotlight order: OmniSEO first, Compliancely second, then Ignition, SleekFlow, Emergent, InstaGlamor, Pinecone, Databox
+  // App Spotlight order: OmniSEO first (featured), then Spiky (first in grid), Compliancely, Ignition, SleekFlow, Emergent, InstaGlamor, Pinecone, Databox
   const orderedForSpotlight = (() => {
     const arr = [...uniqueArticles];
     const iOmniseo = arr.findIndex(a => a.id === 'omniseo');
+    const iSpiky = arr.findIndex(a => a.id === 'spiky-ai');
     const iCompliancely = arr.findIndex(a => a.id === 'compliancely');
     const iIgnition = arr.findIndex(a => a.id === 'practice-ignition');
     const iSleekflow = arr.findIndex(a => a.id === 'sleekflow');
@@ -25024,9 +25133,10 @@ export default function Articles({ level = "beginner" }) {
     const iInsta = arr.findIndex(a => a.id === 'instaglamor');
     const iPin = arr.findIndex(a => a.id === 'pinecone-vector-database');
     const iData = arr.findIndex(a => a.id === 'databox');
-    if (iOmniseo >= 0 && iCompliancely >= 0 && iIgnition >= 0 && iSleekflow >= 0 && iEmergent >= 0 && iInsta >= 0 && iData >= 0 && iPin >= 0) {
-      const [omniseo, compliancely, ignition, sleekflow, emergent, insta, pin, data] = [
+    if (iOmniseo >= 0 && iSpiky >= 0 && iCompliancely >= 0 && iIgnition >= 0 && iSleekflow >= 0 && iEmergent >= 0 && iInsta >= 0 && iData >= 0 && iPin >= 0) {
+      const [omniseo, spiky, compliancely, ignition, sleekflow, emergent, insta, pin, data] = [
         arr[iOmniseo],
+        arr[iSpiky],
         arr[iCompliancely],
         arr[iIgnition],
         arr[iSleekflow],
@@ -25035,7 +25145,8 @@ export default function Articles({ level = "beginner" }) {
         arr[iPin],
         arr[iData]
       ];
-      const indices = [iOmniseo, iCompliancely, iIgnition, iSleekflow, iEmergent, iInsta, iPin, iData].sort((a, b) => a - b);
+      const indices = [iOmniseo, iSpiky, iCompliancely, iIgnition, iSleekflow, iEmergent, iInsta, iPin, iData].sort((a, b) => a - b);
+      arr.splice(indices[8], 1);
       arr.splice(indices[7], 1);
       arr.splice(indices[6], 1);
       arr.splice(indices[5], 1);
@@ -25045,7 +25156,7 @@ export default function Articles({ level = "beginner" }) {
       arr.splice(indices[1], 1);
       arr.splice(indices[0], 1);
       const insertAt = indices[0];
-      arr.splice(insertAt, 0, omniseo, compliancely, ignition, sleekflow, emergent, insta, pin, data);
+      arr.splice(insertAt, 0, omniseo, spiky, compliancely, ignition, sleekflow, emergent, insta, pin, data);
     }
     return arr;
   })();
