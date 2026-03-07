@@ -100,6 +100,30 @@
   
   <!-- Learn App Guides -->
   <url>
+    <loc>https://betteraibots.com/learn/omniseo</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/omniseo.png</image:loc>
+      <image:title>OmniSEO User Guide – AI Search Visibility &amp; Citation Tracking</image:title>
+      <image:caption>Monitor and optimize your brand's presence across ChatGPT, Perplexity, AI Overviews, and other AI search platforms with OmniSEO's visibility tracking and actionable insights.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://betteraibots.com/learn/compliancely</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/compailogo.png</image:loc>
+      <image:title>Compliancely User Guide – TIN Matching, Identity Verification &amp; IRS Tax Transcripts</image:title>
+      <image:caption>Use Compliancely for real-time TIN matching, identity verification, IRS tax transcripts, and KYB/KYC checks to streamline onboarding and compliance for fintech, lending, and marketplaces.</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
     <loc>https://betteraibots.com/learn/instaglamor</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
