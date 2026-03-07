@@ -5468,6 +5468,224 @@ Hume AI represents a significant step forward in creating AI that understands an
     `
   },
   {
+    id: "omniseo",
+    title: "OmniSEO User Guide – AI Search Visibility & Citation Tracking",
+    date: "March 2026",
+    cover: "/omniseo.png",
+    preview: "Monitor and optimize your brand's presence across ChatGPT, Perplexity, AI Overviews, and other AI search platforms with OmniSEO's visibility tracking and actionable insights.",
+    images: ["/omniseo.png"],
+    content: `
+## What is OmniSEO?
+
+<a href="https://get.omniseo.com/BAIB" target="_blank" rel="noopener noreferrer">OmniSEO</a> is an AI search visibility platform that helps brands monitor, analyze, and improve how they appear across ChatGPT, Perplexity, Google AI Overviews, Gemini, Claude, and other major AI search engines. As more people use AI assistants to research products and compare vendors, appearing in those answers is critical. OmniSEO gives you the tools to track your visibility, benchmark against competitors, and take action to win in AI search.
+
+**[Start tracking your AI visibility with OmniSEO](https://get.omniseo.com/BAIB)**
+
+---
+
+## Why AI Search Visibility Matters
+
+Search has moved beyond traditional Google. Users ask ChatGPT, Perplexity, and other AI tools for recommendations, comparisons, and decisions. If your brand isn’t visible in those answers, you’re missing a growing share of discovery and demand. OmniSEO helps you:
+
+- See when and how AI engines mention your brand
+- Compare your visibility to competitors
+- Get actionable recommendations to improve citations and rankings
+- Track prompts and queries that matter to your business
+
+**[Try OmniSEO – start tracking today](https://get.omniseo.com/BAIB)**
+
+---
+
+## Key Features
+
+### Prompt Tracking
+
+Monitor how your brand appears in response to specific prompts across AI search engines. Track visibility patterns, identify high-performing queries, and see which prompts drive the most brand mentions and citations. [Set up prompt tracking with OmniSEO](https://get.omniseo.com/BAIB).
+
+### ChatGPT & Perplexity Trackers
+
+Dedicated trackers for ChatGPT and Perplexity let you see where your brand shows up in answers, how often, and in what context. Use this to refine content and positioning for the platforms your audience uses most.
+
+### AI Overview Tracker
+
+Monitor your presence in Google AI Overviews so you can align your SEO and content with how Google’s AI summarizes and cites sources. [Get started with OmniSEO](https://get.omniseo.com/BAIB) to track AI Overview visibility.
+
+### Citation Tracking
+
+See when and where LLMs cite your content across different queries and platforms. Identify citation sources, track citation health, and find opportunities to increase visibility and traffic from AI-driven answers.
+
+### Competitor Analysis
+
+Compare your AI search visibility to competitors with benchmarking tools. Identify gaps, track share of voice, and see where competitors outperform you so you can prioritize improvements. [Explore competitor analysis on OmniSEO](https://get.omniseo.com/BAIB).
+
+### AI Prompt Volume Checker (Free Tool)
+
+OmniSEO offers a free prompt volume checker: enter any prompt and see estimated monthly AI search volume across ChatGPT, Perplexity, and Google AI. No signup required—useful for prioritizing which prompts and topics to optimize for.
+
+---
+
+## Getting Started
+
+### 1. Sign Up and Connect
+
+Go to [OmniSEO](https://get.omniseo.com/BAIB) and create an account. Choose a plan that fits your team size and goals. OmniSEO often runs limited-time offers (e.g. 50% off the first month) for new users.
+
+### 2. Define Your Brand and Prompts
+
+Add your brand and the prompts or queries that matter most (e.g. “best [category] software”, “top [industry] tools”). These become the basis for visibility and citation tracking.
+
+### 3. Set Up Trackers
+
+Enable the trackers you need: ChatGPT, Perplexity, AI Overview, and others. Configure the prompts and keywords you want to monitor so the dashboard reflects your real-world use cases.
+
+### 4. Review Insights and Recommendations
+
+Use the dashboard to see where you’re mentioned, how you compare to competitors, and which content or pages are driving citations. Follow OmniSEO’s actionable recommendations to improve visibility over time.
+
+**[Start your OmniSEO trial](https://get.omniseo.com/BAIB)**
+
+---
+
+## Who Is OmniSEO For?
+
+- **Marketing and SEO teams** who need to measure and improve visibility in AI search
+- **Brands and enterprises** that want to stay ahead as AI becomes a primary research channel
+- **Agencies** managing multiple clients’ AI search presence
+- **Content and product teams** who want to know which prompts and topics drive citations and traffic
+
+---
+
+## Pricing and Offers
+
+OmniSEO offers plans scaled for different team sizes. Check [OmniSEO pricing](https://get.omniseo.com/BAIB) for current tiers and any limited-time discounts (e.g. 50% off the first month). The free AI Prompt Volume Checker requires no signup and is available on the site.
+
+---
+
+## Conclusion
+
+OmniSEO gives you the visibility and insights you need to compete in AI search. Use prompt tracking, citation tracking, and competitor analysis to see where you stand and what to improve—then act on the platform’s recommendations to grow your presence across ChatGPT, Perplexity, AI Overviews, and more.
+
+**[Start tracking your AI visibility with OmniSEO](https://get.omniseo.com/BAIB)**
+
+---
+
+**Affiliate Disclosure:** BetterAiBots.com may have affiliate relationships with OmniSEO. We may earn a commission if you sign up through our links, at no extra cost to you.
+
+**Pricing and Terms:** Pricing and offers are subject to change. Verify current pricing, terms, and conditions on [OmniSEO](https://get.omniseo.com/BAIB).
+
+**User Responsibility:** Any decision to use OmniSEO should be based on your own analysis of your visibility needs, budget, and objectives.
+    `
+  },
+  {
+    id: "compliancely",
+    title: "Compliancely User Guide – TIN Matching, Identity Verification & IRS Tax Transcripts",
+    date: "March 2026",
+    cover: "/compailogo.png",
+    preview: "Use Compliancely for real-time TIN matching, identity verification, IRS tax transcripts, and KYB/KYC checks to streamline onboarding and compliance for fintech, lending, and marketplaces.",
+    images: ["/compailogo.png"],
+    content: `
+## What is Compliancely?
+
+<a href="https://get.compliancely.com/gwmdzyd8i95g" target="_blank" rel="noopener noreferrer">Compliancely</a> is a compliance and verification platform that helps businesses run accurate TIN matching, identity verification (IDV), and IRS tax transcript retrieval in real time. Built for fintech, lenders, banks, marketplaces, and anyone onboarding customers or vendors, Compliancely delivers fast TIN match results (under 3 seconds), watchlist and sanctions screening, and tax transcript retrieval in as little as 2 hours—so you can onboard faster while staying compliant.
+
+**[Request a free Compliancely demo](https://get.compliancely.com/gwmdzyd8i95g)**
+
+---
+
+## Why Compliance & Verification Matter
+
+Onboarding customers and vendors requires verifying identities, tax status, and business details. Manual checks are slow and error-prone; Compliancely automates TIN matching, identity verification against government and sanctions lists, and IRS tax transcript retrieval so you can make decisions quickly and stay within regulatory requirements.
+
+**[Get started with Compliancely](https://get.compliancely.com/gwmdzyd8i95g)**
+
+---
+
+## Key Features
+
+### Real-Time TIN Matching
+
+Verify Taxpayer Identification Numbers (TINs) against IRS data in real time. Compliancely’s TIN Match returns results in **under 3 seconds**, so you can validate payees and entities during onboarding or payment setup. [Try Compliancely TIN Match](https://get.compliancely.com/gwmdzyd8i95g).
+
+### Bulk TIN Matching
+
+Validate thousands of TINs in bulk for batch onboarding or data cleanup. Use the Bulk TIN Matching API to keep your records accurate and compliant at scale.
+
+### Identity Verification (IDV)
+
+Screen individuals and entities against watchlists, sanction lists (e.g. OFAC), and other government databases in real time. Compliancely helps you meet IDV and KYC/AML requirements without slowing down sign-up or onboarding. [Explore Compliancely IDV](https://get.compliancely.com/gwmdzyd8i95g).
+
+### IRS Tax Transcripts
+
+Retrieve official IRS tax transcripts for income and tax-history verification. Compliancely can return tax transcripts in **as little as 2 hours**, supporting lending, employment verification, and risk assessment workflows.
+
+### I-9 & E-Verify
+
+Run Form I-9 and E-Verify checks to confirm employment eligibility and stay compliant with immigration and hiring rules.
+
+### Address & Business Verification
+
+Confirm addresses with USPS-verified data and run business verification (KYB) on U.S. entities. Use SOS business entity search, tax-exempt validation, and GIIN verification where needed for FATCA and other compliance use cases.
+
+### Credit & Risk Assessment
+
+Use tax and income data to power credit decisions. Compliancely supports business and individual tax risk assessment, FinCEN BOI reporting, and related monitoring so you can assess risk in one platform. [See Compliancely solutions](https://get.compliancely.com/gwmdzyd8i95g).
+
+---
+
+## Getting Started
+
+### 1. Request a Demo
+
+Go to [Compliancely](https://get.compliancely.com/gwmdzyd8i95g) and request a free demo. Share your use case (e.g. customer onboarding, TIN checks, tax transcripts) and estimated yearly volume so the team can recommend the right products and pricing.
+
+### 2. Integrate via API
+
+Compliancely exposes APIs for TIN matching, identity verification, tax transcripts, and more. Integrate the endpoints you need into your application or internal tools for real-time or batch checks.
+
+### 3. Configure Checks and Workflows
+
+Set up the verification and screening flows that match your process—e.g. TIN match on sign-up, IDV and watchlist screening for new vendors, or tax transcript requests for lending decisions.
+
+### 4. Monitor and Scale
+
+Use Compliancely’s platform to monitor usage, review results, and scale volume as your business grows.
+
+**[Request your Compliancely demo](https://get.compliancely.com/gwmdzyd8i95g)**
+
+---
+
+## Who Is Compliancely For?
+
+- **Banks and fintechs** – KYB/KYC, TIN matching, and compliance rails for financial products
+- **Lenders** – Income and tax verification for underwriting
+- **Marketplaces** – Vet buyers and sellers with identity and business checks
+- **Insurance and crypto** – KYC/AML and identity verification
+- **Any business onboarding customers or vendors** – TIN match, address verification, and entity checks
+
+---
+
+## Pricing
+
+Compliancely pricing is based on use case and volume. [Request a demo](https://get.compliancely.com/gwmdzyd8i95g) to discuss TIN checks, IDV, tax transcripts, and other products and to get a quote tailored to your estimated yearly volume.
+
+---
+
+## Conclusion
+
+Compliancely gives you real-time TIN matching, identity verification, and IRS tax transcript retrieval in one platform. Use it to speed up onboarding, meet compliance requirements, and reduce manual verification work across fintech, lending, and marketplace use cases.
+
+**[Request a free Compliancely demo](https://get.compliancely.com/gwmdzyd8i95g)**
+
+---
+
+**Affiliate Disclosure:** BetterAiBots.com may have affiliate relationships with Compliancely. We may earn a commission if you sign up through our links, at no extra cost to you.
+
+**Pricing and Terms:** Pricing and product details are subject to change. Verify current offerings and terms on [Compliancely](https://get.compliancely.com/gwmdzyd8i95g).
+
+**User Responsibility:** Any decision to use Compliancely should be based on your own compliance needs, volume, and objectives.
+    `
+  },
+  {
     id: "practice-ignition",
     title: "Ignition User Guide – Proposals, Onboarding & Payments",
     date: "February 2026",
@@ -22706,16 +22924,6 @@ function ArticleCard({ article, level }) {
       }}>
         {article.title}
       </div>
-      {/* Date */}
-      <div style={{
-        color: "#79f2c1",
-        fontSize: "1.12rem",
-        fontWeight: 500,
-        marginBottom: 18,
-        textAlign: "center"
-      }}>
-        {article.date}
-      </div>
       {/* Spacer to push Read More button to bottom */}
       <div style={{ flexGrow: 1 }}></div>
       {/* Read More Button */}
@@ -24805,17 +25013,21 @@ export default function Articles({ level = "beginner" }) {
     return true;
   });
 
-  // App Spotlight order: Ignition featured first, then SleekFlow, Emergent, InstaGlamor, Pinecone, Databox
+  // App Spotlight order: OmniSEO first, Compliancely second, then Ignition, SleekFlow, Emergent, InstaGlamor, Pinecone, Databox
   const orderedForSpotlight = (() => {
     const arr = [...uniqueArticles];
+    const iOmniseo = arr.findIndex(a => a.id === 'omniseo');
+    const iCompliancely = arr.findIndex(a => a.id === 'compliancely');
     const iIgnition = arr.findIndex(a => a.id === 'practice-ignition');
     const iSleekflow = arr.findIndex(a => a.id === 'sleekflow');
     const iEmergent = arr.findIndex(a => a.id === 'emergent');
     const iInsta = arr.findIndex(a => a.id === 'instaglamor');
     const iPin = arr.findIndex(a => a.id === 'pinecone-vector-database');
     const iData = arr.findIndex(a => a.id === 'databox');
-    if (iIgnition >= 0 && iSleekflow >= 0 && iEmergent >= 0 && iInsta >= 0 && iData >= 0 && iPin >= 0) {
-      const [ignition, sleekflow, emergent, insta, pin, data] = [
+    if (iOmniseo >= 0 && iCompliancely >= 0 && iIgnition >= 0 && iSleekflow >= 0 && iEmergent >= 0 && iInsta >= 0 && iData >= 0 && iPin >= 0) {
+      const [omniseo, compliancely, ignition, sleekflow, emergent, insta, pin, data] = [
+        arr[iOmniseo],
+        arr[iCompliancely],
         arr[iIgnition],
         arr[iSleekflow],
         arr[iEmergent],
@@ -24823,7 +25035,9 @@ export default function Articles({ level = "beginner" }) {
         arr[iPin],
         arr[iData]
       ];
-      const indices = [iIgnition, iSleekflow, iEmergent, iInsta, iPin, iData].sort((a, b) => a - b);
+      const indices = [iOmniseo, iCompliancely, iIgnition, iSleekflow, iEmergent, iInsta, iPin, iData].sort((a, b) => a - b);
+      arr.splice(indices[7], 1);
+      arr.splice(indices[6], 1);
       arr.splice(indices[5], 1);
       arr.splice(indices[4], 1);
       arr.splice(indices[3], 1);
@@ -24831,7 +25045,7 @@ export default function Articles({ level = "beginner" }) {
       arr.splice(indices[1], 1);
       arr.splice(indices[0], 1);
       const insertAt = indices[0];
-      arr.splice(insertAt, 0, ignition, sleekflow, emergent, insta, pin, data);
+      arr.splice(insertAt, 0, omniseo, compliancely, ignition, sleekflow, emergent, insta, pin, data);
     }
     return arr;
   })();
@@ -25751,7 +25965,6 @@ export default function Articles({ level = "beginner" }) {
   </div>
   <div className="feature-article-content">
     <h1>{featuredArticle.title}</h1>
-    <p className="feature-article-date">{featuredArticle.date}</p>
     <p className="feature-article-preview">{featuredArticle.preview}</p>
   </div>
 </article>

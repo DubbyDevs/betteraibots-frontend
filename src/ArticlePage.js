@@ -629,6 +629,8 @@ export default function ArticlePage() {
     "flowith-io": "https://aff.flowith.io/52dtlja1b580",
     "hume-ai": "https://try.hume.ai/BAIB",
     "practice-ignition": "https://get.practiceignition.com/BAIB",
+    "omniseo": "https://get.omniseo.com/BAIB",
+    "compliancely": "https://get.compliancely.com/gwmdzyd8i95g",
     "emergent": "https://get.emergent.sh/BAIB",
     "sleekflow": "https://sleekflow.partnerlinks.io/BAIB",
     "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
@@ -825,6 +827,8 @@ export default function ArticlePage() {
     'flowith-io',
     'hume-ai',
     'practice-ignition',
+    'omniseo',
+    'compliancely',
     'emergent',
     'sleekflow',
     'invideo-ai',
@@ -1131,6 +1135,8 @@ export default function ArticlePage() {
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+            "omniseo": "https://betteraibots.com/omniseo.png",
+            "compliancely": "https://betteraibots.com/compailogo.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
@@ -1218,6 +1224,8 @@ export default function ArticlePage() {
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+            "omniseo": "https://betteraibots.com/omniseo.png",
+            "compliancely": "https://betteraibots.com/compailogo.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
@@ -1291,6 +1299,8 @@ export default function ArticlePage() {
             "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
             "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots",
             "practice-ignition": "AI, Artificial Intelligence, Ignition, Practice Ignition, practice management, proposals, client onboarding, accounting software, bookkeeping, engagement letters, online payments, professional services, BetterAiBots",
+            "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
+            "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
             "emergent": "AI, Artificial Intelligence, Emergent, build apps with AI, full-stack apps, no-code app builder, AI agents, conversation to app, web app builder, mobile app, deploy with AI, Y Combinator, BetterAiBots",
             "sleekflow": "AI, Artificial Intelligence, SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow, AI agents, team inbox, lead qualification, broadcast campaigns, CRM messaging, conversion, BetterAiBots"
           };
@@ -1345,6 +1355,8 @@ export default function ArticlePage() {
             "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
             "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots",
             "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
+            "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
+            "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
             "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
             "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
           };
@@ -1422,6 +1434,8 @@ export default function ArticlePage() {
             "databox": "https://betteraibots.com/assets/databoxai.jpg",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg",
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+            "omniseo": "https://betteraibots.com/omniseo.png",
+            "compliancely": "https://betteraibots.com/compailogo.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg"
           };
@@ -1472,6 +1486,8 @@ export default function ArticlePage() {
                 "amplemarket": "Amplemarket, sales engagement, prospecting, outreach automation, sales automation, B2B sales, lead generation, sales CRM, BetterAiBots",
                 "mindstudio": "MindStudio, AI agent builder, no-code AI, AI workflow automation, custom AI assistants, AI agent development, workflow builder, AI automation platform, BetterAiBots",
                 "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
+                "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
+                "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
                 "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
                 "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
               };
@@ -2656,9 +2672,6 @@ export default function ArticlePage() {
         fontFamily: 'Inter, Arial, sans-serif',
         letterSpacing: 0.5
       }}>{article.title}</h1>
-      <div style={{ color: "#b2ffe0", fontWeight: 400, marginBottom: 6, fontSize: "1.03rem" }}>
-        {article.date}
-      </div>
       <p style={{
         fontSize: "1.13rem",
         color: "#e9f7ee",
@@ -3829,15 +3842,6 @@ export default function ArticlePage() {
                           marginBottom: '10px'
                         }}>
                           {relatedArticle.preview}
-                        </p>
-                      )}
-                      {relatedArticle.date && (
-                        <p style={{
-                          fontSize: '0.85rem',
-                          color: '#36ff95',
-                          margin: 0
-                        }}>
-                          {relatedArticle.date}
                         </p>
                       )}
                     </div>

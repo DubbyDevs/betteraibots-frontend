@@ -664,6 +664,26 @@ const PAID_APPS = [
     readMoreLink: "/learn/seosparkplug"
   },
   {
+    name: "OmniSEO",
+    description: "AI search visibility platform to monitor and optimize your brand across ChatGPT, Perplexity, AI Overviews, and other AI engines",
+    category: "SEO & Digital Marketing",
+    features: ["ChatGPT & Perplexity trackers", "AI Overview monitoring", "Citation tracking", "Competitor analysis", "Prompt volume checker"],
+    price: "Plans from 50% off first month",
+    link: "https://get.omniseo.com/BAIB",
+    image: "/omniseo.png",
+    readMoreLink: "/learn/omniseo"
+  },
+  {
+    name: "Compliancely",
+    description: "Compliance platform for real-time TIN matching, identity verification, IRS tax transcripts, and KYB/KYC checks for fintech, lending, and onboarding",
+    category: "Compliance & Verification",
+    features: ["Real-time TIN matching", "Identity verification & watchlist screening", "IRS tax transcripts", "Bulk TIN matching", "I-9 / E-Verify", "Address & business verification"],
+    price: "Request demo",
+    link: "https://get.compliancely.com/gwmdzyd8i95g",
+    image: "/compailogo.png",
+    readMoreLink: "/learn/compliancely"
+  },
+  {
     name: "AiSDR",
     description: "AI sales development representative that books meetings with your ideal prospects through personalized outreach",
     category: "Sales & CRM",

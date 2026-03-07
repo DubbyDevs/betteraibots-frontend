@@ -27,6 +27,8 @@ const affiliateLinks = {
   "flowith-io": "https://aff.flowith.io/52dtlja1b580",
   "hume-ai": "https://try.hume.ai/BAIB",
   "practice-ignition": "https://get.practiceignition.com/BAIB",
+  "omniseo": "https://get.omniseo.com/BAIB",
+  "compliancely": "https://get.compliancely.com/gwmdzyd8i95g",
   "emergent": "https://get.emergent.sh/BAIB",
   "sleekflow": "https://sleekflow.partnerlinks.io/BAIB",
   "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
@@ -120,6 +122,8 @@ const ogImageMap = {
   "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
   "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
   "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+  "omniseo": "https://betteraibots.com/omniseo.png",
+  "compliancely": "https://betteraibots.com/compailogo.png",
   "emergent": "https://betteraibots.com/emergentai.png",
   "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
   "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
@@ -177,6 +181,8 @@ const keywordMap = {
   "amplemarket": "Amplemarket, sales engagement, prospecting, outreach automation, sales automation, B2B sales, lead generation, sales CRM, BetterAiBots",
   "mindstudio": "MindStudio, AI agent builder, no-code AI, AI workflow automation, custom AI assistants, AI agent development, workflow builder, AI automation platform, BetterAiBots",
   "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
+  "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
+  "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
   "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
   "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
 };
