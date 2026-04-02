@@ -780,6 +780,45 @@
     </image:image>
   </url>
 
+  <!-- Pomelli content creation service guide -->
+  <url>
+    <loc>https://betteraibots.com/news/how-to-build-content-creation-service-google-pomelli-tool</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/aipomelli.jpg</image:loc>
+      <image:title>How to Build a Content Creation Service Using Google&apos;s Free Pomelli Tool</image:title>
+      <image:caption>Google Labs&apos; Pomelli scans a business site, builds brand DNA, and generates on-brand marketing content—enabling a practical content-creation service workflow.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- AI medical diagnosis article -->
+  <url>
+    <loc>https://betteraibots.com/news/ai-doctors-are-here-how-medical-diagnosis-ai-just-passed-human-accuracy</loc>
+    <lastmod>2025-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/aidoctors.jpg</image:loc>
+      <image:title>AI Doctors Are Here: How Medical Diagnosis AI Just Passed Human Accuracy</image:title>
+      <image:caption>How AI systems are matching and surpassing human doctors in areas from cancer to diabetic eye disease.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- World / Worldcoin identity platform guide -->
+  <url>
+    <loc>https://betteraibots.com/news/world-complete-guide-identity-ipo-2025</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://betteraibots.com/worldipo.png</image:loc>
+      <image:title>World: Sam Altman&apos;s AI Identity Platform and IPO Prospects</image:title>
+      <image:caption>Tech, privacy, UBI vision, rollout, funding, and IPO context for World (formerly Worldcoin).</image:caption>
+    </image:image>
+  </url>
+
   <!-- SEOSparkPlug Article -->
   <url>
     <loc>https://betteraibots.com/learn/seosparkplug</loc>
