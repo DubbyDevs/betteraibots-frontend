@@ -631,6 +631,7 @@ export default function ArticlePage() {
     "practice-ignition": "https://get.practiceignition.com/BAIB",
     "omniseo": "https://get.omniseo.com/BAIB",
     "compliancely": "https://get.compliancely.com/gwmdzyd8i95g",
+    "teikametrics": "https://join.teikametrics.com/BAIB",
     "spiky-ai": "https://get.spiky.ai/BAIB",
     "emergent": "https://get.emergent.sh/BAIB",
     "sleekflow": "https://sleekflow.partnerlinks.io/BAIB",
@@ -830,6 +831,7 @@ export default function ArticlePage() {
     'practice-ignition',
     'omniseo',
     'compliancely',
+    'teikametrics',
     'spiky-ai',
     'emergent',
     'sleekflow',
@@ -1139,6 +1141,7 @@ export default function ArticlePage() {
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
             "compliancely": "https://betteraibots.com/compailogo.png",
+            "teikametrics": "https://betteraibots.com/telkalogo.jpg",
             "spiky-ai": "https://betteraibots.com/spikyai.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
@@ -1178,6 +1181,20 @@ export default function ArticlePage() {
         })()} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="article" />
+        {article.id === "spiky-ai" && (
+          <>
+            <meta property="og:video" content="https://www.youtube.com/embed/YCmjayjco90" />
+            <meta property="og:video:url" content="https://www.youtube.com/watch?v=YCmjayjco90" />
+            <meta property="og:video:type" content="text/html" />
+            <meta property="og:video:width" content="1280" />
+            <meta property="og:video:height" content="720" />
+            <meta property="og:video:duration" content="140" />
+            <meta property="og:video:release_date" content="2025-03-24" />
+            <meta property="video:tag" content="Spiky" />
+            <meta property="video:tag" content="AI sales coaching" />
+            <meta property="video:tag" content="meeting intelligence" />
+          </>
+        )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.preview} />
@@ -1229,6 +1246,7 @@ export default function ArticlePage() {
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
             "compliancely": "https://betteraibots.com/compailogo.png",
+            "teikametrics": "https://betteraibots.com/telkalogo.jpg",
             "spiky-ai": "https://betteraibots.com/spikyai.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
@@ -1305,6 +1323,7 @@ export default function ArticlePage() {
             "practice-ignition": "AI, Artificial Intelligence, Ignition, Practice Ignition, practice management, proposals, client onboarding, accounting software, bookkeeping, engagement letters, online payments, professional services, BetterAiBots",
             "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
             "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
+            "teikametrics": "Teikametrics, AI marketplace optimization, Amazon ads, Walmart ads, TikTok Shop, eCommerce growth, listing optimization, full-funnel advertising, marketplace analytics, BetterAiBots",
             "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
             "emergent": "AI, Artificial Intelligence, Emergent, build apps with AI, full-stack apps, no-code app builder, AI agents, conversation to app, web app builder, mobile app, deploy with AI, Y Combinator, BetterAiBots",
             "sleekflow": "AI, Artificial Intelligence, SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow, AI agents, team inbox, lead qualification, broadcast campaigns, CRM messaging, conversion, BetterAiBots"
@@ -1362,6 +1381,7 @@ export default function ArticlePage() {
             "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
             "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
             "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
+            "teikametrics": "Teikametrics, AI marketplace optimization, Amazon ads, Walmart ads, TikTok Shop, eCommerce growth, listing optimization, full-funnel advertising, marketplace analytics, BetterAiBots",
             "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
             "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
             "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
@@ -1495,6 +1515,7 @@ export default function ArticlePage() {
                 "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
                 "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
                 "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
+                "teikametrics": "Teikametrics, AI marketplace optimization, Amazon ads, Walmart ads, TikTok Shop, eCommerce growth, listing optimization, full-funnel advertising, marketplace analytics, BetterAiBots",
                 "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
                 "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
                 "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
@@ -1505,6 +1526,29 @@ export default function ArticlePage() {
             "inLanguage": "en-US"
           })}
         </script>
+        {article.id === "spiky-ai" && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "VideoObject",
+              "name": "Spiky Platform Demo | Unlock Sales Potential with AI-Driven Insights",
+              "description": "See how Spiky.ai delivers real-time AI sales coaching, call momentum and objection handling, playbook execution (e.g. MEDDPICC), and pipeline visibility so your team scales winning behaviors and closes more deals.",
+              "thumbnailUrl": "https://img.youtube.com/vi/YCmjayjco90/maxresdefault.jpg",
+              "uploadDate": "2025-03-24",
+              "duration": "PT2M20S",
+              "embedUrl": "https://www.youtube.com/embed/YCmjayjco90",
+              "contentUrl": "https://www.youtube.com/watch?v=YCmjayjco90",
+              "publisher": {
+                "@type": "Organization",
+                "name": "BetterAiBots",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://betteraibots.com/betteraibotsglowlogo8.png"
+                }
+              }
+            })}
+          </script>
+        )}
       </Helmet>
       
       <div className={usesNewsStyleLayout ? "article-container" : ""} style={usesNewsStyleLayout ? {} : containerStyles}>

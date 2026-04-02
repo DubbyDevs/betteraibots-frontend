@@ -684,6 +684,16 @@ const PAID_APPS = [
     readMoreLink: "/learn/compliancely"
   },
   {
+    name: "Teikametrics",
+    description: "AI marketplace optimization platform for Amazon, Walmart, and TikTok Shop with full-funnel advertising, listing optimization, and analytics",
+    category: "E-commerce & Marketplace Analytics",
+    features: ["Multi-marketplace management", "Full-funnel ad optimization", "AI listing generation", "Actionable analytics", "Shareable dashboards", "Marketplace expert support"],
+    price: "SMB free trial / Demo for teams",
+    link: "https://join.teikametrics.com/BAIB",
+    image: "/telkalogo.jpg",
+    readMoreLink: "/learn/teikametrics"
+  },
+  {
     name: "AiSDR",
     description: "AI sales development representative that books meetings with your ideal prospects through personalized outreach",
     category: "Sales & CRM",
