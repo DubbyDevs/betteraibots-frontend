@@ -20,7 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node scripts/extract-article-metadata.js && node scripts/prerender-learn-articles.js && node scripts/prerender-news-articles.js && react-scripts build",
+    "prerender": "node scripts/extract-article-metadata.js && node scripts/prerender-learn-articles.js && node scripts/prerender-news-articles.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postinstall": "patch-package"

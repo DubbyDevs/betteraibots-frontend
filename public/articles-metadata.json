@@ -133,6 +133,27 @@
     "cover": null
   },
   {
+    "id": "omniseo",
+    "title": "OmniSEO User Guide – AI Search Visibility & Citation Tracking",
+    "date": "March 2026",
+    "preview": "Monitor and optimize your brand's presence across ChatGPT, Perplexity, AI Overviews, and other AI search platforms with OmniSEO's visibility tracking and actionable insights.",
+    "cover": null
+  },
+  {
+    "id": "compliancely",
+    "title": "Compliancely User Guide – TIN Matching, Identity Verification & IRS Tax Transcripts",
+    "date": "March 2026",
+    "preview": "Use Compliancely for real-time TIN matching, identity verification, IRS tax transcripts, and KYB/KYC checks to streamline onboarding and compliance for fintech, lending, and marketplaces.",
+    "cover": null
+  },
+  {
+    "id": "teikametrics",
+    "title": "Teikametrics User Guide – AI Marketplace Optimization for Amazon, Walmart & TikTok Shop",
+    "date": "April 2026",
+    "preview": "Learn how Teikametrics helps brands scale on Amazon, Walmart, and TikTok Shop with AI-driven advertising, listing optimization, and multi-marketplace growth workflows.",
+    "cover": null
+  },
+  {
     "id": "practice-ignition",
     "title": "Ignition User Guide – Proposals, Onboarding & Payments",
     "date": "February 2026",
@@ -228,6 +249,13 @@
     "title": "SEO Content, Ad Copy, and Marketing Workflows",
     "date": "December 2025",
     "preview": "Snowfire AI is a content and marketing platform for creating SEO-friendly articles, ad copy, and campaign assets fast. This guide covers features, workflows, and how to use Snowfire AI to publish content that ranks.",
+    "cover": null
+  },
+  {
+    "id": "spiky-ai",
+    "title": "Spiky.ai User Guide – Real-Time AI Sales Coaching & Meeting Intelligence",
+    "date": "March 2026",
+    "preview": "Learn how Spiky.ai delivers real-time sales coaching, call momentum and objection handling, playbook execution, and pipeline visibility—so your team scales winning behaviors and closes more deals.",
     "cover": null
   },
   {
@@ -513,7 +541,7 @@
   {
     "id": "webydo",
     "title": "Professional Web Design Platform for Pixel-Perfect Websites Without Coding",
-    "date": "August 2025",
+    "date": "July 2025",
     "preview": "Discover how Webydo's professional web design platform enables designers to create pixel-perfect websites without coding, with advanced design tools and client management features.",
     "cover": null
   },

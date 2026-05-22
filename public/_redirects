@@ -18,9 +18,20 @@
 /fix-mobile      /clear-cache.html  200
 /reset-app       /clear-cache.html  200
 
-# Learn routes: always serve index.html (SPA) so /learn/* never serves static .html files and causes redirect loops
-# Force (!) overrides static files so /learn/apollo-io etc. load the React app, not public/learn/apollo-io.html
-/learn/*  /index.html  200!
+# --- SEO: one canonical URL per learn article (fixes "alternate page with canonical") ---
+/learn/beginner/:id  /learn/:id  301
+/learn/intermediate/:id  /learn/:id  301
+/learn/advanced/:id  /learn/:id  301
+
+# Learn level listing pages — full React app (header, footer, normal UI)
+/learn/beginner  /index.html  200
+/learn/intermediate  /index.html  200
+/learn/advanced  /index.html  200
+/learn  /index.html  200
+
+# Learn & news articles — full React app for real visitors (see netlify.toml for crawler-only HTML)
+/learn/:id  /index.html  200
+/news/:slug  /index.html  200
 
 # Legacy /sam/* URLs (e.g. sam/box-bold-a-e, sam/boss-bot-*) - not used in this app; redirect to home
 /sam/*  /  301
