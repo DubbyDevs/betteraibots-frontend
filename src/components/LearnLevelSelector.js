@@ -119,7 +119,7 @@ function AIForDummiesGuide({ onClose }) {
         {/* Content */}
         <div style={{
           padding: '0 30px 30px 30px',
-          color: '#d1efe7',
+          color: 'var(--text-secondary)',
           lineHeight: '1.8',
           fontSize: '1rem'
         }}>
@@ -393,8 +393,7 @@ const LearnLevelSelector = () => {
         <link rel="canonical" href="https://betteraibots.com/learn" />
       </Helmet>
 
-      <div style={{
-        background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
+      <div className="learn-page-shell" style={{
         padding: isVerySmall ? '12px 8px' : (is360px ? '14px 10px' : (is390px ? '16px 12px' : (isMobile ? '16px 12px' : '20px'))),
         paddingBottom: '0',
         minHeight: 'calc(100vh - 150px)',
@@ -450,9 +449,9 @@ const LearnLevelSelector = () => {
             {levels.map((level) => (
               <div
                 key={level.id}
+                className="learn-level-card"
                 onClick={() => handleLevelSelect(level.id)}
                 style={{
-                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)',
                   border: `2px solid ${level.color}40`,
                   borderRadius: '20px',
                   padding: isVerySmall ? '12px' : (is360px ? '14px' : (is390px ? '16px' : (isMobile ? '16px' : '20px'))),
@@ -679,32 +678,12 @@ const LearnLevelSelector = () => {
               fontWeight: 600, 
               marginTop: isVerySmall ? "8px" : (is360px ? "6px" : "0"),
               marginBottom: isVerySmall ? "12px" : (isMobile ? "15px" : "30px"),
-              textShadow: "0 0 8px #36ff9544",
               width: "100%",
               position: "relative",
               zIndex: 2
             }}>
               AI Guides
             </h2>
-            
-            <style>{`
-              @keyframes neonPulse {
-                0%, 100% {
-                  box-shadow: 0 0 20px #36ff9544, 0 0 4px #a855f7, 0 0 8px #36ff95, 0 0 12px #36ff95;
-                }
-                50% {
-                  box-shadow: 0 0 20px #36ff9544, 0 0 4px #a855f7, 0 0 15px #36ff95, 0 0 25px #36ff95, 0 0 35px #36ff95;
-                }
-              }
-              @keyframes neonPulseHover {
-                0%, 100% {
-                  box-shadow: 0 0 20px #36ff9544, 0 0 4px #36ff95, 0 0 8px #36ff95;
-                }
-                50% {
-                  box-shadow: 0 0 20px #36ff9544, 0 0 6px #36ff95, 0 0 12px #36ff95, 0 0 18px #36ff95;
-                }
-              }
-            `}</style>
             
             <div style={{
               display: "grid",
@@ -736,12 +715,12 @@ const LearnLevelSelector = () => {
               >
                 <div 
                   style={{
-                    background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                    background: "var(--surface-card)",
                     borderRadius: "16px",
                     padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                     textAlign: "center",
-                    border: "1px solid #a855f7",
-                    boxShadow: "0 0 20px #36ff9544, 0 0 4px #a855f7",
+                    border: "1px solid var(--border-accent-soft)",
+                    boxShadow: "0 4px 16px var(--shadow-card)",
                     height: isMobile ? "auto" : "100%",
                     display: "flex",
                     flexDirection: "column",
@@ -752,16 +731,15 @@ const LearnLevelSelector = () => {
                     boxSizing: "border-box",
                     transition: "border 0.3s ease, box-shadow 0.3s ease"
                   }}
+                  className="guide-card-neon neon-pulse-card"
                   onMouseEnter={e => {
                     if (!isMobile) {
-                      e.currentTarget.style.border = "1px solid #36ff95";
-                      e.currentTarget.style.animation = "neonPulseHover 1.5s ease-in-out infinite";
+                      e.currentTarget.style.border = "1px solid var(--border-accent)";
                     }
                   }}
                   onMouseLeave={e => {
                     if (!isMobile) {
-                      e.currentTarget.style.border = "1px solid #a855f7";
-                      e.currentTarget.style.animation = "none";
+                      e.currentTarget.style.border = "1px solid var(--border-accent-soft)";
                     }
                   }}
                 >
@@ -809,7 +787,6 @@ const LearnLevelSelector = () => {
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
                     fontWeight: 600,
                       margin: "0 0 4px 0",
-                      textShadow: "0 0 8px #36ff9544",
                       lineHeight: "1.2"
                   }}>
                     AI for Dummies
@@ -846,12 +823,12 @@ const LearnLevelSelector = () => {
               >
                 <div 
                   style={{
-                    background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                    background: "var(--surface-card)",
                     borderRadius: "16px",
                     padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                     textAlign: "center",
-                    border: "1px solid #a855f7",
-                    boxShadow: "0 0 20px #36ff9544, 0 0 4px #a855f7",
+                    border: "1px solid var(--border-accent-soft)",
+                    boxShadow: "0 4px 16px var(--shadow-card)",
                     height: isMobile ? "auto" : "100%",
                     display: "flex",
                     flexDirection: "column",
@@ -862,16 +839,15 @@ const LearnLevelSelector = () => {
                     boxSizing: "border-box",
                     transition: "border 0.3s ease, box-shadow 0.3s ease"
                   }}
+                  className="guide-card-neon neon-pulse-card"
                   onMouseEnter={e => {
                     if (!isMobile) {
-                      e.currentTarget.style.border = "1px solid #36ff95";
-                      e.currentTarget.style.animation = "neonPulseHover 1.5s ease-in-out infinite";
+                      e.currentTarget.style.border = "1px solid var(--border-accent)";
                     }
                   }}
                   onMouseLeave={e => {
                     if (!isMobile) {
-                      e.currentTarget.style.border = "1px solid #a855f7";
-                      e.currentTarget.style.animation = "none";
+                      e.currentTarget.style.border = "1px solid var(--border-accent-soft)";
                     }
                   }}
                 >
@@ -919,7 +895,6 @@ const LearnLevelSelector = () => {
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
                     fontWeight: 600,
                       margin: "0 0 4px 0",
-                      textShadow: "0 0 8px #36ff9544",
                       lineHeight: "1.2"
                   }}>
                     Beginner Guide
@@ -956,12 +931,12 @@ const LearnLevelSelector = () => {
               >
                 <div 
                   style={{
-                    background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                    background: "var(--surface-card)",
                     borderRadius: "16px",
                     padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                     textAlign: "center",
-                    border: "1px solid #a855f7",
-                    boxShadow: "0 0 20px #36ff9544, 0 0 4px #a855f7",
+                    border: "1px solid var(--border-accent-soft)",
+                    boxShadow: "0 4px 16px var(--shadow-card)",
                     height: isMobile ? "auto" : "100%",
                     display: "flex",
                     flexDirection: "column",
@@ -972,16 +947,15 @@ const LearnLevelSelector = () => {
                     boxSizing: "border-box",
                     transition: "border 0.3s ease, box-shadow 0.3s ease"
                   }}
+                  className="guide-card-neon neon-pulse-card"
                   onMouseEnter={e => {
                     if (!isMobile) {
-                      e.currentTarget.style.border = "1px solid #36ff95";
-                      e.currentTarget.style.animation = "neonPulseHover 1.5s ease-in-out infinite";
+                      e.currentTarget.style.border = "1px solid var(--border-accent)";
                     }
                   }}
                   onMouseLeave={e => {
                     if (!isMobile) {
-                      e.currentTarget.style.border = "1px solid #a855f7";
-                      e.currentTarget.style.animation = "none";
+                      e.currentTarget.style.border = "1px solid var(--border-accent-soft)";
                     }
                   }}
                 >
@@ -1029,7 +1003,6 @@ const LearnLevelSelector = () => {
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
                     fontWeight: 600,
                       margin: "0 0 4px 0",
-                      textShadow: "0 0 8px #36ff9544",
                       lineHeight: "1.2"
                   }}>
                     Intermediate Guide
@@ -1066,12 +1039,12 @@ const LearnLevelSelector = () => {
               >
                 <div 
                   style={{
-                    background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+                    background: "var(--surface-card)",
                     borderRadius: "16px",
                     padding: isVerySmall ? "12px" : (is360px ? "14px" : (is390px ? "16px" : (isMobile ? "16px" : "20px"))),
                     textAlign: "center",
-                    border: "1px solid #a855f7",
-                    boxShadow: "0 0 20px #36ff9544, 0 0 4px #a855f7",
+                    border: "1px solid var(--border-accent-soft)",
+                    boxShadow: "0 4px 16px var(--shadow-card)",
                     height: isMobile ? "auto" : "100%",
                     display: "flex",
                     flexDirection: "column",
@@ -1082,16 +1055,15 @@ const LearnLevelSelector = () => {
                     boxSizing: "border-box",
                     transition: "border 0.3s ease, box-shadow 0.3s ease"
                   }}
+                  className="guide-card-neon neon-pulse-card"
                   onMouseEnter={e => {
                     if (!isMobile) {
-                      e.currentTarget.style.border = "1px solid #36ff95";
-                      e.currentTarget.style.animation = "neonPulseHover 1.5s ease-in-out infinite";
+                      e.currentTarget.style.border = "1px solid var(--border-accent)";
                     }
                   }}
                   onMouseLeave={e => {
                     if (!isMobile) {
-                      e.currentTarget.style.border = "1px solid #a855f7";
-                      e.currentTarget.style.animation = "none";
+                      e.currentTarget.style.border = "1px solid var(--border-accent-soft)";
                     }
                   }}
                 >
@@ -1139,7 +1111,6 @@ const LearnLevelSelector = () => {
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
                     fontWeight: 600,
                       margin: "0 0 4px 0",
-                      textShadow: "0 0 8px #36ff9544",
                       lineHeight: "1.2"
                   }}>
                     Advanced Guide
@@ -1178,7 +1149,6 @@ const LearnLevelSelector = () => {
                fontWeight: 600, 
                marginTop: "0",
                marginBottom: isVerySmall ? "20px" : (is360px ? "22px" : (is390px ? "25px" : "30px")),
-               textShadow: "0 0 8px #36ff9544",
                width: "100%"
              }}>
                App Spotlight
@@ -1196,18 +1166,7 @@ const LearnLevelSelector = () => {
                  boxSizing: "border-box"
                }}>
                                {/* Flowith.io Card */}
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 0 20px #36ff9544",
-                  transition: "transform 0.2s ease-in-out",
-                  width: "100%",
-                  maxWidth: "100%",
-                  display: "flex",
-                  flexDirection: "column"
-                }}
+                <div className="spotlight-card"
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                 >
@@ -1225,13 +1184,10 @@ const LearnLevelSelector = () => {
                      <img
                        src="/flowith.jpg"
                        alt="Flowith.io - AI Workspace Platform"
+                       className="spotlight-card__img"
                        style={{
                          width: "200px",
                          height: "200px",
-                         objectFit: "contain",
-                         borderRadius: "24px",
-                         boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)",
-                         display: "block"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1263,8 +1219,7 @@ const LearnLevelSelector = () => {
                        }}>
                          Featured • AI Workspace
                        </p>
-                       <p style={{
-                         color: "#e0e0e0",
+                       <p className="spotlight-card__desc" style={{
                          fontSize: isMobile ? "0.85rem" : "0.95rem",
                          lineHeight: 1.5,
                          margin: "0 0 15px 0"
@@ -1277,34 +1232,13 @@ const LearnLevelSelector = () => {
                          flexWrap: "wrap",
                          marginBottom: "20px"
                        }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
+                         <span className="spotlight-card__badge">
                            Infinite Canvas
                          </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
+                         <span className="spotlight-card__badge">
                            Multi-AI Models
                          </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
+                         <span className="spotlight-card__badge">
                            Agent Neo
                          </span>
                        </div>
@@ -1369,18 +1303,7 @@ const LearnLevelSelector = () => {
                </div>
 
                                {/* Blackbox.ai Card */}
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 0 20px #36ff9544",
-                  transition: "transform 0.2s ease-in-out",
-                  width: "100%",
-                  maxWidth: "100%",
-                  display: "flex",
-                  flexDirection: "column"
-                }}
+                <div className="spotlight-card"
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                 >
@@ -1398,13 +1321,10 @@ const LearnLevelSelector = () => {
                      <img
                        src={blackboxai}
                        alt="Blackbox.ai - AI Code Assistant"
+                       className="spotlight-card__img"
                        style={{
                          width: "200px",
                          height: "200px",
-                         objectFit: "contain",
-                         borderRadius: "24px",
-                         boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)",
-                         display: "block"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1436,8 +1356,7 @@ const LearnLevelSelector = () => {
                        }}>
                          Featured • Development & Coding
                        </p>
-                       <p style={{
-                         color: "#e0e0e0",
+                       <p className="spotlight-card__desc" style={{
                          fontSize: isMobile ? "0.85rem" : "0.95rem",
                          lineHeight: 1.5,
                          margin: "0 0 15px 0"
@@ -1450,34 +1369,13 @@ const LearnLevelSelector = () => {
                          flexWrap: "wrap",
                          marginBottom: "20px"
                        }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
+                         <span className="spotlight-card__badge">
                            AI Code Completion
                          </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
+                         <span className="spotlight-card__badge">
                            Multi-Language
                          </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
+                         <span className="spotlight-card__badge">
                            Real-Time Autocomplete
                          </span>
                        </div>
@@ -1542,18 +1440,7 @@ const LearnLevelSelector = () => {
                </div>
 
                                {/* Museit.art Card */}
-                <div style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 0 20px #36ff9544",
-                  transition: "transform 0.2s ease-in-out",
-                  width: "100%",
-                  maxWidth: "100%",
-                  display: "flex",
-                  flexDirection: "column"
-                }}
+                <div className="spotlight-card"
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
                 >
@@ -1571,13 +1458,10 @@ const LearnLevelSelector = () => {
                       <img
                        src={musebrand}
                        alt="Museit.art - AI Art Creation Platform"
+                       className="spotlight-card__img"
                        style={{
                          width: "200px",
                          height: "200px",
-                         objectFit: "contain",
-                         borderRadius: "24px",
-                         boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)",
-                         display: "block"
                        }}
                        onError={(e) => {
                          e.target.style.display = 'none';
@@ -1609,8 +1493,7 @@ const LearnLevelSelector = () => {
                        }}>
                          Featured • Creative & Design
                        </p>
-                       <p style={{
-                         color: "#e0e0e0",
+                       <p className="spotlight-card__desc" style={{
                          fontSize: isMobile ? "0.85rem" : "0.95rem",
                          lineHeight: 1.5,
                          margin: "0 0 15px 0"
@@ -1623,34 +1506,13 @@ const LearnLevelSelector = () => {
                          flexWrap: "wrap",
                          marginBottom: "20px"
                        }}>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
+                         <span className="spotlight-card__badge">
                            AI Art Generation
                          </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
+                         <span className="spotlight-card__badge">
                            Gallery-Ready Quality
                          </span>
-                         <span style={{
-                           background: "rgba(54, 255, 149, 0.2)",
-                           color: "#36ff95",
-                           padding: "4px 8px",
-                           borderRadius: "4px",
-                           fontSize: "0.75rem",
-                           fontWeight: 500
-                         }}>
+                         <span className="spotlight-card__badge">
                            No Technical Skills
                          </span>
                        </div>
@@ -1748,7 +1610,7 @@ const LearnLevelSelector = () => {
             boxShadow: '0 20px 60px rgba(54, 255, 149, 0.3)',
             padding: '40px',
             textAlign: 'center',
-            color: '#d1efe7'
+            color: 'var(--text-secondary)'
           }}
           className="custom-scrollbar">
             <button onClick={() => setShowAIStarterGuide(false)} style={{
@@ -1809,7 +1671,7 @@ const LearnLevelSelector = () => {
             boxShadow: '0 20px 60px rgba(20, 184, 166, 0.3)',
             padding: '40px',
             textAlign: 'center',
-            color: '#d1efe7'
+            color: 'var(--text-secondary)'
           }}
           className="custom-scrollbar">
             <button onClick={() => setShowIntermediateGuide(false)} style={{

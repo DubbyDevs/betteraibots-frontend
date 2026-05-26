@@ -425,7 +425,7 @@ function Podcast() {
 
 
   return (
-    <>
+    <div className="podcast-page">
       <Helmet>
         <title>BetterAiBots Podcast - AI Tools, News &amp; Educational Content | Watch Live</title>
         <meta name="description" content="Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions and stay ahead of the AI revolution. Free AI resources and tutorials." />
@@ -543,7 +543,7 @@ function Podcast() {
             height: auto;
             object-fit: contain;
             display: block;
-            filter: drop-shadow(0 0 10px rgba(54, 255, 149, 0.4)) drop-shadow(0 0 20px rgba(11, 191, 219, 0.3));
+            filter: drop-shadow(0 2px 8px var(--shadow-card));
             pointer-events: none;
           }
           .podcast-section {
@@ -556,17 +556,18 @@ function Podcast() {
             margin-bottom: 50px;
           }
           .podcast-intro h2 {
-            color: #36ff95;
+            color: var(--accent);
             font-size: 2.5rem;
             margin-bottom: 15px;
             font-weight: 700;
           }
           .podcast-intro p {
-            color: #b5ffdb;
+            color: var(--text-secondary);
             font-size: 1.1rem;
             max-width: 800px;
             margin: 0 auto;
             margin-bottom: 20px;
+            line-height: 1.6;
           }
           .video-grid {
             display: grid;
@@ -587,16 +588,17 @@ function Podcast() {
           }
           .video-card {
             position: relative;
-            background: linear-gradient(135deg, rgba(16, 28, 38, 0.9) 0%, rgba(23, 45, 62, 0.9) 100%);
+            background: var(--surface);
             border-radius: 16px;
             overflow: visible;
-            transition: box-shadow 0.3s ease;
-            border: 1px solid rgba(54, 255, 149, 0.2);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid var(--border-accent-soft);
             cursor: pointer;
+            box-shadow: 0 4px 16px var(--shadow-card);
           }
           .video-card:hover {
-            box-shadow: 0 10px 40px rgba(54, 255, 149, 0.3), 0 0 60px rgba(11, 191, 219, 0.2);
-            border-color: rgba(54, 255, 149, 0.5);
+            box-shadow: 0 8px 24px var(--shadow-card);
+            border-color: var(--border-accent);
           }
           .video-thumbnail {
             position: relative;
@@ -652,14 +654,14 @@ function Podcast() {
           .video-title {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #fff;
+            color: var(--text-primary);
             margin-bottom: 10px;
             line-height: 1.4;
           }
           .video-description-wrapper {
             line-height: 1.5;
             font-size: 0.95rem;
-            color: #b0b0b0;
+            color: var(--text-secondary);
             margin-bottom: 0;
           }
           .video-description {
@@ -674,7 +676,7 @@ function Podcast() {
             word-break: break-word;
           }
           .read-more-link {
-            color: #36ff95;
+            color: var(--accent);
             cursor: pointer;
             font-size: 0.75rem;
             text-decoration: none;
@@ -688,7 +690,7 @@ function Podcast() {
             font-family: inherit;
           }
           .read-more-link:hover {
-            color: #0bbfdb;
+            color: var(--accent-secondary);
             text-decoration: underline;
           }
           .video-expand-container {
@@ -803,19 +805,21 @@ function Podcast() {
             text-align: center;
             margin-top: 50px;
             padding: 40px;
-            background: linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%);
+            background: var(--surface);
             border-radius: 16px;
-            border: 1px solid rgba(54, 255, 149, 0.3);
+            border: 1px solid var(--border-accent-soft);
+            box-shadow: 0 4px 16px var(--shadow-card);
           }
           .channel-cta h3 {
             font-size: 1.8rem;
-            color: #36ff95;
+            color: var(--accent);
             margin-bottom: 15px;
           }
           .channel-cta p {
-            color: #e0e0e0;
+            color: var(--text-secondary);
             margin-bottom: 25px;
             font-size: 1.1rem;
+            line-height: 1.6;
           }
           .channel-cta a {
             display: inline-block;
@@ -836,13 +840,13 @@ function Podcast() {
           @media (max-width: 768px) {
             .podcast-intro h2 {
               font-size: 2rem;
-              color: #36ff95;
+              color: var(--accent);
               font-weight: 700;
               margin-bottom: 15px;
             }
             .podcast-intro p {
               font-size: 1rem;
-              color: #b5ffdb;
+              color: var(--text-secondary);
               margin-bottom: 20px;
             }
             .video-grid {
@@ -915,7 +919,7 @@ function Podcast() {
         </div>
       </div>
       
-      <h1 style={{
+      <h1 className="podcast-page__title" style={{
         textAlign: 'center',
         fontSize: isMobile ? '2rem' : '3rem',
         fontWeight: 700,
@@ -923,8 +927,8 @@ function Podcast() {
         marginBottom: '20px',
         fontFamily: 'inherit'
       }}>
-        <span style={{ color: '#ffffff', textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>BetterAi</span>
-        <span style={{ color: '#36ff95', textShadow: '0 0 20px rgba(54, 255, 149, 0.5)' }}>Bots</span>
+        <span className="podcast-page__title-brand">BetterAi</span>
+        <span className="podcast-page__title-accent">Bots</span>
       </h1>
       
       <div style={{
@@ -936,14 +940,10 @@ function Podcast() {
         marginBottom: '20px',
         padding: '20px'
       }}>
-        <div style={{
+        <div className="welcome-hero-frame" style={{
           position: 'relative',
           maxWidth: '600px',
           width: '100%',
-          padding: '8px',
-          background: 'linear-gradient(135deg, #36ff95, #0bbfdb, #36ff95)',
-          borderRadius: '12px',
-          boxShadow: '0 0 30px rgba(54, 255, 149, 0.5), 0 0 60px rgba(11, 191, 219, 0.3)',
         }}>
           <img 
             src={welcometobaibpod} 
@@ -1259,7 +1259,7 @@ function Podcast() {
           flexWrap: 'nowrap'
         }}>
           <div 
-            className="studio-image-container"
+            className="studio-image-container podcast-studio-frame"
             style={{
               flex: '1 1 50%',
               maxWidth: '420px',
@@ -1269,11 +1269,6 @@ function Podcast() {
               justifyContent: 'center',
               alignItems: 'center',
               position: 'relative',
-              borderRadius: '16px',
-              padding: '8px',
-              background: 'linear-gradient(135deg, rgba(16, 28, 38, 0.9) 0%, rgba(23, 45, 62, 0.9) 100%)',
-              border: '1px solid rgba(54, 255, 149, 0.5)',
-              boxShadow: '0 10px 40px rgba(54, 255, 149, 0.3), 0 0 60px rgba(11, 191, 219, 0.2)',
               overflow: 'hidden'
             }}
           >
@@ -1717,7 +1712,7 @@ function Podcast() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

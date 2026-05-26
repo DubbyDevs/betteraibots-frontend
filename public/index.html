@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('baib-theme');
+        document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
   <head><meta charset="utf-8">
 
     <!-- ✅ App Icon for iOS Home Screen -->
@@ -109,7 +119,7 @@
     <!-- Replace the content value with your verification code from Google Search Console -->
     <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" /> -->
   </head>
-  <body style="margin:0;background:#1a2332;">
+  <body style="margin:0;">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />

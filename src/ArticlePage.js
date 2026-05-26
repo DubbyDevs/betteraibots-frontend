@@ -562,7 +562,7 @@ export default function ArticlePage() {
     ) {
       return (
         <>
-          <h2 {...props} id={headingId} style={{ color: '#36ff95', fontWeight: 700, margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</h2>
+          <h2 {...props} id={headingId} className="article-md-heading" style={{ margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</h2>
           <img
             src="/scholargpt.jpg"
             alt="Scholar GPT"
@@ -578,7 +578,7 @@ export default function ArticlePage() {
       );
     }
     const Tag = `h${level}`;
-    return <Tag {...props} id={headingId} style={{ color: '#36ff95', fontWeight: 700, margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</Tag>;
+    return <Tag {...props} id={headingId} className="article-md-heading" style={{ margin: '32px 0 12px 0', fontSize: '1.4rem', letterSpacing: 0.1 }}>{children}</Tag>;
   };
 
   if (!article) {
@@ -741,7 +741,7 @@ export default function ArticlePage() {
       const headingText = extractTextFromChildren(children);
       const headingId = generateHeadingId(headingText);
       return (
-        <h3 {...props} id={headingId} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
+        <h3 {...props} id={headingId} className="article-md-heading" style={{ margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
       );
     },
     p: ({ children }) => <p>{children}</p>,
@@ -772,14 +772,14 @@ export default function ArticlePage() {
                 });
               }
             }}
-            style={{ color: '#36ff95', textDecoration: 'underline', cursor: 'pointer' }}
+            style={{ color: 'var(--accent)', textDecoration: 'underline', cursor: 'pointer' }}
             {...props}
           >
             {children}
           </a>
         );
       }
-      return <a href={href} style={{ color: '#36ff95', textDecoration: 'underline' }} {...props}>{children}</a>;
+      return <a href={href} style={{ color: 'var(--accent)', textDecoration: 'underline' }} {...props}>{children}</a>;
     }
   };
 
@@ -1006,18 +1006,6 @@ export default function ArticlePage() {
       </div>
     );
   };
-
-  const containerStyles = {
-    maxWidth: 800,
-    margin: '0 auto',
-    padding: '0 12px',
-    fontSize: '1.08rem',
-    color: '#e9f7ee',
-    lineHeight: 1.8,
-    fontFamily: 'inherit'
-  };
-
-  const enhancedContentStyles = {};
 
   const topShareSection = usesNewsStyleLayout ? (
     renderShareButtons()
@@ -1551,9 +1539,9 @@ export default function ArticlePage() {
         )}
       </Helmet>
       
-      <div className={usesNewsStyleLayout ? "article-container" : ""} style={usesNewsStyleLayout ? {} : containerStyles}>
+      <div className="article-container">
       {topShareSection}
-      <div className={usesNewsStyleLayout ? "article-content" : ""} style={usesNewsStyleLayout ? {} : enhancedContentStyles}>
+      <div className="article-content">
       {/* Top Image */}
       {(primaryImage || article.id === "instaglamor") && (
         article.id === "instaglamor" ? (
@@ -2715,18 +2703,10 @@ export default function ArticlePage() {
           }} />
         )
       )}
-      <h1 style={{
-        fontSize: "2.0rem",
-        fontWeight: 900,
-        color: "#00FFB2",
-        marginBottom: 4,
-        lineHeight: 1.1,
-        fontFamily: 'Inter, Arial, sans-serif',
-        letterSpacing: 0.5
-      }}>{article.title}</h1>
+      <h1 className="article-page-title">{article.title}</h1>
       <p style={{
         fontSize: "1.13rem",
-        color: "#e9f7ee",
+        color: 'var(--text-secondary)',
         marginBottom: 22,
         fontWeight: 400,
         lineHeight: 1.7,
@@ -2792,7 +2772,7 @@ export default function ArticlePage() {
               const headingText = extractTextFromChildren(children);
               const headingId = generateHeadingId(headingText);
               return (
-                <h3 {...props} id={headingId} style={{ color: '#36ff95', fontWeight: 700, margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
+                <h3 {...props} id={headingId} className="article-md-heading" style={{ margin: '28px 0 10px 0', fontSize: '1.13rem', letterSpacing: 0.1 }}>{children}</h3>
               );
             },
             p: ({ children }) => <p>{children}</p>,
@@ -3096,7 +3076,7 @@ export default function ArticlePage() {
                         });
                       }
                     }}
-                    style={{ color: '#36ff95', textDecoration: 'underline', cursor: 'pointer' }}
+                    style={{ color: 'var(--accent)', textDecoration: 'underline', cursor: 'pointer' }}
                     {...props}
                   >
                     {children}
@@ -3113,16 +3093,9 @@ export default function ArticlePage() {
                     state={{ from: fromPage }}
                     onClick={() => window.scrollTo(0, 0)}
                     style={{ 
-                      color: '#36ff95', 
+                      color: 'var(--accent)', 
                       textDecoration: 'underline',
                       cursor: 'pointer',
-                      transition: 'color 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = '#00ffb2';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = '#36ff95';
                     }}
                     {...props}
                   >
@@ -3170,14 +3143,7 @@ export default function ArticlePage() {
               // Apollo.io CTA button with container
               if (href && href.includes('get.apollo.io')) {
                 return (
-                  <div style={{
-                    textAlign: 'center',
-                    margin: '40px 0',
-                    padding: '30px',
-                    background: 'linear-gradient(135deg, #1a3447 0%, #0f1a26 100%)',
-                    borderRadius: 16,
-                    border: '1px solid #36ff9522'
-                  }}>
+                  <div className="article-cta-panel">
                     <a
                       href={href}
                       target="_blank"
@@ -3210,14 +3176,7 @@ export default function ArticlePage() {
               // Lindy.ai CTA button with container
               if (href && href.includes('try.lindy.ai')) {
                 return (
-                  <div style={{
-                    textAlign: 'center',
-                    margin: '40px 0',
-                    padding: '30px',
-                    background: 'linear-gradient(135deg, #1a3447 0%, #0f1a26 100%)',
-                    borderRadius: 16,
-                    border: '1px solid #36ff9522'
-                  }}>
+                  <div className="article-cta-panel">
                     <a
                       href={href}
                       target="_blank"
@@ -3250,14 +3209,7 @@ export default function ArticlePage() {
               // Viral Launch CTA button with container
               if (href && href.includes('affiliate.viral-launch.com')) {
                 return (
-                  <div style={{
-                    textAlign: 'center',
-                    margin: '40px 0',
-                    padding: '30px',
-                    background: 'linear-gradient(135deg, #1a3447 0%, #0f1a26 100%)',
-                    borderRadius: 16,
-                    border: '1px solid #36ff9522'
-                  }}>
+                  <div className="article-cta-panel">
                     <a
                       href={href}
                       target="_blank"
@@ -3290,14 +3242,7 @@ export default function ArticlePage() {
               // Flowith CTA button with container
               if (href && href.includes('aff.flowith.io')) {
                 return (
-                  <div style={{
-                    textAlign: 'center',
-                    margin: '40px 0',
-                    padding: '30px',
-                    background: 'linear-gradient(135deg, #1a3447 0%, #0f1a26 100%)',
-                    borderRadius: 16,
-                    border: '1px solid #36ff9522'
-                  }}>
+                  <div className="article-cta-panel">
                     <a
                       href={href}
                       target="_blank"
@@ -3330,14 +3275,7 @@ export default function ArticlePage() {
               // AdCreative CTA button with container
               if (href && href.includes('adcreative.ai')) {
                 return (
-                  <div style={{
-                    textAlign: 'center',
-                    margin: '40px 0',
-                    padding: '30px',
-                    background: 'linear-gradient(135deg, #1a3447 0%, #0f1a26 100%)',
-                    borderRadius: 16,
-                    border: '1px solid #36ff9522'
-                  }}>
+                  <div className="article-cta-panel">
                     <a
                       href={href}
                       target="_blank"
@@ -3495,7 +3433,7 @@ export default function ArticlePage() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: '#36ff95', textDecoration: 'underline' }}
+                  style={{ color: 'var(--accent)', textDecoration: 'underline' }}
                   {...props}
                 >
                   {children}
@@ -3516,7 +3454,7 @@ export default function ArticlePage() {
               </div>
             ),
             thead: ({ children, ...props }) => (
-              <thead {...props} style={{ backgroundColor: '#1a1a1a' }}>
+              <thead {...props} className="article-table-head">
                 {children}
               </thead>
             ),
@@ -3531,22 +3469,12 @@ export default function ArticlePage() {
               </tr>
             ),
             th: ({ children, ...props }) => (
-              <th {...props} style={{
-                padding: '12px 16px',
-                textAlign: 'left',
-                fontWeight: 'bold',
-                color: '#36ff95',
-                borderRight: '1px solid #36ff9522'
-              }}>
+              <th {...props} className="article-table-th">
                 {children}
               </th>
             ),
             td: ({ children, ...props }) => (
-              <td {...props} style={{
-                padding: '12px 16px',
-                borderRight: '1px solid #36ff9522',
-                color: '#ffffff'
-              }}>
+              <td {...props} className="article-table-td">
                 {children}
               </td>
             ),
@@ -3787,17 +3715,8 @@ export default function ArticlePage() {
         if (relatedArticles.length === 0) return null;
         
         return (
-          <div style={{
-            marginTop: '60px',
-            paddingTop: '40px',
-            borderTop: '1px solid rgba(54, 255, 149, 0.2)'
-          }}>
-            <h2 style={{
-              fontSize: '2rem',
-              fontWeight: 600,
-              marginBottom: '30px',
-              color: '#36ff95'
-            }}>
+          <div className="article-related-section">
+            <h2 className="article-related-section-title">
               Related Articles
             </h2>
             <div style={{
@@ -3815,37 +3734,10 @@ export default function ArticlePage() {
                     to={`/learn/${relatedArticle.id}`}
                     state={{ from: fromPage }}
                     onClick={() => window.scrollTo(0, 0)}
-                    style={{
-                      textDecoration: 'none',
-                      color: 'inherit',
-                      display: 'block',
-                      background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.05) 0%, rgba(26, 35, 48, 0.5) 100%)',
-                      borderRadius: '12px',
-                      overflow: 'hidden',
-                      border: '1px solid rgba(54, 255, 149, 0.2)',
-                      transition: 'all 0.3s ease',
-                      cursor: 'pointer'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-4px)';
-                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(54, 255, 149, 0.2)';
-                      e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.4)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = 'none';
-                      e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.2)';
-                    }}
+                    className="article-related-card"
                   >
                     {relatedCover && (
-                      <div style={{
-                        width: '100%',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        padding: '20px',
-                        background: '#1a1a1a'
-                      }}>
+                      <div className="article-related-card__img-wrap">
                         <img 
                           src={relatedCover} 
                           alt={relatedArticle.title}
@@ -3873,20 +3765,11 @@ export default function ArticlePage() {
                       </div>
                     )}
                     <div style={{ padding: '20px' }}>
-                      <h3 style={{
-                        fontSize: '1.1rem',
-                        fontWeight: 600,
-                        marginBottom: '10px',
-                        color: '#fff',
-                        lineHeight: '1.4'
-                      }}>
+                      <h3 className="article-related-card__title">
                         {relatedArticle.title}
                       </h3>
                       {relatedArticle.preview && (
-                        <p style={{
-                          fontSize: '0.9rem',
-                          color: '#b0b0b0',
-                          lineHeight: '1.5',
+                        <p className="article-related-card__preview" style={{
                           display: '-webkit-box',
                           WebkitLineClamp: 2,
                           WebkitBoxOrient: 'vertical',
@@ -3906,23 +3789,17 @@ export default function ArticlePage() {
       })()}
 
       {/* Explore more - internal links for indexing */}
-      <nav style={{
-        marginTop: '48px',
-        padding: '24px',
-        background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.06) 0%, rgba(26, 35, 48, 0.4) 100%)',
-        borderRadius: '12px',
-        border: '1px solid rgba(54, 255, 149, 0.15)'
-      }} aria-label="Explore more">
-        <h2 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '12px', color: '#36ff95' }}>Explore more</h2>
-        <p style={{ fontSize: '0.95rem', color: '#b0b0b0', marginBottom: '16px' }}>Discover AI tools, guides, and news on BetterAiBots.</p>
+      <nav className="article-explore-nav" aria-label="Explore more">
+        <h2>Explore more</h2>
+        <p>Discover AI tools, guides, and news on BetterAiBots.</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-          <Link to="/learn" style={{ color: '#36ff95', textDecoration: 'underline' }}>Learn AI guides</Link>
-          <span style={{ color: '#555' }}> · </span>
-          <Link to="/news" style={{ color: '#36ff95', textDecoration: 'underline' }}>News</Link>
-          <span style={{ color: '#555' }}> · </span>
-          <Link to="/apps" style={{ color: '#36ff95', textDecoration: 'underline' }}>Apps</Link>
-          <span style={{ color: '#555' }}> · </span>
-          <Link to="/" style={{ color: '#36ff95', textDecoration: 'underline' }}>Home</Link>
+          <Link to="/learn">Learn AI guides</Link>
+          <span style={{ color: 'var(--text-subtle)' }}> · </span>
+          <Link to="/news">News</Link>
+          <span style={{ color: 'var(--text-subtle)' }}> · </span>
+          <Link to="/apps">Apps</Link>
+          <span style={{ color: 'var(--text-subtle)' }}> · </span>
+          <Link to="/">Home</Link>
         </div>
       </nav>
       </div>

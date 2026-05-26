@@ -19266,50 +19266,14 @@ function ArticleCard({ article, level }) {
   return (
     <Link
               to={`/learn/${level}/${article.id}`}
-      className="article-card"
+      className="article-card learn-article-card"
       aria-label={`Read article: ${article.title}`}
       ref={cardRef}
       data-sheen-direction={sheenDir}
       onMouseEnter={handleMouseEnter}
-      style={{
-        background: "#18232f",
-        borderRadius: 28,
-        border: "2px solid #36ff95",
-        boxShadow: "0 0 32px #0bbfdb1A",
-        padding: "20px 28px 28px 28px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "100%",
-        maxWidth: 480,
-        minWidth: 280,
-        height: 444,
-        color: "#fff",
-        textDecoration: "none",
-        margin: "1px auto 0 auto",
-        transition: "box-shadow 0.17s, border 0.14s",
-        position: "relative",
-        boxSizing: "border-box"
-      }}
-      onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 42px #36ff95AA"; }}
-      onMouseOut={e => { e.currentTarget.style.boxShadow = "0 0 32px #0bbfdb1A"; }}
     >
       {/* Image */}
-              <div
-          className="article-card-img-wrap"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 18,
-            width: "100%",
-            maxWidth: 182,
-            height: "auto",
-            aspectRatio: "1/1",
-            borderRadius: 26,
-            background: "#22304a",
-            boxShadow: "0 0 12px #36ff9522"
-          }}>
+              <div className="article-card-img-wrap learn-article-card__img-wrap">
         <img
           src={article.cover}
           alt={`Cover for ${article.title}`}
@@ -19332,14 +19296,7 @@ function ArticleCard({ article, level }) {
         />
       </div>
       {/* Title */}
-      <div style={{
-        fontWeight: 900,
-        color: "#36ff95",
-        fontSize: "1.45rem",
-        marginBottom: 9,
-        lineHeight: 1.17,
-        textAlign: "center"
-      }}>
+      <div className="learn-article-card__title">
         {article.title}
       </div>
       {/* Spacer to push Read More button to bottom */}
@@ -19451,7 +19408,7 @@ function AIForDummiesGuide({ onClose }) {
         {/* Content - Using the same content structure as LearnLevelSelector */}
         <div style={{
           padding: '0 30px 30px 30px',
-          color: '#d1efe7',
+          color: 'var(--text-secondary)',
           lineHeight: '1.8',
           fontSize: '1rem'
         }}>
@@ -19757,7 +19714,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
         {/* Content */}
         <div style={{
           padding: '30px',
-          color: '#d1efe7',
+          color: 'var(--text-secondary)',
           lineHeight: '1.6'
         }}>
           <div style={{
@@ -20328,7 +20285,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
             </button>
             <p style={{
               margin: '15px 0 0 0',
-              color: '#d1efe7',
+              color: 'var(--text-secondary)',
               fontSize: '0.95rem',
               fontStyle: 'italic'
             }}>
@@ -20822,7 +20779,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
         {/* Content */}
         <div style={{
           padding: '30px',
-          color: '#d1efe7',
+          color: 'var(--text-secondary)',
           lineHeight: '1.6'
         }}>
           <div style={{
@@ -21293,7 +21250,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
             </button>
             <p style={{
               margin: '15px 0 0 0',
-              color: '#d1efe7',
+              color: 'var(--text-secondary)',
               fontSize: '0.95rem',
               fontStyle: 'italic'
             }}>
@@ -21864,9 +21821,9 @@ export default function Articles({ level = "beginner" }) {
               setShowAdvancedGuide(true);
             }
           }}
+          className="learn-panel-card"
           style={{
             aspectRatio: "1",
-            background: "linear-gradient(135deg, #1a2330 0%, #0f1419 100%)",
             border: level === 'beginner' ? "2px solid #36ff95" : level === 'intermediate' ? "2px solid #8b5cf6" : "2px solid #ffd700",
             borderRadius: "16px",
             padding: isMobile ? "16px" : "20px",
@@ -21941,7 +21898,7 @@ export default function Articles({ level = "beginner" }) {
             {level === 'beginner' ? 'AI Starter Guide' : level === 'intermediate' ? 'Intermediate AI Guide' : 'Advanced AI Guide'}
           </h3>
           <p style={{
-            color: "#d1efe7",
+            color: 'var(--text-secondary)',
             fontSize: "0.95rem",
             lineHeight: "1.4",
             margin: "0"
@@ -21955,9 +21912,9 @@ export default function Articles({ level = "beginner" }) {
                        {/* Test Your Knowledge */}
                <div 
                  onClick={() => setShowQuiz(true)}
+                 className="learn-panel-card"
                  style={{
                    aspectRatio: "1",
-                   background: "linear-gradient(135deg, #1a2330 0%, #0f1419 100%)",
                    border: "2px solid #36ff95",
                    borderRadius: "16px",
                    padding: isMobile ? "16px" : "20px",
@@ -22035,7 +21992,7 @@ export default function Articles({ level = "beginner" }) {
                 'Advanced Quiz'}
           </h3>
           <p style={{
-            color: "#d1efe7",
+            color: 'var(--text-secondary)',
             fontSize: "0.95rem",
             lineHeight: "1.4",
             margin: "0"
@@ -22059,14 +22016,7 @@ export default function Articles({ level = "beginner" }) {
         padding: isMobile ? "0 16px" : "0 20px",
         boxSizing: "border-box"
       }}>
-        <h2 style={{ 
-          textAlign: "center", 
-          color: "#36ff95", 
-          fontSize: "1.4rem", 
-          fontWeight: 600, 
-          marginBottom: 30,
-          textShadow: "0 0 8px #36ff9544"
-        }}>
+        <h2 className="learn-section-title" style={{ marginBottom: 30 }}>
           Guides
         </h2>
         
@@ -22096,8 +22046,7 @@ export default function Articles({ level = "beginner" }) {
             onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
             onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
           >
-            <div style={{
-              background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+            <div className="learn-guide-card" style={{
               border: "2px solid #36ff95",
               borderRadius: "16px",
               padding: isMobile ? "12px" : "20px",
@@ -22161,8 +22110,7 @@ export default function Articles({ level = "beginner" }) {
             onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
             onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
           >
-            <div style={{
-              background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+            <div className="learn-guide-card" style={{
               border: "2px solid #36ff95",
               borderRadius: "16px",
               padding: isMobile ? "12px" : "20px",
@@ -22226,8 +22174,7 @@ export default function Articles({ level = "beginner" }) {
             onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
             onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
           >
-            <div style={{
-              background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+            <div className="learn-guide-card" style={{
               border: "2px solid #36ff95",
               borderRadius: "16px",
               padding: isMobile ? "12px" : "20px",
@@ -22291,8 +22238,7 @@ export default function Articles({ level = "beginner" }) {
             onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; }}
             onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; }}
           >
-            <div style={{
-              background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
+            <div className="learn-guide-card" style={{
               border: "2px solid #36ff95",
               borderRadius: "16px",
               padding: isMobile ? "12px" : "20px",
@@ -22350,15 +22296,7 @@ export default function Articles({ level = "beginner" }) {
         padding: isMobile ? "0 16px" : "0 20px",
         boxSizing: "border-box"
       }}>
-        <h2 style={{ 
-          textAlign: "center", 
-          color: "#36ff95", 
-          fontSize: "1.4rem", 
-          fontWeight: 600, 
-          marginTop: 30,
-          marginBottom: 20,
-          textShadow: "0 0 8px #36ff9544"
-        }}>
+        <h2 className="learn-section-title" style={{ marginTop: 30, marginBottom: 20 }}>
           App Spotlight
         </h2>
 

@@ -76,6 +76,8 @@ import LearnLevelSelector from "./components/LearnLevelSelector";
 import Podcast from "./Podcast";
 import About from "./About";
 import VideoWatchPage from "./VideoWatchPage";
+import ThemeToggle from "./components/ThemeToggle";
+import { ThemeProvider } from "./context/ThemeContext";
 
 
 
@@ -100,7 +102,7 @@ const CATEGORIES = [
 function AuthButtons() {
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
 
-  if (isLoading) return <div style={{ color: "#36ff95", textAlign: "center" }}>Loading...</div>;
+  if (isLoading) return <div style={{ color: 'var(--accent)', textAlign: "center" }}>Loading...</div>;
 
   if (!isAuthenticated) {
     return (
@@ -113,7 +115,7 @@ function AuthButtons() {
   }
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, width: "100%" }}>
-      <span style={{ color: "#36ff95", fontWeight: 600 }}>
+      <span style={{ color: 'var(--accent)', fontWeight: 600 }}>
         {user?.email}
       </span>
       <button
@@ -137,18 +139,11 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
     return location.pathname.startsWith(path);
   };
   
-  const getActiveStyle = (path) => {
-    if (isActive(path)) {
-      return {
-        background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
-        color: '#101c26',
-        transform: 'translateY(-1px)',
-        boxShadow: '0 4px 16px #16ff6c40'
-      };
-    }
-    return {};
+  const tabClass = (path, extra = '') => {
+    const active = isActive(path) ? ' nav-tab--active' : '';
+    return `nav-tab${active}${extra ? ` ${extra}` : ''}`;
   };
-  
+
   return (
     <nav className="nav-tabs-bar" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
       <Link 
@@ -163,20 +158,16 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
           textDecoration: 'none'
         }}
       >
-        <span style={{ color: '#ffffff', textShadow: '0 0 10px rgba(255, 255, 255, 0.3)' }}>BetterAi</span>
-        <span style={{ color: '#36ff95', textShadow: '0 0 10px rgba(54, 255, 149, 0.5)' }}>Bots</span>
+        <span className="brand-better">BetterAi</span>
+        <span className="brand-bots">Bots</span>
       </Link>
-      <Link to="/" className="nav-tab" tabIndex={0} style={getActiveStyle('/')}>Home</Link>
-      <Link to="/apps" className="nav-tab" tabIndex={0} style={getActiveStyle('/apps')}>Apps</Link>
-      <Link to="/learn" className="nav-tab" tabIndex={0} style={getActiveStyle('/learn')}>Learn</Link>
-      <Link to="/news" className="nav-tab" tabIndex={0} style={getActiveStyle('/news')}>News</Link>
-      <Link to="/Podcast" className="nav-tab" tabIndex={0} style={getActiveStyle('/Podcast')}>Watch</Link>
-      <Link to="/my-ai" className="nav-tab" tabIndex={0} style={isActive('/my-ai') ? {
-        background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
-        color: '#101c26',
-        transform: 'translateY(-1px)',
-        boxShadow: '0 4px 16px #16ff6c40'
-      } : { color: '#36ff95' }}>My AI 🚀</Link>
+      <Link to="/" className={tabClass('/')} tabIndex={0}>Home</Link>
+      <Link to="/apps" className={tabClass('/apps')} tabIndex={0}>Apps</Link>
+      <Link to="/learn" className={tabClass('/learn')} tabIndex={0}>Learn</Link>
+      <Link to="/news" className={tabClass('/news')} tabIndex={0}>News</Link>
+      <Link to="/Podcast" className={tabClass('/Podcast')} tabIndex={0}>Watch</Link>
+      <Link to="/my-ai" className={tabClass('/my-ai', 'nav-tab--my-ai')} tabIndex={0}>My AI 🚀</Link>
+      <ThemeToggle />
       <span
         className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
         onClick={onToggleAnimation}
@@ -1164,22 +1155,11 @@ function Apps() {
     const cardId = `${app.name}-${type}`;
     return (
     <div key={app.name} className="app-card" style={{
-      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)',
-      border: '2px solid #36ff95',
-      boxShadow: '0 0 20px rgba(54, 255, 149, 0.4), 0 0 40px rgba(54, 255, 149, 0.2), inset 0 0 20px rgba(54, 255, 149, 0.1)',
-      borderRadius: '16px',
       padding: isModal ? '32px' : isMobile ? '16px' : '24px',
       marginBottom: '20px',
-      backdropFilter: 'blur(10px)',
-      transition: 'all 0.3s ease',
       cursor: isMobile || isModal ? 'default' : 'pointer',
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100%',
       minHeight: isModal ? '520px' : isMobile ? 'auto' : '400px',
-      width: '100%',
       maxWidth: isMobile ? 'calc(100vw - 40px)' : '100%',
-      boxSizing: 'border-box'
     }} onClick={!isMobile && !isModal ? (e) => {
       // Don't open modal if clicking on links
       if (e.target.closest('a[href]')) {
@@ -1229,7 +1209,7 @@ function Apps() {
             <span style={{
               fontSize: '24px',
               fontWeight: 'bold',
-              color: '#36ff95'
+              color: 'var(--accent)'
             }}>
               {app.name.charAt(0)}
             </span>
@@ -1240,7 +1220,7 @@ function Apps() {
             margin: '0 0 8px 0',
             fontSize: isModal ? '1.75rem' : '1.43rem',
             fontWeight: '600',
-            color: '#36ff95',
+            color: 'var(--accent)',
             display: 'flex',
             alignItems: 'center',
             gap: '8px'
@@ -1259,9 +1239,8 @@ function Apps() {
               </span>
             )}
           </h3>
-          <p style={{
+          <p className="app-card-category" style={{
             margin: '0 0 8px 0',
-            color: '#ffffff',
             fontSize: isModal ? '1.1rem' : '0.99rem',
             fontWeight: '500'
           }}>
@@ -1278,7 +1257,7 @@ function Apps() {
             }}
             style={{
               display: 'inline-block',
-              color: '#36ff95',
+              color: 'var(--accent)',
               fontSize: '1.02rem',
               fontWeight: '600',
               textDecoration: 'none',
@@ -1309,7 +1288,7 @@ function Apps() {
       
         <p style={{
           margin: '0 0 16px 0',
-          color: '#d1efe7',
+          color: 'var(--text-secondary)',
           fontSize: isModal ? '1.1rem' : '1rem',
           lineHeight: '1.5'
         }}>
@@ -1320,7 +1299,7 @@ function Apps() {
         <h4 style={{
           margin: '0 0 8px 0',
           fontSize: isModal ? '1.05rem' : '0.9rem',
-          color: '#36ff95',
+          color: 'var(--accent)',
           fontWeight: '600'
         }}>
           Key Features:
@@ -1328,7 +1307,7 @@ function Apps() {
         <ul style={{
           margin: 0,
           paddingLeft: '20px',
-          color: '#9ca3af',
+          color: 'var(--text-subtle)',
           fontSize: isModal ? '1rem' : '0.9rem'
         }}>
           {app.features.map((feature, index) => {
@@ -1337,25 +1316,12 @@ function Apps() {
             return (
             <li 
               key={index} 
+              className={`app-card-feature${isMobile && isExpanded ? ' app-card-feature--expanded' : ''}`}
               style={{ 
                 marginBottom: '4px',
-                transition: 'all 0.2s ease',
-                cursor: isMobile ? 'pointer' : 'default',
-                color: isMobile && isExpanded ? '#ffffff' : '#9ca3af',
                 fontSize: isMobile && isExpanded ? '1.035rem' : isModal ? '1rem' : '0.9rem',
-                fontWeight: isMobile && isExpanded ? '500' : 'normal'
               }}
               onClick={isMobile ? () => toggleFeature(cardId, index) : undefined}
-              onMouseEnter={!isMobile ? (e) => {
-                e.target.style.color = '#ffffff';
-                e.target.style.fontSize = '1.035rem';
-                e.target.style.fontWeight = '500';
-              } : undefined}
-              onMouseLeave={!isMobile ? (e) => {
-                e.target.style.color = '#9ca3af';
-                e.target.style.fontSize = '0.9rem';
-                e.target.style.fontWeight = 'normal';
-              } : undefined}
             >
               {feature}
             </li>
@@ -1371,7 +1337,7 @@ function Apps() {
       }}>
         <span 
           style={{
-            color: '#36ff95',
+            color: 'var(--accent)',
             fontSize: isModal ? '1.1rem' : '0.99rem',
             fontWeight: '600',
             cursor: 'pointer',
@@ -1388,38 +1354,14 @@ function Apps() {
           <Link
             to={app.readMoreLink}
             state={{ from: '/apps' }}
+            className="app-card-read-more"
             onClick={(e) => {
               e.stopPropagation();
               e.nativeEvent.stopImmediatePropagation();
-              // Store referrer in sessionStorage as backup
               sessionStorage.setItem('articleFromPage', '/apps');
             }}
             style={{
-              color: '#ffffff',
               fontSize: isModal ? '1rem' : '0.85rem',
-              fontWeight: '600',
-              textDecoration: 'none',
-              padding: '4px 8px',
-              borderRadius: '8px',
-              background: 'rgba(139, 92, 246, 0.1)',
-              border: '1px solid rgba(139, 92, 246, 0.5)',
-              transition: 'all 0.2s ease',
-              position: 'relative',
-              zIndex: 10
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(54, 255, 149, 0.2)';
-              e.target.style.transform = 'translateY(-1px)';
-              e.target.style.border = '1px solid rgba(54, 255, 149, 0.5)';
-              e.target.style.color = '#36ff95';
-              e.target.style.boxShadow = '0 0 10px rgba(54, 255, 149, 0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = 'rgba(139, 92, 246, 0.1)';
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.border = '1px solid rgba(139, 92, 246, 0.5)';
-              e.target.style.color = '#ffffff';
-              e.target.style.boxShadow = 'none';
             }}
           >
             Read More
@@ -1521,11 +1463,12 @@ function Apps() {
         }}>
           <button
             onClick={() => setActiveSection('free')}
+            className={activeSection === 'free' ? '' : 'apps-section-btn--inactive'}
             style={{
               background: activeSection === 'free' 
                 ? 'linear-gradient(135deg, #36ff95, #0bbfdb)' 
-                : 'rgba(255, 255, 255, 0.05)',
-              color: activeSection === 'free' ? '#1a2330' : '#d1efe7',
+                : undefined,
+              color: activeSection === 'free' ? 'var(--text-on-accent)' : 'var(--text-secondary)',
               border: '1px solid rgba(54, 255, 149, 0.3)',
               borderRadius: '30px',
               padding: '12px 24px',
@@ -1539,11 +1482,12 @@ function Apps() {
           </button>
           <button
             onClick={() => setActiveSection('trial')}
+            className={activeSection === 'trial' ? '' : 'apps-section-btn--inactive'}
             style={{
               background: activeSection === 'trial' 
                 ? 'linear-gradient(135deg, #8b5cf6, #a855f7)' 
-                : 'rgba(255, 255, 255, 0.05)',
-              color: activeSection === 'trial' ? 'white' : '#d1efe7',
+                : undefined,
+              color: activeSection === 'trial' ? 'var(--text-on-accent)' : 'var(--text-secondary)',
               border: '1px solid rgba(139, 92, 246, 0.3)',
               borderRadius: '30px',
               padding: '12px 24px',
@@ -1557,11 +1501,12 @@ function Apps() {
           </button>
           <button
             onClick={() => setActiveSection('paid')}
+            className={activeSection === 'paid' ? '' : 'apps-section-btn--inactive'}
             style={{
               background: activeSection === 'paid' 
                 ? 'linear-gradient(135deg, #ffd700, #ffb347)' 
-                : 'rgba(255, 255, 255, 0.05)',
-              color: activeSection === 'paid' ? '#1a2330' : '#d1efe7',
+                : undefined,
+              color: activeSection === 'paid' ? 'var(--text-on-accent)' : 'var(--text-secondary)',
               border: '1px solid rgba(255, 215, 0, 0.3)',
               borderRadius: '30px',
               padding: '12px 24px',
@@ -1584,7 +1529,7 @@ function Apps() {
           gap: '12px'
         }}>
           <label style={{
-            color: '#36ff95',
+            color: 'var(--accent)',
             fontSize: '0.95rem',
             fontWeight: 600,
             whiteSpace: 'nowrap'
@@ -1592,33 +1537,22 @@ function Apps() {
             Filter by Category:
           </label>
           <select
+            className="apps-filter-select"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
             style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(54, 255, 149, 0.3)',
               borderRadius: '8px',
               padding: '8px 16px',
-              color: '#d1efe7',
               fontSize: '0.95rem',
               fontWeight: 500,
               cursor: 'pointer',
               minWidth: '200px',
               outline: 'none',
-              transition: 'all 0.3s ease'
-            }}
-            onFocus={(e) => {
-              e.target.style.borderColor = '#36ff95';
-              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
-            }}
-            onBlur={(e) => {
-              e.target.style.borderColor = 'rgba(54, 255, 149, 0.3)';
-              e.target.style.background = 'rgba(255, 255, 255, 0.05)';
             }}
           >
-            <option value="all" style={{ background: '#1a2330', color: '#d1efe7' }}>All Categories</option>
+            <option value="all">All Categories</option>
             {allCategories.map(category => (
-              <option key={category} value={category} style={{ background: '#1a2330', color: '#d1efe7' }}>
+              <option key={category} value={category}>
                 {category}
               </option>
             ))}
@@ -1640,7 +1574,7 @@ function Apps() {
           margin: '0 auto 40px auto'
         }}>
           <span style={{ 
-            color: progressMode ? '#36ff95' : '#9ca3af', 
+            color: progressMode ? 'var(--accent)' : 'var(--text-subtle)', 
             fontSize: '0.95rem',
             fontWeight: 600 
           }}>
@@ -1678,7 +1612,7 @@ function Apps() {
               background: 'rgba(54, 255, 149, 0.1)',
               border: '1px solid #36ff95',
               borderRadius: '8px',
-              color: '#36ff95',
+              color: 'var(--accent)',
               fontSize: '0.85rem',
               textDecoration: 'none',
               fontWeight: 600
@@ -1707,7 +1641,7 @@ function Apps() {
               borderRadius: '50%',
               border: '1px solid #36ff95',
               background: 'rgba(54, 255, 149, 0.1)',
-              color: '#36ff95',
+              color: 'var(--accent)',
               fontSize: '14px',
               fontWeight: 'bold',
               cursor: 'pointer',
@@ -1740,26 +1674,26 @@ function Apps() {
           centered
           size="lg"
         >
-          <Modal.Header closeButton style={{ background: '#18232f', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
-            <Modal.Title style={{ color: '#36ff95', fontWeight: 600 }}>
+          <Modal.Header closeButton style={{ background: 'var(--modal-bg)', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
+            <Modal.Title style={{ color: 'var(--accent)', fontWeight: 600 }}>
               🚀 How to Organize & Track Your AI Apps
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body style={{ background: '#18232f', color: '#d1efe7', padding: '24px' }}>
+          <Modal.Body style={{ background: 'var(--modal-bg)', color: 'var(--text-secondary)', padding: '24px' }}>
             <div style={{ lineHeight: '1.8', fontSize: '0.95rem' }}>
-              <p style={{ marginBottom: '20px', color: '#b5ffdb' }}>
-                <strong style={{ color: '#36ff95' }}>Progress Mode</strong> helps you organize, clean, and track the AI apps you're exploring. Here's how it works:
+              <p style={{ marginBottom: '20px', color: 'var(--text-secondary)' }}>
+                <strong style={{ color: 'var(--accent)' }}>Progress Mode</strong> helps you organize, clean, and track the AI apps you're exploring. Here's how it works:
               </p>
               
               <div style={{ marginBottom: '20px' }}>
-                <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>📊 Enable Progress Mode</h4>
+                <h4 style={{ color: 'var(--accent)', marginBottom: '10px', fontSize: '1.1rem' }}>📊 Enable Progress Mode</h4>
                 <p style={{ marginBottom: '12px' }}>
                   When enabled, the Apps page will automatically <strong>hide apps</strong> you've already started, completed, or marked as "No Longer Want to See". This keeps your workspace clean and focused on new opportunities.
                 </p>
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>📝 Track Your Trials</h4>
+                <h4 style={{ color: 'var(--accent)', marginBottom: '10px', fontSize: '1.1rem' }}>📝 Track Your Trials</h4>
                 <p style={{ marginBottom: '12px' }}>
                   In your <strong>My AI Dashboard</strong>, you can:
                 </p>
@@ -1774,7 +1708,7 @@ function Apps() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>🎯 Organize Your Workspace</h4>
+                <h4 style={{ color: 'var(--accent)', marginBottom: '10px', fontSize: '1.1rem' }}>🎯 Organize Your Workspace</h4>
                 <p style={{ marginBottom: '12px' }}>
                   By tracking your progress, you can:
                 </p>
@@ -1794,13 +1728,13 @@ function Apps() {
                 padding: '12px',
                 marginTop: '20px'
               }}>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: '#9ca3af' }}>
-                  <strong style={{ color: '#36ff95' }}>Note:</strong> All your progress is stored locally in your browser. We don't track or cancel trials for you - you're responsible for managing your own subscriptions.
+                <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
+                  <strong style={{ color: 'var(--accent)' }}>Note:</strong> All your progress is stored locally in your browser. We don't track or cancel trials for you - you're responsible for managing your own subscriptions.
                 </p>
               </div>
             </div>
           </Modal.Body>
-          <Modal.Footer style={{ background: '#18232f', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
+          <Modal.Footer style={{ background: 'var(--modal-bg)', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
             <Button 
               onClick={() => setShowProgressHelp(false)}
               style={{
@@ -1829,14 +1763,14 @@ function Apps() {
                 border: '1px solid rgba(54, 255, 149, 0.2)'
               }}>
                 <h2 style={{
-                  color: '#36ff95',
+                  color: 'var(--accent)',
                   fontSize: '2rem',
                   marginBottom: '16px'
                 }}>
                   🆓 Free AI Applications
                 </h2>
                 <p style={{
-                  color: '#d1efe7',
+                  color: 'var(--text-secondary)',
                   fontSize: '1.1rem',
                   maxWidth: '600px',
                   margin: '0 auto'
@@ -1861,7 +1795,7 @@ function Apps() {
                     gridColumn: '1 / -1',
                     textAlign: 'center',
                     padding: '40px',
-                    color: '#9ca3af'
+                    color: 'var(--text-subtle)'
                   }}>
                     <p style={{ fontSize: '1.1rem', margin: 0 }}>
                       No free apps found in the "{selectedCategory}" category.
@@ -1899,7 +1833,7 @@ function Apps() {
                   🎯 Want More Premium Features?
                 </h3>
                 <p style={{
-                  color: '#d1efe7',
+                  color: 'var(--text-secondary)',
                   fontSize: '1rem',
                   marginBottom: '20px',
                   maxWidth: '500px',
@@ -1954,7 +1888,7 @@ function Apps() {
                   🎯 Premium Apps with Free Trials
                 </h2>
                 <p style={{
-                  color: '#d1efe7',
+                  color: 'var(--text-secondary)',
                   fontSize: '1.1rem',
                   maxWidth: '600px',
                   margin: '0 auto'
@@ -1979,7 +1913,7 @@ function Apps() {
                     gridColumn: '1 / -1',
                     textAlign: 'center',
                     padding: '40px',
-                    color: '#9ca3af'
+                    color: 'var(--text-subtle)'
                   }}>
                     <p style={{ fontSize: '1.1rem', margin: 0 }}>
                       No trial apps found in the "{selectedCategory}" category.
@@ -2008,7 +1942,7 @@ function Apps() {
                   💎 Premium Paid AI Tools
                 </h2>
                 <p style={{
-                  color: '#d1efe7',
+                  color: 'var(--text-secondary)',
                   fontSize: '1.1rem',
                   maxWidth: '600px',
                   margin: '0 auto'
@@ -2033,7 +1967,7 @@ function Apps() {
                     gridColumn: '1 / -1',
                     textAlign: 'center',
                     padding: '40px',
-                    color: '#9ca3af'
+                    color: 'var(--text-subtle)'
                   }}>
                     <p style={{ fontSize: '1.1rem', margin: 0 }}>
                       No paid apps found in the "{selectedCategory}" category.
@@ -2055,14 +1989,14 @@ function Apps() {
           border: '1px solid rgba(54, 255, 149, 0.2)'
         }}>
           <h3 style={{
-            color: '#36ff95',
+            color: 'var(--accent)',
             fontSize: '1.5rem',
             marginBottom: '16px'
           }}>
             Can't find what you're looking for?
           </h3>
           <p style={{
-            color: '#d1efe7',
+            color: 'var(--text-secondary)',
             fontSize: '1.1rem',
             marginBottom: '24px'
           }}>
@@ -2209,7 +2143,10 @@ function HamburgerMenu({ open, onClose, clickPosition, isMobile }) {
           <li onClick={() => handleNavigation('/news')}>News</li>
           <li onClick={() => handleNavigation('/Podcast')}>Watch</li>
           <li onClick={() => handleNavigation('/contact')}>Contact</li>
-          <li onClick={() => handleNavigation('/my-ai')} style={{ color: '#36ff95' }}>My AI 🚀</li>
+          <li onClick={() => handleNavigation('/my-ai')} style={{ color: 'var(--accent)' }}>My AI 🚀</li>
+          <li className="menu-theme-row">
+            <ThemeToggle />
+          </li>
         </ul>
       </div>
     </div>
@@ -2234,12 +2171,13 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
             aria-label="Open navigation menu"
             style={{ marginLeft: 'auto' }}
           >
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-              <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-              <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" className="header-menu-icon-svg">
+              <rect y="6" width="28" height="2.7" rx="1.35" className="header-menu-icon-bar"/>
+              <rect y="13" width="28" height="2.7" rx="1.35" className="header-menu-icon-bar"/>
+              <rect y="20" width="28" height="2.7" rx="1.35" className="header-menu-icon-bar"/>
             </svg>
           </button>
+          <ThemeToggle compact />
           <span
             className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
             onClick={onToggleAnimation}
@@ -2251,7 +2189,8 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
         </div>
       ) : null}
       {isMobile && (
-        <div className="header-icons" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
+        <div className="header-icons" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <ThemeToggle compact />
           <button 
             className="header-mob-menu-icon" 
             onClick={(e) => {
@@ -2267,10 +2206,10 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
             }}
             aria-label="Open navigation menu"
           >
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <rect y="6" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-              <rect y="13" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
-              <rect y="20" width="28" height="2.7" rx="1.35" fill="#36ff95"/>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" className="header-menu-icon-svg">
+              <rect y="6" width="28" height="2.7" rx="1.35" className="header-menu-icon-bar"/>
+              <rect y="13" width="28" height="2.7" rx="1.35" className="header-menu-icon-bar"/>
+              <rect y="20" width="28" height="2.7" rx="1.35" className="header-menu-icon-bar"/>
             </svg>
           </button>
         </div>
@@ -2338,11 +2277,7 @@ function BotGrid({ bots, onOpenModal }) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
           borderRadius: 22,
-          boxShadow: '0 4px 32px #16ff6c22',
-          border: '1.5px dashed #36ff95',
-          color: '#e9f7ee',
           minHeight: 320,
           cursor: 'pointer',
           marginBottom: 18,
@@ -2351,7 +2286,7 @@ function BotGrid({ bots, onOpenModal }) {
       >
         <div style={{ fontSize: "2.2rem", marginBottom: 10, marginTop: 6 }}>✨</div>
         <div style={{ fontSize: "1.25rem", fontWeight: 700, textAlign: "center" }}>Build Something Awesome?</div>
-        <div style={{ marginTop: 10, color: "#36ff95", fontWeight: 500, textAlign: "center" }}>
+        <div className="suggest-card-cta" style={{ marginTop: 10, fontWeight: 500, textAlign: "center" }}>
           Suggest a new GPT bot!
         </div>
         <img
@@ -2847,8 +2782,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         marginBottom: '20px',
         fontFamily: 'inherit'
       }}>
-        <span style={{ color: '#ffffff', textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>BetterAi</span>
-        <span style={{ color: '#36ff95', textShadow: '0 0 20px rgba(54, 255, 149, 0.5)' }}>Bots</span>
+        <span className="theme-home-brand" style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>BetterAi</span>
+        <span className="theme-accent-text" style={{ textShadow: '0 0 20px rgba(54, 255, 149, 0.5)' }}>Bots</span>
       </h1>
       
       <div style={{ 
@@ -2860,14 +2795,10 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         marginBottom: '20px',
         padding: '20px'
       }}>
-        <div style={{
+        <div className="welcome-hero-frame" style={{
           position: 'relative',
           maxWidth: '600px',
           width: '100%',
-          padding: '8px',
-          background: 'linear-gradient(135deg, #36ff95, #0bbfdb, #36ff95)',
-          borderRadius: '12px',
-          boxShadow: '0 0 30px rgba(54, 255, 149, 0.5), 0 0 60px rgba(11, 191, 219, 0.3)',
         }}>
           <img 
             src={welcometobaib} 
@@ -2894,8 +2825,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         Your AI Tools Directory Hub for AI Apps, GPTs, News and educational content.
       </h2>
       
-      <h3 style={{
-        color: '#b5ffdb',
+      <h3 className="theme-body-text" style={{
         fontSize: isMobile ? '0.95rem' : '1rem',
         lineHeight: '1.6',
         textAlign: 'center',
@@ -2909,7 +2839,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       }}>
         BetterAiBots.com is your comprehensive resource for navigating the world of AI tools. We help you discover the best AI applications, GPTs, and educational content to enhance your productivity and skills.
         <br /><br />
-        Explore our <strong style={{ color: '#36ff95' }}>Apps</strong> directory to find free and premium AI tools, browse our <strong style={{ color: '#36ff95' }}>GPT Discovery Hub</strong> for custom GPTs, stay updated with the latest <strong style={{ color: '#36ff95' }}>News</strong> in the AI world, and enhance your knowledge through our <strong style={{ color: '#36ff95' }}>Learn</strong> section with beginner, intermediate, and advanced guides.
+        Explore our <strong className="theme-accent-text">Apps</strong> directory to find free and premium AI tools, browse our <strong className="theme-accent-text">GPT Discovery Hub</strong> for custom GPTs, stay updated with the latest <strong className="theme-accent-text">News</strong> in the AI world, and enhance your knowledge through our <strong className="theme-accent-text">Learn</strong> section with beginner, intermediate, and advanced guides.
       </h3>
       
       {/* Choose Your Path Section */}
@@ -2953,7 +2883,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   maxWidth: isMobile ? '180px' : '240px',
                   width: isMobile ? '180px' : '240px',
                   borderRadius: '8px',
-                  border: '2px solid #36ff95',
+                  border: '2px solid var(--border-accent)',
                   boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
                   marginBottom: '10px',
                   overflow: 'hidden',
@@ -2984,21 +2914,17 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                     ))}
                   </div>
                 </div>
-                <span style={{
-                  color: '#b5ffdb',
+                <span className="theme-path-label" style={{
                   fontSize: isMobile ? '0.9rem' : '1rem',
-                  fontWeight: 600,
                   textAlign: 'center',
                   marginTop: '8px'
                 }}>
                   Apps
                 </span>
-                <span style={{
-                  color: '#a0d4c0',
+                <span className="theme-path-sublabel" style={{
                   fontSize: isMobile ? '0.7rem' : '0.75rem',
                   textAlign: 'center',
-                  marginTop: '4px',
-                  opacity: 0.8
+                  marginTop: '4px'
                 }}>
                   Free & premium AI tools
                 </span>
@@ -3019,7 +2945,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   maxWidth: isMobile ? '180px' : '240px',
                   width: '100%',
                   borderRadius: '8px',
-                  border: '2px solid #36ff95',
+                  border: '2px solid var(--border-accent)',
                   boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
                   marginBottom: '10px',
                   overflow: 'hidden',
@@ -3047,21 +2973,17 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                     />
                   ))}
                 </div>
-                <span style={{
-                  color: '#b5ffdb',
+                <span className="theme-path-label" style={{
                   fontSize: isMobile ? '0.9rem' : '1rem',
-                  fontWeight: 600,
                   textAlign: 'center',
                   marginTop: '8px'
                 }}>
                   Learn
                 </span>
-                <span style={{
-                  color: '#a0d4c0',
+                <span className="theme-path-sublabel" style={{
                   fontSize: isMobile ? '0.7rem' : '0.75rem',
                   textAlign: 'center',
-                  marginTop: '4px',
-                  opacity: 0.8
+                  marginTop: '4px'
                 }}>
                   Beginner to advanced guides
                 </span>
@@ -3082,7 +3004,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   maxWidth: isMobile ? '180px' : '240px',
                   width: isMobile ? '180px' : '240px',
                   borderRadius: '8px',
-                  border: '2px solid #36ff95',
+                  border: '2px solid var(--border-accent)',
                   boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
                   marginBottom: '10px',
                   overflow: 'hidden',
@@ -3112,21 +3034,17 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                     ))}
                   </div>
                 </div>
-                <span style={{
-                  color: '#b5ffdb',
+                <span className="theme-path-label" style={{
                   fontSize: isMobile ? '0.9rem' : '1rem',
-                  fontWeight: 600,
                   textAlign: 'center',
                   marginTop: '8px'
                 }}>
                   News
                 </span>
-                <span style={{
-                  color: '#a0d4c0',
+                <span className="theme-path-sublabel" style={{
                   fontSize: isMobile ? '0.7rem' : '0.75rem',
                   textAlign: 'center',
-                  marginTop: '4px',
-                  opacity: 0.8
+                  marginTop: '4px'
                 }}>
                   Latest AI updates & trends
                 </span>
@@ -3164,7 +3082,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 <div style={{
                   width: isMobile ? '160px' : '240px',
                   borderRadius: '8px',
-                  border: '2px solid #36ff95',
+                  border: '2px solid var(--border-accent)',
                   boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
                   marginBottom: '10px',
                   overflow: 'hidden',
@@ -3183,7 +3101,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   />
                 </div>
                 <span style={{
-                  color: '#b5ffdb',
+                  color: 'var(--text-secondary)',
                   fontSize: isMobile ? '0.9rem' : '1rem',
                   fontWeight: 600,
                   textAlign: 'center',
@@ -3192,7 +3110,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   GPTs
                 </span>
                 <span style={{
-                  color: '#a0d4c0',
+                  color: 'var(--text-muted)',
                   fontSize: isMobile ? '0.7rem' : '0.75rem',
                   textAlign: 'center',
                   marginTop: '4px',
@@ -3219,7 +3137,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 <div style={{
                   width: isMobile ? '160px' : '240px',
                   borderRadius: '8px',
-                  border: '2px solid #36ff95',
+                  border: '2px solid var(--border-accent)',
                   boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
                   marginBottom: '10px',
                   overflow: 'hidden',
@@ -3262,7 +3180,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   />
                 </div>
                 <span style={{
-                  color: '#b5ffdb',
+                  color: 'var(--text-secondary)',
                   fontSize: isMobile ? '0.9rem' : '1rem',
                   fontWeight: 600,
                   textAlign: 'center',
@@ -3271,7 +3189,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   Show
                 </span>
                 <span style={{
-                  color: '#a0d4c0',
+                  color: 'var(--text-muted)',
                   fontSize: isMobile ? '0.7rem' : '0.75rem',
                   textAlign: 'center',
                   marginTop: '4px',
@@ -3288,27 +3206,14 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       {/* Apps Directory Preview Section */}
       <div className="hero-section" style={isMobile ? { padding: '60px 20px 30px' } : { padding: '60px 0 30px' }}>
         <Link to="/apps" style={{ textDecoration: 'none', display: 'block' }}>
-          <div style={{
+          <div className="theme-promo-panel" style={{
             maxWidth: '1000px',
             margin: '0 auto',
-            background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)',
-            border: '2px solid rgba(54, 255, 149, 0.3)',
             borderRadius: '20px',
             padding: isMobile ? '30px 20px' : '40px',
             cursor: 'pointer',
-            transition: 'all 0.3s ease',
             position: 'relative',
             overflow: 'hidden'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-5px)';
-            e.currentTarget.style.boxShadow = '0 10px 30px rgba(54, 255, 149, 0.2)';
-            e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.5)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = 'none';
-            e.currentTarget.style.borderColor = 'rgba(54, 255, 149, 0.3)';
           }}
           >
             <h1 className="hero-headline" style={{ 
@@ -3325,7 +3230,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               maxWidth: "800px",
               marginLeft: "auto",
               marginRight: "auto",
-              color: '#d1efe7'
+              color: 'var(--text-secondary)'
             }}>
               Discover the best AI applications: free tools, trial versions, and premium paid solutions — plus track all your AI apps and costs in one place.
             </h2>
@@ -3357,7 +3262,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 </div>
                 <div style={{
                   fontSize: isMobile ? '0.9rem' : '1rem',
-                  color: '#d1efe7',
+                  color: 'var(--text-secondary)',
                   fontWeight: '600'
                 }}>
                   Free Trials
@@ -3382,7 +3287,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 </div>
                 <div style={{
                   fontSize: isMobile ? '0.9rem' : '1rem',
-                  color: '#d1efe7',
+                  color: 'var(--text-secondary)',
                   fontWeight: '600'
                 }}>
                   Premium AI Tools (total)
@@ -3402,7 +3307,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                color: '#b5ffdb',
+                color: 'var(--text-secondary)',
                 fontSize: isMobile ? '0.85rem' : '0.9rem'
               }}>
                 <span>📊</span>
@@ -3412,7 +3317,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                color: '#b5ffdb',
+                color: 'var(--text-secondary)',
                 fontSize: isMobile ? '0.85rem' : '0.9rem'
               }}>
                 <span>🎯</span>
@@ -3422,7 +3327,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                color: '#b5ffdb',
+                color: 'var(--text-secondary)',
                 fontSize: isMobile ? '0.85rem' : '0.9rem'
               }}>
                 <span>📈</span>
@@ -3434,7 +3339,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             <div style={{
               textAlign: 'center',
               marginTop: '25px',
-              color: '#36ff95',
+              color: 'var(--accent)',
               fontSize: isMobile ? '0.95rem' : '1.1rem',
               fontWeight: '600'
             }}>
@@ -3455,15 +3360,10 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         padding: isVerySmall ? "0 8px" : (is360px ? "0 10px" : (is390px ? "0 12px" : "0")),
         boxSizing: "border-box"
       }}>
-        <h2 style={{ 
-          textAlign: "center", 
-          color: "#36ff95", 
+        <h2 className="section-title-accent" style={{ 
           fontSize: isVerySmall ? "1.2rem" : (is360px ? "1.25rem" : (is390px ? "1.3rem" : "1.4rem")), 
-          fontWeight: 600, 
           marginTop: "0",
           marginBottom: isVerySmall ? "20px" : (is360px ? "22px" : (is390px ? "25px" : "30px")),
-          textShadow: "0 0 8px #36ff9544",
-          width: "100%"
         }}>
           App Spotlight
         </h2>
@@ -3487,18 +3387,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             return (
               <div
                 key={app.name}
-                style={{
-                  background: "linear-gradient(135deg, #133626 0%, #18232f 100%)",
-                  border: "2px solid #36ff95",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 0 20px #36ff9544",
-                  transition: "transform 0.2s ease-in-out",
-                  width: "100%",
-                  maxWidth: "100%",
-                  display: "flex",
-                  flexDirection: "column"
-                }}
+                className="spotlight-card"
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
               >
@@ -3516,13 +3405,10 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   <img
                     src={imageSrc}
                     alt={`${app.name} logo`}
+                    className="spotlight-card__img"
                     style={{
                       width: "200px",
                       height: "200px",
-                      objectFit: "contain",
-                      borderRadius: "24px",
-                      boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)",
-                      display: "block"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -3539,7 +3425,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 }}>
                   <div>
                     <h3 style={{
-                      color: "#36ff95",
+                      color: 'var(--accent)',
                       fontSize: isMobile ? "1.1rem" : "1.3rem",
                       fontWeight: 700,
                       margin: "0 0 12px 0",
@@ -3548,14 +3434,13 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                       {app.name}
                     </h3>
                     <p style={{
-                      color: "#9ca3af",
+                      color: 'var(--text-subtle)',
                       fontSize: isMobile ? "0.8rem" : "0.9rem",
                       margin: "0 0 15px 0"
                     }}>
                       Featured • {app.category}
                     </p>
-                    <p style={{
-                      color: "#e0e0e0",
+                    <p className="spotlight-card__desc" style={{
                       fontSize: isMobile ? "0.85rem" : "0.95rem",
                       lineHeight: 1.5,
                       margin: "0 0 15px 0"
@@ -3572,14 +3457,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                         {badgeItems.map((feature) => (
                           <span
                             key={feature}
-                            style={{
-                              background: "rgba(54, 255, 149, 0.2)",
-                              color: "#36ff95",
-                              padding: "4px 8px",
-                              borderRadius: "4px",
-                              fontSize: "0.75rem",
-                              fontWeight: 500
-                            }}
+                            className="spotlight-card__badge"
                           >
                             {feature}
                           </span>
@@ -3597,51 +3475,13 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                       href={app.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                        color: "#000",
-                        padding: "12px 24px",
-                        borderRadius: "8px",
-                        textDecoration: "none",
-                        fontWeight: 600,
-                        fontSize: "0.9rem",
-                        transition: "all 0.2s ease",
-                        boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)",
-                        width: "fit-content"
-                      }}
-                      onMouseOver={e => {
-                        e.target.style.transform = "translateY(-2px)";
-                        e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                      }}
-                      onMouseOut={e => {
-                        e.target.style.transform = "translateY(0)";
-                        e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                      }}
+                      className="spotlight-card__btn-primary"
                     >
                       Try {app.name} Free
                     </a>
                     <Link
                       to={readMoreLink}
-                      style={{
-                        background: "transparent",
-                        color: "#36ff95",
-                        padding: "12px 24px",
-                        borderRadius: "8px",
-                        textDecoration: "none",
-                        fontWeight: 600,
-                        fontSize: "0.9rem",
-                        border: "2px solid #36ff95",
-                        transition: "all 0.2s ease",
-                        width: "fit-content"
-                      }}
-                      onMouseOver={e => {
-                        e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                        e.target.style.transform = "translateY(-2px)";
-                      }}
-                      onMouseOut={e => {
-                        e.target.style.background = "transparent";
-                        e.target.style.transform = "translateY(0)";
-                      }}
+                      className="spotlight-card__btn-secondary"
                     >
                       Read Full Article
                     </Link>
@@ -3694,30 +3534,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           textAlign: "left"
         }}>
           <Link to="/apps" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-            <div style={{
-              background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
-              borderRadius: "16px",
-              padding: "30px",
-              border: "1px solid rgba(54, 255, 149, 0.2)",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              height: "100%",
-              display: "flex",
-              flexDirection: "column"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.2)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-            >
+            <div className="theme-panel-card">
               <h3 style={{
-                color: "#36ff95",
+                color: 'var(--accent)',
                 fontSize: "1.3rem",
                 fontWeight: 600,
                 marginBottom: "16px",
@@ -3726,7 +3545,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 🆓 Free & Premium Tools
               </h3>
               <p style={{
-                color: "#d1efe7",
+                color: 'var(--text-secondary)',
                 fontSize: "1rem",
                 lineHeight: "1.6",
                 margin: 0,
@@ -3738,30 +3557,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           </Link>
           
           <Link to="/learn" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-            <div style={{
-              background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
-              borderRadius: "16px",
-              padding: "30px",
-              border: "1px solid rgba(54, 255, 149, 0.2)",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              height: "100%",
-              display: "flex",
-              flexDirection: "column"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.2)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-            >
+            <div className="theme-panel-card">
               <h3 style={{
-                color: "#36ff95",
+                color: 'var(--accent)',
                 fontSize: "1.3rem",
                 fontWeight: 600,
                 marginBottom: "16px",
@@ -3770,7 +3568,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 📘 Guides & Learning
               </h3>
               <p style={{
-                color: "#d1efe7",
+                color: 'var(--text-secondary)',
                 fontSize: "1rem",
                 lineHeight: "1.6",
                 margin: 0,
@@ -3782,30 +3580,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           </Link>
           
           <Link to="/news" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-            <div style={{
-              background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
-              borderRadius: "16px",
-              padding: "30px",
-              border: "1px solid rgba(54, 255, 149, 0.2)",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              height: "100%",
-              display: "flex",
-              flexDirection: "column"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.2)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-            >
+            <div className="theme-panel-card">
               <h3 style={{
-                color: "#36ff95",
+                color: 'var(--accent)',
                 fontSize: "1.3rem",
                 fontWeight: 600,
                 marginBottom: "16px",
@@ -3814,7 +3591,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 📰 News & Updates
               </h3>
               <p style={{
-                color: "#d1efe7",
+                color: 'var(--text-secondary)',
                 fontSize: "1rem",
                 lineHeight: "1.6",
                 margin: 0,
@@ -3826,30 +3603,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           </Link>
           
           <Link to="/Podcast" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-            <div style={{
-              background: "linear-gradient(135deg, rgba(54, 255, 149, 0.1) 0%, rgba(11, 191, 219, 0.1) 100%)",
-              borderRadius: "16px",
-              padding: "30px",
-              border: "1px solid rgba(54, 255, 149, 0.2)",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              height: "100%",
-              display: "flex",
-              flexDirection: "column"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.2)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-            >
+            <div className="theme-panel-card">
               <h3 style={{
-                color: "#36ff95",
+                color: 'var(--accent)',
                 fontSize: "1.3rem",
                 fontWeight: 600,
                 marginBottom: "16px",
@@ -3858,7 +3614,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 🎯 Smart Testing
               </h3>
               <p style={{
-                color: "#d1efe7",
+                color: 'var(--text-secondary)',
                 fontSize: "1rem",
                 lineHeight: "1.6",
                 margin: 0,
@@ -3870,36 +3626,15 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           </Link>
         </div>
         
-        <div style={{
-          marginTop: isMobile ? "50px" : "100px",
-          padding: isMobile ? "40px 20px" : "80px 60px",
-          background: "linear-gradient(135deg, rgba(23, 45, 62, 0.6) 0%, rgba(16, 28, 38, 0.8) 100%)",
-          borderRadius: "32px",
-          border: "1px solid rgba(54, 255, 149, 0.15)",
-          backdropFilter: "blur(12px)",
-          boxShadow: "0 20px 50px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(54, 255, 149, 0.05)",
-          position: "relative",
-          overflow: "hidden"
-        }}>
-          {/* Subtle Glow Orbs */}
-          <div style={{
-            position: "absolute",
-            top: "-100px",
-            right: "-100px",
-            width: "300px",
-            height: "300px",
-            background: "radial-gradient(circle, rgba(54, 255, 149, 0.1) 0%, transparent 70%)",
-            pointerEvents: "none"
-          }} />
-          <div style={{
-            position: "absolute",
-            bottom: "-100px",
-            left: "-100px",
-            width: "300px",
-            height: "300px",
-            background: "radial-gradient(circle, rgba(11, 191, 219, 0.1) 0%, transparent 70%)",
-            pointerEvents: "none"
-          }} />
+        <div
+          className="channel-section"
+          style={{
+            marginTop: isMobile ? "50px" : "100px",
+            padding: isMobile ? "40px 20px" : "80px 60px",
+          }}
+        >
+          <div className="channel-section__orb channel-section__orb--tr" aria-hidden="true" />
+          <div className="channel-section__orb channel-section__orb--bl" aria-hidden="true" />
 
           <h2 className="hero-headline" style={{
             fontSize: isMobile ? "2.2rem" : "3.2rem",
@@ -3921,8 +3656,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               flex: 1.2,
               textAlign: isMobile ? "center" : "left"
             }}>
-              <p style={{
-                color: "#ffffff",
+              <p className="theme-body-text" style={{
                 fontSize: isMobile ? "1.1rem" : "1.2rem",
                 lineHeight: "1.8",
                 marginBottom: "24px",
@@ -3931,7 +3665,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 If you've ever wondered which AI tools are worth your time, how to actually use them, or how to stay ahead in a world changing by the week… you're in the right place.
               </p>
               <p style={{
-                color: "#d1efe7",
+                color: 'var(--text-secondary)',
                 fontSize: isMobile ? "1rem" : "1.1rem",
                 lineHeight: "1.8",
                 marginBottom: "30px"
@@ -3941,7 +3675,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{
-                    color: "#36ff95",
+                    color: 'var(--accent)',
                     textDecoration: "underline",
                     fontWeight: 700,
                     transition: "color 0.2s"
@@ -3954,6 +3688,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             
             <Link
               to="/Podcast"
+              className="channel-media-link"
               style={{
                 display: "block",
                 cursor: "pointer",
@@ -3964,18 +3699,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 padding: "10px",
                 background: "linear-gradient(135deg, rgba(54, 255, 149, 0.15) 0%, rgba(11, 191, 219, 0.15) 100%)",
                 borderRadius: "20px",
-                border: "1px solid rgba(54, 255, 149, 0.2)",
+                border: "1px solid var(--border-accent-soft)",
                 transition: "all 0.3s ease"
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.5)";
-                e.currentTarget.style.transform = "scale(1.02)";
-                e.currentTarget.style.boxShadow = "0 12px 40px rgba(54, 255, 149, 0.25)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(54, 255, 149, 0.2)";
-                e.currentTarget.style.transform = "scale(1)";
-                e.currentTarget.style.boxShadow = "none";
               }}
             >
               <img
@@ -4010,21 +3735,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               { href: "https://www.youtube.com/@BetterAiBots", label: "Visit Channel" }
             ].map((btn, idx) => {
               const baseStyle = {
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                background: "linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)",
-                color: "#101c26",
                 padding: isMobile ? "14px 28px" : "18px 40px",
-                borderRadius: "12px",
-                textDecoration: "none",
-                fontWeight: 800,
                 fontSize: isMobile ? "0.95rem" : "1.1rem",
-                transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                textAlign: "center",
                 minWidth: isMobile ? "140px" : "180px",
-                boxShadow: "0 4px 15px rgba(54, 255, 149, 0.2)",
-                border: "none"
               };
 
               if (btn.to) {
@@ -4032,15 +3745,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   <Link
                     key={idx}
                     to={btn.to}
+                    className="theme-cta-btn"
                     style={baseStyle}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = "translateY(-5px) scale(1.05)";
-                      e.target.style.boxShadow = "0 12px 25px rgba(54, 255, 149, 0.4)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = "translateY(0) scale(1)";
-                      e.target.style.boxShadow = "0 4px 15px rgba(54, 255, 149, 0.2)";
-                    }}
                   >
                     {btn.label}
                   </Link>
@@ -4053,15 +3759,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   href={btn.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="theme-cta-btn"
                   style={baseStyle}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = "translateY(-5px) scale(1.05)";
-                    e.target.style.boxShadow = "0 12px 25px rgba(54, 255, 149, 0.4)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = "translateY(0) scale(1)";
-                    e.target.style.boxShadow = "0 4px 15px rgba(54, 255, 149, 0.2)";
-                  }}
                 >
                   {btn.label}
                 </a>
@@ -4077,29 +3776,10 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           }}>
             <Link
               to="/apps?section=trial"
+              className="theme-cta-btn theme-cta-btn--pill"
               style={{
-                color: "#101c26",
-                background: "rgba(54, 255, 149, 0.9)",
-                textDecoration: "none",
                 fontSize: isMobile ? "0.9rem" : "1rem",
-                fontWeight: 700,
                 padding: "10px 24px",
-                borderRadius: "30px",
-                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                display: "inline-block",
-                boxShadow: "0 4px 14px rgba(54, 255, 149, 0.3)",
-                textTransform: "uppercase",
-                letterSpacing: "1px"
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = "#ffffff";
-                e.target.style.transform = "scale(1.05)";
-                e.target.style.boxShadow = "0 6px 20px rgba(255, 255, 255, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = "rgba(54, 255, 149, 0.9)";
-                e.target.style.transform = "scale(1)";
-                e.target.style.boxShadow = "0 4px 14px rgba(54, 255, 149, 0.3)";
               }}
             >
               🚀 Explore Free Trials
@@ -4311,7 +3991,7 @@ function NotFound() {
       <h2 className="hero-subheadline" style={{ marginBottom: "30px" }}>
         Page Not Found
       </h2>
-      <p style={{ color: "#d1efe7", fontSize: "1.1rem", marginBottom: "40px" }}>
+      <p style={{ color: 'var(--text-secondary)', fontSize: "1.1rem", marginBottom: "40px" }}>
         The page you're looking for doesn't exist or has been moved.
       </p>
       <Link 
@@ -4593,7 +4273,7 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
   if (isLoading) {
     return (
       <div className="hero-section">
-        <div style={{ color: "#36ff95", textAlign: "center", fontSize: "1.2rem" }}>Loading...</div>
+        <div style={{ color: 'var(--accent)', textAlign: "center", fontSize: "1.2rem" }}>Loading...</div>
       </div>
     );
   }
@@ -4675,14 +4355,14 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
           </form>
         )}
       </div>
-      <h2 style={{ color: "#36ff95", fontWeight: 700, fontSize: "1.28rem" }}>Pending Bot Submissions</h2>
+      <h2 style={{ color: 'var(--accent)', fontWeight: 700, fontSize: "1.28rem" }}>Pending Bot Submissions</h2>
       {pendingBots.length === 0 ? (
         <div className="neon-green" style={{ marginTop: 35 }}>No pending submissions 🎉</div>
       ) : (
         pendingBots.map((bot, idx) => (
           <div key={idx} style={{ background: "#172d3e", borderRadius: 18, padding: "20px 24px", margin: "22px auto", maxWidth: 560, boxShadow: "0 2px 14px #36ff9544" }}>
             <div style={{ fontWeight: 700, fontSize: "1.13rem" }}>{bot.title}</div>
-            <div style={{ color: "#36ff95", margin: "8px 0" }}>{bot.desc}</div>
+            <div style={{ color: 'var(--accent)', margin: "8px 0" }}>{bot.desc}</div>
             <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ color: "#0bbfdb" }}>{bot.openaiLink}</a>
             <div style={{ marginTop: 12 }}>
               <Button style={{ background: "#36ff95", color: "#101c26", border: "none", marginRight: 10 }} onClick={() => handleApprove(idx)}>Approve</Button>
@@ -4691,7 +4371,7 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
           </div>
         ))
       )}
-      <h2 style={{ color: "#36ff95", fontWeight: 700, fontSize: "1.15rem", marginTop: 30 }}>
+      <h2 style={{ color: 'var(--accent)', fontWeight: 700, fontSize: "1.15rem", marginTop: 30 }}>
         Contact Form Submissions
       </h2>
       {contactMessages.length === 0 ? (
@@ -4706,7 +4386,7 @@ function Moderation({ approveBot, pendingBots, setPendingBots }) {
             color: "#fff",
             boxShadow: "0 1px 7px #36ff9544"
           }}>
-            <div style={{ fontWeight: 600, color: "#36ff95" }}>
+            <div style={{ fontWeight: 600, color: 'var(--accent)' }}>
               {msg.name} {"<" + msg.email + ">"}
             </div>
             <div style={{ fontSize: "0.97rem", margin: "7px 0 0 0" }}>{msg.message}</div>
@@ -4767,7 +4447,7 @@ function DisclaimerBar() {
         ** 
       </span>
       <span style={{
-        color: "#36ff95",
+        color: 'var(--accent)',
         fontWeight: 700,
         fontFamily: "Inter, Arial, sans-serif"
       }}>
@@ -4775,7 +4455,7 @@ function DisclaimerBar() {
       </span>
       <br />
       <span style={{
-        color: "#36ff95",
+        color: 'var(--accent)',
         fontSize: "0.97rem",
         fontWeight: 500,
         letterSpacing: 0.01,
@@ -4925,25 +4605,7 @@ function App() {
             const pathLower = path.toLowerCase();
             const shouldShow = path === '/' || path === '/apps' || path === '/contact' || pathLower === '/podcast' || path.startsWith('/learn') || path.startsWith('/news');
             return shouldShow ? (
-              <div style={{
-                position: 'relative',
-                width: '100%',
-                minHeight: '48px',
-                background: 'linear-gradient(135deg, #172d3e 0%, #101c26 100%)',
-                borderBottom: '2px solid rgba(54, 255, 149, 0.3)',
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-                padding: '12px 0',
-                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
-                zIndex: 10000,
-                display: 'block',
-                flexShrink: 0,
-                visibility: 'visible',
-                opacity: 1,
-                margin: 0,
-                top: 0,
-                left: 0
-              }}>
+              <div className="site-ticker">
                 {/* Ticker text container */}
                 <div style={{
                   overflow: 'hidden',
@@ -4957,14 +4619,7 @@ function App() {
                     pointerEvents: 'none'
                   }}>
                   {[...tickerMessages, ...tickerMessages].map((message, index) => (
-                    <span key={index} style={{
-                      display: 'inline-block',
-                      paddingRight: '80px',
-                      color: '#36ff95',
-                      fontSize: '0.9rem',
-                      fontWeight: '500',
-                      lineHeight: '24px'
-                    }}>
+                    <span key={index} className="site-ticker-text">
                       {message}
                     </span>
                   ))}
@@ -4976,16 +4631,7 @@ function App() {
         </div>
         {/* NavTabsBar - Desktop only, right below ticker */}
         {!isMobile && (
-          <div style={{
-            background: "linear-gradient(135deg, #101c26 0%, #172d3e 100%)",
-            zIndex: 10001,
-            position: 'sticky',
-            top: 0,
-            width: '100%',
-            display: 'block',
-            visibility: 'visible',
-            opacity: 1
-          }}>
+          <div className="site-nav-shell">
             <div style={{ position: 'relative', zIndex: 10002, width: '100%' }}>
               <NavTabsBar 
                 showCategoryBar={showCategoryBar} 
@@ -5238,11 +4884,9 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
 
   return (
     <footer
+      className="site-footer"
       style={{
         marginTop: 0,
-        background: "linear-gradient(90deg, #172d3e 0%, #18232f 100%)",
-        color: "#b5ffdb",
-        boxShadow: "0 -2px 24px #16ff6c16",
         padding: isMobile ? "5px 20px 1px 20px" : "5px 40px 1px 40px",
         fontSize: "1.01rem",
         position: "relative",
@@ -5265,7 +4909,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
           order: isMobile ? 2 : 1
         }}>
           <h3 style={{
-            color: "#36ff95",
+            color: 'var(--accent)',
             fontSize: "1.1rem",
             fontWeight: 700,
             marginBottom: "16px",
@@ -5291,19 +4935,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
               <li key={link.to}>
                 <Link
                   to={link.to}
-                  style={{
-                    color: "#b5ffdb",
-                    textDecoration: "none",
-                    fontSize: "0.95rem",
-                    transition: "color 0.2s",
-                    display: "inline-block"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.color = "#36ff95";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.color = "#b5ffdb";
-                  }}
+                  className="site-footer__link"
                 >
                   {link.label}
                 </Link>
@@ -5317,7 +4949,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
           order: isMobile ? 3 : 2
         }}>
           <h3 style={{
-            color: "#36ff95",
+            color: 'var(--accent)',
             fontSize: "1.1rem",
             fontWeight: 700,
             marginBottom: "16px",
@@ -5334,62 +4966,17 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
             gap: "10px"
           }}>
             <li>
-              <Link
-                to="/contact"
-                style={{
-                  color: "#b5ffdb",
-                  textDecoration: "none",
-                  fontSize: "0.95rem",
-                  transition: "color 0.2s",
-                  display: "inline-block"
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = "#36ff95";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = "#b5ffdb";
-                }}
-              >
+              <Link to="/contact" className="site-footer__link">
                 Contact
               </Link>
             </li>
             <li>
-              <Link
-                to="/my-ai"
-                style={{
-                  color: "#b5ffdb",
-                  textDecoration: "none",
-                  fontSize: "0.95rem",
-                  transition: "color 0.2s",
-                  display: "inline-block"
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = "#36ff95";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = "#b5ffdb";
-                }}
-              >
+              <Link to="/my-ai" className="site-footer__link">
                 My AI
               </Link>
             </li>
             <li>
-              <Link
-                to="/about"
-                style={{
-                  color: "#b5ffdb",
-                  textDecoration: "none",
-                  fontSize: "0.95rem",
-                  transition: "color 0.2s",
-                  display: "inline-block"
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = "#36ff95";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = "#b5ffdb";
-                }}
-              >
+              <Link to="/about" className="site-footer__link">
                 About
               </Link>
             </li>
@@ -5398,19 +4985,7 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
                 href="https://www.youtube.com/@BetterAiBots"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  color: "#b5ffdb",
-                  textDecoration: "none",
-                  fontSize: "0.95rem",
-                  transition: "color 0.2s",
-                  display: "inline-block"
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = "#36ff95";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = "#b5ffdb";
-                }}
+                className="site-footer__link"
               >
                 Channel
               </a>
@@ -5424,20 +4999,8 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
                     e.preventDefault();
                     onPWAInstallClick();
                   }}
-                  style={{
-                    color: "#b5ffdb",
-                    textDecoration: "none",
-                    fontSize: "0.95rem",
-                    transition: "color 0.2s",
-                    display: "inline-block",
-                    cursor: "pointer"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.color = "#36ff95";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.color = "#b5ffdb";
-                  }}
+                  className="site-footer__link"
+                  style={{ cursor: "pointer" }}
                 >
                   Install App
                 </a>
@@ -5468,99 +5031,39 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
               draggable={false}
             />
           </div>
-          <p style={{
-            color: "#b5ffdb",
-            fontSize: "0.95rem",
-            lineHeight: "1.6",
-            margin: 0
-          }}>
+          <p className="site-footer__text">
             Paying for AI tools you forgot you had? BetterAiBots.com is your free command center for discovering powerful AI apps, comparing what works, and tracking every subscription so nothing slips through the cracks.
           </p>
         </div>
       </div>
 
       {/* Bottom Bar: Copyright and Legal */}
-      <div
-        style={{
-          fontSize: "0.9rem",
-          color: "#b5ffdb",
-          textAlign: "center",
-          fontWeight: 500,
-          letterSpacing: 0.05,
-          paddingTop: isMobile ? "5px" : "5px",
-          paddingBottom: isMobile ? "5px" : "5px",
-          borderTop: "1px solid rgba(54, 255, 149, 0.1)",
-          display: "flex",
-          flexDirection: isMobile ? "column" : "row",
-          alignItems: "center",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          gap: isMobile ? "8px" : "12px"
-        }}
-      >
-        <span style={{ color: "#fff" }}>
+      <div className="site-footer__bar">
+        <span className="site-footer__copyright">
           © {new Date().getFullYear()} BetterAiBots.com
         </span>
         {!isMobile && (
           <>
-            <span style={{ color: "#b5ffdb", opacity: 0.5 }}>|</span>
-            <Link
-              to="/legal"
-              style={{
-                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                textDecoration: "none",
-                fontWeight: 600,
-                fontSize: "0.9rem"
-              }}
-            >
+            <span className="site-footer__divider">|</span>
+            <Link to="/legal" className="site-footer__legal-link">
               Legal & Terms
             </Link>
-            <span style={{ color: "#b5ffdb", opacity: 0.5 }}>|</span>
-            <Link
-              to="/privacy"
-              style={{
-                background: "linear-gradient(90deg, #36ff95 10%, #0bbfdb 90%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                textDecoration: "none",
-                fontWeight: 600,
-                fontSize: "0.9rem"
-              }}
-            >
+            <span className="site-footer__divider">|</span>
+            <Link to="/privacy" className="site-footer__legal-link">
               Privacy Policy
             </Link>
-            <span style={{ color: "#b5ffdb", opacity: 0.5 }}>|</span>
+            <span className="site-footer__divider">|</span>
           </>
         )}
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}>
-          <span style={{ color: "#fff", fontSize: "0.75rem" }}>
+        <div className="site-footer__powered">
+          <span className="site-footer__powered-label">
             POWERED BY{" "}
           </span>
           <a
             href="https://www.skowers.com"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              background: "linear-gradient(90deg, #36ff95, #ffd700)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              fontWeight: 800,
-              fontStyle: "italic",
-              textDecoration: "none",
-              fontFamily: "Inter, Arial, sans-serif",
-              display: "inline",
-              fontSize: "0.9rem",
-              paddingLeft: "3px"
-            }}
+            className="site-footer__brand-link"
           >
             SKOWERS
           </a>
@@ -5597,7 +5100,7 @@ function WalletAddressHorizontal({
     >
       <span
         style={{
-          color: "#36ff95",
+          color: 'var(--accent)',
           background: "transparent",
           fontSize: "0.98rem",
           letterSpacing: 0.01,
@@ -5619,7 +5122,7 @@ function WalletAddressHorizontal({
       {showLabel && (
         <span
           style={{
-            color: "#36ff95",
+            color: 'var(--accent)',
             fontWeight: 800,
             fontSize: "1.07rem",
             letterSpacing: 0.02,
@@ -6458,7 +5961,7 @@ function NewsArticle() {
                 fontSize: '2rem',
                 fontWeight: 600,
                 marginBottom: '30px',
-                color: '#36ff95'
+                color: 'var(--accent)'
               }}>
                 Related Articles
               </h2>
@@ -6562,7 +6065,7 @@ function NewsArticle() {
                           <span style={{
                             display: 'inline-block',
                             fontSize: '0.75rem',
-                            color: '#36ff95',
+                            color: 'var(--accent)',
                             backgroundColor: 'rgba(54, 255, 149, 0.1)',
                             padding: '4px 12px',
                             borderRadius: '20px',
@@ -6590,16 +6093,16 @@ function NewsArticle() {
           borderRadius: '12px',
           border: '1px solid rgba(54, 255, 149, 0.15)'
         }} aria-label="Explore more">
-          <h2 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '12px', color: '#36ff95' }}>Explore more</h2>
+          <h2 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '12px', color: 'var(--accent)' }}>Explore more</h2>
           <p style={{ fontSize: '0.95rem', color: '#b0b0b0', marginBottom: '16px' }}>Discover AI tools, guides, and news on BetterAiBots.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-            <Link to="/learn" style={{ color: '#36ff95', textDecoration: 'underline' }}>Learn AI guides</Link>
+            <Link to="/learn" style={{ color: 'var(--accent)', textDecoration: 'underline' }}>Learn AI guides</Link>
             <span style={{ color: '#555' }}>·</span>
-            <Link to="/news" style={{ color: '#36ff95', textDecoration: 'underline' }}>News</Link>
+            <Link to="/news" style={{ color: 'var(--accent)', textDecoration: 'underline' }}>News</Link>
             <span style={{ color: '#555' }}>·</span>
-            <Link to="/apps" style={{ color: '#36ff95', textDecoration: 'underline' }}>Apps</Link>
+            <Link to="/apps" style={{ color: 'var(--accent)', textDecoration: 'underline' }}>Apps</Link>
             <span style={{ color: '#555' }}>·</span>
-            <Link to="/" style={{ color: '#36ff95', textDecoration: 'underline' }}>Home</Link>
+            <Link to="/" style={{ color: 'var(--accent)', textDecoration: 'underline' }}>Home</Link>
           </div>
         </nav>
       </div>
@@ -6610,20 +6113,22 @@ function NewsArticle() {
 // --- AUTH0 PROVIDER WRAPPER ---
 export default function AppWithRouter() {
   return (
-    <Auth0Provider
-      domain={process.env.REACT_APP_AUTH0_DOMAIN}
-      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-              authorizationParams={{
-          redirect_uri: "https://www.betteraibots.com/moderation",
-          audience: process.env.REACT_APP_AUTH0_AUDIENCE,
-        }}
-    >
-      <HelmetProvider>
-        <Router>
-          <App />
-        </Router>
-      </HelmetProvider>
-    </Auth0Provider>
+    <ThemeProvider>
+      <Auth0Provider
+        domain={process.env.REACT_APP_AUTH0_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+                authorizationParams={{
+            redirect_uri: "https://www.betteraibots.com/moderation",
+            audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+          }}
+      >
+        <HelmetProvider>
+          <Router>
+            <App />
+          </Router>
+        </HelmetProvider>
+      </Auth0Provider>
+    </ThemeProvider>
   );
 }
 

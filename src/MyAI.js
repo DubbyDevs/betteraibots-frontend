@@ -362,7 +362,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
           </Link>
         </div>
         <h1 style={{ color: '#36ff95', fontSize: '2.5rem', marginBottom: '15px', fontWeight: 700 }}>My AI Dashboard 🚀</h1>
-        <p style={{ color: '#b5ffdb', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', marginBottom: '20px' }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', marginBottom: '20px' }}>
           Your personal ai progress tracker for AI applications. Track your trials, your subscription costs, take notes, and organize your own custom app directory page.
         </p>
         <div style={{
@@ -451,7 +451,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               borderRadius: '24px',
               border: filter === f ? '2px solid #36ff95' : '2px solid rgba(54, 255, 149, 0.2)',
               background: filter === f ? 'rgba(54, 255, 149, 0.1)' : 'transparent',
-              color: filter === f ? '#36ff95' : '#b5ffdb',
+              color: filter === f ? 'var(--accent)' : 'var(--text-muted)',
               cursor: 'pointer',
               fontWeight: 600,
               fontSize: '0.9rem',
@@ -608,7 +608,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                         value={appProgress.status || 'not_started'}
                         onChange={(e) => updateAppStatus(app.name, e.target.value)}
                         style={{
-                          background: '#18232f',
+                          background: 'var(--modal-bg)',
                           color: '#36ff95',
                           border: '1px solid #36ff95',
                           borderRadius: '8px',
@@ -740,14 +740,14 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                       borderRadius: '8px'
                     }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Trial Started</label>
+                        <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Trial Started</label>
                         <input 
                           type="date" 
                           value={appProgress.startDate || ''}
                           onChange={(e) => updateDates(app.name, 'startDate', e.target.value)}
                           style={{
                             width: '100%',
-                            background: '#18232f',
+                            background: 'var(--modal-bg)',
                             border: '1px solid rgba(54, 255, 149, 0.3)',
                             borderRadius: '6px',
                             color: '#ffffff',
@@ -757,14 +757,14 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                         />
                       </div>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Cancel Reminder</label>
+                        <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Cancel Reminder</label>
                         <input 
                           type="date" 
                           value={appProgress.cancelDate || ''}
                           onChange={(e) => updateDates(app.name, 'cancelDate', e.target.value)}
                           style={{
                             width: '100%',
-                            background: '#18232f',
+                            background: 'var(--modal-bg)',
                             border: '1px solid rgba(54, 255, 149, 0.3)',
                             borderRadius: '6px',
                             color: '#ffffff',
@@ -774,14 +774,14 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                         />
                       </div>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Trial Ends</label>
+                        <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Trial Ends</label>
                         <input 
                           type="date" 
                           value={appProgress.endDate || ''}
                           onChange={(e) => updateDates(app.name, 'endDate', e.target.value)}
                           style={{
                             width: '100%',
-                            background: '#18232f',
+                            background: 'var(--modal-bg)',
                             border: '1px solid rgba(54, 255, 149, 0.3)',
                             borderRadius: '6px',
                             color: '#ffffff',
@@ -803,7 +803,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                       borderRadius: '8px'
                     }}>
                       <div style={{ width: '200px' }}>
-                        <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Monthly Cost ($)</label>
+                        <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Monthly Cost ($)</label>
                         <input 
                           type="number" 
                           step="0.01"
@@ -813,7 +813,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                           onChange={(e) => updateCost(app.name, e.target.value)}
                           style={{
                             width: '100%',
-                            background: '#18232f',
+                            background: 'var(--modal-bg)',
                             border: '1px solid rgba(54, 255, 149, 0.3)',
                             borderRadius: '6px',
                             color: '#ffffff',
@@ -833,7 +833,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                   )}
 
                   <div style={{ position: 'relative' }}>
-                    <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Notes</label>
+                    <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Notes</label>
                     <textarea 
                       placeholder="Take notes on your experience with this app..."
                       value={appProgress.notes || ''}
@@ -844,7 +844,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                         background: '#1c2835',
                         border: '1px solid rgba(54, 255, 149, 0.1)',
                         borderRadius: '8px',
-                        color: '#d1efe7',
+                        color: 'var(--text-secondary)',
                         padding: '12px',
                         fontSize: '0.95rem',
                         resize: 'vertical',
@@ -879,14 +879,14 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         centered
         size="lg"
       >
-        <Modal.Header closeButton style={{ background: '#18232f', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
+        <Modal.Header closeButton style={{ background: 'var(--modal-bg)', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
           <Modal.Title style={{ color: '#36ff95', fontWeight: 600 }}>
             📝 How to Use Your AI Dashboard
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ background: '#18232f', color: '#d1efe7', padding: '24px' }}>
+        <Modal.Body style={{ background: 'var(--modal-bg)', color: 'var(--text-secondary)', padding: '24px' }}>
           <div style={{ lineHeight: '1.8', fontSize: '0.95rem' }}>
-            <p style={{ marginBottom: '20px', color: '#b5ffdb' }}>
+            <p style={{ marginBottom: '20px', color: 'var(--text-secondary)' }}>
               Your <strong style={{ color: '#36ff95' }}>My AI Dashboard</strong> helps you organize, track, and manage all your AI trial subscriptions in one place. Here's how to use it:
             </p>
             
@@ -978,7 +978,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             </div>
           </div>
         </Modal.Body>
-        <Modal.Footer style={{ background: '#18232f', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
+        <Modal.Footer style={{ background: 'var(--modal-bg)', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
           <Button 
             onClick={() => setShowHelpModal(false)}
             style={{
@@ -1004,15 +1004,15 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         centered
         size="lg"
       >
-        <Modal.Header closeButton style={{ background: '#18232f', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
+        <Modal.Header closeButton style={{ background: 'var(--modal-bg)', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
           <Modal.Title style={{ color: '#36ff95', fontWeight: 600 }}>
             {customMode === 'edit' ? 'Edit Custom App' : 'Add Custom App'}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ background: '#18232f', color: '#d1efe7', padding: '24px' }}>
+        <Modal.Body style={{ background: 'var(--modal-bg)', color: 'var(--text-secondary)', padding: '24px' }}>
           <div style={{ display: 'grid', gap: '16px' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.9rem', color: '#b5ffdb', marginBottom: '8px' }}>App Name *</label>
+              <label style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>App Name *</label>
               <input
                 type="text"
                 value={customForm.name}
@@ -1030,7 +1030,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               />
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '0.9rem', color: '#b5ffdb', marginBottom: '8px' }}>Category</label>
+              <label style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Category</label>
               <input
                 type="text"
                 value={customForm.category}
@@ -1048,7 +1048,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               />
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '0.9rem', color: '#b5ffdb', marginBottom: '8px' }}>Website (optional)</label>
+              <label style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Website (optional)</label>
               <input
                 type="url"
                 value={customForm.link}
@@ -1066,13 +1066,13 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               />
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '0.9rem', color: '#b5ffdb', marginBottom: '8px' }}>Status</label>
+              <label style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Status</label>
               <select
                 value={customForm.status}
                 onChange={(e) => setCustomForm(prev => ({ ...prev, status: e.target.value }))}
                 style={{
                   width: '100%',
-                  background: '#18232f',
+                  background: 'var(--modal-bg)',
                   color: '#36ff95',
                   border: '1px solid #36ff95',
                   borderRadius: '8px',
@@ -1088,7 +1088,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             {customForm.status === 'started' && (
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Trial Started</label>
+                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Trial Started</label>
                   <input
                     type="date"
                     value={customForm.startDate}
@@ -1105,7 +1105,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Cancel Reminder</label>
+                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Cancel Reminder</label>
                   <input
                     type="date"
                     value={customForm.cancelDate}
@@ -1122,7 +1122,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Trial Ends</label>
+                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Trial Ends</label>
                   <input
                     type="date"
                     value={customForm.endDate}
@@ -1142,7 +1142,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             )}
             {customForm.status === 'completed' && (
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: '#b5ffdb', marginBottom: '8px' }}>Monthly Cost ($)</label>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>Monthly Cost ($)</label>
                 <input
                   type="number"
                   step="0.01"
@@ -1176,7 +1176,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             )}
           </div>
         </Modal.Body>
-        <Modal.Footer style={{ background: '#18232f', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
+        <Modal.Footer style={{ background: 'var(--modal-bg)', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
           <Button
             variant="secondary"
             onClick={() => {
