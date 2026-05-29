@@ -671,9 +671,8 @@ const LearnLevelSelector = () => {
             position: "relative",
             zIndex: 1
           }}>
-            <h2 style={{ 
+            <h2 className="learn-section-title" style={{ 
               textAlign: "center", 
-              color: "#36ff95", 
               fontSize: isVerySmall ? "1.1rem" : (is360px ? "1.15rem" : (isMobile ? "1.2rem" : "1.4rem")), 
               fontWeight: 600, 
               marginTop: isVerySmall ? "8px" : (is360px ? "6px" : "0"),
@@ -733,12 +732,12 @@ const LearnLevelSelector = () => {
                   }}
                   className="guide-card-neon neon-pulse-card"
                   onMouseEnter={e => {
-                    if (!isMobile) {
+                    if (!isMobile && document.documentElement.getAttribute('data-theme') !== 'light') {
                       e.currentTarget.style.border = "1px solid var(--border-accent)";
                     }
                   }}
                   onMouseLeave={e => {
-                    if (!isMobile) {
+                    if (!isMobile && document.documentElement.getAttribute('data-theme') !== 'light') {
                       e.currentTarget.style.border = "1px solid var(--border-accent-soft)";
                     }
                   }}
@@ -752,8 +751,7 @@ const LearnLevelSelector = () => {
                     width: "100%",
                     gap: isMobile ? "10px" : "0"
                   }}>
-                    <div style={{
-                      border: "2px solid #36ff95",
+                    <div className="learn-guide-card__icon-frame" style={{
                       borderRadius: "12px",
                       padding: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px"))),
                       aspectRatio: "1 / 1",
@@ -774,16 +772,14 @@ const LearnLevelSelector = () => {
                           height: "100%",
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
-                          borderRadius: "8px",
-                          boxShadow: "0 0 28px rgba(20, 184, 166, 0.67)"
+                          borderRadius: "8px"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
                   />
                     </div>
-                  <h3 style={{
-                    color: "#36ff95",
+                  <h3 className="learn-guide-card__title" style={{
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
                     fontWeight: 600,
                       margin: "0 0 4px 0",
@@ -791,8 +787,7 @@ const LearnLevelSelector = () => {
                   }}>
                     AI for Dummies
                   </h3>
-                  <p style={{
-                    color: "#b2ffe0",
+                  <p className="learn-guide-card__desc" style={{
                       fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
                       margin: "0",
                       lineHeight: "1.4",
@@ -841,12 +836,12 @@ const LearnLevelSelector = () => {
                   }}
                   className="guide-card-neon neon-pulse-card"
                   onMouseEnter={e => {
-                    if (!isMobile) {
+                    if (!isMobile && document.documentElement.getAttribute('data-theme') !== 'light') {
                       e.currentTarget.style.border = "1px solid var(--border-accent)";
                     }
                   }}
                   onMouseLeave={e => {
-                    if (!isMobile) {
+                    if (!isMobile && document.documentElement.getAttribute('data-theme') !== 'light') {
                       e.currentTarget.style.border = "1px solid var(--border-accent-soft)";
                     }
                   }}
@@ -860,8 +855,7 @@ const LearnLevelSelector = () => {
                     width: "100%",
                     gap: isMobile ? "10px" : "0"
                   }}>
-                    <div style={{
-                      border: "2px solid #36ff95",
+                    <div className="learn-guide-card__icon-frame" style={{
                       borderRadius: "12px",
                       padding: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px"))),
                       aspectRatio: "1 / 1",
@@ -882,16 +876,14 @@ const LearnLevelSelector = () => {
                           height: "100%",
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
-                          borderRadius: "8px",
-                          boxShadow: "0 0 28px rgba(54, 255, 149, 0.67)"
+                          borderRadius: "8px"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
                   />
                     </div>
-                  <h3 style={{
-                    color: "#36ff95",
+                  <h3 className="learn-guide-card__title" style={{
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
                     fontWeight: 600,
                       margin: "0 0 4px 0",
@@ -899,8 +891,7 @@ const LearnLevelSelector = () => {
                   }}>
                     Beginner Guide
                   </h3>
-                  <p style={{
-                    color: "#b2ffe0",
+                  <p className="learn-guide-card__desc" style={{
                       fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
                       margin: "0",
                       lineHeight: "1.4",
@@ -949,12 +940,12 @@ const LearnLevelSelector = () => {
                   }}
                   className="guide-card-neon neon-pulse-card"
                   onMouseEnter={e => {
-                    if (!isMobile) {
+                    if (!isMobile && document.documentElement.getAttribute('data-theme') !== 'light') {
                       e.currentTarget.style.border = "1px solid var(--border-accent)";
                     }
                   }}
                   onMouseLeave={e => {
-                    if (!isMobile) {
+                    if (!isMobile && document.documentElement.getAttribute('data-theme') !== 'light') {
                       e.currentTarget.style.border = "1px solid var(--border-accent-soft)";
                     }
                   }}
@@ -968,8 +959,7 @@ const LearnLevelSelector = () => {
                     width: "100%",
                     gap: isMobile ? "10px" : "0"
                   }}>
-                    <div style={{
-                      border: "2px solid #36ff95",
+                    <div className="learn-guide-card__icon-frame" style={{
                       borderRadius: "12px",
                       padding: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px"))),
                       aspectRatio: "1 / 1",
@@ -990,16 +980,14 @@ const LearnLevelSelector = () => {
                           height: "100%",
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
-                          borderRadius: "8px",
-                          boxShadow: "0 0 28px rgba(20, 184, 166, 0.67)"
+                          borderRadius: "8px"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
                   />
                     </div>
-                  <h3 style={{
-                    color: "#36ff95",
+                  <h3 className="learn-guide-card__title" style={{
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
                     fontWeight: 600,
                       margin: "0 0 4px 0",
@@ -1007,8 +995,7 @@ const LearnLevelSelector = () => {
                   }}>
                     Intermediate Guide
                   </h3>
-                  <p style={{
-                    color: "#b2ffe0",
+                  <p className="learn-guide-card__desc" style={{
                       fontSize: isVerySmall ? "0.65rem" : (is360px ? "0.7rem" : (is390px ? "0.75rem" : (isMobile ? "0.8rem" : "0.9rem"))),
                       margin: "0",
                       lineHeight: "1.4",
@@ -1057,12 +1044,12 @@ const LearnLevelSelector = () => {
                   }}
                   className="guide-card-neon neon-pulse-card"
                   onMouseEnter={e => {
-                    if (!isMobile) {
+                    if (!isMobile && document.documentElement.getAttribute('data-theme') !== 'light') {
                       e.currentTarget.style.border = "1px solid var(--border-accent)";
                     }
                   }}
                   onMouseLeave={e => {
-                    if (!isMobile) {
+                    if (!isMobile && document.documentElement.getAttribute('data-theme') !== 'light') {
                       e.currentTarget.style.border = "1px solid var(--border-accent-soft)";
                     }
                   }}
@@ -1076,8 +1063,7 @@ const LearnLevelSelector = () => {
                     width: "100%",
                     gap: isMobile ? "10px" : "0"
                   }}>
-                    <div style={{
-                      border: "2px solid #36ff95",
+                    <div className="learn-guide-card__icon-frame" style={{
                       borderRadius: "12px",
                       padding: isVerySmall ? "4px" : (is360px ? "5px" : (is390px ? "6px" : (isMobile ? "6px" : "8px"))),
                       aspectRatio: "1 / 1",
@@ -1098,16 +1084,14 @@ const LearnLevelSelector = () => {
                           height: "100%",
                           aspectRatio: "1 / 1",
                       objectFit: "contain",
-                          borderRadius: "8px",
-                          boxShadow: "0 0 28px rgba(255, 215, 0, 0.67)"
+                          borderRadius: "8px"
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
                   />
                     </div>
-                  <h3 style={{
-                    color: "#36ff95",
+                  <h3 className="learn-guide-card__title" style={{
                       fontSize: isVerySmall ? "0.75rem" : (is360px ? "0.8rem" : (is390px ? "0.85rem" : (isMobile ? "0.9rem" : "1.1rem"))),
                     fontWeight: 600,
                       margin: "0 0 4px 0",
@@ -1142,9 +1126,8 @@ const LearnLevelSelector = () => {
              padding: isVerySmall ? "0 8px" : (is360px ? "0 10px" : (is390px ? "0 12px" : "0")),
              boxSizing: "border-box"
            }}>
-             <h2 style={{ 
+             <h2 className="learn-section-title" style={{ 
                textAlign: "center", 
-               color: "#36ff95", 
                fontSize: isVerySmall ? "1.2rem" : (is360px ? "1.25rem" : (is390px ? "1.3rem" : "1.4rem")), 
                fontWeight: 600, 
                marginTop: "0",
@@ -1203,8 +1186,7 @@ const LearnLevelSelector = () => {
                      minWidth: 0
                    }}>
                      <div>
-                       <h3 style={{
-                         color: "#36ff95",
+                       <h3 className="spotlight-card__title" style={{
                          fontSize: isMobile ? "1.1rem" : "1.3rem",
                          fontWeight: 700,
                          margin: "0 0 12px 0",
@@ -1340,8 +1322,7 @@ const LearnLevelSelector = () => {
                      minWidth: 0
                    }}>
                      <div>
-                       <h3 style={{
-                         color: "#36ff95",
+                       <h3 className="spotlight-card__title" style={{
                          fontSize: isMobile ? "1.1rem" : "1.3rem",
                          fontWeight: 700,
                          margin: "0 0 12px 0",
@@ -1477,8 +1458,7 @@ const LearnLevelSelector = () => {
                      minWidth: 0
                    }}>
                      <div>
-                       <h3 style={{
-                         color: "#36ff95",
+                       <h3 className="spotlight-card__title" style={{
                          fontSize: isMobile ? "1.1rem" : "1.3rem",
                          fontWeight: 700,
                          margin: "0 0 12px 0",

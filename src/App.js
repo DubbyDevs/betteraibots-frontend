@@ -129,7 +129,7 @@ function AuthButtons() {
 }
 
 // --- Nav Tabs Bar ---
-function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, animationPaused, onToggleAnimation }) {
+function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
   const location = useLocation();
   
   const isActive = (path) => {
@@ -168,21 +168,6 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar, anima
       <Link to="/Podcast" className={tabClass('/Podcast')} tabIndex={0}>Watch</Link>
       <Link to="/my-ai" className={tabClass('/my-ai', 'nav-tab--my-ai')} tabIndex={0}>My AI 🚀</Link>
       <ThemeToggle />
-      <span
-        className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
-        onClick={onToggleAnimation}
-        style={{ 
-          cursor: 'pointer',
-          fontSize: '26px',
-          marginLeft: '10px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-        title={animationPaused ? 'Resume background animation' : 'Pause background animation'}
-      >
-        ⭐
-      </span>
     </nav>
   );
 }
@@ -838,6 +823,16 @@ const PAID_APPS = [
     link: "https://get.diginius.com/rvao67pwqqux",
     image: diginius1,
     readMoreLink: "/learn/diginius"
+  },
+  {
+    name: "Evolve AI",
+    description: "AI-native training platform for enterprise L&D with course generation, simulations, LMS, assessments, and knowledge base in one modular stack",
+    category: "Learning & Training",
+    features: ["AI course generation", "Job-critical simulations", "Enterprise LMS", "Assessment Center", "Knowledge base", "SCORM export"],
+    price: "Contact sales",
+    link: "https://go.evolveplatform.ai/9lwvqqq20p28",
+    image: "/evolveai.jpg",
+    readMoreLink: "/learn/evolve-complete-guide"
   }
 ];
 
@@ -947,7 +942,8 @@ const CATEGORY_GROUPS = {
     'Productivity & Voice AI'
   ],
   'HR & Recruitment': [
-    'HR & Recruitment'
+    'HR & Recruitment',
+    'Learning & Training'
   ],
   'Web & Hosting': [
     'Web Hosting & Server Management'
@@ -2155,7 +2151,7 @@ function HamburgerMenu({ open, onClose, clickPosition, isMobile }) {
 
 
 // --- HEADER with AUTH BUTTONS ---
-function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile, onToggleAnimation, animationPaused }) {
+function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMobile }) {
   return (
     <div className="header">
       {!isMobile ? (
@@ -2178,14 +2174,6 @@ function AppHeader({ onOpenModal, searchValue, setSearchValue, onMenuClick, isMo
             </svg>
           </button>
           <ThemeToggle compact />
-          <span
-            className={`bookmark-star-disabled${animationPaused ? ' star-animated' : ''}`}
-            onClick={onToggleAnimation}
-            style={{ cursor: 'pointer' }}
-            title={animationPaused ? 'Resume background animation' : 'Pause background animation'}
-          >
-            ⭐
-          </span>
         </div>
       ) : null}
       {isMobile && (
@@ -4483,7 +4471,6 @@ function App() {
     }
     return false;
   });
-  const [animationPaused, setAnimationPaused] = useState(false);
   const [showCategoryBar, setShowCategoryBar] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState({
@@ -4585,7 +4572,7 @@ function App() {
 
   return (
     <>
-    <div id="plasma-bg" style={animationPaused ? { animationPlayState: 'paused' } : {}} />
+    <div id="plasma-bg" />
       <GoogleAnalytics />
       {/* Wrapper container for ticker and nav bar - ensures both stay visible */}
       <div style={{
@@ -4636,8 +4623,6 @@ function App() {
               <NavTabsBar 
                 showCategoryBar={showCategoryBar} 
                 toggleCategoryBar={toggleCategoryBar}
-                animationPaused={animationPaused}
-                onToggleAnimation={() => setAnimationPaused(v => !v)}
               />
             </div>
           </div>
@@ -4659,8 +4644,6 @@ function App() {
               setMenuOpen(v => !v);
             }}
             isMobile={isMobile}
-            onToggleAnimation={() => setAnimationPaused(v => !v)}
-            animationPaused={animationPaused}
           />
         </div>
       )}

@@ -130,6 +130,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/atria"
   },
   {
+    name: "Beautiful.ai",
+    description: "AI presentation software with Smart Slides, Create with AI workflow, brand controls, and team collaboration for work-ready decks 10x faster",
+    category: "Presentations & Docs",
+    features: ["Create with AI workflow", "Smart Slides auto-layout", "Brand themes & locked slides", "PowerPoint export"],
+    link: "https://beautifulai.partnerlinks.io/mf21oqg4umdr",
+    trialInfo: "14-day free trial",
+    image: "/beautifulai.jpg",
+    readMoreLink: "/learn/beautiful-ai-complete-guide"
+  },
+  {
     name: "Blackbox",
     description: "AI-powered code assistant that helps developers write code faster with real-time autocomplete and intelligent suggestions",
     category: "Development & Coding",
@@ -168,6 +178,16 @@ export const trialAppsData = [
     trialInfo: "14-day free trial",
     image: "/capsulecrm.png",
     readMoreLink: "/learn/capsule-crm-complete-guide"
+  },
+  {
+    name: "Close",
+    description: "Sales CRM built for inside sales teams with built-in calling, email sequences, SMS, and pipeline management in one inbox",
+    category: "Sales & CRM",
+    features: ["Built-in power dialer", "Email & SMS sequences", "Pipeline management", "Sales reporting"],
+    link: "https://refer.close.com/x04k0vvgqte4",
+    trialInfo: "14-day free trial",
+    image: "/closeailogo.png",
+    readMoreLink: "/learn/close-complete-guide"
   },
   {
     name: "Consensus",
@@ -558,6 +578,16 @@ export const trialAppsData = [
     trialInfo: "14-day free trial",
     image: tradify1,
     readMoreLink: "/learn/tradify-complete-guide"
+  },
+  {
+    name: "Trainual",
+    description: "AI-powered employee training platform that turns SOPs and processes into role-based onboarding, documentation, and instant answers for your team",
+    category: "Learning & Training",
+    features: ["AI training content generation", "Role-based learning paths", "SOP documentation", "AI knowledge assistant"],
+    link: "https://start.trainual.com/7epsexyi89t3",
+    trialInfo: "Try for free",
+    image: "/trainualai.jpg",
+    readMoreLink: "/learn/trainual-complete-guide"
   },
   {
     name: "Travel Code AI",

@@ -391,6 +391,12 @@
   box-shadow: 0 4px 16px var(--shadow-card);
 }
 
+.spotlight-card__title {
+  color: var(--accent);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
 .spotlight-card__desc {
   color: var(--text-secondary);
 }
@@ -532,6 +538,14 @@
 
 [data-theme="light"] .spotlight-card__img {
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] .spotlight-card__title {
+  color: #0f766e !important;
+}
+
+[data-theme="light"] .spotlight-card__desc {
+  color: #475569 !important;
 }
 
 [data-theme="light"] .spotlight-card__badge,
@@ -1029,13 +1043,86 @@
   font-weight: 600;
 }
 
+.learn-guide-card__icon-frame {
+  border: 2px solid var(--border-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.learn-guide-card__icon-frame img {
+  box-shadow: 0 2px 8px var(--shadow-card);
+}
+
+[data-theme="light"] .learn-guide-card__icon-frame {
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .learn-guide-card__icon-frame img {
+  box-shadow: none !important;
+}
+
+[data-theme="light"] .guide-card-neon:hover,
+[data-theme="light"] .neon-pulse-card:hover {
+  border-color: #e2e8f0 !important;
+}
+
+.learn-guide-card__title {
+  color: var(--accent);
+}
+
+.learn-guide-card__desc {
+  color: var(--text-muted);
+}
+
 .learn-guide-card h3 {
   color: var(--accent);
-  text-shadow: 0 0 8px var(--border-accent-soft);
+  text-shadow: none;
 }
 
 .learn-guide-card p {
   color: var(--text-muted);
+}
+
+[data-theme="light"] .learn-article-card__title,
+[data-theme="light"] .learn-section-title,
+[data-theme="light"] .learn-guide-card__title,
+[data-theme="light"] .learn-guide-card h3,
+[data-theme="light"] .spotlight-card__title,
+[data-theme="light"] .section-title-accent {
+  color: #0f766e !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .learn-guide-card__desc,
+[data-theme="light"] .learn-guide-card p {
+  color: #475569 !important;
+}
+
+/* Day mode: catch remaining inline neon text site-wide */
+[data-theme="light"] h1[style*="255, 149"],
+[data-theme="light"] h2[style*="255, 149"],
+[data-theme="light"] h3[style*="255, 149"],
+[data-theme="light"] h4[style*="255, 149"],
+[data-theme="light"] h1[style*="#36ff95"],
+[data-theme="light"] h2[style*="#36ff95"],
+[data-theme="light"] h3[style*="#36ff95"],
+[data-theme="light"] h4[style*="#36ff95"] {
+  color: #0f766e !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] p[style*="255, 224"],
+[data-theme="light"] p[style*="255, 219"],
+[data-theme="light"] p[style*="#b2ffe0"],
+[data-theme="light"] p[style*="#b5ffdb"],
+[data-theme="light"] span[style*="255, 224"],
+[data-theme="light"] span[style*="255, 219"],
+[data-theme="light"] span[style*="#b2ffe0"],
+[data-theme="light"] span[style*="#b5ffdb"] {
+  color: #475569 !important;
 }
 
 [data-theme="light"] .learn-page-shell {
@@ -1074,17 +1161,6 @@
 [data-theme="light"] .learn-article-card__img-wrap {
   background: #f1f5f9 !important;
   box-shadow: none !important;
-}
-
-[data-theme="light"] .learn-article-card__title,
-[data-theme="light"] .learn-section-title,
-[data-theme="light"] .learn-guide-card h3 {
-  color: var(--accent) !important;
-  text-shadow: none !important;
-}
-
-[data-theme="light"] .learn-guide-card p {
-  color: var(--text-secondary) !important;
 }
 
 [data-theme="light"] .feature-article {
@@ -1228,10 +1304,7 @@
 }
 
 .site-footer .site-footer__brand-link {
-  background: linear-gradient(90deg, var(--accent), #ca8a04);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent);
   font-weight: 800;
   font-style: italic;
   text-decoration: none;
@@ -1284,9 +1357,7 @@
 }
 
 [data-theme="light"] .site-footer .site-footer__brand-link {
-  background: none !important;
-  -webkit-text-fill-color: #b45309 !important;
-  color: #b45309 !important;
+  color: #0f766e !important;
 }
 
 @media (max-width: 768px) {
