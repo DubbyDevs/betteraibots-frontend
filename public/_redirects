@@ -23,15 +23,16 @@
 /learn/intermediate/:id  /learn/:id  301
 /learn/advanced/:id  /learn/:id  301
 
-# Learn level listing pages — full React app (header, footer, normal UI)
+# Learn level listing pages — React app (guides + quizzes UI)
 /learn/beginner  /index.html  200
 /learn/intermediate  /index.html  200
 /learn/advanced  /index.html  200
 /learn  /index.html  200
 
-# Learn & news articles — full React app for real visitors (see netlify.toml for crawler-only HTML)
-/learn/:id  /index.html  200
-/news/:slug  /index.html  200
+# Learn & news articles — serve pre-rendered HTML with full text for Google + visitors
+# (public/learn/*.html and public/news/*.html generated at build time)
+/learn/:id  /learn/:id.html  200
+/news/:slug  /news/:slug.html  200
 
 # Legacy /sam/* URLs (e.g. sam/box-bold-a-e, sam/boss-bot-*) - not used in this app; redirect to home
 /sam/*  /  301

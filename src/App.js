@@ -763,6 +763,16 @@ const PAID_APPS = [
     readMoreLink: "/learn/krispcall"
   },
   {
+    name: "Treble AI",
+    description: "Official WhatsApp Business API platform with AI chatbots, broadcast campaigns, CRM integrations, and multi-agent live chat for sales and support",
+    category: "WhatsApp & Messaging",
+    features: ["Official WhatsApp BSP", "AI chatbot builder", "Broadcast campaigns", "HubSpot & Salesforce sync", "Lead qualification AI", "Human handoff to agents"],
+    price: "Free to start",
+    link: "https://trebleai.partnerlinks.io/91f6vx0zwova",
+    image: "/trebleai.jpg",
+    readMoreLink: "/learn/treble-ai"
+  },
+  {
     name: "RankPrompt",
     description: "AI-powered SEO platform that turns prompts into search-ready content briefs, outlines, and keyword-driven page plans",
     category: "SEO & Content",

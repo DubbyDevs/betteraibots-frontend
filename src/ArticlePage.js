@@ -612,6 +612,7 @@ export default function ArticlePage() {
     "brevo-complete-guide": "https://get.brevo.com/um9xszmf3nfd",
     "aisdr-complete-guide": "https://partner.aisdr.com/5fxea2u5m85d",
     "adcreative-ai": "https://free-trial.adcreative.ai/BAIB",
+    "activecampaign": "https://try.activecampaign.com/q84v43xjanzq",
     "alli-ai": "https://try.alliai.com/0guepbqpqhsf",
     "apollo-io": "https://get.apollo.io/BAIB",
     "atria": "https://affiliates.tryatria.com/BAIB",
@@ -639,6 +640,7 @@ export default function ArticlePage() {
     "spiky-ai": "https://get.spiky.ai/BAIB",
     "emergent": "https://get.emergent.sh/BAIB",
     "sleekflow": "https://sleekflow.partnerlinks.io/BAIB",
+    "treble-ai": "https://trebleai.partnerlinks.io/91f6vx0zwova",
     "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
     "lindy-ai": "https://try.lindy.ai/lhgvxfidor04",
     "lusha": "https://partnerstack.lusha.com/w61xn76pa3sr",
@@ -668,6 +670,7 @@ export default function ArticlePage() {
     "logome-complete-guide": "https://logomeai.partnerlinks.io/BAIB",
     "datahawk": "https://get.datahawk.co/eoe07kko8pol",
     "descript": "https://get.descript.com/BAIB",
+    "elevate-forward": "https://partners.elevateforward.ai/iy1986n6gbz4",
     "unbounce": "https://unbounce.partnerlinks.io/BAIB",
     "landbot": "https://get.landbotlab.com/BAIB",
     "reclaim-ai": "https://go.reclaim.ai/BAIB",
@@ -816,6 +819,7 @@ export default function ArticlePage() {
   // Articles that should use the n8n-style layout (article-container, article-content, share-buttons)
   const articlesWithNewsStyleLayout = [
     'adcreative-ai',
+    'activecampaign',
     'alli-ai',
     'apollo-io',
     'atria',
@@ -844,6 +848,7 @@ export default function ArticlePage() {
     'spiky-ai',
     'emergent',
     'sleekflow',
+    'treble-ai',
     'invideo-ai',
     'lindy-ai',
     'lusha',
@@ -1121,6 +1126,7 @@ export default function ArticlePage() {
             "consensus": "https://betteraibots.com/assets/consensus1.jpg",
             "browse-ai": "https://betteraibots.com/assets/browseai1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
+            "activecampaign": "https://betteraibots.com/activecampaign.webp",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
             "aisdr-complete-guide": "https://betteraibots.com/aisdr.png",
@@ -1147,6 +1153,7 @@ export default function ArticlePage() {
             "spiky-ai": "https://betteraibots.com/spikyai.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
+            "treble-ai": "https://betteraibots.com/trebleai.jpg",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
             "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
@@ -1159,6 +1166,7 @@ export default function ArticlePage() {
             "logome-complete-guide": "https://betteraibots.com/assets/logome1.png",
             "datahawk": "https://betteraibots.com/assets/datahawkai.jpg",
             "descript": "https://betteraibots.com/assets/descriptai.png",
+            "elevate-forward": "https://betteraibots.com/elevateforward.png",
             "unbounce": "https://betteraibots.com/assets/unbounceai.png",
             "landbot": "https://betteraibots.com/assets/landbotai.png",
             "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
@@ -1231,6 +1239,7 @@ export default function ArticlePage() {
             "consensus": "https://betteraibots.com/assets/consensus1.jpg",
             "browse-ai": "https://betteraibots.com/assets/browseai1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
+            "activecampaign": "https://betteraibots.com/activecampaign.webp",
             "flowith-io": "https://betteraibots.com/flowith.jpg",
             "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
             "aisdr-complete-guide": "https://betteraibots.com/aisdr.png",
@@ -1257,6 +1266,7 @@ export default function ArticlePage() {
             "spiky-ai": "https://betteraibots.com/spikyai.png",
             "emergent": "https://betteraibots.com/emergentai.png",
             "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
+            "treble-ai": "https://betteraibots.com/trebleai.jpg",
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
             "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
@@ -1269,6 +1279,7 @@ export default function ArticlePage() {
             "logome-complete-guide": "https://betteraibots.com/assets/logome1.png",
             "datahawk": "https://betteraibots.com/assets/datahawkai.jpg",
             "descript": "https://betteraibots.com/assets/descriptai.png",
+            "elevate-forward": "https://betteraibots.com/elevateforward.png",
             "unbounce": "https://betteraibots.com/assets/unbounceai.png",
             "landbot": "https://betteraibots.com/assets/landbotai.png",
             "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
@@ -1324,6 +1335,7 @@ export default function ArticlePage() {
             "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
             "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
             "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
+            "activecampaign": "ActiveCampaign, email marketing automation, CRM, lead scoring, marketing workflows, predictive sending, sales pipeline, landing pages, BetterAiBots",
             "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
             "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
             "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
@@ -1339,7 +1351,8 @@ export default function ArticlePage() {
             "teikametrics": "Teikametrics, AI marketplace optimization, Amazon ads, Walmart ads, TikTok Shop, eCommerce growth, listing optimization, full-funnel advertising, marketplace analytics, BetterAiBots",
             "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
             "emergent": "AI, Artificial Intelligence, Emergent, build apps with AI, full-stack apps, no-code app builder, AI agents, conversation to app, web app builder, mobile app, deploy with AI, Y Combinator, BetterAiBots",
-            "sleekflow": "AI, Artificial Intelligence, SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow, AI agents, team inbox, lead qualification, broadcast campaigns, CRM messaging, conversion, BetterAiBots"
+            "sleekflow": "AI, Artificial Intelligence, SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow, AI agents, team inbox, lead qualification, broadcast campaigns, CRM messaging, conversion, BetterAiBots",
+            "treble-ai": "AI, Artificial Intelligence, Treble AI, WhatsApp Business API, WhatsApp chatbot, AI messaging, broadcast campaigns, HubSpot integration, Salesforce integration, lead qualification, customer support, BetterAiBots"
           };
           return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -1392,6 +1405,7 @@ export default function ArticlePage() {
             "laxis": "Laxis, AI meeting notes, meeting transcription, meeting summary tool, action item tracking, call recorder, meeting assistant, productivity tool, BetterAiBots",
             "krispcall": "KrispCall, virtual phone system, VoIP business phone, call tracking, call routing, AI call summary, CRM integration, business calling, BetterAiBots",
             "getresponse": "GetResponse, email marketing platform, marketing automation tool, email sequences, landing page builder, funnel builder, email list growth, BetterAiBots",
+            "activecampaign": "ActiveCampaign, email marketing automation, CRM software, lead scoring, sales pipeline, marketing workflows, predictive sending, landing pages, BetterAiBots",
             "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
             "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
             "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
@@ -1402,7 +1416,8 @@ export default function ArticlePage() {
             "teikametrics": "Teikametrics, AI marketplace optimization, Amazon ads, Walmart ads, TikTok Shop, eCommerce growth, listing optimization, full-funnel advertising, marketplace analytics, BetterAiBots",
             "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
             "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
-            "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
+            "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots",
+            "treble-ai": "Treble AI, WhatsApp Business API, WhatsApp chatbot, AI messaging, broadcast campaigns, HubSpot WhatsApp, Salesforce WhatsApp, lead qualification, customer support, BetterAiBots"
           };
           return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
         })()} />
@@ -1435,6 +1450,7 @@ export default function ArticlePage() {
                 "atria": "https://betteraibots.com/assets/atria1.jpg",
                 "beautiful-ai-complete-guide": "https://betteraibots.com/beautifulai.jpg",
                 "adcreative-ai": "https://betteraibots.com/adcreative.png",
+                "activecampaign": "https://betteraibots.com/activecampaign.webp",
                 "flowith-io": "https://betteraibots.com/flowith.jpg",
                 "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
                 "aisdr-complete-guide": "https://betteraibots.com/aisdr.png",
@@ -1461,8 +1477,10 @@ export default function ArticlePage() {
                 "vista-social": "https://betteraibots.com/assets/vistasocial.jpg",
                 "datahawk": "https://betteraibots.com/assets/datahawkai.jpg",
                 "descript": "https://betteraibots.com/assets/descriptai.png",
+                "elevate-forward": "https://betteraibots.com/elevateforward.png",
                 "unbounce": "https://betteraibots.com/assets/unbounceai.png",
                 "landbot": "https://betteraibots.com/assets/landbotai.png",
+                "treble-ai": "https://betteraibots.com/trebleai.jpg",
                 "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
                 "amplemarket": "https://betteraibots.com/amplemarketai.jpg",
                 "mindstudio": "https://betteraibots.com/assets/mindstudioai.jpeg",
@@ -1526,8 +1544,10 @@ export default function ArticlePage() {
                 "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
                 "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
                 "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
+            "activecampaign": "ActiveCampaign, email marketing automation, CRM, lead scoring, marketing workflows, predictive sending, sales pipeline, landing pages, BetterAiBots",
                 "creativescore": "CreativeScore, AI creative scoring, ad creative analysis, performance prediction, ad diagnostics, creative optimization, paid media, BetterAiBots",
                 "descript": "Descript, AI video editing, video transcription, podcast editing, video production, AI editing tools, video editing software, content creation, BetterAiBots",
+                "elevate-forward": "ElevateForward, AI strategy platform, strategy execution, KPI management, business health report, Elevate Studio, strategic planning, initiative tracking, 90-day roadmap, BetterAiBots",
                 "unbounce": "Unbounce, landing page builder, conversion optimization, A/B testing, landing pages, PPC campaigns, marketing automation, lead generation, BetterAiBots",
                 "landbot": "Landbot, chatbot builder, conversational AI, chatbot platform, WhatsApp chatbot, lead generation, customer support, no-code chatbot, BetterAiBots",
                 "reclaim-ai": "Reclaim.ai, calendar management, time blocking, AI scheduling, calendar automation, productivity, meeting scheduling, time optimization, BetterAiBots",
@@ -1540,7 +1560,8 @@ export default function ArticlePage() {
                 "teikametrics": "Teikametrics, AI marketplace optimization, Amazon ads, Walmart ads, TikTok Shop, eCommerce growth, listing optimization, full-funnel advertising, marketplace analytics, BetterAiBots",
                 "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
                 "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
-                "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots"
+                "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots",
+            "treble-ai": "Treble AI, WhatsApp Business API, WhatsApp chatbot, AI messaging, broadcast campaigns, HubSpot WhatsApp, Salesforce WhatsApp, lead qualification, customer support, BetterAiBots"
               };
               return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
             })(),
@@ -2415,6 +2436,37 @@ export default function ArticlePage() {
             }}
             />
           </a>
+        ) : article.id === "activecampaign" ? (
+          <a 
+            href="https://try.activecampaign.com/q84v43xjanzq" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
         ) : article.id === "getresponse" ? (
           <a 
             href="https://try.getresponsetoday.com/BAIB" 
@@ -2539,9 +2591,71 @@ export default function ArticlePage() {
             }}
             />
           </a>
+        ) : article.id === "elevate-forward" ? (
+          <a 
+            href="https://partners.elevateforward.ai/iy1986n6gbz4" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
         ) : article.id === "unbounce" ? (
           <a 
             href="https://unbounce.partnerlinks.io/BAIB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              cursor: "pointer",
+              textDecoration: "none"
+            }}
+          >
+            <img src={primaryImage} alt="" style={{
+              maxWidth: "600px",
+              width: "auto",
+              height: "auto",
+              borderRadius: 16,
+              margin: "0 0 24px 0",
+              display: "block",
+              objectFit: "contain",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }} 
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1)";
+              e.target.style.boxShadow = "none";
+            }}
+            />
+          </a>
+        ) : article.id === "treble-ai" ? (
+          <a 
+            href="https://trebleai.partnerlinks.io/91f6vx0zwova" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{

@@ -5,9 +5,6 @@ Allow: /
 # Sitemap
 Sitemap: https://betteraibots.com/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
 # Specific rules for different bots
 User-agent: Googlebot
 Allow: /

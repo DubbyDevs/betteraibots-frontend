@@ -173,7 +173,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 9999;
+          z-index: 10060;
           animation: fadeIn 0.5s ease-in;
         ">
           <div style="
@@ -309,23 +309,8 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
   if (isEmbedded) {
     return (
       <>
-        <style>{`
-          .quiz-scrollbar::-webkit-scrollbar {
-            width: 12px;
-          }
-          .quiz-scrollbar::-webkit-scrollbar-track {
-            background: #000000;
-            border-radius: 10px;
-          }
-          .quiz-scrollbar::-webkit-scrollbar-thumb {
-            background: #333333;
-            border-radius: 10px;
-          }
-          .quiz-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #444444;
-          }
-        `}</style>
         <div 
+          className="quiz-overlay"
           onClick={onClose}
           style={{
           position: 'fixed',
@@ -334,7 +319,6 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
           width: '100%',
           height: '100%',
           background: 'rgba(0, 0, 0, 0.9)',
-          zIndex: 1000,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -342,7 +326,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
         }}>
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="quiz-scrollbar"
+            className="quiz-scrollbar quiz-modal quiz-modal--advanced"
             style={{
             background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
             borderRadius: '20px',
@@ -394,7 +378,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
           </div>
 
           {/* Progress Bar */}
-          <div style={{
+          <div className="quiz-progress-track" style={{
             width: '100%',
             height: '8px',
             background: 'rgba(255, 255, 255, 0.1)',
@@ -413,13 +397,13 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
 
           {/* Quiz Content */}
           {!showResults ? (
-            <div style={{
+            <div className="quiz-content-box" style={{
               background: 'rgba(255, 255, 255, 0.05)',
               borderRadius: '20px',
               padding: '30px',
               border: '1px solid rgba(255, 215, 0, 0.2)'
             }}>
-              <div style={{
+              <div className="quiz-label" style={{
                 color: '#ffd700',
                 fontSize: '0.9rem',
                 fontWeight: 'bold',
@@ -427,7 +411,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
               }}>
                 Question {currentQuestion} of 20
               </div>
-              <div style={{
+              <div className="quiz-question" style={{
                 fontSize: '1.3rem',
                 marginBottom: '25px',
                 lineHeight: '1.5',
@@ -446,6 +430,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                   return (
                     <div
                       key={index}
+                      className={`quiz-option${isSelected ? ' quiz-option--selected' : ''}`}
                       onClick={() => selectOption(currentQuestion, answerLetter)}
                       style={{
                         background: isSelected ? 'rgba(255, 215, 0, 0.2)' : 'rgba(255, 255, 255, 0.05)',
@@ -848,6 +833,7 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
                   return (
                     <div
                       key={index}
+                      className={`quiz-option${isSelected ? ' quiz-option--selected' : ''}`}
                       onClick={() => selectOption(currentQuestion, answerLetter)}
                       style={{
                         background: isSelected ? 'rgba(255, 215, 0, 0.2)' : 'rgba(255, 255, 255, 0.05)',

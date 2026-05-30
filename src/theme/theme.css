@@ -1382,6 +1382,79 @@
   color: #b45309 !important;
 }
 
+/* Catch-all: every text node inside guide content in day mode */
+[data-theme="light"] .learn-path-guide__content,
+[data-theme="light"] .learn-path-guide__content p,
+[data-theme="light"] .learn-path-guide__content li,
+[data-theme="light"] .learn-path-guide__content ul,
+[data-theme="light"] .learn-path-guide__panel p,
+[data-theme="light"] .learn-path-guide__panel h2,
+[data-theme="light"] .learn-path-guide__panel h3,
+[data-theme="light"] .learn-path-guide__panel h4,
+[data-theme="light"] .learn-path-guide__card p,
+[data-theme="light"] .learn-path-guide__card h3,
+[data-theme="light"] .learn-path-guide__card h4,
+[data-theme="light"] .learn-path-guide__conclusion p {
+  color: var(--text-secondary) !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide--beginner .learn-path-guide__panel h2,
+[data-theme="light"] .learn-path-guide--beginner .learn-path-guide__panel h3,
+[data-theme="light"] .learn-path-guide--beginner .learn-path-guide__panel h4,
+[data-theme="light"] .learn-path-guide--beginner .learn-path-guide__card h3,
+[data-theme="light"] .learn-path-guide--beginner .learn-path-guide__card h4,
+[data-theme="light"] .learn-path-guide--dummies .learn-path-guide__panel h2,
+[data-theme="light"] .learn-path-guide--dummies .learn-path-guide__panel h3,
+[data-theme="light"] .learn-path-guide--dummies .learn-path-guide__card h4 {
+  color: #0f766e !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__panel h2,
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__panel h3,
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__card h3,
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__card h4 {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .learn-path-guide--advanced .learn-path-guide__content h2,
+[data-theme="light"] .learn-path-guide--advanced .learn-path-guide__panel h2,
+[data-theme="light"] .learn-path-guide--advanced .learn-path-guide__panel h3 {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .learn-path-guide__content strong,
+[data-theme="light"] .learn-path-guide__panel strong,
+[data-theme="light"] .learn-path-guide__card strong {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .learn-path-guide--beginner .learn-path-guide__content h3,
+[data-theme="light"] .learn-path-guide--dummies .learn-path-guide__content h3 {
+  color: #0f766e !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__content h3 {
+  color: #7c3aed !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide--advanced .learn-path-guide__content h3 {
+  color: #b45309 !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide__conclusion {
+  background: #f0fdfa !important;
+  border-color: #99f6e4 !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__conclusion {
+  background: #f5f3ff !important;
+  border-color: #ddd6fe !important;
+}
+
 [data-theme="light"] .learn-path-guide {
   background: #ffffff !important;
   color: var(--text-secondary) !important;
@@ -1556,6 +1629,138 @@
 
 [data-theme="light"] .article-card .read-more-btn:hover {
   box-shadow: 0 4px 14px var(--shadow-accent) !important;
+}
+
+/* Quiz modals */
+.quiz-overlay {
+  z-index: 10050 !important;
+}
+
+.quiz-celebration-overlay {
+  z-index: 10060 !important;
+}
+
+.quiz-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.55) transparent;
+}
+
+.quiz-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.quiz-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 12px 2px;
+  border-radius: 999px;
+}
+
+.quiz-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.45);
+  border-radius: 999px;
+}
+
+.quiz-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.72);
+}
+
+[data-theme="light"] .quiz-overlay {
+  background: rgba(15, 23, 42, 0.45) !important;
+}
+
+[data-theme="light"] .quiz-scrollbar {
+  scrollbar-color: #cbd5e1 #f8fafc;
+}
+
+[data-theme="light"] .quiz-scrollbar::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+[data-theme="light"] .quiz-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+[data-theme="light"] .quiz-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+[data-theme="light"] .quiz-modal {
+  background: #ffffff !important;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12) !important;
+}
+
+[data-theme="light"] .quiz-modal--beginner {
+  border-color: #14b8a6 !important;
+}
+
+[data-theme="light"] .quiz-modal--intermediate {
+  border-color: #8b5cf6 !important;
+}
+
+[data-theme="light"] .quiz-modal--advanced {
+  border-color: #d97706 !important;
+}
+
+[data-theme="light"] .quiz-modal h1,
+[data-theme="light"] .quiz-modal h2 {
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .quiz-modal--beginner h1,
+[data-theme="light"] .quiz-modal--beginner h2,
+[data-theme="light"] .quiz-modal--beginner .quiz-label {
+  color: #0f766e !important;
+}
+
+[data-theme="light"] .quiz-modal--intermediate h1,
+[data-theme="light"] .quiz-modal--intermediate h2,
+[data-theme="light"] .quiz-modal--intermediate .quiz-label {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .quiz-modal--advanced h1,
+[data-theme="light"] .quiz-modal--advanced h2,
+[data-theme="light"] .quiz-modal--advanced .quiz-label {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .quiz-modal .quiz-body,
+[data-theme="light"] .quiz-modal .quiz-question,
+[data-theme="light"] .quiz-modal .quiz-option {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="light"] .quiz-modal .quiz-content-box {
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .quiz-modal .quiz-option {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .quiz-modal .quiz-option--selected {
+  background: #f0fdfa !important;
+  border-color: #14b8a6 !important;
+}
+
+[data-theme="light"] .quiz-modal--intermediate .quiz-option--selected {
+  background: #f5f3ff !important;
+  border-color: #8b5cf6 !important;
+}
+
+[data-theme="light"] .quiz-modal--advanced .quiz-option--selected {
+  background: #fffbeb !important;
+  border-color: #d97706 !important;
+}
+
+[data-theme="light"] .quiz-modal .quiz-option--selected {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .quiz-modal .quiz-progress-track {
+  background: #e2e8f0 !important;
 }
 
 /* Modals (guides, quizzes) shared across learn + quizzes */
@@ -1772,6 +1977,7 @@
   background: var(--surface);
   border: 1px solid var(--border-accent-soft);
   box-shadow: 0 4px 16px var(--shadow-card);
+  overflow: hidden;
 }
 
 [data-theme="light"] .podcast-page__title-brand,

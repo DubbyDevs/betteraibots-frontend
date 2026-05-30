@@ -1,542 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://betteraibots.com/</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/og-image.png?v=3</image:loc>
-      <image:title>BetterAiBots.com – Free AI Bot Directory</image:title>
-      <image:caption>Discover the best AI bots, ChatGPT tools, Claude assistants, and GPT-powered applications. Free curated directory of artificial intelligence tools.</image:caption>
-    </image:image>
   </url>
-  
-  
-  <!-- News Section -->
+
+  <url>
+    <loc>https://betteraibots.com/apps</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/my-ai</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/news</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- A Beginner's Guide to Visual Collaboration: Try These Tools Together -->
+
+  <url>
+    <loc>https://betteraibots.com/learn</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/beginner</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/intermediate</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/advanced</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/beginner-quiz</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/intermediate-quiz</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/advanced-quiz</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/Podcast</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/about</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/contact</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/legal</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/privacy</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/news/beginners-guide-visual-collaboration-miro-prezi</loc>
     <lastmod>2025-01-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aimirostack.jpg</image:loc>
-      <image:title>A Beginner's Guide to Visual Collaboration: Try These Tools Together</image:title>
-      <image:caption>Learn how Miro and Prezi AI work together to cut meetings and turn team input into clear presentations.</image:caption>
-    </image:image>
   </url>
-  
-  <!-- The Complete Guide to Ranking #1 on Google in just 48 Hours?? -->
+
   <url>
-    <loc>https://betteraibots.com/news/perplexity-parasite-seo-ranking-guide-48-hours</loc>
-    <lastmod>2026-01-02</lastmod>
+    <loc>https://betteraibots.com/news/how-to-build-content-creation-service-google-pomelli-tool</loc>
+    <lastmod>2026-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/aihacks.png</image:loc>
-      <image:title>The Complete Guide to Ranking #1 on Google in just 48 Hours??</image:title>
-      <image:caption>Step-by-step framework to rank informational content fast by leveraging Perplexity's domain authority.</image:caption>
-    </image:image>
   </url>
-  
-  <!-- 4 AI Tools To Generate Leads For Businesses in 2026 - Featured Article -->
+
   <url>
     <loc>https://betteraibots.com/news/3-ai-tools-generate-leads-businesses-2026</loc>
     <lastmod>2026-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/generateleads.jpg</image:loc>
-      <image:title>4 AI Tools To Generate Leads For Businesses in 2026</image:title>
-      <image:caption>Discover the exact AI tools and workflows that businesses are using right now to generate qualified leads consistently. Learn how to implement these systems in your own business, regardless of your industry, budget, or technical expertise.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- The AI Job Boom - Featured Article -->
-  <url>
-    <loc>https://betteraibots.com/news/ai-job-boom-how-to-get-hired-in-the-ai-revolution</loc>
-    <lastmod>2025-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aijobboom.jpg</image:loc>
-      <image:title>The AI Job Boom Nobody's Talking About: How to Get Hired in the AI Revolution</image:title>
-      <image:caption>A 200 billion dollar AI hiring wave is creating new, high paying roles faster than layoffs.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- The Death of the Resume -->
-  <url>
-    <loc>https://betteraibots.com/news/the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv</loc>
-    <lastmod>2025-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aihiring.jpg</image:loc>
-      <image:title>The Death of the Resume: Why Companies Are Using AI to Hire Without Ever Reading Your CV</image:title>
-      <image:caption>Your carefully crafted resume might never be seen by human eyes.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- Learn Section -->
-  <url>
-    <loc>https://betteraibots.com/learn</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Learn App Guides -->
-  <url>
-    <loc>https://betteraibots.com/learn/omniseo</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/omniseo.png</image:loc>
-      <image:title>OmniSEO User Guide – AI Search Visibility &amp; Citation Tracking</image:title>
-      <image:caption>Monitor and optimize your brand's presence across ChatGPT, Perplexity, AI Overviews, and other AI search platforms with OmniSEO's visibility tracking and actionable insights.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/spiky-ai</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/spikyai.png</image:loc>
-      <image:title>Spiky.ai User Guide – Real-Time AI Sales Coaching &amp; Meeting Intelligence</image:title>
-      <image:caption>Learn how Spiky.ai delivers real-time sales coaching, call momentum and objection handling, playbook execution, and pipeline visibility—so your team scales winning behaviors and closes more deals.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/compliancely</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/compailogo.png</image:loc>
-      <image:title>Compliancely User Guide – TIN Matching, Identity Verification &amp; IRS Tax Transcripts</image:title>
-      <image:caption>Use Compliancely for real-time TIN matching, identity verification, IRS tax transcripts, and KYB/KYC checks to streamline onboarding and compliance for fintech, lending, and marketplaces.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/teikametrics</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/telkalogo.jpg</image:loc>
-      <image:title>Teikametrics User Guide – AI Marketplace Optimization for Amazon, Walmart &amp; TikTok Shop</image:title>
-      <image:caption>Learn how Teikametrics helps brands scale on Amazon, Walmart, and TikTok Shop with AI-driven advertising, listing optimization, and multi-marketplace growth workflows.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/instaglamor</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/instaglamorlogo.png</image:loc>
-      <image:title>InstaGlamor: Human Direction, AI Precision, Studio-Grade Results</image:title>
-      <image:caption>InstaGlamor combines human creative direction with AI precision to turn simple reference photos into studio-grade portraits, lifestyle imagery, and brand visuals.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/museit-art-complete-guide</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/musebrand.jpg</image:loc>
-      <image:title>Turn the Noise into Art with AI-Powered Creative Expression</image:title>
-      <image:caption>Discover how Museit.art transforms your imagination into beautiful artwork with AI-powered creative expression.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/nanoz-complete-guide</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/nanozlogo.png</image:loc>
-      <image:title>Branding Made Easy with NanoZ</image:title>
-      <image:caption>Learn how NanoZ.fun delivers professional brand imagery at a fraction of traditional costs using AI.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- Trial / commercial app guides -->
-  <url>
-    <loc>https://betteraibots.com/learn/adcreative-ai</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/adcreative.png</image:loc>
-      <image:title>AdCreative.ai – AI-Powered Ad Creative Generator</image:title>
-      <image:caption>Generate high-converting ad creatives in seconds with AdCreative.ai’s AI-powered workflows.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/adwisely</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/adwisely.png</image:loc>
-      <image:title>Adwisely – AI Google &amp; Meta Ads Platform</image:title>
-      <image:caption>Launch and optimize full-funnel Google and Meta campaigns with Adwisely’s AI-powered ad platform.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/apollo-io</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/apollo.png</image:loc>
-      <image:title>Apollo.io – AI Sales Platform</image:title>
-      <image:caption>Find, contact, and close ideal buyers using Apollo’s AI-powered sales intelligence and outreach tools.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/brevo-complete-guide</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/brevologo.png</image:loc>
-      <image:title>Brevo Complete App Spotlight</image:title>
-      <image:caption>All-in-one AI-powered marketing and CRM platform for email, SMS, WhatsApp, and automation workflows.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/browse-ai</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/browseai1.jpg</image:loc>
-      <image:title>Browse AI – Web Scraping &amp; Monitoring Platform</image:title>
-      <image:caption>Extract and monitor website data with Browse AI’s no-code web scraping and automation platform.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/databox</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/databoxai.jpg</image:loc>
-      <image:title>Databox – Business Analytics &amp; Dashboards</image:title>
-      <image:caption>Connect 130+ data sources, build custom metrics, and create no-code dashboards with Databox.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/learn/seamless-ai-complete-guide</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/seemlessailogo.jpg</image:loc>
-      <image:title>Seamless.AI – Real-Time B2B Sales Intelligence Platform</image:title>
-      <image:caption>Find real-time verified B2B contact data and build targeted prospect lists with Seamless.AI.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- Apps Section -->
-  <url>
-    <loc>https://betteraibots.com/apps</loc>
-    <lastmod>2026-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/og-image.png?v=3</image:loc>
-      <image:title>AI Apps Directory 2025 – Free, Trial &amp; Paid AI Tools</image:title>
-      <image:caption>Explore curated AI apps and tools: free applications, trial versions, and premium paid tools to enhance your workflow and boost productivity.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- My AI Dashboard -->
-  <url>
-    <loc>https://betteraibots.com/my-ai</loc>
-    <lastmod>2026-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/og-image.png?v=3</image:loc>
-      <image:title>My AI Dashboard – AI Trial Progress Tracker &amp; Cost Management</image:title>
-      <image:caption>Track your AI trial progress, manage costs, and organize all your AI subscriptions in one dashboard. Monitor trial dates, set cancellation reminders, and track monthly spending.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- About Page -->
-  <url>
-    <loc>https://betteraibots.com/about</loc>
-    <lastmod>2026-01-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/betteraibotsglowlogo8.png</image:loc>
-      <image:title>About BetterAiBots - Your AI Tools Directory Hub</image:title>
-      <image:caption>Learn about BetterAiBots - your comprehensive AI tools directory hub. Discover what we do, our services, what makes us unique, and how we help you find the best AI tools for productivity, automation, and staying ahead of the AI revolution.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- Contact Page -->
-  <url>
-    <loc>https://betteraibots.com/contact</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- Podcast Page -->
-  <url>
-    <loc>https://betteraibots.com/Podcast</loc>
-    <lastmod>2025-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/betteraibotslive.webp</image:loc>
-      <image:title>BetterAiBots Podcast - AI Tools, News &amp; Educational Content</image:title>
-      <image:caption>Watch BetterAiBots Podcast for the latest AI tools, breaking AI news, expert interviews, and educational content. Join our live studio sessions and stay ahead of the AI revolution.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- Individual Video Watch Pages -->
-  <url>
-    <loc>https://betteraibots.com/watch/ai-companions-why-20-million-people-are-choosing-digital-love</loc>
-    <lastmod>2025-12-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/liveslider/baiblive6.jpg</image:loc>
-      <image:title>AI Companions - Why 20 Million People Are Choosing Digital Love</image:title>
-      <image:caption>In this episode, we dive into the uncomfortable reality of AI companions: why millions are choosing digital intimacy over human connection, what this reveals about our loneliness epidemic, and the psychological truths we're being forced to confront.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/watch/10-ai-tools-to-give-you-leverage-to-run-everything-alone</loc>
-    <lastmod>2025-12-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/betteraibotslive ep155 copy55.jpg</image:loc>
-      <image:title>10 AI Tools to give YOU leverage to run EVERYTHING ALONE!</image:title>
-      <image:caption>In this episode, we break down 10 game-changing AI tools that transform how solo entrepreneurs operate. From customer service to sales, operations to marketing—learn how to build your own AI productivity stack and become a true one-person powerhouse.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/watch/how-to-fix-email-deliverability</loc>
-    <lastmod>2025-12-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/warmyio2.jpg</image:loc>
-      <image:title>How to Fix Email Deliverability</image:title>
-      <image:caption>In this episode, we dive deep into the invisible infrastructure of email trust and explore Warmy.io—an AI-powered tool that's fighting what they call "the spam folder rebellion." Meet Adeline, the AI assistant that systematically builds your domain's reputation by answering the five critical questions every email algorithm asks before letting you into the inbox.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/watch/why-small-businesses-are-beating-enterprise</loc>
-    <lastmod>2025-12-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/BetterAiBots Small Business Tools.jpg</image:loc>
-      <image:title>Why Small Businesses Are Beating Enterprise</image:title>
-      <image:caption>For 30 years, big corporations held all the cards — massive budgets, huge IT teams, custom tech fortresses. Small businesses were always playing catch-up. But with generative AI, that pattern is being blown apart.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/watch/the-ai-home-office-gold-rush-10-income-streams-for-you</loc>
-    <lastmod>2025-12-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/airemotejobs.jpg</image:loc>
-      <image:title>The AI Home Office GOLD RUSH: 10 Income Streams For You!</image:title>
-      <image:caption>The AI Home Office Gold Rush is happening RIGHT NOW. While most people are still wondering if AI will replace their jobs, smart entrepreneurs are already using it to multiply their output by 10x—sometimes 100x.</image:caption>
-    </image:image>
-  </url>
-  
-    
-  <!-- Legal Page -->
-  <url>
-    <loc>https://betteraibots.com/legal</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  
-  <!-- News Articles -->
-  <!-- The Rise of AI Companions - Featured Article -->
-  <url>
-    <loc>https://betteraibots.com/news/the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily</loc>
-    <lastmod>2025-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/lookinforailove.jpg</image:loc>
-      <image:title>The Rise of AI Companions: Why Millions Are Talking to ChatBots Daily</image:title>
-      <image:caption>Let's address the elephant in the room immediately: millions of people are having deep, meaningful, and yes—romantic and sexual conversations with AI chatbots right now. Not someday. Not in some dystopian future. Right now, while you're reading this.</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- AI Chip Wars - Featured Article -->
-  <url>
-    <loc>https://betteraibots.com/news/ai-chip-wars-heat-up-nvidia-challenger-unexpected-source</loc>
-    <lastmod>2025-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aichipwars.jpg</image:loc>
-      <image:title>The AI Chip Wars Heat Up: NVIDIA's New Challenger from an Unexpected Source</image:title>
-      <image:caption>The semiconductor industry is experiencing its most dramatic power shift in decades, and the battlefield is artificial intelligence. NVIDIA's near-monopoly is cracking, and the challengers emerging aren't just competitors—they're revolutionaries threatening to reshape the entire AI landscape.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://betteraibots.com/news/ai-cybersecurity-autonomous-threat-defense-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/anthropic-claude-35-sonnet-reasoning</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/openai-gpt5-revolutionary-multimodal-ai</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/google-gemini-pro-100-million-users</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/meta-llama-3-open-source-ai</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/landmark-legal-victory-ai-copyright-training</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/generative-ai-apps-1-7-billion-downloads-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/microsoft-copilot-pro-productivity</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/n8n-revolution-business-automation-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/trump-ai-action-plan-global-leadership</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/china-global-ai-cooperation-organization</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/ai-reshaping-employment-tech-layoffs-new-jobs-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/anthropic-revokes-openai-claude-access-rivalry</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/nano-banana-game-changing-ai-image-editor</loc>
-    <lastmod>2025-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/nanabananaguide.png</image:loc>
-      <image:title>Nano Banana: The Game-Changing AI Image Editor That's Taking the World by Storm</image:title>
-      <image:caption>Discover how Google's Gemini 2.5 Flash Image, known as Nano Banana, is revolutionizing AI image editing with unprecedented character consistency and natural language control.</image:caption>
-    </image:image>
   </url>
 
   <url>
-    <loc>https://betteraibots.com/news/nano-banana-pro-upgrade-whats-new</loc>
-    <lastmod>2025-12-21</lastmod>
+    <loc>https://betteraibots.com/news/perplexity-parasite-seo-ranking-guide-48-hours</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/nanobananaprouserguide.jpg</image:loc>
-      <image:title>Nano Banana Pro! The Upgrade and What's New!</image:title>
-      <image:caption>Gemini 3 Pro Image brings 4K output, reliable text rendering, and studio-grade creative controls.</image:caption>
-    </image:image>
   </url>
 
   <url>
@@ -544,1110 +145,922 @@
     <lastmod>2025-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/chatgptgarlic.jpg</image:loc>
-      <image:title>OpenAI’s Garlic Model Is a Silent Monster | AI Just Leveled Up</image:title>
-      <image:caption>OpenAI’s Garlic model focuses on reasoning, code intelligence, and efficient scaling for real-world performance.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/warmy-io-spam-folder-rebellion-email-deliverability</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/robot-uprising-ai-revolution-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://betteraibots.com/news/gpt-5-dawn-ai-revolution-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- AiSDR Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/aisdr-complete-guide</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aisdr.png</image:loc>
-      <image:title>AiSDR - AI Sales Development Platform</image:title>
-      <image:caption>Transform your sales pipeline with AI that never sleeps, never forgets, and never burns out</image:caption>
-    </image:image>
   </url>
 
-  <!-- Miro Article -->
   <url>
-    <loc>https://betteraibots.com/learn/miro-complete-guide</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/miro.png</image:loc>
-      <image:title>Miro - Visual Collaboration Platform</image:title>
-      <image:caption>Transform how your team collaborates with infinite canvas, real-time collaboration, and AI-powered features</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Reply.io Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/reply-io-complete-guide</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/replyio.png</image:loc>
-      <image:title>Reply.io - AI Sales Automation Platform</image:title>
-      <image:caption>Everything you need to know about this AI sales automation platform that's revolutionizing outbound sales</image:caption>
-    </image:image>
-  </url>
-
-  <!-- VEED Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/veed-complete-guide</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/veedreview.png</image:loc>
-      <image:title>VEED.io - Online Video Editor</image:title>
-      <image:caption>Your quick guide to this online video editor with AI features for creating professional content</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Wispr Flow Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/wispr-flow-complete-guide</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/wispr.png</image:loc>
-      <image:title>Wispr Flow - Voice Dictation Tool</image:title>
-      <image:caption>AI-powered voice dictation that actually works, in any app, without the usual headaches</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Blackbox.ai Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/blackbox-ai</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/blackbox-logo.png?v=2</image:loc>
-      <image:title>Blackbox.ai - AI Code Assistant</image:title>
-      <image:caption>Discover how Blackbox.ai's AI-powered code assistant helps developers write code faster with real-time autocomplete, intelligent suggestions, and multi-language support.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Webydo Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/webydo</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/webydo-logo.png?v=2</image:loc>
-      <image:title>Webydo - No-Code Web Design Platform</image:title>
-      <image:caption>Discover how Webydo's professional web design platform helps designers create pixel-perfect websites without coding, with built-in CMS and client management tools.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- ThorData Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/thordata</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/thordata-logo.png?v=2</image:loc>
-      <image:title>ThorData - Proxy &amp; Web Scraping Infrastructure</image:title>
-      <image:caption>Discover how ThorData's enterprise-grade proxy and web scraping infrastructure helps businesses collect data at scale with 60M+ IPs, 120+ scraper APIs, and powerful tools for AI data collection.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- AI Productivity Stack for Solo Founders News Article -->
-  <url>
-    <loc>https://betteraibots.com/news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025</loc>
-    <lastmod>2025-11-08</lastmod>
+    <loc>https://betteraibots.com/news/nano-banana-pro-upgrade-whats-new</loc>
+    <lastmod>2025-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/solofoundersai.jpg?v=2</image:loc>
-      <image:title>AI Productivity Stack for Solo Founders: 10 Tools to Run Your Business Alone</image:title>
-      <image:caption>Running a business solo doesn't mean doing everything manually. Discover the essential AI tools that let solo founders compete with teams—from customer service automation to sales outreach, workflow management to content creation. Build your one-person powerhouse with these 10 game-changing tools.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Why Small Businesses Beat Enterprise AI Tools News Article -->
   <url>
-    <loc>https://betteraibots.com/news/why-small-businesses-beat-enterprise-ai-tools-2025</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/news/ai-job-boom-how-to-get-hired-in-the-ai-revolution</loc>
+    <lastmod>2025-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aismallbusinesstools.jpg?v=2</image:loc>
-      <image:title>Why Small Businesses Beat Enterprise AI Tools</image:title>
-      <image:caption>The competitive landscape between small businesses and large enterprises is experiencing an unusual shift. AI tools are disrupting traditional patterns, with small businesses implementing AI capabilities at speeds that leave enterprise competitors struggling to match pace.</image:caption>
-    </image:image>
   </url>
 
-  <!-- How to Use AI to Learn Anything 10x Faster News Article -->
+  <url>
+    <loc>https://betteraibots.com/news/the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/news/how-to-use-ai-to-learn-anything-10x-faster</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/learnaifast.png</image:loc>
-      <image:title>How to Use AI to Learn Anything 10x Faster</image:title>
-      <image:caption>The way humans learn is about to change forever—and most people are still using flashcards like it's 1995.</image:caption>
-    </image:image>
   </url>
 
-  <!-- AI Virtual Assistant How To Automate Tasks News Article -->
-  <url>
-    <loc>https://betteraibots.com/news/ai-virtual-assistant-how-to-automate-tasks-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aivirtualassistanthowto.jpg?v=2</image:loc>
-      <image:title>AI Virtual Assistant How To Automate Tasks</image:title>
-      <image:caption>AI virtual assistants have evolved from experimental tools to practical solutions for managing repetitive tasks in both personal and professional contexts.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Sora 2 Physics Reality AI Video Revolution News Article -->
-  <url>
-    <loc>https://betteraibots.com/news/sora-2-physics-reality-ai-video-revolution-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/sora3.png?v=2</image:loc>
-      <image:title>Sora 2 Physics Reality AI Video Revolution</image:title>
-      <image:caption>Let me tell you about the moment everything clicked.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- AI Remote Jobs Home Office Gold Rush News Article -->
-  <url>
-    <loc>https://betteraibots.com/news/ai-remote-jobs-home-office-gold-rush-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/airemotejobs.jpg?v=2</image:loc>
-      <image:title>AI Remote Jobs - Home Office Gold Rush</image:title>
-      <image:caption>Remember when 'working from home' meant stuffing envelopes or taking sketchy surveys for gift cards? Those days are dead. And AI just killed them</image:caption>
-    </image:image>
-  </url>
-
-  <!-- AI Robotics Revolution News Article -->
-  <url>
-    <loc>https://betteraibots.com/news/ai-robotics-revolution-everything-you-own-2025</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/AiRoboticsNews.jpg?v=2</image:loc>
-      <image:title>AI Robotics Revolution - Everything You Own</image:title>
-      <image:caption>The robot isn't coming. It's already here—it just doesn't look like you expected. The real AI revolution is quieter, stranger, and already sitting on your kitchen counter</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Alibaba AI Revolution News Article -->
-  <url>
-    <loc>https://betteraibots.com/news/alibaba-ai-revolution-53-billion-investment-2025</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/alibabanews.jpg?v=2</image:loc>
-      <image:title>Alibaba's AI Revolution - $53 Billion Investment</image:title>
-      <image:caption>Alibaba Group has launched the most ambitious artificial intelligence investment program in Chinese tech history, committing $53 billion over three years to become a global AI superpower</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Pomelli content creation service guide -->
-  <url>
-    <loc>https://betteraibots.com/news/how-to-build-content-creation-service-google-pomelli-tool</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aipomelli.jpg</image:loc>
-      <image:title>How to Build a Content Creation Service Using Google&apos;s Free Pomelli Tool</image:title>
-      <image:caption>Google Labs&apos; Pomelli scans a business site, builds brand DNA, and generates on-brand marketing content—enabling a practical content-creation service workflow.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- AI medical diagnosis article -->
   <url>
     <loc>https://betteraibots.com/news/ai-doctors-are-here-how-medical-diagnosis-ai-just-passed-human-accuracy</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/aidoctors.jpg</image:loc>
-      <image:title>AI Doctors Are Here: How Medical Diagnosis AI Just Passed Human Accuracy</image:title>
-      <image:caption>How AI systems are matching and surpassing human doctors in areas from cancer to diabetic eye disease.</image:caption>
-    </image:image>
+    <priority>0.9</priority>
   </url>
 
-  <!-- World / Worldcoin identity platform guide -->
+  <url>
+    <loc>https://betteraibots.com/news/ai-chip-wars-heat-up-nvidia-challenger-unexpected-source</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/why-small-businesses-beat-enterprise-ai-tools-2025</loc>
+    <lastmod>2025-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/ai-virtual-assistant-how-to-automate-tasks-2025</loc>
+    <lastmod>2025-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/sora-2-physics-reality-ai-video-revolution-2025</loc>
+    <lastmod>2025-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/ai-remote-jobs-home-office-gold-rush-2025</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/ai-robotics-revolution-everything-you-own-2025</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/alibaba-ai-revolution-53-billion-investment-2025</loc>
+    <lastmod>2025-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/news/world-complete-guide-identity-ipo-2025</loc>
     <lastmod>2025-09-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/worldipo.png</image:loc>
-      <image:title>World: Sam Altman&apos;s AI Identity Platform and IPO Prospects</image:title>
-      <image:caption>Tech, privacy, UBI vision, rollout, funding, and IPO context for World (formerly Worldcoin).</image:caption>
-    </image:image>
+    <priority>0.9</priority>
   </url>
 
-  <!-- SEOSparkPlug Article -->
   <url>
-    <loc>https://betteraibots.com/learn/seosparkplug</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/news/nano-banana-game-changing-ai-image-editor</loc>
+    <lastmod>2025-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/warmy-io-spam-folder-rebellion-email-deliverability</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/robot-uprising-ai-revolution-2025</loc>
+    <lastmod>2025-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/gpt-5-dawn-ai-revolution-2025</loc>
+    <lastmod>2025-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/n8n-revolution-business-automation-2025</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/landmark-legal-victory-ai-copyright-training</loc>
+    <lastmod>2025-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/trump-ai-action-plan-global-leadership</loc>
+    <lastmod>2025-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/china-global-ai-cooperation-organization</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/openai-gpt5-revolutionary-multimodal-ai</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/google-gemini-pro-100-million-users</loc>
+    <lastmod>2025-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/meta-llama-3-open-source-ai</loc>
+    <lastmod>2025-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/microsoft-copilot-pro-productivity</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/anthropic-claude-35-sonnet-reasoning</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/ai-reshaping-employment-tech-layoffs-new-jobs-2025</loc>
+    <lastmod>2025-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/ai-cybersecurity-autonomous-threat-defense-2025</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/anthropic-revokes-openai-claude-access-rivalry</loc>
+    <lastmod>2025-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/news/generative-ai-apps-1-7-billion-downloads-2025</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/instaglamor</loc>
+    <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/freeseoscore.jpg?v=2</image:loc>
-      <image:title>SEOSparkPlug - AI SEO Platform</image:title>
-      <image:caption>Discover how SEOSparkPlug's AI-powered platform analyzes 25+ SEO factors, generates copy-ready code, optimizes social content, and tracks results—all in one seamless workflow that transforms audits into actionable improvements.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Catalister Article -->
   <url>
-    <loc>https://betteraibots.com/learn/catalister</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/learn/databox</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/catalister2.jpg?v=2</image:loc>
-      <image:title>Catalister - AI-Powered Dropshipping Platform</image:title>
-      <image:caption>Discover how Catalister's AI-powered platform helps e-commerce businesses automate dropshipping operations, manage inventory, and streamline Shopify workflows with intelligent automation.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Airia Article -->
   <url>
-    <loc>https://betteraibots.com/learn/airia</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/learn/seamless-ai-complete-guide</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/airiaaidemo.jpg?v=2</image:loc>
-      <image:title>Airia - Enterprise AI Orchestration Platform</image:title>
-      <image:caption>Discover how Airia's enterprise AI orchestration platform accelerates agent development from concept to production with rapid prototyping, intelligent operations, and enterprise-grade security.</image:caption>
-    </image:image>
   </url>
 
-  <!-- RunPod Article -->
   <url>
-    <loc>https://betteraibots.com/learn/runpod</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/learn/museit-art-complete-guide</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/runpod.jpg?v=2</image:loc>
-      <image:title>RunPod - Cloud GPU Platform for AI Training</image:title>
-      <image:caption>Discover how RunPod's cloud GPU platform helps developers train, fine-tune, and deploy AI models with on-demand GPUs, serverless AI workloads, and zero infrastructure management.</image:caption>
-    </image:image>
   </url>
 
-  <!-- CastMagic Article -->
   <url>
-    <loc>https://betteraibots.com/learn/castmagic</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/learn/amplemarket</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/castmagicai.jpg?v=2</image:loc>
-      <image:title>CastMagic - AI-Powered Content Operating System</image:title>
-      <image:caption>Discover how CastMagic's AI-powered content operating system transforms video and audio files into 100+ content assets with AI transcription, content repurposing, multi-brand CMS, and brand voice training.</image:caption>
-    </image:image>
   </url>
 
-  <!-- AnyBiz.io Article -->
   <url>
-    <loc>https://betteraibots.com/learn/anybiz</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/learn/adwisely</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/anybizio.jpg?v=2</image:loc>
-      <image:title>AnyBiz.io - AI Sales Agents Platform</image:title>
-      <image:caption>Discover how AnyBiz.io's AI sales agents generate meetings and sales for any business through email automation, LinkedIn outreach, and phone call automation with intelligent AI-powered sales agents.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Mega HR Article -->
   <url>
-    <loc>https://betteraibots.com/learn/megahr</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/learn/reclaim-ai</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/megahr.jpg?v=2</image:loc>
-      <image:title>Mega HR - AI-Powered Hiring Platform</image:title>
-      <image:caption>Discover how Mega HR's AI-powered hiring platform automates job advertising, screening, interviewing, and nurturing candidates with Megan, the first human-quality AI hiring partner, saving your team hundreds of hours each month.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Bebop.ai Article -->
   <url>
-    <loc>https://betteraibots.com/learn/bebop-ai</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/learn/unbounce</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/bebopaitools.jpg?v=2</image:loc>
-      <image:title>Bebop.ai - AI-Powered Workflow Automation Platform</image:title>
-      <image:caption>Discover how Bebop.ai's AI-powered platform automates workflows, optimizes processes, and integrates with your existing tools through intelligent automation and advanced analytics.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Lusha Article -->
   <url>
-    <loc>https://betteraibots.com/learn/lusha</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/learn/mindstudio</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/lushaai.jpg?v=2</image:loc>
-      <image:title>Lusha - B2B Contact Data Platform</image:title>
-      <image:caption>Discover how Lusha's verified contact data platform helps sales teams find accurate emails, phone numbers, and company intelligence to accelerate pipeline growth.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Hume AI Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/landbot</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/descript</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/elevate-forward</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/gohighlevel</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/weave</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/turbotic</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/perplexity-parasite-seo-guide</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/warmy-io-spam-folder-rebellion-email-deliverability</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/recomaze</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/beautiful-ai-complete-guide</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/blackbox-ai</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/learn/hume-ai</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/hume2.jpg?v=2</image:loc>
-      <image:title>Hume AI - Empathic AI Platform</image:title>
-      <image:caption>Master Hume AI's empathic AI platform with comprehensive guides on emotion recognition, voice AI, and facial expression analysis to create more natural, engaging AI interactions.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Ignition (Practice Ignition) User Guide -->
+  <url>
+    <loc>https://betteraibots.com/learn/omniseo</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/compliancely</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/teikametrics</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/learn/practice-ignition</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/ignitionlogo.jpg</image:loc>
-      <image:title>Ignition User Guide – Proposals, Onboarding &amp; Payments</image:title>
-      <image:caption>Learn how to use Ignition to send professional proposals, onboard clients, and get paid—all in one practice management platform for accountants and bookkeepers.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Emergent User Guide -->
   <url>
     <loc>https://betteraibots.com/learn/emergent</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/emergentai.png</image:loc>
-      <image:title>Emergent User Guide – Build Full-Stack Web &amp; Mobile Apps with AI</image:title>
-      <image:caption>Build production-ready web and mobile apps through conversation. Emergent uses AI agents that design, code, and deploy your application from start to finish—in minutes.</image:caption>
-    </image:image>
   </url>
 
-  <!-- SleekFlow User Guide -->
   <url>
     <loc>https://betteraibots.com/learn/sleekflow</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/sleekflowai.jpg</image:loc>
-      <image:title>SleekFlow User Guide – Omnichannel AI Messaging for Conversions</image:title>
-      <image:caption>Centralize WhatsApp, Messenger, and live chat in one team inbox. Use AI agents to qualify leads, route conversations, and convert more sales with SleekFlow.</image:caption>
-    </image:image>
   </url>
 
-  <!-- InVideo AI Article -->
   <url>
-    <loc>https://betteraibots.com/learn/invideo-ai</loc>
+    <loc>https://betteraibots.com/learn/treble-ai</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/lusha</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/nanoz-complete-guide</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/pinecone-vector-database</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/InVideoFreeTrial.png</image:loc>
-      <image:title>InVideo AI – AI Video Generator</image:title>
-      <image:caption>Create professional videos with InVideo AI. Text-to-video, templates, and AI-powered editing.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Flowith IO Article -->
   <url>
-    <loc>https://betteraibots.com/learn/flowith-io</loc>
-    <lastmod>2026-02-01</lastmod>
+    <loc>https://betteraibots.com/learn/elevenlabs</loc>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/flowith.jpg</image:loc>
-      <image:title>Flowith IO – AI Workflow Automation</image:title>
-      <image:caption>AI-powered workflow automation to streamline business processes.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Tidio AI Article -->
   <url>
-    <loc>https://betteraibots.com/learn/tidio-ai</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://betteraibots.com/learn/gamma</loc>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/tidio2.jpg?v=2</image:loc>
-      <image:title>Tidio AI - Customer Service Automation Platform</image:title>
-      <image:caption>Discover how Tidio AI's Lyro AI Agent eliminates up to 90% of support questions with the highest resolution rate in the industry. Complete user guide and cheatsheet for maximizing customer service automation.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Atria Article -->
   <url>
-    <loc>https://betteraibots.com/learn/atria</loc>
-    <lastmod>2025-10-01</lastmod>
+    <loc>https://betteraibots.com/learn/rankprompt</loc>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/atria1.jpg</image:loc>
-      <image:title>Atria: The AI Ad Engine That Transforms Your Marketing Workflow</image:title>
-      <image:caption>Discover how Atria's all-in-one AI ad platform combines analytics, research, creation, and inspiration to help marketers create winning ads faster and scale revenue growth. Complete user guide with 7-day free trial.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Recomaze Article -->
   <url>
-    <loc>https://betteraibots.com/learn/recomaze</loc>
-    <lastmod>2025-11-21</lastmod>
+    <loc>https://betteraibots.com/learn/activecampaign</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/recomaze1.jpg</image:loc>
-      <image:title>Recomaze: Turn Your Store Into An AI Sales Agent That Converts Every Visitor</image:title>
-      <image:caption>Discover how Recomaze's AI-powered e-commerce platform transforms your store into an intelligent sales agent with AI discoverability, concierge services, and conversion optimization that turns traffic into revenue.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Vida AI Agent OS Article -->
   <url>
-    <loc>https://betteraibots.com/learn/vida-ai-agent-os</loc>
-    <lastmod>2025-11-21</lastmod>
+    <loc>https://betteraibots.com/learn/getresponse</loc>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/vida1.jpg</image:loc>
-      <image:title>Vida AI Agent OS: Deploy AI Phone Agents at Scale for Your Business</image:title>
-      <image:caption>Vida is the AI Agent Operating System that helps enterprises deploy omnichannel AI agents that call, text, email, chat, and manage business workflows. Learn how to build, deploy, and manage AI phone agents with no code required.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Plesk Article -->
   <url>
-    <loc>https://betteraibots.com/learn/plesk</loc>
-    <lastmod>2025-11-21</lastmod>
+    <loc>https://betteraibots.com/learn/creativescore</loc>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/plesk1.jpg</image:loc>
-      <image:title>Plesk: Complete Web Hosting Control Panel and Server Management Platform</image:title>
-      <image:caption>Plesk is a powerful web hosting control panel and server management platform that simplifies website administration, domain management, and server infrastructure. Learn how Plesk helps developers, agencies, and hosting providers manage websites efficiently.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- SureCam Article -->
   <url>
-    <loc>https://betteraibots.com/learn/surecam</loc>
-    <lastmod>2025-11-21</lastmod>
+    <loc>https://betteraibots.com/learn/laxis</loc>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/surecam1.jpg</image:loc>
-      <image:title>SureCam: AI-Powered Fleet Dash Cam System for Fleet Safety and Protection</image:title>
-      <image:caption>SureCam combines AI-powered dash cams with GPS tracking, live video streaming, and driver coaching to protect your fleet, reduce insurance costs, and improve safety. Learn how SureCam helps businesses prevent accidents and protect their bottom line.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Diginius Article -->
   <url>
-    <loc>https://betteraibots.com/learn/diginius</loc>
-    <lastmod>2025-11-21</lastmod>
+    <loc>https://betteraibots.com/learn/krispcall</loc>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/diginius1.jpg</image:loc>
-      <image:title>Diginius: All-in-One PPC Management and Lead Intelligence Platform</image:title>
-      <image:caption>Diginius Insight consolidates all your PPC data from Google, Microsoft, Facebook, LinkedIn, and more into one platform. Get B2B lead intelligence, intent leads, SEO monitoring, and multi-channel reporting to drive more leads, higher conversions, and better results.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Smartli Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/snowfire-ai</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/spiky-ai</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/learn/smartli</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/smartli1.jpg</image:loc>
-      <image:title>Smartli: AI-Powered Content Creation Platform for E-commerce and Marketing</image:title>
-      <image:caption>Smartli is an all-in-one AI content creation platform that helps you generate product descriptions, blog posts, ad copy, and edit images. Create SEO-optimized content in seconds with AI-powered tools designed for e-commerce and marketing.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/thordata</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/castmagic</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/megahr</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/catalister</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/alidrop-complete-guide</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/airia</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/browse-ai</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/close-complete-guide</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/evolve-complete-guide</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://betteraibots.com/learn/consensus</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/consensus1.jpg</image:loc>
-      <image:title>Consensus: AI-Powered Research Tool That Finds Evidence from Scientific Papers</image:title>
-      <image:caption>Consensus is an AI-powered research tool that helps you find and synthesize evidence from scientific papers and academic literature. Get evidence-based answers to research questions with citations from peer-reviewed studies.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Reclaim.ai Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/reclaim-ai</loc>
-    <lastmod>2026-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/reclaimai.png</image:loc>
-      <image:title>Reclaim.ai: AI-Powered Calendar and Time Management Platform</image:title>
-      <image:caption>Reclaim.ai is an AI-powered calendar and time management platform that automatically schedules meetings, blocks focus time, protects your work-life balance, and optimizes your calendar for maximum productivity. With smart scheduling, automatic time blocking, and intelligent calendar management, Reclaim.ai helps you take control of your time and get more done.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Unbounce Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/unbounce</loc>
-    <lastmod>2026-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/unbounceai.png</image:loc>
-      <image:title>Unbounce: AI-Powered Landing Page Builder and Conversion Optimization Platform</image:title>
-      <image:caption>Unbounce is an AI-powered landing page builder and conversion optimization platform that helps marketers build, test, and optimize landing pages without code. With drag-and-drop editing, A/B testing, AI copywriting, and Smart Traffic optimization, Unbounce transforms how businesses convert visitors into customers.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Pinecone Vector Database Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/pinecone-vector-database</loc>
-    <lastmod>2026-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/pineconeai.jpg</image:loc>
-      <image:title>Build Knowledgeable AI with Production-Ready Search</image:title>
-      <image:caption>Pinecone is a fully managed vector database that powers high-relevance search, RAG, and AI agents at scale.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Prezi Article -->
   <url>
     <loc>https://betteraibots.com/learn/prezi-complete-guide</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/preziai.png</image:loc>
-      <image:title>Prezi: Better Presentations, Faster with AI-Powered Visual Storytelling</image:title>
-      <image:caption>Discover how Prezi's AI-powered presentation platform creates engaging, interactive presentations in minutes. Stand out from the crowd with Prezi's unique open canvas, dynamic movement, and AI assistance that makes creating easier than ever.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- QuillBot Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/quillbot-complete-guide</loc>
-    <lastmod>2025-11-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/quilbot.jpg</image:loc>
-      <image:title>QuillBot: Complete Guide to AI Writing Assistant for Paraphrasing, Grammar, and More</image:title>
-      <image:caption>QuillBot is an AI-powered writing assistant that helps you paraphrase text, check grammar, detect AI content, and improve your writing. Learn how to use QuillBot's suite of tools to write better, faster, and smarter.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Landingi Article -->
   <url>
     <loc>https://betteraibots.com/learn/landingi-complete-guide</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/landingi1.jpg</image:loc>
-      <image:title>Landingi: AI-Powered Landing Page Builder for High-Converting Pages</image:title>
-      <image:caption>Discover how Landingi's AI-powered landing page builder creates high-converting landing pages in minutes. Build beautiful, responsive landing pages with drag-and-drop editor, AI assistance, and A/B testing to maximize conversions.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Tradify Article -->
   <url>
     <loc>https://betteraibots.com/learn/tradify-complete-guide</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/tradify1.jpg</image:loc>
-      <image:title>Tradify: #1 Job Management Software for Trades - Save 10+ Hours/Week on Admin</image:title>
-      <image:caption>Discover how Tradify's job management software helps trade businesses save 10+ hours/week on admin. Built for electricians, plumbers, HVAC, and all trades—manage enquiries, quotes, jobs, invoicing, scheduling, and more all in one place.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Logome Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/trainual-complete-guide</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/travel-code-ai-complete-guide</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/learn/logome-complete-guide</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/logome1.png</image:loc>
-      <image:title>Logome: AI Logo Generator &amp; Brand Kit Creator - Design Stunning Logos in Seconds</image:title>
-      <image:caption>Discover how Logome's AI-powered logo generator helps you create stunning logos, brand kits, websites, and social media templates in seconds. No design skills required—800k+ logos generated using AI.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
-  
-  <!-- Vista Social Article -->
+
+  <url>
+    <loc>https://betteraibots.com/learn/diginius</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/vida-ai-agent-os</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/plesk</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/quillbot-complete-guide</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/surecam</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/atria</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/veed-complete-guide</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/aisdr-complete-guide</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/reply-io-complete-guide</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/learn/vista-social</loc>
-    <lastmod>2025-12-20</lastmod>
+    <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/vistasocial.jpg</image:loc>
-      <image:title>Vista Social Review - Social Media Management Tool</image:title>
-      <image:caption>Scheduling, approvals, inbox, and analytics for social media teams.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- DataHawk Article -->
   <url>
     <loc>https://betteraibots.com/learn/datahawk</loc>
-    <lastmod>2025-12-20</lastmod>
+    <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/datahawkai.jpg</image:loc>
-      <image:title>DataHawk Review - Amazon Analytics and Keyword Tracking</image:title>
-      <image:caption>Track rankings, competitors, and sales performance for Amazon.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Descript Article -->
   <url>
-    <loc>https://betteraibots.com/learn/descript</loc>
-    <lastmod>2026-01-02</lastmod>
+    <loc>https://betteraibots.com/learn/miro-complete-guide</loc>
+    <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/descriptai.png</image:loc>
-      <image:title>Descript: AI Video Editor with Text-Based Editing and AI Video Generation</image:title>
-      <image:caption>Descript is an AI-powered video editing platform that makes video editing as easy as editing text. With transcription-based editing, AI video generation, voice cloning, and professional tools, Descript transforms how creators and businesses make video content.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Gamma Article -->
   <url>
-    <loc>https://betteraibots.com/learn/gamma</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://betteraibots.com/learn/capsule-crm-complete-guide</loc>
+    <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/gammaai.jpg</image:loc>
-      <image:title>Gamma Review - AI Presentation Builder</image:title>
-      <image:caption>Generate decks, docs, and web presentations with AI prompts.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- ElevenLabs Article -->
   <url>
-    <loc>https://betteraibots.com/learn/elevenlabs</loc>
-    <lastmod>2025-12-20</lastmod>
+    <loc>https://betteraibots.com/learn/mrpeasy-complete-guide</loc>
+    <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/elevenlabsai.jpg</image:loc>
-      <image:title>ElevenLabs Review - AI Voice and Text-to-Speech</image:title>
-      <image:caption>Realistic AI voiceovers, voice cloning, and dubbing for creators.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Landbot Article -->
   <url>
-    <loc>https://betteraibots.com/learn/landbot</loc>
-    <lastmod>2026-01-02</lastmod>
+    <loc>https://betteraibots.com/learn/murf-ai-complete-guide</loc>
+    <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/landbotai.png</image:loc>
-      <image:title>Landbot: AI-Powered Chatbot Platform for Conversational Experiences</image:title>
-      <image:caption>Landbot is an AI-powered chatbot platform that combines the intelligence of AI with the control of rule-based chatbots to build enjoyable conversational experiences. Whether you need website chatbots, WhatsApp automation, or AI agents, Landbot makes it easy to create, deploy, and optimize chatbots that convert visitors into customers.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Amplemarket Article -->
   <url>
-    <loc>https://betteraibots.com/learn/amplemarket</loc>
-    <lastmod>2026-01-02</lastmod>
+    <loc>https://betteraibots.com/learn/brevo-complete-guide</loc>
+    <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/amplemarketai.jpg</image:loc>
-      <image:title>Amplemarket: AI-Powered Sales Engagement Platform</image:title>
-      <image:caption>Amplemarket is an AI-powered sales engagement platform that combines prospecting, outreach, and automation to help sales teams find, contact, and close more deals. With advanced AI, accurate contact data, multichannel outreach, and intelligent automation, Amplemarket helps sales teams scale their outreach and improve reply rates.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- MindStudio Article -->
   <url>
-    <loc>https://betteraibots.com/learn/mindstudio</loc>
-    <lastmod>2026-01-02</lastmod>
+    <loc>https://betteraibots.com/learn/lindy-ai</loc>
+    <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/mindstudioai.jpeg</image:loc>
-      <image:title>MindStudio: AI Agent Builder Platform</image:title>
-      <image:caption>MindStudio is an AI agent builder platform that lets you create custom AI assistants and workflows without coding. Build sophisticated AI agents, automate complex processes, and deploy AI solutions for your business with a visual, no-code interface.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- RankPrompt Article -->
   <url>
-    <loc>https://betteraibots.com/learn/rankprompt</loc>
-    <lastmod>2025-12-20</lastmod>
+    <loc>https://betteraibots.com/learn/viral-launch</loc>
+    <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/rankpromptai.jpg</image:loc>
-      <image:title>RankPrompt Review - AI SEO Content Briefs</image:title>
-      <image:caption>Keyword research, SERP insights, and SEO outlines.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Snowfire AI Article -->
   <url>
-    <loc>https://betteraibots.com/learn/snowfire-ai</loc>
-    <lastmod>2025-12-20</lastmod>
+    <loc>https://betteraibots.com/learn/apollo-io</loc>
+    <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/snowfireai.jpg</image:loc>
-      <image:title>Snowfire AI Review - SEO Content and Ad Copy</image:title>
-      <image:caption>Generate SEO content, ads, and marketing assets faster.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Volza Article -->
+  <url>
+    <loc>https://betteraibots.com/learn/paintr</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/adcreative-ai</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/invideo-ai</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/flowith-io</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/scholar-gpt</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/wispr-flow-complete-guide</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/cheat-coder</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/alli-ai</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/webydo</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/runpod</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/anybiz</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/tidio-ai</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/anybiz-alt</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/seosparkplug</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://betteraibots.com/learn/bebop-ai</loc>
+    <lastmod>2025-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://betteraibots.com/learn/volza</loc>
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/volzaai.png</image:loc>
-      <image:title>Volza Review - Global Trade Intelligence</image:title>
-      <image:caption>Supplier discovery, shipment tracking, and market research.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Bidx Article -->
   <url>
     <loc>https://betteraibots.com/learn/bidx</loc>
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/bidxai.jpg</image:loc>
-      <image:title>Bidx Review - AI Ad Optimization</image:title>
-      <image:caption>Optimize paid campaigns with performance insights and budget pacing.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Laxis Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/laxis</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/laxisai.jpg</image:loc>
-      <image:title>Laxis Review - AI Meeting Assistant</image:title>
-      <image:caption>Transcripts, summaries, and action items after calls.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- KrispCall Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/krispcall</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/krispcallai.jpg</image:loc>
-      <image:title>KrispCall Review - Cloud Phone System</image:title>
-      <image:caption>Business numbers, routing, and AI call summaries.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- GetResponse Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/getresponse</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/getresponseai.jpg</image:loc>
-      <image:title>GetResponse Review - Email Marketing and Automation</image:title>
-      <image:caption>Campaigns, landing pages, and funnels in one platform.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- GoHighLevel Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/gohighlevel</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/gohighlevelai.jpg</image:loc>
-      <image:title>GoHighLevel Complete Guide - AI-Powered All-in-One Business Operating System</image:title>
-      <image:caption>AI-powered all-in-one business operating system that combines CRM, marketing automation, social media scheduling, landing pages, funnels, and white-label capabilities in one platform.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Weave Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/weave</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/weaveai.jpg</image:loc>
-      <image:title>Weave Complete Guide - AI-Powered Communication Platform for Healthcare Practices</image:title>
-      <image:caption>AI-powered communication platform for healthcare practices with AI Receptionist, call intelligence, automated reminders, payment solutions, and patient engagement tools.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Turbotic Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/turbotic</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/turbotic.png</image:loc>
-      <image:title>Turbotic Complete Guide - AI-Powered Automation and Business Transformation Platform</image:title>
-      <image:caption>AI-powered automation and transformation platform that helps businesses build business cases, automate workflows, and deploy digital transformation with secure, compliant tools.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- CreativeScore Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/creativescore</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/creativescoreai.jpg</image:loc>
-      <image:title>CreativeScore Review - AI Creative Scoring</image:title>
-      <image:caption>Score ad creatives and predict performance before launch.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Lindy AI Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/lindy-ai</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/lindy.png</image:loc>
-      <image:title>Lindy AI – AI Assistant and Workflow Automation</image:title>
-      <image:caption>Lindy AI is an AI assistant that automates workflows, emails, and tasks. Free trial and user guide.</image:caption>
-    </image:image>
   </url>
 
-  <!-- Capsule CRM Article -->
   <url>
-    <loc>https://betteraibots.com/learn/capsule-crm-complete-guide</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/capsulecrm.png</image:loc>
-      <image:title>Capsule CRM – Complete Guide and Free Trial</image:title>
-      <image:caption>Complete guide to Capsule CRM for contact and sales pipeline management. Free trial and setup walkthrough.</image:caption>
-    </image:image>
+    <loc>https://betteraibots.com/watch/ai-companions-why-20-million-people-are-choosing-digital-love</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
 
-  <!-- MRPeasy Article -->
   <url>
-    <loc>https://betteraibots.com/learn/mrpeasy-complete-guide</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/mrpeasy.png</image:loc>
-      <image:title>MRPeasy – Manufacturing ERP Complete Guide and Free Trial</image:title>
-      <image:caption>Complete guide to MRPeasy for manufacturing and production planning. Free trial and user guide.</image:caption>
-    </image:image>
+    <loc>https://betteraibots.com/watch/10-ai-tools-to-give-you-leverage-to-run-everything-alone</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
 
-  <!-- Murf AI Article -->
   <url>
-    <loc>https://betteraibots.com/learn/murf-ai-complete-guide</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/murfai.png</image:loc>
-      <image:title>Murf AI – Text-to-Speech and Voiceover Complete Guide</image:title>
-      <image:caption>Complete guide to Murf AI for AI voiceovers and text-to-speech. Free trial and user guide.</image:caption>
-    </image:image>
+    <loc>https://betteraibots.com/watch/how-to-fix-email-deliverability</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
 
-  <!-- Alli AI Article -->
   <url>
-    <loc>https://betteraibots.com/learn/alli-ai</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/alliai.png</image:loc>
-      <image:title>Alli AI – AI Marketing and SEO Tools</image:title>
-      <image:caption>Alli AI provides AI-powered marketing and SEO tools. Free trial and user guide.</image:caption>
-    </image:image>
+    <loc>https://betteraibots.com/watch/why-small-businesses-are-beating-enterprise</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
 
-  <!-- Travel Code AI Article -->
   <url>
-    <loc>https://betteraibots.com/learn/travel-code-ai-complete-guide</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/travelcodeai.jpg</image:loc>
-      <image:title>Travel Code AI – AI Travel Planning Platform</image:title>
-      <image:caption>Build trips faster with AI travel planning, structured itineraries, and day-by-day schedules. Free trial and user guide.</image:caption>
-    </image:image>
+    <loc>https://betteraibots.com/watch/the-ai-home-office-gold-rush-10-income-streams-for-you</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
-
-  <!-- Paintr Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/paintr</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/paintindetifierai.webp</image:loc>
-      <image:title>Paintr – AI Image Identifier and Art Tool</image:title>
-      <image:caption>Paintr ChatGPT GPT for image identification and creative art. User guide and link.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Scholar GPT Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/scholar-gpt</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/bot-placeholder4.webp</image:loc>
-      <image:title>Scholar GPT – AI Research Assistant</image:title>
-      <image:caption>Scholar GPT ChatGPT GPT for academic research and citations. User guide and link.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Cheat Coder Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/cheat-coder</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/cheatcoder.png</image:loc>
-      <image:title>Cheat Coder – AI Coding Assistant GPT</image:title>
-      <image:caption>Cheat Coder ChatGPT GPT for code generation and debugging. User guide and link.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Viral Launch Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/viral-launch</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/virallaunch.png</image:loc>
-      <image:title>Viral Launch – Amazon Seller and Product Research</image:title>
-      <image:caption>Viral Launch helps Amazon sellers with product research, keyword tracking, and launch strategies. Free trial and user guide.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- AnyBiz Alt Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/anybiz-alt</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/anybizio.jpg</image:loc>
-      <image:title>AnyBiz – AI Sales Agents That Book Meetings</image:title>
-      <image:caption>AI sales agents through email, LinkedIn, and phone. User guide and trial.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Perplexity Parasite SEO Guide (Learn) -->
-  <url>
-    <loc>https://betteraibots.com/learn/perplexity-parasite-seo-guide</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/assets/aihacks.png</image:loc>
-      <image:title>Perplexity Parasite SEO – Ranking #1 on Google in 48 Hours</image:title>
-      <image:caption>Step-by-step framework to rank informational content fast by leveraging Perplexity's domain authority.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Warmy.io Email Deliverability Article -->
-  <url>
-    <loc>https://betteraibots.com/learn/warmy-io-spam-folder-rebellion-email-deliverability</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://betteraibots.com/warmyio.jpg</image:loc>
-      <image:title>Warmy.io – Email Warm-up and Deliverability</image:title>
-      <image:caption>AI-powered email warm-up technology for better deliverability and open rates. Free trial and user guide.</image:caption>
-    </image:image>
-  </url>
-
-</urlset> 
+</urlset>

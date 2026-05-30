@@ -171,16 +171,28 @@
     Cache-Control = "public, max-age=86400"
     X-Content-Type-Options = "nosniff"
 
-# Search-engine crawlers only: serve pre-rendered HTML with full article text.
-# Real visitors always get the React app (header, footer, normal pages) via public/_redirects.
+# Pre-rendered article HTML (also served to all visitors via public/_redirects rewrites)
+[[headers]]
+  for = "/learn/*.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/news/*.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Legacy bot-only rewrites (backup; _redirects now serves .html for all user agents)
 [[redirects]]
   from = "/learn/:id"
   to = "/learn/:id.html"
   status = 200
-  conditions = {User-Agent = ["Googlebot", "AdsBot-Google", "Mediapartners-Google", "bingbot", "Baiduspider", "YandexBot", "DuckDuckBot", "Slurp", "ia_archiver", "facebookexternalhit", "Facebot", "Twitterbot", "LinkedInBot", "Applebot", "GPTBot", "ChatGPT-User", "anthropic-ai", "Claude-Web", "PerplexityBot", "Bytespider"]}
+  conditions = {User-Agent = ["Googlebot", "Google-InspectionTool", "GoogleOther", "AdsBot-Google", "Mediapartners-Google", "bingbot", "Baiduspider", "YandexBot", "DuckDuckBot", "Slurp", "ia_archiver", "facebookexternalhit", "Facebot", "Twitterbot", "LinkedInBot", "Applebot", "GPTBot", "ChatGPT-User", "anthropic-ai", "Claude-Web", "PerplexityBot", "Bytespider"]}
 
 [[redirects]]
   from = "/news/:slug"
   to = "/news/:slug.html"
   status = 200
-  conditions = {User-Agent = ["Googlebot", "AdsBot-Google", "Mediapartners-Google", "bingbot", "Baiduspider", "YandexBot", "DuckDuckBot", "Slurp", "ia_archiver", "facebookexternalhit", "Facebot", "Twitterbot", "LinkedInBot", "Applebot", "GPTBot", "ChatGPT-User", "anthropic-ai", "Claude-Web", "PerplexityBot", "Bytespider"]}
+  conditions = {User-Agent = ["Googlebot", "Google-InspectionTool", "GoogleOther", "AdsBot-Google", "Mediapartners-Google", "bingbot", "Baiduspider", "YandexBot", "DuckDuckBot", "Slurp", "ia_archiver", "facebookexternalhit", "Facebot", "Twitterbot", "LinkedInBot", "Applebot", "GPTBot", "ChatGPT-User", "anthropic-ai", "Claude-Web", "PerplexityBot", "Bytespider"]}

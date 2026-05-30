@@ -1025,10 +1025,27 @@ Next steps</pre>
       <p>The marketers who win long-term are those who can identify and capitalize on short-term opportunities while never losing sight of the fundamental principles: create real value, build genuine relationships, and own your audience.</p>
       <p>Perplexity Parasite SEO is your shortcut to the front of the line. What you do once you get there determines whether you stay there.</p>
       <p>Now stop reading and start creating your first page. Those rankings aren't going to claim themselves.</p>
-      <p>` }, { id: 32, slug: "openai-garlic-model-ai-just-leveled-up", title: "OpenAI’s Garlic Model Is a Silent Monster | AI Just Leveled Up", excerpt: "OpenAI’s Garlic model is a quieter but more powerful leap in reasoning, code intelligence, and efficiency, a strategic reset built for real-world performance.", image: chatgptGarlic, date: "12-27-25", author: "BetterAiBots", category: "AI & Technology", featured: false, readTime: "12 min read", content: `</p>
+    `
+  },
+  {
+    id: 32,
+    slug: "openai-garlic-model-ai-just-leveled-up",
+    title: "OpenAI’s Garlic Model Is a Silent Monster | AI Just Leveled Up",
+    excerpt: "OpenAI’s Garlic model is a quieter but more powerful leap in reasoning, code intelligence, and efficiency, a strategic reset built for real-world performance.",
+    image: chatgptGarlic,
+    date: "12-27-25",
+    author: "BetterAiBots",
+    category: "AI & Technology",
+    featured: false,
+    readTime: "12 min read",
+    content: `
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
         <iframe 
-      <p>style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" src="https://www.youtube.com/embed/Fg6yu725i3I?si=6GXsnJzNTcpk6uUS" title="OpenAI’s Garlic Model Is a Silent Monster | AI Just Leveled Up" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></p>
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+          src="https://www.youtube.com/embed/Fg6yu725i3I?si=6GXsnJzNTcpk6uUS" 
+          title="OpenAI’s Garlic Model Is a Silent Monster | AI Just Leveled Up" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
         </iframe>
       </div>
       <h1>OpenAI’s Garlic Model Is a Silent Monster | AI Just Leveled Up</h1>
@@ -1120,12 +1137,23 @@ Next steps</pre>
       <p>Garlic is unassuming. Practical. Underestimated. But powerful, layered, and indispensable once you have tasted what it can do.</p>
       <p>In the age of overhyped releases and bloated demos, Garlic represents a return to form, a reminder that smarter beats flashier, and that usefulness, not novelty, is the final frontier in AI.</p>
       <p>OpenAI might not have fired the loudest shot this round. But Garlic? It is the quiet revolution, and it might just be the most important model you have not used yet.</p>
-      <p>` }, { id: 31, slug: "nano-banana-pro-upgrade-whats-new", title: "Nano Banana Pro! The Upgrade and What's New!", excerpt: "Google's Gemini 3 Pro Image transforms Nano Banana from a viral editor into a studio-grade AI image platform with 4K output, reliable text, and professional creative controls.", image: nanoBananaProGuide, date: "12-21-25", author: "BetterAiBots", category: "AI & Technology", featured: false, content: `</p>
+    `
+  },
+  {
+    id: 31,
+    slug: "nano-banana-pro-upgrade-whats-new",
+    title: "Nano Banana Pro! The Upgrade and What's New!",
+    excerpt: "Google's Gemini 3 Pro Image transforms Nano Banana from a viral editor into a studio-grade AI image platform with 4K output, reliable text, and professional creative controls.",
+    image: nanoBananaProGuide,
+    date: "12-21-25",
+    author: "BetterAiBots",
+    category: "AI & Technology",
+    featured: false,
+    content: `
       <div id="audio-player-container" style="position: relative; padding: 30px; background: rgba(54, 255, 149, 0.1); border-radius: 12px; margin: 0 0 30px 0; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2); border: 1px solid rgba(54, 255, 149, 0.3);">
-        <audio 
-      <p>id="article-audio-player" controls style="width: 100%; max-width: 100%; outline: none;" preload="metadata" ></p>
+        <audio id="article-audio-player" controls style="width: 100%; max-width: 100%; outline: none;" preload="metadata">
           <source src="AUDIO_SOURCE_PLACEHOLDER" type="audio/mp4" />
-      <p>Your browser does not support the audio element.</p>
+          Your browser does not support the audio element.
         </audio>
       </div>
       <h1>Nano Banana Pro: Google's Studio-Quality Upgrade That Changes Everything About AI Image Generation</h1>
@@ -1305,10 +1333,27 @@ Next steps</pre>
       <p>For solo creators, small businesses, and content producers who previously could not afford professional design services, Nano Banana Pro represents a genuine shift. You can now produce marketing materials, infographics, product photography, and visual content at quality levels that would have required hiring specialists, all through natural language prompts.</p>
       <p>Ready to try it? Head to gemini.google.com, select "Thinking with 3 Pro," choose "Create images," and see what is possible when reasoning meets pixels.</p>
       <p>The era of professional AI image generation has arrived. And it is wearing a banana.</p>
-      <p>` }, { id: 30, slug: "ai-job-boom-how-to-get-hired-in-the-ai-revolution", title: "The AI Job Boom Nobody's Talking About: How to Get Hired in the AI Revolution", excerpt: "A 200 billion dollar AI hiring wave is creating new, high paying roles faster than layoffs - here is how to land one before the window closes.", image: "/aijobboom.jpg", date: "12-14-25", author: "BetterAiBots", category: "AI Careers", featured: false, readTime: "18 min read", content: `</p>
+    `
+  },
+  {
+    id: 30,
+    slug: "ai-job-boom-how-to-get-hired-in-the-ai-revolution",
+    title: "The AI Job Boom Nobody's Talking About: How to Get Hired in the AI Revolution",
+    excerpt: "A 200 billion dollar AI hiring wave is creating new, high paying roles faster than layoffs - here is how to land one before the window closes.",
+    image: "/aijobboom.jpg",
+    date: "12-14-25",
+    author: "BetterAiBots",
+    category: "AI Careers",
+    featured: false,
+    readTime: "18 min read",
+    content: `
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
         <iframe 
-      <p>style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" src="https://www.youtube.com/embed/jOMD55PrX-Y" title="The AI Job Boom - How to Get Hired in the AI Revolution" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></p>
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+          src="https://www.youtube.com/embed/jOMD55PrX-Y" 
+          title="The AI Job Boom - How to Get Hired in the AI Revolution" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
         </iframe>
       </div>
       <h1>The AI Job Boom Nobody's Talking About: How to Get Hired in the AI Revolution</h1>
@@ -1508,10 +1553,26 @@ Next steps</pre>
       <p><strong>In 6 Months:</strong> Have a portfolio of AI work, be actively applying to AI jobs, network with people hiring for these roles, and consider yourself an AI professional with demonstrable skills.</p>
       <h2>The Bottom Line</h2>
       <p>AI is not going to take your job. But someone who knows how to use AI might. The shortage is going to get worse before it gets better, and companies are desperate for people who understand AI. This opportunity window is open right now, but it will not stay open forever. Stop reading about AI taking jobs. Start building the skills that make you irreplaceable in an AI powered economy. The future is happening for you if you are willing to take it.</p>
-      <p>` }, { id: 29, slug: "the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv", title: "The Death of the Resume: Why Companies Are Using AI to Hire Without Ever Reading Your CV", excerpt: "Your carefully crafted resume might never be seen by human eyes—and the algorithm deciding your fate is looking for things you never knew mattered.", image: require('../assets/aihiring.jpg'), date: "12-06-2025", author: "BetterAiBots", category: "AI & Society", featured: false, content: `</p>
+    `
+  },
+  {
+    id: 29,
+    slug: "the-death-of-the-resume-why-companies-are-using-ai-to-hire-without-ever-reading-your-cv",
+    title: "The Death of the Resume: Why Companies Are Using AI to Hire Without Ever Reading Your CV",
+    excerpt: "Your carefully crafted resume might never be seen by human eyes—and the algorithm deciding your fate is looking for things you never knew mattered.",
+    image: require('../assets/aihiring.jpg'),
+    date: "12-06-2025",
+    author: "BetterAiBots",
+    category: "AI & Society",
+    featured: false,
+    content: `
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">
         <iframe 
-      <p>style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" src="https://www.youtube.com/embed/gxiFa0KiXrA" title="The Death of the Resume" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></p>
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" 
+          src="https://www.youtube.com/embed/gxiFa0KiXrA" 
+          title="The Death of the Resume" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
         </iframe>
       </div>
       <h1>The Death of the Resume: Why Companies Are Using AI to Hire Without Ever Reading Your CV</h1>

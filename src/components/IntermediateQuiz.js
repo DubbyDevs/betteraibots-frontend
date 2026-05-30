@@ -179,7 +179,7 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 9999;
+          z-index: 10060;
           animation: fadeIn 0.3s ease-in;
         ">
           <div style="
@@ -347,23 +347,8 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
 
   return (
     <>
-      <style>{`
-        .quiz-scrollbar::-webkit-scrollbar {
-          width: 12px;
-        }
-        .quiz-scrollbar::-webkit-scrollbar-track {
-          background: #000000;
-          border-radius: 10px;
-        }
-        .quiz-scrollbar::-webkit-scrollbar-thumb {
-          background: #333333;
-          border-radius: 10px;
-        }
-        .quiz-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #444444;
-        }
-      `}</style>
       <div 
+        className="quiz-overlay"
         onClick={onClose}
         style={{
         position: 'fixed',
@@ -372,7 +357,6 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
         right: 0,
         bottom: 0,
         background: 'rgba(0, 0, 0, 0.8)',
-        zIndex: 1000,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -380,7 +364,7 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
       }}>
         <div 
           onClick={(e) => e.stopPropagation()}
-          className="quiz-scrollbar"
+          className="quiz-scrollbar quiz-modal quiz-modal--intermediate"
           style={{
           background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
           border: '2px solid #8b5cf6',
@@ -440,14 +424,14 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
         </div>
 
         {/* Content */}
-        <div style={{
+        <div className="quiz-body" style={{
           padding: '30px',
           color: '#d1efe7'
         }}>
           {!showResults ? (
             <>
               {/* Progress Bar */}
-              <div style={{
+              <div className="quiz-progress-track" style={{
                 background: 'rgba(139, 92, 246, 0.2)',
                 borderRadius: '10px',
                 height: '8px',
@@ -486,6 +470,7 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
                 {questions[currentQuestion].options.map((option, index) => (
                   <div
                     key={index}
+                    className={`quiz-option${selectedOptions[currentQuestion] === index ? ' quiz-option--selected' : ''}`}
                     onClick={() => selectOption(index)}
                     style={{
                       background: selectedOptions[currentQuestion] === index 

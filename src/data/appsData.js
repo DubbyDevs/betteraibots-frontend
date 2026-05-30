@@ -70,6 +70,16 @@ export const freeAppsData = [
 
 export const trialAppsData = [
   {
+    name: "ActiveCampaign",
+    description: "AI-powered email marketing, marketing automation, and CRM platform with visual workflows, lead scoring, and 900+ integrations",
+    category: "Email Marketing & Automation",
+    features: ["Visual automation builder", "Built-in CRM & pipelines", "Lead scoring", "Predictive sending", "Landing pages & forms", "Active Intelligence AI"],
+    link: "https://try.activecampaign.com/q84v43xjanzq",
+    trialInfo: "14-day free trial",
+    image: "/activecampaign.webp",
+    readMoreLink: "/learn/activecampaign"
+  },
+  {
     name: "AdCreative",
     description: "AI-powered ad creative generator that creates high-converting ads in seconds",
     category: "Marketing & Advertising",
@@ -238,6 +248,16 @@ export const trialAppsData = [
     trialInfo: "Free Trial Available",
     image: descriptai,
     readMoreLink: "/learn/descript"
+  },
+  {
+    name: "ElevateForward",
+    description: "AI strategy and execution platform that connects business diagnostics, strategy design, and initiative tracking in one system for growing businesses",
+    category: "Business Strategy",
+    features: ["Elevate Insight Reports", "Elevate Studio strategy hub", "KPI & initiative tracking", "90-day roadmap builder", "Cross-report intelligence", "Team alignment tools"],
+    link: "https://partners.elevateforward.ai/iy1986n6gbz4",
+    trialInfo: "Try for Free",
+    image: "/elevateforward.png",
+    readMoreLink: "/learn/elevate-forward"
   },
   {
     name: "ElevenLabs",

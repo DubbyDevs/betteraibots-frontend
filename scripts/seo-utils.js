@@ -13,6 +13,35 @@ function escapeHtml(text) {
     .replace(/"/g, '&quot;');
 }
 
+/** Scan a JS object block for a template-literal field value (content: `...`). */
+function extractTemplateLiteralContent(block, fieldName = 'content') {
+  const marker = `${fieldName}: \``;
+  const start = block.indexOf(marker);
+  if (start === -1) return '';
+
+  let i = start + marker.length;
+  let result = '';
+
+  while (i < block.length) {
+    const ch = block[i];
+    if (ch === '\\' && i + 1 < block.length) {
+      result += ch + block[i + 1];
+      i += 2;
+      continue;
+    }
+    if (ch === '`') {
+      const rest = block.slice(i + 1);
+      if (/^[\s,]*(?:\n\s*}|,\s*\n\s*\w+:)/.test(rest)) {
+        return result.trim();
+      }
+    }
+    result += ch;
+    i++;
+  }
+
+  return result.trim();
+}
+
 /** Extract learn articles from Articles.js (id, title, date, preview, content). */
 function extractLearnArticlesFromSource() {
   const articlesPath = path.join(__dirname, '..', 'src', 'Articles.js');
@@ -39,16 +68,7 @@ function extractLearnArticlesFromSource() {
     const titleMatch = block.match(/title:\s*"((?:[^"\\]|\\.)*)"/);
     const dateMatch = block.match(/date:\s*"([^"]+)"/);
     const previewMatch = block.match(/preview:\s*"((?:[^"\\]|\\.)*)"/);
-    const contentStart = block.indexOf('content: `');
-    let articleContent = '';
-    if (contentStart !== -1) {
-      const bodyStart = contentStart + 'content: `'.length;
-      const tail = block.slice(bodyStart);
-      const closeMatch = tail.match(/\n\s*`\s*\r?\n\s*},/);
-      if (closeMatch) {
-        articleContent = tail.slice(0, closeMatch.index);
-      }
-    }
+    const articleContent = extractTemplateLiteralContent(block, 'content');
 
     if (!titleMatch) continue;
 
@@ -59,7 +79,7 @@ function extractLearnArticlesFromSource() {
       preview: previewMatch
         ? previewMatch[1].replace(/\\"/g, '"').replace(/\\n/g, ' ').trim()
         : '',
-      content: articleContent.trim()
+      content: articleContent
     });
   }
 
@@ -71,11 +91,11 @@ function extractNewsArticlesFromSource() {
   const newsPath = path.join(__dirname, '..', 'src', 'data', 'news.js');
   const content = fs.readFileSync(newsPath, 'utf8');
   const articles = [];
-  const slugRegex = /slug:\s*"([^"]+)"/g;
+  const idRegex = /{\s*\r?\n\s*id:\s*[\d.]+/g;
   const positions = [];
   let m;
-  while ((m = slugRegex.exec(content)) !== null) {
-    positions.push({ slug: m[1], index: m.index });
+  while ((m = idRegex.exec(content)) !== null) {
+    positions.push({ index: m.index });
   }
 
   for (let i = 0; i < positions.length; i++) {
@@ -83,30 +103,22 @@ function extractNewsArticlesFromSource() {
     const blockEnd = positions[i + 1] ? positions[i + 1].index : content.length;
     const block = content.slice(blockStart, blockEnd);
 
+    const slugMatch = block.match(/slug:\s*"([^"]+)"/);
     const titleMatch = block.match(/title:\s*"((?:[^"\\]|\\.)*)"/);
     const excerptMatch = block.match(/excerpt:\s*"((?:[^"\\]|\\.)*)"/);
     const dateMatch = block.match(/date:\s*"([^"]+)"/);
-    const contentStart = block.indexOf('content: `');
-    let articleContent = '';
-    if (contentStart !== -1) {
-      const bodyStart = contentStart + 'content: `'.length;
-      const tail = block.slice(bodyStart);
-      const closeMatch = tail.match(/\n\s*`\s*(\r?\n\s*},|\s*},)/);
-      if (closeMatch) {
-        articleContent = tail.slice(0, closeMatch.index);
-      }
-    }
+    const articleContent = extractTemplateLiteralContent(block, 'content');
 
-    if (!titleMatch) continue;
+    if (!slugMatch || !titleMatch) continue;
 
     articles.push({
-      slug: positions[i].slug,
+      slug: slugMatch[1],
       title: titleMatch[1].replace(/\\"/g, '"').replace(/\\n/g, ' ').trim(),
       excerpt: excerptMatch
         ? excerptMatch[1].replace(/\\"/g, '"').replace(/\\n/g, ' ').trim()
         : '',
       date: dateMatch ? dateMatch[1] : '',
-      content: articleContent.trim()
+      content: articleContent
     });
   }
 
@@ -346,6 +358,7 @@ function buildStaticPageHtml({
 
 module.exports = {
   escapeHtml,
+  extractTemplateLiteralContent,
   extractLearnArticlesFromSource,
   extractNewsArticlesFromSource,
   markdownToHtml,

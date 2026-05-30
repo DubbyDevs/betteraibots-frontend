@@ -903,6 +903,37 @@ function Podcast() {
           .studio-image-container img {
             will-change: transform;
           }
+          /* Bottom studio players — single clip box, NO extra border (thumb art has its own frame) */
+          .podcast-bottom-player {
+            flex: 1 1 50%;
+            max-width: 420px;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            isolation: isolate;
+          }
+          .podcast-bottom-player > img,
+          .podcast-bottom-player > video,
+          .podcast-bottom-player > iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+          }
+          .podcast-bottom-player .video-play-overlay {
+            z-index: 2;
+          }
+          .podcast-bottom-player--clickable {
+            cursor: pointer;
+          }
         `}</style>
       </Helmet>
       
@@ -1258,20 +1289,7 @@ function Podcast() {
           gap: '20px',
           flexWrap: 'nowrap'
         }}>
-          <div 
-            className="studio-image-container podcast-studio-frame"
-            style={{
-              flex: '1 1 50%',
-              maxWidth: '420px',
-              width: '100%',
-              aspectRatio: '16 / 9',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-          >
+          <div className="podcast-bottom-player">
             {bottomSliderImages.map((media, index) => {
               const mediaSrc = typeof media === 'string' ? media : (media?.default || media);
               const isVideo = media === baibview || (typeof mediaSrc === 'string' && (mediaSrc.includes('.mp4') || mediaSrc.includes('.webm') || mediaSrc.includes('.mov')));
@@ -1282,11 +1300,9 @@ function Podcast() {
                   ref={(el) => {
                     if (el) {
                       if (index === leftImageIndex) {
-                        // Play video when it becomes active
                         el.currentTime = 0;
-                        el.play().catch(() => {}); // Ignore autoplay errors
+                        el.play().catch(() => {});
                       } else {
-                        // Reset video when it's not active
                         el.pause();
                         el.currentTime = 0;
                       }
@@ -1297,22 +1313,12 @@ function Podcast() {
                   muted
                   playsInline
                   onEnded={() => {
-                    // Advance to next slide when video ends
                     setLeftImageIndex((prevIndex) => (prevIndex + 1) % bottomSliderImages.length);
                   }}
                   style={{
-                    maxWidth: '100%',
-                    width: '100%',
-                    height: 'auto',
-                    display: 'block',
-                    objectFit: 'contain',
-                    position: index === leftImageIndex ? 'relative' : 'absolute',
-                    top: 0,
-                    left: 0,
                     opacity: index === leftImageIndex ? 1 : 0,
                     transition: 'opacity 1s ease-in-out',
-                    pointerEvents: 'none',
-                    borderRadius: '8px'
+                    pointerEvents: 'none'
                   }}
                 />
               ) : (
@@ -1322,91 +1328,47 @@ function Podcast() {
                   alt={`BAIB Live ${index + 1}`}
                   ref={(el) => {
                     if (el && index === leftImageIndex) {
-                      // Reset and start animation for active image only
                       el.style.animation = 'none';
                       el.style.transform = 'translate(-50%, -50%) scale(1)';
-                      void el.offsetHeight; // Trigger reflow
+                      void el.offsetHeight;
                       el.style.animation = 'kenBurnsZoom 30s linear forwards';
                     }
                   }}
                   style={{
-                    width: '100%',
-                    height: '100%',
-                    display: 'block',
-                    objectFit: 'cover',
-                    position: 'absolute',
                     top: '50%',
                     left: '50%',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
                     transform: 'translate(-50%, -50%) scale(1)',
                     transformOrigin: 'center center',
                     opacity: index === leftImageIndex ? 1 : 0,
                     transition: 'opacity 1s ease-in-out',
-                    pointerEvents: 'none',
-                    borderRadius: '8px'
+                    pointerEvents: 'none'
                   }}
                 />
               );
             })}
           </div>
           <div 
-            className="studio-image-container"
-            style={{
-              flex: '1 1 50%',
-              maxWidth: '420px',
-              width: '100%',
-              aspectRatio: '16 / 9',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              position: 'relative',
-              borderRadius: '0',
-              padding: '0',
-              background: 'transparent',
-              border: 'none',
-              boxShadow: 'none',
-              overflow: 'hidden'
-            }}
+            className={`podcast-bottom-player${isBottomVideoPlaying ? '' : ' podcast-bottom-player--clickable'}`}
+            onClick={isBottomVideoPlaying ? undefined : handleBottomImageClick}
           >
-            {isBottomVideoPlaying  ? (
+            {isBottomVideoPlaying ? (
               <iframe
                 src="https://www.youtube.com/embed/StFLNRmH7XQ?autoplay=1&rel=0&enablejsapi=1"
                 title="Welcome to BetterAiBots Podcast"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  border: 'none', 
-                  position: 'absolute', 
-                  top: 0, 
-                  left: 0,
-                  borderRadius: '16px'
-                }}
               ></iframe>
             ) : (
-              <div 
-                className="video-thumbnail"
-                onClick={handleBottomImageClick}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  position: 'relative',
-                  cursor: 'pointer'
-                }}
-              >
+              <>
                 <img 
                   src={baiblive3} 
-                  alt="BAIB" 
-                  style={{ 
-                    width: '100%',
-                    height: '100%',
-                    display: 'block',
-                    objectFit: 'cover',
-                    borderRadius: '16px'
-                  }} 
+                  alt="BetterAiBots podcast welcome video" 
                 />
                 <div className="video-play-overlay"></div>
-              </div>
+              </>
             )}
           </div>
         </div>
