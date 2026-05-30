@@ -1,6 +1,5 @@
 import { CATEGORY_SLUGS } from './constants';
 import React, { useState, useEffect, useMemo, useRef, useCallback } from "react";
-import logo from './assets/betteraibotsglowlogo.webp';
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
 import betteraibotslive from './assets/betteraibotslive.webp';
@@ -146,18 +145,7 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
 
   return (
     <nav className="nav-tabs-bar" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-      <Link 
-        to="/" 
-        style={{
-          position: 'absolute',
-          left: '20px',
-          fontSize: '0.7rem',
-          fontWeight: 700,
-          fontFamily: 'inherit',
-          zIndex: 1,
-          textDecoration: 'none'
-        }}
-      >
+      <Link to="/" className="nav-brand">
         <span className="brand-better">BetterAi</span>
         <span className="brand-bots">Bots</span>
       </Link>
@@ -833,6 +821,16 @@ const PAID_APPS = [
     link: "https://go.evolveplatform.ai/9lwvqqq20p28",
     image: "/evolveai.jpg",
     readMoreLink: "/learn/evolve-complete-guide"
+  },
+  {
+    name: "AliDrop",
+    description: "AliExpress, Alibaba, and Temu dropshipping automation with one-click imports, US/EU suppliers, and Shopify order fulfillment",
+    category: "E-commerce & Dropshipping",
+    features: ["One-click product import", "Automated order fulfillment", "Shopify integration", "US/EU suppliers", "Trending product discovery"],
+    price: "7-day free trial",
+    link: "https://get.alidrop.co/a1gll4u5mi12",
+    image: "/alidrop.png",
+    readMoreLink: "/learn/alidrop-complete-guide"
   }
 ];
 
@@ -4590,7 +4588,7 @@ function App() {
           {(() => {
             const path = location?.pathname || window.location.pathname || '';
             const pathLower = path.toLowerCase();
-            const shouldShow = path === '/' || path === '/apps' || path === '/contact' || pathLower === '/podcast' || path.startsWith('/learn') || path.startsWith('/news');
+            const shouldShow = path === '/' || path === '/apps' || path === '/my-ai' || path === '/contact' || pathLower === '/podcast' || path.startsWith('/learn') || path.startsWith('/news');
             return shouldShow ? (
               <div className="site-ticker">
                 {/* Ticker text container */}
@@ -5002,17 +5000,10 @@ function FooterWithWallets({ showPWAInstallButton = false, onPWAInstallClick }) 
             display: "flex",
             alignItems: "center"
           }}>
-            <img
-              src={logo}
-              alt="BetterAiBots Logo"
-              style={{
-                height: "20px",
-                width: "auto",
-                background: "transparent",
-                display: "block"
-              }}
-              draggable={false}
-            />
+            <Link to="/" className="site-footer__brand-logo" aria-label="BetterAiBots home">
+              <span className="brand-better">BetterAi</span>
+              <span className="brand-bots">Bots</span>
+            </Link>
           </div>
           <p className="site-footer__text">
             Paying for AI tools you forgot you had? BetterAiBots.com is your free command center for discovering powerful AI apps, comparing what works, and tracking every subscription so nothing slips through the cracks.

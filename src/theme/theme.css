@@ -1,4 +1,4 @@
-/* Theme tokens — dark (default) matches current site; light = professional day mode */
+/* Theme tokens — light is default for new visitors; dark available via toggle */
 
 :root,
 [data-theme="dark"] {
@@ -38,6 +38,16 @@
   --star-gradient: linear-gradient(90deg, #36ff95, #ffd700);
   --ticker-shadow: rgba(0, 0, 0, 0.3);
   --meta-theme-color: #101c26;
+  --accent-surface: rgba(54, 255, 149, 0.1);
+  --accent-surface-hover: rgba(54, 255, 149, 0.2);
+  --accent-surface-subtle: rgba(54, 255, 149, 0.05);
+  --accent-surface-muted: rgba(54, 255, 149, 0.15);
+  --accent-border-muted: rgba(54, 255, 149, 0.2);
+  --accent-border-medium: rgba(54, 255, 149, 0.3);
+  --accent-border-strong: rgba(54, 255, 149, 0.4);
+  --my-ai-card-bg: rgba(0, 0, 0, 0.2);
+  --my-ai-card-border: rgba(255, 255, 255, 0.1);
+  --my-ai-panel-bg: rgba(255, 255, 255, 0.03);
 }
 
 [data-theme="light"] {
@@ -77,6 +87,90 @@
   --star-gradient: linear-gradient(90deg, #0d9488, #ca8a04);
   --ticker-shadow: rgba(15, 23, 42, 0.08);
   --meta-theme-color: #f8fafc;
+  --accent-surface: rgba(13, 148, 136, 0.08);
+  --accent-surface-hover: rgba(13, 148, 136, 0.14);
+  --accent-surface-subtle: rgba(13, 148, 136, 0.04);
+  --accent-surface-muted: rgba(13, 148, 136, 0.1);
+  --accent-border-muted: rgba(13, 148, 136, 0.22);
+  --accent-border-medium: rgba(13, 148, 136, 0.35);
+  --accent-border-strong: rgba(13, 148, 136, 0.45);
+  --my-ai-card-bg: #ffffff;
+  --my-ai-card-border: #e2e8f0;
+  --my-ai-panel-bg: #ffffff;
+}
+
+/* My AI Dashboard */
+.my-ai-page .my-ai-page-title {
+  color: var(--accent);
+}
+
+[data-theme="light"] .my-ai-page .my-ai-page-title,
+[data-theme="light"] .my-ai-page h2[style*="var(--accent)"],
+[data-theme="light"] .my-ai-page h4.my-ai-info-title {
+  color: #0f766e !important;
+}
+
+.my-ai-page .my-ai-info-title {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.my-ai-page .my-ai-panel {
+  background: var(--my-ai-panel-bg);
+  border: 1px solid var(--accent-border-muted);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 40px;
+}
+
+.my-ai-page .my-ai-app-card {
+  background: var(--my-ai-card-bg);
+  border: 1px solid var(--my-ai-card-border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.my-ai-page .my-ai-stat-card {
+  background: var(--accent-surface);
+  border: 2px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: inline-block;
+  min-width: 200px;
+}
+
+.my-ai-page .my-ai-info-box {
+  padding: 24px;
+  background: var(--accent-surface-subtle);
+  border-radius: 16px;
+  border: 1px solid var(--accent-border-muted);
+  font-size: 0.9rem;
+  color: var(--text-subtle);
+}
+
+[data-theme="light"] .my-ai-page .my-ai-filter-btn {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .my-ai-page .my-ai-filter-btn--active {
+  color: var(--accent) !important;
+  background: var(--accent-surface) !important;
+  border-color: var(--border-accent) !important;
+}
+
+[data-theme="light"] .my-ai-page .my-ai-btn-primary {
+  background: var(--accent-gradient) !important;
+  color: var(--text-on-accent) !important;
+  border: none !important;
+}
+
+[data-theme="light"] .my-ai-page .my-ai-btn-outline:hover {
+  color: var(--text-primary) !important;
+  background: var(--accent-surface-hover) !important;
+  border-color: var(--border-accent) !important;
 }
 
 /* Theme toggle */
@@ -181,12 +275,34 @@
   opacity: 1;
 }
 
+.nav-brand {
+  position: absolute;
+  left: 20px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .nav-brand {
+    left: 12px;
+    font-size: 1rem;
+  }
+}
+
 .brand-better {
   color: var(--brand-muted);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 [data-theme="light"] .brand-better {
+  color: #0f172a !important;
   text-shadow: none;
 }
 
@@ -196,6 +312,7 @@
 }
 
 [data-theme="light"] .brand-bots {
+  color: #0f766e !important;
   text-shadow: none;
 }
 
@@ -1043,6 +1160,25 @@
   font-weight: 600;
 }
 
+/* Level path badges — avoid square drop-shadow from rectangular image canvas */
+.learn-level-badge-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.learn-level-badge {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+}
+
 .learn-guide-card__icon-frame {
   border: 2px solid var(--border-accent-soft);
   display: flex;
@@ -1050,18 +1186,25 @@
   justify-content: center;
   box-sizing: border-box;
   flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
 }
 
 .learn-guide-card__icon-frame img {
-  box-shadow: 0 2px 8px var(--shadow-card);
+  box-shadow: none;
+  border-radius: 8px;
 }
 
 [data-theme="light"] .learn-guide-card__icon-frame {
-  border: 1px solid #e2e8f0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 [data-theme="light"] .learn-guide-card__icon-frame img {
   box-shadow: none !important;
+  filter: none !important;
 }
 
 [data-theme="light"] .guide-card-neon:hover,
@@ -1161,6 +1304,228 @@
 [data-theme="light"] .learn-article-card__img-wrap {
   background: #f1f5f9 !important;
   box-shadow: none !important;
+}
+
+/* Learn path guide modals (Beginner / Intermediate / Advanced / AI for Dummies) */
+.learn-path-guide-overlay {
+  z-index: 10050 !important;
+}
+
+.learn-path-guide {
+  margin-top: 8px;
+}
+
+[data-theme="light"] .learn-path-guide-overlay {
+  background: rgba(15, 23, 42, 0.45) !important;
+}
+
+[data-theme="light"] .learn-path-guide__panel {
+  background: #f0fdfa !important;
+  border-color: #99f6e4 !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide__card {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__panel {
+  background: #f5f3ff !important;
+  border-color: #ddd6fe !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__card {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .learn-path-guide--advanced .learn-path-guide__panel {
+  background: #fffbeb !important;
+  border-color: #fde68a !important;
+}
+
+[data-theme="light"] .learn-path-guide__panel p,
+[data-theme="light"] .learn-path-guide__card p,
+[data-theme="light"] .learn-path-guide__card h3,
+[data-theme="light"] .learn-path-guide__content p,
+[data-theme="light"] .learn-path-guide__content > p,
+[data-theme="light"] .learn-path-guide__content h2 {
+  color: var(--text-secondary) !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide--beginner .learn-path-guide__content h2,
+[data-theme="light"] .learn-path-guide--dummies .learn-path-guide__content h2 {
+  color: #0f766e !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__content h2 {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .learn-path-guide--advanced .learn-path-guide__content h2 {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .learn-path-guide--beginner .learn-path-guide__card h3,
+[data-theme="light"] .learn-path-guide--dummies .learn-path-guide__card h3 {
+  color: #0f766e !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate .learn-path-guide__card h3 {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .learn-path-guide--advanced .learn-path-guide__panel h3 {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .learn-path-guide {
+  background: #ffffff !important;
+  color: var(--text-secondary) !important;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12) !important;
+}
+
+[data-theme="light"] .learn-path-guide[style*="color: #ffffff"],
+[data-theme="light"] .learn-path-guide[style*="color:#ffffff"],
+[data-theme="light"] .learn-path-guide[style*="color: rgb(255"],
+[data-theme="light"] .learn-path-guide[style*="color:rgb(255"],
+[data-theme="light"] .learn-path-guide[style*="color: #fff"],
+[data-theme="light"] .learn-path-guide[style*="color:#fff"] {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="light"] .learn-path-guide--beginner,
+[data-theme="light"] .learn-path-guide--dummies {
+  border-color: #14b8a6 !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate {
+  border-color: #8b5cf6 !important;
+}
+
+[data-theme="light"] .learn-path-guide--advanced {
+  border-color: #d97706 !important;
+}
+
+[data-theme="light"] .learn-path-guide h1,
+[data-theme="light"] .learn-path-guide h2,
+[data-theme="light"] .learn-path-guide h3 {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide--beginner h1,
+[data-theme="light"] .learn-path-guide--beginner h2,
+[data-theme="light"] .learn-path-guide--beginner h3,
+[data-theme="light"] .learn-path-guide--dummies h1,
+[data-theme="light"] .learn-path-guide--dummies h2,
+[data-theme="light"] .learn-path-guide--dummies h3 {
+  color: #0f766e !important;
+}
+
+[data-theme="light"] .learn-path-guide--beginner [style*="color: #36ff95"],
+[data-theme="light"] .learn-path-guide--beginner [style*="color:#36ff95"],
+[data-theme="light"] .learn-path-guide--dummies [style*="color: #36ff95"],
+[data-theme="light"] .learn-path-guide--dummies [style*="color:#36ff95"] {
+  color: #0f766e !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate h1,
+[data-theme="light"] .learn-path-guide--intermediate h2,
+[data-theme="light"] .learn-path-guide--intermediate h3,
+[data-theme="light"] .learn-path-guide--intermediate [style*="color: #8b5cf6"],
+[data-theme="light"] .learn-path-guide--intermediate [style*="color:#8b5cf6"] {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .learn-path-guide--advanced h1,
+[data-theme="light"] .learn-path-guide--advanced h2,
+[data-theme="light"] .learn-path-guide--advanced h3,
+[data-theme="light"] .learn-path-guide--advanced [style*="color: #ffd700"],
+[data-theme="light"] .learn-path-guide--advanced [style*="color:#ffd700"],
+[data-theme="light"] .learn-path-guide--advanced [style*="color: #ffb347"],
+[data-theme="light"] .learn-path-guide--advanced [style*="color:#ffb347"] {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .learn-path-guide p,
+[data-theme="light"] .learn-path-guide li {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="light"] .learn-path-guide strong {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .learn-path-guide [style*="color: #e0e0e0"],
+[data-theme="light"] .learn-path-guide [style*="color:#e0e0e0"],
+[data-theme="light"] .learn-path-guide [style*="color: #ffffff"],
+[data-theme="light"] .learn-path-guide [style*="color:#ffffff"],
+[data-theme="light"] .learn-path-guide [style*="color: #fff"],
+[data-theme="light"] .learn-path-guide [style*="color:#fff"],
+[data-theme="light"] .learn-path-guide [style*="color: #b2ffe0"],
+[data-theme="light"] .learn-path-guide [style*="color:#b2ffe0"],
+[data-theme="light"] .learn-path-guide [style*="color: #e9f7"],
+[data-theme="light"] .learn-path-guide [style*="color:#e9f7"] {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="light"] .learn-path-guide [style*="1a2330"],
+[data-theme="light"] .learn-path-guide [style*="0f1419"],
+[data-theme="light"] .learn-path-guide [style*="133626"],
+[data-theme="light"] .learn-path-guide [style*="18232f"],
+[data-theme="light"] .learn-path-guide [style*="0f0f23"],
+[data-theme="light"] .learn-path-guide [style*="1a1a2e"],
+[data-theme="light"] .learn-path-guide [style*="0f1a26"],
+[data-theme="light"] .learn-path-guide [style*="1a3447"] {
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide > button[style*="position: 'absolute'"],
+[data-theme="light"] .learn-path-guide > button[style*="position: absolute"] {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .learn-path-guide--beginner > button,
+[data-theme="light"] .learn-path-guide--dummies > button {
+  color: #0f766e !important;
+}
+
+[data-theme="light"] .learn-path-guide--intermediate > button {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .learn-path-guide--advanced > button {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .learn-path-guide img {
+  filter: none !important;
+}
+
+[data-theme="light"] .learn-path-guide [style*="36ff9544"],
+[data-theme="light"] .learn-path-guide [style*="textShadow"] {
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .learn-path-guide.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9 !important;
+}
+
+[data-theme="light"] .learn-path-guide.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1 !important;
+}
+
+[data-theme="light"] .learn-path-guide.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8 !important;
 }
 
 [data-theme="light"] .feature-article {
@@ -1358,6 +1723,31 @@
 
 [data-theme="light"] .site-footer .site-footer__brand-link {
   color: #0f766e !important;
+}
+
+.site-footer__brand-logo {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .site-footer__brand-logo {
+  font-size: 1.05rem;
+}
+
+[data-theme="light"] .site-footer__brand-logo .brand-better {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .site-footer__brand-logo .brand-bots {
+  color: #0f766e !important;
+  text-shadow: none !important;
 }
 
 @media (max-width: 768px) {

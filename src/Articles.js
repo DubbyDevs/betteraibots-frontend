@@ -7933,6 +7933,246 @@ Catalister gives modern dropshippers a data-driven operating system for discover
     `
   },
   {
+    id: "alidrop-complete-guide",
+    title: "AliExpress, Alibaba & Temu Dropshipping Automation for Shopify",
+    date: "May 2026",
+    cover: "/alidrop.png",
+    preview: "AliDrop automates AliExpress, Alibaba, and Temu dropshipping with one-click product imports, US/EU suppliers, and Shopify order fulfillment. Start your 7-day free trial and scale your store with trending products.",
+    images: ["/alidrop.png"],
+    content: `
+## What is [AliDrop](https://get.alidrop.co/a1gll4u5mi12)?
+
+[AliDrop](https://get.alidrop.co/a1gll4u5mi12) is an all-in-one dropshipping automation platform built for entrepreneurs who source from **AliExpress**, **Alibaba**, and **Temu**—plus trusted **US and EU suppliers** for faster shipping. Instead of manually copying products, tracking orders in spreadsheets, and juggling multiple supplier accounts, AliDrop connects your store to winning products and automates fulfillment end to end.
+
+Trusted by **500,000+ entrepreneurs** with **100M+ monitored products** and **$50M+ in annual sales** facilitated through the platform, AliDrop is positioned as the #1 AliExpress dropshipping brand on Shopify. Whether you're starting your first store or scaling an existing dropshipping business, AliDrop streamlines sourcing, importing, and order management in one workflow.
+
+**[🚀 Start AliExpress Dropshipping — 7-Day Free Trial](https://get.alidrop.co/a1gll4u5mi12)**
+
+## Key Features That Make AliDrop Stand Out
+
+### Find Top AliExpress & Marketplace Products
+
+Explore curated **AliExpress trending products** and top sellers from vetted US/EU suppliers. AliDrop's marketplace helps you discover high-demand SKUs without hours of manual research on AliExpress, Alibaba, or Temu.
+
+**Best for**: New store owners testing niches and experienced sellers looking for the next winning product.
+
+**Discovery features**:
+- Trending and best-selling product feeds
+- US/EU supplier options for faster delivery
+- Product performance insights across 100M+ monitored listings
+- Curated selections to reduce guesswork
+
+### One-Click Product Import
+
+Streamline product import with AliDrop's **one-click system**. Sync AliExpress, Alibaba, and Temu products directly to your **Shopify store** (or other eCommerce platforms) without manual copy-paste.
+
+**What you get**:
+- Instant product listing creation
+- Imported images, titles, and variants
+- Faster time from research to live product
+- Less manual data entry and fewer import errors
+
+### Automated Order Fulfillment
+
+When a customer places an order, AliDrop **automatically sends it to the supplier** for processing and shipping. You focus on marketing and customer experience—AliDrop handles the operational handoff.
+
+**Automation benefits**:
+- Orders routed to suppliers without manual steps
+- Tracking updates synced back to your store
+- Timely shipping and fewer fulfillment delays
+- Scale order volume without hiring a VA for every order
+
+### Full Shopify Integration
+
+AliDrop offers seamless **AliExpress dropshipping Shopify integration**:
+
+- Automated product imports
+- Order fulfillment automation
+- Inventory syncing
+- Centralized management from one dashboard
+
+Perfect for sellers searching "how to dropship with AliExpress on Shopify" who want a purpose-built tool instead of fragile manual workflows.
+
+### US & EU Suppliers
+
+Beyond China-based AliExpress suppliers, AliDrop connects you with **US and EU suppliers** for faster shipping times, higher customer satisfaction, and competitive positioning in Western markets.
+
+### AI Tools for Store Growth
+
+AliDrop includes additional tools to accelerate your business:
+
+- **AI product description generator** — Create optimized product copy quickly
+- **AI Shopify store** — Launch a store pre-loaded with trending products
+- **AliDrop marketplace** — Source winning products from one hub
+
+## AliDrop Pricing: What Does It Cost?
+
+### 7-Day Free Trial
+
+Start with a **7-day free trial** with full access to AliDrop's features. Create, import products, and test order automation—cancel anytime during the trial if it's not the right fit.
+
+**[🚀 Start Your 7-Day Free Trial](https://get.alidrop.co/a1gll4u5mi12)**
+
+### Paid Plans
+
+After the trial, AliDrop offers paid plans scaled to your store volume and feature needs. Check the [AliDrop pricing page](https://get.alidrop.co/a1gll4u5mi12) for current tiers and what's included in each plan.
+
+*Note: Pricing may change. Verify current plans on the official AliDrop website before subscribing.*
+
+## How to Use AliDrop: Step-by-Step Guide
+
+### 1. Sign Up and Connect Your Store
+
+Go to [AliDrop](https://get.alidrop.co/a1gll4u5mi12) and create your account. Start the 7-day free trial, then connect your **Shopify store** (or supported eCommerce platform). Authorize the integration so AliDrop can import products and sync orders.
+
+### 2. Browse Trending Products
+
+Open the AliDrop marketplace and explore:
+
+- **AliExpress trending products** in your niche
+- **US/EU supplier listings** for faster shipping
+- Products with strong order volume and reviews
+
+Shortlist items that match your target margin, shipping expectations, and brand positioning.
+
+### 3. Import Products with One Click
+
+Select products and use **one-click import** to add them to your store. Review imported titles, descriptions, images, and pricing before publishing—adjust markup to hit your profit targets.
+
+**Pricing example** (from AliDrop's model):
+- You pay supplier: **$2**
+- You sell for: **$8**
+- Your profit: **$6**
+
+Always validate landed cost, shipping, and fees for your specific supplier and destination.
+
+### 4. Customize Listings
+
+Use AliDrop's **AI product description generator** to refine copy for SEO and conversions. Add your brand voice, policies, and unique selling points so listings don't look identical to every other dropshipper.
+
+### 5. Configure Shipping & Policies
+
+Set customer-facing shipping expectations based on supplier location (China vs. US/EU). Align your store policies with realistic delivery times to reduce chargebacks and support tickets.
+
+### 6. Launch Marketing
+
+Drive traffic through your preferred channels—paid ads, social, SEO, or email. AliDrop handles fulfillment; your job is traffic and conversion.
+
+### 7. Let Orders Fulfill Automatically
+
+When orders come in, AliDrop routes them to suppliers automatically. Monitor the dashboard for fulfillment status and tracking. Address customer issues promptly if delays occur.
+
+### 8. Scale Winners, Cut Losers
+
+Use sales data to double down on winning SKUs and remove underperformers. Import new trending products regularly to keep your catalog fresh.
+
+## Who Should Use [AliDrop](https://get.alidrop.co/a1gll4u5mi12)?
+
+### Perfect for:
+
+✓ **New dropshipping entrepreneurs** starting with AliExpress or Temu
+✓ **Shopify store owners** wanting automated AliExpress integration
+✓ **Sellers targeting US/EU customers** who need faster supplier options
+✓ **Side-hustle founders** testing products without inventory risk
+✓ **Existing dropshippers** tired of manual order placement and imports
+✓ **Anyone asking** "how to dropship using AliExpress" with less friction
+
+### Maybe not ideal for:
+
+✗ **Brands selling exclusively private-label inventory** they manufacture
+✗ **Retailers who refuse marketplace sourcing** (AliExpress/Alibaba/Temu)
+✗ **Stores not on Shopify or supported platforms** (verify compatibility first)
+
+## AliDrop vs. Competitors
+
+**AliDrop vs. DSers**: Both automate AliExpress dropshipping for Shopify. AliDrop emphasizes trending product discovery, US/EU suppliers, and AI store tools in one platform branded for modern sellers.
+
+**AliDrop vs. Spocket**: Spocket focuses heavily on US/EU suppliers. AliDrop combines AliExpress/Alibaba/Temu sourcing with US/EU options and broader marketplace monitoring.
+
+**AliDrop vs. Manual AliExpress dropshipping**: Manual workflows work at tiny scale but break when order volume grows. AliDrop automates imports and fulfillment—the two biggest time sinks.
+
+**AliDrop vs. Catalister**: Both target Shopify dropshippers. AliDrop is specifically positioned around AliExpress, Alibaba, and Temu with deep marketplace integration and trending product feeds.
+
+## Pros and Cons
+
+### What Sellers Love
+
+✓ **One-click product import** — List products in minutes, not hours
+✓ **Automated fulfillment** — Orders sent to suppliers without manual work
+✓ **Shopify-native integration** — Built for the most popular dropshipping platform
+✓ **100M+ products monitored** — Massive selection and trend visibility
+✓ **US/EU supplier access** — Faster shipping options for Western customers
+✓ **7-day free trial** — Test before committing
+✓ **AI description tools** — Speed up listing optimization
+✓ **Proven scale** — 500k+ entrepreneurs, strong review ratings
+
+### Common Considerations
+
+✗ **Dropshipping margins can be thin** — Pricing and marketing must be dialed in
+✗ **Shipping times vary** — Especially for China-based suppliers; set expectations clearly
+✗ **Product quality varies by supplier** — Vet suppliers and order samples when possible
+✗ **Competition is high** — Trending products attract many sellers; differentiation matters
+
+## Frequently Asked Questions
+
+### How do you dropship using AliExpress with AliDrop?
+
+Select suppliers and products in AliDrop, import them to your store with one click, and connect order automation. When customers buy, AliDrop forwards orders to suppliers for fulfillment and tracking.
+
+### Can you dropship with AliExpress on Shopify?
+
+Yes. Install/connect AliDrop to Shopify, import AliExpress (and Alibaba/Temu) products, and enable automated order fulfillment. AliDrop handles sync between Shopify and supplier systems.
+
+### What are the best selling products on AliExpress?
+
+Categories often include fashion, electronics, home goods, and beauty—but trends change. Use AliDrop's trending feeds and order-volume signals rather than guessing.
+
+### How do you find trending products on AliExpress?
+
+Use AliDrop's marketplace, monitor high-order-volume listings, and test products with small ad budgets before scaling winners.
+
+### Does AliDrop support Temu and Alibaba dropshipping?
+
+Yes. AliDrop supports AliExpress, Alibaba, and Temu sourcing alongside US/EU suppliers in one workflow.
+
+## Is [AliDrop](https://get.alidrop.co/a1gll4u5mi12) Worth It?
+
+AliDrop is worth it if you:
+
+- Run or plan to run a Shopify dropshipping store
+- Source from AliExpress, Alibaba, or Temu
+- Want to automate product imports and order fulfillment
+- Need US/EU supplier options for faster shipping
+- Prefer a 7-day trial before paying for a tool
+
+## Bottom Line
+
+[AliDrop](https://get.alidrop.co/a1gll4u5mi12) removes the manual grind from AliExpress dropshipping—product research, one-click imports, and automated fulfillment in one platform. For Shopify sellers who want to scale without drowning in supplier admin, it's a practical starting point with a risk-free trial.
+
+Start your 7-day free trial, import your first trending products, and let automation handle fulfillment while you focus on growing sales.
+
+**[🚀 Start AliExpress Dropshipping — 7-Day Free Trial](https://get.alidrop.co/a1gll4u5mi12)**
+
+---
+
+## Important Disclaimers
+
+**Please read these important legal disclaimers carefully:**
+
+**Affiliate Disclosure:** BetterAiBots.com has an affiliate relationship with [AliDrop](https://get.alidrop.co/a1gll4u5mi12). This means we may receive compensation if you sign up for AliDrop through links in this article. While we strive to provide honest, unbiased reviews, readers should be aware that we have a financial incentive when you choose to use this service. This review is based on publicly available information and our analysis, but our affiliate relationship may influence our perspective.
+
+**Independent Review:** The views, opinions, and assessments expressed in this article are those of the author and do not constitute an endorsement or recommendation from AliDrop or any affiliated organizations. Readers should conduct their own research and due diligence before making any purchasing decisions.
+
+**No Guarantees:** Profit examples and business results described in this article are illustrative. Dropshipping profitability depends on product selection, pricing, marketing, supplier reliability, shipping times, and market conditions. Past performance does not guarantee future results.
+
+**Pricing & Features:** AliDrop pricing, features, and trial terms may change. Always verify current plans and terms on the official AliDrop website before signing up.
+
+**Compliance:** Ensure your store follows Shopify policies, marketplace terms (AliExpress, Alibaba, Temu), import/export regulations, and consumer protection laws in your target markets.
+
+**Third-Party Information:** Some information in this article comes from third-party sources and public statements on [AliDrop's website](https://get.alidrop.co/a1gll4u5mi12). While we strive for accuracy, we cannot guarantee the completeness or accuracy of all third-party information. Readers should verify critical information independently.
+    `
+  },
+  {
     id: "airia",
     title: "Enterprise AI Orchestration Platform for Building and Governing AI Agents",
     date: "November 2025",
@@ -20375,6 +20615,7 @@ function ArticleCard({ article, level }) {
 function AIForDummiesGuide({ onClose }) {
   return (
     <div 
+      className="learn-path-guide-overlay"
       onClick={onClose}
       style={{
       position: 'fixed',
@@ -20402,7 +20643,7 @@ function AIForDummiesGuide({ onClose }) {
         position: 'relative',
         boxShadow: '0 20px 60px rgba(54, 255, 149, 0.3)'
       }}
-      className="custom-scrollbar">
+      className="learn-path-guide learn-path-guide--dummies custom-scrollbar">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -20468,7 +20709,7 @@ function AIForDummiesGuide({ onClose }) {
         </div>
 
         {/* Content - Using the same content structure as LearnLevelSelector */}
-        <div style={{
+        <div className="learn-path-guide__content" style={{
           padding: '0 30px 30px 30px',
           color: 'var(--text-secondary)',
           lineHeight: '1.8',
@@ -20654,6 +20895,7 @@ function AIForDummiesGuide({ onClose }) {
 function AIStarterGuide({ onClose, onQuizClick }) {
   return (
     <div 
+      className="learn-path-guide-overlay"
       onClick={onClose}
       style={{
       position: 'fixed',
@@ -20681,7 +20923,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
         position: 'relative',
         boxShadow: '0 20px 60px rgba(54, 255, 149, 0.3)'
       }}
-      className="custom-scrollbar">
+      className="learn-path-guide learn-path-guide--beginner custom-scrollbar">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -20774,12 +21016,12 @@ function AIStarterGuide({ onClose, onQuizClick }) {
         </div>
 
         {/* Content */}
-        <div style={{
+        <div className="learn-path-guide__content" style={{
           padding: '30px',
           color: 'var(--text-secondary)',
           lineHeight: '1.6'
         }}>
-          <div style={{
+          <div className="learn-path-guide__panel" style={{
             background: 'linear-gradient(135deg, #133626 0%, #18232f 100%)',
             border: '1px solid #36ff95',
             borderRadius: '12px',
@@ -20808,7 +21050,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
             gap: '20px',
             marginBottom: '30px'
           }}>
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -20823,7 +21065,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -20838,7 +21080,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -20853,7 +21095,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -20868,7 +21110,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -20883,7 +21125,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -20912,7 +21154,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
             💰 Current Pricing Reveals Clear Value Tiers
           </h2>
           
-          <div style={{
+          <div className="learn-path-guide__panel" style={{
             background: 'linear-gradient(135deg, #133626 0%, #18232f 100%)',
             border: '1px solid #36ff95',
             borderRadius: '12px',
@@ -20971,7 +21213,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
             gap: '15px',
             marginBottom: '30px'
           }}>
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '10px',
@@ -20983,7 +21225,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '10px',
@@ -20995,7 +21237,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '10px',
@@ -21007,7 +21249,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '10px',
@@ -21019,7 +21261,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '10px',
@@ -21031,7 +21273,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '10px',
@@ -21055,7 +21297,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
             🚀 Step-by-Step Implementation Strategy
           </h2>
           
-          <div style={{
+          <div className="learn-path-guide__panel" style={{
             background: 'linear-gradient(135deg, #133626 0%, #18232f 100%)',
             border: '1px solid #36ff95',
             borderRadius: '12px',
@@ -21095,7 +21337,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
             gap: '20px',
             marginBottom: '30px'
           }}>
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -21110,7 +21352,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -21125,7 +21367,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -21140,7 +21382,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '12px',
@@ -21167,7 +21409,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
             🏭 Industry-Specific Applications
           </h2>
           
-          <div style={{
+          <div className="learn-path-guide__panel" style={{
             background: 'linear-gradient(135deg, #133626 0%, #18232f 100%)',
             border: '1px solid #36ff95',
             borderRadius: '12px',
@@ -21228,7 +21470,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
             gap: '15px',
             marginBottom: '30px'
           }}>
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '10px',
@@ -21240,7 +21482,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '10px',
@@ -21252,7 +21494,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #36ff95',
               borderRadius: '10px',
@@ -21363,6 +21605,7 @@ function AIStarterGuide({ onClose, onQuizClick }) {
 function AdvancedGuide({ onClose, onQuizClick }) {
   return (
     <div 
+      className="learn-path-guide-overlay"
       onClick={onClose}
       style={{
       position: 'fixed',
@@ -21393,7 +21636,7 @@ function AdvancedGuide({ onClose, onQuizClick }) {
         color: '#ffffff',
         boxShadow: '0 0 30px rgba(255, 215, 0, 0.3)'
       }}
-      className="custom-scrollbar">
+      className="learn-path-guide learn-path-guide--advanced custom-scrollbar">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -21486,7 +21729,7 @@ function AdvancedGuide({ onClose, onQuizClick }) {
         </div>
 
         {/* Content */}
-        <div style={{ lineHeight: '1.8', fontSize: '1.05rem' }}>
+        <div className="learn-path-guide__content" style={{ lineHeight: '1.8', fontSize: '1.05rem', padding: '0 10px 20px' }}>
           <p style={{ marginBottom: '20px', color: '#e0e0e0' }}>
             You've progressed from basic tool usage to sophisticated workflow automation, and now you're positioned to <strong style={{ color: '#ffd700' }}>architect enterprise-wide AI transformations that create sustainable competitive advantages</strong>. In August 2025, advanced AI practitioners operate at the intersection of technology strategy, organizational change management, and regulatory compliance, deploying custom AI solutions that generate measurable ROI at unprecedented scale. This comprehensive guide elevates you to the professional tier, providing the executive-level frameworks and implementation strategies needed to lead AI initiatives that transform entire organizations and define industry standards.
           </p>
@@ -21680,7 +21923,7 @@ function AdvancedGuide({ onClose, onQuizClick }) {
           </p>
 
           {/* Quiz Call-to-Action */}
-          <div style={{ textAlign: 'center', marginTop: '40px', padding: '30px', background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 179, 71, 0.1) 100%)', borderRadius: '15px', border: '2px solid #ffd700' }}>
+          <div className="learn-path-guide__panel" style={{ textAlign: 'center', marginTop: '40px', padding: '30px', background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 179, 71, 0.1) 100%)', borderRadius: '15px', border: '2px solid #ffd700' }}>
             <h3 style={{ color: '#ffd700', fontSize: '1.5rem', marginBottom: '15px' }}>
               Ready to Test Your Advanced AI Knowledge?
             </h3>
@@ -21719,6 +21962,7 @@ function AdvancedGuide({ onClose, onQuizClick }) {
 function IntermediateGuide({ onClose, onQuizClick }) {
   return (
     <div 
+      className="learn-path-guide-overlay"
       onClick={onClose}
       style={{
       position: 'fixed',
@@ -21746,7 +21990,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
         position: 'relative',
         boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)'
       }}
-      className="custom-scrollbar">
+      className="learn-path-guide learn-path-guide--intermediate custom-scrollbar">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -21839,12 +22083,12 @@ function IntermediateGuide({ onClose, onQuizClick }) {
         </div>
 
         {/* Content */}
-        <div style={{
+        <div className="learn-path-guide__content" style={{
           padding: '30px',
           color: 'var(--text-secondary)',
           lineHeight: '1.6'
         }}>
-          <div style={{
+          <div className="learn-path-guide__panel" style={{
             background: 'linear-gradient(135deg, #2d1b69 0%, #18232f 100%)',
             border: '1px solid #8b5cf6',
             borderRadius: '12px',
@@ -21867,7 +22111,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
             🚀 Advanced Prompting Transforms AI from Helpful to Strategic
           </h2>
           
-          <div style={{
+          <div className="learn-path-guide__panel" style={{
             background: 'linear-gradient(135deg, #2d1b69 0%, #18232f 100%)',
             border: '1px solid #8b5cf6',
             borderRadius: '12px',
@@ -21930,7 +22174,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
             gap: '20px',
             marginBottom: '30px'
           }}>
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '12px',
@@ -21942,7 +22186,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '12px',
@@ -21954,7 +22198,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '12px',
@@ -21966,7 +22210,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '12px',
@@ -21990,7 +22234,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
             💼 Business Integration Strategies Maximize Organizational Impact
           </h2>
           
-          <div style={{
+          <div className="learn-path-guide__panel" style={{
             background: 'linear-gradient(135deg, #2d1b69 0%, #18232f 100%)',
             border: '1px solid #8b5cf6',
             borderRadius: '12px',
@@ -22030,7 +22274,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
             gap: '15px',
             marginBottom: '30px'
           }}>
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '10px',
@@ -22042,7 +22286,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '10px',
@@ -22054,7 +22298,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '10px',
@@ -22066,7 +22310,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '10px',
@@ -22078,7 +22322,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '10px',
@@ -22090,7 +22334,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '10px',
@@ -22120,7 +22364,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
             gap: '20px',
             marginBottom: '30px'
           }}>
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '12px',
@@ -22132,7 +22376,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '12px',
@@ -22144,7 +22388,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
 
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '12px',
@@ -22156,7 +22400,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
               </p>
             </div>
             
-            <div style={{
+            <div className="learn-path-guide__card" style={{
               background: 'linear-gradient(135deg, #1a2330 0%, #0f1419 100%)',
               border: '1px solid #8b5cf6',
               borderRadius: '12px',
@@ -22190,7 +22434,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
             🏭 Industry-Specific Applications Demonstrate Measurable Value
           </h2>
           
-          <div style={{
+          <div className="learn-path-guide__panel" style={{
             background: 'linear-gradient(135deg, #2d1b69 0%, #18232f 100%)',
             border: '1px solid #8b5cf6',
             borderRadius: '12px',

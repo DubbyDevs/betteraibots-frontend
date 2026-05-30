@@ -4,9 +4,12 @@
     (function () {
       try {
         var t = localStorage.getItem('baib-theme');
-        document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+        var theme = (t === 'dark' || t === 'light') ? t : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'light' ? '#f8fafc' : '#101c26');
       } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
@@ -37,8 +40,8 @@
 
     <!-- Viewport & Theme Colors -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
-    <meta name="theme-color" content="#101c26" />
-    <meta name="background-color" content="#101c26" />
+    <meta name="theme-color" content="#f8fafc" />
+    <meta name="background-color" content="#f8fafc" />
     
     <!-- Content Security Policy is set via HTTP header in netlify.toml for better security -->
     

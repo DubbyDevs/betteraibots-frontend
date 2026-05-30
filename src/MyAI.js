@@ -284,11 +284,11 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
   });
 
   return (
-    <div style={{
+    <div className="my-ai-page" style={{
       maxWidth: '1200px',
       margin: '0 auto',
       padding: '40px 20px',
-      color: '#f8fafd',
+      color: 'var(--text-primary)',
       minHeight: '100vh'
     }}>
       <Helmet>
@@ -350,7 +350,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
           <Link 
             to="/apps" 
             style={{ 
-              color: '#36ff95', 
+              color: 'var(--accent)', 
               textDecoration: 'none', 
               fontSize: '0.9rem',
               display: 'inline-flex',
@@ -361,7 +361,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             ← Back to AI Apps Directory
           </Link>
         </div>
-        <h1 style={{ color: '#36ff95', fontSize: '2.5rem', marginBottom: '15px', fontWeight: 700 }}>My AI Dashboard 🚀</h1>
+        <h1 className="my-ai-page-title" style={{ fontSize: '2.5rem', marginBottom: '15px', fontWeight: 700 }}>My AI Dashboard 🚀</h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', marginBottom: '20px' }}>
           Your personal ai progress tracker for AI applications. Track your trials, your subscription costs, take notes, and organize your own custom app directory page.
         </p>
@@ -374,17 +374,17 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         }}>
           {totalCurrentTrials > 0 && (
             <div style={{
-              background: 'rgba(54, 255, 149, 0.1)',
-              border: '2px solid #36ff95',
+              background: 'var(--accent-surface)',
+              border: '2px solid var(--border-accent)',
               borderRadius: '12px',
               padding: '16px 24px',
               display: 'inline-block',
               minWidth: '200px'
             }}>
-              <div style={{ color: '#36ff95', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
+              <div style={{ color: 'var(--accent)', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
                 Total Current Trials
               </div>
-              <div style={{ color: '#ffffff', fontSize: '1.8rem', fontWeight: 700 }}>
+              <div style={{ color: 'var(--text-primary)', fontSize: '1.8rem', fontWeight: 700 }}>
                 {totalCurrentTrials}
               </div>
             </div>
@@ -401,27 +401,27 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               <div style={{ color: '#ffb347', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
                 Trials Ending Soon (≤48h)
               </div>
-              <div style={{ color: '#ffffff', fontSize: '1.8rem', fontWeight: 700 }}>
+              <div style={{ color: 'var(--text-primary)', fontSize: '1.8rem', fontWeight: 700 }}>
                 {trialsEndingSoon}
               </div>
             </div>
           )}
           {totalMonthlyCost > 0 && (
             <div style={{
-              background: 'rgba(54, 255, 149, 0.1)',
-              border: '2px solid #36ff95',
+              background: 'var(--accent-surface)',
+              border: '2px solid var(--border-accent)',
               borderRadius: '12px',
               padding: '16px 24px',
               display: 'inline-block',
               minWidth: '200px'
             }}>
-              <div style={{ color: '#36ff95', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
+              <div style={{ color: 'var(--accent)', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
                 Total Monthly Cost
               </div>
-              <div style={{ color: '#ffffff', fontSize: '1.8rem', fontWeight: 700 }}>
+              <div style={{ color: 'var(--text-primary)', fontSize: '1.8rem', fontWeight: 700 }}>
                 ${totalMonthlyCost.toFixed(2)}
               </div>
-              <div style={{ color: '#9ca3af', fontSize: '0.8rem', marginTop: '4px' }}>
+              <div style={{ color: 'var(--text-subtle)', fontSize: '0.8rem', marginTop: '4px' }}>
                 Across {allApps.filter(app => {
                   const appProgress = progress[app.name] || {};
                   return appProgress.status === 'completed' && appProgress.monthlyCost;
@@ -445,12 +445,13 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         {['all', 'started', 'currently_using', 'hidden'].map(f => (
           <button
             key={f}
+            className={`my-ai-filter-btn${filter === f ? ' my-ai-filter-btn--active' : ''}`}
             onClick={() => setFilter(f)}
             style={{
               padding: '10px 20px',
               borderRadius: '24px',
-              border: filter === f ? '2px solid #36ff95' : '2px solid rgba(54, 255, 149, 0.2)',
-              background: filter === f ? 'rgba(54, 255, 149, 0.1)' : 'transparent',
+              border: filter === f ? '2px solid var(--border-accent)' : '2px solid var(--border-accent-soft)',
+              background: filter === f ? 'var(--accent-surface)' : 'transparent',
               color: filter === f ? 'var(--accent)' : 'var(--text-muted)',
               cursor: 'pointer',
               fontWeight: 600,
@@ -466,13 +467,13 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
 
       <div style={{
         background: 'rgba(255, 255, 255, 0.03)',
-        border: '1px solid rgba(54, 255, 149, 0.2)',
+        border: '1px solid var(--accent-border-muted)',
         borderRadius: '16px',
         padding: '24px',
         marginBottom: '40px'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
-          <h2 style={{ color: '#36ff95', fontSize: '1.5rem', margin: 0, fontWeight: 600 }}>AI Usage Dashboard</h2>
+          <h2 style={{ color: 'var(--accent)', fontSize: '1.5rem', margin: 0, fontWeight: 600 }}>AI Usage Dashboard</h2>
           <button
             onClick={() => {
               resetCustomForm();
@@ -483,9 +484,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               width: '30px',
               height: '30px',
               borderRadius: '8px',
-              border: '1px solid #36ff95',
-              background: 'rgba(54, 255, 149, 0.1)',
-              color: '#36ff95',
+              border: '1px solid var(--border-accent)',
+              background: 'var(--accent-surface)',
+              color: 'var(--accent)',
               fontSize: '20px',
               fontWeight: 700,
               cursor: 'pointer',
@@ -496,12 +497,12 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               padding: 0
             }}
             onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(54, 255, 149, 0.2)';
+              e.target.style.background = 'var(--accent-surface-hover)';
               e.target.style.transform = 'scale(1.05)';
-              e.target.style.boxShadow = '0 0 8px rgba(54, 255, 149, 0.4)';
+              e.target.style.boxShadow = '0 0 8px var(--shadow-accent)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+              e.target.style.background = 'var(--accent-surface)';
               e.target.style.transform = 'scale(1)';
               e.target.style.boxShadow = 'none';
             }}
@@ -528,9 +529,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               width: '24px',
               height: '24px',
               borderRadius: '50%',
-              border: '1px solid #36ff95',
-              background: 'rgba(54, 255, 149, 0.1)',
-              color: '#36ff95',
+              border: '1px solid var(--border-accent)',
+              background: 'var(--accent-surface)',
+              color: 'var(--accent)',
               fontSize: '14px',
               fontWeight: 'bold',
               cursor: 'pointer',
@@ -542,12 +543,12 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               flexShrink: 0
             }}
             onMouseOver={(e) => {
-              e.target.style.background = 'rgba(54, 255, 149, 0.2)';
+              e.target.style.background = 'var(--accent-surface-hover)';
               e.target.style.transform = 'scale(1.1)';
-              e.target.style.boxShadow = '0 0 8px rgba(54, 255, 149, 0.4)';
+              e.target.style.boxShadow = '0 0 8px var(--shadow-accent)';
             }}
             onMouseOut={(e) => {
-              e.target.style.background = 'rgba(54, 255, 149, 0.1)';
+              e.target.style.background = 'var(--accent-surface)';
               e.target.style.transform = 'scale(1)';
               e.target.style.boxShadow = 'none';
             }}
@@ -558,7 +559,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         </div>
         
         {filteredApps.length === 0 ? (
-          <p style={{ textAlign: 'center', color: '#9ca3af', padding: '40px' }}>
+          <p style={{ textAlign: 'center', color: 'var(--text-subtle)', padding: '40px' }}>
             No apps found in this category. Start tracking your first trial!
           </p>
         ) : (
@@ -566,15 +567,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             {filteredApps.map(app => {
               const appProgress = progress[app.name] || { status: 'pending', notes: '', startDate: '', endDate: '' };
               return (
-                <div key={app.name} style={{
-                  background: 'rgba(0, 0, 0, 0.2)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '12px',
-                  padding: '20px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '20px'
-                }}>
+                <div key={app.name} className="my-ai-app-card">
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '15px' }}>
                   <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
                       {app.image && (
@@ -582,12 +575,12 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                       )}
                       <div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                          <h3 style={{ margin: 0, fontSize: '1.25rem', color: '#ffffff' }}>{app.name}</h3>
+                          <h3 style={{ margin: 0, fontSize: '1.25rem', color: 'var(--text-primary)' }}>{app.name}</h3>
                           {app.isCustom && (
                             <span style={{
-                              background: 'rgba(54, 255, 149, 0.15)',
-                              border: '1px solid rgba(54, 255, 149, 0.4)',
-                              color: '#36ff95',
+                              background: 'var(--accent-surface-muted)',
+                              border: '1px solid var(--accent-border-strong)',
+                              color: 'var(--accent)',
                               fontSize: '0.7rem',
                               fontWeight: 700,
                               padding: '2px 8px',
@@ -599,7 +592,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                             </span>
                           )}
                         </div>
-                        <p style={{ margin: '4px 0 0 0', fontSize: '0.9rem', color: '#9ca3af' }}>{app.category}</p>
+                        <p style={{ margin: '4px 0 0 0', fontSize: '0.9rem', color: 'var(--text-subtle)' }}>{app.category}</p>
                       </div>
                     </div>
                     
@@ -609,8 +602,8 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                         onChange={(e) => updateAppStatus(app.name, e.target.value)}
                         style={{
                           background: 'var(--modal-bg)',
-                          color: '#36ff95',
-                          border: '1px solid #36ff95',
+                          color: 'var(--accent)',
+                          border: '1px solid var(--border-accent)',
                           borderRadius: '8px',
                           padding: '8px 12px',
                           cursor: 'pointer'
@@ -626,9 +619,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                           <button
                             onClick={() => startEditCustomApp(app)}
                             style={{
-                              background: 'rgba(54, 255, 149, 0.1)',
-                              color: '#36ff95',
-                              border: '1px solid rgba(54, 255, 149, 0.4)',
+                              background: 'var(--accent-surface)',
+                              color: 'var(--accent)',
+                              border: '1px solid var(--accent-border-strong)',
                               padding: '10px 16px',
                               borderRadius: '8px',
                               fontWeight: 600,
@@ -663,8 +656,8 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                           target="_blank" 
                           rel="noopener noreferrer"
                           style={{
-                            background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
-                            color: '#101c26',
+                            background: 'var(--accent-gradient)',
+                            color: 'var(--text-on-accent)',
                             padding: '10px 20px',
                             borderRadius: '8px',
                             textDecoration: 'none',
@@ -674,18 +667,19 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                             alignItems: 'center',
                             justifyContent: 'center',
                             transition: 'all 0.3s ease',
-                            boxShadow: '0 2px 8px rgba(54, 255, 149, 0.2)',
+                            boxShadow: '0 2px 8px var(--shadow-accent)',
                             minHeight: '38px'
                           }}
+                          className="my-ai-btn-primary"
                           onMouseEnter={(e) => {
                             e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.boxShadow = '0 4px 16px rgba(54, 255, 149, 0.4)';
-                            e.target.style.background = 'linear-gradient(135deg, #4affb3 0%, #1bd4f0 100%)';
+                            e.target.style.boxShadow = '0 4px 16px var(--shadow-accent)';
+                            e.target.style.filter = 'brightness(1.06)';
                           }}
                           onMouseLeave={(e) => {
                             e.target.style.transform = 'translateY(0)';
-                            e.target.style.boxShadow = '0 2px 8px rgba(54, 255, 149, 0.2)';
-                            e.target.style.background = 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)';
+                            e.target.style.boxShadow = '0 2px 8px var(--shadow-accent)';
+                            e.target.style.filter = 'none';
                           }}
                         >
                           Visit Site
@@ -694,10 +688,11 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                       {app.readMoreLink && (
                         <Link 
                           to={app.readMoreLink}
+                          className="my-ai-btn-outline"
                           style={{
-                            background: 'rgba(54, 255, 149, 0.1)',
-                            color: '#36ff95',
-                            border: '1px solid #36ff95',
+                            background: 'var(--accent-surface)',
+                            color: 'var(--accent)',
+                            border: '1px solid var(--border-accent)',
                             padding: '10px 20px',
                             borderRadius: '8px',
                             textDecoration: 'none',
@@ -710,16 +705,16 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                             minHeight: '38px'
                           }}
                           onMouseEnter={(e) => {
-                            e.target.style.background = 'rgba(54, 255, 149, 0.2)';
-                            e.target.style.borderColor = '#4affb3';
-                            e.target.style.color = '#ffffff';
+                            e.target.style.background = 'var(--accent-surface-hover)';
+                            e.target.style.borderColor = 'var(--border-accent)';
+                            e.target.style.color = 'var(--text-primary)';
                             e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.boxShadow = '0 4px 12px rgba(54, 255, 149, 0.3)';
+                            e.target.style.boxShadow = '0 4px 12px var(--shadow-accent)';
                           }}
                           onMouseLeave={(e) => {
-                            e.target.style.background = 'rgba(54, 255, 149, 0.1)';
-                            e.target.style.borderColor = '#36ff95';
-                            e.target.style.color = '#36ff95';
+                            e.target.style.background = 'var(--accent-surface)';
+                            e.target.style.borderColor = 'var(--border-accent)';
+                            e.target.style.color = 'var(--accent)';
                             e.target.style.transform = 'translateY(0)';
                             e.target.style.boxShadow = 'none';
                           }}
@@ -735,7 +730,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                       display: 'grid', 
                       gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
                       gap: '15px',
-                      background: 'rgba(54, 255, 149, 0.05)',
+                      background: 'var(--accent-surface-subtle)',
                       padding: '15px',
                       borderRadius: '8px'
                     }}>
@@ -748,9 +743,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                           style={{
                             width: '100%',
                             background: 'var(--modal-bg)',
-                            border: '1px solid rgba(54, 255, 149, 0.3)',
+                            border: '1px solid var(--accent-border-medium)',
                             borderRadius: '6px',
-                            color: '#ffffff',
+                            color: 'var(--text-primary)',
                             padding: '8px',
                             fontSize: '0.9rem'
                           }}
@@ -765,9 +760,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                           style={{
                             width: '100%',
                             background: 'var(--modal-bg)',
-                            border: '1px solid rgba(54, 255, 149, 0.3)',
+                            border: '1px solid var(--accent-border-medium)',
                             borderRadius: '6px',
-                            color: '#ffffff',
+                            color: 'var(--text-primary)',
                             padding: '8px',
                             fontSize: '0.9rem'
                           }}
@@ -782,9 +777,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                           style={{
                             width: '100%',
                             background: 'var(--modal-bg)',
-                            border: '1px solid rgba(54, 255, 149, 0.3)',
+                            border: '1px solid var(--accent-border-medium)',
                             borderRadius: '6px',
-                            color: '#ffffff',
+                            color: 'var(--text-primary)',
                             padding: '8px',
                             fontSize: '0.9rem'
                           }}
@@ -798,7 +793,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                       display: 'flex',
                       alignItems: 'flex-start',
                       gap: '15px',
-                      background: 'rgba(54, 255, 149, 0.05)',
+                      background: 'var(--accent-surface-subtle)',
                       padding: '15px',
                       borderRadius: '8px'
                     }}>
@@ -814,9 +809,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                           style={{
                             width: '100%',
                             background: 'var(--modal-bg)',
-                            border: '1px solid rgba(54, 255, 149, 0.3)',
+                            border: '1px solid var(--accent-border-medium)',
                             borderRadius: '6px',
-                            color: '#ffffff',
+                            color: 'var(--text-primary)',
                             padding: '8px',
                             fontSize: '0.9rem',
                             MozAppearance: 'textfield'
@@ -841,8 +836,8 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                       style={{
                         width: '100%',
                         height: '100px',
-                        background: '#1c2835',
-                        border: '1px solid rgba(54, 255, 149, 0.1)',
+                        background: 'var(--modal-bg)',
+                        border: '1px solid var(--accent-border-muted)',
                         borderRadius: '8px',
                         color: 'var(--text-secondary)',
                         padding: '12px',
@@ -859,15 +854,8 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         )}
       </div>
 
-      <div style={{
-        padding: '24px',
-        background: 'rgba(54, 255, 149, 0.05)',
-        borderRadius: '16px',
-        border: '1px solid rgba(54, 255, 149, 0.2)',
-        fontSize: '0.9rem',
-        color: '#9ca3af'
-      }}>
-        <h4 style={{ color: '#36ff95', marginBottom: '10px' }}>Dashboard Info</h4>
+      <div className="my-ai-info-box">
+        <h4 className="my-ai-info-title" style={{ marginBottom: '10px' }}>Dashboard Info</h4>
         <p>Your progress is stored locally in your browser. Clearing your browser data may remove these settings.</p>
         <p style={{ margin: 0 }}><strong>Disclaimer:</strong> We are not responsible for tracking or canceling your trials. Please ensure you set your dates correctly and cancel any subscriptions directly with the providers to avoid unwanted charges.</p>
       </div>
@@ -879,19 +867,19 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         centered
         size="lg"
       >
-        <Modal.Header closeButton style={{ background: 'var(--modal-bg)', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
-          <Modal.Title style={{ color: '#36ff95', fontWeight: 600 }}>
+        <Modal.Header closeButton style={{ background: 'var(--modal-bg)', borderBottom: '1px solid var(--accent-border-muted)' }}>
+          <Modal.Title style={{ color: 'var(--accent)', fontWeight: 600 }}>
             📝 How to Use Your AI Dashboard
           </Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ background: 'var(--modal-bg)', color: 'var(--text-secondary)', padding: '24px' }}>
           <div style={{ lineHeight: '1.8', fontSize: '0.95rem' }}>
             <p style={{ marginBottom: '20px', color: 'var(--text-secondary)' }}>
-              Your <strong style={{ color: '#36ff95' }}>My AI Dashboard</strong> helps you organize, track, and manage all your AI trial subscriptions in one place. Here's how to use it:
+              Your <strong style={{ color: 'var(--accent)' }}>My AI Dashboard</strong> helps you organize, track, and manage all your AI trial subscriptions in one place. Here's how to use it:
             </p>
             
             <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>🎯 Track Your Trial Status</h4>
+              <h4 style={{ color: 'var(--accent)', marginBottom: '10px', fontSize: '1.1rem' }}>🎯 Track Your Trial Status</h4>
               <p style={{ marginBottom: '12px' }}>
                 Use the dropdown menu for each app to set its status:
               </p>
@@ -904,7 +892,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             </div>
 
             <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>📅 Set Important Dates</h4>
+              <h4 style={{ color: 'var(--accent)', marginBottom: '10px', fontSize: '1.1rem' }}>📅 Set Important Dates</h4>
               <p style={{ marginBottom: '12px' }}>
                 When you mark an app as <strong>In Trial</strong>, you can track:
               </p>
@@ -914,13 +902,13 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                 <li><strong>Trial Ends</strong> - When your free trial expires</li>
                 <li><strong>Monthly Cost</strong> - Enter how much you're paying per month (use 0 for free apps)</li>
               </ul>
-              <p style={{ marginBottom: '12px', fontSize: '0.9rem', color: '#9ca3af' }}>
+              <p style={{ marginBottom: '12px', fontSize: '0.9rem', color: 'var(--text-subtle)' }}>
                 💡 <strong>Tip:</strong> Set your cancel reminder a few days before the trial ends to give yourself time to decide.
               </p>
             </div>
 
             <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>💰 Track Your Spending</h4>
+              <h4 style={{ color: 'var(--accent)', marginBottom: '10px', fontSize: '1.1rem' }}>💰 Track Your Spending</h4>
               <p style={{ marginBottom: '12px' }}>
                 When you mark an app as <strong>In Trial</strong>, you can add its monthly cost. This helps you:
               </p>
@@ -933,7 +921,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             </div>
 
             <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>📝 Take Notes</h4>
+              <h4 style={{ color: 'var(--accent)', marginBottom: '10px', fontSize: '1.1rem' }}>📝 Take Notes</h4>
               <p style={{ marginBottom: '12px' }}>
                 Use the Notes field to record your experience with each app:
               </p>
@@ -946,7 +934,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             </div>
 
             <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>🔍 Filter Your List</h4>
+              <h4 style={{ color: 'var(--accent)', marginBottom: '10px', fontSize: '1.1rem' }}>🔍 Filter Your List</h4>
               <p style={{ marginBottom: '12px' }}>
                 Use the filter buttons at the top to view:
               </p>
@@ -959,32 +947,32 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             </div>
 
             <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ color: '#36ff95', marginBottom: '10px', fontSize: '1.1rem' }}>🚀 Enable Progress Mode</h4>
+              <h4 style={{ color: 'var(--accent)', marginBottom: '10px', fontSize: '1.1rem' }}>🚀 Enable Progress Mode</h4>
               <p style={{ marginBottom: '12px' }}>
                 Go back to the <strong>Apps page</strong> and enable <strong>Progress Mode</strong>. This will automatically hide apps you've started, completed, or marked as "Not Interested", keeping your workspace clean and focused on new opportunities.
               </p>
             </div>
 
             <div style={{ 
-              background: 'rgba(54, 255, 149, 0.1)', 
-              border: '1px solid rgba(54, 255, 149, 0.3)', 
+              background: 'var(--accent-surface)', 
+              border: '1px solid var(--accent-border-medium)', 
               borderRadius: '8px', 
               padding: '12px',
               marginTop: '20px'
             }}>
-              <p style={{ margin: 0, fontSize: '0.85rem', color: '#9ca3af' }}>
-                <strong style={{ color: '#36ff95' }}>Remember:</strong> All your data is stored locally in your browser. We don't track or cancel trials for you - you're responsible for managing your own subscriptions and canceling before charges occur.
+              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
+                <strong style={{ color: 'var(--accent)' }}>Remember:</strong> All your data is stored locally in your browser. We don't track or cancel trials for you - you're responsible for managing your own subscriptions and canceling before charges occur.
               </p>
             </div>
           </div>
         </Modal.Body>
-        <Modal.Footer style={{ background: 'var(--modal-bg)', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
+        <Modal.Footer style={{ background: 'var(--modal-bg)', borderTop: '1px solid var(--accent-border-muted)' }}>
           <Button 
             onClick={() => setShowHelpModal(false)}
             style={{
-              background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+              background: 'var(--accent-gradient)',
               border: 'none',
-              color: '#101c26',
+              color: 'var(--text-on-accent)',
               fontWeight: 600,
               padding: '8px 20px'
             }}
@@ -1004,8 +992,8 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
         centered
         size="lg"
       >
-        <Modal.Header closeButton style={{ background: 'var(--modal-bg)', borderBottom: '1px solid rgba(54, 255, 149, 0.2)' }}>
-          <Modal.Title style={{ color: '#36ff95', fontWeight: 600 }}>
+        <Modal.Header closeButton style={{ background: 'var(--modal-bg)', borderBottom: '1px solid var(--accent-border-muted)' }}>
+          <Modal.Title style={{ color: 'var(--accent)', fontWeight: 600 }}>
             {customMode === 'edit' ? 'Edit Custom App' : 'Add Custom App'}
           </Modal.Title>
         </Modal.Header>
@@ -1020,10 +1008,10 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                 placeholder="e.g., Notion AI"
                 style={{
                   width: '100%',
-                  background: '#1c2835',
-                  border: '1px solid rgba(54, 255, 149, 0.2)',
+                  background: 'var(--modal-bg)',
+                  border: '1px solid var(--accent-border-muted)',
                   borderRadius: '8px',
-                  color: '#ffffff',
+                  color: 'var(--text-primary)',
                   padding: '10px',
                   fontSize: '0.95rem'
                 }}
@@ -1038,10 +1026,10 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                 placeholder="Custom"
                 style={{
                   width: '100%',
-                  background: '#1c2835',
-                  border: '1px solid rgba(54, 255, 149, 0.2)',
+                  background: 'var(--modal-bg)',
+                  border: '1px solid var(--accent-border-muted)',
                   borderRadius: '8px',
-                  color: '#ffffff',
+                  color: 'var(--text-primary)',
                   padding: '10px',
                   fontSize: '0.95rem'
                 }}
@@ -1056,10 +1044,10 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                 placeholder="https://"
                 style={{
                   width: '100%',
-                  background: '#1c2835',
-                  border: '1px solid rgba(54, 255, 149, 0.2)',
+                  background: 'var(--modal-bg)',
+                  border: '1px solid var(--accent-border-muted)',
                   borderRadius: '8px',
-                  color: '#ffffff',
+                  color: 'var(--text-primary)',
                   padding: '10px',
                   fontSize: '0.95rem'
                 }}
@@ -1073,8 +1061,8 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                 style={{
                   width: '100%',
                   background: 'var(--modal-bg)',
-                  color: '#36ff95',
-                  border: '1px solid #36ff95',
+                  color: 'var(--accent)',
+                  border: '1px solid var(--border-accent)',
                   borderRadius: '8px',
                   padding: '10px',
                   cursor: 'pointer'
@@ -1095,10 +1083,10 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                     onChange={(e) => setCustomForm(prev => ({ ...prev, startDate: e.target.value }))}
                     style={{
                       width: '100%',
-                      background: '#1c2835',
-                      border: '1px solid rgba(54, 255, 149, 0.2)',
+                      background: 'var(--modal-bg)',
+                      border: '1px solid var(--accent-border-muted)',
                       borderRadius: '8px',
-                      color: '#ffffff',
+                      color: 'var(--text-primary)',
                       padding: '8px',
                       fontSize: '0.9rem'
                     }}
@@ -1112,10 +1100,10 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                     onChange={(e) => setCustomForm(prev => ({ ...prev, cancelDate: e.target.value }))}
                     style={{
                       width: '100%',
-                      background: '#1c2835',
-                      border: '1px solid rgba(54, 255, 149, 0.2)',
+                      background: 'var(--modal-bg)',
+                      border: '1px solid var(--accent-border-muted)',
                       borderRadius: '8px',
-                      color: '#ffffff',
+                      color: 'var(--text-primary)',
                       padding: '8px',
                       fontSize: '0.9rem'
                     }}
@@ -1129,10 +1117,10 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                     onChange={(e) => setCustomForm(prev => ({ ...prev, endDate: e.target.value }))}
                     style={{
                       width: '100%',
-                      background: '#1c2835',
-                      border: '1px solid rgba(54, 255, 149, 0.2)',
+                      background: 'var(--modal-bg)',
+                      border: '1px solid var(--accent-border-muted)',
                       borderRadius: '8px',
-                      color: '#ffffff',
+                      color: 'var(--text-primary)',
                       padding: '8px',
                       fontSize: '0.9rem'
                     }}
@@ -1152,10 +1140,10 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
                   onChange={(e) => setCustomForm(prev => ({ ...prev, monthlyCost: e.target.value }))}
                   style={{
                     width: '200px',
-                    background: '#1c2835',
-                    border: '1px solid rgba(54, 255, 149, 0.2)',
+                    background: 'var(--modal-bg)',
+                    border: '1px solid var(--accent-border-muted)',
                     borderRadius: '8px',
-                    color: '#ffffff',
+                    color: 'var(--text-primary)',
                     padding: '8px',
                     fontSize: '0.9rem',
                     MozAppearance: 'textfield'
@@ -1176,7 +1164,7 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
             )}
           </div>
         </Modal.Body>
-        <Modal.Footer style={{ background: 'var(--modal-bg)', borderTop: '1px solid rgba(54, 255, 149, 0.2)' }}>
+        <Modal.Footer style={{ background: 'var(--modal-bg)', borderTop: '1px solid var(--accent-border-muted)' }}>
           <Button
             variant="secondary"
             onClick={() => {
@@ -1184,9 +1172,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
               resetCustomForm();
             }}
             style={{
-              background: 'rgba(54, 255, 149, 0.1)',
-              border: '1px solid rgba(54, 255, 149, 0.3)',
-              color: '#36ff95'
+              background: 'var(--accent-surface)',
+              border: '1px solid var(--accent-border-medium)',
+              color: 'var(--accent)'
             }}
           >
             Cancel
@@ -1194,9 +1182,9 @@ const MyAI = ({ trialApps = [], freeApps = [], paidApps = [] }) => {
           <Button
             onClick={customMode === 'edit' ? saveCustomAppEdits : addCustomApp}
             style={{
-              background: 'linear-gradient(135deg, #36ff95 0%, #0bbfdb 100%)',
+              background: 'var(--accent-gradient)',
               border: 'none',
-              color: '#101c26',
+              color: 'var(--text-on-accent)',
               fontWeight: 600,
               padding: '8px 20px'
             }}

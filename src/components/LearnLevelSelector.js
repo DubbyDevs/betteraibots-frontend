@@ -8,6 +8,7 @@ import blackboxai from '../assets/blackboxai.webp';
 function AIForDummiesGuide({ onClose }) {
   return (
     <div 
+      className="learn-path-guide-overlay"
       onClick={onClose}
       style={{
       position: 'fixed',
@@ -35,7 +36,7 @@ function AIForDummiesGuide({ onClose }) {
         position: 'relative',
         boxShadow: '0 20px 60px rgba(54, 255, 149, 0.3)'
       }}
-      className="custom-scrollbar">
+      className="learn-path-guide learn-path-guide--dummies custom-scrollbar">
         <style>{`
           .custom-scrollbar::-webkit-scrollbar {
             width: 12px;
@@ -117,7 +118,7 @@ function AIForDummiesGuide({ onClose }) {
         </div>
 
         {/* Content */}
-        <div style={{
+        <div className="learn-path-guide__content" style={{
           padding: '0 30px 30px 30px',
           color: 'var(--text-secondary)',
           lineHeight: '1.8',
@@ -490,25 +491,21 @@ const LearnLevelSelector = () => {
                   overflow: 'hidden'
                 }}>
                   {/* Badge - Responsive with locked aspect ratio */}
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: isVerySmall ? '8px' : (is360px ? '10px' : (is390px ? '12px' : (isMobile ? '12px' : '15px'))),
-                    flexShrink: 0
-                 }}>
+                  <div
+                    className="learn-level-badge-wrap"
+                    style={{
+                      marginBottom: isVerySmall ? '8px' : (is360px ? '10px' : (is390px ? '12px' : (isMobile ? '12px' : '15px'))),
+                      width: isVerySmall ? '80px' : (is360px ? '90px' : (is390px ? '100px' : (isMobile ? '110px' : '140px')))
+                    }}
+                  >
                   <img 
+                    className="learn-level-badge"
                     src={level.id === 'beginner' ? '/beginnerbadge.webp' : level.id === 'intermediate' ? '/intermediatebadge.webp' : '/advancedbadge.webp'}
                     alt={`${level.title} badge`}
                     style={{
-                      width: isVerySmall ? '80px' : (is360px ? '90px' : (is390px ? '100px' : (isMobile ? '110px' : '140px'))),
+                      width: '100%',
                       height: 'auto',
-                      display: 'block',
-                      filter: level.id === 'beginner' 
-                        ? 'drop-shadow(0 0 10px rgba(54, 255, 149, 0.67))' 
-                        : level.id === 'intermediate' 
-                        ? 'drop-shadow(0 0 10px rgba(20, 184, 166, 0.67))' 
-                        : 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.67))'
+                      display: 'block'
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';

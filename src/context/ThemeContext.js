@@ -4,16 +4,20 @@ export const THEME_STORAGE_KEY = 'baib-theme';
 
 const ThemeContext = createContext(null);
 
+function readStoredTheme() {
+  if (typeof window === 'undefined') return 'light';
+  try {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
+    // Returning visitors: honor saved choice. New visitors: default to light.
+    if (stored === 'dark' || stored === 'light') return stored;
+    return 'light';
+  } catch {
+    return 'light';
+  }
+}
+
 export function ThemeProvider({ children }) {
-  const [theme, setThemeState] = useState(() => {
-    if (typeof window === 'undefined') return 'dark';
-    try {
-      const stored = localStorage.getItem(THEME_STORAGE_KEY);
-      return stored === 'light' ? 'light' : 'dark';
-    } catch {
-      return 'dark';
-    }
-  });
+  const [theme, setThemeState] = useState(readStoredTheme);
 
   const applyTheme = useCallback((next) => {
     document.documentElement.setAttribute('data-theme', next);

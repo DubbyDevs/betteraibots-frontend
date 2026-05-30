@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 
 /**
- * Sun/moon toggle — dark mode is the existing site look; light mode is day theme.
+ * Sun/moon toggle — saves choice to localStorage; new visitors default to light.
  */
 export default function ThemeToggle({ compact = false, className = '' }) {
   const { theme, toggleTheme } = useTheme();
