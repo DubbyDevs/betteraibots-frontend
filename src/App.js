@@ -1556,7 +1556,7 @@ function Apps() {
             onChange={(e) => setSelectedCategory(e.target.value)}
             style={{
               borderRadius: '8px',
-              padding: '8px 16px',
+              padding: '8px 36px 8px 16px',
               fontSize: '0.95rem',
               fontWeight: 500,
               cursor: 'pointer',
@@ -2790,17 +2790,19 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         </script>
       </Helmet>
       
-      <h1 style={{
-        textAlign: 'center',
-        fontSize: isMobile ? '2rem' : '3rem',
-        fontWeight: 700,
-        marginTop: '40px',
-        marginBottom: '20px',
-        fontFamily: 'inherit'
-      }}>
-        <span className="theme-home-brand" style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>BetterAi</span>
-        <span className="theme-accent-text" style={{ textShadow: '0 0 20px rgba(54, 255, 149, 0.5)' }}>Bots</span>
-      </h1>
+      {isMobile && (
+        <h1 style={{
+          textAlign: 'center',
+          fontSize: '2rem',
+          fontWeight: 700,
+          marginTop: '40px',
+          marginBottom: '20px',
+          fontFamily: 'inherit'
+        }}>
+          <span className="theme-home-brand" style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.3)' }}>BetterAi</span>
+          <span className="theme-accent-text" style={{ textShadow: '0 0 20px rgba(54, 255, 149, 0.5)' }}>Bots</span>
+        </h1>
+      )}
       
       <div style={{ 
         display: 'flex', 

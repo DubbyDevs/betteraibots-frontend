@@ -865,17 +865,9 @@ img[alt="preview"] {
   position: relative;
   top: 0;
   z-index: 10002;
-  box-shadow: 0 2px 20px #16ff6c20;
+  box-shadow: 0 2px 12px var(--shadow-card);
   width: 100%;
   min-height: 63px;
-}
-@media (min-width: 900px) {
-  .nav-tabs-bar {
-    position: relative;
-    top: 0;
-    background: var(--bg-gradient); /* MATCHES body! */
-    z-index: 10002;
-  }
 }
 
 
@@ -948,7 +940,7 @@ img[alt="preview"] {
   .nav-tabs-bar {
     position: sticky;
     top: 0;
-    background: linear-gradient(135deg, #101c26 0%, #172d3e 100%);
+    background: var(--bg-gradient-nav);
     z-index: 1002;
   }
 }
