@@ -644,7 +644,7 @@ export const trialAppsData = [
     description: "AI-powered video editing platform that makes it easy to create, edit, and enhance videos with professional tools",
     category: "Video Creation & Editing",
     features: ["AI video editing", "Subtitle generation", "Screen recording", "Video templates", "Collaboration tools"],
-    link: "https://veed.cello.so/rwFO6zwGZh9",
+    link: "https://veed.cello.so/2KWVFnsJmFA",
     trialInfo: "Free Trial Available",
     image: "/veedreview.png",
     readMoreLink: "/learn/veed-complete-guide"

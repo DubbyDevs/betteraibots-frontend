@@ -2,9 +2,62 @@ import React from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { articles } from "./Articles";
+import { getArticleKeywords, getArticleSeoDescription } from "./data/articleSeo";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import amplemarketUserGuideVideo from "./assets/AmplemarketUserGuide.mp4";
+import closeAIUserGuideVideo from "./assets/CloseAI-User-Guide.mp4";
+import bitdefenderUserGuideVideo from "./assets/bitdefendervid.mp4";
+
+function ArticleGuideVideo({ src, ariaLabel, affiliateLink, linkLabel }) {
+  if (!src || !affiliateLink) return null;
+  return (
+    <div style={{ textAlign: 'center', margin: '0 auto 28px', maxWidth: '800px', width: '100%' }}>
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          aspectRatio: '16 / 9',
+          borderRadius: 16,
+          overflow: 'hidden',
+          background: '#0d1520',
+          boxShadow: '0 4px 20px rgba(54, 255, 149, 0.2)',
+        }}
+      >
+        <video
+          src={src}
+          aria-label={ariaLabel}
+          controls
+          playsInline
+          preload="metadata"
+          style={{
+            width: '100%',
+            height: '100%',
+            display: 'block',
+            objectFit: 'contain',
+            background: '#000',
+          }}
+        />
+      </div>
+      <a
+        href={affiliateLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'inline-block',
+          marginTop: '16px',
+          color: 'var(--accent)',
+          fontWeight: 700,
+          fontSize: '1.1rem',
+          textDecoration: 'underline',
+        }}
+      >
+        {linkLabel}
+      </a>
+    </div>
+  );
+}
 
 function ShareButtons({ url, title }) {
   // Always use the article URL for sharing, never affiliate links
@@ -650,7 +703,7 @@ export default function ArticlePage() {
     "reply-io-complete-guide": "https://get.reply.io/ub7edypmq2gj",
     "thordata": "https://affiliate.thordata.com/BAIB",
     "tidio-ai": "https://affiliate.tidio.com/BAIB",
-    "veed-complete-guide": "https://veed.cello.so/IRs6H3HZ4gE",
+    "veed-complete-guide": "https://veed.cello.so/2KWVFnsJmFA",
     "webydo": "https://partners.webydo.com/BAIB",
     "wispr-flow-complete-guide": "https://wisprflow.ai/downloads?referral=KING16",
     "catalister": "https://join.catalister.com/BAIB",
@@ -682,6 +735,7 @@ export default function ArticlePage() {
     "snowfire-ai": "https://partners.snowfire.ai/8f5vtlj0mksq",
     "volza": "https://partner.volza.com/BAIB",
     "bidx": "https://try.bidx.io/BAIB",
+    "bitdefender-complete-guide": "https://get.bitdefender.com/BAIB",
     "laxis": "https://get.laxis.com/BAIB",
     "krispcall": "https://try.krispcall.com/BAIB",
     "getresponse": "https://try.getresponsetoday.com/BAIB",
@@ -894,6 +948,7 @@ export default function ArticlePage() {
     'snowfire-ai',
     'volza',
     'bidx',
+    'bitdefender-complete-guide',
     'laxis',
     'krispcall',
     'getresponse',
@@ -1091,10 +1146,10 @@ export default function ArticlePage() {
     <>
       <Helmet>
         <title>{article.title} – BetterAiBots.com</title>
-        <meta name="description" content={article.preview} />
+        <meta name="description" content={getArticleSeoDescription(article)} />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta property="og:title" content={article.title} />
-        <meta property="og:description" content={article.preview} />
+        <meta property="og:description" content={getArticleSeoDescription(article)} />
         <link rel="canonical" href={`https://betteraibots.com/learn/${article.id}`} />
         <meta property="og:image" content={(() => {
           // Article-specific Open Graph images for better social sharing
@@ -1178,6 +1233,7 @@ export default function ArticlePage() {
             "snowfire-ai": "https://betteraibots.com/assets/snowfireai.jpg",
             "volza": "https://betteraibots.com/assets/volzaai.png",
             "bidx": "https://betteraibots.com/assets/bidxai.jpg",
+            "bitdefender-complete-guide": "https://betteraibots.com/bitdefenderlogo.png",
             "laxis": "https://betteraibots.com/assets/laxisai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
@@ -1208,7 +1264,7 @@ export default function ArticlePage() {
         )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
-        <meta name="twitter:description" content={article.preview} />
+        <meta name="twitter:description" content={getArticleSeoDescription(article)} />
         <meta name="twitter:image" content={(() => {
           // Article-specific Open Graph images for better social sharing
           const ogImageMap = {
@@ -1298,129 +1354,8 @@ export default function ArticlePage() {
         <meta name="article:published_time" content={article.date} />
         <meta name="article:author" content="BetterAiBots" />
         <meta name="article:section" content="AI Tools" />
-        <meta name="article:tag" content={(() => {
-          const tagMap = {
-            "blackbox-ai": "AI, Artificial Intelligence, Blackbox.ai, AI Code Assistant, Code Completion, AI Development Tools, Programming, Software Development, BetterAiBots",
-            "webydo": "AI, Artificial Intelligence, Webydo, Web Design, No-Code Design, Website Builder, CMS, Client Management, BetterAiBots",
-            "thordata": "AI, Artificial Intelligence, ThorData, Proxy, Web Scraping, Data Collection, AI Data Infrastructure, Residential Proxies, Scraper APIs, BetterAiBots",
-            "seosparkplug": "AI, Artificial Intelligence, SEOSparkPlug, SEO Platform, AI SEO, SEO Analysis, Digital Marketing, Website Optimization, SEO Tools, BetterAiBots",
-            "adwisely": "AI, Artificial Intelligence, Adwisely, Google Ads, Meta Ads, Facebook Ads, Instagram Ads, AI Advertising, Paid Advertising, ROAS Optimization, BetterAiBots",
-            "catalister": "AI, Artificial Intelligence, Catalister, Dropshipping, E-commerce Automation, Shopify Integration, AI Dropshipping, E-commerce Tools, BetterAiBots",
-            "airia": "AI, Artificial Intelligence, Airia, Enterprise AI, AI Orchestration, AI Agent Development, Enterprise Automation, AI Platform, BetterAiBots",
-            "runpod": "AI, Artificial Intelligence, RunPod, Cloud GPU, GPU Computing, AI Training, AI Model Deployment, GPU Infrastructure, BetterAiBots",
-            "pipes-ai": "AI, Artificial Intelligence, Pipes.ai, Lead Engagement, AI Sales, Lead Generation, Sales Automation, AI Voice, SMS Marketing, BetterAiBots",
-            "castmagic": "AI, Artificial Intelligence, CastMagic, Content Creation, AI Transcription, Content Repurposing, Podcast Tools, Video Content, BetterAiBots",
-            "anybiz": "AI, Artificial Intelligence, AnyBiz.io, AI Sales Agents, Sales Automation, Lead Generation, Email Automation, LinkedIn Outreach, BetterAiBots",
-            "megahr": "AI, Artificial Intelligence, Mega HR, AI Hiring, HR Automation, Recruitment, AI Hiring Assistant, Megan AI, Hiring Platform, BetterAiBots",
-            "bebop-ai": "AI, Artificial Intelligence, Bebop.ai, Workflow Automation, Process Optimization, AI Automation, Business Automation, Workflow Management, BetterAiBots",
-            "lusha": "AI, Artificial Intelligence, Lusha, B2B Contact Data, Email Finder, Phone Number Lookup, Sales Intelligence, Lead Generation, CRM Integration, BetterAiBots",
-            "hume-ai": "AI, Artificial Intelligence, Hume AI, Empathic AI, Emotion Recognition, Voice AI, Facial Expression Analysis, Emotional Intelligence, AI Interactions, BetterAiBots",
-            "tidio-ai": "AI, Artificial Intelligence, Tidio AI, Lyro AI Agent, Customer Service Automation, Live Chat, Help Desk, AI Chatbot, Customer Support, BetterAiBots",
-            "museit-art-complete-guide": "AI, Artificial Intelligence, Museit.art, AI Art Creation, AI Art Generator, Creative AI, Mindfulness Art, Digital Art Creation, AI Art Platform, Art Therapy, Creative Expression, BetterAiBots",
-            "nanoz-complete-guide": "AI, Artificial Intelligence, NanoZ.fun, AI Branding, Brand Image Generation, AI Brand Imagery, Brand Consistency, AI Design Tools, Professional Branding, Brand Asset Management, AI Image Generation, BetterAiBots",
-            "prezi-complete-guide": "AI, Artificial Intelligence, Prezi, AI Presentations, Presentation Software, Interactive Presentations, Prezi Video, Visual Storytelling, Presentation Design, AI Presentation Creator, BetterAiBots",
-            "quillbot-complete-guide": "AI, Artificial Intelligence, QuillBot, AI Paraphrasing Tool, Grammar Checker, AI Detector, Plagiarism Checker, AI Humanizer, Writing Assistant, Text Rewriter, Paraphrasing Software, BetterAiBots",
-            "landingi-complete-guide": "AI, Artificial Intelligence, Landingi, AI Landing Page Builder, Landing Page Creator, Conversion Optimization, Lead Generation, A/B Testing, Landing Page Design, Marketing Tools, BetterAiBots",
-            "tradify-complete-guide": "Tradify, Job Management Software, Trade Business Software, Job Management for Trades, Trade Business Management, Electrician Software, Plumber Software, HVAC Software, Job Scheduling, Trade Invoicing, Trade Quoting, Trade Job Tracking, BetterAiBots",
-            "vista-social": "Vista Social, social media management, social scheduling, content calendar, social inbox, approvals workflow, social analytics, marketing teams, agencies, BetterAiBots",
-            "logome-complete-guide": "AI, Artificial Intelligence, Logome, AI Logo Generator, Logo Maker, Brand Kit Creator, AI Logo Maker, Logo Design, Brand Identity, Website Templates, Social Media Templates, Business Cards, Email Signatures, BetterAiBots",
-            "datahawk": "DataHawk, Amazon analytics, Amazon keyword tracking, Amazon seller tools, marketplace analytics, product ranking, Amazon SEO, PPC insights, competitor monitoring, BetterAiBots",
-            "elevenlabs": "ElevenLabs, AI voice, text-to-speech, voice cloning, AI voice generator, dubbing, audio localization, voiceover, AI audio, BetterAiBots",
-            "gamma": "Gamma, AI presentations, AI slide deck, presentation builder, AI document generator, pitch deck, sales deck, web presentation, BetterAiBots",
-            "rankprompt": "RankPrompt, AI SEO, content briefs, keyword research, SERP insights, SEO content planning, content outlines, SEO workflow, BetterAiBots",
-            "snowfire-ai": "Snowfire AI, AI content generation, SEO content, ad copy, marketing content, content briefs, keyword research, content workflows, BetterAiBots",
-            "pinecone-vector-database": "Pinecone, vector database, vector search, semantic search, retrieval-augmented generation, RAG, embeddings, AI infrastructure, knowledge base search, recommendation systems, BetterAiBots",
-            "volza": "Volza, trade intelligence, supplier discovery, shipment tracking, import export data, competitor analysis, market research, global trade data, BetterAiBots",
-            "bidx": "Bidx, AI advertising optimization, performance marketing, ad campaign optimization, budget pacing, ROAS, PPC analytics, paid media, BetterAiBots",
-            "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
-            "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
-            "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
-            "activecampaign": "ActiveCampaign, email marketing automation, CRM, lead scoring, marketing workflows, predictive sending, sales pipeline, landing pages, BetterAiBots",
-            "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
-            "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
-            "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
-            "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots",
-            "practice-ignition": "AI, Artificial Intelligence, Ignition, Practice Ignition, practice management, proposals, client onboarding, accounting software, bookkeeping, engagement letters, online payments, professional services, BetterAiBots",
-            "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
-            "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
-            "beautiful-ai-complete-guide": "AI, Artificial Intelligence, Beautiful.ai, AI Presentation Software, Smart Slides, Create with AI, Slide Maker, Presentation Templates, Brand Control, Pitch Decks, PowerPoint Alternative, BetterAiBots",
-            "close-complete-guide": "AI, Artificial Intelligence, Close CRM, Sales CRM, Inside Sales, Power Dialer, Email Sequences, SMS Sales, Pipeline Management, Sales Automation, Lead Management, BetterAiBots",
-            "evolve-complete-guide": "AI, Artificial Intelligence, Evolve AI, AI Training Platform, Corporate Learning, LMS, Course Generation, AI Simulations, L&D Platform, Knowledge Base, Assessment Center, Enterprise Training, BetterAiBots",
-            "alidrop-complete-guide": "AI, Artificial Intelligence, AliDrop, AliExpress Dropshipping, Shopify Dropshipping, Temu Dropshipping, Alibaba Dropshipping, Order Automation, Product Import, E-commerce, BetterAiBots",
-            "trainual-complete-guide": "AI, Artificial Intelligence, Trainual, Employee Training Software, SOP Documentation, Onboarding Platform, LMS, Knowledge Management, Role-Based Training, AI Training Content, Process Documentation, BetterAiBots",
-            "teikametrics": "Teikametrics, AI marketplace optimization, Amazon ads, Walmart ads, TikTok Shop, eCommerce growth, listing optimization, full-funnel advertising, marketplace analytics, BetterAiBots",
-            "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
-            "emergent": "AI, Artificial Intelligence, Emergent, build apps with AI, full-stack apps, no-code app builder, AI agents, conversation to app, web app builder, mobile app, deploy with AI, Y Combinator, BetterAiBots",
-            "sleekflow": "AI, Artificial Intelligence, SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow, AI agents, team inbox, lead qualification, broadcast campaigns, CRM messaging, conversion, BetterAiBots",
-            "treble-ai": "AI, Artificial Intelligence, Treble AI, WhatsApp Business API, WhatsApp chatbot, AI messaging, broadcast campaigns, HubSpot integration, Salesforce integration, lead qualification, customer support, BetterAiBots"
-          };
-          return tagMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
-        })()} />
-        <meta name="keywords" content={(() => {
-          const keywordMap = {
-            "blackbox-ai": "Blackbox.ai, AI code assistant, code completion, AI autocomplete, programming tools, software development, AI coding, code generation, developer tools, BetterAiBots",
-            "webydo": "Webydo, web design platform, no-code design, website builder, CMS, client management, web development, design tools, BetterAiBots",
-            "thordata": "ThorData, proxy service, web scraping, data collection, residential proxies, scraper APIs, AI data infrastructure, web data collection, BetterAiBots",
-            "seosparkplug": "SEOSparkPlug, AI SEO platform, SEO analysis, SEO tools, digital marketing, website optimization, SEO automation, AI SEO tools, BetterAiBots",
-            "adwisely": "Adwisely, Google Ads, Meta Ads, Facebook Ads, Instagram Ads, AI advertising, paid advertising, ROAS optimization, ad management, BetterAiBots",
-            "catalister": "Catalister, dropshipping automation, e-commerce automation, Shopify integration, AI dropshipping, e-commerce tools, dropshipping platform, BetterAiBots",
-            "airia": "Airia, enterprise AI, AI orchestration, AI agent development, enterprise automation, AI platform, rapid prototyping, BetterAiBots",
-            "runpod": "RunPod, cloud GPU, GPU computing, AI training, AI model deployment, GPU infrastructure, serverless AI, cloud computing, BetterAiBots",
-            "pipes-ai": "Pipes.ai, lead engagement, AI sales, lead generation, sales automation, AI voice, SMS marketing, lead qualification, BetterAiBots",
-            "castmagic": "CastMagic, content creation, AI transcription, content repurposing, podcast tools, video content, multi-brand CMS, brand voice, BetterAiBots",
-            "anybiz": "AnyBiz.io, AI sales agents, sales automation, lead generation, email automation, LinkedIn outreach, phone call automation, BetterAiBots",
-            "megahr": "Mega HR, AI hiring, HR automation, recruitment, AI hiring assistant, Megan AI, hiring platform, candidate screening, BetterAiBots",
-            "bebop-ai": "Bebop.ai, workflow automation, process optimization, AI automation, business automation, workflow management, intelligent automation, BetterAiBots",
-            "lusha": "Lusha, B2B contact data, email finder, phone number lookup, sales intelligence, lead generation, CRM integration, verified contacts, sales prospecting, BetterAiBots",
-            "hume-ai": "Hume AI, empathic AI, emotion recognition, voice AI, facial expression analysis, emotional intelligence, AI interactions, emotion detection, empathic computing, BetterAiBots",
-            "tidio-ai": "Tidio AI, Lyro AI Agent, customer service automation, live chat, help desk, AI chatbot, customer support, automated support, customer service platform, BetterAiBots",
-            "atria": "Atria, AI ad platform, ad analytics, ad creation, ad research, marketing automation, AI marketing tools, ad campaign management, 25M ad library, AI ad strategist, marketing workflow, ad asset management, BetterAiBots",
-            "beautiful-ai-complete-guide": "Beautiful.ai, AI presentation software, Smart Slides, AI presentations, slide maker, presentation templates, brand control, PowerPoint alternative, sales presentations, pitch decks, BetterAiBots",
-            "recomaze": "Recomaze, AI e-commerce, AI sales agent, AI discoverability, AI concierge, e-commerce AI, conversion optimization, cart uplift, AI recommendations, cookieless personalization, BetterAiBots",
-            "vida-ai-agent-os": "Vida, Vida AI Agent OS, AI phone agents, AI agent operating system, omnichannel AI agents, AI phone calls, AI voice agents, AI customer service, AI workflow automation, enterprise AI agents, BetterAiBots",
-            "plesk": "Plesk, web hosting control panel, server management, website administration, WordPress Toolkit, hosting control panel, server administration, domain management, hosting platform, BetterAiBots",
-            "surecam": "SureCam, fleet dash cam, fleet safety, GPS tracking, video telematics, driver coaching, fleet management, dash camera, vehicle tracking, fleet protection, BetterAiBots",
-            "diginius": "Diginius, PPC management, lead intelligence, B2B leads, intent leads, multi-channel reporting, Google Ads, Microsoft Ads, Facebook advertising, LinkedIn advertising, SEO monitoring, BetterAiBots",
-            "smartli": "Smartli, AI content creation, product description generator, AI blog writer, AI ads writer, background remover, watermark remover, photo enhancer, UGC video generator, e-commerce content, BetterAiBots",
-            "consensus": "Consensus, AI research tool, scientific papers, academic research, evidence-based answers, research synthesis, peer-reviewed sources, citation management, literature review, academic search, BetterAiBots",
-            "close-complete-guide": "Close CRM, sales CRM, inside sales, power dialer, email sequences, SMS sales, pipeline management, sales automation, lead management, sales reporting, BetterAiBots",
-            "evolve-complete-guide": "Evolve AI, AI training platform, corporate learning, LMS, course generation, AI simulations, L&D platform, knowledge base, assessment center, SCORM, enterprise training, BetterAiBots",
-            "alidrop-complete-guide": "AliDrop, AliExpress dropshipping, Shopify dropshipping, Temu dropshipping, Alibaba dropshipping, one-click import, order automation, US EU suppliers, e-commerce automation, BetterAiBots",
-            "browse-ai": "Browse AI, web scraping, data extraction, website monitoring, no-code scraping, web scraper, data extraction tool, website to API, website to spreadsheet, bot evasion, CAPTCHA handling, web data extraction, BetterAiBots",
-            "museit-art-complete-guide": "Museit.art, AI art creation, AI art generator, creative AI, mindfulness art, digital art creation, AI art platform, art therapy, creative expression, no-code art, gallery-ready art, Nano Banana technology, BetterAiBots",
-            "nanoz-complete-guide": "NanoZ.fun, AI branding, brand image generation, AI brand imagery, brand consistency, AI design tools, professional branding, brand asset management, AI image generation, brand workflow, organizational tools, BetterAiBots",
-            "prezi-complete-guide": "Prezi, AI presentations, presentation software, interactive presentations, Prezi Video, visual storytelling, presentation design, AI presentation creator, open canvas presentations, dynamic presentations, presentation platform, BetterAiBots",
-            "landingi-complete-guide": "Landingi, AI landing page builder, landing page creator, conversion optimization, lead generation, A/B testing, landing page design, drag-and-drop editor, landing page templates, marketing tools, landing page software, BetterAiBots",
-            "tradify-complete-guide": "Tradify, job management software, trade business software, job management for trades, trade business management, electrician software, plumber software, HVAC software, job scheduling, trade invoicing, trade quoting, trade job tracking, digital timesheets, trade accounting integration, BetterAiBots",
-            "trainual-complete-guide": "Trainual, employee training platform, SOP software, onboarding software, corporate LMS, knowledge base, role-based training paths, AI training generator, process documentation, compliance e-signatures, BetterAiBots",
-            "vista-social": "Vista Social, social media management, social media scheduler, content calendar, unified inbox, approval workflows, social analytics, marketing teams, agency reporting, BetterAiBots",
-            "logome-complete-guide": "Logome, AI logo generator, logo maker, brand kit creator, AI logo maker, logo design, brand identity, website templates, social media templates, business cards, email signatures, poster generator, flyer generator, AI branding, BetterAiBots",
-            "datahawk": "DataHawk, Amazon analytics, Amazon keyword tracker, Amazon seller analytics, marketplace intelligence, product ranking tracker, Amazon SEO tool, PPC analytics, competitor tracking, Amazon sales analytics, BetterAiBots",
-            "elevenlabs": "ElevenLabs, AI voice, text-to-speech, AI voice generator, voice cloning, dubbing, audio localization, voiceover software, AI audio tools, speech synthesis, BetterAiBots",
-            "gamma": "Gamma, AI presentation tool, AI slide generator, pitch deck builder, presentation templates, AI doc builder, web presentation, presentation software, BetterAiBots",
-            "rankprompt": "RankPrompt, AI SEO tool, keyword research, content brief generator, SERP analysis, SEO content outlines, prompt to outline, on-page optimization, SEO planning, BetterAiBots",
-            "snowfire-ai": "Snowfire AI, AI content writer, SEO content generation, ad copy generator, marketing content, keyword research, content briefs, AI copywriting, content optimization, BetterAiBots",
-            "volza": "Volza, trade data, supplier database, shipment data, import export intelligence, sourcing research, buyer supplier insights, global trade analytics, BetterAiBots",
-            "bidx": "Bidx, ad optimization platform, AI marketing, performance insights, paid advertising analytics, campaign optimization, budget optimization, PPC tools, BetterAiBots",
-            "laxis": "Laxis, AI meeting notes, meeting transcription, meeting summary tool, action item tracking, call recorder, meeting assistant, productivity tool, BetterAiBots",
-            "krispcall": "KrispCall, virtual phone system, VoIP business phone, call tracking, call routing, AI call summary, CRM integration, business calling, BetterAiBots",
-            "getresponse": "GetResponse, email marketing platform, marketing automation tool, email sequences, landing page builder, funnel builder, email list growth, BetterAiBots",
-            "activecampaign": "ActiveCampaign, email marketing automation, CRM software, lead scoring, sales pipeline, marketing workflows, predictive sending, landing pages, BetterAiBots",
-            "gohighlevel": "GoHighLevel, all-in-one business platform, CRM software, marketing automation platform, social media scheduler, landing page builder, funnel builder, white-label CRM, client management platform, business operating system, BetterAiBots",
-            "weave": "Weave, healthcare communication platform, AI Receptionist, call intelligence, appointment scheduling software, patient engagement tools, healthcare practice management, text-to-pay, automated reminders, BetterAiBots",
-            "turbotic": "Turbotic, AI automation platform, business transformation, automation workflows, business case generation, process documentation, meeting agent, digital transformation, ISO-27001, SOC 2, BetterAiBots",
-            "creativescore": "CreativeScore, ad creative scoring, creative analytics, ad performance prediction, creative testing, ad optimization, marketing analytics, BetterAiBots",
-            "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
-            "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
-            "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
-            "teikametrics": "Teikametrics, AI marketplace optimization, Amazon ads, Walmart ads, TikTok Shop, eCommerce growth, listing optimization, full-funnel advertising, marketplace analytics, BetterAiBots",
-            "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
-            "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
-            "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots",
-            "treble-ai": "Treble AI, WhatsApp Business API, WhatsApp chatbot, AI messaging, broadcast campaigns, HubSpot WhatsApp, Salesforce WhatsApp, lead qualification, customer support, BetterAiBots"
-          };
-          return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
-        })()} />
+        <meta name="article:tag" content={getArticleKeywords(article.id)} />
+        <meta name="keywords" content={getArticleKeywords(article.id)} />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -1428,7 +1363,7 @@ export default function ArticlePage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": article.title,
-            "description": article.preview,
+            "description": getArticleSeoDescription(article),
             "image": (() => {
               // Article-specific Open Graph images for better social sharing
               const ogImageMap = {
@@ -1490,6 +1425,7 @@ export default function ArticlePage() {
                 "snowfire-ai": "https://betteraibots.com/assets/snowfireai.jpg",
                 "volza": "https://betteraibots.com/assets/volzaai.png",
             "bidx": "https://betteraibots.com/assets/bidxai.jpg",
+            "bitdefender-complete-guide": "https://betteraibots.com/bitdefenderlogo.png",
             "laxis": "https://betteraibots.com/assets/laxisai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
@@ -1527,44 +1463,7 @@ export default function ArticlePage() {
               "@type": "WebPage",
               "@id": pageUrl
             },
-            "keywords": (() => {
-              const keywordMap = {
-                "blackbox-ai": "Blackbox.ai, AI code assistant, code completion, AI autocomplete, programming tools, software development, AI coding, code generation, developer tools, BetterAiBots",
-                "webydo": "Webydo, web design platform, no-code design, website builder, CMS, client management, web development, design tools, BetterAiBots",
-                "thordata": "ThorData, proxy service, web scraping, data collection, residential proxies, scraper APIs, AI data infrastructure, web data collection, BetterAiBots",
-                "vista-social": "Vista Social, social media management, social scheduling, content calendar, unified inbox, approvals workflow, social analytics, marketing teams, BetterAiBots",
-                "datahawk": "DataHawk, Amazon analytics, Amazon keyword tracking, Amazon seller analytics, marketplace intelligence, product ranking tracker, Amazon SEO tool, PPC analytics, competitor tracking, BetterAiBots",
-                "elevenlabs": "ElevenLabs, AI voice, text-to-speech, AI voice generator, voice cloning, dubbing, audio localization, voiceover, AI audio, BetterAiBots",
-                "gamma": "Gamma, AI presentations, AI slide deck, presentation builder, AI doc generator, pitch deck, sales deck, web presentation, BetterAiBots",
-                "rankprompt": "RankPrompt, AI SEO, content briefs, keyword research, SERP insights, SEO content planning, content outlines, prompt to outline, BetterAiBots",
-                "snowfire-ai": "Snowfire AI, AI content generation, SEO content, ad copy, marketing content, content briefs, keyword research, content workflows, BetterAiBots",
-            "pinecone-vector-database": "Pinecone vector database, vector search platform, RAG database, AI search infrastructure, semantic search, hybrid search, metadata filters, namespaces, production-ready AI search, BetterAiBots",
-                "volza": "Volza, trade intelligence, supplier discovery, shipment tracking, import export data, competitor analysis, market research, global trade data, BetterAiBots",
-                "bidx": "Bidx, AI advertising optimization, performance marketing, ad campaign optimization, budget pacing, ROAS, PPC analytics, paid media, BetterAiBots",
-                "laxis": "Laxis, AI meeting assistant, meeting notes, transcripts, meeting summaries, action items, meeting recorder, call summaries, productivity, BetterAiBots",
-                "krispcall": "KrispCall, cloud phone system, business phone, AI call summaries, call routing, sales calls, support calls, VoIP, BetterAiBots",
-                "getresponse": "GetResponse, email marketing, marketing automation, email campaigns, landing pages, conversion funnels, segmentation, newsletters, BetterAiBots",
-            "activecampaign": "ActiveCampaign, email marketing automation, CRM, lead scoring, marketing workflows, predictive sending, sales pipeline, landing pages, BetterAiBots",
-                "creativescore": "CreativeScore, AI creative scoring, ad creative analysis, performance prediction, ad diagnostics, creative optimization, paid media, BetterAiBots",
-                "descript": "Descript, AI video editing, video transcription, podcast editing, video production, AI editing tools, video editing software, content creation, BetterAiBots",
-                "elevate-forward": "ElevateForward, AI strategy platform, strategy execution, KPI management, business health report, Elevate Studio, strategic planning, initiative tracking, 90-day roadmap, BetterAiBots",
-                "unbounce": "Unbounce, landing page builder, conversion optimization, A/B testing, landing pages, PPC campaigns, marketing automation, lead generation, BetterAiBots",
-                "landbot": "Landbot, chatbot builder, conversational AI, chatbot platform, WhatsApp chatbot, lead generation, customer support, no-code chatbot, BetterAiBots",
-                "reclaim-ai": "Reclaim.ai, calendar management, time blocking, AI scheduling, calendar automation, productivity, meeting scheduling, time optimization, BetterAiBots",
-                "quillbot-complete-guide": "QuillBot, AI paraphrasing tool, grammar checker, AI detector, plagiarism checker, AI humanizer, writing assistant, text rewriter, paraphrasing software, BetterAiBots",
-                "amplemarket": "Amplemarket, sales engagement, prospecting, outreach automation, sales automation, B2B sales, lead generation, sales CRM, BetterAiBots",
-                "mindstudio": "MindStudio, AI agent builder, no-code AI, AI workflow automation, custom AI assistants, AI agent development, workflow builder, AI automation platform, BetterAiBots",
-                "practice-ignition": "Ignition, Practice Ignition, practice management software, proposals, client onboarding, accounting firms, bookkeepers, engagement letters, recurring payments, professional services, BetterAiBots",
-                "omniseo": "OmniSEO, AI search visibility, ChatGPT tracker, Perplexity tracker, AI Overview tracker, citation tracking, AEO, AI search optimization, brand visibility, competitor analysis, prompt volume, BetterAiBots",
-                "compliancely": "Compliancely, TIN matching, identity verification, IRS tax transcripts, KYB, KYC, compliance, fintech, lending, onboarding, E-Verify, I-9, watchlist screening, BetterAiBots",
-                "teikametrics": "Teikametrics, AI marketplace optimization, Amazon ads, Walmart ads, TikTok Shop, eCommerce growth, listing optimization, full-funnel advertising, marketplace analytics, BetterAiBots",
-                "spiky-ai": "Spiky.ai, real-time sales coaching, meeting intelligence, AI sales, call momentum, MEDDPICC, objection handling, pipeline visibility, CRM sync, sales enablement, BetterAiBots",
-                "emergent": "Emergent, build apps with AI, full-stack web apps, mobile app builder, no-code app development, AI agents, conversation to app, deploy with AI, app development, BetterAiBots",
-                "sleekflow": "SleekFlow, omnichannel messaging, WhatsApp Business API, AgentFlow AI, team inbox, lead qualification, broadcast campaigns, CRM integration, conversion, BetterAiBots",
-            "treble-ai": "Treble AI, WhatsApp Business API, WhatsApp chatbot, AI messaging, broadcast campaigns, HubSpot WhatsApp, Salesforce WhatsApp, lead qualification, customer support, BetterAiBots"
-              };
-              return keywordMap[article.id] || "AI, Artificial Intelligence, GPT, ChatGPT, AI Tools, BetterAiBots";
-            })(),
+            "keywords": getArticleKeywords(article.id),
             "articleSection": "AI Tools",
             "inLanguage": "en-US"
           })}
@@ -2852,14 +2751,75 @@ export default function ArticlePage() {
         )
       )}
       <h1 className="article-page-title">{article.title}</h1>
-      <p style={{
-        fontSize: "1.13rem",
-        color: 'var(--text-secondary)',
-        marginBottom: 22,
-        fontWeight: 400,
-        lineHeight: 1.7,
-        maxWidth: 700
-      }}>{article.preview}</p>
+      {article.id === 'amplemarket' && (
+        <ArticleGuideVideo
+          src={amplemarketUserGuideVideo}
+          ariaLabel="Amplemarket user guide"
+          affiliateLink={affiliateLink}
+          linkLabel="Visit Amplemarket"
+        />
+      )}
+      {article.id === 'close-complete-guide' && (
+        <ArticleGuideVideo
+          src={closeAIUserGuideVideo}
+          ariaLabel="Close CRM user guide"
+          affiliateLink={affiliateLink}
+          linkLabel="Visit Close"
+        />
+      )}
+      {article.id === 'bitdefender-complete-guide' && (
+        <ArticleGuideVideo
+          src={bitdefenderUserGuideVideo}
+          ariaLabel="Bitdefender user guide"
+          affiliateLink={affiliateLink}
+          linkLabel="Get Bitdefender"
+        />
+      )}
+      {article.id === 'adcreative-ai' && (
+        <div style={{ textAlign: 'center', margin: '0 auto 28px', maxWidth: '800px', width: '100%' }}>
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              aspectRatio: '16 / 9',
+              borderRadius: 16,
+              overflow: 'hidden',
+              background: '#0d1520',
+              boxShadow: '0 4px 20px rgba(54, 255, 149, 0.2)',
+            }}
+          >
+            <video
+              src="/AdCreative.ai Promo.mp4"
+              aria-label="AdCreative.ai Promo"
+              controls
+              playsInline
+              preload="metadata"
+              style={{
+                width: '100%',
+                height: '100%',
+                display: 'block',
+                objectFit: 'contain',
+                background: '#000',
+              }}
+            />
+          </div>
+          <a
+            href={affiliateLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              marginTop: '16px',
+              color: 'var(--accent)',
+              fontWeight: 700,
+              fontSize: '1.1rem',
+              textDecoration: 'underline',
+            }}
+          >
+            Start free trial
+          </a>
+        </div>
+      )}
       {video && (
         <div dangerouslySetInnerHTML={{ __html: video }} />
       )}
@@ -3780,6 +3740,42 @@ export default function ArticlePage() {
             borderRadius: 18,
             boxShadow: "0 0 16px #36ff9577"
           }} />
+        </div>
+      )}
+      {article.id === 'adcreative-ai' && (
+        <div style={{ textAlign: 'center', margin: '48px auto 24px', maxWidth: '600px' }}>
+          <video
+            src="/SQUAREad.mp4"
+            aria-label="AdCreative"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{
+              width: '100%',
+              maxWidth: '600px',
+              height: 'auto',
+              borderRadius: 16,
+              display: 'block',
+              margin: '0 auto',
+              boxShadow: '0 4px 20px rgba(54, 255, 149, 0.2)',
+            }}
+          />
+          <a
+            href={affiliateLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              marginTop: '16px',
+              color: 'var(--accent)',
+              fontWeight: 700,
+              fontSize: '1.1rem',
+              textDecoration: 'underline',
+            }}
+          >
+            Start free trial
+          </a>
         </div>
       )}
       {/* Scholar GPT image and button at bottom */}

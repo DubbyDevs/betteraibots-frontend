@@ -29,15 +29,9 @@ import placeholderImg30 from '../assets/bot-placeholder30.webp';
 import placeholderImg31 from '../assets/bot-placeholder31.webp';
 import placeholderImg32 from '../assets/bot-placeholder32.webp';
 import placeholderImg33 from '../assets/bot-placeholder33.webp';
-import placeholderImg34 from '../assets/bot-placeholder34.webp';
 import placeholderImg36 from '../assets/bot-placeholder36.webp';
 import InVideoFreeTrialImg from '../assets/InVideoFreeTrial.webp';
 import InVideoFreeTrial2Img from '../assets/InVideoFreeTrial2.webp';
-import InVideoAvatar from '../assets/InVideoAvatar.webp';
-import adcreativeaiImg from '../assets/adcreativeai.webp';
-import adcreativeaiImg2 from '../assets/adcreativeai2.webp';
-import adcreativeaiImg3 from '../assets/adcreativeai3.webp';
-
 import trustygifVideo from '../assets/trustygif.mp4';
 
 export const rawBots = [
@@ -54,16 +48,8 @@ export const rawBots = [
     desc: "VEED is the easiest way to create videos. Edit videos, add subtitles, and more.",
     image: placeholderImg18,
     free: true,
-    openaiLink: "https://veed.cello.so/rwFO6zwGZh9",
+    openaiLink: "https://veed.cello.so/2KWVFnsJmFA",
     categories: ["Productivity", "Marketing"]
-  },
-  {
-    title: "AI Cheat Coder",
-    desc: "Free AI programmer for instant coding help, reviews, and bug fixes.",
-    image: placeholderImg34,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-684426fa2a588191aabb529e9ca6e26f-cheat-coder",
-    categories: ["Productivity"]
   },
   {
     title: "n8n - AI Workflow Automation",
@@ -126,18 +112,10 @@ export const rawBots = [
     categories: ["Health & Wellness", "Lifestyle"]
   },
   {
-    title: "Blood Test Result Analysis",
-    desc: "Understand your blood test results and get actionable health insights. Not real medical advice.",
-    image: placeholderImg24,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-1AahKhimZ-blood-test-result-analysis-for-health-insight",
-    categories: ["Health & Wellness", "Education"]
-  },
-  {
     title: "AdCreative.ai",
     desc: "Generate conversion-focused ad creatives, texts, photoshoots, and videos that outperform competitors.",
-    image: adcreativeaiImg,
-    rotatingImages: [adcreativeaiImg, adcreativeaiImg2, adcreativeaiImg3],
+    image: "/SQUAREad.mp4",
+    isVideo: true,
     free: false,
     openaiLink: "https://free-trial.adcreative.ai/BAIB",
     isAffiliate: true,
@@ -228,14 +206,6 @@ export const rawBots = [
     free: true,
     openaiLink: "https://chatgpt.com/share/68941477-0b54-8004-83c8-5cb27d26bf96",
     categories: ["Creative Tools"]
-  },
-  {
-    title: "InVideo",
-    desc: "Create stunning AI videos from text with professional editing tools and 16M+ stock media.",
-    image: InVideoAvatar,
-    free: true,
-    openaiLink: "https://invideo.sjv.io/c/6368097/2210623/12258",
-    categories: ["Creative Tools", "Productivity"]
   }
 ];
 

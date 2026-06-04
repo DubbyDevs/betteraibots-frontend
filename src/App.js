@@ -743,6 +743,16 @@ const PAID_APPS = [
     readMoreLink: "/learn/bidx"
   },
   {
+    name: "Bitdefender",
+    description: "Global cybersecurity leader with AI-powered threat prevention for home, small business, and enterprise—antivirus, VPN, identity protection, and GravityZone",
+    category: "Cybersecurity & Privacy",
+    features: ["AI threat detection", "Real-time malware & ransomware protection", "Premium VPN", "Identity theft protection", "GravityZone for teams", "Scamio AI scam detector"],
+    price: "From ~$35/year (consumer)",
+    link: "https://get.bitdefender.com/BAIB",
+    image: "/bitdefenderlogo.png",
+    readMoreLink: "/learn/bitdefender-complete-guide"
+  },
+  {
     name: "n8n",
     description: "Open-source workflow automation platform for connecting apps and services",
     category: "Workflow Automation",
@@ -2303,10 +2313,20 @@ function BotGrid({ bots, onOpenModal }) {
         />
       </div>
       {bots.map((bot, i) => (
-        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}${bot.title === "AI Music Maker" ? ' ai-music-maker' : ''}${bot.title === "Accounting GPT" ? ' accounting-gpt' : ''}`} key={i}>
+        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo AI" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}${bot.title === "AI Music Maker" ? ' ai-music-maker' : ''}${bot.title === "Accounting GPT" ? ' accounting-gpt' : ''}`} key={i}>
           {bot.isAffiliate ? (
             <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
-              {bot.rotatingImages ? (
+              {bot.isVideo ? (
+                <video
+                  src={bot.image}
+                  aria-label={bot.title}
+                  style={{ width: '100%', borderRadius: 18 }}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              ) : bot.rotatingImages ? (
                 <RotatingImage
                   images={bot.rotatingImages}
                   alt={bot.title}
@@ -2335,7 +2355,7 @@ function BotGrid({ bots, onOpenModal }) {
           ) : (
             <>
               <div className="bot-card-content">
-                {bot.free && bot.title !== "InVideo" && bot.title !== "VEED AI" && <div className="verified-badge">Free</div>}
+                {bot.free && bot.title !== "VEED AI" && <div className="verified-badge">Free</div>}
                 {!bot.free && <div className="verified-badge">Paid</div>}
                 {bot.isVideo ? (
                   <video
@@ -2370,7 +2390,7 @@ function BotGrid({ bots, onOpenModal }) {
               </div>
               <div className="bot-card-footer">
                 <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer">
-                  <button className="openai-btn">{bot.title === "InVideo" ? "Try for free!" : bot.title === "VEED AI" ? "View VEED" : "View on OpenAI"}</button>
+                  <button className="openai-btn">{bot.title === "VEED AI" ? "View VEED" : "View on OpenAI"}</button>
                 </a>
               </div>
             </>
@@ -2470,7 +2490,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
   const [randomizedBots] = useState(() => {
     // Identify the 3 affiliate ads
     const affiliateAds = botList.filter(bot => bot.isAffiliate === true);
-    // Get all non-affiliate bots (including the free "InVideo" app)
+    // Get all non-affiliate bots
     const regularBots = botList.filter(bot => bot.isAffiliate !== true);
     
     // Shuffle the regular bots using Fisher-Yates algorithm for better randomization
@@ -2480,8 +2500,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
       [shuffledRegularBots[i], shuffledRegularBots[j]] = [shuffledRegularBots[j], shuffledRegularBots[i]];
     }
     
-    // Calculate total length and middle positions for affiliate ads
-    const desiredPreAdCount = 11;
+    // Suggest card + 8 GPTs, then 3 affiliate ads, then 9 GPTs (17 regular bots total)
+    const desiredPreAdCount = 8;
     const middleStart = Math.min(desiredPreAdCount, shuffledRegularBots.length);
     
     // Create the final array with affiliate ads in the middle
@@ -3398,18 +3418,30 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   marginTop: "16px",
                   boxSizing: "border-box"
                 }}>
-                  <img
-                    src={imageSrc}
-                    alt={`${app.name} logo`}
-                    className="spotlight-card__img"
+                  <Link
+                    to={readMoreLink}
+                    aria-label={`Read more about ${app.name}`}
                     style={{
-                      width: "200px",
-                      height: "200px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      textDecoration: "none",
                     }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
+                  >
+                    <img
+                      src={imageSrc}
+                      alt={`${app.name} logo`}
+                      className="spotlight-card__img"
+                      style={{
+                        width: "200px",
+                        height: "200px",
+                        cursor: "pointer",
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  </Link>
                 </div>
                 <div style={{
                   flex: 1,
@@ -3420,15 +3452,22 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   minWidth: 0
                 }}>
                   <div>
-                    <h3 style={{
-                      color: 'var(--accent)',
-                      fontSize: isMobile ? "1.1rem" : "1.3rem",
-                      fontWeight: 700,
-                      margin: "0 0 12px 0",
-                      lineHeight: 1.3
-                    }}>
-                      {app.name}
-                    </h3>
+                    <Link
+                      to={readMoreLink}
+                      style={{ textDecoration: "none" }}
+                      aria-label={`Read more about ${app.name}`}
+                    >
+                      <h3
+                        className="spotlight-card__title"
+                        style={{
+                          fontSize: isMobile ? "1.1rem" : "1.3rem",
+                          margin: "0 0 12px 0",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {app.name}
+                      </h3>
+                    </Link>
                     <p style={{
                       color: 'var(--text-subtle)',
                       fontSize: isMobile ? "0.8rem" : "0.9rem",

@@ -1582,7 +1582,8 @@ img[alt="preview"] {
   justify-content: stretch;
 }
 
-.bot-card.affiliate-ad img {
+.bot-card.affiliate-ad img,
+.bot-card.affiliate-ad video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1591,7 +1592,8 @@ img[alt="preview"] {
   transition: transform 0.225s ease;
 }
 
-.bot-card.affiliate-ad:hover img {
+.bot-card.affiliate-ad:hover img,
+.bot-card.affiliate-ad:hover video {
   transform: scale(1.0375);
 }
 

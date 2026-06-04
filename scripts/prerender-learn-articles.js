@@ -46,7 +46,7 @@ const affiliateLinks = {
   "reply-io-complete-guide": "https://get.reply.io/ub7edypmq2gj",
   "thordata": "https://affiliate.thordata.com/BAIB",
   "tidio-ai": "https://affiliate.tidio.com/BAIB",
-  "veed-complete-guide": "https://veed.cello.so/rwFO6zwGZh9",
+  "veed-complete-guide": "https://veed.cello.so/2KWVFnsJmFA",
   "webydo": "https://partners.webydo.com/BAIB",
   "wispr-flow-complete-guide": "https://wisprflow.ai/downloads?referral=KING16",
   "catalister": "https://join.catalister.com/BAIB",
@@ -99,10 +99,22 @@ const ogImageMap = {
   "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png"
 };
 
-const keywordMap = {
-  "pinecone-vector-database": "Pinecone, vector database, RAG, semantic search, AI search infrastructure, BetterAiBots",
-  "practice-ignition": "Ignition, proposals, client onboarding, accounting firms, recurring billing, BetterAiBots"
-};
+function loadArticleSeoData() {
+  const seoPath = path.join(__dirname, '..', 'src', 'data', 'articleSeo.js');
+  const content = fs.readFileSync(seoPath, 'utf8');
+  const kwMatch = content.match(/export const ARTICLE_KEYWORDS = (\{[\s\S]*?\n\});/);
+  const descMatch = content.match(/export const ARTICLE_SEO_DESCRIPTIONS = (\{[\s\S]*?\n\});/);
+  if (!kwMatch || !descMatch) {
+    throw new Error('Could not parse articleSeo.js — run: node scripts/build-article-seo-data.js');
+  }
+  // eslint-disable-next-line no-eval
+  return {
+    keywords: eval(`(${kwMatch[1]})`),
+    descriptions: eval(`(${descMatch[1]})`)
+  };
+}
+
+const { keywords: articleKeywords, descriptions: articleDescriptions } = loadArticleSeoData();
 
 function getOGImage(articleId) {
   return ogImageMap[articleId] || "https://betteraibots.com/og-image.png?v=3";
@@ -135,10 +147,10 @@ try {
     }
     const html = buildStaticPageHtml({
       title: article.title,
-      description: article.preview || article.title,
+      description: articleDescriptions[article.id] || article.preview || article.title,
       canonicalUrl: articleUrl,
       ogImage: getOGImage(article.id),
-      keywords: keywordMap[article.id] || "AI tools, artificial intelligence, BetterAiBots",
+      keywords: articleKeywords[article.id] || "AI tools, artificial intelligence, BetterAiBots",
       dateISO: parseDateISO(article.date),
       bodyHtml,
       ctaHref: affiliateLinks[article.id] || null,
