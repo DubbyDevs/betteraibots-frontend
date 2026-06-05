@@ -793,6 +793,16 @@ const PAID_APPS = [
     readMoreLink: "/learn/rankprompt"
   },
   {
+    name: "Rebolt",
+    description: "AI-powered marketing platform for home-service businesses—managed websites that rank, CRM, reviews, quotes, and Google Business Profile optimization",
+    category: "Marketing & Websites",
+    features: ["AI-built website in ~24 hours", "No upfront website cost", "CRM & marketing kit", "Google Business Profile optimizer", "Reviews & quotes", "Dedicated project manager"],
+    price: "From $224/mo (promo)",
+    link: "https://join.rebolthq.com/cxm6ajhcpc08",
+    image: "/reboltai.jpg",
+    readMoreLink: "/learn/rebolt-complete-guide"
+  },
+  {
     name: "Airia",
     description: "Enterprise AI orchestration platform that accelerates agent development from concept to production with rapid prototyping and intelligent operations",
     category: "AI & Enterprise Automation",

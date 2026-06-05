@@ -99,7 +99,8 @@ export const ARTICLE_SEO_DESCRIPTIONS = {
   "bebop-ai": "Intelligent Automation Platform for Streamlining Complex Workflows — learn features, use cases, setup tips, and how to get started with this AI tool on...",
   "volza": "Volza guide: Global trade intelligence platform that helps you find suppliers, analyze competitors, and track shipments across markets Learn features,...",
   "bidx": "AI Advertising Optimization and Performance Insights — learn features, use cases, setup tips, and how to get started with this AI tool on BetterAiBots.",
-  "bitdefender-complete-guide": "Bitdefender Complete Guide: AI-Powered Cybersecurity for Home, Business, and Enterprise — learn features, use cases, setup tips, and how to get started with..."
+  "bitdefender-complete-guide": "Bitdefender Complete Guide: AI-Powered Cybersecurity for Home, Business, and Enterprise — learn features, use cases, setup tips, and how to get started with...",
+  "rebolt-complete-guide": "Rebolt Complete Guide: AI-Powered Websites and Marketing for Service Businesses — learn features, use cases, setup tips, and how to get started with this AI..."
 };
 
 /** Per-article keyword meta tags and schema keywords */
@@ -198,7 +199,8 @@ export const ARTICLE_KEYWORDS = {
   "bebop-ai": "Intelligent Automation Platform for Streamlining Complex Workflows, Bebop AI, AI tools, complete guide, features, how to use, workflow, BetterAiBots",
   "volza": "Volza, AI tools, complete guide, features, how to use, workflow, BetterAiBots, global, trade, intelligence, platform",
   "bidx": "AI Advertising Optimization and Performance Insights, Bidx, AI tools, complete guide, features, how to use, workflow, BetterAiBots",
-  "bitdefender-complete-guide": "Bitdefender Complete Guide, Bitdefender, AI tools, complete guide, features, how to use, workflow, BetterAiBots"
+  "bitdefender-complete-guide": "Bitdefender Complete Guide, Bitdefender, AI tools, complete guide, features, how to use, workflow, BetterAiBots",
+  "rebolt-complete-guide": "Rebolt Complete Guide, Rebolt, AI tools, complete guide, features, how to use, workflow, BetterAiBots"
 };
 
 export function getArticleKeywords(articleId) {
