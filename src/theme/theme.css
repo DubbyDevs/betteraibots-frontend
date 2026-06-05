@@ -1013,6 +1013,10 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 12px;
+  color: #ffffff;
+}
+
+[data-theme="light"] .article-explore-nav h2 {
   color: var(--accent);
 }
 

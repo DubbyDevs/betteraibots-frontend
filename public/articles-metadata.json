@@ -210,6 +210,13 @@
     "cover": null
   },
   {
+    "id": "netlify-complete-guide",
+    "title": "Netlify Complete Guide: Deploy Modern Web Apps from Git in Minutes",
+    "date": "June 2026",
+    "preview": "Netlify guide: Modern web hosting and deployment platform for JAMstack sites, serverless functions, and AI apps with Git-based workflows and instant preview...",
+    "cover": null
+  },
+  {
     "id": "pinecone-vector-database",
     "title": "Build Knowledgeable AI with Production-Ready Search",
     "date": "February 2026",
@@ -368,6 +375,13 @@
     "title": "Better Presentations, Faster with AI-Powered Visual Storytelling",
     "date": "November 2025",
     "preview": "Prezi AI guide: AI-powered presentation platform that helps you create engaging, dynamic, and visually stunning presentations. Enhance your storytelling...",
+    "cover": null
+  },
+  {
+    "id": "printify-complete-guide",
+    "title": "Printify Complete Guide: Start Your Print-on-Demand Business for Free",
+    "date": "June 2026",
+    "preview": "Printify guide: Leading print-on-demand platform to create and sell custom products with 1300+ items, global fulfillment, and integrations for Shopify,...",
     "cover": null
   },
   {
@@ -669,6 +683,13 @@
     "title": "Rebolt Complete Guide: AI-Powered Websites and Marketing for Service Businesses",
     "date": "June 2026",
     "preview": "Rebolt Complete Guide: AI-Powered Websites and Marketing for Service Businesses — learn features, use cases, setup tips, and how to get started with this AI...",
+    "cover": null
+  },
+  {
+    "id": "calilio-complete-guide",
+    "title": "Calilio Complete Guide: AI-Powered Cloud Phone System for Modern Teams",
+    "date": "June 2026",
+    "preview": "Calilio Complete Guide: AI-Powered Cloud Phone System for Modern Teams — learn features, use cases, setup tips, and how to get started with this AI tool on...",
     "cover": null
   }
 ]

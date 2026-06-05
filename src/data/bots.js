@@ -9,7 +9,6 @@ import placeholderImg8 from '../assets/bot-placeholder8.webp';
 import placeholderImg9 from '../assets/bot-placeholder9.webp';
 import placeholderImg10 from '../assets/bot-placeholder10.webp';
 import placeholderImg11 from '../assets/bot-placeholder11.webp';
-import placeholderImg12 from '../assets/bot-placeholder12.webp';
 import placeholderImg13 from '../assets/bot-placeholder13.webp';
 import placeholderImg14 from '../assets/bot-placeholder14.webp';
 import placeholderImg17 from '../assets/bot-placeholder17.webp';
@@ -22,12 +21,10 @@ import placeholderImg23 from '../assets/bot-placeholder23.webp';
 import placeholderImg24 from '../assets/bot-placeholder24.webp';
 import placeholderImg25 from '../assets/bot-placeholder25.webp';
 import placeholderImg26 from '../assets/bot-placeholder26.webp';
-import placeholderImg27 from '../assets/bot-placeholder27.webp';
 import placeholderImg28 from '../assets/bot-placeholder28.webp';
 import placeholderImg29 from '../assets/bot-placeholder29.webp';
 import placeholderImg30 from '../assets/bot-placeholder30.webp';
 import placeholderImg31 from '../assets/bot-placeholder31.webp';
-import placeholderImg32 from '../assets/bot-placeholder32.webp';
 import placeholderImg33 from '../assets/bot-placeholder33.webp';
 import placeholderImg36 from '../assets/bot-placeholder36.webp';
 import InVideoFreeTrialImg from '../assets/InVideoFreeTrial.webp';
@@ -131,28 +128,12 @@ export const rawBots = [
     categories: ["Health & Wellness", "Lifestyle"]
   },
   {
-    title: "AI Music Maker",
-    desc: "Turn your words or lyrics into music with this AI-powered music generator.",
-    image: placeholderImg12,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-rLVq3NTrN-ai-music-maker-song-words-to-music-free",
-    categories: ["Music", "Creative Tools"]
-  },
-  {
     title: "Grammar Checker",
     desc: "Checks your grammar, spelling, and clarity with suggestions for better writing.",
     image: placeholderImg2,
     free: true,
     openaiLink: "https://chatgpt.com/g/g-kfkNLRrwD-grammar-checker",
     categories: ["Productivity", "Education"]
-  },
-  {
-    title: "Law, Contract, Disclaimer",
-    desc: "Get AI-powered info on contracts, disclaimers, and general law concepts. Not actual legal advice.",
-    image: placeholderImg27,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-My8UBHpJn-law-contractdisclaimer-not-lawyer-legal-advice",
-    categories: ["Productivity", "Specialized Knowledge"]
   },
   {
     title: "Astrology Birth Chart GPT",
@@ -191,14 +172,6 @@ export const rawBots = [
     categories: ["Education"]
   },
   {
-    title: "Logo",
-    desc: "Design professional brand logos with this AI-powered logo creation expert.",
-    image: placeholderImg32,
-    free: true,
-    openaiLink: "https://chatgpt.com/g/g-pCq5xaCri-logo",
-    categories: ["Creative Tools"]
-  },
-  {
     title: "GIF Generator",
     desc: "Quickly create custom GIFs on any topic or mood. Fun and easy to use.",
     image: trustygifVideo,
@@ -213,11 +186,11 @@ export const rawBots = [
 export const placeholderImgs = [
   placeholderImg1, placeholderImg2, placeholderImg3, placeholderImg4, placeholderImg5,
   placeholderImg6, placeholderImg7, placeholderImg8, placeholderImg9, placeholderImg10,
-  placeholderImg11, placeholderImg12, placeholderImg13, placeholderImg14,
+  placeholderImg11, placeholderImg13, placeholderImg14,
   placeholderImg17, placeholderImg18, placeholderImg19, placeholderImg20, 
   placeholderImg21, placeholderImg22, placeholderImg23, placeholderImg24, placeholderImg25, 
-  placeholderImg26, placeholderImg27, placeholderImg28, placeholderImg29, placeholderImg30,
-  placeholderImg31, placeholderImg32, placeholderImg33, 
+  placeholderImg26, placeholderImg28, placeholderImg29, placeholderImg30,
+  placeholderImg31, placeholderImg33, 
 ];
 
 // Shuffle utility for placeholders

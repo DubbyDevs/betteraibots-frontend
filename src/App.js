@@ -798,9 +798,19 @@ const PAID_APPS = [
     category: "Marketing & Websites",
     features: ["AI-built website in ~24 hours", "No upfront website cost", "CRM & marketing kit", "Google Business Profile optimizer", "Reviews & quotes", "Dedicated project manager"],
     price: "From $224/mo (promo)",
-    link: "https://join.rebolthq.com/cxm6ajhcpc08",
+    link: "https://join.rebolthq.com/BAIB",
     image: "/reboltai.jpg",
     readMoreLink: "/learn/rebolt-complete-guide"
+  },
+  {
+    name: "Calilio",
+    description: "AI-powered cloud VoIP phone system with virtual numbers from 100+ countries, real-time transcription, sentiment analysis, and CRM integrations",
+    category: "Sales & Customer Support",
+    features: ["Virtual numbers in 100+ countries", "AI call reports & summaries", "Real-time transcription", "Sentiment analysis", "Power dialer & IVR", "CRM integration"],
+    price: "From $15/user/month",
+    link: "https://try.calilio.com/BAIB",
+    image: "/caliliologo.webp",
+    readMoreLink: "/learn/calilio-complete-guide"
   },
   {
     name: "Airia",
@@ -2323,7 +2333,7 @@ function BotGrid({ bots, onOpenModal }) {
         />
       </div>
       {bots.map((bot, i) => (
-        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo AI" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}${bot.title === "AI Music Maker" ? ' ai-music-maker' : ''}${bot.title === "Accounting GPT" ? ' accounting-gpt' : ''}`} key={i}>
+        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo AI" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}${bot.title === "Accounting GPT" ? ' accounting-gpt' : ''}`} key={i}>
           {bot.isAffiliate ? (
             <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
               {bot.isVideo ? (

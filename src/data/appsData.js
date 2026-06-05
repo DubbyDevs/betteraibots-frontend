@@ -26,11 +26,13 @@ import recomaze1 from '../assets/recomaze1.jpg';
 import vida1 from '../assets/vida1.jpg';
 import smartli1 from '../assets/smartli1.jpg';
 import preziai from '../assets/preziai.png';
+import printifylogo from '../assets/printifylogo.png';
 import tradify1 from '../assets/tradify1.jpg';
 import thordatawebp from '../assets/thordata.webp';
 import humeai from '../assets/humeai.webp';
 import InVideoAvatar from '../assets/InVideoAvatar.webp';
 import nanozlogo from '../assets/nanozlogo.png';
+import netlifylogo from '../assets/netlifylogo.jpeg';
 import tidioai from '../assets/tidioai.webp';
 import webydoai from '../assets/webydoai.webp';
 import seamlessailogo from '../assets/seemlessailogo.jpg';
@@ -410,6 +412,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/lusha"
   },
   {
+    name: "MeetGeek",
+    description: "AI meeting notetaker that records, transcribes, and summarizes Zoom, Teams, and Google Meet calls with workflows, analytics, and 50+ language support",
+    category: "Productivity & Collaboration",
+    features: ["Auto meeting recording", "AI transcription & summaries", "Action items & highlights", "Zoom, Teams & Google Meet", "Slack, Notion & CRM sync", "Mobile offline recording"],
+    link: "https://get.meetgeek.ai/BAIB",
+    trialInfo: "Free plan available",
+    image: "/meetgeeklogo.png",
+    readMoreLink: "/learn/meetgeek-complete-guide"
+  },
+  {
     name: "Miro",
     description: "Online collaborative whiteboard platform for teams to brainstorm, plan, and work together visually",
     category: "Productivity & Collaboration",
@@ -460,6 +472,16 @@ export const trialAppsData = [
     readMoreLink: "/learn/nanoz-complete-guide"
   },
   {
+    name: "Netlify",
+    description: "Modern web hosting and deployment platform for JAMstack sites, serverless functions, and AI apps with Git-based workflows and instant preview deploys",
+    category: "Web Development & Hosting",
+    features: ["Deploy from Git", "Serverless functions", "Edge network", "Preview deploys", "Forms & analytics", "Free tier for developers"],
+    link: "https://join.netlify.com/BAIB",
+    trialInfo: "Free tier available",
+    image: netlifylogo,
+    readMoreLink: "/learn/netlify-complete-guide"
+  },
+  {
     name: "Pinecone",
     description: "Vector database for semantic search, RAG, and AI apps with fully managed infrastructure and serverless scaling.",
     category: "AI & Machine Learning",
@@ -478,6 +500,16 @@ export const trialAppsData = [
     trialInfo: "Start for free",
     image: preziai,
     readMoreLink: "/learn/prezi-complete-guide"
+  },
+  {
+    name: "Printify",
+    description: "Leading print-on-demand platform to create and sell custom products with 1300+ items, global fulfillment, and integrations for Shopify, Etsy, TikTok, and Amazon",
+    category: "E-commerce & Print on Demand",
+    features: ["1300+ custom products", "No upfront inventory", "Global fulfillment network", "Shopify & Etsy integrations", "Mockup generator", "AI image generator"],
+    link: "https://try.printify.com/BAIB",
+    trialInfo: "100% free to start",
+    image: printifylogo,
+    readMoreLink: "/learn/printify-complete-guide"
   },
   {
     name: "QuillBot",

@@ -9,6 +9,7 @@ import rehypeRaw from "rehype-raw";
 import amplemarketUserGuideVideo from "./assets/AmplemarketUserGuide.mp4";
 import closeAIUserGuideVideo from "./assets/CloseAI-User-Guide.mp4";
 import bitdefenderUserGuideVideo from "./assets/bitdefendervid.mp4";
+import capsuleUserGuideVideo from "./assets/Capsule-User-Guide.mp4";
 
 function ArticleGuideVideo({ src, ariaLabel, affiliateLink, linkLabel }) {
   if (!src || !affiliateLink) return null;
@@ -570,6 +571,7 @@ export default function ArticlePage() {
   // Process content to add internal links
   const processedContent = article ? addInternalLinks(article.content, article.id, articles) : null;
   const { video, restContent } = article ? extractVideoFromContent(processedContent) : { video: null, restContent: null };
+  const articleMarkdownContent = restContent ?? processedContent ?? article?.content ?? '';
 
   // Function to generate heading ID from text
   const generateHeadingId = (text) => {
@@ -697,6 +699,7 @@ export default function ArticlePage() {
     "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
     "lindy-ai": "https://try.lindy.ai/lhgvxfidor04",
     "lusha": "https://partnerstack.lusha.com/w61xn76pa3sr",
+    "meetgeek-complete-guide": "https://get.meetgeek.ai/BAIB",
     "miro-complete-guide": "https://ps.miro-affiliate.com/gwnvu4zj3r8r",
     "mrpeasy-complete-guide": "https://try.mrpeasy.com/m72w6bztymwh",
     "murf-ai-complete-guide": "https://get.murf.ai/i5n7gfvz5cbw",
@@ -714,8 +717,10 @@ export default function ArticlePage() {
     "airia": "https://try.airia.com/BAIB",
     "museit-art-complete-guide": "https://Museit.art",
   "nanoz-complete-guide": "https://nanoz.fun",
+  "netlify-complete-guide": "https://join.netlify.com/BAIB",
   "pinecone-vector-database": "https://www.skowers.com/api/go/d8",
   "prezi-complete-guide": "https://try.prezi.com/9kk83fjh4yri",
+    "printify-complete-guide": "https://try.printify.com/BAIB",
     "quillbot-complete-guide": "https://try.quillbot.com/BAIB",
     "landingi-complete-guide": "https://try.landingi.com/lwfc597yjm25",
     "tradify-complete-guide": "https://partners.tradifyhq.com/rh188vnbjrvr",
@@ -736,7 +741,8 @@ export default function ArticlePage() {
     "volza": "https://partner.volza.com/BAIB",
     "bidx": "https://try.bidx.io/BAIB",
     "bitdefender-complete-guide": "https://get.bitdefender.com/BAIB",
-    "rebolt-complete-guide": "https://join.rebolthq.com/cxm6ajhcpc08",
+    "rebolt-complete-guide": "https://join.rebolthq.com/BAIB",
+    "calilio-complete-guide": "https://try.calilio.com/BAIB",
     "laxis": "https://get.laxis.com/BAIB",
     "krispcall": "https://try.krispcall.com/BAIB",
     "getresponse": "https://try.getresponsetoday.com/BAIB",
@@ -775,7 +781,7 @@ export default function ArticlePage() {
     return { firstHalf, secondHalf };
   };
   
-  const { firstHalf, secondHalf } = splitContentForSecondaryImages(processedContent || article.content);
+  const { firstHalf, secondHalf } = splitContentForSecondaryImages(articleMarkdownContent);
 
   // Shared markdown components for rendering article content
   const markdownComponents = {
@@ -907,6 +913,7 @@ export default function ArticlePage() {
     'invideo-ai',
     'lindy-ai',
     'lusha',
+    'meetgeek-complete-guide',
     'miro-complete-guide',
     'mrpeasy-complete-guide',
     'murf-ai-complete-guide',
@@ -930,7 +937,9 @@ export default function ArticlePage() {
     'museit-art-complete-guide',
     'adwisely',
     'nanoz-complete-guide',
+    'netlify-complete-guide',
     'prezi-complete-guide',
+    'printify-complete-guide',
     'quillbot-complete-guide',
     'landingi-complete-guide',
     'tradify-complete-guide',
@@ -951,6 +960,7 @@ export default function ArticlePage() {
     'bidx',
     'bitdefender-complete-guide',
     'rebolt-complete-guide',
+    'calilio-complete-guide',
     'laxis',
     'krispcall',
     'getresponse',
@@ -1202,6 +1212,7 @@ export default function ArticlePage() {
             "megahr": "https://betteraibots.com/megahr.jpg?v=2",
             "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
+            "meetgeek-complete-guide": "https://betteraibots.com/meetgeeklogo.png",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
@@ -1214,8 +1225,10 @@ export default function ArticlePage() {
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
             "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
+            "netlify-complete-guide": "https://betteraibots.com/netlifylogo.jpg",
             "pinecone-vector-database": "https://betteraibots.com/pineconeai.jpg",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
+            "printify-complete-guide": "https://betteraibots.com/printifylogo.png",
             "quillbot-complete-guide": "https://betteraibots.com/assets/quilbot.jpg",
             "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
             "tradify-complete-guide": "https://betteraibots.com/assets/tradify1.jpg",
@@ -1237,6 +1250,7 @@ export default function ArticlePage() {
             "bidx": "https://betteraibots.com/assets/bidxai.jpg",
             "bitdefender-complete-guide": "https://betteraibots.com/bitdefenderlogo.png",
             "rebolt-complete-guide": "https://betteraibots.com/reboltai.jpg",
+            "calilio-complete-guide": "https://betteraibots.com/caliliologo.webp",
             "laxis": "https://betteraibots.com/assets/laxisai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
@@ -1317,6 +1331,7 @@ export default function ArticlePage() {
             "megahr": "https://betteraibots.com/megahr.jpg?v=2",
             "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
             "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
+            "meetgeek-complete-guide": "https://betteraibots.com/meetgeeklogo.png",
             "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
@@ -1329,8 +1344,10 @@ export default function ArticlePage() {
             "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
             "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
             "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
+            "netlify-complete-guide": "https://betteraibots.com/netlifylogo.jpg",
             "pinecone-vector-database": "https://betteraibots.com/pineconeai.jpg",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
+            "printify-complete-guide": "https://betteraibots.com/printifylogo.png",
             "quillbot-complete-guide": "https://betteraibots.com/assets/quilbot.jpg",
             "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
             "tradify-complete-guide": "https://betteraibots.com/assets/tradify1.jpg",
@@ -1408,8 +1425,10 @@ export default function ArticlePage() {
                 "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
                 "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
             "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
+            "netlify-complete-guide": "https://betteraibots.com/netlifylogo.jpg",
             "pinecone-vector-database": "https://betteraibots.com/pineconeai.jpg",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
+            "printify-complete-guide": "https://betteraibots.com/printifylogo.png",
                 "quillbot-complete-guide": "https://betteraibots.com/assets/quilbot.jpg",
                 "landingi-complete-guide": "https://betteraibots.com/assets/landingi1.jpg",
                 "vista-social": "https://betteraibots.com/assets/vistasocial.jpg",
@@ -1430,6 +1449,7 @@ export default function ArticlePage() {
             "bidx": "https://betteraibots.com/assets/bidxai.jpg",
             "bitdefender-complete-guide": "https://betteraibots.com/bitdefenderlogo.png",
             "rebolt-complete-guide": "https://betteraibots.com/reboltai.jpg",
+            "calilio-complete-guide": "https://betteraibots.com/caliliologo.webp",
             "laxis": "https://betteraibots.com/assets/laxisai.jpg",
             "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
@@ -2827,7 +2847,15 @@ export default function ArticlePage() {
       {video && (
         <div dangerouslySetInnerHTML={{ __html: video }} />
       )}
-      {typeof restContent === "string" ? (
+      {article.id === 'capsule-crm-complete-guide' && (
+        <ArticleGuideVideo
+          src={capsuleUserGuideVideo}
+          ariaLabel="Capsule CRM user guide"
+          affiliateLink={affiliateLink}
+          linkLabel="Try Capsule CRM Free"
+        />
+      )}
+      {typeof articleMarkdownContent === "string" ? (
         <>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -3592,7 +3620,7 @@ export default function ArticlePage() {
             ),
           }}
         >
-          {secondaryImages.length > 0 ? firstHalf : (processedContent || article.content)}
+          {secondaryImages.length > 0 ? firstHalf : articleMarkdownContent}
         </ReactMarkdown>
         {secondaryImages.length > 0 && (
           <div style={{
@@ -3722,7 +3750,7 @@ export default function ArticlePage() {
         )}
         </>
       ) : (
-        (processedContent || article.content)
+        articleMarkdownContent
       )}
       {/* Middle image before interview section */}
       {article.id === 'vetgpt' && images[1] && (

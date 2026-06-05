@@ -35,6 +35,7 @@ export const ARTICLE_SEO_DESCRIPTIONS = {
   "treble-ai": "WhatsApp Business API Platform with AI Chatbots, Broadcasts, and CRM Integrations — learn features, use cases, setup tips, and how to get started with this...",
   "lusha": "Lusha guide: B2B contact data platform that helps sales teams find accurate contact information for prospects and build targeted lists Learn features,...",
   "nanoz-complete-guide": "NanoZ.fun guide: AI-powered platform for creating and sharing interactive content and experiences Learn features, workflows, and how to get started. Free...",
+  "netlify-complete-guide": "Netlify guide: Modern web hosting and deployment platform for JAMstack sites, serverless functions, and AI apps with Git-based workflows and instant preview...",
   "pinecone-vector-database": "Pinecone guide: Vector database for semantic search, RAG, and AI apps with fully managed infrastructure and serverless scaling. Learn features, workflows,...",
   "elevenlabs": "ElevenLabs guide: AI voice and text-to-speech platform for realistic voiceovers, voice cloning, and multilingual audio Learn features, workflows, and how to...",
   "gamma": "Gamma guide: AI-powered presentation and document builder that turns prompts into polished decks, docs, and webpages Learn features, workflows, and how to...",
@@ -58,6 +59,7 @@ export const ARTICLE_SEO_DESCRIPTIONS = {
   "evolve-complete-guide": "AI-Native Training Platform for High-Impact Enterprise Learning — learn features, use cases, setup tips, and how to get started with this AI tool on...",
   "consensus": "Consensus guide: AI-powered research tool that finds and synthesizes evidence from scientific papers and academic literature Learn features, workflows, and...",
   "prezi-complete-guide": "Prezi AI guide: AI-powered presentation platform that helps you create engaging, dynamic, and visually stunning presentations. Enhance your storytelling...",
+  "printify-complete-guide": "Printify guide: Leading print-on-demand platform to create and sell custom products with 1300+ items, global fulfillment, and integrations for Shopify,...",
   "landingi-complete-guide": "Landingi guide: AI-powered landing page builder that creates high-converting landing pages in minutes. Build beautiful, responsive landing pages with...",
   "tradify-complete-guide": "Tradify guide: All-in-one job management software for tradespeople to manage quotes, invoices, and scheduling. Learn features, workflows, and how to get...",
   "trainual-complete-guide": "Trainual guide: AI-powered employee training platform that turns SOPs and processes into role-based onboarding, documentation, and instant answers for your...",
@@ -100,7 +102,8 @@ export const ARTICLE_SEO_DESCRIPTIONS = {
   "volza": "Volza guide: Global trade intelligence platform that helps you find suppliers, analyze competitors, and track shipments across markets Learn features,...",
   "bidx": "AI Advertising Optimization and Performance Insights — learn features, use cases, setup tips, and how to get started with this AI tool on BetterAiBots.",
   "bitdefender-complete-guide": "Bitdefender Complete Guide: AI-Powered Cybersecurity for Home, Business, and Enterprise — learn features, use cases, setup tips, and how to get started with...",
-  "rebolt-complete-guide": "Rebolt Complete Guide: AI-Powered Websites and Marketing for Service Businesses — learn features, use cases, setup tips, and how to get started with this AI..."
+  "rebolt-complete-guide": "Rebolt Complete Guide: AI-Powered Websites and Marketing for Service Businesses — learn features, use cases, setup tips, and how to get started with this AI...",
+  "calilio-complete-guide": "Calilio Complete Guide: AI-Powered Cloud Phone System for Modern Teams — learn features, use cases, setup tips, and how to get started with this AI tool on..."
 };
 
 /** Per-article keyword meta tags and schema keywords */
@@ -135,6 +138,7 @@ export const ARTICLE_KEYWORDS = {
   "treble-ai": "WhatsApp Business API Platform with AI Chatbots, Broadcasts, and CRM Integrations, Treble AI, AI tools, complete guide, features, how to use, workflow, BetterAiBots",
   "lusha": "Lusha, AI tools, complete guide, features, how to use, workflow, BetterAiBots, contact, platform, helps, sales",
   "nanoz-complete-guide": "NanoZ.fun, Nanoz, AI tools, complete guide, features, how to use, workflow, BetterAiBots, aipowered, platform, creating, sharing",
+  "netlify-complete-guide": "Netlify, AI tools, complete guide, features, how to use, workflow, BetterAiBots, modern, hosting, deployment, platform",
   "pinecone-vector-database": "Pinecone, Pinecone Vector Database, AI tools, complete guide, features, how to use, workflow, BetterAiBots, vector, database, semantic, search",
   "elevenlabs": "ElevenLabs, Elevenlabs, AI tools, complete guide, features, how to use, workflow, BetterAiBots, voice, texttospeech, platform, realistic",
   "gamma": "Gamma, AI tools, complete guide, features, how to use, workflow, BetterAiBots, aipowered, presentation, document, builder",
@@ -158,6 +162,7 @@ export const ARTICLE_KEYWORDS = {
   "evolve-complete-guide": "AI-Native Training Platform for High-Impact Enterprise Learning, Evolve, AI tools, complete guide, features, how to use, workflow, BetterAiBots",
   "consensus": "Consensus, AI tools, complete guide, features, how to use, workflow, BetterAiBots, aipowered, research, finds, synthesizes",
   "prezi-complete-guide": "Prezi AI, Prezi, AI tools, complete guide, features, how to use, workflow, BetterAiBots, aipowered, presentation, platform, helps",
+  "printify-complete-guide": "Printify, AI tools, complete guide, features, how to use, workflow, BetterAiBots, leading, printondemand, platform, create",
   "landingi-complete-guide": "Landingi, AI tools, complete guide, features, how to use, workflow, BetterAiBots, aipowered, landing, builder, creates",
   "tradify-complete-guide": "Tradify, AI tools, complete guide, features, how to use, workflow, BetterAiBots, allinone, management, software, tradespeople",
   "trainual-complete-guide": "Trainual, AI tools, complete guide, features, how to use, workflow, BetterAiBots, aipowered, employee, training, platform",
@@ -200,7 +205,8 @@ export const ARTICLE_KEYWORDS = {
   "volza": "Volza, AI tools, complete guide, features, how to use, workflow, BetterAiBots, global, trade, intelligence, platform",
   "bidx": "AI Advertising Optimization and Performance Insights, Bidx, AI tools, complete guide, features, how to use, workflow, BetterAiBots",
   "bitdefender-complete-guide": "Bitdefender Complete Guide, Bitdefender, AI tools, complete guide, features, how to use, workflow, BetterAiBots",
-  "rebolt-complete-guide": "Rebolt Complete Guide, Rebolt, AI tools, complete guide, features, how to use, workflow, BetterAiBots"
+  "rebolt-complete-guide": "Rebolt Complete Guide, Rebolt, AI tools, complete guide, features, how to use, workflow, BetterAiBots",
+  "calilio-complete-guide": "Calilio Complete Guide, Calilio, AI tools, complete guide, features, how to use, workflow, BetterAiBots"
 };
 
 export function getArticleKeywords(articleId) {
