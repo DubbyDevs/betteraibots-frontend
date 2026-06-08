@@ -1417,7 +1417,7 @@ const LearnLevelSelector = () => {
                    </div>
                </div>
 
-                               {/* Museit.art Card */}
+                               {/* MuseIt Card */}
                 <div className="spotlight-card"
                 onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
@@ -1435,7 +1435,7 @@ const LearnLevelSelector = () => {
                   }}>
                       <img
                        src={musebrand}
-                       alt="Museit.art - AI Art Creation Platform"
+                       alt="MuseIt - AI Art Creation Platform"
                        className="spotlight-card__img"
                        style={{
                          width: "200px",
@@ -1461,7 +1461,7 @@ const LearnLevelSelector = () => {
                          margin: "0 0 12px 0",
                          lineHeight: 1.3
                        }}>
-                         Museit.art
+                         MuseIt
                        </h3>
                        <p style={{
                          color: "#9ca3af",
@@ -1523,7 +1523,7 @@ const LearnLevelSelector = () => {
                            e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
                          }}
                        >
-                         Try Museit.art Free
+                         Try MuseIt Free
                        </a>
                        <Link
                          to="/learn/museit-art-complete-guide"

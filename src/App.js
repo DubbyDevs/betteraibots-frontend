@@ -43,7 +43,6 @@ import plesk1 from './assets/plesk1.jpg';
 import surecam1 from './assets/surecam1.jpg';
 import n8nicon from './assets/n8nicon.jpg';
 import mindstudioai from './assets/mindstudioai.jpeg';
-import seosparkplug1 from './assets/seosparkplug1.jpg';
 import instaglamorlogo from './assets/instaglamorlogo.png';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -618,16 +617,6 @@ const PAID_APPS = [
     readMoreLink: "/learn/viral-launch"
   },
   {
-    name: "SEOSparkPlug",
-    description: "AI-powered SEO platform that analyzes 25+ factors, writes code, optimizes social content, and tracks results in one workflow",
-    category: "SEO & Digital Marketing",
-    features: ["25+ SEO factor analysis", "AI code generation", "Social media optimization", "Competitive analysis"],
-    price: "Free Trial Available",
-    link: "https://seosparkplug.com",
-    image: seosparkplug1,
-    readMoreLink: "/learn/seosparkplug"
-  },
-  {
     name: "OmniSEO",
     description: "AI search visibility platform to monitor and optimize your brand across ChatGPT, Perplexity, AI Overviews, and other AI engines",
     category: "SEO & Digital Marketing",
@@ -699,7 +688,7 @@ const PAID_APPS = [
   },
   {
     name: "InstaGlamor",
-    description: "Premium human-directed + AI-powered photography studio for executive portraits, lifestyle imagery, products, and brand visuals.",
+    description: "Premium human-directed + AI-powered photography studio for executive portraits, lifestyle imagery, products, and brand visuals",
     category: "Photography & Branding",
     features: [
       "Business & executive portraits",

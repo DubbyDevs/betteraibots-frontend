@@ -54,7 +54,7 @@ function Podcast() {
     { name: 'ThorData', url: 'https://www.thordata.com/' }
   ];
   const museitLinks = [
-    { name: 'Museit.art', url: 'https://museit.art' }
+    { name: 'MuseIt', url: 'https://museit.art' }
   ];
   const pomelliLinks = [
     { name: 'GoHighLevel', url: 'https://www.gohighlevel.com/?fp_ref=baib' },
@@ -158,8 +158,8 @@ function Podcast() {
     },
     {
       id: 'hGeW2slgRcY',
-      title: 'Museit.art - AI Art for Beginners',
-      description: 'A beginner-friendly walkthrough on turning prompts into polished AI artwork with Museit.art.',
+      title: 'MuseIt - AI Art for Beginners',
+      description: 'A beginner-friendly walkthrough on turning prompts into polished AI artwork with MuseIt.',
       thumbnail: 'https://img.youtube.com/vi/hGeW2slgRcY/maxresdefault.jpg'
     },
     {
