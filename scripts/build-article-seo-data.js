@@ -5,6 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const { extractLearnArticlesFromSource } = require('./seo-utils');
+const articleIndexingRules = require('../src/data/articleIndexingRules.json');
 
 const ROOT = path.join(__dirname, '..');
 const ARTICLE_PAGE = path.join(ROOT, 'src', 'ArticlePage.js');
@@ -43,6 +44,15 @@ function truncateMeta(text, max = 160) {
   const cut = t.slice(0, max - 3);
   const lastSpace = cut.lastIndexOf(' ');
   return (lastSpace > 100 ? cut.slice(0, lastSpace) : cut) + '...';
+}
+
+function sanitizePlainText(text) {
+  return (text || '')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/[#*_`>-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function extractKeywordMapFromArticlePage() {
@@ -116,18 +126,18 @@ function generateKeywords(article, app, existing) {
 }
 
 function generateMetaDescription(article, app) {
-  const preview = (article.preview || '').trim();
+  const preview = sanitizePlainText(article.preview || '');
   if (preview.length >= 90 && preview.length <= 165) return preview;
   if (preview.length > 165) return truncateMeta(preview);
 
   const name = app?.name || article.title.split(':')[0].trim();
   if (app?.description) {
-    const trial =
-      app.trialInfo && /free/i.test(app.trialInfo) ? ` ${app.trialInfo}.` : '';
-    return truncateMeta(
-      `${name} guide: ${app.description} Learn features, workflows, and how to get started.${trial}`
-    );
+    return truncateMeta(`${name}: ${sanitizePlainText(app.description)}`);
   }
+
+  const firstContentSentence = sanitizePlainText(article.content || '')
+    .match(/(.{70,220}?[.!?])(?:\s|$)/)?.[1];
+  if (firstContentSentence) return truncateMeta(firstContentSentence);
 
   if (preview.length >= 50) return truncateMeta(preview);
 
@@ -188,6 +198,10 @@ function main() {
 
   const keywords = {};
   const descriptions = {};
+  const hiddenIds = new Set([
+    ...Object.keys(articleIndexingRules.redirects || {}),
+    ...(articleIndexingRules.noindex || [])
+  ]);
 
   unique.forEach((article, id) => {
     const app = apps[id];
@@ -231,7 +245,9 @@ export function getArticleSeoDescription(article) {
 
   fs.writeFileSync(OUT_FILE, file);
 
-  const metadata = [...unique.values()].map((a) => ({
+  const metadata = [...unique.values()]
+    .filter((a) => !hiddenIds.has(a.id))
+    .map((a) => ({
     id: a.id,
     title: TITLE_OVERRIDES[a.id] || a.title,
     date: a.date,

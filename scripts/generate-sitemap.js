@@ -9,6 +9,7 @@ const {
   extractNewsArticlesFromSource,
   escapeHtml
 } = require('./seo-utils');
+const articleIndexingRules = require('../src/data/articleIndexingRules.json');
 
 const BASE = 'https://betteraibots.com';
 const today = new Date().toISOString().slice(0, 10);
@@ -59,6 +60,8 @@ const staticPages = [
 
 const learnArticles = extractLearnArticlesFromSource();
 const newsArticles = extractNewsArticlesFromSource();
+const redirectedLearnIds = new Set(Object.keys(articleIndexingRules.redirects || {}));
+const noindexLearnIds = new Set(articleIndexingRules.noindex || []);
 
 const entries = [];
 
@@ -75,6 +78,9 @@ newsArticles.forEach((article) => {
 });
 
 learnArticles.forEach((article) => {
+  if (redirectedLearnIds.has(article.id) || noindexLearnIds.has(article.id)) {
+    return;
+  }
   entries.push(
     urlEntry(`${BASE}/learn/${article.id}`, {
       lastmod: normalizeDate(article.date),

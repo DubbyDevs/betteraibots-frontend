@@ -281,7 +281,8 @@ function buildStaticPageHtml({
   bodyHtml,
   ctaHref,
   ctaLabel,
-  sectionLabel
+  sectionLabel,
+  robotsContent = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
 }) {
   const safeTitle = escapeHtml(title);
   const safeDesc = escapeHtml(description);
@@ -297,7 +298,7 @@ function buildStaticPageHtml({
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${safeTitle} – BetterAiBots.com</title>
   <meta name="description" content="${safeDesc}">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="robots" content="${escapeHtml(robotsContent)}">
   <meta name="keywords" content="${escapeHtml(keywords)}">
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}">
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">

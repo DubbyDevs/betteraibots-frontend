@@ -50,6 +50,7 @@ import './App.css';
 import { Modal, Button, Form } from "react-bootstrap";
 import {
   BrowserRouter as Router,
+  Navigate,
   Routes,
   Route,
   useNavigate,
@@ -3449,7 +3450,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                         cursor: "pointer",
                       }}
                       onError={(e) => {
-                        e.target.style.display = 'none';
+                        e.target.onerror = null;
+                        e.target.src = placeholderImg;
                       }}
                     />
                   </Link>
@@ -4066,6 +4068,11 @@ function NotFound() {
       </Link>
     </div>
   );
+}
+
+function LegacyLearnArticleRedirect() {
+  const { id } = useParams();
+  return <Navigate to={`/learn/${id}`} replace />;
 }
 
 // --- LEGAL PAGE ---
@@ -4733,7 +4740,7 @@ function App() {
         <Route path="/learn/beginner" element={<Articles level="beginner" />} />
         <Route path="/learn/intermediate" element={<Articles level="intermediate" />} />
         <Route path="/learn/advanced" element={<Articles level="advanced" />} />
-        <Route path="/learn/:level/:id" element={<ArticlePage />} />
+        <Route path="/learn/:level/:id" element={<LegacyLearnArticleRedirect />} />
         <Route path="/learn/:id" element={<ArticlePage />} />
         <Route path="/news" element={<News searchValue={searchValue} />} />
         <Route path="/news/:slug" element={<NewsArticle />} />
@@ -6165,6 +6172,3 @@ export default function AppWithRouter() {
     </ThemeProvider>
   );
 }
-
-
-

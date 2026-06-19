@@ -5,6 +5,7 @@ const {
   markdownToHtml,
   buildStaticPageHtml
 } = require('./seo-utils');
+const articleIndexingRules = require('../src/data/articleIndexingRules.json');
 
 const affiliateLinks = {
   "bebop-ai": "https://try.bebop.ai/o004cood3aod",
@@ -130,16 +131,26 @@ const learnDir = path.join(__dirname, '..', 'public', 'learn');
 if (!fs.existsSync(learnDir)) {
   fs.mkdirSync(learnDir, { recursive: true });
 }
+for (const filename of fs.readdirSync(learnDir)) {
+  if (filename.endsWith('.html')) {
+    fs.unlinkSync(path.join(learnDir, filename));
+  }
+}
 
 try {
   const articles = extractLearnArticlesFromSource();
   const unique = new Map();
+  const redirectMap = articleIndexingRules.redirects || {};
+  const noindexIds = new Set(articleIndexingRules.noindex || []);
   articles.forEach((a) => {
     if (!unique.has(a.id)) unique.set(a.id, a);
   });
 
   let count = 0;
   unique.forEach((article) => {
+    if (redirectMap[article.id]) {
+      return;
+    }
     const articleUrl = `https://betteraibots.com/learn/${article.id}`;
     const bodyHtml = markdownToHtml(article.content);
     if (!bodyHtml || bodyHtml.length < 200) {
@@ -155,7 +166,10 @@ try {
       bodyHtml,
       ctaHref: affiliateLinks[article.id] || null,
       ctaLabel: affiliateLinks[article.id] ? "Get Started" : null,
-      sectionLabel: "AI Tools Guide"
+      sectionLabel: "AI Tools Guide",
+      robotsContent: noindexIds.has(article.id)
+        ? 'noindex, follow'
+        : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
     });
     fs.writeFileSync(path.join(learnDir, `${article.id}.html`), html);
     count++;

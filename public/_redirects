@@ -22,6 +22,7 @@
 /learn/beginner/:id  /learn/:id  301
 /learn/intermediate/:id  /learn/:id  301
 /learn/advanced/:id  /learn/:id  301
+/learn/anybiz-alt  /learn/anybiz  301
 
 # Learn level listing pages — React app (guides + quizzes UI)
 /learn/beginner  /index.html  200

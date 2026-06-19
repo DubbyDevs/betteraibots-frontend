@@ -1,8 +1,9 @@
 import React from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { articles } from "./Articles";
 import { getArticleKeywords, getArticleSeoDescription } from "./data/articleSeo";
+import articleIndexingRules from "./data/articleIndexingRules.json";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -10,6 +11,9 @@ import amplemarketUserGuideVideo from "./assets/AmplemarketUserGuide.mp4";
 import closeAIUserGuideVideo from "./assets/CloseAI-User-Guide.mp4";
 import bitdefenderUserGuideVideo from "./assets/bitdefendervid.mp4";
 import capsuleUserGuideVideo from "./assets/Capsule-User-Guide.mp4";
+
+const NOINDEX_ARTICLE_IDS = new Set(articleIndexingRules.noindex || []);
+const REDIRECTED_ARTICLE_IDS = new Set(Object.keys(articleIndexingRules.redirects || {}));
 
 function ArticleGuideVideo({ src, ariaLabel, affiliateLink, linkLabel }) {
   if (!src || !affiliateLink) return null;
@@ -215,6 +219,7 @@ function findRelatedArticles(currentArticle, allArticles, limit = 2) {
     .filter(a => {
       // Filter out current article, articles without title/preview, and duplicates
       if (!a || !a.id || a.id === currentArticle.id || !a.title || !a.preview) return false;
+      if (NOINDEX_ARTICLE_IDS.has(a.id) || REDIRECTED_ARTICLE_IDS.has(a.id)) return false;
       if (seenIds.has(a.id)) return false; // Skip duplicates
       seenIds.add(a.id);
       return true;
@@ -403,6 +408,7 @@ function addInternalLinks(content, currentArticleId, allArticles) {
   // Process each potential product mention
   productNameMap.forEach((targetArticle, productName) => {
     if (!targetArticle || !targetArticle.id || linkedArticles.has(targetArticle.id)) return; // Already linked this article
+    if (NOINDEX_ARTICLE_IDS.has(targetArticle.id) || REDIRECTED_ARTICLE_IDS.has(targetArticle.id)) return;
     if (!productName || typeof productName !== 'string') return;
     
     // CRITICAL: Double-check blacklist - never link common words
@@ -519,6 +525,12 @@ function addInternalLinks(content, currentArticleId, allArticles) {
 export default function ArticlePage() {
   const { id } = useParams();
   const location = useLocation();
+  const redirectTarget = articleIndexingRules.redirects?.[id];
+  const isNoindexArticle = (articleIndexingRules.noindex || []).includes(id);
+
+  if (redirectTarget) {
+    return <Navigate to={`/learn/${redirectTarget}`} replace />;
+  }
   
   // Safety check for articles array
   if (!articles || !Array.isArray(articles)) {
@@ -1159,7 +1171,14 @@ export default function ArticlePage() {
       <Helmet>
         <title>{article.title} – BetterAiBots.com</title>
         <meta name="description" content={getArticleSeoDescription(article)} />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta
+          name="robots"
+          content={
+            isNoindexArticle
+              ? "noindex, follow"
+              : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+          }
+        />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={getArticleSeoDescription(article)} />
         <link rel="canonical" href={`https://betteraibots.com/learn/${article.id}`} />
@@ -3982,7 +4001,5 @@ export default function ArticlePage() {
     </>
   );
 }
-
-
 
 

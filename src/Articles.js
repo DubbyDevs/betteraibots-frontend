@@ -124,8 +124,11 @@ import seamlessai2 from "./assets/seemlessai2.jpg";
 import gammaai from "./assets/gammaai.jpg";
 import gammaai2 from "./assets/gammaai2.jpg";
 import aihacks from "./assets/aihacks.png";
+import articleIndexingRules from "./data/articleIndexingRules.json";
 
 const paintindetifierai = "/paintindetifierai.webp";
+const NOINDEX_ARTICLE_IDS = new Set(articleIndexingRules.noindex || []);
+const REDIRECTED_ARTICLE_IDS = new Set(Object.keys(articleIndexingRules.redirects || {}));
 
 
 // --- ARTICLES ---
@@ -22641,7 +22644,7 @@ function ArticleCard({ article, level }) {
 
   return (
     <Link
-              to={`/learn/${level}/${article.id}`}
+              to={`/learn/${article.id}`}
       className="article-card learn-article-card"
       aria-label={`Read article: ${article.title}`}
       ref={cardRef}
@@ -24707,6 +24710,9 @@ export default function Articles({ level = "beginner" }) {
   };
   
   const uniqueArticles = articles.filter(article => {
+    if (NOINDEX_ARTICLE_IDS.has(article.id) || REDIRECTED_ARTICLE_IDS.has(article.id)) {
+      return false;
+    }
     // Exclude Perplexity article from App Spotlight (it's on /news page)
     if (article.id === "perplexity-parasite-seo-guide") {
       return false;
@@ -25792,7 +25798,5 @@ export default function Articles({ level = "beginner" }) {
     </>
   );
 }
-
-
 
 
