@@ -759,7 +759,7 @@ export const trialAppsData = [
     features: ["Elevate Insight Reports", "Elevate Studio strategy hub", "KPI & initiative tracking", "90-day roadmap builder", "Cross-report intelligence", "Team alignment tools"],
     link: "https://partners.elevateforward.ai/iy1986n6gbz4",
     trialInfo: "Try for Free",
-    image: "/elevateforward.png",
+    image: "/elevateforward.webp",
     readMoreLink: "/learn/elevate-forward"
   }
 ];

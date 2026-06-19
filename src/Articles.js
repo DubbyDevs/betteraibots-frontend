@@ -3491,9 +3491,9 @@ If you're looking for a video editing platform that combines ease of use with po
     id: "elevate-forward",
     title: "AI Strategy & Execution Platform: Diagnostics, Planning, and Initiative Tracking",
     date: "May 2026",
-    cover: "/elevateforward.png",
+    cover: "/elevateforward.webp",
     preview: "",
-    images: ["/elevateforward.png"],
+    images: ["/elevateforward.webp"],
     content: `
 ## ElevateForward Review: AI Strategy and Execution Platform for Growing Businesses
 
