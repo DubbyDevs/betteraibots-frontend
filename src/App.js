@@ -8,7 +8,7 @@ import betteraibotslive3 from './assets/betteraibotslive3.webp';
 import betteraibotslive4 from './assets/betteraibotslive4.webp';
 import betteraibotslive5 from './assets/betteraibotslive5.webp';
 import betteraibotsunlock from './assets/betteraibotsunlock.webp';
-import welcometobaib from './assets/welcometobaib.jpg';
+import welcometobaib from './assets/welcometobaib.webp';
 import learnai from './assets/learnai.webp';
 import learnai2 from './assets/learnai2.webp';
 import learnai3 from './assets/learnai3.webp';

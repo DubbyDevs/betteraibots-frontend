@@ -20,7 +20,7 @@ import capsuleai2 from "./assets/capsuleai2.jpg";
 import flowith2 from "./assets/flowith2.jpg";
 import hume2 from "./assets/hume2.jpg";
 import invideo2 from "./assets/invideo2.jpg";
-import lindyai from "./assets/lindyai.jpg";
+import lindyai from "./assets/lindyai.webp";
 import miroai2 from "./assets/miroai2.jpg";
 import mrpeasy2ai from "./assets/mrpeasy2ai.jpg";
 import murf2 from "./assets/murf2.jpg";
@@ -49,7 +49,7 @@ import blackboxai from "./assets/blackboxai.webp";
 import airiaai from "./assets/airiaai.webp";
 import airiaai2 from "./assets/airiaai2.jpg";
 import bebopai from "./assets/bebopai.webp";
-import atria1 from "./assets/atria1.jpg";
+import atria1 from "./assets/atria1.webp";
 import atria2 from "./assets/atria2.jpg";
 import atria3 from "./assets/atria3.jpg";
 import atria4 from "./assets/atria4.jpg";
@@ -116,7 +116,7 @@ import getresponseai from "./assets/getresponseai.jpg";
 import getresponseai2 from "./assets/getresponseai2.jpg";
 import creativescoreai from "./assets/creativescoreai.jpg";
 import creativescoreai2 from "./assets/creativescoreai2.jpg";
-import databoxai from "./assets/databoxai.jpg";
+import databoxai from "./assets/databoxai.webp";
 import databox2 from "./assets/databox2.jpg";
 import instaglamorlogo from "./assets/instaglamorlogo.png";
 import seamlessailogo from "./assets/seemlessailogo.jpg";
@@ -25798,5 +25798,3 @@ export default function Articles({ level = "beginner" }) {
     </>
   );
 }
-
-

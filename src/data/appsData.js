@@ -1,7 +1,7 @@
 // This file is generated to hold app data arrays
 import adcreativeaitrial from '../assets/adcreativeaitrial.png';
 import apolloLogo from '../assets/apolloailogo.webp';
-import atria1 from '../assets/atria1.jpg';
+import atria1 from '../assets/atria1.webp';
 import blackboxai from '../assets/blackboxai.webp';
 import chatgptai from '../assets/chatgptai.jpg';
 import claudeailogo from '../assets/claudeailogo.jpg';
@@ -19,7 +19,7 @@ import volzaai from '../assets/volzaai.png';
 import laxisai from '../assets/laxisai.jpg';
 import getresponseai from '../assets/getresponseai.jpg';
 import creativescoreai from '../assets/creativescoreai.jpg';
-import databoxai from '../assets/databoxai.jpg';
+import databoxai from '../assets/databoxai.webp';
 import gammaai from '../assets/gammaai.jpg';
 import warmyicon from '../assets/warmyicon.jpg';
 import recomaze1 from '../assets/recomaze1.jpg';
