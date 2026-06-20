@@ -1,5 +1,5 @@
 import { CATEGORY_SLUGS } from './constants';
-import React, { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useRef, useCallback, Suspense, lazy } from "react";
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
 import betteraibotslive from './assets/betteraibotslive.webp';
@@ -64,17 +64,17 @@ import GoogleAnalytics from "./GoogleAnalytics";
 import Breadcrumbs from './components/Breadcrumbs';
 import { bots } from './data/bots';
 import { newsArticles } from './data/news';
-import MyAI from "./MyAI";
+const MyAI = lazy(() => import("./MyAI"));
 import { freeAppsData, trialAppsData } from './data/appsData';
-import Articles from "./Articles";
-import ArticlePage from "./ArticlePage";
+const Articles = lazy(() => import("./Articles"));
+const ArticlePage = lazy(() => import("./ArticlePage"));
 import AIQuiz from "./components/AIQuiz";
 import IntermediateQuiz from "./components/IntermediateQuiz";
 import AdvancedQuiz from "./components/AdvancedQuiz";
-import LearnLevelSelector from "./components/LearnLevelSelector";
-import Podcast from "./Podcast";
+const LearnLevelSelector = lazy(() => import("./components/LearnLevelSelector"));
+const Podcast = lazy(() => import("./Podcast"));
 import About from "./About";
-import VideoWatchPage from "./VideoWatchPage";
+const VideoWatchPage = lazy(() => import("./VideoWatchPage"));
 import ThemeToggle from "./components/ThemeToggle";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -3583,7 +3583,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         }}>
           <Link to="/apps" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
             <div className="theme-panel-card">
-              <h3 style={{
+              <h2 style={{
                 color: 'var(--accent)',
                 fontSize: "1.3rem",
                 fontWeight: 600,
@@ -3591,7 +3591,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 fontFamily: "Inter, Arial, sans-serif"
               }}>
                 🆓 Free & Premium Tools
-              </h3>
+              </h2>
               <p style={{
                 color: 'var(--text-secondary)',
                 fontSize: "1rem",
@@ -3606,7 +3606,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           
           <Link to="/learn" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
             <div className="theme-panel-card">
-              <h3 style={{
+              <h2 style={{
                 color: 'var(--accent)',
                 fontSize: "1.3rem",
                 fontWeight: 600,
@@ -3614,7 +3614,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 fontFamily: "Inter, Arial, sans-serif"
               }}>
                 📘 Guides & Learning
-              </h3>
+              </h2>
               <p style={{
                 color: 'var(--text-secondary)',
                 fontSize: "1rem",
@@ -3629,7 +3629,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           
           <Link to="/news" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
             <div className="theme-panel-card">
-              <h3 style={{
+              <h2 style={{
                 color: 'var(--accent)',
                 fontSize: "1.3rem",
                 fontWeight: 600,
@@ -3637,7 +3637,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 fontFamily: "Inter, Arial, sans-serif"
               }}>
                 📰 News & Updates
-              </h3>
+              </h2>
               <p style={{
                 color: 'var(--text-secondary)',
                 fontSize: "1rem",
@@ -3652,7 +3652,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
           
           <Link to="/Podcast" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
             <div className="theme-panel-card">
-              <h3 style={{
+              <h2 style={{
                 color: 'var(--accent)',
                 fontSize: "1.3rem",
                 fontWeight: 600,
@@ -3660,7 +3660,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 fontFamily: "Inter, Arial, sans-serif"
               }}>
                 🎯 Smart Testing
-              </h3>
+              </h2>
               <p style={{
                 color: 'var(--text-secondary)',
                 fontSize: "1rem",
@@ -4723,6 +4723,7 @@ function App() {
         clickPosition={menuClickPosition}
         isMobile={isMobile}
       />
+      <Suspense fallback={<div style={{ color: 'var(--accent)', textAlign: "center", fontSize: "1.2rem", padding: "40px 20px" }}>Loading...</div>}>
       <Routes>
         <Route path="/" element={
           <Home
@@ -4757,6 +4758,7 @@ function App() {
         <Route path="/moderation" element={<Moderation approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </Suspense>
       <div style={{ marginTop: isLearnPage ? 0 : '60px' }}>
       <FooterWithWallets showPWAInstallButton={false} />
       </div>
