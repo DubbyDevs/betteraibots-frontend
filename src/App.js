@@ -1,5 +1,5 @@
 import { CATEGORY_SLUGS } from './constants';
-import React, { useState, useEffect, useMemo, useRef, useCallback, Suspense, lazy } from "react";
+import React, { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import helperLogo from './assets/findthebestaibotshelper.png';
 import placeholderImg from './assets/bot-placeholder.webp';
 import betteraibotslive from './assets/betteraibotslive.webp';
@@ -64,17 +64,17 @@ import GoogleAnalytics from "./GoogleAnalytics";
 import Breadcrumbs from './components/Breadcrumbs';
 import { bots } from './data/bots';
 import { newsArticles } from './data/news';
-const MyAI = lazy(() => import("./MyAI"));
+import MyAI from "./MyAI";
 import { freeAppsData, trialAppsData } from './data/appsData';
-const Articles = lazy(() => import("./Articles"));
-const ArticlePage = lazy(() => import("./ArticlePage"));
+import Articles from "./Articles";
+import ArticlePage from "./ArticlePage";
 import AIQuiz from "./components/AIQuiz";
 import IntermediateQuiz from "./components/IntermediateQuiz";
 import AdvancedQuiz from "./components/AdvancedQuiz";
-const LearnLevelSelector = lazy(() => import("./components/LearnLevelSelector"));
-const Podcast = lazy(() => import("./Podcast"));
+import LearnLevelSelector from "./components/LearnLevelSelector";
+import Podcast from "./Podcast";
 import About from "./About";
-const VideoWatchPage = lazy(() => import("./VideoWatchPage"));
+import VideoWatchPage from "./VideoWatchPage";
 import ThemeToggle from "./components/ThemeToggle";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -4723,7 +4723,6 @@ function App() {
         clickPosition={menuClickPosition}
         isMobile={isMobile}
       />
-      <Suspense fallback={<div style={{ color: 'var(--accent)', textAlign: "center", fontSize: "1.2rem", padding: "40px 20px" }}>Loading...</div>}>
       <Routes>
         <Route path="/" element={
           <Home
@@ -4758,7 +4757,6 @@ function App() {
         <Route path="/moderation" element={<Moderation approveBot={approveBot} pendingBots={pendingBots} setPendingBots={setPendingBots} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      </Suspense>
       <div style={{ marginTop: isLearnPage ? 0 : '60px' }}>
       <FooterWithWallets showPWAInstallButton={false} />
       </div>
