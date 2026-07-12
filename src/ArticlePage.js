@@ -2,7 +2,9 @@ import React from "react";
 import { useParams, Link, useLocation, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { articles } from "./Articles";
+import { freeAppsData, trialAppsData } from "./data/appsData";
 import { getArticleKeywords, getArticleSeoDescription } from "./data/articleSeo";
+import { buildReadMoreEnhancement, buildReadMoreFaqSchema } from "./data/readMoreEnhancements";
 import articleIndexingRules from "./data/articleIndexingRules.json";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -580,11 +582,6 @@ export default function ArticlePage() {
     return { video: null, restContent: fallbackCleaned };
   };
   
-  // Process content to add internal links
-  const processedContent = article ? addInternalLinks(article.content, article.id, articles) : null;
-  const { video, restContent } = article ? extractVideoFromContent(processedContent) : { video: null, restContent: null };
-  const articleMarkdownContent = restContent ?? processedContent ?? article?.content ?? '';
-
   // Function to generate heading ID from text
   const generateHeadingId = (text) => {
     return text
@@ -660,6 +657,16 @@ export default function ArticlePage() {
       const pageUrl = `${window.location.origin}/learn/${article.id}`;
       // Always use the article URL for sharing, not affiliate links
       const shareUrl = pageUrl;
+  const appCatalog = [...freeAppsData, ...trialAppsData];
+  const articleApp = appCatalog.find((app) => app.readMoreLink === `/learn/${article.id}`) || null;
+  const readMoreEnhancement = buildReadMoreEnhancement(article, articleApp);
+  const readMoreFaqSchema = buildReadMoreFaqSchema(article, articleApp);
+
+  // Process content to add internal links
+  const processedContent = article ? addInternalLinks(article.content, article.id, articles) : null;
+  const { video, restContent } = article ? extractVideoFromContent(processedContent) : { video: null, restContent: null };
+  const baseArticleMarkdownContent = restContent ?? processedContent ?? article?.content ?? '';
+  const articleMarkdownContent = `${baseArticleMarkdownContent}${readMoreEnhancement.markdown || ''}`.trim();
   const images = article.images || [];
   // Prioritize article cover image (used for paid apps), fallback to images array
   const primaryImage = article.cover || images[0];
@@ -1511,6 +1518,11 @@ export default function ArticlePage() {
             "inLanguage": "en-US"
           })}
         </script>
+        {readMoreFaqSchema && (
+          <script type="application/ld+json">
+            {JSON.stringify(readMoreFaqSchema)}
+          </script>
+        )}
         {article.id === "spiky-ai" && (
           <script type="application/ld+json">
             {JSON.stringify({
@@ -4001,5 +4013,3 @@ export default function ArticlePage() {
     </>
   );
 }
-
-

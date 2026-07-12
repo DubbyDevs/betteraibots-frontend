@@ -55,7 +55,7 @@ import atria3 from "./assets/atria3.jpg";
 import atria4 from "./assets/atria4.jpg";
 import recomaze1 from "./assets/recomaze1.jpg";
 import recomaze2 from "./assets/recomaze2.jpg";
-import vida1 from "./assets/vida1.jpg";
+import vida1 from "./assets/vida1.webp";
 import vidaai2 from "./assets/vidaai2.jpg";
 import plesk1 from "./assets/plesk1.jpg";
 import plesk2 from "./assets/plesk2.jpg";
@@ -1256,9 +1256,9 @@ This article contains affiliate links to [Museit.art](https://Museit.art). We ma
     id: "amplemarket",
     title: "AI-Powered Sales Engagement Platform: Find, Contact, and Close More Deals",
     date: "January 2026",
-    cover: "/amplemarketai.jpg",
+    cover: "/amplemarketai.webp",
     preview: "",
-    images: ["/amplemarketai.jpg", "/amplemarketai2.jpg"],
+    images: ["/amplemarketai.webp", "/amplemarketai2.jpg"],
     content: `
 ## What is [Amplemarket](https://grow.amplemarket.com/BAIB)?
 
@@ -4341,9 +4341,9 @@ This article contains affiliate links to <a href="https://partnerstack.getweave.
     id: "turbotic",
     title: "Turbotic Complete Guide: AI-Powered Automation and Business Transformation Platform",
     date: "January 2026",
-    cover: "/turbotic.png",
+    cover: "/turbotic.webp",
     preview: "",
-    images: ["/turbotic.png", "/turbotic2.jpg"],
+    images: ["/turbotic.webp", "/turbotic2.jpg"],
     content: `
 ## Turbotic Review: AI-Powered Automation and Business Transformation Platform
 

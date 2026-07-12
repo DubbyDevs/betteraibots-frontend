@@ -74,7 +74,7 @@ function extractKeywordMapFromArticlePage() {
 function extractAppsByLearnPath() {
   const content = fs.readFileSync(APPS_DATA, 'utf8');
   const apps = {};
-  const blocks = content.split(/\n  \},\n/);
+  const blocks = content.split(/\r?\n  \},\r?\n/);
   for (const block of blocks) {
     const nameMatch = block.match(/name:\s*"([^"]+)"/);
     const descMatch = block.match(/description:\s*"([^"]+)"/);

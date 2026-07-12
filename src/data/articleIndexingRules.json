@@ -2,32 +2,5 @@
   "redirects": {
     "anybiz-alt": "anybiz"
   },
-  "noindex": [
-    "airia",
-    "anybiz",
-    "bebop-ai",
-    "bidx",
-    "blackbox-ai",
-    "castmagic",
-    "catalister",
-    "creativescore",
-    "elevenlabs",
-    "emergent",
-    "gamma",
-    "getresponse",
-    "hume-ai",
-    "krispcall",
-    "laxis",
-    "lusha",
-    "paintr",
-    "practice-ignition",
-    "rankprompt",
-    "runpod",
-    "sleekflow",
-    "smartli",
-    "snowfire-ai",
-    "thordata",
-    "volza",
-    "webydo"
-  ]
+  "noindex": []
 }

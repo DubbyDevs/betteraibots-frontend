@@ -5,6 +5,10 @@ const {
   markdownToHtml,
   buildStaticPageHtml
 } = require('./seo-utils');
+const {
+  buildReadMoreEnhancementMarkdown,
+  buildReadMoreFaqSchema
+} = require('./read-more-enhancements');
 const articleIndexingRules = require('../src/data/articleIndexingRules.json');
 
 const affiliateLinks = {
@@ -117,6 +121,38 @@ function loadArticleSeoData() {
 
 const { keywords: articleKeywords, descriptions: articleDescriptions } = loadArticleSeoData();
 
+function extractAppsByLearnPath() {
+  const appsPath = path.join(__dirname, '..', 'src', 'data', 'appsData.js');
+  const content = fs.readFileSync(appsPath, 'utf8');
+  const apps = {};
+  const blocks = content.split(/\r?\n  \},\r?\n/);
+
+  for (const block of blocks) {
+    const nameMatch = block.match(/name:\s*"([^"]+)"/);
+    const descMatch = block.match(/description:\s*"([^"]+)"/);
+    const categoryMatch = block.match(/category:\s*"([^"]+)"/);
+    const linkMatch = block.match(/readMoreLink:\s*"(\/learn\/[^"]+)"/);
+    const featuresMatch = block.match(/features:\s*\[([\s\S]*?)\]/);
+    if (!nameMatch || !linkMatch) continue;
+
+    const id = linkMatch[1].replace('/learn/', '');
+    const features = featuresMatch
+      ? [...featuresMatch[1].matchAll(/"([^"]+)"/g)].map((m) => m[1])
+      : [];
+
+    apps[id] = {
+      name: nameMatch[1],
+      description: descMatch ? descMatch[1] : '',
+      category: categoryMatch ? categoryMatch[1] : '',
+      features
+    };
+  }
+
+  return apps;
+}
+
+const appsByLearnPath = extractAppsByLearnPath();
+
 function getOGImage(articleId) {
   return ogImageMap[articleId] || "https://betteraibots.com/og-image.png?v=3";
 }
@@ -152,7 +188,10 @@ try {
       return;
     }
     const articleUrl = `https://betteraibots.com/learn/${article.id}`;
-    const bodyHtml = markdownToHtml(article.content);
+    const app = appsByLearnPath[article.id] || null;
+    const enhancementMarkdown = buildReadMoreEnhancementMarkdown(article, app);
+    const faqSchema = buildReadMoreFaqSchema(article, app);
+    const bodyHtml = markdownToHtml(`${article.content || ''}${enhancementMarkdown || ''}`);
     if (!bodyHtml || bodyHtml.length < 200) {
       console.warn(`⚠️  Short content for ${article.id} (${bodyHtml.length} chars) — check extraction`);
     }
@@ -167,6 +206,7 @@ try {
       ctaHref: affiliateLinks[article.id] || null,
       ctaLabel: affiliateLinks[article.id] ? "Get Started" : null,
       sectionLabel: "AI Tools Guide",
+      extraStructuredData: faqSchema ? [faqSchema] : [],
       robotsContent: noindexIds.has(article.id)
         ? 'noindex, follow'
         : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'

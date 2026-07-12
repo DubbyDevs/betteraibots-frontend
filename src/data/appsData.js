@@ -23,7 +23,7 @@ import databoxai from '../assets/databoxai.webp';
 import gammaai from '../assets/gammaai.jpg';
 import warmyicon from '../assets/warmyicon.jpg';
 import recomaze1 from '../assets/recomaze1.jpg';
-import vida1 from '../assets/vida1.jpg';
+import vida1 from '../assets/vida1.webp';
 import smartli1 from '../assets/smartli1.jpg';
 import preziai from '../assets/preziai.png';
 import printifylogo from '../assets/printifylogo.png';
@@ -40,7 +40,7 @@ import descriptai from '../assets/descriptai.png';
 import unbounceai from '../assets/unbounceai.png';
 import landbotai from '../assets/landbotai.png';
 import reclaimai from '../assets/reclaimai.png';
-import amplemarketai from '../assets/amplemarketai.png';
+import amplemarketai from '../assets/amplemarketai.webp';
 import quillbot from '../assets/quilbot.jpg';
 import seosparkplug1 from '../assets/seosparkplug1.jpg';
 
@@ -669,7 +669,7 @@ export const trialAppsData = [
     features: ["Custom AI assistants", "Meeting Agent for summaries", "Business case generation", "Process documentation", "Automation roadmaps", "ISO-27001 & SOC 2 compliant", "Free trial available"],
     link: "https://try.turbotic.com/BAIB",
     trialInfo: "Free Trial Available",
-    image: "/turbotic.png",
+    image: "/turbotic.webp",
     readMoreLink: "/learn/turbotic"
   },
   {

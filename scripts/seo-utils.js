@@ -282,6 +282,7 @@ function buildStaticPageHtml({
   ctaHref,
   ctaLabel,
   sectionLabel,
+  extraStructuredData = [],
   robotsContent = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
 }) {
   const safeTitle = escapeHtml(title);
@@ -290,6 +291,11 @@ function buildStaticPageHtml({
     ctaHref && ctaLabel
       ? `<p><a href="${escapeHtml(ctaHref)}" class="cta-button" target="_blank" rel="noopener noreferrer">${escapeHtml(ctaLabel)}</a></p>`
       : '';
+  const extraStructuredDataScripts = extraStructuredData
+    .filter(Boolean)
+    .map((item) => `<script type="application/ld+json">\n${JSON.stringify(item, null, 2)}\n  </script>`)
+    .join('\n  ');
+  const extraStructuredDataBlock = extraStructuredDataScripts ? `\n  ${extraStructuredDataScripts}` : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -331,7 +337,7 @@ function buildStaticPageHtml({
     "articleSection": ${JSON.stringify(sectionLabel || 'AI Tools')},
     "inLanguage": "en-US"
   }
-  </script>
+  </script>${extraStructuredDataBlock}
   <style>${BASE_STYLES}</style>
 </head>
 <body>
