@@ -19,6 +19,9 @@
 /reset-app       /clear-cache.html  200
 
 # --- SEO: one canonical URL per learn article (fixes "alternate page with canonical") ---
+/learn/:id.html  /learn/:id  301
+/news/:slug.html  /news/:slug  301
+/watch/:slug.html  /watch/:slug  301
 /learn/beginner/:id  /learn/:id  301
 /learn/intermediate/:id  /learn/:id  301
 /learn/advanced/:id  /learn/:id  301
@@ -31,9 +34,10 @@
 /learn  /index.html  200
 
 # Learn & news articles — serve pre-rendered HTML with full text for Google + visitors
-# (public/learn/*.html and public/news/*.html generated at build time)
+# (public/learn/*.html, public/news/*.html, and public/watch/*.html generated at build time)
 /learn/:id  /learn/:id.html  200
 /news/:slug  /news/:slug.html  200
+/watch/:slug  /watch/:slug.html  200
 
 # Legacy /sam/* URLs (e.g. sam/box-bold-a-e, sam/boss-bot-*) - not used in this app; redirect to home
 /sam/*  /  301

@@ -1,5 +1,5 @@
 /**
- * One command: verify all prerendered learn/news HTML is index-ready.
+ * One command: verify all prerendered learn/news/watch HTML is index-ready.
  * Optionally spot-check live URLs (Googlebot UA) after deploy.
  */
 const fs = require('fs');
@@ -82,8 +82,9 @@ async function main() {
   console.log('=== SEO HTML verification (local files) ===\n');
   const learn = checkHtmlDir(path.join(root, 'public', 'learn'), 'Learn articles');
   const news = checkHtmlDir(path.join(root, 'public', 'news'), 'News articles');
+  const watch = checkHtmlDir(path.join(root, 'public', 'watch'), 'Watch pages');
 
-  const localOk = learn.bad.length === 0 && news.bad.length === 0;
+  const localOk = learn.bad.length === 0 && news.bad.length === 0 && watch.bad.length === 0;
   console.log(localOk ? '\n✅ All local HTML files are ready for Google.\n' : '\n❌ Fix local prerender issues above.\n');
 
   const samples = [

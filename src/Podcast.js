@@ -452,41 +452,6 @@ function Podcast() {
         <meta name="twitter:image" content="https://betteraibots.com/podcastimage.png" />
         <meta name="twitter:image:alt" content="BetterAiBots Podcast - AI Tools, News &amp; Educational Content" />
         
-        {/* Structured Data for VideoObjects - Individual videos for watch page indexing */}
-        {youtubeVideos.slice(0, 15).map((video, index) => {
-          const thumbnailUrl = video.thumbnail 
-             ? (typeof video.thumbnail === 'string' 
-                 ? (video.thumbnail.startsWith('http') 
-                    ? video.thumbnail 
-                    : `https://betteraibots.com${video.thumbnail}`)
-                : `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`)
-            : `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
-          
-          return (
-            <script key={index} type="application/ld+json">
-              {JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "VideoObject",
-                "name": video.title,
-                "description": video.description,
-                "thumbnailUrl": thumbnailUrl,
-                "uploadDate": "2025-11-20",
-                "contentUrl": `https://www.youtube.com/watch?v=${video.id}`,
-                "embedUrl": `https://www.youtube.com/embed/${video.id}`,
-                "duration": "PT10M",
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "BetterAiBots",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://betteraibots.com/betteraibotsglowlogo8.png"
-                  }
-                }
-              })}
-            </script>
-          );
-        })}
-        
         {/* Breadcrumb Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -1679,7 +1644,6 @@ function Podcast() {
 }
 
 export default Podcast;
-
 
 
 

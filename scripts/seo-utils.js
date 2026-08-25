@@ -296,6 +296,39 @@ function buildStaticPageHtml({
     .map((item) => `<script type="application/ld+json">\n${JSON.stringify(item, null, 2)}\n  </script>`)
     .join('\n  ');
   const extraStructuredDataBlock = extraStructuredDataScripts ? `\n  ${extraStructuredDataScripts}` : '';
+  const pathParts = new URL(canonicalUrl).pathname.split('/').filter(Boolean);
+  const sectionPath = pathParts[0] ? `/${pathParts[0]}` : '/';
+  const sectionName = pathParts[0]
+    ? pathParts[0].charAt(0).toUpperCase() + pathParts[0].slice(1)
+    : 'Home';
+  const breadcrumbStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://betteraibots.com/'
+      },
+      ...(pathParts.length > 0
+        ? [{
+            '@type': 'ListItem',
+            position: 2,
+            name: sectionName,
+            item: `https://betteraibots.com${sectionPath}`
+          }]
+        : []),
+      ...(pathParts.length > 1
+        ? [{
+            '@type': 'ListItem',
+            position: 3,
+            name: title,
+            item: canonicalUrl
+          }]
+        : [])
+    ]
+  };
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -338,6 +371,9 @@ function buildStaticPageHtml({
     "inLanguage": "en-US"
   }
   </script>${extraStructuredDataBlock}
+  <script type="application/ld+json">
+${JSON.stringify(breadcrumbStructuredData, null, 2)}
+  </script>
   <style>${BASE_STYLES}</style>
 </head>
 <body>

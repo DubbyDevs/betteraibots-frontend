@@ -661,6 +661,30 @@ export default function ArticlePage() {
   const articleApp = appCatalog.find((app) => app.readMoreLink === `/learn/${article.id}`) || null;
   const readMoreEnhancement = buildReadMoreEnhancement(article, articleApp);
   const readMoreFaqSchema = buildReadMoreFaqSchema(article, articleApp);
+  const articleBreadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://betteraibots.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Learn",
+        "item": "https://betteraibots.com/learn"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": article.title,
+        "item": `https://betteraibots.com/learn/${article.id}`
+      }
+    ]
+  };
 
   // Process content to add internal links
   const processedContent = article ? addInternalLinks(article.content, article.id, articles) : null;
@@ -1523,6 +1547,9 @@ export default function ArticlePage() {
             {JSON.stringify(readMoreFaqSchema)}
           </script>
         )}
+        <script type="application/ld+json">
+          {JSON.stringify(articleBreadcrumbSchema)}
+        </script>
         {article.id === "spiky-ai" && (
           <script type="application/ld+json">
             {JSON.stringify({

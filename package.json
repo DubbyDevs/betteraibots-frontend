@@ -20,8 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "node scripts/build-article-seo-data.js && node scripts/prerender-learn-articles.js && node scripts/prerender-news-articles.js && node scripts/generate-sitemap.js && react-scripts build",
-    "prerender": "node scripts/build-article-seo-data.js && node scripts/prerender-learn-articles.js && node scripts/prerender-news-articles.js && node scripts/generate-sitemap.js",
+    "build": "node scripts/build-article-seo-data.js && node scripts/prerender-learn-articles.js && node scripts/prerender-news-articles.js && node scripts/prerender-watch-pages.js && node scripts/generate-sitemap.js && react-scripts build",
+    "prerender": "node scripts/build-article-seo-data.js && node scripts/prerender-learn-articles.js && node scripts/prerender-news-articles.js && node scripts/prerender-watch-pages.js && node scripts/generate-sitemap.js",
     "seo:articles": "node scripts/build-article-seo-data.js",
     "verify-seo": "node scripts/verify-seo-html.js",
     "test": "react-scripts test",

@@ -1,115 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://betteraibots.com/</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/apps</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/my-ai</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/news</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/learn</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/learn/beginner</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/learn/intermediate</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/learn/advanced</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/beginner-quiz</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/intermediate-quiz</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/advanced-quiz</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/Podcast</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/about</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/contact</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/legal</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/privacy</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
+
   </url>
 
   <url>
@@ -117,6 +134,7 @@
     <lastmod>2025-01-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -124,6 +142,7 @@
     <lastmod>2026-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -131,6 +150,7 @@
     <lastmod>2026-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -138,6 +158,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -145,6 +166,7 @@
     <lastmod>2025-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -152,6 +174,7 @@
     <lastmod>2025-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -159,6 +182,7 @@
     <lastmod>2025-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -166,6 +190,7 @@
     <lastmod>2025-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -173,6 +198,7 @@
     <lastmod>2025-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -180,6 +206,7 @@
     <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -187,6 +214,7 @@
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -194,6 +222,7 @@
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -201,6 +230,7 @@
     <lastmod>2025-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -208,6 +238,7 @@
     <lastmod>2025-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -215,6 +246,7 @@
     <lastmod>2025-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -222,6 +254,7 @@
     <lastmod>2025-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -229,6 +262,7 @@
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -236,6 +270,7 @@
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -243,6 +278,7 @@
     <lastmod>2025-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -250,6 +286,7 @@
     <lastmod>2025-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -257,6 +294,7 @@
     <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -264,6 +302,7 @@
     <lastmod>2025-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -271,6 +310,7 @@
     <lastmod>2025-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -278,6 +318,7 @@
     <lastmod>2025-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -285,6 +326,7 @@
     <lastmod>2025-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -292,6 +334,7 @@
     <lastmod>2025-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -299,6 +342,7 @@
     <lastmod>2025-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -306,6 +350,7 @@
     <lastmod>2025-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -313,6 +358,7 @@
     <lastmod>2025-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -320,6 +366,7 @@
     <lastmod>2025-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -327,6 +374,7 @@
     <lastmod>2025-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -334,6 +382,7 @@
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -341,6 +390,7 @@
     <lastmod>2025-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -348,6 +398,7 @@
     <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -355,6 +406,7 @@
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -362,6 +414,7 @@
     <lastmod>2025-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -369,6 +422,7 @@
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+
   </url>
 
   <url>
@@ -376,6 +430,7 @@
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -383,6 +438,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -390,6 +446,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -397,6 +454,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -404,6 +462,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -411,6 +470,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -418,6 +478,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -425,6 +486,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -432,6 +494,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -439,6 +502,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -446,6 +510,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -453,6 +518,7 @@
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -460,6 +526,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -467,6 +534,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -474,6 +542,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -481,6 +550,7 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -488,6 +558,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -495,6 +566,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -502,6 +574,7 @@
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -509,6 +582,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -516,6 +590,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -523,6 +598,7 @@
     <lastmod>2026-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -530,6 +606,7 @@
     <lastmod>2026-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -537,6 +614,7 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -544,6 +622,7 @@
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -551,6 +630,7 @@
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -558,6 +638,7 @@
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -565,6 +646,7 @@
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -572,6 +654,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -579,6 +662,7 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -586,6 +670,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -593,6 +678,7 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -600,6 +686,7 @@
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -607,6 +694,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -614,6 +702,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -621,6 +710,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -628,6 +718,7 @@
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -635,6 +726,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -642,6 +734,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -649,6 +742,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -656,6 +750,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -663,6 +758,7 @@
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -670,6 +766,7 @@
     <lastmod>2026-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -677,6 +774,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -684,6 +782,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -691,6 +790,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -698,6 +798,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -705,6 +806,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -712,6 +814,7 @@
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -719,6 +822,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -726,6 +830,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -733,6 +838,7 @@
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -740,6 +846,7 @@
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -747,6 +854,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -754,6 +862,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -761,6 +870,7 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -768,6 +878,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -775,6 +886,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -782,6 +894,7 @@
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -789,6 +902,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -796,6 +910,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -803,6 +918,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -810,6 +926,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -817,6 +934,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -824,6 +942,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -831,6 +950,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -838,6 +958,7 @@
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -845,6 +966,7 @@
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -852,6 +974,7 @@
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -859,6 +982,7 @@
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -866,6 +990,7 @@
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -873,6 +998,7 @@
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -880,6 +1006,7 @@
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -887,6 +1014,7 @@
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -894,6 +1022,7 @@
     <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -901,6 +1030,7 @@
     <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -908,6 +1038,7 @@
     <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -915,6 +1046,7 @@
     <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -922,6 +1054,7 @@
     <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -929,6 +1062,7 @@
     <lastmod>2025-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -936,6 +1070,7 @@
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -943,6 +1078,7 @@
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -950,6 +1086,7 @@
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -957,6 +1094,7 @@
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -964,6 +1102,7 @@
     <lastmod>2025-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -971,6 +1110,7 @@
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -978,6 +1118,7 @@
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -985,6 +1126,7 @@
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -992,6 +1134,7 @@
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -999,6 +1142,7 @@
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -1006,6 +1150,7 @@
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -1013,6 +1158,7 @@
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -1020,6 +1166,7 @@
     <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -1027,6 +1174,7 @@
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -1034,6 +1182,7 @@
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -1041,6 +1190,7 @@
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -1048,6 +1198,7 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -1055,6 +1206,7 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
@@ -1062,40 +1214,76 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+
   </url>
 
   <url>
     <loc>https://betteraibots.com/watch/ai-companions-why-20-million-people-are-choosing-digital-love</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/O9xN3anQKbM/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>AI Companions - Why 20 Million People Are Choosing Digital Love</video:title>
+      <video:description>A BetterAiBots episode about AI companions, digital intimacy, loneliness, and what these tools reveal about modern relationships.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/embed/O9xN3anQKbM</video:player_loc>
+      <video:publication_date>2025-11-20</video:publication_date>
+    </video:video>
   </url>
 
   <url>
     <loc>https://betteraibots.com/watch/10-ai-tools-to-give-you-leverage-to-run-everything-alone</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/PbanVBegAlk/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>10 AI Tools to give YOU leverage to run EVERYTHING ALONE!</video:title>
+      <video:description>A BetterAiBots episode covering AI tools that help solo operators handle customer service, sales, operations, marketing, and daily execution.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/embed/PbanVBegAlk</video:player_loc>
+      <video:publication_date>2025-11-20</video:publication_date>
+    </video:video>
   </url>
 
   <url>
     <loc>https://betteraibots.com/watch/how-to-fix-email-deliverability</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/ytCyZ3LeXJ4/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>How to Fix Email Deliverability</video:title>
+      <video:description>A BetterAiBots episode explaining email deliverability, sender reputation, warmup workflows, and how inbox trust is built over time.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/embed/ytCyZ3LeXJ4</video:player_loc>
+      <video:publication_date>2025-11-20</video:publication_date>
+    </video:video>
   </url>
 
   <url>
     <loc>https://betteraibots.com/watch/why-small-businesses-are-beating-enterprise</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/Kv-JFSjQsRs/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Why Small Businesses Are Beating Enterprise</video:title>
+      <video:description>A BetterAiBots episode on why small businesses can implement AI faster than larger companies because of speed, focus, and simpler operations.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/embed/Kv-JFSjQsRs</video:player_loc>
+      <video:publication_date>2025-11-20</video:publication_date>
+    </video:video>
   </url>
 
   <url>
     <loc>https://betteraibots.com/watch/the-ai-home-office-gold-rush-10-income-streams-for-you</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/tvU6VpFxl0c/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>The AI Home Office GOLD RUSH: 10 Income Streams For You!</video:title>
+      <video:description>A BetterAiBots episode about AI-powered home office income streams and practical ways entrepreneurs can increase output with AI.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/embed/tvU6VpFxl0c</video:player_loc>
+      <video:publication_date>2025-11-20</video:publication_date>
+    </video:video>
   </url>
 </urlset>

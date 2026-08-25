@@ -10,25 +10,29 @@ const {
   escapeHtml
 } = require('./seo-utils');
 const articleIndexingRules = require('../src/data/articleIndexingRules.json');
+const { WATCH_VIDEOS } = require('./watch-videos');
 
 const BASE = 'https://betteraibots.com';
 const today = new Date().toISOString().slice(0, 10);
 const outPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
 
-const WATCH_SLUGS = [
-  'ai-companions-why-20-million-people-are-choosing-digital-love',
-  '10-ai-tools-to-give-you-leverage-to-run-everything-alone',
-  'how-to-fix-email-deliverability',
-  'why-small-businesses-are-beating-enterprise',
-  'the-ai-home-office-gold-rush-10-income-streams-for-you'
-];
+function videoSitemapMarkup(video) {
+  return `    <video:video>
+      <video:thumbnail_loc>${escapeHtml(`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`)}</video:thumbnail_loc>
+      <video:title>${escapeHtml(video.title)}</video:title>
+      <video:description>${escapeHtml(video.description)}</video:description>
+      <video:player_loc allow_embed="yes">${escapeHtml(`https://www.youtube.com/embed/${video.youtubeId}`)}</video:player_loc>
+      <video:publication_date>2025-11-20</video:publication_date>
+    </video:video>`;
+}
 
-function urlEntry(loc, { lastmod = today, changefreq = 'weekly', priority = '0.8' } = {}) {
+function urlEntry(loc, { lastmod = today, changefreq = 'weekly', priority = '0.8', video = null } = {}) {
   return `  <url>
     <loc>${escapeHtml(loc)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
+${video ? videoSitemapMarkup(video) : ''}
   </url>`;
 }
 
@@ -90,21 +94,23 @@ learnArticles.forEach((article) => {
   );
 });
 
-WATCH_SLUGS.forEach((slug) => {
+WATCH_VIDEOS.forEach((video) => {
   entries.push(
-    urlEntry(`${BASE}/watch/${slug}`, {
+    urlEntry(`${BASE}/watch/${video.slug}`, {
       changefreq: 'monthly',
-      priority: '0.65'
+      priority: '0.65',
+      video
     })
   );
 });
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${entries.join('\n\n')}
 </urlset>
 `;
 
 fs.writeFileSync(outPath, xml, 'utf8');
 console.log(`✅ sitemap.xml written: ${entries.length} URLs`);
-console.log(`   static: ${staticPages.length}, news: ${newsArticles.length}, learn: ${learnArticles.length}, watch: ${WATCH_SLUGS.length}`);
+console.log(`   static: ${staticPages.length}, news: ${newsArticles.length}, learn: ${learnArticles.length}, watch: ${WATCH_VIDEOS.length}`);
