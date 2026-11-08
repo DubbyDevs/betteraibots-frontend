@@ -27,6 +27,25 @@
 /learn/advanced/:id  /learn/:id  301
 /learn/anybiz-alt  /learn/anybiz  301
 
+# Retired tools - remove stale pages from search and send visitors to active apps
+/learn/travel-code-ai-complete-guide  /apps  301
+/learn/looka  /apps  301
+/learn/recomaze  /apps  301
+/learn/catalister  /apps  301
+/learn/bebop-ai  /apps  301
+/learn/pipes-ai  /apps  301
+/learn/laxis  /apps  301
+/learn/blackbox-ai  /apps  301
+/learn/webydo  /apps  301
+/learn/creativescore  /apps  301
+/learn/pilim  /apps  301
+/learn/hume-ai  /apps  301
+/learn/viral-launch  /apps  301
+/learn/landingi-complete-guide  /apps  301
+/learn/surecam  /apps  301
+/learn/megahr  /apps  301
+/learn/smartli  /apps  301
+
 # Learn level listing pages — React app (guides + quizzes UI)
 /learn/beginner  /index.html  200
 /learn/intermediate  /index.html  200

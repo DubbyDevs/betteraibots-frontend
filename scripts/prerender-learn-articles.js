@@ -11,31 +11,20 @@ const {
 } = require('./read-more-enhancements');
 const articleIndexingRules = require('../src/data/articleIndexingRules.json');
 
-const affiliateLinks = {
-  "bebop-ai": "https://try.bebop.ai/o004cood3aod",
-  "pipes-ai": "https://try.pipes.ai/hmqj0m3am6un",
-  "runpod": "https://get.runpod.io/w3na2cm4xdjp",
+const affiliateLinks = {  "runpod": "https://get.runpod.io/w3na2cm4xdjp",
+  "netlify-complete-guide": "https://join.netlify.com/BAIB2",
   "seosparkplug": "https://seosparkplug.com",
   "brevo-complete-guide": "https://get.brevo.com/um9xszmf3nfd",
   "aisdr-complete-guide": "https://partner.aisdr.com/5fxea2u5m85d",
-  "adcreative-ai": "https://free-trial.adcreative.ai/BAIB",
-  "alli-ai": "https://try.alliai.com/0guepbqpqhsf",
-  "apollo-io": "https://get.apollo.io/BAIB",
-  "atria": "https://affiliates.tryatria.com/BAIB",
-  "recomaze": "https://affiliate.recomaze.ai/BAIB",
-  "vida-ai-agent-os": "https://try.vida.io/BAIB",
+  "adcreative-ai": "https://free-trial.adcreative.ai/BAIB",  "apollo-io": "https://get.apollo.io/BAIB",
+  "atria": "https://affiliates.tryatria.com/BAIB",  "vida-ai-agent-os": "https://try.vida.io/BAIB",
   "vista-social": "https://join.vistasocial.com/BAIB",
   "plesk": "https://try.plesk.com/BAIB",
   "surecam": "https://join.surecam.com/BAIB",
   "diginius": "https://get.diginius.com/rvao67pwqqux",
   "smartli": "https://smartli.partnerlinks.io/BAIB",
   "consensus": "https://get.consensus.app/BAIB",
-  "browse-ai": "https://partners.browse.ai/BAIB",
-  "blackbox-ai": "https://blackboxai.partnerlinks.io/BAIB",
-  "capsule-crm-complete-guide": "https://get.capsulenow.io/BAIB",
-  "flowith-io": "https://aff.flowith.io/52dtlja1b580",
-  "hume-ai": "https://try.hume.ai/BAIB",
-  "practice-ignition": "https://get.practiceignition.com/BAIB",
+  "browse-ai": "https://partners.browse.ai/BAIB",  "capsule-crm-complete-guide": "https://get.capsulenow.io/BAIB",  "practice-ignition": "https://get.practiceignition.com/BAIB",
   "omniseo": "https://get.omniseo.com/BAIB",
   "compliancely": "https://get.compliancely.com/gwmdzyd8i95g",
   "teikametrics": "https://join.teikametrics.com/BAIB",
@@ -51,18 +40,12 @@ const affiliateLinks = {
   "reply-io-complete-guide": "https://get.reply.io/ub7edypmq2gj",
   "thordata": "https://affiliate.thordata.com/BAIB",
   "tidio-ai": "https://affiliate.tidio.com/BAIB",
-  "veed-complete-guide": "https://veed.cello.so/2KWVFnsJmFA",
-  "webydo": "https://partners.webydo.com/BAIB",
-  "wispr-flow-complete-guide": "https://wisprflow.ai/downloads?referral=KING16",
-  "catalister": "https://join.catalister.com/BAIB",
-  "castmagic": "https://get.castmagic.io/qdu0jfhfcurv",
+  "veed-complete-guide": "https://www.veed.io/referral-sign-up?productId=www.veed.io&ucc=2KWVFnsJmFA&celloN=c2hheW5l",  "wispr-flow-complete-guide": "https://wisprflow.ai/downloads?referral=KING16",  "castmagic": "https://get.castmagic.io/qdu0jfhfcurv",
   "viral-launch": "https://affiliate.viral-launch.com/BAIB",
   "anybiz": "https://anybiz.io/?fpr=ai4n56",
   "megahr": "https://try.megahr.com/BAIB",
   "airia": "https://try.airia.com/BAIB",
-  "museit-art-complete-guide": "https://museit.art/?ref=BAIB",
-  "nanoz-complete-guide": "https://nanoz.fun",
-  "pinecone-vector-database": "https://www.skowers.com/api/go/d8",
+  "museit-art-complete-guide": "https://museit.art/?ref=BAIB",  "pinecone-vector-database": "https://www.skowers.com/api/go/d8",
   "prezi-complete-guide": "https://prezi.sjv.io/BAIB",
   "quillbot-complete-guide": "https://try.quillbot.com/BAIB",
   "landingi-complete-guide": "https://try.landingi.com/lwfc597yjm25",
@@ -80,16 +63,29 @@ const affiliateLinks = {
   "rankprompt": "https://join.rankprompt.com/BAIB",
   "snowfire-ai": "https://snowfire.com/?ref=BAIB",
   "volza": "https://partner.volza.com/BAIB",
-  "bidx": "https://try.bidx.io/BAIB",
-  "laxis": "https://get.laxis.com/BAIB",
-  "krispcall": "https://try.krispcall.com/BAIB",
-  "getresponse": "https://try.getresponsetoday.com/BAIB",
-  "creativescore": "https://affiliate.creativescore.ai/BAIB",
-  "seamless-ai-complete-guide": "https://get.seamless.ai/BAIB",
+  "bidx": "https://try.bidx.io/BAIB",  "krispcall": "https://try.krispcall.com/BAIB",
+  "getresponse": "https://try.getresponsetoday.com/BAIB",  "seamless-ai-complete-guide": "https://get.seamless.ai/BAIB",
   "databox": "https://join.databox.com/BAIB",
   "instaglamor": "https://www.InstaGlamor.com",
   "adwisely": "https://get.adwisely.com/BAIB",
   "turbotic": "https://try.turbotic.com/BAIB",
+  "typewise": "https://partner.typewise.app/BAIB",
+  "dry-ground-ai": "https://partners.dryground.ai/BAIB",
+  "sentaro": "https://join.sentaro.com/BAIB",
+  "inworld-ai": "https://get.platform.inworld.ai/rnxb5vvp6xi7",
+  "fireflies": "https://get.fireflies.ai/evv55a4ve7wd",
+  "ngram": "https://partner.ngram.com/BAIB",
+  "aisq": "https://try.aisq.com/BAIB",
+  "alli-ai": "https://www.alliai.com/?red=betterf2ec0b",
+  "socialdesk": "https://socialdesk.ai/?red=betterf2ec0b",
+  "marblism": "https://marblism.com?via=BAIB",
+  "runable": "https://runable.link/BAIB",
+  "clico": "https://tryclico.link/BAIB",
+  "firecrawl": "https://firecrawl.link/BAIB",
+  "team-pulse": "https://goteampulse.io/?red=betterf2ec0b",
+  "billingnow": "https://billingnow.com/?red=betterf2ec0b",
+  "rankbolt": "https://rankbolt.ai/?red=betterf2ec0b",
+  "mera-work": "https://mera.work/?red=betterf2ec0b",
   "gohighlevel": "https://www.gohighlevel.com/?fp_ref=baib",
   "weave": "https://partnerstack.getweave.com/BAIB"
 };
@@ -99,9 +95,7 @@ const ogImageMap = {
   "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
   "instaglamor": "https://betteraibots.com/assets/instaglamorlogo.png",
   "apollo-io": "https://betteraibots.com/apollo.png",
-  "databox": "https://betteraibots.com/assets/databoxai.jpg",
-  "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
-  "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png"
+  "databox": "https://betteraibots.com/assets/databoxai.jpg",  "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png"
 };
 
 function loadArticleSeoData() {
@@ -184,7 +178,7 @@ try {
 
   let count = 0;
   unique.forEach((article) => {
-    if (redirectMap[article.id]) {
+    if (redirectMap[article.id] || noindexIds.has(article.id)) {
       return;
     }
     const articleUrl = `https://betteraibots.com/learn/${article.id}`;
@@ -207,9 +201,7 @@ try {
       ctaLabel: affiliateLinks[article.id] ? "Get Started" : null,
       sectionLabel: "AI Tools Guide",
       extraStructuredData: faqSchema ? [faqSchema] : [],
-      robotsContent: noindexIds.has(article.id)
-        ? 'noindex, follow'
-        : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+      robotsContent: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
     });
     fs.writeFileSync(path.join(learnDir, `${article.id}.html`), html);
     count++;

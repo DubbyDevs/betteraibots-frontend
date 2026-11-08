@@ -29,7 +29,7 @@ function ArticleGuideVideo({ src, ariaLabel, affiliateLink, linkLabel }) {
           borderRadius: 16,
           overflow: 'hidden',
           background: '#0d1520',
-          boxShadow: '0 4px 20px rgba(54, 255, 149, 0.2)',
+          boxShadow: '0 4px 20px rgba(54, 255, 149, 0.2)'
         }}
       >
         <video
@@ -43,7 +43,7 @@ function ArticleGuideVideo({ src, ariaLabel, affiliateLink, linkLabel }) {
             height: '100%',
             display: 'block',
             objectFit: 'contain',
-            background: '#000',
+            background: '#000'
           }}
         />
       </div>
@@ -57,7 +57,7 @@ function ArticleGuideVideo({ src, ariaLabel, affiliateLink, linkLabel }) {
           color: 'var(--accent)',
           fontWeight: 700,
           fontSize: '1.1rem',
-          textDecoration: 'underline',
+          textDecoration: 'underline'
         }}
       >
         {linkLabel}
@@ -212,7 +212,7 @@ function findRelatedArticles(currentArticle, allArticles, limit = 2) {
     'ai-analytics': ['analytics', 'data', 'metrics', 'dashboard', 'reporting', 'insights'],
     'ai-chatbot': ['chatbot', 'chat', 'conversation', 'messaging', 'support', 'assistant'],
     'ai-ecommerce': ['ecommerce', 'amazon', 'seller', 'product', 'inventory', 'fba'],
-    'ai-hosting': ['hosting', 'server', 'infrastructure', 'deployment', 'cloud'],
+    'ai-hosting': ['hosting', 'server', 'infrastructure', 'deployment', 'cloud']
   };
   
   // Score articles based on keyword overlap and topic clusters
@@ -701,45 +701,31 @@ export default function ArticlePage() {
     : images.slice(1);
   
   // Mapping of article IDs to their affiliate links
-  const affiliateLinks = {
-    "bebop-ai": "https://try.bebop.ai/o004cood3aod",
-    "pipes-ai": "https://try.pipes.ai/hmqj0m3am6un",
-    "runpod": "https://get.runpod.io/w3na2cm4xdjp",
+  const affiliateLinks = {    "runpod": "https://get.runpod.io/w3na2cm4xdjp",
     "seosparkplug": "https://seosparkplug.com",
     "adwisely": "https://get.adwisely.com/BAIB",
     "brevo-complete-guide": "https://get.brevo.com/um9xszmf3nfd",
     "aisdr-complete-guide": "https://partner.aisdr.com/5fxea2u5m85d",
     "adcreative-ai": "https://free-trial.adcreative.ai/BAIB",
-    "activecampaign": "https://try.activecampaign.com/q84v43xjanzq",
-    "alli-ai": "https://try.alliai.com/0guepbqpqhsf",
-    "apollo-io": "https://get.apollo.io/BAIB",
+    "activecampaign": "https://try.activecampaign.com/q84v43xjanzq",    "apollo-io": "https://get.apollo.io/BAIB",
     "atria": "https://affiliates.tryatria.com/BAIB",
-    "beautiful-ai-complete-guide": "https://beautifulai.partnerlinks.io/mf21oqg4umdr",
-    "recomaze": "https://affiliate.recomaze.ai/BAIB",
-    "vida-ai-agent-os": "https://try.vida.io/BAIB",
+    "beautiful-ai-complete-guide": "https://beautifulai.partnerlinks.io/mf21oqg4umdr",    "vida-ai-agent-os": "https://try.vida.io/BAIB",
     "vista-social": "https://join.vistasocial.com/BAIB",
     "plesk": "https://try.plesk.com/BAIB",
     "surecam": "https://join.surecam.com/BAIB",
     "diginius": "https://get.diginius.com/rvao67pwqqux",
     "smartli": "https://smartli.partnerlinks.io/BAIB",
     "consensus": "https://get.consensus.app/BAIB",
-    "browse-ai": "https://partners.browse.ai/BAIB",
-    "blackbox-ai": "https://blackboxai.partnerlinks.io/BAIB",
-    "capsule-crm-complete-guide": "https://get.capsulenow.io/BAIB",
+    "browse-ai": "https://partners.browse.ai/BAIB",    "capsule-crm-complete-guide": "https://get.capsulenow.io/BAIB",
     "close-complete-guide": "https://refer.close.com/x04k0vvgqte4",
     "evolve-complete-guide": "https://go.evolveplatform.ai/9lwvqqq20p28",
-    "alidrop-complete-guide": "https://get.alidrop.co/a1gll4u5mi12",
-    "flowith-io": "https://aff.flowith.io/52dtlja1b580",
-    "hume-ai": "https://try.hume.ai/BAIB",
-    "practice-ignition": "https://get.practiceignition.com/BAIB",
+    "alidrop-complete-guide": "https://get.alidrop.co/a1gll4u5mi12",    "practice-ignition": "https://get.practiceignition.com/BAIB",
     "omniseo": "https://get.omniseo.com/BAIB",
     "compliancely": "https://get.compliancely.com/gwmdzyd8i95g",
     "teikametrics": "https://join.teikametrics.com/BAIB",
     "spiky-ai": "https://get.spiky.ai/BAIB",
     "emergent": "https://get.emergent.sh/BAIB",
-    "sleekflow": "https://sleekflow.partnerlinks.io/BAIB",
-    "treble-ai": "https://trebleai.partnerlinks.io/91f6vx0zwova",
-    "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
+    "sleekflow": "https://sleekflow.partnerlinks.io/BAIB",    "invideo-ai": "https://invideo.sjv.io/c/6368097/2210623/12258",
     "lindy-ai": "https://try.lindy.ai/lhgvxfidor04",
     "lusha": "https://partnerstack.lusha.com/w61xn76pa3sr",
     "meetgeek-complete-guide": "https://get.meetgeek.ai/BAIB",
@@ -749,18 +735,12 @@ export default function ArticlePage() {
     "reply-io-complete-guide": "https://get.reply.io/ub7edypmq2gj",
     "thordata": "https://affiliate.thordata.com/BAIB",
     "tidio-ai": "https://affiliate.tidio.com/BAIB",
-    "veed-complete-guide": "https://veed.cello.so/2KWVFnsJmFA",
-    "webydo": "https://partners.webydo.com/BAIB",
-    "wispr-flow-complete-guide": "https://wisprflow.ai/downloads?referral=KING16",
-    "catalister": "https://join.catalister.com/BAIB",
-    "castmagic": "https://get.castmagic.io/qdu0jfhfcurv",
+    "veed-complete-guide": "https://www.veed.io/referral-sign-up?productId=www.veed.io&ucc=2KWVFnsJmFA&celloN=c2hheW5l",    "wispr-flow-complete-guide": "https://wisprflow.ai/downloads?referral=KING16",    "castmagic": "https://get.castmagic.io/qdu0jfhfcurv",
     "viral-launch": "https://affiliate.viral-launch.com/BAIB",
     "anybiz": "https://anybiz.io/?fpr=ai4n56",
     "megahr": "https://try.megahr.com/BAIB",
     "airia": "https://try.airia.com/BAIB",
-    "museit-art-complete-guide": "https://Museit.art",
-  "nanoz-complete-guide": "https://nanoz.fun",
-  "netlify-complete-guide": "https://join.netlify.com/BAIB",
+    "museit-art-complete-guide": "https://Museit.art",  "netlify-complete-guide": "https://join.netlify.com/BAIB2",
   "pinecone-vector-database": "https://www.skowers.com/api/go/d8",
   "prezi-complete-guide": "https://try.prezi.com/9kk83fjh4yri",
     "printify-complete-guide": "https://try.printify.com/BAIB",
@@ -785,15 +765,28 @@ export default function ArticlePage() {
     "bidx": "https://try.bidx.io/BAIB",
     "bitdefender-complete-guide": "https://get.bitdefender.com/BAIB",
     "rebolt-complete-guide": "https://join.rebolthq.com/BAIB",
-    "calilio-complete-guide": "https://try.calilio.com/BAIB",
-    "laxis": "https://get.laxis.com/BAIB",
-    "krispcall": "https://try.krispcall.com/BAIB",
+    "calilio-complete-guide": "https://try.calilio.com/BAIB",    "krispcall": "https://try.krispcall.com/BAIB",
     "getresponse": "https://try.getresponsetoday.com/BAIB",
     "gohighlevel": "https://www.gohighlevel.com/?fp_ref=baib",
     "weave": "https://partnerstack.getweave.com/BAIB",
-    "turbotic": "https://try.turbotic.com/BAIB",
-    "creativescore": "https://affiliate.creativescore.ai/BAIB",
-    "seamless-ai-complete-guide": "https://get.seamless.ai/BAIB",
+    "turbotic": "https://try.turbotic.com/BAIB",    "seamless-ai-complete-guide": "https://get.seamless.ai/BAIB",
+    "typewise": "https://partner.typewise.app/BAIB",
+    "dry-ground-ai": "https://partners.dryground.ai/BAIB",
+    "sentaro": "https://join.sentaro.com/BAIB",
+    "inworld-ai": "https://get.platform.inworld.ai/rnxb5vvp6xi7",
+    "fireflies": "https://get.fireflies.ai/evv55a4ve7wd",
+    "ngram": "https://partner.ngram.com/BAIB",
+    "aisq": "https://try.aisq.com/BAIB",
+    "alli-ai": "https://www.alliai.com/?red=betterf2ec0b",
+    "socialdesk": "https://socialdesk.ai/?red=betterf2ec0b",
+    "marblism": "https://marblism.com?via=BAIB",
+    "runable": "https://runable.link/BAIB",
+    "clico": "https://tryclico.link/BAIB",
+    "firecrawl": "https://firecrawl.link/BAIB",
+    "team-pulse": "https://goteampulse.io/?red=betterf2ec0b",
+    "billingnow": "https://billingnow.com/?red=betterf2ec0b",
+    "rankbolt": "https://rankbolt.ai/?red=betterf2ec0b",
+    "mera-work": "https://mera.work/?red=betterf2ec0b",
     "instaglamor": "https://www.InstaGlamor.com"
   };
   
@@ -923,37 +916,26 @@ export default function ArticlePage() {
   // Articles that should use the n8n-style layout (article-container, article-content, share-buttons)
   const articlesWithNewsStyleLayout = [
     'adcreative-ai',
-    'activecampaign',
-    'alli-ai',
-    'apollo-io',
-    'atria',
-    'recomaze',
-    'vida-ai-agent-os',
+    'activecampaign',    'apollo-io',
+    'atria',    'vida-ai-agent-os',
     'vista-social',
     'plesk',
     'surecam',
     'diginius',
     'smartli',
     'consensus',
-    'browse-ai',
-    'blackbox-ai',
-    'beautiful-ai-complete-guide',
+    'browse-ai',    'beautiful-ai-complete-guide',
     'brevo-complete-guide',
     'capsule-crm-complete-guide',
     'close-complete-guide',
     'evolve-complete-guide',
-    'alidrop-complete-guide',
-    'flowith-io',
-    'hume-ai',
-    'practice-ignition',
+    'alidrop-complete-guide',    'practice-ignition',
     'omniseo',
     'compliancely',
     'teikametrics',
     'spiky-ai',
     'emergent',
-    'sleekflow',
-    'treble-ai',
-    'invideo-ai',
+    'sleekflow',    'invideo-ai',
     'lindy-ai',
     'lusha',
     'meetgeek-complete-guide',
@@ -964,31 +946,20 @@ export default function ArticlePage() {
     'reply-io-complete-guide',
     'thordata',
     'tidio-ai',
-    'veed-complete-guide',
-    'webydo',
-    'wispr-flow-complete-guide',
+    'veed-complete-guide',    'wispr-flow-complete-guide',
     'viral-launch',
-    'runpod',
-    'pipes-ai',
-    'castmagic',
+    'runpod',    'castmagic',
     'anybiz',
-    'megahr',
-    'bebop-ai',
-    'catalister',
-    'seosparkplug',
+    'megahr',    'seosparkplug',
     'airia',
     'museit-art-complete-guide',
-    'adwisely',
-    'nanoz-complete-guide',
-    'netlify-complete-guide',
+    'adwisely',    'netlify-complete-guide',
     'prezi-complete-guide',
     'printify-complete-guide',
     'quillbot-complete-guide',
     'landingi-complete-guide',
     'tradify-complete-guide',
-    'trainual-complete-guide',
-    'travel-code-ai-complete-guide',
-    'logome-complete-guide',
+    'trainual-complete-guide',    'logome-complete-guide',
     'datahawk',
     'descript',
     'unbounce',
@@ -1003,19 +974,30 @@ export default function ArticlePage() {
     'bidx',
     'bitdefender-complete-guide',
     'rebolt-complete-guide',
-    'calilio-complete-guide',
-    'laxis',
-    'krispcall',
+    'calilio-complete-guide',    'krispcall',
     'getresponse',
     'gohighlevel',
     'weave',
-    'turbotic',
-    'creativescore',
-    'databox',
+    'turbotic',    'databox',
     'instaglamor',
-    'seamless-ai-complete-guide',
-    'warmy-io-spam-folder-rebellion-email-deliverability',
-    'pinecone-vector-database'
+    'typewise',
+    'dry-ground-ai',
+    'sentaro',
+    'inworld-ai',
+    'fireflies',
+    'ngram',
+    'aisq',
+    'alli-ai',
+    'socialdesk',
+    'marblism',
+    'runable',
+    'clico',
+    'firecrawl',
+    'team-pulse',
+    'billingnow',
+    'rankbolt',
+    'mera-work',
+    'seamless-ai-complete-guide',    'pinecone-vector-database'
   ];
   const usesNewsStyleLayout = articlesWithNewsStyleLayout.includes(article.id);
 
@@ -1220,9 +1202,7 @@ export default function ArticlePage() {
             "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
             "wispr-flow-complete-guide": "https://betteraibots.com/wispr.png",
-            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
-            "alli-ai": "https://betteraibots.com/alliai.png",
-            "brevo-complete-guide": "https://betteraibots.com/brevologo.png",
+            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",            "brevo-complete-guide": "https://betteraibots.com/brevologo.png",
             "capsule-crm-complete-guide": "https://betteraibots.com/capsulecrm.png",
             "close-complete-guide": "https://betteraibots.com/closeailogo.png",
             "evolve-complete-guide": "https://betteraibots.com/evolveai.jpg",
@@ -1232,9 +1212,7 @@ export default function ArticlePage() {
             "viral-launch": "https://betteraibots.com/virallaunch.png",
             "apollo-io": "https://betteraibots.com/apollo.png",
             "atria": "https://betteraibots.com/assets/atria1.jpg",
-            "beautiful-ai-complete-guide": "https://betteraibots.com/beautifulai.jpg",
-            "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
-            "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
+            "beautiful-ai-complete-guide": "https://betteraibots.com/beautifulai.jpg",            "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
             "vista-social": "https://betteraibots.com/assets/vistasocial.jpg",
             "plesk": "https://betteraibots.com/assets/plesk1.jpg",
             "surecam": "https://betteraibots.com/assets/surecam1.jpg",
@@ -1243,39 +1221,22 @@ export default function ArticlePage() {
             "consensus": "https://betteraibots.com/assets/consensus1.jpg",
             "browse-ai": "https://betteraibots.com/assets/browseai1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
-            "activecampaign": "https://betteraibots.com/activecampaign.webp",
-            "flowith-io": "https://betteraibots.com/flowith.jpg",
-            "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
+            "activecampaign": "https://betteraibots.com/activecampaign.webp",            "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
             "aisdr-complete-guide": "https://betteraibots.com/aisdr.png",
-            "miro-complete-guide": "https://betteraibots.com/miro.png",
-            "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
-            "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
-            "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
+            "miro-complete-guide": "https://betteraibots.com/miro.png",            "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
             "seosparkplug": "https://betteraibots.com/assets/seosparkplug1.jpg",
-            "adwisely": "https://betteraibots.com/adwisely.png",
-            "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
-            "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
-            "runpod": "https://betteraibots.com/runpod.jpg?v=2",
-            "pipes-ai": "https://betteraibots.com/pipesai.jpg?v=2",
-            "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
+            "adwisely": "https://betteraibots.com/adwisely.png",            "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
+            "runpod": "https://betteraibots.com/runpod.jpg?v=2",            "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
             "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
-            "megahr": "https://betteraibots.com/megahr.jpg?v=2",
-            "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
-            "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
-            "meetgeek-complete-guide": "https://betteraibots.com/meetgeeklogo.png",
-            "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
-            "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+            "megahr": "https://betteraibots.com/megahr.jpg?v=2",            "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
+            "meetgeek-complete-guide": "https://betteraibots.com/meetgeeklogo.png",            "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
             "compliancely": "https://betteraibots.com/compailogo.png",
             "teikametrics": "https://betteraibots.com/telkalogo.jpg",
             "spiky-ai": "https://betteraibots.com/spikyai.png",
             "emergent": "https://betteraibots.com/emergentai.png",
-            "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
-            "treble-ai": "https://betteraibots.com/trebleai.jpg",
-            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
-            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
-            "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
-            "netlify-complete-guide": "https://betteraibots.com/netlifylogo.jpg",
+            "sleekflow": "https://betteraibots.com/sleekflowai.jpg",            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
+            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",            "netlify-complete-guide": "https://betteraibots.com/netlify-ai.jpeg",
             "pinecone-vector-database": "https://betteraibots.com/pineconeai.jpg",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
             "printify-complete-guide": "https://betteraibots.com/printifylogo.png",
@@ -1289,7 +1250,7 @@ export default function ArticlePage() {
             "elevate-forward": "https://betteraibots.com/elevateforward.png",
             "unbounce": "https://betteraibots.com/assets/unbounceai.png",
             "landbot": "https://betteraibots.com/assets/landbotai.png",
-            "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
+            "reclaim-ai": "https://betteraibots.com/reclaimai.png",
             "amplemarket": "https://betteraibots.com/amplemarketai.jpg",
             "mindstudio": "https://betteraibots.com/assets/mindstudioai.jpeg",
             "elevenlabs": "https://betteraibots.com/assets/elevenlabsai.jpg",
@@ -1300,15 +1261,28 @@ export default function ArticlePage() {
             "bidx": "https://betteraibots.com/assets/bidxai.jpg",
             "bitdefender-complete-guide": "https://betteraibots.com/bitdefenderlogo.png",
             "rebolt-complete-guide": "https://betteraibots.com/reboltai.jpg",
-            "calilio-complete-guide": "https://betteraibots.com/caliliologo.webp",
-            "laxis": "https://betteraibots.com/assets/laxisai.jpg",
-            "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
+            "calilio-complete-guide": "https://betteraibots.com/caliliologo.webp",            "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
             "weave": "https://betteraibots.com/weaveai.jpg",
-            "turbotic": "https://betteraibots.com/turbotic.png",
-            "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
-            "databox": "https://betteraibots.com/assets/databoxai.jpg",
+            "turbotic": "https://betteraibots.com/turbotic.png",            "databox": "https://betteraibots.com/assets/databoxai.jpg",
+            "typewise": "https://betteraibots.com/typewise-logo.png",
+            "dry-ground-ai": "https://betteraibots.com/dryground-ai-tools.png",
+            "sentaro": "https://betteraibots.com/sentarologo.jpeg",
+            "inworld-ai": "https://betteraibots.com/inworld-logo.png",
+            "fireflies": "https://betteraibots.com/firefliesai.png",
+            "ngram": "https://betteraibots.com/ngram-logo.png",
+            "aisq": "https://betteraibots.com/aisq-logo.png",
+            "alli-ai": "https://betteraibots.com/alliai.png",
+            "socialdesk": "https://betteraibots.com/socialdeskai.webp",
+            "marblism": "https://betteraibots.com/marblismlogo.webp",
+            "runable": "https://betteraibots.com/runableai.webp",
+            "clico": "https://betteraibots.com/clicoai.webp",
+            "firecrawl": "https://betteraibots.com/firecrawlai.webp",
+            "team-pulse": "https://betteraibots.com/teampulseai.png",
+            "billingnow": "https://betteraibots.com/billingnowai.webp",
+            "rankbolt": "https://betteraibots.com/rankboltai.webp",
+            "mera-work": "https://betteraibots.com/meraworkai.jpg",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
@@ -1339,9 +1313,7 @@ export default function ArticlePage() {
             "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
             "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
             "wispr-flow-complete-guide": "https://betteraibots.com/wispr.png",
-            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
-            "alli-ai": "https://betteraibots.com/alliai.png",
-            "brevo-complete-guide": "https://betteraibots.com/brevologo.png",
+            "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",            "brevo-complete-guide": "https://betteraibots.com/brevologo.png",
             "capsule-crm-complete-guide": "https://betteraibots.com/capsulecrm.png",
             "close-complete-guide": "https://betteraibots.com/closeailogo.png",
             "evolve-complete-guide": "https://betteraibots.com/evolveai.jpg",
@@ -1351,9 +1323,7 @@ export default function ArticlePage() {
             "viral-launch": "https://betteraibots.com/virallaunch.png",
             "apollo-io": "https://betteraibots.com/apollo.png",
             "atria": "https://betteraibots.com/assets/atria1.jpg",
-            "beautiful-ai-complete-guide": "https://betteraibots.com/beautifulai.jpg",
-            "recomaze": "https://betteraibots.com/assets/recomaze1.jpg",
-            "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
+            "beautiful-ai-complete-guide": "https://betteraibots.com/beautifulai.jpg",            "vida-ai-agent-os": "https://betteraibots.com/assets/vida1.jpg",
             "vista-social": "https://betteraibots.com/assets/vistasocial.jpg",
             "plesk": "https://betteraibots.com/assets/plesk1.jpg",
             "surecam": "https://betteraibots.com/assets/surecam1.jpg",
@@ -1362,39 +1332,22 @@ export default function ArticlePage() {
             "consensus": "https://betteraibots.com/assets/consensus1.jpg",
             "browse-ai": "https://betteraibots.com/assets/browseai1.jpg",
             "adcreative-ai": "https://betteraibots.com/adcreative.png",
-            "activecampaign": "https://betteraibots.com/activecampaign.webp",
-            "flowith-io": "https://betteraibots.com/flowith.jpg",
-            "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
+            "activecampaign": "https://betteraibots.com/activecampaign.webp",            "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
             "aisdr-complete-guide": "https://betteraibots.com/aisdr.png",
-            "miro-complete-guide": "https://betteraibots.com/miro.png",
-            "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
-            "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
-            "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
+            "miro-complete-guide": "https://betteraibots.com/miro.png",            "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
             "seosparkplug": "https://betteraibots.com/assets/seosparkplug1.jpg",
-            "adwisely": "https://betteraibots.com/adwisely.png",
-            "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
-            "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
-            "runpod": "https://betteraibots.com/runpod.jpg?v=2",
-            "pipes-ai": "https://betteraibots.com/pipesai.jpg?v=2",
-            "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
+            "adwisely": "https://betteraibots.com/adwisely.png",            "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
+            "runpod": "https://betteraibots.com/runpod.jpg?v=2",            "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
             "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
-            "megahr": "https://betteraibots.com/megahr.jpg?v=2",
-            "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
-            "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
-            "meetgeek-complete-guide": "https://betteraibots.com/meetgeeklogo.png",
-            "hume-ai": "https://betteraibots.com/hume2.jpg?v=2",
-            "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
+            "megahr": "https://betteraibots.com/megahr.jpg?v=2",            "lusha": "https://betteraibots.com/lushaai.jpg?v=2",
+            "meetgeek-complete-guide": "https://betteraibots.com/meetgeeklogo.png",            "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
             "compliancely": "https://betteraibots.com/compailogo.png",
             "teikametrics": "https://betteraibots.com/telkalogo.jpg",
             "spiky-ai": "https://betteraibots.com/spikyai.png",
             "emergent": "https://betteraibots.com/emergentai.png",
-            "sleekflow": "https://betteraibots.com/sleekflowai.jpg",
-            "treble-ai": "https://betteraibots.com/trebleai.jpg",
-            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
-            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
-            "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
-            "netlify-complete-guide": "https://betteraibots.com/netlifylogo.jpg",
+            "sleekflow": "https://betteraibots.com/sleekflowai.jpg",            "tidio-ai": "https://betteraibots.com/tidio2.jpg?v=2",
+            "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",            "netlify-complete-guide": "https://betteraibots.com/netlify-ai.jpeg",
             "pinecone-vector-database": "https://betteraibots.com/pineconeai.jpg",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
             "printify-complete-guide": "https://betteraibots.com/printifylogo.png",
@@ -1408,7 +1361,7 @@ export default function ArticlePage() {
             "elevate-forward": "https://betteraibots.com/elevateforward.png",
             "unbounce": "https://betteraibots.com/assets/unbounceai.png",
             "landbot": "https://betteraibots.com/assets/landbotai.png",
-            "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
+            "reclaim-ai": "https://betteraibots.com/reclaimai.png",
             "amplemarket": "https://betteraibots.com/amplemarketai.jpg",
             "mindstudio": "https://betteraibots.com/assets/mindstudioai.jpeg",
             "elevenlabs": "https://betteraibots.com/assets/elevenlabsai.jpg",
@@ -1417,7 +1370,24 @@ export default function ArticlePage() {
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
             "weave": "https://betteraibots.com/weaveai.jpg",
-            "turbotic": "https://betteraibots.com/turbotic.png"
+            "turbotic": "https://betteraibots.com/turbotic.png",
+            "typewise": "https://betteraibots.com/typewise-logo.png",
+            "dry-ground-ai": "https://betteraibots.com/dryground-ai-tools.png",
+            "sentaro": "https://betteraibots.com/sentarologo.jpeg",
+            "inworld-ai": "https://betteraibots.com/inworld-logo.png",
+            "fireflies": "https://betteraibots.com/firefliesai.png",
+            "ngram": "https://betteraibots.com/ngram-logo.png",
+            "aisq": "https://betteraibots.com/aisq-logo.png",
+            "alli-ai": "https://betteraibots.com/alliai.png",
+            "socialdesk": "https://betteraibots.com/socialdeskai.webp",
+            "marblism": "https://betteraibots.com/marblismlogo.webp",
+            "runable": "https://betteraibots.com/runableai.webp",
+            "clico": "https://betteraibots.com/clicoai.webp",
+            "firecrawl": "https://betteraibots.com/firecrawlai.webp",
+            "team-pulse": "https://betteraibots.com/teampulseai.png",
+            "billingnow": "https://betteraibots.com/billingnowai.webp",
+            "rankbolt": "https://betteraibots.com/rankboltai.webp",
+            "mera-work": "https://betteraibots.com/meraworkai.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -1441,9 +1411,7 @@ export default function ArticlePage() {
                 "invideo-ai": "https://betteraibots.com/assets/InVideoFreeTrial.png", 
                 "scholar-gpt": "https://betteraibots.com/assets/bot-placeholder4.webp",
                 "wispr-flow-complete-guide": "https://betteraibots.com/wispr.png",
-                "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",
-                "alli-ai": "https://betteraibots.com/alliai.png",
-                "brevo-complete-guide": "https://betteraibots.com/brevologo.png",
+                "cheat-coder": "https://betteraibots.com/assets/cheatcoder.png",                "brevo-complete-guide": "https://betteraibots.com/brevologo.png",
                 "capsule-crm-complete-guide": "https://betteraibots.com/capsulecrm.png",
                 "close-complete-guide": "https://betteraibots.com/closeailogo.png",
                 "evolve-complete-guide": "https://betteraibots.com/evolveai.jpg",
@@ -1455,27 +1423,14 @@ export default function ArticlePage() {
                 "atria": "https://betteraibots.com/assets/atria1.jpg",
                 "beautiful-ai-complete-guide": "https://betteraibots.com/beautifulai.jpg",
                 "adcreative-ai": "https://betteraibots.com/adcreative.png",
-                "activecampaign": "https://betteraibots.com/activecampaign.webp",
-                "flowith-io": "https://betteraibots.com/flowith.jpg",
-                "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
+                "activecampaign": "https://betteraibots.com/activecampaign.webp",                "murf-ai-complete-guide": "https://betteraibots.com/murfai.png",
                 "aisdr-complete-guide": "https://betteraibots.com/aisdr.png",
-                "miro-complete-guide": "https://betteraibots.com/miro.png",
-                "blackbox-ai": "https://betteraibots.com/blackbox-logo.png?v=2",
-                "webydo": "https://betteraibots.com/webydo-logo.png?v=2",
-                "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
+                "miro-complete-guide": "https://betteraibots.com/miro.png",                "thordata": "https://betteraibots.com/thordata-logo.png?v=2",
                 "seosparkplug": "https://betteraibots.com/assets/seosparkplug1.jpg",
-                "adwisely": "https://betteraibots.com/adwisely.png",
-                "catalister": "https://betteraibots.com/catalister2.jpg?v=2",
-                "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
-                "runpod": "https://betteraibots.com/runpod.jpg?v=2",
-                "pipes-ai": "https://betteraibots.com/pipesai.jpg?v=2",
-                "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
+                "adwisely": "https://betteraibots.com/adwisely.png",                "airia": "https://betteraibots.com/airiaaidemo.jpg?v=2",
+                "runpod": "https://betteraibots.com/runpod.jpg?v=2",                "castmagic": "https://betteraibots.com/castmagicai.jpg?v=2",
                 "anybiz": "https://betteraibots.com/anybizio.jpg?v=2",
-                "megahr": "https://betteraibots.com/megahr.jpg?v=2",
-                "bebop-ai": "https://betteraibots.com/bebopaitools.jpg?v=2",
-                "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",
-            "nanoz-complete-guide": "https://betteraibots.com/assets/nanozlogo.png",
-            "netlify-complete-guide": "https://betteraibots.com/netlifylogo.jpg",
+                "megahr": "https://betteraibots.com/megahr.jpg?v=2",                "museit-art-complete-guide": "https://betteraibots.com/assets/musebrand.jpg",            "netlify-complete-guide": "https://betteraibots.com/netlify-ai.jpeg",
             "pinecone-vector-database": "https://betteraibots.com/pineconeai.jpg",
             "prezi-complete-guide": "https://betteraibots.com/assets/preziai.png",
             "printify-complete-guide": "https://betteraibots.com/printifylogo.png",
@@ -1486,9 +1441,7 @@ export default function ArticlePage() {
                 "descript": "https://betteraibots.com/assets/descriptai.png",
                 "elevate-forward": "https://betteraibots.com/elevateforward.png",
                 "unbounce": "https://betteraibots.com/assets/unbounceai.png",
-                "landbot": "https://betteraibots.com/assets/landbotai.png",
-                "treble-ai": "https://betteraibots.com/trebleai.jpg",
-                "reclaim-ai": "https://betteraibots.com/assets/reclaimai.png",
+                "landbot": "https://betteraibots.com/assets/landbotai.png",                "reclaim-ai": "https://betteraibots.com/reclaimai.png",
                 "amplemarket": "https://betteraibots.com/amplemarketai.jpg",
                 "mindstudio": "https://betteraibots.com/assets/mindstudioai.jpeg",
                 "elevenlabs": "https://betteraibots.com/assets/elevenlabsai.jpg",
@@ -1499,15 +1452,28 @@ export default function ArticlePage() {
             "bidx": "https://betteraibots.com/assets/bidxai.jpg",
             "bitdefender-complete-guide": "https://betteraibots.com/bitdefenderlogo.png",
             "rebolt-complete-guide": "https://betteraibots.com/reboltai.jpg",
-            "calilio-complete-guide": "https://betteraibots.com/caliliologo.webp",
-            "laxis": "https://betteraibots.com/assets/laxisai.jpg",
-            "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
+            "calilio-complete-guide": "https://betteraibots.com/caliliologo.webp",            "krispcall": "https://betteraibots.com/assets/krispcallai.jpg",
             "getresponse": "https://betteraibots.com/assets/getresponseai.jpg",
             "gohighlevel": "https://betteraibots.com/gohighlevelai.jpg",
             "weave": "https://betteraibots.com/weaveai.jpg",
-            "turbotic": "https://betteraibots.com/turbotic.png",
-            "creativescore": "https://betteraibots.com/assets/creativescoreai.jpg",
-            "databox": "https://betteraibots.com/assets/databoxai.jpg",
+            "turbotic": "https://betteraibots.com/turbotic.png",            "databox": "https://betteraibots.com/assets/databoxai.jpg",
+            "typewise": "https://betteraibots.com/typewise-logo.png",
+            "dry-ground-ai": "https://betteraibots.com/dryground-ai-tools.png",
+            "sentaro": "https://betteraibots.com/sentarologo.jpeg",
+            "inworld-ai": "https://betteraibots.com/inworld-logo.png",
+            "fireflies": "https://betteraibots.com/firefliesai.png",
+            "ngram": "https://betteraibots.com/ngram-logo.png",
+            "aisq": "https://betteraibots.com/aisq-logo.png",
+            "alli-ai": "https://betteraibots.com/alliai.png",
+            "socialdesk": "https://betteraibots.com/socialdeskai.webp",
+            "marblism": "https://betteraibots.com/marblismlogo.webp",
+            "runable": "https://betteraibots.com/runableai.webp",
+            "clico": "https://betteraibots.com/clicoai.webp",
+            "firecrawl": "https://betteraibots.com/firecrawlai.webp",
+            "team-pulse": "https://betteraibots.com/teampulseai.png",
+            "billingnow": "https://betteraibots.com/billingnowai.webp",
+            "rankbolt": "https://betteraibots.com/rankboltai.webp",
+            "mera-work": "https://betteraibots.com/meraworkai.jpg",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg",
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
@@ -1704,37 +1670,6 @@ export default function ArticlePage() {
             }}
             />
           </a>
-        ) : article.id === "catalister" ? (
-          <a 
-            href="https://join.catalister.com/BAIB" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              cursor: "pointer",
-              textDecoration: "none"
-            }}
-          >
-            <img src={primaryImage} alt="" style={{
-              maxWidth: "600px",
-              width: "auto",
-              height: "auto",
-              borderRadius: 16,
-              margin: "0 0 24px 0",
-              display: "block",
-              objectFit: "contain",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease"
-            }} 
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "none";
-            }}
-            />
-          </a>
         ) : article.id === "airia" ? (
           <a 
             href="https://try.airia.com/BAIB" 
@@ -1769,37 +1704,6 @@ export default function ArticlePage() {
         ) : article.id === "runpod" ? (
           <a 
             href="https://get.runpod.io/w3na2cm4xdjp" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              cursor: "pointer",
-              textDecoration: "none"
-            }}
-          >
-            <img src={primaryImage} alt="" style={{
-              maxWidth: "600px",
-              width: "auto",
-              height: "auto",
-              borderRadius: 16,
-              margin: "0 0 24px 0",
-              display: "block",
-              objectFit: "contain",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease"
-            }} 
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "none";
-            }}
-            />
-          </a>
-        ) : article.id === "pipes-ai" ? (
-          <a 
-            href="https://try.pipes.ai/hmqj0m3am6un" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
@@ -1921,71 +1825,9 @@ export default function ArticlePage() {
             }}
             />
           </a>
-        ) : article.id === "bebop-ai" ? (
-          <a 
-            href="https://try.bebop.ai/o004cood3aod" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              cursor: "pointer",
-              textDecoration: "none"
-            }}
-          >
-            <img src={primaryImage} alt="" style={{
-              maxWidth: "600px",
-              width: "auto",
-              height: "auto",
-              borderRadius: 16,
-              margin: "0 0 24px 0",
-              display: "block",
-              objectFit: "contain",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease"
-            }} 
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "none";
-            }}
-            />
-          </a>
         ) : article.id === "lusha" ? (
           <a 
             href="https://partnerstack.lusha.com/w61xn76pa3sr" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              cursor: "pointer",
-              textDecoration: "none"
-            }}
-          >
-            <img src={primaryImage} alt="" style={{
-              maxWidth: "600px",
-              width: "auto",
-              height: "auto",
-              borderRadius: 16,
-              margin: "0 0 24px 0",
-              display: "block",
-              objectFit: "contain",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease"
-            }} 
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "none";
-            }}
-            />
-          </a>
-        ) : article.id === "hume-ai" ? (
-          <a 
-            href="https://try.hume.ai/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
@@ -2079,37 +1921,6 @@ export default function ArticlePage() {
         ) : article.id === "quillbot-complete-guide" ? (
           <a 
             href="https://try.quillbot.com/BAIB" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              cursor: "pointer",
-              textDecoration: "none"
-            }}
-          >
-            <img src={primaryImage} alt="" style={{
-              maxWidth: "600px",
-              width: "auto",
-              height: "auto",
-              borderRadius: 16,
-              margin: "0 0 24px 0",
-              display: "block",
-              objectFit: "contain",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease"
-            }} 
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "none";
-            }}
-            />
-          </a>
-        ) : article.id === "nanoz-complete-guide" ? (
-          <a 
-            href="https://nanoz.fun" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
@@ -2355,37 +2166,6 @@ export default function ArticlePage() {
             }}
             />
           </a>
-        ) : article.id === "laxis" ? (
-          <a 
-            href="https://get.laxis.com/BAIB" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              cursor: "pointer",
-              textDecoration: "none"
-            }}
-          >
-            <img src={primaryImage} alt="" style={{
-              maxWidth: "600px",
-              width: "auto",
-              height: "auto",
-              borderRadius: 16,
-              margin: "0 0 24px 0",
-              display: "block",
-              objectFit: "contain",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease"
-            }} 
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "none";
-            }}
-            />
-          </a>
         ) : article.id === "krispcall" ? (
           <a 
             href="https://try.krispcall.com/BAIB" 
@@ -2451,37 +2231,6 @@ export default function ArticlePage() {
         ) : article.id === "getresponse" ? (
           <a 
             href="https://try.getresponsetoday.com/BAIB" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              cursor: "pointer",
-              textDecoration: "none"
-            }}
-          >
-            <img src={primaryImage} alt="" style={{
-              maxWidth: "600px",
-              width: "auto",
-              height: "auto",
-              borderRadius: 16,
-              margin: "0 0 24px 0",
-              display: "block",
-              objectFit: "contain",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease"
-            }} 
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "none";
-            }}
-            />
-          </a>
-        ) : article.id === "creativescore" ? (
-          <a 
-            href="https://affiliate.creativescore.ai/BAIB" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
@@ -2606,37 +2355,6 @@ export default function ArticlePage() {
         ) : article.id === "unbounce" ? (
           <a 
             href="https://unbounce.partnerlinks.io/BAIB" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              cursor: "pointer",
-              textDecoration: "none"
-            }}
-          >
-            <img src={primaryImage} alt="" style={{
-              maxWidth: "600px",
-              width: "auto",
-              height: "auto",
-              borderRadius: 16,
-              margin: "0 0 24px 0",
-              display: "block",
-              objectFit: "contain",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease"
-            }} 
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "none";
-            }}
-            />
-          </a>
-        ) : article.id === "treble-ai" ? (
-          <a 
-            href="https://trebleai.partnerlinks.io/91f6vx0zwova" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
@@ -2867,7 +2585,7 @@ export default function ArticlePage() {
               borderRadius: 16,
               overflow: 'hidden',
               background: '#0d1520',
-              boxShadow: '0 4px 20px rgba(54, 255, 149, 0.2)',
+              boxShadow: '0 4px 20px rgba(54, 255, 149, 0.2)'
             }}
           >
             <video
@@ -2881,7 +2599,7 @@ export default function ArticlePage() {
                 height: '100%',
                 display: 'block',
                 objectFit: 'contain',
-                background: '#000',
+                background: '#000'
               }}
             />
           </div>
@@ -2895,7 +2613,7 @@ export default function ArticlePage() {
               color: 'var(--accent)',
               fontWeight: 700,
               fontSize: '1.1rem',
-              textDecoration: 'underline',
+              textDecoration: 'underline'
             }}
           >
             Start free trial
@@ -3293,7 +3011,7 @@ export default function ArticlePage() {
                     style={{ 
                       color: 'var(--accent)', 
                       textDecoration: 'underline',
-                      cursor: 'pointer',
+                      cursor: 'pointer'
                     }}
                     {...props}
                   >
@@ -3585,7 +3303,7 @@ export default function ArticlePage() {
               // Handle image links (affiliate links that contain images from markdown)
               // ReactMarkdown renders [![alt](img)](link) as <a><img /></a>
               // Check if this is an affiliate link and if children contains an img element
-              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io') || href.includes('try.plesk.com') || href.includes('join.surecam.com') || href.includes('get.diginius.com') || href.includes('smartli.partnerlinks.io') || href.includes('try.prezi.com') || href.includes('try.landingi.com') || href.includes('nanoz.fun') || href.includes('partners.tradifyhq.com') || href.includes('logomeai.partnerlinks.io'))) {
+              if (href && (href.includes('affiliates.tryatria.com') || href.includes('affiliate.recomaze.ai') || href.includes('try.vida.io') || href.includes('try.plesk.com') || href.includes('join.surecam.com') || href.includes('get.diginius.com') || href.includes('smartli.partnerlinks.io') || href.includes('try.prezi.com') || href.includes('try.landingi.com') || href.includes('partners.tradifyhq.com') || href.includes('logomeai.partnerlinks.io'))) {
                 try {
                   // Check if children contains an image element - use simple, safe checking
                   let hasImage = false;
@@ -3675,7 +3393,7 @@ export default function ArticlePage() {
               <td {...props} className="article-table-td">
                 {children}
               </td>
-            ),
+            )
           }}
         >
           {secondaryImages.length > 0 ? firstHalf : articleMarkdownContent}
@@ -3848,7 +3566,7 @@ export default function ArticlePage() {
               borderRadius: 16,
               display: 'block',
               margin: '0 auto',
-              boxShadow: '0 4px 20px rgba(54, 255, 149, 0.2)',
+              boxShadow: '0 4px 20px rgba(54, 255, 149, 0.2)'
             }}
           />
           <a
@@ -3861,7 +3579,7 @@ export default function ArticlePage() {
               color: 'var(--accent)',
               fontWeight: 700,
               fontSize: '1.1rem',
-              textDecoration: 'underline',
+              textDecoration: 'underline'
             }}
           >
             Start free trial

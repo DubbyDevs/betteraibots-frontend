@@ -2,7 +2,6 @@
 import adcreativeaitrial from '../assets/adcreativeaitrial.png';
 import apolloLogo from '../assets/apolloailogo.webp';
 import atria1 from '../assets/atria1.webp';
-import blackboxai from '../assets/blackboxai.webp';
 import chatgptai from '../assets/chatgptai.jpg';
 import claudeailogo from '../assets/claudeailogo.jpg';
 import geminiai from '../assets/geminiai.jpg';
@@ -16,30 +15,22 @@ import datahawkai from '../assets/datahawkai.jpg';
 import elevenlabsai from '../assets/elevenlabsai.jpg';
 import snowfireai from '../assets/snowfireai.jpg';
 import volzaai from '../assets/volzaai.png';
-import laxisai from '../assets/laxisai.jpg';
 import getresponseai from '../assets/getresponseai.jpg';
-import creativescoreai from '../assets/creativescoreai.jpg';
 import databoxai from '../assets/databoxai.webp';
 import gammaai from '../assets/gammaai.jpg';
-import warmyicon from '../assets/warmyicon.jpg';
-import recomaze1 from '../assets/recomaze1.jpg';
 import vida1 from '../assets/vida1.webp';
 import smartli1 from '../assets/smartli1.jpg';
 import preziai from '../assets/preziai.png';
 import printifylogo from '../assets/printifylogo.png';
 import tradify1 from '../assets/tradify1.jpg';
 import thordatawebp from '../assets/thordata.webp';
-import humeai from '../assets/humeai.webp';
 import InVideoAvatar from '../assets/InVideoAvatar.webp';
-import nanozlogo from '../assets/nanozlogo.png';
-import netlifylogo from '../assets/netlifylogo.jpeg';
+
 import tidioai from '../assets/tidioai.webp';
-import webydoai from '../assets/webydoai.webp';
 import seamlessailogo from '../assets/seemlessailogo.jpg';
 import descriptai from '../assets/descriptai.png';
 import unbounceai from '../assets/unbounceai.png';
 import landbotai from '../assets/landbotai.png';
-import reclaimai from '../assets/reclaimai.png';
 import amplemarketai from '../assets/amplemarketai.webp';
 import quillbot from '../assets/quilbot.jpg';
 import seosparkplug1 from '../assets/seosparkplug1.jpg';
@@ -71,6 +62,31 @@ export const freeAppsData = [
   }
 ];
 
+const INACTIVE_APP_PATHS = new Set([
+  "/learn/bebop-ai",
+  "/learn/blackbox-ai",
+  "/learn/catalister",
+  "/learn/creativescore",
+  "/learn/flowith-io",
+  "/learn/hume-ai",
+  "/learn/landingi-complete-guide",
+  "/learn/laxis",
+  "/learn/looka",
+  "/learn/megahr",
+  "/learn/pilim",
+  "/learn/pipes-ai",
+  "/learn/recomaze",
+  "/learn/smartli",
+  "/learn/surecam",
+  "/learn/travel-code-ai-complete-guide",
+  "/learn/treble-ai",
+  "/learn/viral-launch",
+  "/learn/warmy-io-spam-folder-rebellion-email-deliverability",
+  "/learn/webydo",
+  "/news/warmy-io-spam-folder-rebellion-email-deliverability",
+  "/learn/nanoz-complete-guide",
+]);
+
 export const trialAppsData = [
   {
     name: "SEOSparkPlug",
@@ -81,16 +97,6 @@ export const trialAppsData = [
     trialInfo: "Free analysis available",
     image: seosparkplug1,
     readMoreLink: "/learn/seosparkplug"
-  },
-  {
-    name: "Nanoz.fun",
-    description: "AI-powered branding tool that simplifies the branding process with top AI tools and an organization flow for persistent brand growth",
-    category: "Branding & Design",
-    features: ["Top AI branding tools (agency-grade)", "Nanoz Lab brand consistency engine", "Organization workflow for persistent growth", "Smart folders & asset categorization", "Professional imagery at fraction of cost", "Scales with your brand over time"],
-    link: "https://nanoz.fun",
-    trialInfo: "Free Trial Available",
-    image: nanozlogo,
-    readMoreLink: "/learn/nanoz-complete-guide"
   },
   {
     name: "MuseIt",
@@ -193,16 +199,6 @@ export const trialAppsData = [
     readMoreLink: "/learn/adcreative-ai"
   },
   {
-    name: "Laxis",
-    description: "AI meeting assistant that records, transcribes, summarizes, and turns conversations into actionable notes",
-    category: "Productivity & Meetings",
-    features: ["Meeting recording", "Transcripts & summaries", "Action items", "CRM notes", "Team collaboration"],
-    link: "https://get.laxis.com/BAIB",
-    trialInfo: "Free Trial Available",
-    image: laxisai,
-    readMoreLink: "/learn/laxis"
-  },
-  {
     name: "Prezi AI",
     description: "AI-powered presentation platform that helps you create engaging, dynamic, and visually stunning presentations. Enhance your storytelling with Prezi's unique zoomable canvas and AI-driven design suggestions",
     category: "Presentations & Docs",
@@ -253,26 +249,6 @@ export const trialAppsData = [
     readMoreLink: "/learn/volza"
   },
   {
-    name: "Hume AI",
-    description: "Empathic AI platform that understands human emotion and expression to create more natural, engaging interactions",
-    category: "AI & Machine Learning",
-    features: ["Emotion recognition", "Voice AI", "Facial expression analysis", "Empathic AI models", "Real-time emotion detection"],
-    link: "https://try.hume.ai/BAIB",
-    trialInfo: "Free Trial Available",
-    image: humeai,
-    readMoreLink: "/learn/hume-ai"
-  },
-  {
-    name: "Flowith AI",
-    description: "AI-powered workflow automation platform that helps streamline your business processes",
-    category: "Workflow Automation",
-    features: ["AI process automation", "No-code workflows", "Integration capabilities", "Analytics dashboard"],
-    link: "https://aff.flowith.io/52dtlja1b580",
-    trialInfo: "Free trial available",
-    image: "/flowith.jpg",
-    readMoreLink: "/learn/flowith-io"
-  },
-  {
     name: "Adwisely",
     description: "AI-powered Google Ads & Meta Ads platform that launches full-funnel campaigns and optimizes for high ROAS with expert support",
     category: "Marketing & Advertising",
@@ -313,23 +289,13 @@ export const trialAppsData = [
     readMoreLink: "/learn/landbot"
   },
   {
-    name: "CreativeScore",
-    description: "AI creative analysis platform that scores ad creatives and predicts performance before you launch",
-    category: "Marketing & Advertising",
-    features: ["Creative scoring", "Performance prediction", "Ad diagnostics", "Creative optimization tips", "Team collaboration"],
-    link: "https://affiliate.creativescore.ai/BAIB",
-    trialInfo: "Free Trial Available",
-    image: creativescoreai,
-    readMoreLink: "/learn/creativescore"
-  },
-  {
     name: "Netlify",
     description: "Modern web hosting and deployment platform for JAMstack sites, serverless functions, and AI apps with Git-based workflows and instant preview deploys",
     category: "Web Development & Hosting",
-    features: ["Deploy from Git", "Serverless functions", "Edge network", "Preview deploys", "Forms & analytics", "Free tier for developers"],
-    link: "https://join.netlify.com/BAIB",
+    features: ["Git push-to-deploy CI", "Instant PR preview URLs", "Serverless & edge functions", "Global CDN with free HTTPS", "Forms, redirects & env secrets", "Free tier for real projects"],
+    link: "https://join.netlify.com/BAIB2",
     trialInfo: "Free tier available",
-    image: netlifylogo,
+    image: "/netlify-ai.jpeg",
     readMoreLink: "/learn/netlify-complete-guide"
   },
   {
@@ -347,7 +313,7 @@ export const trialAppsData = [
     description: "AI-powered video editing platform that makes it easy to create, edit, and enhance videos with professional tools",
     category: "Video Creation & Editing",
     features: ["AI video editing", "Subtitle generation", "Screen recording", "Video templates", "Collaboration tools"],
-    link: "https://veed.cello.so/2KWVFnsJmFA",
+    link: "https://www.veed.io/referral-sign-up?productId=www.veed.io&ucc=2KWVFnsJmFA&celloN=c2hheW5l",
     trialInfo: "Free Trial Available",
     image: "/veedreview.png",
     readMoreLink: "/learn/veed-complete-guide"
@@ -371,6 +337,176 @@ export const trialAppsData = [
     trialInfo: "Free plan available",
     image: "/meetgeeklogo.png",
     readMoreLink: "/learn/meetgeek-complete-guide"
+  },
+  {
+    name: "Typewise",
+    description: "AI customer experience platform that resolves support tickets end to end across email, chat, WhatsApp, and social with AI agents you control",
+    category: "Customer Support & Engagement",
+    features: ["End-to-end ticket resolution", "AI Supervisor & specialist agents", "Nova AI operator setup", "3,500+ integrations", "Email, chat, WhatsApp & social", "Free trial available"],
+    link: "https://partner.typewise.app/BAIB",
+    trialInfo: "Free trial available",
+    image: "/typewise-logo.png",
+    readMoreLink: "/learn/typewise"
+  },
+  {
+    name: "Dry Ground AI",
+    description: "AI-native solutions platform that embeds autonomous agents, CompanyClaw operators, and the Dry Ground Stack across every department of your business",
+    category: "AI & Development",
+    features: ["CompanyClaw AI operator", "Nexa consultant platform", "Dry Ground Stack (CORTEX, SENTINEL, CONVERGE)", "Department-by-department AI velocity", "Custom agents & voice AI", "Sovereign AI infrastructure"],
+    link: "https://partners.dryground.ai/BAIB",
+    trialInfo: "Get started",
+    image: "/dryground-ai-tools.png",
+    readMoreLink: "/learn/dry-ground-ai"
+  },
+  {
+    name: "Sentaro",
+    description: "AI email security for Microsoft 365 and Google Workspace that detects phishing, BEC, and risky OAuth apps inside your tenant with no MX change",
+    category: "Security & Compliance",
+    features: ["API-based email security", "Microsoft 365 & Google Workspace", "Phishing & BEC detection", "OAuth / connected-app risk", "Inline quarantine & admin alerts", "EU-built for DORA & NIS2"],
+    link: "https://join.sentaro.com/BAIB",
+    trialInfo: "Get started",
+    image: "/sentarologo.jpeg",
+    readMoreLink: "/learn/sentaro"
+  },
+  {
+    name: "Inworld AI",
+    description: "Realtime voice AI platform for TTS, STT, speech-to-speech agents, and inference so you can build consumer-facing voice experiences that sound human",
+    category: "Voice & Audio AI",
+    features: ["Realtime TTS & STT", "Full-duplex speech-to-speech", "100+ LLM routing", "Voice cloning & design", "WebRTC, WebSocket & SIP", "OpenAI-compatible APIs"],
+    link: "https://get.platform.inworld.ai/rnxb5vvp6xi7",
+    trialInfo: "Get started",
+    image: "/inworld-logo.png",
+    readMoreLink: "/learn/inworld-ai"
+  },
+  {
+    name: "Fireflies",
+    description: "AI meeting assistant that records, transcribes, and summarizes calls across Zoom, Meet, and Teams with searchable knowledge and 240+ integrations",
+    category: "Productivity & Collaboration",
+    features: ["AI meeting transcription", "Summaries & action items", "AskFred meeting search", "Zoom, Meet & Teams", "Conversation intelligence", "Free plan available"],
+    link: "https://get.fireflies.ai/evv55a4ve7wd",
+    trialInfo: "Free plan available",
+    image: "/firefliesai.png",
+    readMoreLink: "/learn/fireflies"
+  },
+  {
+    name: "ngram",
+    description: "AI video platform that turns prompts or screen recordings into polished explainers, demos, training videos, and launches with editable AI video editing",
+    category: "Video Creation & Editing",
+    features: ["Prompt-to-video creation", "Screen recording walkthroughs", "AI presenters & avatars", "Brand kits & captions", "Chat-based scene edits", "Team workspaces"],
+    link: "https://partner.ngram.com/BAIB",
+    trialInfo: "Free trial available",
+    image: "/ngram-logo.png",
+    readMoreLink: "/learn/ngram"
+  },
+  {
+    name: "AISQ",
+    description: "AI marketing system for agencies that unifies SEO, content, social, email, security, and reporting so you can deliver retainers without stacking tools",
+    category: "Marketing & Advertising",
+    features: ["AISQ Meteor agency stack", "SEO + content automation", "Social & email distribution", "Client reporting & audits", "40 client slots included", "Human-approved workflows"],
+    link: "https://try.aisq.com/BAIB",
+    trialInfo: "Get started",
+    image: "/aisq-logo.png",
+    readMoreLink: "/learn/aisq"
+  },
+  {
+    name: "Alli AI",
+    description: "AI search visibility and SEO automation platform that deploys on-page optimizations and AI-crawler-ready pages across your site portfolio without rebuilds",
+    category: "SEO & Digital Marketing",
+    features: ["AI search visibility engine", "Bulk on-page SEO automation", "Pre-rendering for 50+ AI crawlers", "Schema & internal linking", "Keyword tracking", "10-day free trial"],
+    link: "https://www.alliai.com/?red=betterf2ec0b",
+    trialInfo: "10-day free trial",
+    image: "/alliai.png",
+    readMoreLink: "/learn/alli-ai"
+  },
+  {
+    name: "SocialDesk",
+    description: "AI social media management tool for captions, scheduling, unified inbox, and 24/7 auto-replies across Instagram, TikTok, LinkedIn, X, Facebook, and Threads",
+    category: "Social Media & Marketing",
+    features: ["AI captions & hashtags", "Cross-platform scheduler", "Unified comments & DM inbox", "AI auto-replies 24/7", "Analytics & evergreen recycling", "7-day free trial"],
+    link: "https://socialdesk.ai/?red=betterf2ec0b",
+    trialInfo: "7-day free trial",
+    image: "/socialdeskai.webp",
+    readMoreLink: "/learn/socialdesk"
+  },
+  {
+    name: "Marblism",
+    description: "AI employees platform that runs your inbox, socials, SEO, lead generation, calls, and support so you can scale without hiring a full team",
+    category: "Business Automation",
+    features: ["AI executive assistant", "Social media AI employee", "Lead generation & follow-up", "SEO & AI search visibility", "Receptionist & call handling", "7-day money-back guarantee"],
+    link: "https://marblism.com?via=BAIB",
+    trialInfo: "7-day money-back guarantee",
+    image: "/marblismlogo.webp",
+    readMoreLink: "/learn/marblism"
+  },
+  {
+    name: "Runable",
+    description: "AI agent that turns plain-language prompts into websites, slides, images, videos, reports, and spreadsheets—then helps you edit, export, or go live",
+    category: "AI & Development",
+    features: ["AI websites & full-stack apps", "Slides, images & video", "Reports & spreadsheets", "3,000+ app connectors", "Reusable agent skills", "Free tier available"],
+    link: "https://runable.link/BAIB",
+    trialInfo: "Free tier available",
+    image: "/runableai.webp",
+    readMoreLink: "/learn/runable"
+  },
+  {
+    name: "Clico",
+    description: "AI creative studio that combines chat, research, and multi-model image, video, music, website, and game creation in one workspace",
+    category: "Creative & Design",
+    features: ["Multi-model creative studio", "Image & video generation", "Websites & browser games", "Mac desktop + Chrome extension", "Writing & research tools", "Personas & Auto model routing"],
+    link: "https://tryclico.link/BAIB",
+    trialInfo: "Get started",
+    image: "/clicoai.webp",
+    readMoreLink: "/learn/clico"
+  },
+  {
+    name: "Firecrawl",
+    description: "Web crawling and scraping API that turns websites into clean markdown or structured data for AI apps, agents, and RAG pipelines",
+    category: "AI & Development",
+    features: ["Site-wide crawl & scrape", "JS rendering & PDF parsing", "Clean markdown output", "LLM structured extraction", "SDKs for Python & Node", "Webhooks & async jobs"],
+    link: "https://firecrawl.link/BAIB",
+    trialInfo: "Get started",
+    image: "/firecrawlai.webp",
+    readMoreLink: "/learn/firecrawl"
+  },
+  {
+    name: "Team Pulse",
+    description: "One workspace for projects and deal pipelines with Kanban, team chat, files, and AI insights so small teams ship without tool sprawl",
+    category: "Productivity & Collaboration",
+    features: ["Projects + deal pipelines", "Kanban tasks & subtasks", "Per-project chat & files", "AI insights & workflows", "Unlimited collaborators", "Free plan available"],
+    link: "https://goteampulse.io/?red=betterf2ec0b",
+    trialInfo: "Free plan available",
+    image: "/teampulseai.png",
+    readMoreLink: "/learn/team-pulse"
+  },
+  {
+    name: "BillingNow",
+    description: "AI-powered invoicing and expense workspace that creates invoices, tracks payments, scans receipts, and chases overdue bills in plain language",
+    category: "Business & Finance",
+    features: ["AI billing assistant", "Invoices & estimates", "Payment tracking", "Receipt expense scanning", "Reports & tax summaries", "Mobile apps"],
+    link: "https://billingnow.com/?red=betterf2ec0b",
+    trialInfo: "Get started",
+    image: "/billingnowai.webp",
+    readMoreLink: "/learn/billingnow"
+  },
+  {
+    name: "RankBolt",
+    description: "AI SEO engine that researches keywords, writes SEO articles, auto-publishes to WordPress, Webflow, and Shopify, and tracks Google plus AI-search visibility",
+    category: "Marketing & SEO",
+    features: ["SERP-researched SEO articles", "Auto-publish to WordPress, Webflow & Shopify", "Keyword & topic clusters", "Daily Google rank tracking", "AI search visibility (ChatGPT, Gemini, Claude, Perplexity)", "Site audit & MCP/API"],
+    link: "https://rankbolt.ai/?red=betterf2ec0b",
+    trialInfo: "Get started",
+    image: "/rankboltai.webp",
+    readMoreLink: "/learn/rankbolt"
+  },
+  {
+    name: "Mera Work",
+    description: "Employee time and productivity monitoring for remote and hybrid teams with live dashboards, screen insights, attendance, and AI-powered reports",
+    category: "Productivity & Collaboration",
+    features: ["Live dashboard & analytics", "App & website usage tracking", "Screen capture & live stream", "Attendance & time claims", "Project & task time tracking", "AI reports & alerts"],
+    link: "https://mera.work/?red=betterf2ec0b",
+    trialInfo: "Get started",
+    image: "/meraworkai.jpg",
+    readMoreLink: "/learn/mera-work"
   },
   {
     name: "Atria",
@@ -409,7 +545,7 @@ export const trialAppsData = [
     features: ["Smart scheduling", "Automatic calendar blocking", "Focus time protection", "Meeting optimization", "Calendar analytics", "Team scheduling"],
     link: "https://go.reclaim.ai/BAIB",
     trialInfo: "Free plan available",
-    image: reclaimai,
+    image: "/reclaimai.png",
     readMoreLink: "/learn/reclaim-ai"
   },
   {
@@ -483,16 +619,6 @@ export const trialAppsData = [
     readMoreLink: "/learn/vida-ai-agent-os"
   },
   {
-    name: "Warmy",
-    description: "Auto All-In-One Tool For Email Deliverability To Make Your Email Channel Reliable",
-    category: "Email Marketing",
-    features: ["AI assistant Adeline warm-up", "250,000+ domain network", "Real-time blacklist monitoring", "Multi-domain dashboard", "Industry-specific warm-up emails", "Mailbox temperature analytics"],
-    link: "https://warmyio.partnerlinks.io/ffy5y6ll9374",
-    trialInfo: "7-Day Free Trial",
-    image: warmyicon,
-    readMoreLink: "/news/warmy-io-spam-folder-rebellion-email-deliverability"
-  },
-  {
     name: "Tradify",
     description: "All-in-one job management software for tradespeople to manage quotes, invoices, and scheduling",
     category: "Business Management",
@@ -543,16 +669,6 @@ export const trialAppsData = [
     readMoreLink: "/learn/browse-ai"
   },
   {
-    name: "Recomaze",
-    description: "Personalized AI product recommendations for e-commerce stores to increase average order value and conversion rates",
-    category: "E-commerce & Personalization",
-    features: ["Smart product recommendations", "Upsell and cross-sell", "Automated campaigns", "A/B testing", "Analytics dashboard"],
-    link: "https://recomaze.com/?ref=BAIB",
-    trialInfo: "Free Trial Available",
-    image: recomaze1,
-    readMoreLink: "/learn/recomaze"
-  },
-  {
     name: "ActiveCampaign",
     description: "AI-powered email marketing, marketing automation, and CRM platform with visual workflows, lead scoring, and 900+ integrations",
     category: "Email Marketing & Automation",
@@ -563,26 +679,6 @@ export const trialAppsData = [
     readMoreLink: "/learn/activecampaign"
   },
   {
-    name: "Travel Code AI",
-    description: "AI travel planning platform that builds trip plans, routes, and day-by-day itineraries from your preferences and budget",
-    category: "Travel & Planning",
-    features: ["AI trip planning", "Day-by-day itineraries", "Route optimization", "Budget-aware recommendations", "Shareable plans"],
-    link: "https://join.travel-code.com/BAIB",
-    trialInfo: "Free Trial Available",
-    image: "/travelcodeai.jpg",
-    readMoreLink: "/learn/travel-code-ai-complete-guide"
-  },
-  {
-    name: "Alli AI",
-    description: "AI-powered SEO automation platform that optimizes, automates, and scales SEO campaigns without coding",
-    category: "SEO & Marketing",
-    features: ["Instant on-page SEO deployment", "Bulk optimization at scale", "Works with any CMS", "Live SEO browser extension", "Site speed optimization (up to 80%)", "No coding required"],
-    link: "https://try.alliai.com/0guepbqpqhsf",
-    trialInfo: "10-Day Free Trial",
-    image: "https://betteraibots.com/alliai.png",
-    readMoreLink: "/learn/alli-ai"
-  },
-  {
     name: "QuillBot",
     description: "AI-powered writing assistant that helps you paraphrase, check grammar, detect AI content, and improve your writing. Write effortlessly and efficiently with QuillBot's suite of AI tools",
     category: "Writing & Editing",
@@ -591,16 +687,6 @@ export const trialAppsData = [
     trialInfo: "Free plan available",
     image: quillbot,
     readMoreLink: "/learn/quillbot-complete-guide"
-  },
-  {
-    name: "Blackbox",
-    description: "AI-powered code assistant that helps developers write code faster with real-time autocomplete and intelligent suggestions",
-    category: "Development & Coding",
-    features: ["AI code completion", "Multi-language support", "Context-aware suggestions", "Real-time autocomplete"],
-    link: "https://blackboxai.partnerlinks.io/BAIB",
-    trialInfo: "Free Trial Available",
-    image: blackboxai,
-    readMoreLink: "/learn/blackbox-ai"
   },
   {
     name: "Beautiful.ai",
@@ -733,16 +819,6 @@ export const trialAppsData = [
     readMoreLink: "/learn/sleekflow"
   },
   {
-    name: "Webydo",
-    description: "Professional web design platform that lets you create pixel-perfect websites without coding, with built-in CMS and client management",
-    category: "Web Design & Development",
-    features: ["No-code design", "Built-in CMS", "Client management", "Secure hosting"],
-    link: "https://partners.webydo.com/BAIB",
-    trialInfo: "Free Trial Available",
-    image: webydoai,
-    readMoreLink: "/learn/webydo"
-  },
-  {
     name: "Seamless",
     description: "Real-time B2B sales intelligence platform with 1.3+ billion contacts and 121+ million companies. Find accurate email addresses, phone numbers, and company data in seconds",
     category: "Sales & CRM",
@@ -763,4 +839,3 @@ export const trialAppsData = [
     readMoreLink: "/learn/elevate-forward"
   }
 ];
-

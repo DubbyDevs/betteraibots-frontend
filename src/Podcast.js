@@ -36,17 +36,14 @@ function Podcast() {
     { name: 'Apollo AI', url: 'https://get.apollo.io/BAIB' },
     { name: 'Brevo', url: 'https://get.brevo.com/um9xszmf3nfd' },
     { name: 'Capsule CRM', url: 'https://get.capsulenow.io/BAIB' },
-    { name: 'Flowith.io', url: 'https://aff.flowith.io/52dtlja1b580' },
     { name: 'Lindy', url: 'https://try.lindy.ai/lhgvxfidor04' },
     { name: 'Miro', url: 'https://ps.miro-affiliate.com/gwnvu4zj3r8r' },
     { name: 'Reply.io', url: 'https://get.reply.io/ub7edypmq2gj' },
     { name: 'AdCreative', url: 'https://free-trial.adcreative.ai/BAIB' }
   ];
 
-  // Affiliate links for Email Deliverability video (index 2, welcome video)
-  const emailDeliverabilityLinks = [
-    { name: 'Warmy.io', url: 'https://warmyio.partnerlinks.io/ffy5y6ll9374' }
-  ];
+  // Email deliverability episode — Warmy program ended; no active affiliate links
+  const emailDeliverabilityLinks = [];
   const capsuleCrmLinks = [
     { name: 'Capsule CRM', url: 'https://get.capsulenow.io/BAIB' }
   ];

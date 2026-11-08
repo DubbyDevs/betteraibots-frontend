@@ -1,6 +1,5 @@
 import { CATEGORY_SLUGS } from './constants';
 import React, { useState, useEffect, useMemo, useRef, useCallback } from "react";
-import helperLogo from './assets/findthebestaibotshelper.webp';
 import placeholderImg from './assets/bot-placeholder.webp';
 import betteraibotslive from './assets/betteraibotslive.webp';
 import betteraibotslive2 from './assets/betteraibotslive2.webp';
@@ -24,16 +23,12 @@ import aitoolsdirectory from './assets/aitoolsdirectory.webp';
 import aitoolsdirectory2 from './assets/aitoolsdirectory2.webp';
 import aitoolsdirectory3 from './assets/aitoolsdirectory3.webp';
 import aitoolsdirectory4 from './assets/aitoolsdirectory4.webp';
-import freeaigpts from './assets/freeaigpts.webp';
-import freeaigpts2 from './assets/freeaigpts2.webp';
 import baibshow2 from './assets/baibshow2.webp';
 import baibshow3 from './assets/baibshow3.webp';
 import anybiz from './assets/anybiz.webp';
-import catalisterai from './assets/catalisterai.webp';
 import castmagicai from './assets/castmagicai.webp';
 import runpod from './assets/runpod.webp';
 import airiaai from './assets/airiaai.webp';
-import bebopai from './assets/bebopai.webp';
 import diginius1 from './assets/diginius1.jpg';
 import megahr from './assets/megahr.webp';
 import bidxai from './assets/bidxai.jpg';
@@ -192,7 +187,6 @@ function News({ searchValue }) {
       "the-rise-of-ai-companions-why-millions-are-talking-to-chatbots-daily",
       "ai-productivity-stack-solo-founders-10-tools-run-business-alone-2025",
       "ai-remote-jobs-home-office-gold-rush-2025",
-      "warmy-io-spam-folder-rebellion-email-deliverability",
       "why-small-businesses-beat-enterprise-ai-tools-2025",
       "ai-doctors-are-here-how-medical-diagnosis-ai-just-passed-human-accuracy",
       "ai-chip-wars-heat-up-nvidia-challenger-unexpected-source",
@@ -444,16 +438,13 @@ function News({ searchValue }) {
                   </Link>
                   <p className="news-card-excerpt">{article.excerpt}</p>
                   <div className="news-card-bottom-section" style={{ 
-                    display: "grid", 
-                    gridTemplateColumns: "1fr auto 1fr",
+                    display: "flex", 
                     alignItems: "center",
+                    justifyContent: "space-between",
                     width: "100%",
                     gap: "8px"
                   }}>
                     <div style={{ display: "flex", justifyContent: "flex-start" }}>
-                      <span className="news-date">{formatDate(article.date)}</span>
-                    </div>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
                       <Link to={`/news/${article.slug}`} className="read-more-btn-small">Read Full Article</Link>
                     </div>
                     <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -532,7 +523,6 @@ function News({ searchValue }) {
                   <p className="featured-news-excerpt">{lastArticle.excerpt}</p>
                   <div className="featured-news-meta">
                     <span className="news-author">By {lastArticle.author}</span>
-                    <span className="news-date">{formatDate(lastArticle.date)}</span>
                   </div>
                   <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap" }}>
                     <Link to={`/news/${lastArticle.slug}`} className="read-more-btn">Read Full Article</Link>
@@ -586,6 +576,31 @@ function News({ searchValue }) {
 }
 
 // Constant array for paid apps - defined outside component for stable reference
+const INACTIVE_APP_PATHS = new Set([
+  "/learn/bebop-ai",
+  "/learn/blackbox-ai",
+  "/learn/catalister",
+  "/learn/creativescore",
+  "/learn/flowith-io",
+  "/learn/hume-ai",
+  "/learn/landingi-complete-guide",
+  "/learn/laxis",
+  "/learn/looka",
+  "/learn/megahr",
+  "/learn/pilim",
+  "/learn/pipes-ai",
+  "/learn/recomaze",
+  "/learn/smartli",
+  "/learn/surecam",
+  "/learn/travel-code-ai-complete-guide",
+  "/learn/treble-ai",
+  "/learn/viral-launch",
+  "/learn/warmy-io-spam-folder-rebellion-email-deliverability",
+  "/learn/webydo",
+  "/news/warmy-io-spam-folder-rebellion-email-deliverability",
+  "/learn/nanoz-complete-guide",
+]);
+
 const PAID_APPS = [
   {
     name: "MindStudio",
@@ -703,26 +718,6 @@ const PAID_APPS = [
     readMoreLink: "/learn/instaglamor"
   },
   {
-    name: "Bebop.ai",
-    description: "AI-powered platform for intelligent automation and workflow optimization",
-    category: "AI & Automation",
-    features: ["AI workflow automation", "Intelligent process optimization", "Smart integrations", "Advanced analytics"],
-    price: "Contact sales",
-    link: "https://try.bebop.ai/o004cood3aod",
-    image: bebopai,
-    readMoreLink: "/learn/bebop-ai"
-  },
-  {
-    name: "Catalister",
-    description: "AI-powered platform for dropshipping and e-commerce automation with Shopify integration",
-    category: "E-commerce & Dropshipping",
-    features: ["Shopify integration", "AI product sourcing", "Automated order fulfillment", "Inventory management"],
-    price: "From $29/month",
-    link: "https://join.catalister.com/BAIB",
-    image: catalisterai,
-    readMoreLink: "/learn/catalister"
-  },
-  {
     name: "Bidx",
     description: "AI-powered advertising optimization platform for managing and scaling performance campaigns",
     category: "Marketing & Advertising",
@@ -748,7 +743,7 @@ const PAID_APPS = [
     category: "Workflow Automation",
     features: ["Visual workflow builder", "200+ integrations", "Self-hosted option", "Enterprise features"],
     price: "$20-$50/month",
-    link: "https://n8n.partnerlinks.io/wjt1744jflsx",
+    link: "https://n8n.partnerlinks.io/BAIB",
     image: n8nicon,
     readMoreLink: "/news/n8n-revolution-business-automation-2025"
   },
@@ -761,16 +756,6 @@ const PAID_APPS = [
     link: "https://try.krispcall.com/BAIB",
     image: krispcallai,
     readMoreLink: "/learn/krispcall"
-  },
-  {
-    name: "Treble AI",
-    description: "Official WhatsApp Business API platform with AI chatbots, broadcast campaigns, CRM integrations, and multi-agent live chat for sales and support",
-    category: "WhatsApp & Messaging",
-    features: ["Official WhatsApp BSP", "AI chatbot builder", "Broadcast campaigns", "HubSpot & Salesforce sync", "Lead qualification AI", "Human handoff to agents"],
-    price: "Free to start",
-    link: "https://trebleai.partnerlinks.io/91f6vx0zwova",
-    image: "/trebleai.jpg",
-    readMoreLink: "/learn/treble-ai"
   },
   {
     name: "RankPrompt",
@@ -2281,130 +2266,48 @@ function RotatingImage({ images, alt, className, style, onError }) {
   );
 }
 
-// --- BOT GRID ---
-function BotGrid({ bots, onOpenModal }) {
+// --- BOT GRID (affiliate ads only) ---
+function BotGrid({ bots }) {
   return (
     <div className="bot-grid">
-      <div
-        className="suggest-card"
-        onClick={onOpenModal}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderRadius: 22,
-          minHeight: 320,
-          cursor: 'pointer',
-          marginBottom: 18,
-          transition: 'box-shadow 0.2s, border 0.2s',
-        }}
-      >
-        <div style={{ fontSize: "2.2rem", marginBottom: 10, marginTop: 6 }}>✨</div>
-        <div style={{ fontSize: "1.25rem", fontWeight: 700, textAlign: "center" }}>Build Something Awesome?</div>
-        <div className="suggest-card-cta" style={{ marginTop: 10, fontWeight: 500, textAlign: "center" }}>
-          Suggest a new GPT bot!
-        </div>
-        <img
-          src={helperLogo}
-          alt="BetterAiBots Helper"
-          srcSet={`${helperLogo} 1x, ${helperLogo} 2x`}
-          style={{
-            marginTop: 18,
-            width: "80px",
-            height: "auto",
-            maxWidth: "32vw",
-            objectFit: "contain",
-            background: "none",
-            borderRadius: "50%",
-            boxShadow: "0 0 18px #16ff6c60",
-            transition: "width 0.2s"
-          }}
-        />
-      </div>
       {bots.map((bot, i) => (
-        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo AI" ? ' invideo-bot' : ''}${bot.title === "VEED AI" ? ' veed-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}${bot.title === "Accounting GPT" ? ' accounting-gpt' : ''}`} key={i}>
-          {bot.isAffiliate ? (
-            <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
-              {bot.isVideo ? (
-                <video
-                  src={bot.image}
-                  aria-label={bot.title}
-                  style={{ width: '100%', borderRadius: 18 }}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              ) : bot.rotatingImages ? (
-                <RotatingImage
-                  images={bot.rotatingImages}
-                  alt={bot.title}
-                  style={{ width: '100%', borderRadius: 18 }}
-                  onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
-                />
-              ) : (
-                <img
-                  src={bot.image}
-                  alt={bot.title}
-                  style={{ width: '100%', borderRadius: 18 }}
-                  loading="lazy"
-                  onError={e => { 
-                    e.target.onerror = null; 
-                    e.target.src = placeholderImg; 
-                  }}
-                  onLoad={(e) => {
-                    // Ensure image is visible after loading
-                    if (e.target.complete && e.target.naturalHeight === 0) {
-                      e.target.src = placeholderImg;
-                    }
-                  }}
-                />
-              )}
-            </a>
-          ) : (
-            <>
-              <div className="bot-card-content">
-                {bot.free && bot.title !== "VEED AI" && <div className="verified-badge">Free</div>}
-                {!bot.free && <div className="verified-badge">Paid</div>}
-                {bot.isVideo ? (
-                  <video
-                    src={bot.image}
-                    alt={bot.title}
-                    className="bot-image"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  />
-                ) : (
-                  <img
-                    src={bot.image}
-                    alt={bot.title}
-                    className="bot-image"
-                    loading="lazy"
-                    onError={e => { 
-                      e.target.onerror = null; 
-                      e.target.src = placeholderImg; 
-                    }}
-                    onLoad={(e) => {
-                      // Ensure image is visible after loading
-                      if (e.target.complete && e.target.naturalHeight === 0) {
-                        e.target.src = placeholderImg;
-                      }
-                    }}
-                  />
-                )}
-                <div className="bot-title">{bot.title}</div>
-                <div className="bot-desc">{bot.desc}</div>
-              </div>
-              <div className="bot-card-footer">
-                <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer">
-                  <button className="openai-btn">{bot.title === "VEED AI" ? "View VEED" : "View on OpenAI"}</button>
-                </a>
-              </div>
-            </>
-          )}
+        <div className={`bot-card${bot.isAffiliate ? ' affiliate-ad' : ''}${bot.title === "InVideo AI" ? ' invideo-bot' : ''}${bot.title === "n8n - AI Workflow Automation" ? ' n8n-bot' : ''}`} key={i}>
+          <a href={bot.openaiLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%', position: 'relative' }}>
+            {bot.isVideo ? (
+              <video
+                src={bot.image}
+                aria-label={bot.title}
+                style={{ width: '100%', borderRadius: 18 }}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            ) : bot.rotatingImages ? (
+              <RotatingImage
+                images={bot.rotatingImages}
+                alt={bot.title}
+                style={{ width: '100%', borderRadius: 18 }}
+                onError={e => { e.target.onerror = null; e.target.src = placeholderImg; }}
+              />
+            ) : (
+              <img
+                src={bot.image}
+                alt={bot.title}
+                style={{ width: '100%', borderRadius: 18 }}
+                loading="lazy"
+                onError={e => {
+                  e.target.onerror = null;
+                  e.target.src = placeholderImg;
+                }}
+                onLoad={(e) => {
+                  if (e.target.complete && e.target.naturalHeight === 0) {
+                    e.target.src = placeholderImg;
+                  }
+                }}
+              />
+            )}
+          </a>
         </div>
       ))}
     </div>
@@ -2419,9 +2322,6 @@ const newsImages = [ainews, ainews2, ainews3, ainews4, ainews5];
 
 // Show images array - constant outside component (only first 2 images)
 const showImages = [baibshow2, baibshow3];
-
-// GPTs images array - constant outside component
-const gptsImages = [freeaigpts, freeaigpts2];
 
 // Apps images array - constant outside component
 const appsImages = [aitoolsdirectory, aitoolsdirectory2, aitoolsdirectory3, aitoolsdirectory4];
@@ -2495,44 +2395,22 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
     return allAppNames.size;
   }, []);
   
-  // Randomize bot list while keeping affiliate ads in fixed middle positions
-  // This randomizes every time the Home component mounts (when someone visits the page)
+  // Keep only the three featured affiliate ads (n8n, AdCreative, InVideo)
   const [randomizedBots] = useState(() => {
-    // Identify the 3 affiliate ads
     const affiliateAds = botList.filter(bot => bot.isAffiliate === true);
-    // Get all non-affiliate bots
-    const regularBots = botList.filter(bot => bot.isAffiliate !== true);
-    
-    // Shuffle the regular bots using Fisher-Yates algorithm for better randomization
-    const shuffledRegularBots = [...regularBots];
-    for (let i = shuffledRegularBots.length - 1; i > 0; i--) {
+    const shuffled = [...affiliateAds];
+    for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [shuffledRegularBots[i], shuffledRegularBots[j]] = [shuffledRegularBots[j], shuffledRegularBots[i]];
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-    
-    // Suggest card + 8 GPTs, then 3 affiliate ads, then 9 GPTs (17 regular bots total)
-    const desiredPreAdCount = 8;
-    const middleStart = Math.min(desiredPreAdCount, shuffledRegularBots.length);
-    
-    // Create the final array with affiliate ads in the middle
-    const result = [...shuffledRegularBots];
-    affiliateAds.forEach((ad, index) => {
-      result.splice(middleStart + index, 0, ad);
-    });
-    
-    return result;
+    return shuffled;
   });
-  
-  // Filter out Invideo affiliate ad when in 2-column layout, then apply search filter
+
   const filteredBots = useMemo(() => {
-    // First, filter out Invideo affiliate ad if in 2-column layout
     let botsToFilter = randomizedBots;
     if (isTwoColumnLayout) {
-      // Remove Invideo affiliate ad (title is "InVideo AI" and isAffiliate is true)
       botsToFilter = randomizedBots.filter(bot => !(bot.isAffiliate && bot.title === "InVideo AI"));
     }
-    
-    // Then apply search filter
     if (searchValue.trim() === '') {
       return botsToFilter;
     }
@@ -2850,7 +2728,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         marginRight: 'auto',
         padding: isMobile ? '0 20px 10px 20px' : '0 0 10px 0'
       }}>
-        Your AI Tools Directory Hub for AI Apps, GPTs, News and educational content.
+        Your AI Tools Directory Hub for AI Apps, News and educational content.
       </h2>
       
       <h3 className="theme-body-text" style={{
@@ -2865,9 +2743,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         marginRight: 'auto',
         padding: isMobile ? '0 20px' : '0'
       }}>
-        BetterAiBots.com is your comprehensive resource for navigating the world of AI tools. We help you discover the best AI applications, GPTs, and educational content to enhance your productivity and skills.
+        BetterAiBots.com is your comprehensive resource for navigating the world of AI tools. We help you discover the best AI applications and educational content to enhance your productivity and skills.
         <br /><br />
-        Explore our <strong className="theme-accent-text">Apps</strong> directory to find free and premium AI tools, browse our <strong className="theme-accent-text">GPT Discovery Hub</strong> for custom GPTs, stay updated with the latest <strong className="theme-accent-text">News</strong> in the AI world, and enhance your knowledge through our <strong className="theme-accent-text">Learn</strong> section with beginner, intermediate, and advanced guides.
+        Explore our <strong className="theme-accent-text">Apps</strong> directory to find free and premium AI tools, stay updated with the latest <strong className="theme-accent-text">News</strong> in the AI world, and enhance your knowledge through our <strong className="theme-accent-text">Learn</strong> section with beginner, intermediate, and advanced guides.
       </h3>
       
       {/* Choose Your Path Section */}
@@ -3080,7 +2958,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             </Link>
           </div>
           
-          {/* Bottom Row - 2 items */}
+          {/* Bottom Row */}
           <div style={{
             display: 'flex',
             justifyContent: 'center',
@@ -3088,66 +2966,6 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
             gap: isMobile ? '20px' : '35px',
             width: '100%'
           }}>
-            <div 
-              style={{ textDecoration: 'none', cursor: 'pointer' }}
-              onClick={() => {
-                const heroSection = document.querySelector('.hero-section');
-                if (heroSection) {
-                  heroSection.scrollIntoView({ behavior: 'auto', block: 'start' });
-                }
-              }}
-            >
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                cursor: 'pointer',
-                transition: 'transform 0.2s',
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-              >
-                <div style={{
-                  width: isMobile ? '160px' : '240px',
-                  borderRadius: '8px',
-                  border: '2px solid var(--border-accent)',
-                  boxShadow: '0 4px 12px rgba(54, 255, 149, 0.3)',
-                  marginBottom: '10px',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  height: isMobile ? '160px' : '240px'
-                }}>
-                  <img 
-                    src={gptsImages[0]} 
-                    alt="GPTs" 
-                    style={{ 
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      display: 'block'
-                    }}
-                  />
-                </div>
-                <span style={{
-                  color: 'var(--text-secondary)',
-                  fontSize: isMobile ? '0.9rem' : '1rem',
-                  fontWeight: 600,
-                  textAlign: 'center',
-                  marginTop: '8px'
-                }}>
-                  GPTs
-                </span>
-                <span style={{
-                  color: 'var(--text-muted)',
-                  fontSize: isMobile ? '0.7rem' : '0.75rem',
-                  textAlign: 'center',
-                  marginTop: '4px',
-                  opacity: 0.8
-                }}>
-                  Discover custom AI assistants
-                </span>
-              </div>
-            </div>
             <Link 
               to="/Podcast"
               style={{ textDecoration: 'none' }}
@@ -3311,7 +3129,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   color: '#0bbfdb',
                   marginBottom: '8px'
                 }}>
-                  ⚡ {uniquePremiumToolsCount}
+                  ⚡ {uniquePremiumToolsCount > 100 ? '100+' : uniquePremiumToolsCount}
                 </div>
                 <div style={{
                   fontSize: isMobile ? '0.9rem' : '1rem',
@@ -3541,19 +3359,9 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         </div>
       </div>
       
-      <div className="hero-section" style={isMobile ? { padding: '0 20px' } : { padding: '60px 0 0 0' }}>
-        <h1 className="hero-headline" style={{ marginBottom: "30px" }}>GPT Discovery Hub</h1>
-        <h2 className="hero-subheadline custom-hero-desc" style={{
-          marginBottom: "40px",
-          maxWidth: "800px",
-          marginLeft: "auto",
-          marginRight: "auto"
-        }}>
-          Find Free AI GPTs to help you improve your workflow and improve your skills!
-        </h2>
+      <div className="hero-section" style={isMobile ? { padding: '20px 20px 0' } : { padding: '40px 0 0 0' }}>
+        <BotGrid bots={filteredBots} />
       </div>
-      
-      <BotGrid bots={filteredBots} onOpenModal={onOpenModal} />
       
       {/* About Section */}
       <div
@@ -3884,7 +3692,7 @@ const CATEGORY_REVERSE = {
       <div className="site-disclaimer" style={{ padding: '0 20px', textAlign: 'center' }}>
         🔴 <strong>This site includes affiliate links and does not provide financial, legal, or medical advice. Bots are provided "as is" for entertainment and education only. Use at your own risk.</strong>
       </div>
-      <BotGrid bots={botsForCategory} onOpenModal={onOpenModal} />
+      <BotGrid bots={botsForCategory} />
     </>
   );
 }

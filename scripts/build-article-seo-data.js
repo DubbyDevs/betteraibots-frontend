@@ -23,19 +23,14 @@ const TITLE_OVERRIDES = {
   'veed-complete-guide': 'VEED Complete Guide: AI Video Editing and Creation',
   'viral-launch': 'Viral Launch Complete Guide: Amazon Seller Tools and Product Research',
   'aisdr-complete-guide': 'AiSDR Complete Guide: AI Sales Development and Outreach',
-  'flowith-io': 'Flowith.io Complete Guide: AI Canvas and Agent Workflows',
-  'warmy-io-spam-folder-rebellion-email-deliverability':
-    'Warmy.io Complete Guide: Email Warm-Up and Deliverability',
   'scholar-gpt': 'Scholar GPT Guide: AI Research Assistant for Academics',
-  'blackbox-ai': 'Blackbox AI Complete Guide: AI Code Assistant for Developers',
   'brevo-complete-guide': 'Brevo Complete Guide: AI Email Marketing and Automation',
   'reply-io-complete-guide': 'Reply.io Complete Guide: AI Sales Engagement Platform',
   'apollo-io': 'Apollo.io Complete Guide: B2B Prospecting and Sales Intelligence',
   'paintr': 'PaintR Complete Guide: AI Paint Color Identification',
   'anybiz-alt': 'AnyBiz.io Complete Guide: AI Sales Agents and Outreach Automation',
-  'travel-code-ai-complete-guide': 'Travel Code AI Complete Guide: AI Travel Planning Tools',
   'perplexity-parasite-seo-guide':
-    'Perplexity Parasite SEO Guide: Rank Content Faster with AI Search',
+    'Perplexity Parasite SEO Guide: Rank Content Faster with AI Search'
 };
 
 function truncateMeta(text, max = 160) {
@@ -85,7 +80,7 @@ function extractAppsByLearnPath() {
     apps[id] = {
       name: nameMatch[1],
       description: descMatch ? descMatch[1] : '',
-      trialInfo: trialMatch ? trialMatch[1] : '',
+      trialInfo: trialMatch ? trialMatch[1] : ''
     };
   }
   return apps;
@@ -252,7 +247,7 @@ export function getArticleSeoDescription(article) {
     title: TITLE_OVERRIDES[a.id] || a.title,
     date: a.date,
     preview: descriptions[a.id],
-    cover: null,
+    cover: null
   }));
   fs.writeFileSync(
     path.join(ROOT, 'public', 'articles-metadata.json'),
