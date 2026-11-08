@@ -16,7 +16,6 @@ import brevo2 from "./assets/brevo2.jpg";
 import aisdr2 from "./assets/aisdr2.jpg";
 import apolloai2 from "./assets/apolloai2.jpg";
 import capsuleai2 from "./assets/capsuleai2.jpg";
-import hume2 from "./assets/hume2.jpg";
 import invideo2 from "./assets/invideo2.jpg";
 import lindyai from "./assets/lindyai.webp";
 import miroai2 from "./assets/miroai2.jpg";

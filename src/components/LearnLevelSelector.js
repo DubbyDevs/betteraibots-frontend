@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import musebrand from '../assets/musebrand.jpg';
-import blackboxai from '../assets/blackboxai.webp';
 
 // --- AI FOR DUMMIES GUIDE COMPONENT ---
 function AIForDummiesGuide({ onClose }) {

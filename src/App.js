@@ -157,12 +157,6 @@ function NavTabsBar({ currentCategory, showCategoryBar, toggleCategoryBar }) {
 
 // --- NEWS PAGE ---
 function News({ searchValue }) {
-  const [isSmallScreen, setIsSmallScreen] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth < 1150;
-    }
-    return false;
-  });
   const [isNarrowScreen, setIsNarrowScreen] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth < 900;
@@ -172,7 +166,6 @@ function News({ searchValue }) {
   
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 1150);
       setIsNarrowScreen(window.innerWidth < 900);
     };
     window.addEventListener('resize', handleResize);
@@ -237,71 +230,6 @@ function News({ searchValue }) {
         style={style}
       />
     );
-  };
-
-  // Function to format date based on screen size
-  const formatDate = (dateString) => {
-    if (!dateString) return 'Date unavailable';
-    
-    let date;
-    
-    // Try to parse the date string - handle common formats
-    // Format: MM-DD-YYYY or MM-DD-YY
-    if (dateString.includes('-')) {
-      const parts = dateString.split('-');
-      if (parts.length === 3) {
-        let month = parseInt(parts[0], 10) - 1; // Month is 0-indexed
-        let day = parseInt(parts[1], 10);
-        let year = parseInt(parts[2], 10);
-        
-        // Handle 2-digit years (assume 2000s)
-        if (year < 100) {
-          year = year + 2000;
-        }
-        
-        // Validate the date components
-        if (!isNaN(month) && !isNaN(day) && !isNaN(year) && 
-            month >= 0 && month <= 11 && 
-            day >= 1 && day <= 31 && 
-            year >= 2000 && year <= 2100) {
-          date = new Date(year, month, day);
-        }
-      }
-    }
-    
-    // If parsing failed, try standard Date constructor
-    if (!date || isNaN(date.getTime())) {
-      date = new Date(dateString);
-    }
-    
-    // Check if date is valid
-    if (isNaN(date.getTime())) {
-      // If date is still invalid, return the original string or a fallback
-      return dateString || 'Date unavailable';
-    }
-    
-    if (isSmallScreen) {
-      // Show numbered date format (MM-DD-YY) for screens < 1150px
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      const year = String(date.getFullYear()).slice(-2);
-      return `${month}-${day}-${year}`;
-    } else {
-      // Show full date on larger screens
-      try {
-        return date.toLocaleDateString('en-US', { 
-          year: 'numeric', 
-          month: 'long', 
-          day: 'numeric' 
-        });
-      } catch (e) {
-        // Fallback if toLocaleDateString fails on some devices
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const year = date.getFullYear();
-        return `${month}-${day}-${year}`;
-      }
-    }
   };
 
   // Filter news articles based on search value (ensure no duplicates)
@@ -576,31 +504,6 @@ function News({ searchValue }) {
 }
 
 // Constant array for paid apps - defined outside component for stable reference
-const INACTIVE_APP_PATHS = new Set([
-  "/learn/bebop-ai",
-  "/learn/blackbox-ai",
-  "/learn/catalister",
-  "/learn/creativescore",
-  "/learn/flowith-io",
-  "/learn/hume-ai",
-  "/learn/landingi-complete-guide",
-  "/learn/laxis",
-  "/learn/looka",
-  "/learn/megahr",
-  "/learn/pilim",
-  "/learn/pipes-ai",
-  "/learn/recomaze",
-  "/learn/smartli",
-  "/learn/surecam",
-  "/learn/travel-code-ai-complete-guide",
-  "/learn/treble-ai",
-  "/learn/viral-launch",
-  "/learn/warmy-io-spam-folder-rebellion-email-deliverability",
-  "/learn/webydo",
-  "/news/warmy-io-spam-folder-rebellion-email-deliverability",
-  "/learn/nanoz-complete-guide",
-]);
-
 const PAID_APPS = [
   {
     name: "MindStudio",

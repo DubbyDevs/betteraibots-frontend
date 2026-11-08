@@ -62,31 +62,6 @@ export const freeAppsData = [
   }
 ];
 
-const INACTIVE_APP_PATHS = new Set([
-  "/learn/bebop-ai",
-  "/learn/blackbox-ai",
-  "/learn/catalister",
-  "/learn/creativescore",
-  "/learn/flowith-io",
-  "/learn/hume-ai",
-  "/learn/landingi-complete-guide",
-  "/learn/laxis",
-  "/learn/looka",
-  "/learn/megahr",
-  "/learn/pilim",
-  "/learn/pipes-ai",
-  "/learn/recomaze",
-  "/learn/smartli",
-  "/learn/surecam",
-  "/learn/travel-code-ai-complete-guide",
-  "/learn/treble-ai",
-  "/learn/viral-launch",
-  "/learn/warmy-io-spam-folder-rebellion-email-deliverability",
-  "/learn/webydo",
-  "/news/warmy-io-spam-folder-rebellion-email-deliverability",
-  "/learn/nanoz-complete-guide",
-]);
-
 export const trialAppsData = [
   {
     name: "SEOSparkPlug",
