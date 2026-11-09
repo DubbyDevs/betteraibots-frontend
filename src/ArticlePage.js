@@ -787,7 +787,13 @@ export default function ArticlePage() {
     "billingnow": "https://billingnow.com/?red=betterf2ec0b",
     "rankbolt": "https://rankbolt.ai/?red=betterf2ec0b",
     "mera-work": "https://mera.work/?red=betterf2ec0b",
-    "instaglamor": "https://www.InstaGlamor.com"
+    "parallel": "https://parallellabs.app/?red=betterf2ec0b",
+    "buzz": "https://buzz.ai/?red=betterf2ec0b",
+    "algomo": "https://algomo.com/?red=betterf2ec0b",
+    "edesk": "https://www.edesk.com/?red=betterf2ec0b",
+    "alttext": "https://alttext.ai/?red=betterf2ec0b",
+    "involveme": "https://www.involve.me/?red=betterf2ec0b",
+    "gixo": "https://gixo.ai/?red=betterf2ec0b"
   };
   
   const affiliateLink = affiliateLinks[article.id] || null;
@@ -979,7 +985,6 @@ export default function ArticlePage() {
     'gohighlevel',
     'weave',
     'turbotic',    'databox',
-    'instaglamor',
     'typewise',
     'dry-ground-ai',
     'sentaro',
@@ -997,6 +1002,13 @@ export default function ArticlePage() {
     'billingnow',
     'rankbolt',
     'mera-work',
+    'parallel',
+    'buzz',
+    'algomo',
+    'edesk',
+    'alttext',
+    'involveme',
+    'gixo',
     'seamless-ai-complete-guide',    'pinecone-vector-database'
   ];
   const usesNewsStyleLayout = articlesWithNewsStyleLayout.includes(article.id);
@@ -1283,6 +1295,13 @@ export default function ArticlePage() {
             "billingnow": "https://betteraibots.com/billingnowai.webp",
             "rankbolt": "https://betteraibots.com/rankboltai.webp",
             "mera-work": "https://betteraibots.com/meraworkai.jpg",
+            "parallel": "https://betteraibots.com/parallelai.jpg",
+            "buzz": "https://betteraibots.com/buzz-ai.jpg",
+            "algomo": "https://betteraibots.com/algomoai.jpg",
+            "edesk": "https://betteraibots.com/edesklogo.jpg",
+            "alttext": "https://betteraibots.com/alttext_ai_logo.jpg",
+            "involveme": "https://betteraibots.com/involveme-logo.jpg",
+            "gixo": "https://betteraibots.com/gixoai.png",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
@@ -1387,7 +1406,14 @@ export default function ArticlePage() {
             "team-pulse": "https://betteraibots.com/teampulseai.png",
             "billingnow": "https://betteraibots.com/billingnowai.webp",
             "rankbolt": "https://betteraibots.com/rankboltai.webp",
-            "mera-work": "https://betteraibots.com/meraworkai.jpg"
+            "mera-work": "https://betteraibots.com/meraworkai.jpg",
+            "parallel": "https://betteraibots.com/parallelai.jpg",
+            "buzz": "https://betteraibots.com/buzz-ai.jpg",
+            "algomo": "https://betteraibots.com/algomoai.jpg",
+            "edesk": "https://betteraibots.com/edesklogo.jpg",
+            "alttext": "https://betteraibots.com/alttext_ai_logo.jpg",
+            "involveme": "https://betteraibots.com/involveme-logo.jpg",
+            "gixo": "https://betteraibots.com/gixoai.png"
           };
           return ogImageMap[article.id] || primaryImage || article.cover;
         })()} />
@@ -1474,6 +1500,13 @@ export default function ArticlePage() {
             "billingnow": "https://betteraibots.com/billingnowai.webp",
             "rankbolt": "https://betteraibots.com/rankboltai.webp",
             "mera-work": "https://betteraibots.com/meraworkai.jpg",
+            "parallel": "https://betteraibots.com/parallelai.jpg",
+            "buzz": "https://betteraibots.com/buzz-ai.jpg",
+            "algomo": "https://betteraibots.com/algomoai.jpg",
+            "edesk": "https://betteraibots.com/edesklogo.jpg",
+            "alttext": "https://betteraibots.com/alttext_ai_logo.jpg",
+            "involveme": "https://betteraibots.com/involveme-logo.jpg",
+            "gixo": "https://betteraibots.com/gixoai.png",
             "seamless-ai-complete-guide": "https://betteraibots.com/assets/seemlessailogo.jpg",
             "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
             "omniseo": "https://betteraibots.com/omniseo.png",
@@ -1545,39 +1578,8 @@ export default function ArticlePage() {
       {topShareSection}
       <div className="article-content">
       {/* Top Image */}
-      {(primaryImage || article.id === "instaglamor") && (
-        article.id === "instaglamor" ? (
-          <a
-            href="https://instaglamor.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              cursor: "pointer",
-              textDecoration: "none"
-            }}
-          >
-            <img src={primaryImage} alt="" style={{
-              maxWidth: "600px",
-              width: "auto",
-              height: "auto",
-              borderRadius: 16,
-              margin: "0 0 24px 0",
-              display: "block",
-              objectFit: "contain",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease"
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 4px 20px rgba(54, 255, 149, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "none";
-            }}
-            />
-          </a>
-        ) : article.id === "seosparkplug" ? (
+      {primaryImage && (
+        article.id === "seosparkplug" ? (
           <a 
             href="https://seosparkplug.com" 
             target="_blank"

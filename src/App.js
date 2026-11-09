@@ -38,7 +38,7 @@ import plesk1 from './assets/plesk1.jpg';
 import surecam1 from './assets/surecam1.jpg';
 import n8nicon from './assets/n8nicon.jpg';
 import mindstudioai from './assets/mindstudioai.jpeg';
-import instaglamorlogo from './assets/instaglamorlogo.png';
+import seosparkplug1 from './assets/seosparkplug1.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -60,6 +60,7 @@ import Breadcrumbs from './components/Breadcrumbs';
 import { bots } from './data/bots';
 import { newsArticles } from './data/news';
 import MyAI from "./MyAI";
+import AiPlanOnboarding from "./components/AiPlanOnboarding";
 import { freeAppsData, trialAppsData } from './data/appsData';
 import Articles from "./Articles";
 import ArticlePage from "./ArticlePage";
@@ -506,6 +507,16 @@ function News({ searchValue }) {
 // Constant array for paid apps - defined outside component for stable reference
 const PAID_APPS = [
   {
+    name: "SEOSparkPlug",
+    description: "AI-powered SEO platform that analyzes 50+ factors, writes code, optimizes social content, and tracks results in one workflow",
+    category: "SEO & Digital Marketing",
+    features: ["50+ factor SEO analysis", "AI Optimization engine", "Live voice AI agent (SparkPlugger)", "Copy-ready code & schema fixes", "Social media optimization", "Competitive tracking & monitoring"],
+    price: "Free analysis / Paid plans",
+    link: "https://seosparkplug.com",
+    image: seosparkplug1,
+    readMoreLink: "/learn/seosparkplug"
+  },
+  {
     name: "MindStudio",
     description: "AI agent builder platform that lets you create custom AI assistants and workflows without coding",
     category: "AI & Automation",
@@ -604,21 +615,6 @@ const PAID_APPS = [
     link: "https://try.megahr.com/BAIB",
     image: megahr,
     readMoreLink: "/learn/megahr"
-  },
-  {
-    name: "InstaGlamor",
-    description: "Premium human-directed + AI-powered photography studio for executive portraits, lifestyle imagery, products, and brand visuals",
-    category: "Photography & Branding",
-    features: [
-      "Business & executive portraits",
-      "Custom glamour & lifestyle looks",
-      "Professional product photography",
-      "Company branding and team imagery"
-    ],
-    price: "Per package",
-    link: "https://www.InstaGlamor.com",
-    image: instaglamorlogo,
-    readMoreLink: "/learn/instaglamor"
   },
   {
     name: "Bidx",
@@ -1354,7 +1350,7 @@ function Apps() {
       <div className="hero-section" style={isMobile ? { padding: '0 20px' } : {}}>
         <h1 className="hero-headline">Premium AI Tools Directory</h1>
         <p className="hero-subheadline custom-hero-desc">
-          Discover the best AI applications: free tools, trial versions, and premium paid solutions — plus track all your AI apps and costs in one place.
+          Discover the best AI applications: free tools, trial versions, and premium paid solutions, plus track all your AI apps and costs in one place.
         </p>
       </div>
       
@@ -2650,6 +2646,8 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         <br /><br />
         Explore our <strong className="theme-accent-text">Apps</strong> directory to find free and premium AI tools, stay updated with the latest <strong className="theme-accent-text">News</strong> in the AI world, and enhance your knowledge through our <strong className="theme-accent-text">Learn</strong> section with beginner, intermediate, and advanced guides.
       </h3>
+
+      <AiPlanOnboarding isMobile={isMobile} />
       
       {/* Choose Your Path Section */}
       <div style={{
@@ -2981,7 +2979,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               marginRight: "auto",
               color: 'var(--text-secondary)'
             }}>
-              Discover the best AI applications: free tools, trial versions, and premium paid solutions — plus track all your AI apps and costs in one place.
+              Discover the best AI applications: free tools, trial versions, and premium paid solutions, plus track all your AI apps and costs in one place.
             </h2>
             
             {/* Stats Grid */}
@@ -3129,7 +3127,13 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
         }}>
           {appSpotlightApps.map((app) => {
             const imageSrc = typeof app.image === 'string'
-              ? (app.image.startsWith('http') || app.image.startsWith('/') ? app.image : `/${app.image}`)
+              ? (
+                  app.image.startsWith('http') ||
+                  app.image.startsWith('/') ||
+                  app.image.startsWith('data:')
+                    ? app.image
+                    : `/${app.image}`
+                )
               : app.image;
             const readMoreLink = app.readMoreLink || "/apps?section=trial";
             const badgeItems = Array.isArray(app.features) ? app.features.slice(0, 3) : [];
@@ -3310,7 +3314,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 margin: 0,
                 flex: 1
               }}>
-                Browse free AI bots you can try immediately, plus premium tools with free trials that usually don't require a credit card. Test them out, compare options, and find what actually fits your workflow — no pressure, no guesswork.
+                Browse free AI bots you can try immediately, plus premium tools with free trials that usually don't require a credit card. Test them out, compare options, and find what actually fits your workflow, with no pressure or guesswork.
               </p>
             </div>
           </Link>
@@ -3333,7 +3337,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 margin: 0,
                 flex: 1
               }}>
-                Every tool on BetterAiBots comes with a clear, beginner-friendly user guide so you know exactly how to use it, what to expect, and what to avoid. Our learning paths help you level up fast—from exploring new AI tools to mastering advanced workflows—with quizzes to track your progress.
+                Every tool on BetterAiBots comes with a clear, beginner-friendly user guide so you know exactly how to use it, what to expect, and what to avoid. Our learning paths help you level up fast, from exploring new AI tools to mastering advanced workflows, with quizzes to track your progress.
               </p>
             </div>
           </Link>
@@ -3356,7 +3360,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 margin: 0,
                 flex: 1
               }}>
-                AI changes fast — and we keep you ahead of it. Our News & Updates section breaks down major AI announcements, new AI tools, and big platform changes in simple, clear language so you always know what matters and why.
+                AI changes fast, and we keep you ahead of it. Our News & Updates section breaks down major AI announcements, new AI tools, and big platform changes in simple, clear language so you always know what matters and why.
               </p>
             </div>
           </Link>
@@ -3379,7 +3383,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                 margin: 0,
                 flex: 1
               }}>
-                Smart testing matters. We show you how to evaluate new AI tools, which workflows to experiment with, and how to identify genuine value versus marketing hype — long before you spend a dollar.
+                Smart testing matters. We show you how to evaluate new AI tools, which workflows to experiment with, and how to identify genuine value versus marketing hype, long before you spend a dollar.
               </p>
             </div>
           </Link>
@@ -3441,7 +3445,7 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
                   }}
                   onMouseEnter={(e) => e.target.style.color = "#0bbfdb"}
                   onMouseLeave={(e) => e.target.style.color = "#36ff95"}
-                >YouTube channel</a>, we break down the newest AI tools, bots, and apps — from powerful paid platforms to the best free tools you can start using today. We test everything, explain how it works, and give you real results (not hype).
+                >YouTube channel</a>, we break down the newest AI tools, bots, and apps, from powerful paid platforms to the best free tools you can start using today. We test everything, explain how it works, and give you real results (not hype).
               </p>
             </div>
             

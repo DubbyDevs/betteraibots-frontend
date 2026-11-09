@@ -1136,13 +1136,14 @@ const LearnLevelSelector = () => {
             {/* App Spotlight Cards Grid */}
             <div style={{
                  display: "grid",
-                 gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(340px, 1fr))",
+                 gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
                  gap: isVerySmall ? "16px" : (is360px ? "18px" : (is390px ? "20px" : (isMobile ? "20px" : "24px"))),
                  maxWidth: "1400px",
                  margin: "0 auto",
                  padding: isVerySmall ? "0 8px" : (is360px ? "0 10px" : (is390px ? "0 12px" : (isMobile ? "0 16px" : "0 24px"))),
                  width: "100%",
-                 boxSizing: "border-box"
+                 boxSizing: "border-box",
+                 alignItems: "stretch"
                }}>
                                {/* MuseIt Card */}
                 <div className="spotlight-card"
@@ -1227,52 +1228,116 @@ const LearnLevelSelector = () => {
                        flexWrap: "wrap"
                      }}>
                        <a
-                         href="https://Museit.art"
+                         href="https://museit.art/?ref=BAIB"
                          target="_blank"
                          rel="noopener noreferrer"
-                         style={{
-                           background: "linear-gradient(135deg, #36ff95 0%, #00d4aa 100%)",
-                           color: "#000",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           transition: "all 0.2s ease",
-                           boxShadow: "0 4px 12px rgba(54, 255, 149, 0.3)"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.transform = "translateY(-2px)";
-                           e.target.style.boxShadow = "0 6px 16px rgba(54, 255, 149, 0.4)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.transform = "translateY(0)";
-                           e.target.style.boxShadow = "0 4px 12px rgba(54, 255, 149, 0.3)";
-                         }}
+                         className="spotlight-card__btn-primary"
                        >
                          Try MuseIt Free
                        </a>
                        <Link
                          to="/learn/museit-art-complete-guide"
-                         style={{
-                           background: "transparent",
-                           color: "#36ff95",
-                           padding: "12px 24px",
-                           borderRadius: "8px",
-                           textDecoration: "none",
-                           fontWeight: 600,
-                           fontSize: "0.9rem",
-                           border: "2px solid #36ff95",
-                           transition: "all 0.2s ease"
-                         }}
-                         onMouseOver={e => {
-                           e.target.style.background = "rgba(54, 255, 149, 0.1)";
-                           e.target.style.transform = "translateY(-2px)";
-                         }}
-                         onMouseOut={e => {
-                           e.target.style.background = "transparent";
-                           e.target.style.transform = "translateY(0)";
-                         }}
+                         className="spotlight-card__btn-secondary"
+                       >
+                         Read Full Article
+                       </Link>
+                     </div>
+                   </div>
+               </div>
+
+               {/* Netlify Card */}
+               <div className="spotlight-card"
+                onMouseOver={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1.02)"; }}
+                onMouseOut={e => { if (!isMobile) e.currentTarget.style.transform = "scale(1)"; }}
+                >
+                  <div style={{
+                    flexShrink: 0,
+                    width: "100%",
+                    height: "220px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginTop: "16px",
+                    boxSizing: "border-box"
+                  }}>
+                      <img
+                       src="/netlify-ai.jpeg"
+                       alt="Netlify - Web Hosting and Deployment Platform"
+                       className="spotlight-card__img"
+                       style={{
+                         width: "200px",
+                         height: "200px",
+                       }}
+                       onError={(e) => {
+                         e.target.style.display = 'none';
+                       }}
+                     />
+                   </div>
+                   <div style={{
+                     flex: 1,
+                     padding: isMobile ? "16px" : "24px",
+                     display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "space-between",
+                     minWidth: 0
+                   }}>
+                     <div>
+                       <h3 className="spotlight-card__title" style={{
+                         fontSize: isMobile ? "1.1rem" : "1.3rem",
+                         fontWeight: 700,
+                         margin: "0 0 12px 0",
+                         lineHeight: 1.3
+                       }}>
+                         Netlify
+                       </h3>
+                       <p style={{
+                         color: "#9ca3af",
+                         fontSize: isMobile ? "0.8rem" : "0.9rem",
+                         margin: "0 0 15px 0"
+                       }}>
+                         Featured • Web Development & Hosting
+                       </p>
+                       <p className="spotlight-card__desc" style={{
+                         fontSize: isMobile ? "0.85rem" : "0.95rem",
+                         lineHeight: 1.5,
+                         margin: "0 0 15px 0"
+                       }}>
+                         Modern web hosting and deployment platform for JAMstack sites, serverless functions, and AI apps with Git-based workflows and instant preview deploys.
+                       </p>
+                       <div style={{
+                         display: "flex",
+                         gap: "8px",
+                         flexWrap: "wrap",
+                         marginBottom: "20px"
+                       }}>
+                         <span className="spotlight-card__badge">
+                           Git Push-to-Deploy
+                         </span>
+                         <span className="spotlight-card__badge">
+                           Instant PR Previews
+                         </span>
+                         <span className="spotlight-card__badge">
+                           Free Tier Available
+                         </span>
+                       </div>
+                     </div>
+                     <div style={{
+                       display: "flex",
+                       gap: "12px",
+                       flexWrap: "wrap"
+                     }}>
+                       <a
+                         href="https://join.netlify.com/BAIB2"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         className="spotlight-card__btn-primary"
+                       >
+                         Try Netlify Free
+                       </a>
+                       <Link
+                         to="/learn/netlify-complete-guide"
+                         className="spotlight-card__btn-secondary"
                        >
                          Read Full Article
                        </Link>

@@ -33,8 +33,6 @@ import unbounceai from '../assets/unbounceai.png';
 import landbotai from '../assets/landbotai.png';
 import amplemarketai from '../assets/amplemarketai.webp';
 import quillbot from '../assets/quilbot.jpg';
-import seosparkplug1 from '../assets/seosparkplug1.jpg';
-
 export const freeAppsData = [
   {
     name: "ChatGPT",
@@ -63,16 +61,6 @@ export const freeAppsData = [
 ];
 
 export const trialAppsData = [
-  {
-    name: "SEOSparkPlug",
-    description: "AI-powered SEO platform that analyzes 50+ factors, writes code, optimizes social content, and tracks results in one workflow",
-    category: "SEO & Digital Marketing",
-    features: ["50+ factor SEO analysis", "AI Optimization engine", "Live voice AI agent (SparkPlugger)", "Copy-ready code & schema fixes", "Social media optimization", "Competitive tracking & monitoring"],
-    link: "https://seosparkplug.com",
-    trialInfo: "Free analysis available",
-    image: seosparkplug1,
-    readMoreLink: "/learn/seosparkplug"
-  },
   {
     name: "MuseIt",
     description: "AI-powered art creation platform that turns your imagination into beautiful artwork. Turn the noise into art with guided creativity and mindfulness-focused design",
@@ -115,7 +103,7 @@ export const trialAppsData = [
   },
   {
     name: "Ignition",
-    description: "Practice management software for accounting and bookkeeping firms—client onboarding, proposals, and payments in one platform",
+    description: "Practice management software for accounting and bookkeeping firms: client onboarding, proposals, and payments in one platform",
     category: "Business Management",
     features: ["Proposals & engagement letters", "Client onboarding", "Online payments", "Practice management"],
     link: "https://get.practiceignition.com/BAIB",
@@ -415,7 +403,7 @@ export const trialAppsData = [
   },
   {
     name: "Runable",
-    description: "AI agent that turns plain-language prompts into websites, slides, images, videos, reports, and spreadsheets—then helps you edit, export, or go live",
+    description: "AI agent that turns plain-language prompts into websites, slides, images, videos, reports, and spreadsheets, then helps you edit, export, or go live",
     category: "AI & Development",
     features: ["AI websites & full-stack apps", "Slides, images & video", "Reports & spreadsheets", "3,000+ app connectors", "Reusable agent skills", "Free tier available"],
     link: "https://runable.link/BAIB",
@@ -482,6 +470,76 @@ export const trialAppsData = [
     trialInfo: "Get started",
     image: "/meraworkai.jpg",
     readMoreLink: "/learn/mera-work"
+  },
+  {
+    name: "Parallel",
+    description: "AI business growth platform that builds AI employees for lead gen, multichannel outreach, content, and always-on support across chat, email, SMS, and voice",
+    category: "AI & Automation",
+    features: ["AI employees on frontier models", "Smart Lists & sequences", "Content engine & AEO", "Always-on chat, SMS & voice support", "1,500+ integrations", "7-day free trial"],
+    link: "https://parallellabs.app/?red=betterf2ec0b",
+    trialInfo: "7-Day Free Trial",
+    image: "/parallelai.jpg",
+    readMoreLink: "/learn/parallel"
+  },
+  {
+    name: "Buzz",
+    description: "AI SDR platform that finds intent-ready buyers, enriches prospects, writes personalized messages, and runs multichannel outreach across LinkedIn, email, and phone",
+    category: "Sales & CRM",
+    features: ["AI SDR campaigns from a prompt", "LinkedIn, email & phone outreach", "Prospect enrichment waterfall", "AI reply handling & booking", "Inbox sentiment & AI comments", "Free plan available"],
+    link: "https://buzz.ai/?red=betterf2ec0b",
+    trialInfo: "Free plan available",
+    image: "/buzz-ai.jpg",
+    readMoreLink: "/learn/buzz"
+  },
+  {
+    name: "Algomo",
+    description: "Conversational AI platform that maps your site APIs, answers from live data, and takes support actions like bookings, invoices, and account updates in plain language",
+    category: "Customer Support & Chatbots",
+    features: ["Live API-connected AI agents", "Acts on bookings & account data", "Multilingual support", "Human handover with context", "Workflows & meetings", "Plain-language setup"],
+    link: "https://algomo.com/?red=betterf2ec0b",
+    trialInfo: "Get started",
+    image: "/algomoai.jpg",
+    readMoreLink: "/learn/algomo"
+  },
+  {
+    name: "eDesk",
+    description: "AI-powered ecommerce helpdesk that centralizes marketplace messages and automates support across 300+ channels with order-aware replies and AI agents",
+    category: "Customer Support & Chatbots",
+    features: ["300+ marketplace & channel inbox", "Ecommerce AI Agent 24/7", "Order, tracking & policy context", "AI summaries, sentiment & assist", "HandsFree auto replies", "Chatbot for pre- and post-sale"],
+    link: "https://www.edesk.com/?red=betterf2ec0b",
+    trialInfo: "Get started",
+    image: "/edesklogo.jpg",
+    readMoreLink: "/learn/edesk"
+  },
+  {
+    name: "AltText.ai",
+    description: "AI alt text generator that scans for missing image descriptions and writes accessibility-friendly, SEO-ready alt text in 130+ languages across WordPress, Shopify, and more",
+    category: "SEO & Accessibility",
+    features: ["AI alt text generation", "Missing alt text site scanner", "130+ languages", "WordPress, Shopify & CMS apps", "Ecommerce product-aware alt text", "API, CSV & browser extensions"],
+    link: "https://alttext.ai/?red=betterf2ec0b",
+    trialInfo: "Free tier available",
+    image: "/alttext_ai_logo.jpg",
+    readMoreLink: "/learn/alttext"
+  },
+  {
+    name: "involve.me",
+    description: "No-code AI quiz and form builder that creates interactive funnels, calculators, surveys, and recommendation flows with logic jumps, scoring, and CRM-ready lead capture",
+    category: "Marketing & Lead Generation",
+    features: ["AI funnel generator from a prompt", "Quizzes, forms, surveys & calculators", "Logic jumps & outcome pages", "Lead scoring & email automation", "Embeds, pop-ups & landing pages", "Analytics & CRM integrations"],
+    link: "https://www.involve.me/?red=betterf2ec0b",
+    trialInfo: "Get started",
+    image: "/involveme-logo.jpg",
+    readMoreLink: "/learn/involveme"
+  },
+  {
+    name: "Gixo",
+    description: "AI workspace for writing, decks, proposals, visuals, and legal drafts with inline editing, review workflows, and export-ready delivery across team products",
+    category: "Content Creation & Productivity",
+    features: ["Inline AI writing & rewrite", "Decks, proposals & visuals", "Books, legal & business workflows", "71-language writing support", "Review and export tools", "Free/trial paths by product"],
+    link: "https://gixo.ai/?red=betterf2ec0b",
+    trialInfo: "Free trial available",
+    image: "/gixoai.png",
+    readMoreLink: "/learn/gixo"
   },
   {
     name: "Atria",

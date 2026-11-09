@@ -1,12 +1,5 @@
 [
   {
-    "id": "instaglamor",
-    "title": "InstaGlamor: Human Direction, AI Precision, Studio-Grade Results",
-    "date": "February 2026",
-    "preview": "I Precision Studio InstaGlamor is a premium AI + human photography studio built for modern brands, professionals, and teams who want studio grade images...",
-    "cover": null
-  },
-  {
     "id": "databox",
     "title": "Business Analytics Platform with 130+ Integrations, Custom Metrics, and No-Code Dashboards",
     "date": "January 2026",
@@ -164,7 +157,7 @@
     "id": "runable",
     "title": "Runable Complete Guide: AI Agent That Builds Websites, Slides, Videos, Reports, and More",
     "date": "June 2026",
-    "preview": "Runable: AI agent that turns plain language prompts into websites, slides, images, videos, reports, and spreadsheets—then helps you edit, export, or go live",
+    "preview": "Runable: AI agent that turns plain language prompts into websites, slides, images, videos, reports, and spreadsheets, then helps you edit, export, or go live",
     "cover": null
   },
   {
@@ -207,6 +200,55 @@
     "title": "Mera Work Complete Guide: Employee Time Tracking, Productivity Insights, and Live Visibility",
     "date": "June 2026",
     "preview": "Mera Work: Employee time and productivity monitoring for remote and hybrid teams with live dashboards, screen insights, attendance, and AI powered reports",
+    "cover": null
+  },
+  {
+    "id": "parallel",
+    "title": "Parallel Complete Guide: AI Employees for Leads, Content, Outreach, and Always-On Support",
+    "date": "June 2026",
+    "preview": "Parallel: AI business growth platform that builds AI employees for lead gen, multichannel outreach, content, and always on support across chat, email, SMS,...",
+    "cover": null
+  },
+  {
+    "id": "buzz",
+    "title": "Buzz Complete Guide: AI SDR for LinkedIn, Email, and Phone Outreach That Books Meetings",
+    "date": "June 2026",
+    "preview": "Buzz: AI SDR platform that finds intent ready buyers, enriches prospects, writes personalized messages, and runs multichannel outreach across LinkedIn,...",
+    "cover": null
+  },
+  {
+    "id": "algomo",
+    "title": "Algomo Complete Guide: Conversational AI Agents That Connect to Live Site Data and Take Action",
+    "date": "June 2026",
+    "preview": "Algomo: Conversational AI platform that maps your site APIs, answers from live data, and takes support actions like bookings, invoices, and account updates...",
+    "cover": null
+  },
+  {
+    "id": "edesk",
+    "title": "eDesk Complete Guide: AI Ecommerce Helpdesk for Marketplaces, Orders, and 24/7 Support",
+    "date": "June 2026",
+    "preview": "eDesk: AI powered ecommerce helpdesk that centralizes marketplace messages and automates support across 300+ channels with order aware replies and AI agents",
+    "cover": null
+  },
+  {
+    "id": "alttext",
+    "title": "AltText.ai Complete Guide: AI Alt Text for Accessibility, SEO, and Image Visibility",
+    "date": "June 2026",
+    "preview": "AltText.ai: AI alt text generator that scans for missing image descriptions and writes accessibility friendly, SEO ready alt text in 130+ languages across...",
+    "cover": null
+  },
+  {
+    "id": "involveme",
+    "title": "involve.me Complete Guide: AI Quizzes, Forms, and Interactive Funnels Without Code",
+    "date": "June 2026",
+    "preview": "involve.me: No code AI quiz and form builder that creates interactive funnels, calculators, surveys, and recommendation flows with logic jumps, scoring, and...",
+    "cover": null
+  },
+  {
+    "id": "gixo",
+    "title": "Gixo Complete Guide: AI Workspace for Writing, Decks, Proposals, Visuals, and Legal Drafts",
+    "date": "June 2026",
+    "preview": "Gixo: AI workspace for writing, decks, proposals, visuals, and legal drafts with inline editing, review workflows, and export ready delivery across team...",
     "cover": null
   },
   {
@@ -262,7 +304,7 @@
     "id": "practice-ignition",
     "title": "Ignition User Guide – Proposals, Onboarding & Payments",
     "date": "February 2026",
-    "preview": "Ignition: Practice management software for accounting and bookkeeping firms—client onboarding, proposals, and payments in one platform",
+    "preview": "Ignition: Practice management software for accounting and bookkeeping firms: client onboarding, proposals, and payments in one platform",
     "cover": null
   },
   {
