@@ -10,57 +10,57 @@ const AIQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
   const [showResults, setShowResults] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({});
 
-  const correctAnswers = ['b', 'b', 'b', 'b', 'b', 'c', 'c', 'b', 'b', 'b'];
+  const correctAnswers = ['b', 'c', 'b', 'b', 'b', 'c', 'b', 'c', 'b', 'b'];
   const questions = [
     {
-      text: "Which company leads the AI market with 400 million weekly users?",
-      options: ["A) Google", "B) Microsoft/OpenAI", "C) Anthropic", "D) Meta"],
-      correct: "B) Microsoft/OpenAI"
+      text: "What does generative AI primarily do?",
+      options: ["A) Only stores files in the cloud", "B) Creates new text, images, audio, or code from patterns learned in training data", "C) Replaces your operating system", "D) Guarantees perfect factual answers every time"],
+      correct: "B) Creates new text, images, audio, or code from patterns learned in training data"
     },
     {
-      text: "What is the standard monthly price for most AI platforms' premium tiers?",
-      options: ["A) $10", "B) $20", "C) $50", "D) $100"],
-      correct: "B) $20"
+      text: "Who builds ChatGPT?",
+      options: ["A) Google", "B) Anthropic", "C) OpenAI", "D) Meta"],
+      correct: "C) OpenAI"
     },
     {
-      text: "How many GPT-4o messages do ChatGPT Plus subscribers get every 3 hours?",
-      options: ["A) 50", "B) 80", "C) 100", "D) Unlimited"],
-      correct: "B) 80"
+      text: "Who builds the Claude AI assistant?",
+      options: ["A) OpenAI", "B) Anthropic", "C) Microsoft", "D) Apple"],
+      correct: "B) Anthropic"
     },
     {
-      text: "Which AI model is known for superior writing capabilities and 200K token context windows?",
-      options: ["A) GPT-4", "B) Claude", "C) Gemini", "D) Grok"],
-      correct: "B) Claude"
+      text: "What is a prompt?",
+      options: ["A) A password for AI accounts", "B) The instruction or question you give an AI model", "C) A hardware chip inside your computer", "D) A paid subscription plan"],
+      correct: "B) The instruction or question you give an AI model"
     },
     {
-      text: "What are tokens in AI processing?",
-      options: ["A) Payment methods", "B) Processing units equivalent to about 4 characters", "C) Computer programs", "D) User accounts"],
-      correct: "B) Processing units equivalent to about 4 characters"
+      text: "What are tokens in large language models?",
+      options: ["A) Cryptocurrency rewards", "B) Small text units the model reads and generates (often roughly a few characters or part of a word)", "C) User login sessions", "D) Image file formats"],
+      correct: "B) Small text units the model reads and generates (often roughly a few characters or part of a word)"
     },
     {
-      text: "What is AI hallucination?",
-      options: ["A) When AI becomes conscious", "B) Visual effects in AI interfaces", "C) AI generating convincing but factually incorrect information", "D) AI processing speed"],
-      correct: "C) AI generating convincing but factually incorrect information"
+      text: "What is an AI hallucination?",
+      options: ["A) When AI becomes conscious", "B) A visual glitch in the chat UI", "C) When AI confidently generates information that is false or unsupported", "D) When a model refuses to answer"],
+      correct: "C) When AI confidently generates information that is false or unsupported"
     },
     {
-      text: "What ROI do organizations typically report within the first year of strategic AI implementation?",
-      options: ["A) 25%", "B) 50%", "C) 74%", "D) 100%"],
-      correct: "C) 74%"
+      text: "What is a context window?",
+      options: ["A) The browser tab count you can open", "B) The amount of text (in tokens) a model can consider at once in a conversation or request", "C) The number of users on a free plan", "D) The screen size needed to use AI"],
+      correct: "B) The amount of text (in tokens) a model can consider at once in a conversation or request"
     },
     {
-      text: "Which pricing model is becoming more popular than traditional seat-based subscriptions?",
-      options: ["A) Fixed annual pricing", "B) Usage-based and outcome-based pricing", "C) Free-only models", "D) One-time purchase"],
-      correct: "B) Usage-based and outcome-based pricing"
+      text: "Which practice is safest when using public AI chat tools?",
+      options: ["A) Paste payroll files and passwords for faster answers", "B) Share private customer records to get better writing", "C) Avoid sharing passwords, bank details, Social Security numbers, and confidential work data", "D) Turn off all critical thinking because AI is always correct"],
+      correct: "C) Avoid sharing passwords, bank details, Social Security numbers, and confidential work data"
     },
     {
-      text: "What's the recommended approach for beginners starting with AI?",
-      options: ["A) Use AI for everything immediately", "B) Start with high-impact use cases and scale systematically", "C) Only use free versions", "D) Focus on the most expensive tools first"],
-      correct: "B) Start with high-impact use cases and scale systematically"
+      text: "What's the best beginner approach to getting value from AI?",
+      options: ["A) Buy every paid plan on day one", "B) Start with a few high-impact tasks, verify outputs, then expand what works", "C) Only use AI for entertainment forever", "D) Avoid free tiers because they never help"],
+      correct: "B) Start with a few high-impact tasks, verify outputs, then expand what works"
     },
     {
-      text: "What represents the next evolution in AI beyond simple task automation?",
-      options: ["A) Faster processing", "B) Agentic AI systems with autonomous decision-making", "C) Lower costs", "D) Better graphics"],
-      correct: "B) Agentic AI systems with autonomous decision-making"
+      text: "Why should you double-check important AI answers?",
+      options: ["A) AI tools never make mistakes", "B) Models can be fluent and still be wrong, outdated, or incomplete", "C) Checking answers disables the model", "D) Only paid plans can be incorrect"],
+      correct: "B) Models can be fluent and still be wrong, outdated, or incomplete"
     }
   ];
 

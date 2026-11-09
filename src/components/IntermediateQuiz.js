@@ -33,52 +33,52 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
       correct: 1
     },
     {
-      question: "What percentage improvement in accuracy can CoT prompting achieve on complex analytical tasks?",
+      question: "Why is Chain-of-Thought prompting useful on complex tasks?",
       options: [
-        "10-20%",
-        "30-50%",
-        "85-90%",
-        "95-100%"
+        "It deletes irrelevant training data from the model",
+        "It forces the model to invent sources that look academic",
+        "It encourages step-by-step reasoning, which often improves multi-step problem solving",
+        "It guarantees 100% accuracy on every question"
       ],
       correct: 2
     },
     {
       question: "What is Few-Shot prompting?",
       options: [
-        "Providing many examples to train the AI",
-        "Providing 3-5 carefully crafted examples to guide AI behavior",
-        "Shooting prompts at the AI quickly",
-        "Using few words in prompts"
+        "Providing many examples to permanently retrain the model weights",
+        "Providing a few carefully crafted examples to guide AI behavior for the current task",
+        "Shooting prompts at the AI as fast as possible",
+        "Using as few words as possible in every prompt"
       ],
       correct: 1
     },
     {
       question: "What is AI workflow orchestration?",
       options: [
-        "Conducting an orchestra with AI",
-        "Understanding trigger events, data flow patterns, and decision trees",
-        "Orchestrating music with AI",
-        "Managing AI workflows manually"
+        "Conducting an orchestra with AI-generated music",
+        "Coordinating triggers, data flow, and decision steps so AI actions run across systems reliably",
+        "Replacing all employees with a single chatbot",
+        "Only writing prompts by hand with no tools connected"
       ],
       correct: 1
     },
     {
-      question: "What do organizations with robust data foundations achieve compared to those without?",
+      question: "What is Retrieval-Augmented Generation (RAG)?",
       options: [
-        "Same AI implementation success rates",
-        "2x better AI implementation success rates",
-        "3x better AI implementation success rates",
-        "4x better AI implementation success rates"
+        "Training a brand-new model from scratch every night",
+        "Deleting old chat history to save tokens",
+        "Fetching relevant documents or data and including them in the prompt so answers are grounded in real sources",
+        "A pricing plan for unlimited image generation"
       ],
       correct: 2
     },
     {
       question: "What are Agentic AI systems?",
       options: [
-        "AI systems that work for agents",
-        "Systems that operate autonomously to achieve business objectives",
-        "AI systems that act like agents",
-        "Systems that require constant human supervision"
+        "AI systems that only rewrite emails",
+        "Systems that can plan and take multi-step actions toward a goal with limited supervision",
+        "Chatbots that never use tools or memory",
+        "Systems that require a human to approve every keystroke"
       ],
       correct: 1
     },
@@ -87,28 +87,28 @@ export default function IntermediateQuiz({ isEmbedded = false, onClose, onAdvanc
       options: [
         "Only text",
         "Only images",
-        "Text, images, audio, and video",
+        "Multiple input types such as text, images, audio, and/or video",
         "Only audio and video"
       ],
       correct: 2
     },
     {
-      question: "What is the first phase of strategic AI implementation?",
+      question: "In BetterAiBots' intermediate path, what comes first when leveling up from basic AI use?",
       options: [
-        "Implementing workflow automation",
-        "Establishing advanced prompting expertise",
-        "Deploying strategic AI integration",
-        "Setting up basic AI tools"
+        "Deploying company-wide automation with no testing",
+        "Building advanced prompting skills before complex workflows",
+        "Fine-tuning a private model as step one for everyone",
+        "Ignoring evaluation and shipping outputs immediately"
       ],
       correct: 1
     },
     {
-      question: "What percentage of organizations using AI strategically report ROI within the first year?",
+      question: "What is a practical way to measure whether an AI workflow is working?",
       options: [
-        "50%",
-        "60%",
-        "74%",
-        "85%"
+        "Assume any fluent answer means success",
+        "Only count how many prompts you sent",
+        "Track quality, time saved, error rates, and business outcomes on real tasks",
+        "Never compare AI output to a human baseline"
       ],
       correct: 2
     }

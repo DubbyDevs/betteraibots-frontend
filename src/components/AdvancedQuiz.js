@@ -11,107 +11,107 @@ const AdvancedQuiz = ({ isEmbedded = false, onClose, onAdvance }) => {
   const [showScorecard, setShowScorecard] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({});
 
-  const correctAnswers = ['b', 'c', 'a', 'd', 'a', 'c', 'b', 'd', 'b', 'a', 'b', 'c', 'c', 'b', 'b', 'b', 'b', 'b', 'b', 'b'];
+  const correctAnswers = ['b', 'c', 'a', 'd', 'a', 'c', 'b', 'd', 'b', 'a', 'b', 'b', 'c', 'b', 'b', 'b', 'b', 'b', 'b', 'b'];
   const questions = [
     {
-      text: "What is the primary challenge in implementing AI at enterprise scale?",
-      options: ["A) Cost of computation", "B) Data governance and compliance", "C) Model accuracy", "D) User adoption"],
-      correct: "B) Data governance and compliance"
+      text: "What is a primary challenge when implementing AI at enterprise scale?",
+      options: ["A) Cost of computation alone", "B) Data governance, privacy, and compliance across systems", "C) Choosing a chat UI theme", "D) Writing shorter prompts only"],
+      correct: "B) Data governance, privacy, and compliance across systems"
     },
     {
-      text: "Which AI architecture pattern is most effective for real-time decision making?",
-      options: ["A) Batch processing", "B) Event-driven", "C) Stream processing with ML", "D) All of the above"],
-      correct: "C) Stream processing with ML"
+      text: "Which approach is generally best for real-time AI decisions on live data?",
+      options: ["A) Overnight batch jobs only", "B) Monthly spreadsheet exports", "C) Stream or event-driven processing with models in the loop", "D) Retraining a foundation model from scratch for every request"],
+      correct: "C) Stream or event-driven processing with models in the loop"
     },
     {
-      text: "What is the key principle behind successful AI ethics implementation?",
-      options: ["A) Transparency and accountability", "B) Maximum automation", "C) Cost optimization", "D) Speed of deployment"],
+      text: "What is a core principle of responsible AI ethics programs?",
+      options: ["A) Transparency and accountability", "B) Maximum automation with no review", "C) Cost cutting above all else", "D) Shipping as fast as possible with no documentation"],
       correct: "A) Transparency and accountability"
     },
     {
-      text: "Which approach is most effective for reducing AI bias in production systems?",
-      options: ["A) Larger training datasets", "B) More complex models", "C) Regular retraining", "D) Continuous monitoring and feedback loops"],
-      correct: "D) Continuous monitoring and feedback loops"
+      text: "Which approach best helps reduce harmful bias in production AI systems?",
+      options: ["A) Using only larger models with no evaluation", "B) Ignoring edge cases after launch", "C) Never measuring outcomes by demographic or segment", "D) Continuous monitoring, evaluation, and feedback loops"],
+      correct: "D) Continuous monitoring, evaluation, and feedback loops"
     },
     {
-      text: "What is the optimal strategy for AI model deployment in high-stakes environments?",
-      options: ["A) Gradual rollout with A/B testing", "B) Immediate full deployment", "C) Manual review of all outputs", "D) Human-in-the-loop validation"],
-      correct: "A) Gradual rollout with A/B testing"
+      text: "What is a strong deployment strategy for high-stakes AI use cases?",
+      options: ["A) Gradual rollout with testing and safeguards", "B) Immediate full production cutover with no monitoring", "C) Skipping evaluation because demos looked good", "D) Disabling all logging for privacy theater"],
+      correct: "A) Gradual rollout with testing and safeguards"
     },
     {
-      text: "Which metric is most important for evaluating AI system reliability?",
-      options: ["A) Model accuracy", "B) Response time", "C) System availability and uptime", "D) Training time"],
-      correct: "C) System availability and uptime"
+      text: "Which reliability concern matters beyond raw model accuracy?",
+      options: ["A) Font choice in dashboards", "B) How long training took last year", "C) Availability, latency, and consistent uptime under load", "D) Whether the logo uses neon green"],
+      correct: "C) Availability, latency, and consistent uptime under load"
     },
     {
-      text: "What is the primary benefit of using federated learning in enterprise AI?",
-      options: ["A) Improved model performance", "B) Data privacy preservation", "C) Reduced computational costs", "D) Faster training"],
-      correct: "B) Data privacy preservation"
+      text: "What is the primary benefit of federated learning?",
+      options: ["A) Guaranteed higher accuracy than any centralized model", "B) Training across decentralized data sources while reducing raw data sharing", "C) Eliminating the need for any security controls", "D) Making GPUs unnecessary"],
+      correct: "B) Training across decentralized data sources while reducing raw data sharing"
     },
     {
-      text: "Which AI governance framework is most comprehensive for enterprise deployment?",
-      options: ["A) ISO 27001", "B) GDPR compliance", "C) NIST AI Risk Management", "D) All of the above"],
-      correct: "D) All of the above"
+      text: "Which statement about enterprise AI governance is most accurate?",
+      options: ["A) Only ISO 27001 matters and nothing else", "B) Only marketing approvals are required", "C) Governance is optional once a model is accurate", "D) Strong programs combine security, privacy/compliance, and AI risk management practices"],
+      correct: "D) Strong programs combine security, privacy/compliance, and AI risk management practices"
     },
     {
-      text: "What is the key success factor for AI transformation in large organizations?",
-      options: ["A) Technology selection", "B) Change management and culture", "C) Budget allocation", "D) Vendor selection"],
-      correct: "B) Change management and culture"
+      text: "What often determines whether large-organization AI initiatives succeed?",
+      options: ["A) Buying the trendiest vendor logo", "B) Change management, skills, and culture alongside the technology", "C) Skipping stakeholder communication", "D) Deploying tools without process redesign"],
+      correct: "B) Change management, skills, and culture alongside the technology"
     },
     {
-      text: "Which approach ensures long-term AI system sustainability?",
-      options: ["A) Continuous learning and adaptation", "B) Static model deployment", "C) Periodic updates", "D) Manual intervention"],
-      correct: "A) Continuous learning and adaptation"
+      text: "Which approach best supports long-term AI system sustainability?",
+      options: ["A) Continuous evaluation, updates, and adaptation", "B) Deploy once and never revisit performance", "C) Freeze prompts forever with no versioning", "D) Hide failures from operators"],
+      correct: "A) Continuous evaluation, updates, and adaptation"
     },
     {
       text: "What is the primary purpose of enterprise AI governance frameworks?",
-      options: ["A) To restrict AI innovation and slow down development", "B) To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation", "C) To increase AI development costs and complexity", "D) To replace human decision-making entirely"],
-      correct: "B) To establish ethical standards, regulatory compliance, and stakeholder trust while enabling innovation"
+      options: ["A) To block all innovation", "B) To set ethical standards, compliance expectations, and trust while still enabling useful delivery", "C) To maximize paperwork with no business value", "D) To replace every human decision automatically"],
+      correct: "B) To set ethical standards, compliance expectations, and trust while still enabling useful delivery"
     },
     {
-      text: "Which technique is most effective for creating domain-specific AI models that outperform general-purpose models?",
-      options: ["A) Using only prompt engineering", "B) Fine-tuning with techniques like LoRA (Low-Rank Adaptation)", "C) Training models from scratch", "D) Using only pre-trained models without modification"],
-      correct: "C) Training models from scratch"
+      text: "Which technique is usually most practical for specializing a general model to a domain?",
+      options: ["A) Prompting only, with no evaluation ever", "B) Parameter-efficient fine-tuning such as LoRA on high-quality domain data", "C) Training a frontier-scale model from scratch for every team", "D) Ignoring domain data and hoping generic answers suffice"],
+      correct: "B) Parameter-efficient fine-tuning such as LoRA on high-quality domain data"
     },
     {
-      text: "What is the key benefit of composable AI frameworks?",
-      options: ["A) They reduce system reliability", "B) They increase vendor lock-in", "C) They enable rapid experimentation and deployment while maintaining enterprise-grade security", "D) They simplify AI architecture to basic components only"],
-      correct: "C) They enable rapid experimentation and deployment while maintaining enterprise-grade security"
+      text: "What is a key benefit of composable AI architectures?",
+      options: ["A) They force permanent vendor lock-in", "B) They make security impossible", "C) They let teams assemble and swap components for faster experimentation with controlled interfaces", "D) They remove the need for testing"],
+      correct: "C) They let teams assemble and swap components for faster experimentation with controlled interfaces"
     },
     {
-      text: "What is the recommended approach for deploying AI capabilities across an organization?",
-      options: ["A) Deploy all AI systems simultaneously across the entire organization", "B) Start with high-value, low-risk use cases and gradually expand", "C) Deploy only in IT departments first", "D) Wait until all employees are fully trained before any deployment"],
-      correct: "B) Start with high-value, low-risk use cases and gradually expand"
+      text: "What is the recommended approach for rolling out AI across an organization?",
+      options: ["A) Launch every use case company-wide on day one", "B) Start with high-value, lower-risk use cases, learn, then expand", "C) Restrict AI forever to one intern laptop", "D) Wait until every employee is certified before any pilot"],
+      correct: "B) Start with high-value, lower-risk use cases, learn, then expand"
     },
     {
-      text: "What is the primary advantage of multi-agent orchestration systems?",
-      options: ["A) They reduce the need for human oversight", "B) They coordinate multiple specialized AI agents to handle complex business processes", "C) They eliminate the need for data architecture", "D) They simplify AI implementation to single-agent systems"],
-      correct: "B) They coordinate multiple specialized AI agents to handle complex business processes"
+      text: "What is the primary advantage of multi-agent orchestration?",
+      options: ["A) Removing all need for data quality", "B) Coordinating specialized agents/tools across complex multi-step workflows", "C) Guaranteeing zero errors without monitoring", "D) Replacing networking and databases entirely"],
+      correct: "B) Coordinating specialized agents/tools across complex multi-step workflows"
     },
     {
-      text: "What is the purpose of AI observability and monitoring systems?",
-      options: ["A) To increase system complexity", "B) To enable real-time governance enforcement and continuous improvement", "C) To replace human monitoring entirely", "D) To reduce system performance"],
-      correct: "B) To enable real-time governance enforcement and continuous improvement"
+      text: "What is the purpose of AI observability and monitoring?",
+      options: ["A) To make systems slower on purpose", "B) To detect drift, failures, and policy issues so teams can improve and govern in production", "C) To replace every human reviewer permanently", "D) To hide incidents from leadership"],
+      correct: "B) To detect drift, failures, and policy issues so teams can improve and govern in production"
     },
     {
-      text: "What is the key characteristic of agentic AI systems?",
-      options: ["A) They require constant human supervision", "B) They operate autonomously to achieve business objectives with minimal human oversight", "C) They only work in controlled laboratory environments", "D) They are limited to simple, repetitive tasks only"],
-      correct: "B) They operate autonomously to achieve business objectives with minimal human oversight"
+      text: "What characterizes agentic AI systems?",
+      options: ["A) They only complete one-word answers", "B) They can plan and take multi-step actions toward goals with limited human oversight", "C) They never use tools or external data", "D) They only run offline with no objectives"],
+      correct: "B) They can plan and take multi-step actions toward goals with limited human oversight"
     },
     {
-      text: "What is the primary goal of ROI measurement frameworks for AI initiatives?",
-      options: ["A) To justify increased AI spending", "B) To track productivity gains, cost reductions, and strategic value creation", "C) To reduce AI implementation costs", "D) To eliminate the need for business case development"],
-      correct: "B) To track productivity gains, cost reductions, and strategic value creation"
+      text: "What should an AI ROI framework primarily track?",
+      options: ["A) Hype mentions on social media only", "B) Productivity gains, cost impact, quality, and strategic value on real workflows", "C) GPU marketing slogans", "D) Number of models downloaded with no outcomes"],
+      correct: "B) Productivity gains, cost impact, quality, and strategic value on real workflows"
     },
     {
-      text: "What is the purpose of risk-based governance approaches?",
-      options: ["A) To apply the same governance requirements to all AI applications", "B) To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases", "C) To eliminate all AI risks completely", "D) To slow down all AI development processes"],
-      correct: "B) To prioritize oversight resources on high-impact applications while enabling faster deployment of lower-risk use cases"
+      text: "What is the purpose of risk-based AI governance?",
+      options: ["A) Apply identical heavy controls to a spellchecker and a medical triage bot", "B) Focus stronger oversight on higher-impact systems while enabling faster iteration on lower-risk uses", "C) Eliminate uncertainty from every model forever", "D) Slow every experiment equally regardless of risk"],
+      correct: "B) Focus stronger oversight on higher-impact systems while enabling faster iteration on lower-risk uses"
     },
     {
-      text: "What is the key success factor for advanced AI practitioners?",
-      options: ["A) Focusing only on technical implementation", "B) Treating AI as business transformation rather than technology deployment", "C) Implementing AI without considering organizational change", "D) Deploying AI systems without governance frameworks"],
-      correct: "B) Treating AI as business transformation rather than technology deployment"
+      text: "What is a key success factor for advanced AI practitioners?",
+      options: ["A) Treating AI as only a model demo", "B) Treating AI as business and operating-model transformation, not just a tech install", "C) Ignoring change management and training", "D) Shipping without governance or evaluation"],
+      correct: "B) Treating AI as business and operating-model transformation, not just a tech install"
     }
   ];
 

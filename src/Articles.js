@@ -24002,7 +24002,7 @@ function IntermediateGuide({ onClose, onQuizClick }) {
             Chain-of-Thought Prompting
           </h3>
           <p style={{ marginBottom: '20px' }}>
-            Unlocks complex reasoning capabilities by explicitly requesting step-by-step thinking processes that mirror human problem-solving approaches. Research from leading AI labs demonstrates that CoT prompting can improve accuracy from basic 30% baselines to sophisticated 85-90% performance levels on complex analytical tasks.
+            Unlocks complex reasoning capabilities by explicitly requesting step-by-step thinking processes that mirror human problem-solving approaches. Research from leading AI labs shows Chain-of-Thought prompting can substantially improve performance on multi-step reasoning and math-style tasks compared with asking for a final answer alone, though results still vary by model and problem type.
           </p>
 
           <h3 style={{

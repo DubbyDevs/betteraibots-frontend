@@ -1043,6 +1043,82 @@ function Apps() {
   const [expandedFeatures, setExpandedFeatures] = useState({});
   const [expandedApp, setExpandedApp] = useState(null);
   const [showProgressHelp, setShowProgressHelp] = useState(false);
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const appsFaqItems = [
+    {
+      question: "What is the BetterAiBots Apps directory?",
+      answer: "It's a curated catalog of AI tools organized into freemium apps, premium apps with free trials, and paid platforms. Each listing includes a short description, category, key features, and links so you can evaluate tools quickly without hunting across dozens of sites."
+    },
+    {
+      question: "What's the difference between Freemium, Free Trials, and Paid apps?",
+      answer: "Freemium tools offer ongoing free access with paid upgrades for more power. Free Trials let you test premium features for a limited time (or with limited credits) before subscribing. Paid apps are primarily commercial products—some still offer demos or limited free access, but they're listed here because their core value is in paid plans."
+    },
+    {
+      question: "Do free trials require a credit card?",
+      answer: "It depends on the provider. Many trials in our directory can be started without a card, but some vendors do require payment details up front. Always check the signup page before you commit, and cancel before the trial ends if you don't plan to continue."
+    },
+    {
+      question: "Is BetterAiBots free to use?",
+      answer: "Yes. Browsing the directory, reading Learn guides, using Progress Mode, and organizing tools in My AI is free. Individual AI apps may have their own free, trial, or paid pricing once you leave BetterAiBots and sign up with that product."
+    },
+    {
+      question: "Are the links affiliate links?",
+      answer: "Some outbound links are affiliate or partner links. If you sign up through them, we may earn a commission at no extra cost to you. That support helps us keep researching tools, writing guides, and maintaining the directory. We still aim to list tools based on usefulness, not just commissions."
+    },
+    {
+      question: "How do I track the AI apps I'm using and what they cost?",
+      answer: "Turn on Progress Mode on the Apps page, then mark tools you're trying or using. Visit My AI Dashboard to keep your stack organized, revisit saved tools, and track costs in one place so subscriptions don't get lost across email receipts."
+    },
+    {
+      question: "What is Progress Mode?",
+      answer: "Progress Mode helps you mark AI apps as you explore them so you can see what you've already checked out versus what you still want to try. Your progress is stored in your browser and syncs with My AI features for a personal workflow tracker."
+    },
+    {
+      question: "How do categories and filters work?",
+      answer: "Use the category controls to narrow the directory by use case—writing, SEO, sales, automation, design, and more. Combined with the Freemium / Free Trials / Paid tabs, filters help you shortlist tools for a specific job instead of scrolling the entire catalog."
+    },
+    {
+      question: "How do I decide which AI tool to try first?",
+      answer: "Start with the job you need done this week (content, outreach, SEO, support, video, automation). Prefer a free or free-trial option first, test it on one real task, then upgrade only if the results clearly save time or money. Our Learn guides can help you get productive faster once you pick a tool."
+    },
+    {
+      question: "Do you review every tool yourselves?",
+      answer: "We research listings, features, pricing signals, and practical use cases, and many tools also have dedicated Learn articles with deeper walkthroughs. Availability and pricing can change quickly, so always confirm details on the official product site before purchasing."
+    },
+    {
+      question: "Why is a tool in Paid instead of Free Trials?",
+      answer: "Placement reflects how the product is primarily positioned. If a tool's main offer is a paid plan (even if a limited free analysis or demo exists), it may appear under Paid. If the standout path for most visitors is a time-boxed or credit-based trial of premium features, it usually sits under Free Trials."
+    },
+    {
+      question: "Can I use these AI tools for business or commercial work?",
+      answer: "Many tools support commercial use, but license terms vary by product and plan. Check each vendor's terms of service, data policies, and plan limits—especially for client work, regulated industries, or team seats—before relying on a tool in production."
+    },
+    {
+      question: "Where can I learn how to actually use an app?",
+      answer: "Look for the Read More / Learn link on a listing. Those guides cover setup, key features, workflows, and common pitfalls so you can move past the homepage demo and put the tool to work. You can also browse the full Learn section for beginner through advanced paths."
+    },
+    {
+      question: "How often is the Apps directory updated?",
+      answer: "We add and refresh tools regularly as new AI apps launch, trials change, and partner programs update. If something looks outdated, pricing shifted, or a great tool is missing, use Suggest an AI App on the Contact page and we'll review it."
+    },
+    {
+      question: "Can I suggest an AI app to add?",
+      answer: "Yes. Use the Suggest an AI App button at the bottom of this page (or Contact) with the tool name, link, and why it's useful. We review suggestions for fit, clarity, and whether they help visitors discover practical AI workflows."
+    },
+    {
+      question: "Will my Progress Mode or My AI data sync across devices?",
+      answer: "Progress and My AI preferences are stored locally in your browser. That keeps things private and signup-free, but it also means data usually won't follow you automatically to a different phone, computer, or browser unless you rebuild it there."
+    },
+    {
+      question: "Are free AI tools really free forever?",
+      answer: "Freemium tools typically keep a free tier, but limits, models, and features can change. Free trials are temporary by design. Always read the current plan page for usage caps, watermarks, commercial restrictions, and what happens when a trial ends."
+    },
+    {
+      question: "What should I do after I find a few tools I like?",
+      answer: "Save them with Progress Mode, open the matching Learn guides, test one real workflow, then organize keepers in My AI. From there, check News for major product updates and our channel/podcast for demos so your stack stays current as your projects change."
+    }
+  ];
   const hoverTimeoutRef = useRef(null);
   
   // Toggle feature expansion on mobile
@@ -1343,6 +1419,20 @@ function Apps() {
               }
             ]
           }
+        })}
+        </script>
+        <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": appsFaqItems.map((item) => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.answer
+            }
+          }))
         })}
         </script>
       </Helmet>
@@ -1923,6 +2013,108 @@ function Apps() {
           }}>
             Suggest an AI App
           </Link>
+        </div>
+
+        {/* Apps FAQ */}
+        <div
+          id="apps-faq"
+          style={{
+            marginTop: isMobile ? '48px' : '70px',
+            marginBottom: isMobile ? '30px' : '50px',
+            padding: isMobile ? '28px 18px' : '40px 36px',
+            background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.04) 0%, rgba(11, 191, 219, 0.05) 100%)',
+            borderRadius: '20px',
+            border: '1px solid rgba(54, 255, 149, 0.18)'
+          }}
+        >
+          <h2
+            className="hero-headline"
+            style={{
+              fontSize: isMobile ? '1.7rem' : '2.2rem',
+              textAlign: 'center',
+              marginBottom: '12px',
+              letterSpacing: '-0.5px'
+            }}
+          >
+            AI Tools Directory FAQ
+          </h2>
+          <p
+            style={{
+              color: 'var(--text-secondary)',
+              fontSize: isMobile ? '0.98rem' : '1.05rem',
+              lineHeight: 1.65,
+              textAlign: 'center',
+              maxWidth: '720px',
+              margin: '0 auto 28px'
+            }}
+          >
+            Quick answers about free AI tools, free trials, paid apps, Progress Mode, affiliate links, and how to get the most from BetterAiBots.
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {appsFaqItems.map((item, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={item.question}
+                  style={{
+                    background: 'var(--panel-bg, rgba(10, 18, 28, 0.55))',
+                    border: '1px solid rgba(54, 255, 149, 0.16)',
+                    borderRadius: '14px',
+                    overflow: 'hidden'
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    style={{
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: '16px',
+                      background: 'transparent',
+                      border: 'none',
+                      color: 'var(--text-primary, #e8eef5)',
+                      textAlign: 'left',
+                      padding: isMobile ? '16px 16px' : '18px 20px',
+                      cursor: 'pointer',
+                      fontSize: isMobile ? '0.98rem' : '1.05rem',
+                      fontWeight: 600,
+                      lineHeight: 1.45
+                    }}
+                  >
+                    <span>{item.question}</span>
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        flexShrink: 0,
+                        color: 'var(--accent)',
+                        fontSize: '1.35rem',
+                        fontWeight: 700,
+                        lineHeight: 1
+                      }}
+                    >
+                      {isOpen ? '−' : '+'}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div
+                      style={{
+                        padding: isMobile ? '0 16px 16px' : '0 20px 18px',
+                        color: 'var(--text-secondary)',
+                        fontSize: isMobile ? '0.94rem' : '1rem',
+                        lineHeight: 1.7
+                      }}
+                    >
+                      {item.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     {expandedApp && (
@@ -3546,6 +3738,382 @@ function Home({ botList, onOpenModal, searchValue, setSearchValue, showCategoryB
               }}
             >
               🚀 Explore Free Trials
+            </Link>
+          </div>
+        </div>
+
+        {/* SEO Value Section */}
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: isMobile ? "50px auto 0" : "90px auto 0",
+            padding: isMobile ? "0 20px" : "0 40px",
+          }}
+        >
+          <h2
+            className="hero-headline"
+            style={{
+              fontSize: isMobile ? "1.85rem" : "2.6rem",
+              marginBottom: "18px",
+              textAlign: "center",
+              letterSpacing: "-0.5px",
+            }}
+          >
+            Best AI Tools Directory for Free Trials, Premium Apps & Real Workflows
+          </h2>
+          <p
+            className="theme-body-text"
+            style={{
+              fontSize: isMobile ? "1.05rem" : "1.15rem",
+              lineHeight: 1.75,
+              textAlign: "center",
+              maxWidth: "820px",
+              margin: "0 auto 28px",
+              fontWeight: 500,
+            }}
+          >
+            Searching for the best AI tools in 2026 is overwhelming. New AI apps launch every week,
+            pricing pages bury the useful details, and most “top AI tools” lists are affiliate dumps
+            with no context. BetterAiBots is built to fix that: a practical AI tools directory where
+            free AI tools, free trials, and premium platforms are explained clearly so you can decide
+            what is actually worth testing.
+          </p>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+              gap: isMobile ? "18px" : "24px",
+              marginBottom: isMobile ? "24px" : "32px",
+            }}
+          >
+            <div className="theme-panel-card">
+              <h3
+                style={{
+                  color: "var(--accent)",
+                  fontSize: isMobile ? "1.15rem" : "1.25rem",
+                  fontWeight: 600,
+                  marginBottom: "12px",
+                }}
+              >
+                How to choose AI tools without wasting money
+              </h3>
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: isMobile ? "0.95rem" : "1rem",
+                  lineHeight: 1.7,
+                  margin: 0,
+                }}
+              >
+                Start with the job you need done: writing, SEO, sales outreach, video editing,
+                customer support, automation, or research. Then compare free AI tools versus paid
+                platforms with free trials. Ask three questions before you subscribe: Does it solve a
+                real bottleneck this week? Can you test it without a long contract? Will it fit the
+                stack you already use? Our directory highlights free trials, pricing signals, and
+                feature lists so you can shortlist faster and skip tools that only look impressive in
+                demos.
+              </p>
+            </div>
+
+            <div className="theme-panel-card">
+              <h3
+                style={{
+                  color: "var(--accent)",
+                  fontSize: isMobile ? "1.15rem" : "1.25rem",
+                  fontWeight: 600,
+                  marginBottom: "12px",
+                }}
+              >
+                Free AI tools, trials, and premium software in one place
+              </h3>
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: isMobile ? "0.95rem" : "1rem",
+                  lineHeight: 1.7,
+                  margin: 0,
+                }}
+              >
+                Whether you need a free ChatGPT alternative, an AI SEO platform, a no-code automation
+                builder, or a premium content suite, BetterAiBots groups AI applications by category
+                so discovery stays useful. Browse free AI bots you can open today, premium AI apps
+                with free trials, and paid solutions for teams that need deeper workflows. Every
+                listing is paired with practical context, not just a logo wall, so beginners and
+                operators can both find tools that match their stage.
+              </p>
+            </div>
+          </div>
+
+          <div className="theme-panel-card" style={{ marginBottom: isMobile ? "24px" : "28px" }}>
+            <h3
+              style={{
+                color: "var(--accent)",
+                fontSize: isMobile ? "1.15rem" : "1.25rem",
+                fontWeight: 600,
+                marginBottom: "12px",
+              }}
+            >
+              What makes an AI tools list actually useful
+            </h3>
+            <p
+              style={{
+                color: "var(--text-secondary)",
+                fontSize: isMobile ? "0.95rem" : "1rem",
+                lineHeight: 1.7,
+                margin: "0 0 14px",
+              }}
+            >
+              A good AI software directory should help you move from curiosity to action. That means
+              clear categories, honest notes on free vs paid access, and learning resources that show
+              how each tool works in a real workflow. Use BetterAiBots to discover AI writing tools,
+              marketing automation, chatbots, image and video generators, SEO assistants, sales
+              platforms, and productivity apps, then jump into guides that explain setup, common
+              mistakes, and when a cheaper tool is enough. If you are comparing AI tools for business,
+              creators, freelancers, or students, start with free trials, validate results on one
+              project, and only upgrade when the ROI is obvious.
+            </p>
+            <p
+              style={{
+                color: "var(--text-secondary)",
+                fontSize: isMobile ? "0.95rem" : "1rem",
+                lineHeight: 1.7,
+                margin: 0,
+              }}
+            >
+              Looking for a starting point? Explore our{" "}
+              <Link to="/apps" style={{ color: "var(--accent)", fontWeight: 700 }}>
+                AI apps directory
+              </Link>
+              , skim{" "}
+              <Link to="/apps?section=trial" style={{ color: "var(--accent)", fontWeight: 700 }}>
+                free trial AI tools
+              </Link>
+              , or open a{" "}
+              <Link to="/learn" style={{ color: "var(--accent)", fontWeight: 700 }}>
+                step-by-step Learn guide
+              </Link>{" "}
+              before you commit to a subscription.
+            </p>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <Link
+              to="/apps"
+              className="theme-cta-btn"
+              style={{
+                padding: isMobile ? "14px 28px" : "16px 36px",
+                fontSize: isMobile ? "0.95rem" : "1.05rem",
+              }}
+            >
+              Browse the AI Tools Directory
+            </Link>
+          </div>
+        </div>
+
+        {/* Deeper engagement section */}
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: isMobile ? "50px auto 40px" : "90px auto 60px",
+            padding: isMobile ? "0 20px" : "0 40px",
+          }}
+        >
+          <h2
+            className="hero-headline"
+            style={{
+              fontSize: isMobile ? "1.85rem" : "2.6rem",
+              marginBottom: "18px",
+              textAlign: "center",
+              letterSpacing: "-0.5px",
+            }}
+          >
+            Go Deeper: Build Your AI Stack, Skills, and Weekly Advantage
+          </h2>
+          <p
+            className="theme-body-text"
+            style={{
+              fontSize: isMobile ? "1.05rem" : "1.15rem",
+              lineHeight: 1.75,
+              textAlign: "center",
+              maxWidth: "820px",
+              margin: "0 auto 28px",
+              fontWeight: 500,
+            }}
+          >
+            Finding a tool is only step one. The real upside comes when you learn how to use it,
+            track what you are paying for, and keep discovering better options as your projects
+            change. Use the paths below to move from browsing into a personal AI workflow you can
+            return to every week.
+          </p>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+              gap: isMobile ? "18px" : "24px",
+            }}
+          >
+            <Link to="/learn" style={{ textDecoration: "none", display: "block", height: "100%" }}>
+              <div className="theme-panel-card" style={{ height: "100%" }}>
+                <h3
+                  style={{
+                    color: "var(--accent)",
+                    fontSize: isMobile ? "1.15rem" : "1.25rem",
+                    fontWeight: 600,
+                    marginBottom: "12px",
+                  }}
+                >
+                  Learn AI with practical guides
+                </h3>
+                <p
+                  style={{
+                    color: "var(--text-secondary)",
+                    fontSize: isMobile ? "0.95rem" : "1rem",
+                    lineHeight: 1.7,
+                    margin: "0 0 14px",
+                  }}
+                >
+                  Skip the vague overviews. Our Learn section walks through real AI apps with setup
+                  tips, feature breakdowns, and workflows you can copy. Start beginner-friendly, then
+                  level up into intermediate and advanced guides as your confidence grows.
+                </p>
+                <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.95rem" }}>
+                  Open Learn AI →
+                </span>
+              </div>
+            </Link>
+
+            <Link to="/my-ai" style={{ textDecoration: "none", display: "block", height: "100%" }}>
+              <div className="theme-panel-card" style={{ height: "100%" }}>
+                <h3
+                  style={{
+                    color: "var(--accent)",
+                    fontSize: isMobile ? "1.15rem" : "1.25rem",
+                    fontWeight: 600,
+                    marginBottom: "12px",
+                  }}
+                >
+                  Organize everything in My AI
+                </h3>
+                <p
+                  style={{
+                    color: "var(--text-secondary)",
+                    fontSize: isMobile ? "0.95rem" : "1rem",
+                    lineHeight: 1.7,
+                    margin: "0 0 14px",
+                  }}
+                >
+                  Save the tools you are testing, track costs, and keep your AI stack in one
+                  dashboard. My AI turns BetterAiBots from a one-time directory visit into a workspace
+                  you revisit as your projects, clients, and subscriptions evolve.
+                </p>
+                <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.95rem" }}>
+                  Go to My AI Dashboard →
+                </span>
+              </div>
+            </Link>
+
+            <Link to="/news" style={{ textDecoration: "none", display: "block", height: "100%" }}>
+              <div className="theme-panel-card" style={{ height: "100%" }}>
+                <h3
+                  style={{
+                    color: "var(--accent)",
+                    fontSize: isMobile ? "1.15rem" : "1.25rem",
+                    fontWeight: 600,
+                    marginBottom: "12px",
+                  }}
+                >
+                  Stay current with AI news
+                </h3>
+                <p
+                  style={{
+                    color: "var(--text-secondary)",
+                    fontSize: isMobile ? "0.95rem" : "1rem",
+                    lineHeight: 1.7,
+                    margin: "0 0 14px",
+                  }}
+                >
+                  AI product updates move fast. Check News for clear breakdowns of major launches,
+                  platform changes, and tools worth watching so you can adapt before your competitors
+                  do.
+                </p>
+                <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.95rem" }}>
+                  Read AI News →
+                </span>
+              </div>
+            </Link>
+
+            <Link to="/Podcast" style={{ textDecoration: "none", display: "block", height: "100%" }}>
+              <div className="theme-panel-card" style={{ height: "100%" }}>
+                <h3
+                  style={{
+                    color: "var(--accent)",
+                    fontSize: isMobile ? "1.15rem" : "1.25rem",
+                    fontWeight: 600,
+                    marginBottom: "12px",
+                  }}
+                >
+                  Watch & listen for real demos
+                </h3>
+                <p
+                  style={{
+                    color: "var(--text-secondary)",
+                    fontSize: isMobile ? "0.95rem" : "1rem",
+                    lineHeight: 1.7,
+                    margin: "0 0 14px",
+                  }}
+                >
+                  Prefer video and conversation? Hit the podcast and channel for tool breakdowns,
+                  honest testing notes, and practical takeaways you can apply the same day, without
+                  the hype cycle.
+                </p>
+                <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.95rem" }}>
+                  Visit Podcast & Channel →
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          <div
+            style={{
+              marginTop: isMobile ? "28px" : "36px",
+              textAlign: "center",
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: isMobile ? "12px" : "16px",
+            }}
+          >
+            <Link
+              to="/apps?section=trial"
+              className="theme-cta-btn theme-cta-btn--pill"
+              style={{
+                fontSize: isMobile ? "0.9rem" : "1rem",
+                padding: "10px 22px",
+              }}
+            >
+              Start with Free Trials
+            </Link>
+            <Link
+              to="/learn"
+              className="theme-cta-btn"
+              style={{
+                fontSize: isMobile ? "0.9rem" : "1rem",
+                padding: "10px 22px",
+              }}
+            >
+              Build Skills in Learn
+            </Link>
+            <Link
+              to="/my-ai"
+              className="theme-cta-btn"
+              style={{
+                fontSize: isMobile ? "0.9rem" : "1rem",
+                padding: "10px 22px",
+              }}
+            >
+              Open My AI Workspace
             </Link>
           </div>
         </div>

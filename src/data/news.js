@@ -4,15 +4,126 @@ import aihacks from "../assets/aihacks.png";
 
 export const newsArticles = [
   {
+    id: 37,
+    slug: "how-to-use-ai-for-free",
+    title: "How to Use AI for Free: Freemium Tools, Free Trials, and Zero-Cost Workflows",
+    excerpt: "You do not need a paid subscription to start with AI. Learn the difference between freemium and free trials, which tools are actually free, and how to build a useful AI stack at $0 using BetterAiBots.",
+    image: "/howtouseaiforfree.jpg",
+    date: "11-08-26",
+    author: "BetterAiBots",
+    category: "Guides & How-To",
+    featured: true,
+    readTime: "12 min read",
+    content: `
+      <h1>How to Use AI for Free: Freemium Tools, Free Trials, and Zero-Cost Workflows</h1>
+      <p>A lot of people assume AI is a paid-only club. They see $20/month plans, enterprise demos, and polished ads and think: <em>I guess I have to wait until I can afford this.</em></p>
+      <p>That belief is outdated. You can write, research, brainstorm, design, automate, and learn with AI today without spending a dollar. The trick is knowing the difference between <strong>freemium</strong> and <strong>free trials</strong>, picking tools that match the job, and upgrading only when a paid plan clearly pays for itself.</p>
+      <p>This guide walks through that system, names real tools you can start with, and shows where to find more free and trial options inside BetterAiBots.</p>
+
+      <h2>The myth: “AI costs money to use”</h2>
+      <p>Paid plans are real, and many of them are worth it once you use AI every day. But most major AI products also give you a useful free path:</p>
+      <ul>
+        <li><strong>Freemium forever:</strong> a free tier that stays available, usually with usage limits</li>
+        <li><strong>Free trials:</strong> temporary access to premium features so you can test before buying</li>
+        <li><strong>Free credits / demos:</strong> limited tokens, analyses, or seats that still let you complete real work</li>
+      </ul>
+      <p>If your goal is learning, drafting, organizing ideas, or validating a workflow, free access is often enough. Paying later becomes a choice based on results, not a gatekeeping fee at the door.</p>
+
+      <h2>Freemium vs free trial (and why it matters)</h2>
+      <p>These two words get mixed up constantly. Mixing them up is how people either overpay early or miss tools that would have helped them for free.</p>
+      <img src="/howtouseaiforfree-freemium.jpg" alt="Freemium vs free trial comparison for AI tools" style="width:100%; max-width:100%; height:auto; border-radius:12px; margin:24px 0; box-shadow:0 4px 20px rgba(54,255,149,0.2); display:block;" />
+
+      <h3>Freemium = free to keep using</h3>
+      <p>A freemium AI tool gives you ongoing free access. Limits are normal: fewer messages per day, slower models, watermarks, or missing team features. What you keep is the ability to come back tomorrow without a card on file.</p>
+      <p><strong>Best for:</strong> beginners, students, casual creators, and anyone building a habit before committing money.</p>
+      <p><strong>Examples people use every day:</strong></p>
+      <ul>
+        <li><strong>ChatGPT (OpenAI)</strong> – free chat access for writing, explaining, brainstorming, and learning</li>
+        <li><strong>Claude (Anthropic)</strong> – free tier for writing help, analysis, and careful reasoning</li>
+        <li><strong>Google Gemini</strong> – free multimodal help with research-style prompts and Google ecosystem ties</li>
+      </ul>
+      <p>These three alone can cover drafts, study plans, email rewrites, outline generation, and basic research support.</p>
+
+      <h3>Free trial = premium access for a limited time</h3>
+      <p>A free trial unlocks paid features temporarily (or with limited credits). The goal is evaluation: can this tool save enough time or money on a real project to justify a subscription?</p>
+      <p><strong>Best for:</strong> testing advanced features, comparing two premium tools, and proving ROI before you renew anything.</p>
+      <p><strong>Examples from the BetterAiBots directory:</strong></p>
+      <ul>
+        <li><strong>MuseIt</strong> – try AI art creation workflows without buying a full creative suite first</li>
+        <li><strong>Gamma</strong> – generate presentations and docs from prompts during a trial window</li>
+        <li><strong>Landingi</strong> – test AI-assisted landing pages when you need a conversion page fast</li>
+        <li><strong>Vista Social / SleekFlow / Lindy</strong> and many others – premium workflows with trial or starter access so you can validate fit</li>
+      </ul>
+      <p><strong>Pro tip:</strong> Put a calendar reminder two days before a trial ends. Decide with evidence: did it finish a real task better/faster than your free stack?</p>
+
+      <h2>A simple free AI starter stack</h2>
+      <p>You do not need twenty apps. Start with a small stack that covers writing, research, and one creative or productivity job.</p>
+      <img src="/howtouseaiforfree-stack.jpg" alt="Free AI tools stack with ChatGPT Claude Gemini MuseIt and Gamma" style="width:100%; max-width:100%; height:auto; border-radius:12px; margin:24px 0; box-shadow:0 4px 20px rgba(54,255,149,0.2); display:block;" />
+
+      <h3>1) Writing &amp; thinking (free)</h3>
+      <ul>
+        <li>Use ChatGPT or Claude to draft emails, outlines, study notes, and first-pass content</li>
+        <li>Ask Gemini when you want a second perspective or Google-connected workflows</li>
+        <li>Always rewrite the final version in your voice and verify facts that matter</li>
+      </ul>
+
+      <h3>2) Learning faster (free)</h3>
+      <ul>
+        <li>Paste confusing instructions and ask for a step-by-step explanation</li>
+        <li>Request quizzes on what you just learned</li>
+        <li>Use BetterAiBots <a href="/learn" style="color:#36ff95; text-decoration:underline; font-weight:700;">Learn</a> paths (Beginner → Intermediate → Advanced) plus optional quizzes to test your skills</li>
+      </ul>
+
+      <h3>3) Creative / productivity upgrades (free trial when needed)</h3>
+      <ul>
+        <li>Need slides this week? Trial Gamma on one real deck</li>
+        <li>Need art concepts? Trial MuseIt for a project, then keep only what you love</li>
+        <li>Need a landing page? Trial Landingi against a blank Google Doc workflow and compare results</li>
+      </ul>
+
+      <h2>How to get value from free AI without getting stuck</h2>
+      <ol>
+        <li><strong>Pick one job for seven days.</strong> Examples: rewrite client emails, plan meals, outline YouTube scripts, summarize articles.</li>
+        <li><strong>Write better prompts.</strong> Include context, audience, format, and constraints. Vague prompts create vague answers.</li>
+        <li><strong>Verify important outputs.</strong> Free or paid, AI can hallucinate. Double-check numbers, medical/legal claims, and citations.</li>
+        <li><strong>Protect privacy.</strong> Do not paste passwords, bank details, or confidential client files into public chat tools.</li>
+        <li><strong>Upgrade only with proof.</strong> If a trial clearly saves hours or makes money, then subscribe. If not, cancel and stay freemium.</li>
+      </ol>
+
+      <h2>Where to find free tools and free trials on BetterAiBots</h2>
+      <p>We built the Apps directory so you do not have to guess which AI products still have free paths.</p>
+      <ul>
+        <li><a href="/apps?section=free" style="color:#36ff95; text-decoration:underline; font-weight:700;">Freemium section</a> – tools you can keep using at $0</li>
+        <li><a href="/apps?section=trial" style="color:#36ff95; text-decoration:underline; font-weight:700;">Free Trials section</a> – premium apps you can test before paying</li>
+        <li><a href="/apps" style="color:#36ff95; text-decoration:underline; font-weight:700;">Full AI tools directory</a> – categories, Progress Mode, and links into Learn guides</li>
+      </ul>
+      <p>Turn on Progress Mode while you explore so you can track what you already tested. Then save keepers in <a href="/my-ai" style="color:#36ff95; text-decoration:underline; font-weight:700;">My AI</a> so your free stack stays organized as it grows.</p>
+
+      <h2>A practical 30-minute free AI workout</h2>
+      <p>If you want a concrete starting plan today:</p>
+      <ol>
+        <li>Open ChatGPT, Claude, or Gemini and ask it to help with one real task you already need done</li>
+        <li>Browse the <a href="/apps?section=free" style="color:#36ff95; text-decoration:underline; font-weight:700;">Freemium apps</a> and bookmark two backups</li>
+        <li>Open the <a href="/apps?section=trial" style="color:#36ff95; text-decoration:underline; font-weight:700;">Free Trials</a> list and shortlist one premium tool for a weekend project</li>
+        <li>Read one matching guide in <a href="/learn" style="color:#36ff95; text-decoration:underline; font-weight:700;">Learn</a> so you know how to use what you picked</li>
+      </ol>
+      <p>That is a complete beginner system: free daily drivers, selective trials, and skills that compound.</p>
+
+      <h2>Bottom line</h2>
+      <p>You do not have to pay to use AI. Start freemium, learn the basics, and use free trials as temporary laboratories for bigger workflows. When a tool earns its subscription, upgrade with confidence. Until then, keep shipping work with free access and the BetterAiBots directory as your map.</p>
+      <p><strong>Next step:</strong> Explore <a href="/apps?section=trial" style="color:#36ff95; text-decoration:underline; font-weight:700;">Free Trials</a> and <a href="/apps?section=free" style="color:#36ff95; text-decoration:underline; font-weight:700;">Freemium tools</a>, then build your first free AI habit this week.</p>
+    `
+  },
+  {
     id: 36,
     slug: "beginners-guide-visual-collaboration-miro-prezi",
     title: "A Beginner's Guide to Visual Collaboration: Try These Tools Together",
     excerpt: "Learn how to use visual collaboration tools even if you're brand new. This step-by-step guide shows how Miro and Prezi AI work together to cut meetings, organize ideas, and turn team input into clear presentations.",
     image: "/aimirostack.jpg",
-    date: "01-23-25",
+    date: "11-07-26",
     author: "BetterAiBots",
     category: "Productivity & Collaboration",
-    featured: true,
+    featured: false,
     readTime: "14 min read",
     content: `
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(54, 255, 149, 0.2);">

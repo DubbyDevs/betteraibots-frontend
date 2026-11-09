@@ -307,6 +307,58 @@ const LearnLevelSelector = () => {
   const [showAIStarterGuide, setShowAIStarterGuide] = useState(false);
   const [showIntermediateGuide, setShowIntermediateGuide] = useState(false);
   const [showAdvancedGuide, setShowAdvancedGuide] = useState(false);
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const learnFaqItems = [
+    {
+      question: "How does the BetterAiBots Learn system work?",
+      answer: "Learn is a self-paced AI education path with three levels: Beginner, Intermediate, and Advanced. Each level includes practical guides, tool walkthroughs, and a skills quiz so you can check what you understand before moving on. Start where you feel comfortable, study at your own pace, then take that level's quiz when you're ready."
+    },
+    {
+      question: "What are the three learning levels?",
+      answer: "Beginner covers AI basics, prompting fundamentals, free tools, and safe everyday use. Intermediate goes deeper into advanced prompting frameworks, workflows, automation, and practical business use cases. Advanced focuses on enterprise strategy, governance, ethics, deployment patterns, and earning Pro status after you pass the final quiz."
+    },
+    {
+      question: "Do I have to take the quizzes?",
+      answer: "No. Quizzes are optional skill checks. You can read guides and tool articles without testing. If you want to measure progress, unlock the next tier in the progression system, or earn Pro status at Advanced, take the quiz for that level when you feel ready."
+    },
+    {
+      question: "Where do I take each level's test?",
+      answer: "Open the Beginner, Intermediate, or Advanced path, study the guide content, then use the quiz CTA on that level page. You can also go directly to /beginner-quiz, /intermediate-quiz, or /advanced-quiz. Each quiz matches the skills taught at that level."
+    },
+    {
+      question: "What score do I need to pass?",
+      answer: "Beginner and Intermediate quizzes require at least 7 out of 10 correct answers to pass and advance. The Advanced quiz is 20 questions and needs at least 16 correct for Pro status. If you miss the mark, review the matching guide and retake the quiz anytime—there's no limit on retries."
+    },
+    {
+      question: "What happens when I pass a quiz?",
+      answer: "Passing Beginner unlocks Intermediate progression in your browser. Passing Intermediate unlocks Advanced. Passing Advanced can earn Pro status and recognition on the site. Progress is saved locally in your browser so you can continue later on the same device."
+    },
+    {
+      question: "What's the difference between AI Guides and level paths?",
+      answer: "AI for Dummies is a friendly overview for absolute newcomers. Beginner, Intermediate, and Advanced paths are structured learning tracks with deeper content plus a level quiz. App Spotlight and Learn articles teach specific AI tools you can apply while you move through the levels."
+    },
+    {
+      question: "Are the quizzes free?",
+      answer: "Yes. All Learn levels, guides, and quizzes are free. No account is required to explore content or test your skills. Some linked AI tools outside BetterAiBots may have their own free trials or paid plans."
+    },
+    {
+      question: "Will quiz progress sync across phones and computers?",
+      answer: "Progress and level unlocks are stored in your browser's local storage. That keeps Learn private and signup-free, but it usually won't follow you automatically to a different device or browser. Retake or continue on the same browser where you started for the smoothest experience."
+    },
+    {
+      question: "How should I study before a quiz?",
+      answer: "Read that level's guide first, try a few prompts or tools from the Apps directory, then take the quiz. Beginner focuses on fundamentals and safe usage. Intermediate emphasizes CLEAR prompting, Chain-of-Thought, few-shot examples, and workflows. Advanced tests governance, deployment judgment, ethics, and enterprise AI strategy."
+    },
+    {
+      question: "Are quiz questions based on real AI concepts?",
+      answer: "Yes. Questions are written to match durable AI concepts taught in each guide—prompting, tokens, hallucinations, multimodal AI, RAG-style workflows, governance, and practical decision-making—so the tests stay relevant as specific product limits and marketing stats change."
+    },
+    {
+      question: "Can I skip ahead to Intermediate or Advanced?",
+      answer: "You can open any level's guides and articles anytime. The progression system is designed so quizzes certify readiness before unlocking the next tier, but browsing content is always open. If you're already experienced, skim Beginner, take its quiz, then move up."
+    }
+  ];
 
   useEffect(() => {
     const checkMobile = () => {
@@ -391,6 +443,20 @@ const LearnLevelSelector = () => {
         <meta property="og:description" content="Select your AI learning level and start your journey to AI mastery with our structured learning paths." />
         <meta property="og:url" content="https://betteraibots.com/learn" />
         <link rel="canonical" href="https://betteraibots.com/learn" />
+        <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": learnFaqItems.map((item) => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.answer
+            }
+          }))
+        })}
+        </script>
       </Helmet>
 
       <div className="learn-page-shell" style={{
@@ -1346,6 +1412,163 @@ const LearnLevelSelector = () => {
                </div>
              </div>
            </div>
+
+          {/* Learn FAQ */}
+          <div
+            id="learn-faq"
+            style={{
+              marginTop: isVerySmall ? '40px' : (isMobile ? '50px' : '70px'),
+              marginBottom: isVerySmall ? '30px' : (isMobile ? '40px' : '50px'),
+              padding: isVerySmall ? '22px 14px' : (isMobile ? '28px 18px' : '40px 36px'),
+              background: 'linear-gradient(135deg, rgba(54, 255, 149, 0.04) 0%, rgba(11, 191, 219, 0.05) 100%)',
+              borderRadius: '20px',
+              border: '1px solid rgba(54, 255, 149, 0.18)',
+              width: '100%',
+              boxSizing: 'border-box'
+            }}
+          >
+            <h2
+              className="learn-section-title"
+              style={{
+                fontSize: isVerySmall ? '1.4rem' : (isMobile ? '1.7rem' : '2.2rem'),
+                textAlign: 'center',
+                marginBottom: '12px',
+                fontWeight: 700
+              }}
+            >
+              Learn AI FAQ
+            </h2>
+            <p
+              style={{
+                color: '#9ca3af',
+                fontSize: isVerySmall ? '0.92rem' : (isMobile ? '0.98rem' : '1.05rem'),
+                lineHeight: 1.65,
+                textAlign: 'center',
+                maxWidth: '760px',
+                margin: '0 auto 28px'
+              }}
+            >
+              How BetterAiBots Learn works: three levels, optional skills quizzes, progression unlocks, and what to study before you test yourself.
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '900px', margin: '0 auto' }}>
+              {learnFaqItems.map((item, index) => {
+                const isOpen = openFaq === index;
+                return (
+                  <div
+                    key={item.question}
+                    style={{
+                      background: 'rgba(10, 18, 28, 0.55)',
+                      border: '1px solid rgba(54, 255, 149, 0.16)',
+                      borderRadius: '14px',
+                      overflow: 'hidden'
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                      style={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '16px',
+                        background: 'transparent',
+                        border: 'none',
+                        color: '#e8eef5',
+                        textAlign: 'left',
+                        padding: isMobile ? '16px' : '18px 20px',
+                        cursor: 'pointer',
+                        fontSize: isMobile ? '0.98rem' : '1.05rem',
+                        fontWeight: 600,
+                        lineHeight: 1.45
+                      }}
+                    >
+                      <span>{item.question}</span>
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          flexShrink: 0,
+                          color: '#36ff95',
+                          fontSize: '1.35rem',
+                          fontWeight: 700,
+                          lineHeight: 1
+                        }}
+                      >
+                        {isOpen ? '−' : '+'}
+                      </span>
+                    </button>
+                    {isOpen && (
+                      <div
+                        style={{
+                          padding: isMobile ? '0 16px 16px' : '0 20px 18px',
+                          color: '#9ca3af',
+                          fontSize: isMobile ? '0.94rem' : '1rem',
+                          lineHeight: 1.7
+                        }}
+                      >
+                        {item.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div
+              style={{
+                marginTop: isMobile ? '24px' : '30px',
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: '12px'
+              }}
+            >
+              <Link
+                to="/beginner-quiz"
+                style={{
+                  background: 'linear-gradient(135deg, #36ff95, #0bbfdb)',
+                  color: '#101c26',
+                  textDecoration: 'none',
+                  padding: '10px 18px',
+                  borderRadius: '999px',
+                  fontWeight: 700,
+                  fontSize: isMobile ? '0.9rem' : '0.95rem'
+                }}
+              >
+                Take Beginner Quiz
+              </Link>
+              <Link
+                to="/intermediate-quiz"
+                style={{
+                  background: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+                  color: '#fff',
+                  textDecoration: 'none',
+                  padding: '10px 18px',
+                  borderRadius: '999px',
+                  fontWeight: 700,
+                  fontSize: isMobile ? '0.9rem' : '0.95rem'
+                }}
+              >
+                Take Intermediate Quiz
+              </Link>
+              <Link
+                to="/advanced-quiz"
+                style={{
+                  background: 'linear-gradient(135deg, #ffd700, #ffb347)',
+                  color: '#101c26',
+                  textDecoration: 'none',
+                  padding: '10px 18px',
+                  borderRadius: '999px',
+                  fontWeight: 700,
+                  fontSize: isMobile ? '0.9rem' : '0.95rem'
+                }}
+              >
+                Take Advanced Quiz
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
