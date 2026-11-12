@@ -9,7 +9,6 @@ import consensus1 from '../assets/consensus1.jpg';
 import browseai1 from '../assets/browseai1.jpg';
 import musebrand from '../assets/musebrand.jpg';
 import landingi1 from '../assets/landingi1.jpg';
-import logome from '../assets/logome1.png';
 import vistasocial from '../assets/vistasocial.jpg';
 import datahawkai from '../assets/datahawkai.jpg';
 import elevenlabsai from '../assets/elevenlabsai.jpg';
@@ -170,16 +169,6 @@ export const trialAppsData = [
     trialInfo: "Start for free",
     image: preziai,
     readMoreLink: "/learn/prezi-complete-guide"
-  },
-  {
-    name: "Logome",
-    description: "AI-powered logo generator and brand kit creator",
-    category: "Creative & Design",
-    features: ["AI logo generator", "Brand kit creation", "Website templates", "Social media templates", "Business cards", "Email signatures", "100+ fonts", "Free logo design"],
-    link: "https://logomeai.partnerlinks.io/BAIB",
-    trialInfo: "Start for free",
-    image: logome,
-    readMoreLink: "/learn/logome-complete-guide"
   },
   {
     name: "Weave",
@@ -488,7 +477,7 @@ export const trialAppsData = [
     features: ["AI SDR campaigns from a prompt", "LinkedIn, email & phone outreach", "Prospect enrichment waterfall", "AI reply handling & booking", "Inbox sentiment & AI comments", "Free plan available"],
     link: "https://buzz.ai/?red=betterf2ec0b",
     trialInfo: "Free plan available",
-    image: "/buzz-ai.jpg",
+    image: "/buzzai.jpg",
     readMoreLink: "/learn/buzz"
   },
   {

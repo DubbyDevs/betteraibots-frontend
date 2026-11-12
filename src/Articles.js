@@ -5625,9 +5625,9 @@ This article contains affiliate links to [Parallel](https://parallellabs.app/?re
     id: "buzz",
     title: "Buzz Complete Guide: AI SDR for LinkedIn, Email, and Phone Outreach That Books Meetings",
     date: "June 2026",
-    cover: "/buzz-ai.jpg",
+    cover: "/buzzai.jpg",
     preview: "",
-    images: ["/buzz-ai.jpg"],
+    images: ["/buzzai.jpg"],
     content: `
 ## What is [Buzz](https://buzz.ai/?red=betterf2ec0b)?
 

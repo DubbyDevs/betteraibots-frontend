@@ -101,7 +101,7 @@ const ogImageMap = {
   "practice-ignition": "https://betteraibots.com/ignitionlogo.jpg",
   "apollo-io": "https://betteraibots.com/apollo.png",
   "parallel": "https://betteraibots.com/parallelai.jpg",
-  "buzz": "https://betteraibots.com/buzz-ai.jpg",
+  "buzz": "https://betteraibots.com/buzzai.jpg",
   "algomo": "https://betteraibots.com/algomoai.jpg",
   "edesk": "https://betteraibots.com/edesklogo.jpg",
   "alttext": "https://betteraibots.com/alttext_ai_logo.jpg",
